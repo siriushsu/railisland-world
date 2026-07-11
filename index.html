@@ -234,6 +234,21 @@
   body.fs .stage-tools button.active { border-color: #a92c1d; box-shadow: 0 2px 0 #a92c1d; }
   body.fs .stage-tools button:hover .tl { padding-right: 0; padding-left: 13px; }
 
+  /* 資料載入中浮條(地圖頂部置中):defs(各系統時刻表)fetch 期間顯示,全部到齊即隱藏;
+     單筆 fetch 失敗時顯示錯誤字樣 3 秒後淡出,不擋其他系統繼續載入(見 boot) */
+  .load-pill {
+    position: absolute; top: 10px; left: 50%; transform: translateX(-50%); z-index: 650;
+    display: flex; align-items: center; gap: 7px;
+    background: #fffdf6; color: #1e2c40; border: 1.5px solid #c9b98f; border-radius: 999px;
+    box-shadow: 0 2px 0 #c9b98f; padding: 6px 14px;
+    font-size: 13px; font-weight: 700; letter-spacing: .2px;
+    font-variant-numeric: tabular-nums;
+    transition: opacity .6s ease;
+  }
+  .load-pill[hidden] { display: none; }
+  .load-pill.fade { opacity: 0; }
+  .load-pill.err { color: #b8321f; border-color: #e0a37e; background: #fbe9df; }
+
   /* 錄影中浮條(地圖頂部置中):唯一的錄影狀態指示,點它停止並下載。
      浮條與其他 DOM UI 都不會入鏡——錄影只合成地圖畫布(圖磚/向量層/列車 overlay) */
   .rec-pill {
@@ -270,7 +285,7 @@
   /* 中窄寬度(平板/窄視窗):置中浮條會壓到左上時鐘徽章列(badge 寬到 ~420px),下移讓開。
      寬桌面(>1024)徽章與浮條相距夠遠,維持與徽章同列的 top:10;吐司則一律 56(見上) */
   @media (max-width: 1024px) {
-    .rec-pill { top: 56px; }
+    .rec-pill, .load-pill { top: 56px; }
   }
 
   /* 停靠站名牌(時鐘儀表正下方、靠左直欄,跟隨列車停站時淡入)——仿台鐵月台站名牌:
@@ -1123,6 +1138,7 @@
     </div>
     <div class="rec-pill" id="recPill" hidden title="停止錄影並下載影片"><span class="rd"></span>REC <span id="recTime">0:00</span><span class="rstop">停止</span></div>
     <div class="rec-toast" id="recToast" hidden><span id="recToastTxt"></span><button id="recRedl">再下載一次</button><button class="x" id="recToastX" title="關閉">×</button></div>
+    <div class="load-pill" id="loadPill" hidden><span id="loadPillTxt"></span></div>
     <div class="badge">
       <span class="clock" id="clock">08:00</span>
       <span class="live" id="liveBadge" hidden>LIVE</span>
@@ -2545,7 +2561,9 @@ function toggleFreqMember(id) {
 }
 
 // sched 群組(國家鐵路):台鐵+高鐵同框(皆真實時刻表);群內可多選,預設全開
-function loadSchedGroup(g, sel, keepView, keepTime) {
+// fitAll:僅 boot 首屏傳 true——世界群組框景改框全部六城範圍,不自動飛去聚焦城市(挪威);
+// 之後使用者點城市勾選框走 toggleSchedMember→setFocusSys(fly:true)才飛入,此參數不影響那條路徑
+function loadSchedGroup(g, sel, keepView, keepTime, fitAll) {
   if (state.autoTour) setAutoTour(false);
   clearFollow();
   const ts = document.getElementById('trainSearch'); if (ts) ts.value = '';
@@ -2558,8 +2576,9 @@ function loadSchedGroup(g, sel, keepView, keepTime) {
   if (!list.length) { renderSystemsBar(); return; } // toggle 有防呆,理論上不會空
   state.sysId = list[0].id; // 收藏/成就沿用主系統 key(台鐵),不因同框改動
   applySchedSystems(list, { keepTime });
-  // 世界群組:框景只框聚焦城市(不框橫跨大西洋的兩城合集);台灣照舊框全部
-  if (!keepView) fitData(g.id === 'world' ? sysLatLngs(focusedSys()) : state.schedStations.map(s => [s.lat, s.lon]));
+  // 世界群組:預設框景只框聚焦城市(不框橫跨大西洋的兩城合集);fitAll=true(僅 boot 首屏)改框全部六城範圍。
+  // 台灣照舊框全部
+  if (!keepView) fitData(g.id === 'world' ? (fitAll ? list.flatMap(sysLatLngs) : sysLatLngs(focusedSys())) : state.schedStations.map(s => [s.lat, s.lon]));
   reproject();
   const total = state.trains.length;
   document.getElementById('note').textContent = g.id === 'world'
@@ -4380,6 +4399,28 @@ function drawFlow() {
 }
 const FLOW_LBL_DEFAULT = '全日同時運行列車數（依時刻表）——點擊圖表跳到該時刻';
 
+// 載入中浮條(見 boot 的 defs fetch 迴圈):isErr=true 顯示錯誤字樣並在 3 秒後自動淡出、
+// 淡出期間不被後續進度文案覆蓋(pillErrUntil 擋下),讓使用者看得到那句話
+let _pillErrUntil = 0, _pillErrTimer = null;
+function loadPillShow(text, isErr) {
+  const el = document.getElementById('loadPill'); if (!el) return;
+  if (!isErr && Date.now() < _pillErrUntil) return;
+  el.classList.toggle('err', !!isErr);
+  el.classList.remove('fade');
+  el.hidden = false;
+  const t = document.getElementById('loadPillTxt'); if (t) t.textContent = text;
+  if (isErr) {
+    _pillErrUntil = Date.now() + 3000;
+    if (_pillErrTimer) clearTimeout(_pillErrTimer);
+    _pillErrTimer = setTimeout(loadPillHide, 3000);
+  }
+}
+function loadPillHide() {
+  const el = document.getElementById('loadPill'); if (!el) return;
+  el.classList.add('fade');
+  setTimeout(() => { if (el.classList.contains('fade')) el.hidden = true; }, 650);
+}
+
 async function fetchJSON(url) {
   try { const r = await fetch(url, { cache: 'no-store' }); return r.ok ? await r.json() : null; }
   catch (e) { return null; }
@@ -4778,10 +4819,14 @@ async function boot() {
     { id: 'singapore', label: '新加坡地鐵', url: './data/singapore_schedule_dense.json', mode: 'sched', track: './data/singapore.json', tz: 'Asia/Singapore' },
     { id: 'london', label: '倫敦地鐵', url: './data/london_schedule_dense.json', mode: 'sched', track: './data/london.json', tz: 'Europe/London' },
   ];
-  for (const d of defs) {
+  loadPillShow(`🌍 載入城市資料中 0/${defs.length}…`);
+  for (let i = 0; i < defs.length; i++) {
+    const d = defs[i];
     const data = await fetchJSON(d.url);
     if (data) state.systems.push({ ...d, data });
+    loadPillShow(data ? `🌍 載入城市資料中 ${i + 1}/${defs.length}…` : '部分資料載入失敗', !data);
   }
+  loadPillHide();
   // 各 sched 系統的軌道底圖幾何(台鐵 tra.json / 高鐵 thsr_track.json)掛在該系統上,loadSystem 依系統取用
   for (const s of state.systems) if (s.track) s._track = await fetchJSON(s.track);
   // 站等資料(特等/一等/…),缺檔就全走停靠班次數啟發式
@@ -4804,12 +4849,13 @@ async function boot() {
     const m = /^(\d{1,2}):(\d{2})$/.exec(qs.get('t') || '');
     if (m) deepT = (+m[1] % 24) * 3600 + (+m[2]) * 60;
   } catch (e) {}
-  // 海外實驗版首屏:世界群組(挪威打頭陣,聚焦挪威);缺挪威資料時退回台灣國家鐵路群組。
+  // 海外實驗版首屏:世界群組,聚焦挪威(時鐘走挪威當地時間)但視角不飛過去,先看全世界六城範圍——
+  // 資料量大讀取需時,一開機就飛窄視角容易讓人誤以為只有一座城市;缺挪威資料時退回台灣國家鐵路群組。
   // 預設勾選城市由效能實測決定:WORLD_DEFAULT(見下)。全開跑得動就全開,跑不動只開挪威。
   const worldGroup = GROUPS.find(g => g.id === 'world');
   const natGroup = GROUPS.find(g => g.id === 'nat');
   if (worldGroup && state.systems.some(s => s.id === 'norway_sched')) {
-    loadSchedGroup(worldGroup); // 預設勾選由 loadSchedGroup 依 WORLD_DEFAULT 決定
+    loadSchedGroup(worldGroup, null, false, false, true); // fitAll=true:首屏框全部六城,不自動飛聚焦城市;預設勾選由 WORLD_DEFAULT 決定
   } else if (natGroup) loadSchedGroup(natGroup); // 首屏:台鐵+高鐵同框(缺高鐵資料時自動退回單台鐵)
   else loadSystem(state.systems.find(s => s.id === 'tra_sched') || state.systems[0]);
   if (deepTrain && state.mode === 'sched') {
