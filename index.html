@@ -1271,6 +1271,7 @@
         <li><span class="d">瑞士</span><span>時刻資料來源 opentransportdata.swiss；線形 © OpenStreetMap contributors（ODbL）</span></li>
         <li><span class="d">新加坡</span><span>站點資料 LTA／data.gov.sg，依 <a href="https://data.gov.sg/open-data-licence" target="_blank" rel="noopener noreferrer">Singapore Open Data Licence v1.0</a> 使用；線形 © OpenStreetMap contributors（ODbL）；班距為模擬</span></li>
         <li><span class="d">倫敦</span><span>Powered by TfL Open Data；Contains OS data © Crown copyright and database rights；線形 © OpenStreetMap contributors（ODbL）；班距為模擬</span></li>
+        <li><span class="d">伊斯坦堡</span><span>İstanbul Büyükşehir Belediyesi (İBB) Açık Veri Portalı — <a href="https://data.ibb.gov.tr" target="_blank" rel="noopener noreferrer">data.ibb.gov.tr</a>（İBB Open Data License）</span></li>
       </ul>
       <p class="foot-note">本站為個人愛好者專案，與台灣鐵路公司及各捷運公司皆無關。捷運列車位置為班距推算示意、台鐵列車依每日時刻表模擬，實際到離站時刻請以各營運機構官方資訊為準。</p>
     </details>
@@ -1347,6 +1348,7 @@ const SYS_META = {
   swiss_sched: { plateL: 'Zermatt', plateR: 'St. Moritz', sub: 'SWISS SCENIC · 海外實驗版', lead: '瑞士景觀鐵道依官方時刻表運行——冰河列車走 RhB／MGB 走廊、伯連納線串起 Chur–St. Moritz–Tirano，時鐘自動換算蘇黎世當地時間 — 點列車跟隨、點車站看班次。此為海外擴張 POC。' },
   singapore: { plateL: 'Changi Airport', plateR: 'Tuas Link', sub: 'SINGAPORE MRT · 海外實驗版', lead: '新加坡地鐵（MRT）南北／東西／東北／環線／濱海市區／湯申-東海岸線依公告班距模擬運行（班距合成、非官方逐車時刻），時鐘自動換算新加坡當地時間 — 點列車跟隨、點車站看班次。此為海外擴張 POC。' },
   london: { plateL: 'Cockfosters', plateR: 'Heathrow', sub: 'LONDON UNDERGROUND · 海外實驗版', lead: '倫敦地鐵（Tube）各線依公告班距模擬運行（班距合成、非官方逐車時刻），時鐘自動換算倫敦當地時間 — 點列車跟隨、點車站看班次。此為海外擴張 POC。' },
+  istanbul_sched: { plateL: 'Gebze', plateR: 'Halkalı', sub: 'İSTANBUL RAIL · 海外實驗版', lead: '伊斯坦堡軌道（Marmaray 跨博斯普魯斯海峽＋M1–M9 地鐵＋T1/T3/T4 電車＋F 纜索／TF 纜車）依官方班距資料展開運行（非逐車時刻，代表性平日班表），時鐘自動換算伊斯坦堡當地時間 — 點列車跟隨、點車站看班次。此為海外擴張 POC，資料時區與路網為實驗性質；M11 機場線因快照時間早於通車，本站暫缺。' },
 };
 
 // 播放/速度/時間的統一入口(控制列、快捷鍵、全畫面控制共用)
@@ -2410,7 +2412,7 @@ const GROUPS = [
   { id: 'all', label: '全台同框', mode: 'all', members: [],
     plate: { plateL: '基隆', plateR: '高雄', sub: 'ALL LINES · TAIWAN',
       lead: '全台鐵道一次看 — 台鐵與高鐵依真實時刻表運行（台鐵套即時誤點），捷運與輕軌為示意動畫（非即時），只為讓整張地圖熱鬧好看。' } },
-  { id: 'world', label: '世界', mode: 'sched', members: ['norway_sched', 'nyc_sched', 'tokyo_sched', 'swiss_sched', 'singapore', 'london'],
+  { id: 'world', label: '世界', mode: 'sched', members: ['norway_sched', 'nyc_sched', 'tokyo_sched', 'swiss_sched', 'singapore', 'london', 'istanbul_sched'],
     plate: { plateL: 'Oslo', plateR: 'Tokyo', sub: 'WORLD RAIL · 海外實驗版',
       lead: '海外城市同框 — 勾選上方城市即飛往當地，各城列車依當地時間運行。此為海外擴張 POC，資料時區與路網為實驗性質。' } },
 ];
@@ -2624,7 +2626,7 @@ function loadSchedGroup(g, sel, keepView, keepTime, fitAll) {
   const total = state.trains.length;
   document.getElementById('note').textContent = g.id === 'world'
     ? ('海外城市同框（實驗版）— 各城列車依當地時間運行，勾選上方城市即飛往當地並切換時鐘，共 ' + total + ' 車次。' +
-       '挪威／紐約／東京／瑞士為時刻表或快照，新加坡／倫敦為班距模擬，皆非即時；本站與各營運機構無隸屬或授權關係。')
+       '挪威／紐約／東京／瑞士為時刻表或快照，伊斯坦堡為官方班距資料展開，新加坡／倫敦為班距模擬，皆非即時；本站與各營運機構無隸屬或授權關係。')
     : list.length > 1
     ? ('台鐵＋高鐵同框，皆依當日真實時刻表運行（台鐵回到現在時刻自動套用即時誤點修正），共 ' + total + ' 車次。' +
        '兩鐵路線與車站同時顯示，點列車跟隨、點車站看班次。')
@@ -3313,6 +3315,7 @@ const SYS_POOL = {
   swiss_sched: 'swiss',
   singapore: 'sg',
   london: 'london',
+  istanbul_sched: 'istanbul',
 };
 function poolKey(sysId) { return SYS_POOL[sysId] || 'tw'; } // 未登記/舊紀錄一律歸 'tw'
 // 目前聚焦中的池。⚠️ 接縫(SEAM):世界群組改版後,聚焦城市由世界頁籤的勾選/聚焦 UI 決定;
@@ -4991,6 +4994,7 @@ async function boot() {
     { id: 'swiss_sched', label: '瑞士景觀', url: './data/swiss_schedule_dense.json', mode: 'sched', track: './data/swiss.json', tz: 'Europe/Zurich' },
     { id: 'singapore', label: '新加坡地鐵', url: './data/singapore_schedule_dense.json', mode: 'sched', track: './data/singapore.json', tz: 'Asia/Singapore' },
     { id: 'london', label: '倫敦地鐵', url: './data/london_schedule_dense.json', mode: 'sched', track: './data/london.json', tz: 'Europe/London' },
+    { id: 'istanbul_sched', label: '伊斯坦堡', url: './data/istanbul_schedule_dense.json', mode: 'sched', track: './data/istanbul.json', tz: 'Europe/Istanbul' },
   ];
   loadPillShow(`🌍 載入城市資料中 0/${defs.length}…`);
   for (let i = 0; i < defs.length; i++) {
