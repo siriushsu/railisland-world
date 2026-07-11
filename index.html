@@ -1250,6 +1250,10 @@
         <li><span class="d">底圖</span><span>CARTO basemaps（© OpenStreetMap）與 Esri World Imagery（衛星影像）</span></li>
         <li><span class="d">挪威</span><span>Contains data under the <a href="https://data.norge.no/nlod/en/2.0" target="_blank" rel="noopener noreferrer">Norwegian licence for Open Government data (NLOD)</a> distributed by Entur</span></li>
         <li><span class="d">紐約</span><span>路線與時刻資料取自 <a href="https://www.mta.info/developers" target="_blank" rel="noopener noreferrer">MTA</a> 伺服器並由本站自行儲存分發；本站未獲 MTA 授權、與 MTA 無隸屬或背書關係；所示時刻為快照資料、非即時班次。This site is not affiliated with, endorsed by, or authorized by the MTA.</span></li>
+        <li><span class="d">東京</span><span>東京都交通局・公共交通オープンデータ協議会、東京都交通局 鉄道関連情報，依 <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" target="_blank" rel="noopener noreferrer">CC BY 4.0</a> 使用（經 ODPT 公共交通オープンデータセンター發布）</span></li>
+        <li><span class="d">瑞士</span><span>時刻資料來源 opentransportdata.swiss；線形 © OpenStreetMap contributors（ODbL）</span></li>
+        <li><span class="d">新加坡</span><span>站點資料 LTA／data.gov.sg，依 <a href="https://data.gov.sg/open-data-licence" target="_blank" rel="noopener noreferrer">Singapore Open Data Licence v1.0</a> 使用；線形 © OpenStreetMap contributors（ODbL）；班距為模擬</span></li>
+        <li><span class="d">倫敦</span><span>Powered by TfL Open Data；Contains OS data © Crown copyright and database rights；線形 © OpenStreetMap contributors（ODbL）；班距為模擬</span></li>
       </ul>
       <p class="foot-note">本站為個人愛好者專案，與台灣鐵路公司及各捷運公司皆無關。捷運列車位置為班距推算示意、台鐵列車依每日時刻表模擬，實際到離站時刻請以各營運機構官方資訊為準。</p>
     </details>
@@ -1320,6 +1324,10 @@ const SYS_META = {
   thsr_sched: { plateL: '南港', plateR: '左營', sub: '台灣鐵道即時軌跡', lead: '高鐵列車依當日真實時刻表沿西部走廊南北奔馳（南港－左營）— 點列車跟隨、點車站看班次。' },
   norway_sched: { plateL: 'Bodø', plateR: 'Stavanger', sub: 'NORWAY RAIL · 海外實驗版', lead: '挪威鐵道依當日真實時刻表運行，時鐘自動換算奧斯陸當地時間 — 點列車跟隨、點車站看班次。此為海外擴張 POC，資料時區與路網為實驗性質。' },
   nyc_sched: { plateL: 'Inwood', plateR: 'Coney Island', sub: 'NYC SUBWAY · 海外實驗版', lead: '紐約地鐵依 MTA 快照時刻表運行，時鐘自動換算紐約當地時間 — 點列車跟隨、點車站看班次。時刻為快照非即時，本站與 MTA 無隸屬或授權關係。此為海外擴張 POC。' },
+  tokyo_sched: { plateL: '光が丘', plateR: '西馬込', sub: 'TOKYO TOEI · 海外實驗版', lead: '東京都營交通（淺草線／三田線／新宿線／大江戶線＋日暮里舍人線＋都電荒川線）依官方 GTFS 時刻表運行，時鐘自動換算東京當地時間 — 點列車跟隨、點車站看班次。此為海外擴張 POC。' },
+  swiss_sched: { plateL: 'Zermatt', plateR: 'St. Moritz', sub: 'SWISS SCENIC · 海外實驗版', lead: '瑞士景觀鐵道依官方時刻表運行——冰河列車走 RhB／MGB 走廊、伯連納線串起 Chur–St. Moritz–Tirano，時鐘自動換算蘇黎世當地時間 — 點列車跟隨、點車站看班次。此為海外擴張 POC。' },
+  singapore: { plateL: 'Changi Airport', plateR: 'Tuas Link', sub: 'SINGAPORE MRT · 海外實驗版', lead: '新加坡地鐵（MRT）南北／東西／東北／環線／濱海市區／湯申-東海岸線依公告班距模擬運行（班距合成、非官方逐車時刻），時鐘自動換算新加坡當地時間 — 點列車跟隨、點車站看班次。此為海外擴張 POC。' },
+  london: { plateL: 'Cockfosters', plateR: 'Heathrow', sub: 'LONDON UNDERGROUND · 海外實驗版', lead: '倫敦地鐵（Tube）各線依公告班距模擬運行（班距合成、非官方逐車時刻），時鐘自動換算倫敦當地時間 — 點列車跟隨、點車站看班次。此為海外擴張 POC。' },
 };
 
 // 播放/速度/時間的統一入口(控制列、快捷鍵、全畫面控制共用)
@@ -2334,8 +2342,8 @@ const GROUPS = [
   { id: 'all', label: '全台同框', mode: 'all', members: [],
     plate: { plateL: '基隆', plateR: '高雄', sub: 'ALL LINES · TAIWAN',
       lead: '全台鐵道一次看 — 台鐵與高鐵依真實時刻表運行（台鐵套即時誤點），捷運與輕軌為示意動畫（非即時），只為讓整張地圖熱鬧好看。' } },
-  { id: 'world', label: '世界', mode: 'sched', members: ['norway_sched', 'nyc_sched'],
-    plate: { plateL: 'Oslo', plateR: 'New York', sub: 'WORLD RAIL · 海外實驗版',
+  { id: 'world', label: '世界', mode: 'sched', members: ['norway_sched', 'nyc_sched', 'tokyo_sched', 'swiss_sched', 'singapore', 'london'],
+    plate: { plateL: 'Oslo', plateR: 'Tokyo', sub: 'WORLD RAIL · 海外實驗版',
       lead: '海外城市同框 — 勾選上方城市即飛往當地，各城列車依當地時間運行。此為海外擴張 POC，資料時區與路網為實驗性質。' } },
 ];
 const groupOf = id => GROUPS.find(g => g.members.includes(id)) || GROUPS[0];
@@ -2544,7 +2552,7 @@ function loadSchedGroup(g, sel, keepView, keepTime) {
   const total = state.trains.length;
   document.getElementById('note').textContent = g.id === 'world'
     ? ('海外城市同框（實驗版）— 各城列車依當地時間運行，勾選上方城市即飛往當地並切換時鐘，共 ' + total + ' 車次。' +
-       '紐約時刻取自 MTA 快照、挪威為當日時刻表，皆非即時；本站與 MTA 及各營運機構無隸屬或授權關係。')
+       '挪威／紐約／東京／瑞士為時刻表或快照，新加坡／倫敦為班距模擬，皆非即時；本站與各營運機構無隸屬或授權關係。')
     : list.length > 1
     ? ('台鐵＋高鐵同框，皆依當日真實時刻表運行（台鐵回到現在時刻自動套用即時誤點修正），共 ' + total + ' 車次。' +
        '兩鐵路線與車站同時顯示，點列車跟隨、點車站看班次。')
@@ -3228,6 +3236,10 @@ const SYS_POOL = {
   ntdlrt: 'tw', ntalrt: 'tw', krtc: 'tw', tmrt: 'tw',
   norway_sched: 'norway',
   nyc_sched: 'nyc',
+  tokyo_sched: 'tokyo',
+  swiss_sched: 'swiss',
+  singapore: 'sg',
+  london: 'london',
 };
 function poolKey(sysId) { return SYS_POOL[sysId] || 'tw'; } // 未登記/舊紀錄一律歸 'tw'
 // 目前聚焦中的池。⚠️ 接縫(SEAM):世界群組改版後,聚焦城市由世界頁籤的勾選/聚焦 UI 決定;
@@ -4749,6 +4761,10 @@ async function boot() {
     { id: 'tmrt', label: '台中捷運', url: './data/tmrt.json', speed: 32, mode: 'freq' },
     { id: 'norway_sched', label: '挪威鐵道', url: './data/norway_schedule_dense.json', mode: 'sched', track: './data/norway.json', tz: 'Europe/Oslo' },
     { id: 'nyc_sched', label: '紐約地鐵', url: './data/nyc_schedule_dense.json', mode: 'sched', track: './data/nyc.json', tz: 'America/New_York' },
+    { id: 'tokyo_sched', label: '東京都營', url: './data/tokyo_schedule_dense.json', mode: 'sched', track: './data/tokyo.json', tz: 'Asia/Tokyo' },
+    { id: 'swiss_sched', label: '瑞士景觀', url: './data/swiss_schedule_dense.json', mode: 'sched', track: './data/swiss.json', tz: 'Europe/Zurich' },
+    { id: 'singapore', label: '新加坡地鐵', url: './data/singapore_schedule_dense.json', mode: 'sched', track: './data/singapore.json', tz: 'Asia/Singapore' },
+    { id: 'london', label: '倫敦地鐵', url: './data/london_schedule_dense.json', mode: 'sched', track: './data/london.json', tz: 'Europe/London' },
   ];
   for (const d of defs) {
     const data = await fetchJSON(d.url);
