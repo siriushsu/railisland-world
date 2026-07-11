@@ -1821,6 +1821,14 @@ function trackLineColor(color) {
   return railDimColor(color);
 }
 
+// 海外(非台灣池)降噪:高密度網(紐約 519 活躍/倫敦…)遠景全掛車號牌會字海蓋線,
+// 且光暈+拖尾在數百班疊加(lighter 混色)會閃爍、粗取樣絲帶溢出軌道。
+// 對策:海外車號牌拉高到街區級(z≥13)才顯示、關掉環境列車的光暈與拖尾(只留乾淨圓點);
+// 台灣完全不變(牌 z≥11、光暈拖尾照舊)。跟隨中的車走 drawFollowMarker,任何 zoom 都掛牌並保留光暈拖尾(單車不塞、不閃)。
+// per-pool 旗標:將來把海外光暈/拖尾調到不閃不溢,把 poolFx 改回 true 即可開回。
+const OVERSEAS_TAG_Z = 13;
+function poolFx(pool) { return pool === 'tw'; }          // 環境列車要不要畫光暈+拖尾
+function tagVisibleFor(pool, z, baseShow) { return pool === 'tw' ? baseShow : z >= OVERSEAS_TAG_Z; }
 function drawSched(w, h) {
   const P = pal();
   const z = map.getZoom();
@@ -1876,10 +1884,14 @@ function drawSched(w, h) {
     if (isFollow) { drawFollowMarker(cp, tr); state._trainHits.push({ x: cp.x, y: cp.y, tr }); continue; }
     if (!inView(cp)) continue;
     state._trainHits.push({ x: cp.x, y: cp.y, tr }); // 供點擊/hover 命中測試(每幀重建)
+    const pool = poolKey(tr.sys);
+    const showTag = tagVisibleFor(pool, z, showTrain); // 海外拉高到街區級(z≥13)才掛牌,遠景只圓點
     const glowC = isHSR(tr) ? HSR_ORANGE : tr.color;
-    drawTrail(dt => trainPos(tr, ts - dt), cp, glowC);
-    glowUnder(cp, glowC, showTrain ? 10 : 3.5); // 車號牌模式:光暈放大到繞出牌緣,近看也發亮
-    if (showTrain) isHSR(tr) ? drawHSRTag(cp, tr.train) : drawTag(cp, tr.train, tr.color, textColorFor(tr.color));
+    if (poolFx(pool)) { // 台灣:光暈+拖尾照舊;海外:關閉(高密度疊加會閃爍/溢軌)
+      drawTrail(dt => trainPos(tr, ts - dt), cp, glowC);
+      glowUnder(cp, glowC, showTag ? 10 : 3.5); // 車號牌模式:光暈放大到繞出牌緣,近看也發亮
+    }
+    if (showTag) isHSR(tr) ? drawHSRTag(cp, tr.train) : drawTag(cp, tr.train, tr.color, textColorFor(tr.color));
     else isHSR(tr) ? drawHSRDot(cp) : drawDot(cp, tr.color);
   }
   // 站名標籤:大站先取位、字級隨站等、蓋在列車上層;錨點放軌道側邊(法線方向)——
