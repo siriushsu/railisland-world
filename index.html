@@ -1307,6 +1307,7 @@ const state = {
   playing: true, speedMult: 50, hour: 8, simSec: 8 * 3600,
   dpr: 1, t0: 0, elapsed: 0, ready: false,
   followTrain: null, followId: null,
+  followFreq: null, // 捷運(freq)跟隨:虛擬物件 {ln, phase, ...};與 sched 的 followTrain 完全隔離(mode 天然分流)
   followLock: true, // 跟隨鎖:true=每幀置中;拖曳地圖自動解鎖(Google 導航式),按「回到列車」恢復
   mapDark: false, basemap: 'map', trackData: null,
   trackStyle: 'auto', // 軌道顯示:auto(亮色原色/夜間衛星自動淡化)、faint(一律更淡)、hidden(只留列車與車站)
@@ -1502,7 +1503,7 @@ function buildLineSchedule(ln) {
       }
     }
     const dw = seq[i].dwell || DWELL_SEC; // TDX 真實停站秒(缺值 25s)
-    nodes.push({ lat: seq[i].lat, lon: seq[i].lon, dist: seq[i].d, arr: t, dep: t + dw });
+    nodes.push({ name: seq[i].name, lat: seq[i].lat, lon: seq[i].lon, dist: seq[i].d, arr: t, dep: t + dw });
     t += dw;
   }
   ln.sched = nodes; ln.period = t; ln.hasShape = hasShape;
@@ -1735,12 +1736,22 @@ function drawFreq(w, h) {
     if (!state.visible.has(ln.id) || !ln.sched) return;
     const tc = textColorFor(ln.color);
     for (let k = 0; k < ln.n; k++) {
-      const pos = posPeriodic(ln, tau + k * ln.period / ln.n);
+      const phase = k * ln.period / ln.n; // 點擊當下換算的固定相位偏移(重算 ln.n 後仍有效)
+      const pos = posPeriodic(ln, tau + phase);
       const cp = map.latLngToContainerPoint([pos.lat, pos.lon]);
       if (showTrain && inView(cp)) drawTag(cp, ln.abbr, ln.color, tc);
       else drawDot(cp, ln.color);
+      if (inView(cp)) state._trainHits.push({ x: cp.x, y: cp.y, tr: { _freq: true, ln, phase } });
     }
   });
+  // 跟隨中的捷運車:以固定相位每幀重取位置,畫在所有環境車之上(光圈/外框同 sched 跟隨)
+  if (state.followFreq && state.followFreq.ln && state.visible.has(state.followFreq.ln.id) && state.followFreq.ln.sched) {
+    const ln = state.followFreq.ln;
+    const pos = posPeriodic(ln, tau + state.followFreq.phase);
+    const cp = map.latLngToContainerPoint([pos.lat, pos.lon]);
+    drawFreqFollowMarker(cp, ln.color, ln.abbr, textColorFor(ln.color));
+    state._trainHits.push({ x: cp.x, y: cp.y, tr: { freqFollow: true } });
+  }
   // 站名最後畫(蓋在列車上層),錨點推到軌道側邊
   ctx.textAlign = 'center';
   for (const { p, name, pa, pb } of freqLabels) {
@@ -1942,6 +1953,16 @@ function drawFollowMarker(p, tr) {
   ctx.strokeStyle = tr.color; ctx.globalAlpha = 0.9; ctx.lineWidth = 2.5; ctx.stroke();
   ctx.globalAlpha = 1;
   isHSR(tr) ? drawHSRTag(p, tr.train) : drawTag(p, tr.train, tr.color, textColorFor(tr.color));
+}
+
+// 捷運(freq)跟隨標記:雙圈光環+車號牌(線代碼),與 sched 跟隨的圈環視覺一致
+function drawFreqFollowMarker(p, color, label, tc) {
+  ctx.beginPath(); ctx.arc(p.x, p.y, 17, 0, 7);
+  ctx.strokeStyle = color; ctx.globalAlpha = 0.3; ctx.lineWidth = 2; ctx.stroke();
+  ctx.beginPath(); ctx.arc(p.x, p.y, 11, 0, 7);
+  ctx.strokeStyle = color; ctx.globalAlpha = 0.9; ctx.lineWidth = 2.5; ctx.stroke();
+  ctx.globalAlpha = 1;
+  drawTag(p, label, color, tc);
 }
 
 let labelBoxes = [];
@@ -2189,6 +2210,8 @@ function tick(now) {
     updateFollowCamera();
     state._evClock = (state._evClock || 0) + dt;
     if (state._evClock >= 0.5) { state._evClock = 0; scanFollowEvents(); }
+  } else if (state.mode === 'freq' && state.followFreq) {
+    updateFreqFollowCamera();
   }
   if (state.mode === 'sched') {
     if (state.boardStation && Math.abs(state.simSec - (state.boardRenderedAt || 0)) >= 20) renderBoard();
@@ -2550,6 +2573,7 @@ function rebuildFreqLines(g) {
 }
 
 function toggleFreqMember(id) {
+  if (state.followFreq) clearFollow(); // 勾選變更即乾淨解除跟隨(rebuildFreqLines 會換掉 ln 物件身分)
   if (!state.freqSel) state.freqSel = new Set();
   if (state.freqSel.has(id)) state.freqSel.delete(id);
   else state.freqSel.add(id);
@@ -2776,6 +2800,7 @@ function restoreFollowSpeed() {
 function clearFollow() {
   restoreFollowSpeed(); // 中途取消跟隨也要還原 fromStart 重播強制的速度
   state.followTrain = null; state.followId = null; state.followStatus = null;
+  state.followFreq = null; // 捷運跟隨一併解除(切群組/切系統/勾選變更都經此)
   state._routePts = null;
   state._plateStop = null;
   updateFollowLockUI(); // 沒在跟隨就收起跟隨鎖鈕
@@ -3291,6 +3316,7 @@ function ridesInScope(pool) {
 // 聚焦池非台灣時,這些類別整組不渲染——海外池不留一堆未達成空殼佔版面。
 function scopeHasSpecial() { return !!state.special && activePool() === 'tw'; }
 function recordRide(tr) {
+  if (tr && tr._freq) return; // 捷運(freq)跟隨永不記完乘,避免污染台鐵/海外成就(硬擋,防呼叫路徑誤入)
   if (state.autoTour) return; // 掛機自動跑完不算,親自跟完才蓋章
   const today = todayStr(activeTz()); // 海外群組:以該群當地日期判定「今天」
   const rides = loadRides();
@@ -3926,6 +3952,105 @@ function updateFollowCamera() {
   updateFollowPanel(tr);
 }
 
+// ── 捷運(freq)跟隨:相機/面板/身分 ──
+// 身分用「固定相位 phase」而非班次索引 k:recomputeTrains() 改變 ln.n 也不影響位置連續性。
+function setFreqFollow(ln, phase) {
+  clearFollow(); // 清掉任何既有跟隨(freq/sched);history/面板一併復位
+  state.followFreq = { ln, phase, color: ln.color, sys: ln._sys, abbr: ln.abbr, _freq: true };
+  state.followLock = true;
+  const tau = state.elapsed * state.speedMult;
+  const pos = posPeriodic(ln, tau + phase);
+  map.setView([pos.lat, pos.lon], Math.max(map.getZoom(), 13), { animate: false });
+  updateFollowLockUI();
+  showFreqPanel(state.followFreq);
+}
+// 目前位置(freq 跟隨);ln 失效回 null
+function freqFollowPos(f) {
+  if (!f || !f.ln || !f.ln.sched) return null;
+  return posPeriodic(f.ln, state.elapsed * state.speedMult + f.phase);
+}
+function updateFreqFollowCamera() {
+  const f = state.followFreq; if (!f) return;
+  // 線被取消勾選/圖例隱藏/群組切換 → 乾淨解除
+  if (!f.ln || !f.ln.sched || !state.visible.has(f.ln.id)) { clearFollow(); return; }
+  const pos = freqFollowPos(f);
+  if (pos && state.followLock) recenterTo(pos.lat, pos.lon);
+  updateFreqPanel(f);
+}
+// 依當前週期時間 t 推出:行進方向終點、下一站、到站倒數、停靠狀態、區間進度
+function freqFollowInfo(ln, t) {
+  const nodes = ln.sched, N = nodes.length, isLoop = !!ln.loop, farIdx = (N - 1) / 2; // 一般線 seq=去程+折返(2n-1 節點,far=n-1);環狀線 seq=一圈+回起點
+  const tm = ((t % ln.period) + ln.period) % ln.period;
+  let idx = -1, dwelling = false, frac = 0;
+  for (let i = 0; i < N; i++) {
+    if (tm >= nodes[i].arr && tm <= nodes[i].dep) { idx = i; dwelling = true; break; }
+    if (i < N - 1 && tm > nodes[i].dep && tm < nodes[i + 1].arr) {
+      idx = i; const span = nodes[i + 1].arr - nodes[i].dep; frac = span > 0 ? (tm - nodes[i].dep) / span : 0; break;
+    }
+  }
+  if (idx < 0) idx = N - 1;
+  const terminus = isLoop ? nodes[0].name : (idx < farIdx ? nodes[farIdx].name : nodes[0].name); // 前半程往遠端、後半程往起點;環狀線無終點
+  let nextI, etaSec;
+  if (!dwelling) { nextI = idx + 1; etaSec = nodes[nextI].arr - tm; }
+  else if (idx + 1 < N) { nextI = idx + 1; etaSec = nodes[nextI].arr - tm; }
+  else { nextI = 1; etaSec = (ln.period - tm) + nodes[1].arr; } // 終端起點停靠:跨週期接回次站
+  return {
+    terminus, isLoop, dwelling, dwellName: nodes[idx].name,
+    nextName: nodes[nextI] ? nodes[nextI].name : null, etaSec: Math.max(0, etaSec),
+    legFrom: nodes[idx].name, legTo: nodes[nextI] ? nodes[nextI].name : '', legFrac: dwelling ? 0 : frac,
+  };
+}
+function showFreqPanel(f) {
+  const fp = document.getElementById('followPanel');
+  if (state.mode !== 'freq' || !f) { fp.hidden = true; return; }
+  const ln = f.ln;
+  document.getElementById('fpDot').style.background = f.color;
+  document.getElementById('fpTrain').textContent = ln.name || f.abbr; // 線名(非車次號——捷運無逐車編號,不造假)
+  document.getElementById('fpKind').textContent = (ln._sysLabel || '') + '・示意動畫';
+  document.getElementById('fpAlert').hidden = true;      // freq 無通阻警示
+  document.getElementById('trainCard').hidden = true;    // freq 無逐車時刻表卡
+  fp.classList.remove('fp-min');
+  fp.hidden = false;
+  updateFreqPanel(f);
+}
+function updateFreqPanel(f) {
+  const fp = document.getElementById('followPanel');
+  if (fp.hidden || !f || !f.ln || !f.ln.sched) return;
+  const ln = f.ln, base = state.elapsed * state.speedMult + f.phase;
+  const info = freqFollowInfo(ln, base);
+  document.getElementById('fpDest').textContent = (info.isLoop ? '環狀線循環運行' : '往 ' + info.terminus) + '　·　' + (ln._sysLabel || '') + '（示意動畫，非即時班次）';
+  const nx = document.getElementById('fpNext'), eta = document.getElementById('fpEta');
+  if (info.nextName) {
+    nx.textContent = info.nextName;
+    const mm = Math.round(info.etaSec / 60);
+    eta.innerHTML = info.etaSec <= 30 ? '即將進站' : `<b>${mm}</b> 分`;
+  } else { nx.textContent = '—'; eta.textContent = ''; }
+  const stEl = document.getElementById('fpStatus');
+  if (info.dwelling) { stEl.textContent = '⏸ 停靠 ' + info.dwellName + '中'; stEl.classList.remove('run'); }
+  else { stEl.textContent = '▶ 行進中'; stEl.classList.add('run'); }
+  stEl.hidden = false;
+  document.getElementById('fpProgFill').style.width = (info.legFrac * 100).toFixed(1) + '%';
+  document.getElementById('fpProgTxt').textContent = info.legTo ? info.legFrom + ' → ' + info.legTo : info.legFrom;
+  const pa = posPeriodic(ln, base), pb = posPeriodic(ln, base + 20);
+  const kmh = info.dwelling ? 0 : (pa && pb ? haversineKm(pa, pb) / 20 * 3600 : 0);
+  document.getElementById('fpSpd').innerHTML = '<b>' + Math.round(kmh) + '</b> km/h';
+}
+// 地圖點擊:freq 模式命中捷運車→跟隨;命中跟隨中的車→取消
+function handleFreqClick(cp) {
+  // 先判定「點到跟隨中的車」→ 取消(不受環境車在同像素重疊、trainAt 取誰影響)
+  const f = state.followFreq;
+  if (f && f.ln && f.ln.sched) {
+    const pos = posPeriodic(f.ln, state.elapsed * state.speedMult + f.phase);
+    const p = map.latLngToContainerPoint([pos.lat, pos.lon]);
+    if (Math.hypot(p.x - cp.x, p.y - cp.y) <= 16) { clearFollow(); return; }
+  }
+  const hit = trainAt(cp);
+  if (!hit || !hit.tr) return;
+  const h = hit.tr;
+  if (h.freqFollow) { clearFollow(); return; }
+  if (h._freq && h.ln) setFreqFollow(h.ln, h.phase);
+}
+
 // ── 跟隨鎖(Google 導航式):拖曳地圖自動解鎖可自由瀏覽,按「回到列車」恢復置中 ──
 function setFollowLock(on) {
   state.followLock = on;
@@ -3935,6 +4060,9 @@ function setFollowLock(on) {
     const p = trainPos(state.followTrain, ts)
       || (ts > s[s.length - 1].depSec ? s[s.length - 1] : s[0]);
     recenterTo(p.lat, p.lon);
+  } else if (on && state.followFreq) {
+    const p = freqFollowPos(state.followFreq);
+    if (p) recenterTo(p.lat, p.lon);
   }
   updateFollowLockUI();
 }
@@ -3942,7 +4070,7 @@ function updateFollowLockUI() {
   const b = document.getElementById('followLockBtn');
   if (!b) return;
   // 放空/隨機導覽自動換車,鎖沒有意義;也讓開手機放空模式右下角的「離開放空」鈕
-  const show = !!state.followTrain && !state.autoTour && !document.body.classList.contains('ambient');
+  const show = !!(state.followTrain || state.followFreq) && !state.autoTour && !document.body.classList.contains('ambient');
   b.parentNode.style.display = show ? '' : 'none';
   b.classList.toggle('unlocked', !state.followLock);
   b.textContent = state.followLock ? '🔒' : '◉ 回到列車';
@@ -4741,6 +4869,8 @@ async function boot() {
     .setView([24.5, 121], 8);
   map.zoomControl.setPosition('bottomright'); // 右上讓給車站時刻板
   map.on('click', e => {
+    const cp0 = e.containerPoint || map.latLngToContainerPoint(e.latlng);
+    if (state.mode === 'freq') { handleFreqClick(cp0); return; } // 捷運:點車跟隨/再點取消
     if (state.mode !== 'sched') return;
     const cp = e.containerPoint || map.latLngToContainerPoint(e.latlng);
     let best = null, bd = 1e9;
@@ -4761,9 +4891,9 @@ async function boot() {
     if (best && bd <= 16) openBoard(best);
   });
   map.on('mousemove', e => {
-    // 滑過列車 → 手指游標(僅台鐵真實班表)
+    // 滑過列車 → 手指游標(sched 真實班表 + freq 捷運車皆可點)
     const c = map.getContainer();
-    if (state.mode !== 'sched') { if (c.style.cursor) c.style.cursor = ''; return; }
+    if (state.mode !== 'sched' && state.mode !== 'freq') { if (c.style.cursor) c.style.cursor = ''; return; }
     c.style.cursor = trainAt(e.containerPoint) ? 'pointer' : '';
   });
   // 跟隨鎖鈕:掛在縮放鈕上方(同角落自動堆疊,免手算碰撞);跟隨中才顯示
@@ -4782,7 +4912,7 @@ async function boot() {
   // 拖曳地圖=解鎖(Google 導航式);縮放不解鎖
   // 放空/隨機導覽不解鎖:那些模式鈕是藏的,解了鎖沒有辦法鎖回,鏡頭會永久漂走
   map.on('dragstart', () => {
-    if (state.followTrain && state.followLock && !state.autoTour && !document.body.classList.contains('ambient')) setFollowLock(false);
+    if ((state.followTrain || state.followFreq) && state.followLock && !state.autoTour && !document.body.classList.contains('ambient')) setFollowLock(false);
   });
   // crossOrigin: 錄影功能要把圖磚畫進合成 canvas,沒有 CORS 標記畫布會被汙染(無法 captureStream)
   baseLayers.light = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
@@ -4912,7 +5042,7 @@ document.getElementById('donateCopy').onclick = () =>
       showToast('已選取帳號，請按 ⌘C／Ctrl+C 複製');
     });
 // ×＝收起資訊卡(跟隨不中斷);膠囊本體展開;「結束」才真的取消跟隨
-document.getElementById('fpClose').onclick = (e) => { e.stopPropagation(); document.getElementById('followPanel').classList.add('fp-min'); }; // stopPropagation:不然冒泡到面板的「點膠囊展開」馬上又被展開
+document.getElementById('fpClose').onclick = (e) => { e.stopPropagation(); if (state.followFreq) { setAutoTour(false); clearFollow(); return; } document.getElementById('followPanel').classList.add('fp-min'); }; // 捷運:✕ 直接解除跟隨;台鐵/海外:× 收起膠囊(跟隨不中斷)。stopPropagation:不然冒泡到面板的「點膠囊展開」馬上又被展開
 document.getElementById('fpEnd').onclick = (e) => { e.stopPropagation(); setAutoTour(false); clearFollow(); };
 document.getElementById('followPanel').addEventListener('click', (e) => {
   const fp = e.currentTarget;
