@@ -1272,6 +1272,11 @@
         <li><span class="d">新加坡</span><span>站點資料 LTA／data.gov.sg，依 <a href="https://data.gov.sg/open-data-licence" target="_blank" rel="noopener noreferrer">Singapore Open Data Licence v1.0</a> 使用；線形 © OpenStreetMap contributors（ODbL）；班距為模擬</span></li>
         <li><span class="d">倫敦</span><span>Powered by TfL Open Data；Contains OS data © Crown copyright and database rights；線形 © OpenStreetMap contributors（ODbL）；班距為模擬</span></li>
         <li><span class="d">伊斯坦堡</span><span>İstanbul Büyükşehir Belediyesi (İBB) Açık Veri Portalı — <a href="https://data.ibb.gov.tr" target="_blank" rel="noopener noreferrer">data.ibb.gov.tr</a>（İBB Open Data License）</span></li>
+        <li><span class="d">雪梨</span><span>Transport for NSW Open Data — <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a></span></li>
+        <li><span class="d">巴黎</span><span>Contient des informations de <a href="https://transport.data.gouv.fr/datasets/reseau-urbain-et-interurbain-dile-de-france-mobilites" target="_blank" rel="noopener noreferrer">IDFM GTFS（Horaires théoriques réseau IDFM）</a>, présentement mises à disposition aux conditions de la « <a href="https://prim.iledefrance-mobilites.fr/en/licences" target="_blank" rel="noopener noreferrer">Licence Mobilités</a> »</span></li>
+        <li><span class="d">墨爾本</span><span>Data source: Department of Transport and Planning (Victoria) — <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a></span></li>
+        <li><span class="d">布達佩斯</span><span>Data source: BKK Zrt., CC BY 4.0</span></li>
+        <li><span class="d">維也納</span><span>Data source: Stadt Wien / Wiener Linien — <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a></span></li>
       </ul>
       <p class="foot-note">本站為個人愛好者專案，與台灣鐵路公司及各捷運公司皆無關。捷運列車位置為班距推算示意、台鐵列車依每日時刻表模擬，實際到離站時刻請以各營運機構官方資訊為準。</p>
     </details>
@@ -1349,6 +1354,11 @@ const SYS_META = {
   singapore: { plateL: 'Changi Airport', plateR: 'Tuas Link', sub: 'SINGAPORE MRT · 海外實驗版', lead: '新加坡地鐵（MRT）南北／東西／東北／環線／濱海市區／湯申-東海岸線依公告班距模擬運行（班距合成、非官方逐車時刻），時鐘自動換算新加坡當地時間 — 點列車跟隨、點車站看班次。此為海外擴張 POC。' },
   london: { plateL: 'Cockfosters', plateR: 'Heathrow', sub: 'LONDON UNDERGROUND · 海外實驗版', lead: '倫敦地鐵（Tube）各線依公告班距模擬運行（班距合成、非官方逐車時刻），時鐘自動換算倫敦當地時間 — 點列車跟隨、點車站看班次。此為海外擴張 POC。' },
   istanbul_sched: { plateL: 'Gebze', plateR: 'Halkalı', sub: 'İSTANBUL RAIL · 海外實驗版', lead: '伊斯坦堡軌道（Marmaray 跨博斯普魯斯海峽＋M1–M9 地鐵＋T1/T3/T4 電車＋F 纜索／TF 纜車）依官方班距資料展開運行（非逐車時刻，代表性平日班表），時鐘自動換算伊斯坦堡當地時間 — 點列車跟隨、點車站看班次。此為海外擴張 POC，資料時區與路網為實驗性質；M11 機場線因快照時間早於通車，本站暫缺。' },
+  sydney_sched: { plateL: 'Emu Plains', plateR: 'Berowra', sub: 'SYDNEY TRAINS · 海外實驗版', lead: '雪梨鐵道（Sydney Trains 城市與郊區路網＋Sydney Metro＋輕軌）依當日真實時刻表運行，時鐘自動換算雪梨當地時間 — 點列車跟隨、點車站看班次。此為海外擴張 POC，資料時區與路網為實驗性質；站名已依月台縮併為單一母站（同名近距月台合一，City Circle 等環狀路線的同名遠距再訪點保留）。' },
+  paris_sched: { plateL: 'La Défense', plateR: 'Château de Vincennes', sub: 'PARIS MÉTRO & RER · 海外實驗版', lead: '巴黎軌道（M1–M14 地鐵＋RER A–E＋Transilien 各線＋電車）依 IDFM 官方 GTFS 時刻表運行，時鐘自動換算巴黎當地時間 — 點列車跟隨、點車站看班次。此為海外擴張 POC，資料時區與路網為實驗性質；RER／Transilien 分支眾多，每線僅取單一代表路徑，未涵蓋到的分支或端點路段以直線近似示意，非完整多分支路網。' },
+  melbourne_sched: { plateL: 'East Brunswick', plateR: 'St Kilda Beach', sub: 'MELBOURNE TRAMS & TRAINS · 海外實驗版', lead: '墨爾本軌道（全球最大電車路網＋Metro Trains 都會鐵路＋V/Line 城際線）依當日真實時刻表運行，時鐘自動換算墨爾本當地時間 — 點列車跟隨、點車站看班次。此為海外擴張 POC，資料時區與路網為實驗性質。' },
+  budapest_sched: { plateL: 'Vörösmarty tér', plateR: 'Mexikói út', sub: 'BUDAPEST METRO · 海外實驗版', lead: '布達佩斯軌道（M1–M4 地鐵＋電車路網＋HÉV 郊區鐵路 H5–H9）依 BKK 官方時刻表運行，時鐘自動換算布達佩斯當地時間 — 點列車跟隨、點車站看班次。此為海外擴張 POC，資料時區與路網為實驗性質；頭牌 M1 為 1896 年通車、歐洲大陸最古老的地鐵線。' },
+  vienna_sched: { plateL: 'Leopoldau', plateR: 'Oberlaa', sub: 'WIEN U-BAHN & TRAM · 海外實驗版', lead: '維也納軌道（U1–U4、U6 地鐵＋電車路網，含 Wiener Lokalbahnen Baden 線）依 Wiener Linien 官方時刻表運行，時鐘自動換算維也納當地時間 — 點列車跟隨、點車站看班次。此為海外擴張 POC，資料時區與路網為實驗性質；U5 尚未通車，本站暫缺。' },
 };
 
 // 播放/速度/時間的統一入口(控制列、快捷鍵、全畫面控制共用)
@@ -2412,7 +2422,7 @@ const GROUPS = [
   { id: 'all', label: '全台同框', mode: 'all', members: [],
     plate: { plateL: '基隆', plateR: '高雄', sub: 'ALL LINES · TAIWAN',
       lead: '全台鐵道一次看 — 台鐵與高鐵依真實時刻表運行（台鐵套即時誤點），捷運與輕軌為示意動畫（非即時），只為讓整張地圖熱鬧好看。' } },
-  { id: 'world', label: '世界', mode: 'sched', members: ['norway_sched', 'nyc_sched', 'tokyo_sched', 'swiss_sched', 'singapore', 'london', 'istanbul_sched'],
+  { id: 'world', label: '世界', mode: 'sched', members: ['norway_sched', 'nyc_sched', 'tokyo_sched', 'swiss_sched', 'singapore', 'london', 'istanbul_sched', 'sydney_sched', 'paris_sched', 'melbourne_sched', 'budapest_sched', 'vienna_sched'],
     plate: { plateL: 'Oslo', plateR: 'Tokyo', sub: 'WORLD RAIL · 海外實驗版',
       lead: '海外城市同框 — 勾選上方城市即飛往當地，各城列車依當地時間運行。此為海外擴張 POC，資料時區與路網為實驗性質。' } },
 ];
@@ -2604,7 +2614,7 @@ function toggleFreqMember(id) {
 }
 
 // sched 群組(國家鐵路):台鐵+高鐵同框(皆真實時刻表);群內可多選,預設全開
-// fitAll:僅 boot 首屏傳 true——世界群組框景改框全部六城範圍,不自動飛去聚焦城市(挪威);
+// fitAll:僅 boot 首屏傳 true——世界群組框景改框全部十二城範圍,不自動飛去聚焦城市(挪威);
 // 之後使用者點城市勾選框走 toggleSchedMember→setFocusSys(fly:true)才飛入,此參數不影響那條路徑
 function loadSchedGroup(g, sel, keepView, keepTime, fitAll) {
   if (state.autoTour) setAutoTour(false);
@@ -2619,14 +2629,14 @@ function loadSchedGroup(g, sel, keepView, keepTime, fitAll) {
   if (!list.length) { renderSystemsBar(); return; } // toggle 有防呆,理論上不會空
   state.sysId = list[0].id; // 收藏/成就沿用主系統 key(台鐵),不因同框改動
   applySchedSystems(list, { keepTime });
-  // 世界群組:預設框景只框聚焦城市(不框橫跨大西洋的兩城合集);fitAll=true(僅 boot 首屏)改框全部六城範圍。
+  // 世界群組:預設框景只框聚焦城市(不框橫跨大西洋的兩城合集);fitAll=true(僅 boot 首屏)改框全部十二城範圍。
   // 台灣照舊框全部
   if (!keepView) fitData(g.id === 'world' ? (fitAll ? list.flatMap(sysLatLngs) : sysLatLngs(focusedSys())) : state.schedStations.map(s => [s.lat, s.lon]));
   reproject();
   const total = state.trains.length;
   document.getElementById('note').textContent = g.id === 'world'
     ? ('海外城市同框（實驗版）— 各城列車依當地時間運行，勾選上方城市即飛往當地並切換時鐘，共 ' + total + ' 車次。' +
-       '挪威／紐約／東京／瑞士為時刻表或快照，伊斯坦堡為官方班距資料展開，新加坡／倫敦為班距模擬，皆非即時；本站與各營運機構無隸屬或授權關係。')
+       '挪威／紐約／東京／瑞士／雪梨／巴黎／墨爾本／布達佩斯／維也納為時刻表或快照，伊斯坦堡為官方班距資料展開，新加坡／倫敦為班距模擬，皆非即時；本站與各營運機構無隸屬或授權關係。')
     : list.length > 1
     ? ('台鐵＋高鐵同框，皆依當日真實時刻表運行（台鐵回到現在時刻自動套用即時誤點修正），共 ' + total + ' 車次。' +
        '兩鐵路線與車站同時顯示，點列車跟隨、點車站看班次。')
@@ -3316,6 +3326,11 @@ const SYS_POOL = {
   singapore: 'sg',
   london: 'london',
   istanbul_sched: 'istanbul',
+  sydney_sched: 'sydney',
+  paris_sched: 'paris',
+  melbourne_sched: 'melbourne',
+  budapest_sched: 'budapest',
+  vienna_sched: 'vienna',
 };
 function poolKey(sysId) { return SYS_POOL[sysId] || 'tw'; } // 未登記/舊紀錄一律歸 'tw'
 // 目前聚焦中的池。⚠️ 接縫(SEAM):世界群組改版後,聚焦城市由世界頁籤的勾選/聚焦 UI 決定;
@@ -4995,6 +5010,11 @@ async function boot() {
     { id: 'singapore', label: '新加坡地鐵', url: './data/singapore_schedule_dense.json', mode: 'sched', track: './data/singapore.json', tz: 'Asia/Singapore' },
     { id: 'london', label: '倫敦地鐵', url: './data/london_schedule_dense.json', mode: 'sched', track: './data/london.json', tz: 'Europe/London' },
     { id: 'istanbul_sched', label: '伊斯坦堡', url: './data/istanbul_schedule_dense.json', mode: 'sched', track: './data/istanbul.json', tz: 'Europe/Istanbul' },
+    { id: 'sydney_sched', label: '雪梨鐵道', url: './data/sydney_schedule_dense.json', mode: 'sched', track: './data/sydney.json', tz: 'Australia/Sydney' },
+    { id: 'paris_sched', label: '巴黎地鐵', url: './data/paris_schedule_dense.json', mode: 'sched', track: './data/paris.json', tz: 'Europe/Paris' },
+    { id: 'melbourne_sched', label: '墨爾本', url: './data/melbourne_schedule_dense.json', mode: 'sched', track: './data/melbourne.json', tz: 'Australia/Melbourne' },
+    { id: 'budapest_sched', label: '布達佩斯', url: './data/budapest_schedule_dense.json', mode: 'sched', track: './data/budapest.json', tz: 'Europe/Budapest' },
+    { id: 'vienna_sched', label: '維也納', url: './data/vienna_schedule_dense.json', mode: 'sched', track: './data/vienna.json', tz: 'Europe/Vienna' },
   ];
   loadPillShow(`🌍 載入城市資料中 0/${defs.length}…`);
   for (let i = 0; i < defs.length; i++) {
@@ -5026,13 +5046,13 @@ async function boot() {
     const m = /^(\d{1,2}):(\d{2})$/.exec(qs.get('t') || '');
     if (m) deepT = (+m[1] % 24) * 3600 + (+m[2]) * 60;
   } catch (e) {}
-  // 海外實驗版首屏:世界群組,聚焦挪威(時鐘走挪威當地時間)但視角不飛過去,先看全世界六城範圍——
+  // 海外實驗版首屏:世界群組,聚焦挪威(時鐘走挪威當地時間)但視角不飛過去,先看全世界十二城範圍——
   // 資料量大讀取需時,一開機就飛窄視角容易讓人誤以為只有一座城市;缺挪威資料時退回台灣國家鐵路群組。
   // 預設勾選城市由效能實測決定:WORLD_DEFAULT(見下)。全開跑得動就全開,跑不動只開挪威。
   const worldGroup = GROUPS.find(g => g.id === 'world');
   const natGroup = GROUPS.find(g => g.id === 'nat');
   if (worldGroup && state.systems.some(s => s.id === 'norway_sched')) {
-    loadSchedGroup(worldGroup, null, false, false, true); // fitAll=true:首屏框全部六城,不自動飛聚焦城市;預設勾選由 WORLD_DEFAULT 決定
+    loadSchedGroup(worldGroup, null, false, false, true); // fitAll=true:首屏框全部十二城,不自動飛聚焦城市;預設勾選由 WORLD_DEFAULT 決定
   } else if (natGroup) loadSchedGroup(natGroup); // 首屏:台鐵+高鐵同框(缺高鐵資料時自動退回單台鐵)
   else loadSystem(state.systems.find(s => s.id === 'tra_sched') || state.systems[0]);
   if (deepTrain && state.mode === 'sched') {
