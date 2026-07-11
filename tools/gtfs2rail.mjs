@@ -142,8 +142,15 @@ function cumOf(pts) {
   for (let i = 1; i < pts.length; i++) c[i] = c[i - 1] + distKm(pts[i - 1], pts[i]);
   return c;
 }
-function project(pt, pts, cum) {
-  let best = { dist: 1e18, s: 0 };
+// 站點投影:回傳該站在 shape 上「所有」夠靠近的匹配點(通常只有 1 筆),而非只回全域最近點。
+// 緣由:環狀+放射狀線(如大江戶線)代表 shape 是單一連續路徑,實體上同一站可能在路徑上出現兩次
+// (環狀部起訖點=放射部銜接點,如都庁前)。若只登記全域最近點,另一次出現的里程會漏記,
+// assignSchedShapePathsFor() 幫相鄰站配對時只能用同一個 d 值,造成該站前後兩段的里程差被算成
+// 「整圈距離」而非實際短距離,列車在該站瞬移/超速。REVISIT_EPS_KM/REVISIT_MIN_SEP_KM 皆保守設定,
+// 一般不自我重疊的線性路線只會回傳單一匹配,行為與舊版 project() 完全一致。
+const REVISIT_EPS_KM = 0.05, REVISIT_MIN_SEP_KM = 0.5;
+function projectAll(pt, pts, cum) {
+  const cand = [];
   for (let j = 0; j < pts.length - 1; j++) {
     const ay = pts[j][0], ax = pts[j][1], by = pts[j + 1][0], bx = pts[j + 1][1];
     const k = Math.cos(ay * toR);
@@ -152,10 +159,25 @@ function project(pt, pts, cum) {
     const L2 = vx * vx + vy * vy;
     const t = L2 > 0 ? Math.max(0, Math.min(1, (px * vx + py * vy) / L2)) : 0;
     const q = [ay + (by - ay) * t, ax + (bx - ax) * t];
-    const dd = distKm(pt, q);
-    if (dd < best.dist) best = { dist: dd, s: cum[j] + distKm(pts[j], q) };
+    cand.push({ dist: distKm(pt, q), s: cum[j] + distKm(pts[j], q) });
   }
-  return best;
+  let primary = cand[0];
+  for (const c of cand) if (c.dist < primary.dist) primary = c;
+  // 找出所有「幾乎就在站上」的候選點,依里程排序後把彼此相鄰(<MIN_SEP)的併成同一次出現,
+  // 群內取距離最小者代表;群心與已收錄點(含全域最近點)仍在 MIN_SEP 內視為同一次出現,不重複收錄。
+  const near = cand.filter(c => c.dist <= REVISIT_EPS_KM).sort((a, b) => a.s - b.s);
+  const clusters = [];
+  for (const c of near) {
+    const last = clusters[clusters.length - 1];
+    if (last && c.s - last.s < REVISIT_MIN_SEP_KM) { if (c.dist < last.dist) { last.dist = c.dist; last.s = c.s; } }
+    else clusters.push({ s: c.s, dist: c.dist });
+  }
+  const matches = [primary];
+  for (const cl of clusters) {
+    if (matches.some(m => Math.abs(m.s - cl.s) < REVISIT_MIN_SEP_KM)) continue;
+    matches.push(cl);
+  }
+  return matches; // [{s,dist}, ...],至少 1 筆,依發現順序(全域最近點在前)
 }
 function rdp(pts, epsKm) {
   if (pts.length < 3) return pts.slice();
@@ -415,12 +437,20 @@ for (const [routeId, stopIdSet] of routeStopIds) {
   for (const stopId of stopIdSet) {
     const info = stops.get(stopId);
     if (!info) continue;
-    const pr = project([info.lat, info.lon], simplified, cum);
-    stationList.push({ name: info.name, lat: +info.lat.toFixed(6), lon: +info.lon.toFixed(6), d: +pr.s.toFixed(4) });
+    for (const pr of projectAll([info.lat, info.lon], simplified, cum)) {
+      stationList.push({ name: info.name, lat: +info.lat.toFixed(6), lon: +info.lon.toFixed(6), d: +pr.s.toFixed(4) });
+    }
   }
-  // 同名站(不同月台/quay)去重:同名取最先出現者
-  const seenNames = new Set();
-  const dedup = stationList.filter(s => (seenNames.has(s.name) ? false : (seenNames.add(s.name), true)));
+  // 同名站(不同月台/quay,或環狀+放射線同站在 shape 上的多次出現)去重:
+  // 同名且里程相近(<REVISIT_MIN_SEP_KM)視為同一次出現,取最先出現者;里程差夠遠則是
+  // 真實的另一次出現(如都庁前),兩筆都保留,供 assignSchedShapePathsFor() 依相鄰站選最小落差配對。
+  const seenD = new Map(); // name -> [d,...]
+  const dedup = stationList.filter(s => {
+    const ds = seenD.get(s.name);
+    if (ds && ds.some(d => Math.abs(d - s.d) < REVISIT_MIN_SEP_KM)) return false;
+    if (ds) ds.push(s.d); else seenD.set(s.name, [s.d]);
+    return true;
+  });
   dedup.sort((a, b) => a.d - b.d);
 
   let id = (route.shortName || routeId).replace(/[^A-Za-z0-9_-]/g, '');
