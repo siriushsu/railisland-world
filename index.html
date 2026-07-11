@@ -1132,6 +1132,7 @@
       <button id="satBtn" title="切換衛星影像"><span class="ti">衛</span><span class="tl">衛星影像</span></button>
       <button id="themeBtn" title="地圖明暗切換"><span class="ti">☾</span><span class="tl">地圖明暗</span></button>
       <button id="trackBtn" title="軌道顯示：自動（夜間自動淡化）→ 淡化 → 隱藏"><span class="ti">軌</span><span class="tl">軌道顯示</span></button>
+      <button id="stnBtn" title="站名顯示切換"><span class="ti">站</span><span class="tl">站名顯示</span></button>
       <button id="immBtn" title="極簡沉浸（只留地圖與列車）"><span class="ti">簡</span><span class="tl">極簡沉浸</span></button>
       <button id="fsBtn" title="全畫面地圖（Esc 退出）"><span class="ti">⛶</span><span class="tl">全畫面</span></button>
       <button id="recBtn" title="錄影 Beta（存成影片下載）"><span class="ti">⏺</span><span class="tl">錄影 Beta</span></button>
@@ -1313,6 +1314,7 @@ const state = {
   trackStyle: 'auto', // 軌道顯示:auto(亮色原色/夜間衛星自動淡化)、faint(一律更淡)、hidden(只留列車與車站)
   live: null, // 台鐵即時誤點 {map: 車次→誤點分, at: 抓取時刻, delayed, srcAt}
   stnIntro: false, immersive: false, // 特殊站介紹開關(放空自動開)、極簡沉浸(全畫面隱藏左側卡)
+  showStnLabels: true, hoverStation: null, // 站名標籤全域開關；hover 中的站(sched 模式,滑鼠附近最近站)
 };
 let map, cv, ctx;
 let baseLayers = {}; // light / dark / sat Leaflet 圖層
@@ -1753,12 +1755,14 @@ function drawFreq(w, h) {
     state._trainHits.push({ x: cp.x, y: cp.y, tr: { freqFollow: true } });
   }
   // 站名最後畫(蓋在列車上層),錨點推到軌道側邊
-  ctx.textAlign = 'center';
-  for (const { p, name, pa, pb } of freqLabels) {
-    if (drawnNames.has(name)) continue;
-    drawnNames.add(name);
-    const a = sideLabelAnchor(p, pa, pb, 18) || { x: p.x, y: p.y };
-    tryLabel(a.x, a.y, name);
+  if (state.showStnLabels) {
+    ctx.textAlign = 'center';
+    for (const { p, name, pa, pb } of freqLabels) {
+      if (drawnNames.has(name)) continue;
+      drawnNames.add(name);
+      const a = sideLabelAnchor(p, pa, pb, 18) || { x: p.x, y: p.y };
+      tryLabel(a.x, a.y, name);
+    }
   }
 }
 
@@ -1812,6 +1816,7 @@ function drawDeco(w, h) {
 }
 // 裝飾層站名排在台鐵/高鐵站名之後補畫:tryLabel 撞框讓位,國鐵站名優先
 function drawDecoLabels() {
+  if (!state.showStnLabels) return;
   ctx.textAlign = 'center';
   const drawn = new Set();
   for (const { p, name, pa, pb } of decoLabels) {
@@ -1856,6 +1861,14 @@ function trackLineColor(color) {
 const OVERSEAS_TAG_Z = 13;
 function poolFx(pool) { return pool === 'tw'; }          // 環境列車要不要畫光暈+拖尾
 function tagVisibleFor(pool, z, baseShow) { return pool === 'tw' ? baseShow : z >= OVERSEAS_TAG_Z; }
+// 海外站名截斷:拉丁字母站名(倫敦 High Street Kensington、挪威、蘇黎世…)中縮放時常蓋住路網,
+// 非台灣池且超過 10 個 code point 就截斷成前 9 字+「…」。只動地圖標籤字串,st.name 本體不變,
+// 站牌/跟隨面板等其餘顯示處都還是讀原始 st.name。滑鼠 hover 到站點時當幀還原全名,見 drawSched。
+const STN_TRUNC_LEN = 10;
+function truncStnName(name) {
+  const cps = [...name];
+  return cps.length > STN_TRUNC_LEN ? cps.slice(0, STN_TRUNC_LEN - 1).join('') + '…' : name;
+}
 function drawSched(w, h) {
   const P = pal();
   const z = map.getZoom();
@@ -1923,15 +1936,19 @@ function drawSched(w, h) {
   }
   // 站名標籤:大站先取位、字級隨站等、蓋在列車上層;錨點放軌道側邊(法線方向)——
   // 列車沿軌道跑就壓不到字,標籤與車號牌位置都固定不動(對列車做避讓會讓牌亂跳,已撤)
-  ctx.textAlign = 'center';
-  labelCands.sort((a, b) => a.tier - b.tier);
-  const drawnNames = new Set();
-  for (const c of labelCands) {
-    const t = TIER_STYLE[c.tier];
-    if (z < t.lz || drawnNames.has(c.st.name)) continue;
-    drawnNames.add(c.st.name);
-    const a = stationLabelAnchor(c.cp, c.st, t);
-    tryLabel(a.x, a.y, c.st.name, t.f, c.tier <= 1 ? 4 : 3);
+  if (state.showStnLabels) {
+    ctx.textAlign = 'center';
+    labelCands.sort((a, b) => a.tier - b.tier);
+    const drawnNames = new Set();
+    for (const c of labelCands) {
+      const t = TIER_STYLE[c.tier];
+      if (z < t.lz || drawnNames.has(c.st.name)) continue;
+      drawnNames.add(c.st.name);
+      const a = stationLabelAnchor(c.cp, c.st, t);
+      // 台灣池一個位元組都不截;海外池截斷,但滑鼠 hover 在該站附近時當幀還原全名
+      const full = poolKey(c.st.sys) === 'tw' || c.st === state.hoverStation;
+      tryLabel(a.x, a.y, full ? c.st.name : truncStnName(c.st.name), t.f, c.tier <= 1 ? 4 : 3);
+    }
   }
   document.getElementById('count').textContent = `${n} 班奔跑中`;
 }
@@ -4702,6 +4719,17 @@ function setupMapTools() {
   }
   trackBtn.onclick = () => setTrackStyle(state.trackStyle === 'auto' ? 'faint' : state.trackStyle === 'faint' ? 'hidden' : 'auto');
   setTrackStyle(state.trackStyle);
+  // 站名顯示全域開關:只藏文字標籤,站點圖示/點擊開站牌不受影響(見 drawFreq/drawSched/drawDecoLabels)
+  const stnBtn = document.getElementById('stnBtn');
+  function setStnLabels(on) {
+    state.showStnLabels = on;
+    stnBtn.classList.toggle('active', !on); // 比照 trackBtn:「非預設狀態」才亮 active
+    stnBtn.querySelector('.tl').textContent = on ? '站名顯示' : '站名已隱藏';
+    stnBtn.title = on ? '站名顯示切換（顯示中）' : '站名顯示切換（已隱藏，點擊恢復）';
+    try { localStorage.setItem('trainmap-stnlabels', on ? '1' : '0'); } catch (e) {}
+  }
+  stnBtn.onclick = () => setStnLabels(!state.showStnLabels);
+  setStnLabels(state.showStnLabels);
 }
 
 // ── 站內錄影:每幀把「圖磚 → Leaflet 向量層 → 列車 overlay → 浮水印」合成到離屏 canvas,
@@ -4895,7 +4923,21 @@ async function boot() {
     const c = map.getContainer();
     if (state.mode !== 'sched' && state.mode !== 'freq') { if (c.style.cursor) c.style.cursor = ''; return; }
     c.style.cursor = trainAt(e.containerPoint) ? 'pointer' : '';
+    // 站名 hover 展開:滑鼠附近最近站當幀還原全名(海外池截斷才有意義,tw 池全名不受影響)
+    if (state.mode === 'sched') {
+      const cp = e.containerPoint;
+      let best = null, bd = 16;
+      for (const st of state.schedStations) {
+        const p = map.latLngToContainerPoint([st.lat, st.lon]);
+        const d = Math.hypot(p.x - cp.x, p.y - cp.y);
+        if (d < bd) { bd = d; best = st; }
+      }
+      state.hoverStation = best;
+    } else {
+      state.hoverStation = null;
+    }
   });
+  map.getContainer().addEventListener('mouseleave', () => { state.hoverStation = null; });
   // 跟隨鎖鈕:掛在縮放鈕上方(同角落自動堆疊,免手算碰撞);跟隨中才顯示
   const lockCtl = L.control({ position: 'bottomright' });
   lockCtl.onAdd = () => {
@@ -4928,6 +4970,7 @@ async function boot() {
   try { const ts = localStorage.getItem('trainmap-track'); if (ts === 'faint' || ts === 'hidden') state.trackStyle = ts; } catch (e) {}
   try { state.basemap = localStorage.getItem('trainmap-basemap') === 'sat' ? 'sat' : 'map'; } catch (e) {}
   try { state.immersive = localStorage.getItem('trainmap-immersive') === '1'; } catch (e) {}
+  try { const sl = localStorage.getItem('trainmap-stnlabels'); if (sl === '0') state.showStnLabels = false; } catch (e) {}
   setBasemap();
   setupMapTools();
   setupRecorder();
