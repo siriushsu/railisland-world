@@ -128,6 +128,9 @@
   }
   .groupmembers .mem.on .memck { background: #d23c2a; border-color: #e8b3ab; } /* 紅印勾選,呼應印章紅 */
   .groupmembers .mem.off { opacity: .7; }
+  /* 世界群組:聚焦中的城市(時鐘/地圖對準的那座)加金邊+定位圖釘 */
+  .groupmembers .mem.focused { box-shadow: 0 0 0 2px #e8b04a, 0 2px 0 #1e2c40; }
+  .groupmembers .mem.focused::after { content: '📍'; font-size: 11px; margin-left: 1px; }
   .groupmembers .allcap { font-size: 12.5px; color: #7a6c50; padding: 6px 3px; line-height: 1.4; }
   .groupmembers .mem .memck {
     width: 13px; height: 13px; border-radius: 3px; border: 1.5px solid currentColor;
@@ -1246,6 +1249,7 @@
         <li><span class="d">軌道</span><span>台鐵軌道幾何取自 © OpenStreetMap 貢獻者（ODbL），經 Overpass API</span></li>
         <li><span class="d">底圖</span><span>CARTO basemaps（© OpenStreetMap）與 Esri World Imagery（衛星影像）</span></li>
         <li><span class="d">挪威</span><span>Contains data under the <a href="https://data.norge.no/nlod/en/2.0" target="_blank" rel="noopener noreferrer">Norwegian licence for Open Government data (NLOD)</a> distributed by Entur</span></li>
+        <li><span class="d">紐約</span><span>路線與時刻資料取自 <a href="https://www.mta.info/developers" target="_blank" rel="noopener noreferrer">MTA</a> 伺服器並由本站自行儲存分發；本站未獲 MTA 授權、與 MTA 無隸屬或背書關係；所示時刻為快照資料、非即時班次。This site is not affiliated with, endorsed by, or authorized by the MTA.</span></li>
       </ul>
       <p class="foot-note">本站為個人愛好者專案，與台灣鐵路公司及各捷運公司皆無關。捷運列車位置為班距推算示意、台鐵列車依每日時刻表模擬，實際到離站時刻請以各營運機構官方資訊為準。</p>
     </details>
@@ -1315,6 +1319,7 @@ const SYS_META = {
   tra_sched: { plateL: '基隆', plateR: '枋寮', sub: '台灣鐵道即時軌跡',  lead: '列車依當日時刻表運行，回到現在時刻（1×）會自動套用台鐵即時誤點修正 — 點列車跟隨、點車站看班次，或按地圖角落「探」看今日亮點列車。' },
   thsr_sched: { plateL: '南港', plateR: '左營', sub: '台灣鐵道即時軌跡', lead: '高鐵列車依當日真實時刻表沿西部走廊南北奔馳（南港－左營）— 點列車跟隨、點車站看班次。' },
   norway_sched: { plateL: 'Bodø', plateR: 'Stavanger', sub: 'NORWAY RAIL · 海外實驗版', lead: '挪威鐵道依當日真實時刻表運行，時鐘自動換算奧斯陸當地時間 — 點列車跟隨、點車站看班次。此為海外擴張 POC，資料時區與路網為實驗性質。' },
+  nyc_sched: { plateL: 'Inwood', plateR: 'Coney Island', sub: 'NYC SUBWAY · 海外實驗版', lead: '紐約地鐵依 MTA 快照時刻表運行，時鐘自動換算紐約當地時間 — 點列車跟隨、點車站看班次。時刻為快照非即時，本站與 MTA 無隸屬或授權關係。此為海外擴張 POC。' },
 };
 
 // 播放/速度/時間的統一入口(控制列、快捷鍵、全畫面控制共用)
@@ -1586,7 +1591,11 @@ function assignSchedShapePathsFor(trains, lines) {
 
 // 載入一組 sched 系統(1=單一,2=台鐵+高鐵同框):合併列車/軌道/車站/車種,各打系統標記,
 // 逐系統貼軌(不跨系統),再啟動各自的 LIVE/公告輪詢。共用於 loadSystem 與 loadSchedGroup。
-function applySchedSystems(sysList) {
+function applySchedSystems(sysList, opts) {
+  opts = opts || {};
+  // 舊聚焦城市時區(在覆寫 schedSystems 前擷取),供 keepTime 下聚焦順移時 re-anchor
+  const prevFocus = (state.schedSystems || []).find(s => s.id === state.focusSys);
+  const prevFocusTz = (prevFocus && prevFocus.tz) || 'Asia/Taipei';
   state.schedSystems = sysList;
   state.mode = 'sched';
   state.deco = false; state.decoLines = null; // 預設關裝飾層;loadAllGroup 會在之後重新開
@@ -1625,7 +1634,14 @@ function applySchedSystems(sysList) {
   const tkey = new Set();
   for (const sys of sysList) for (const t of (sys.data.types || [])) if (!tkey.has(t.key)) { tkey.add(t.key); state.types.push(t); }
   state.visible = new Set(state.types.map(t => t.key));
-  state.simSec = nowSecOfDay(sysList[0] && sysList[0].tz); // 海外群組:以該群當地時間為「現在」
+  // 聚焦城市:沿用目前聚焦(若仍在成員內),否則取首個成員;多時區偏移據此重算
+  const focusMoved = !sysList.some(s => s.id === state.focusSys);
+  if (focusMoved) state.focusSys = sysList[0] ? sysList[0].id : null;
+  recomputeTzShift();
+  // simSec 一律是聚焦城市當地時間;keepTime(勾選同框成員切換)時保留現有時刻不重置
+  if (!opts.keepTime) state.simSec = nowSecOfDay(focusedTz());
+  else if (focusMoved) // 聚焦城市被移除而順移:re-anchor 到同一絕對時刻,其餘城市列車不跳動
+    state.simSec = (((state.simSec + tzOffsetSec(focusedTz()) - tzOffsetSec(prevFocusTz)) % 86400) + 86400) % 86400;
   // 逐系統貼軌:只在同系統軌道上找,避免跨系統誤貼
   state._segStats = { onShape: 0, straight: 0 };
   for (const sys of sysList) {
@@ -1650,7 +1666,7 @@ function recomputeTrains() {
 function updateCount() {
   let n = 0;
   if (state.mode === 'sched') {
-    for (const tr of state.trains) if (state.visible.has(tr.typeName) && trainPos(tr, state.simSec)) n++;
+    for (const tr of state.trains) if (state.visible.has(tr.typeName) && trainPos(tr, trainSimSec(tr))) n++;
   } else {
     state.lines.forEach(ln => { if (state.visible.has(ln.id)) n += ln.n; });
   }
@@ -1845,14 +1861,15 @@ function drawSched(w, h) {
   for (const tr of state.trains) {
     const isFollow = tr === state.followTrain;
     if (!isFollow && !state.visible.has(tr.typeName)) continue;
-    const pos = trainPos(tr, state.simSec); if (!pos) continue;
+    const ts = trainSimSec(tr); // 各城列車依自己當地時間評估(多時區同框)
+    const pos = trainPos(tr, ts); if (!pos) continue;
     if (state.visible.has(tr.typeName)) n++;
     const cp = map.latLngToContainerPoint([pos.lat, pos.lon]);
     if (isFollow) { drawFollowMarker(cp, tr); state._trainHits.push({ x: cp.x, y: cp.y, tr }); continue; }
     if (!inView(cp)) continue;
     state._trainHits.push({ x: cp.x, y: cp.y, tr }); // 供點擊/hover 命中測試(每幀重建)
     const glowC = isHSR(tr) ? HSR_ORANGE : tr.color;
-    drawTrail(dt => trainPos(tr, state.simSec - dt), cp, glowC);
+    drawTrail(dt => trainPos(tr, ts - dt), cp, glowC);
     glowUnder(cp, glowC, showTrain ? 10 : 3.5); // 車號牌模式:光暈放大到繞出牌緣,近看也發亮
     if (showTrain) isHSR(tr) ? drawHSRTag(cp, tr.train) : drawTag(cp, tr.train, tr.color, textColorFor(tr.color));
     else isHSR(tr) ? drawHSRDot(cp) : drawDot(cp, tr.color);
@@ -1874,7 +1891,8 @@ function drawSched(w, h) {
 
 function drawFollowMarker(p, tr) {
   const glowC = isHSR(tr) ? HSR_ORANGE : tr.color;
-  drawTrail(dt => trainPos(tr, state.simSec - dt), p, glowC);
+  const ts = trainSimSec(tr);
+  drawTrail(dt => trainPos(tr, ts - dt), p, glowC);
   glowUnder(p, glowC, 7); // 跟隨主角:光暈最強
   const dw = dwellInfoOf(tr, effT(tr));
   if (dw && dw.st.stop !== false) { // 停站脈動:外圈呼吸擴散
@@ -2304,9 +2322,6 @@ function retimeLoopTrains() {
 // ── 軌道系統分組:同群同時間制,可同框;群組互斥切換,閃掉混模式統一時鐘的難題 ──
 // freq 群(北北桃/中南部):群內多選、班距示意同框。sched 群(國家鐵路):台鐵/高鐵單選(即時)。
 const GROUPS = [
-  { id: 'norway', label: '挪威', mode: 'sched', members: ['norway_sched'],
-    plate: { plateL: 'Bodø', plateR: 'Stavanger', sub: 'NORWAY RAIL · 海外實驗版',
-      lead: '挪威鐵道依當日真實時刻表運行，時鐘自動換算奧斯陸當地時間 — 點列車跟隨、點車站看班次。此為海外擴張 POC，資料時區與路網為實驗性質。' } },
   { id: 'nat', label: '國家鐵路', mode: 'sched', members: ['tra_sched', 'thsr_sched'],
     plate: { plateL: '基隆', plateR: '枋寮', sub: '台灣鐵道即時軌跡',
       lead: '台鐵與高鐵同框運行，皆依當日真實時刻表（台鐵回到現在時刻自動套用即時誤點）— 點列車跟隨、點車站看班次，或按地圖角落「探」看今日亮點。' } },
@@ -2319,8 +2334,13 @@ const GROUPS = [
   { id: 'all', label: '全台同框', mode: 'all', members: [],
     plate: { plateL: '基隆', plateR: '高雄', sub: 'ALL LINES · TAIWAN',
       lead: '全台鐵道一次看 — 台鐵與高鐵依真實時刻表運行（台鐵套即時誤點），捷運與輕軌為示意動畫（非即時），只為讓整張地圖熱鬧好看。' } },
+  { id: 'world', label: '世界', mode: 'sched', members: ['norway_sched', 'nyc_sched'],
+    plate: { plateL: 'Oslo', plateR: 'New York', sub: 'WORLD RAIL · 海外實驗版',
+      lead: '海外城市同框 — 勾選上方城市即飛往當地，各城列車依當地時間運行。此為海外擴張 POC，資料時區與路網為實驗性質。' } },
 ];
 const groupOf = id => GROUPS.find(g => g.members.includes(id)) || GROUPS[0];
+// 世界群組首屏預設勾選:'both'=挪威+紐約全開、'norway'=只開挪威(效能實測決定,見 boot)
+const WORLD_DEFAULT = 'both';
 
 // 台鐵/高鐵(sched)專屬工具鈕(今日亮點/我的最愛/旅程收集/隨機跟隨/特殊站介紹)只在 sched 顯示;
 // 捷運/輕軌(freq)沒有車次、完乘、特別列車這些概念,隱藏這些鈕。用 inline display 蓋過 .stage-tools 的 flex。
@@ -2430,7 +2450,8 @@ function renderSystemsBar() {
     b.dataset.id = id;
     if (cur.mode === 'sched') {
       const on = !!(state.schedSel && state.schedSel.has(id));
-      b.className = 'mem sched' + (on ? ' on' : ' off');
+      const foc = cur.id === 'world' && state.focusSys === id; // 世界群組:標示聚焦城市
+      b.className = 'mem sched' + (on ? ' on' : ' off') + (foc ? ' focused' : '');
       b.innerHTML = '<span class="memck">' + (on ? '✓' : '') + '</span>' + sys.label;
       b.onclick = () => toggleSchedMember(id);
     } else {
@@ -2504,21 +2525,27 @@ function toggleFreqMember(id) {
 }
 
 // sched 群組(國家鐵路):台鐵+高鐵同框(皆真實時刻表);群內可多選,預設全開
-function loadSchedGroup(g, sel, keepView) {
+function loadSchedGroup(g, sel, keepView, keepTime) {
   if (state.autoTour) setAutoTour(false);
   clearFollow();
   const ts = document.getElementById('trainSearch'); if (ts) ts.value = '';
   state.group = g.id;
   const avail = g.members.filter(id => state.systems.some(s => s.id === id));
-  state.schedSel = sel || new Set(avail);
+  // 世界群組首屏預設勾選由 WORLD_DEFAULT 決定(norway=只挪威、both=全開);台灣一律全成員
+  state.schedSel = sel || (g.id === 'world' && WORLD_DEFAULT === 'norway'
+    ? new Set(avail.filter(id => id === 'norway_sched')) : new Set(avail));
   const list = avail.filter(id => state.schedSel.has(id)).map(id => state.systems.find(s => s.id === id));
   if (!list.length) { renderSystemsBar(); return; } // toggle 有防呆,理論上不會空
   state.sysId = list[0].id; // 收藏/成就沿用主系統 key(台鐵),不因同框改動
-  applySchedSystems(list);
-  if (!keepView) fitData(state.schedStations.map(s => [s.lat, s.lon]));
+  applySchedSystems(list, { keepTime });
+  // 世界群組:框景只框聚焦城市(不框橫跨大西洋的兩城合集);台灣照舊框全部
+  if (!keepView) fitData(g.id === 'world' ? sysLatLngs(focusedSys()) : state.schedStations.map(s => [s.lat, s.lon]));
   reproject();
   const total = state.trains.length;
-  document.getElementById('note').textContent = list.length > 1
+  document.getElementById('note').textContent = g.id === 'world'
+    ? ('海外城市同框（實驗版）— 各城列車依當地時間運行，勾選上方城市即飛往當地並切換時鐘，共 ' + total + ' 車次。' +
+       '紐約時刻取自 MTA 快照、挪威為當日時刻表，皆非即時；本站與 MTA 及各營運機構無隸屬或授權關係。')
+    : list.length > 1
     ? ('台鐵＋高鐵同框，皆依當日真實時刻表運行（台鐵回到現在時刻自動套用即時誤點修正），共 ' + total + ' 車次。' +
        '兩鐵路線與車站同時顯示，點列車跟隨、點車站看班次。')
     : (list[0].live
@@ -2529,15 +2556,36 @@ function loadSchedGroup(g, sel, keepView) {
   populateTrainList();
   document.getElementById('searchRow').hidden = false;
   document.getElementById('flowWrap').hidden = false;
-  finishLoad(list.length > 1 ? g.plate : SYS_META[list[0].id]);
+  // 世界群組:頭牌顯示聚焦城市;台灣照舊(同框用群組牌、單系統用該系統牌)
+  finishLoad(g.id === 'world' ? (SYS_META[state.focusSys] || g.plate)
+    : (list.length > 1 ? g.plate : SYS_META[list[0].id]));
   renderSystemsBar();
 }
 
+// 世界群組:勾選=聚焦+飛往;點已勾選的非聚焦城市=只聚焦+飛(不跳動);點聚焦中城市=關閉(至少留一)。
+// 台灣國家鐵路:原多選同框行為,不動聚焦與地圖。
 function toggleSchedMember(id) {
   if (!state.schedSel) state.schedSel = new Set();
-  if (state.schedSel.has(id)) { if (state.schedSel.size <= 1) return; state.schedSel.delete(id); }
-  else state.schedSel.add(id);
   const g = GROUPS.find(x => x.id === state.group);
+  const on = state.schedSel.has(id);
+  if (g && g.id === 'world') {
+    if (!on) { // OFF→ON:加入同框、聚焦、飛過去
+      state.schedSel.add(id);
+      loadSchedGroup(g, state.schedSel, true, true); // keepView + keepTime(不重置時刻)
+      setFocusSys(id, { fly: true, force: true });
+    } else if (state.focusSys !== id) { // 已勾選但非聚焦:只聚焦+飛,列車不跳動(re-anchor)
+      setFocusSys(id, { fly: true });
+    } else { // 點聚焦中的城市:關閉(至少留一個);聚焦順移到下一個勾選中的城市並飛過去(不然停在空城)
+      if (state.schedSel.size <= 1) return;
+      state.schedSel.delete(id);
+      const nextId = [...state.schedSel][0];
+      loadSchedGroup(g, state.schedSel, true, true); // applySchedSystems 內已 re-anchor 到 nextId
+      setFocusSys(nextId, { fly: true });
+    }
+    return;
+  }
+  if (on) { if (state.schedSel.size <= 1) return; state.schedSel.delete(id); }
+  else state.schedSel.add(id);
   loadSchedGroup(g, state.schedSel, true); // keepView:切換成員不重新框景
 }
 
@@ -2613,10 +2661,10 @@ function findTrain(q) {
 
 // 跨午夜車次的有效模擬時間:00:00 後仍在跑的前一日班次,把 simSec 加一天來比對
 function effT(tr) {
-  const s = tr.stops;
-  if (tr.loop) return s[0].arrSec + ((state.simSec - s[0].arrSec) % tr.loopSec + tr.loopSec) % tr.loopSec; // 環島車:映回本圈
-  return (state.simSec < s[0].arrSec && state.simSec + 86400 <= s[s.length - 1].depSec)
-    ? state.simSec + 86400 : state.simSec;
+  const s = tr.stops, base = trainSimSec(tr); // 該車所屬城市的當地時間(多時區同框)
+  if (tr.loop) return s[0].arrSec + ((base - s[0].arrSec) % tr.loopSec + tr.loopSec) % tr.loopSec; // 環島車:映回本圈
+  return (base < s[0].arrSec && base + 86400 <= s[s.length - 1].depSec)
+    ? base + 86400 : base;
 }
 
 // 跟隨時把播放/速度控制列移到地圖下第一排(資訊卡上方),取消跟隨移回原位
@@ -2646,6 +2694,8 @@ function setFollow(tr, isAuto, noJump, opts) {
   if (!isAuto && state.autoTour) setAutoTour(false); // 使用者手動選車即接手,退出隨機模式
   closeBoard(); // 不管從哪裡選到車(看板列/地圖點車/搜尋/最愛),車站看板一律收掉
   state.followTrain = tr; state.followId = tr.train;
+  // 跟隨某城列車即聚焦該城(時鐘/成就池/頭牌換過去);同時區不重錨,列車位置不跳動
+  if (state.mode === 'sched' && state.schedSystems && state.schedSystems.length) setFocusSys(tr.sys);
   // 深連結帶模擬時間:對方打開時車在同一位置
   try { history.replaceState(null, '', '?train=' + encodeURIComponent(tr.train) + '&t=' + fmtHM(state.simSec)); } catch (e) {}
   const first = tr.stops[0], last = tr.stops[tr.stops.length - 1];
@@ -2662,7 +2712,7 @@ function setFollow(tr, isAuto, noJump, opts) {
     syncTimeUI();
   }
   if (!noJump) {
-    const pos = trainPos(tr, state.simSec) || { lat: first.lat, lon: first.lon };
+    const pos = trainPos(tr, trainSimSec(tr)) || { lat: first.lat, lon: first.lon };
     map.setView([pos.lat, pos.lon], Math.max(map.getZoom(), 13), { animate: false });
   }
   state.followStatus = null; renderFollowBar();
@@ -2771,7 +2821,7 @@ function trainIntro(tr) {
 const TOUR_W = { '其他': 24, '莒光/復興': 10, '自強': 5, '區間快': 2, '區間車': 1 };
 function pickTourTrain() {
   const cands = state.trains.filter(t =>
-    t !== state.followTrain && state.visible.has(t.typeName) && trainPos(t, state.simSec));
+    t !== state.followTrain && state.visible.has(t.typeName) && trainPos(t, trainSimSec(t)));
   if (!cands.length) return null;
   let total = 0;
   const ws = cands.map(t => {
@@ -2803,7 +2853,7 @@ function nextTourTrain(now) {
 const AMBIENT_Z = 14;
 function ambientJumpTo(tr) {
   setFollow(tr, true, true);
-  const p = trainPos(tr, state.simSec) || tr.stops[0];
+  const p = trainPos(tr, trainSimSec(tr)) || tr.stops[0];
   map.setView([p.lat, p.lon], AMBIENT_Z, { animate: false });
 }
 // 放空模式換車:淡出 → 直接切到下一班 → 淡入(不拉高俯瞰)
@@ -3169,6 +3219,34 @@ function closeFavPanel() {
 // 手動跟隨(非放空/隨機)一路看到抵達終點=完乘一趟;同日同車次只記一次
 function loadRides() { try { return JSON.parse(localStorage.getItem('trainmap-rides') || '[]'); } catch (e) { return []; } }
 function saveRides(r) { try { localStorage.setItem('trainmap-rides', JSON.stringify(r)); } catch (e) {} }
+// ── 城市/國家池(隔離單位):每個池的旅程收集與成就完全獨立 ──
+// 隔離的最小單位是「池」而非「群組」:介面即將改版為單一「世界」群組內用勾選框切城市,
+// 屆時挪威＋紐約會同在世界群組,只有「池」才能保證每城獨立。新增城市在下表加一行即可。
+// 舊紀錄無 sys 一律歸台灣('tw'),與既有慣例一致。
+const SYS_POOL = {
+  tra_sched: 'tw', thsr_sched: 'tw', mrt: 'tw', trtc: 'tw', tymc: 'tw',
+  ntdlrt: 'tw', ntalrt: 'tw', krtc: 'tw', tmrt: 'tw',
+  norway_sched: 'norway',
+  nyc_sched: 'nyc',
+};
+function poolKey(sysId) { return SYS_POOL[sysId] || 'tw'; } // 未登記/舊紀錄一律歸 'tw'
+// 目前聚焦中的池。⚠️ 接縫(SEAM):世界群組改版後,聚焦城市由世界頁籤的勾選/聚焦 UI 決定;
+// 屆時把本函式改成回傳「聚焦中的城市系統之池」即可,ridesInScope 與所有呼叫點不必動。
+// 暫解:作用中 sched 系統裡第一個海外池(唯一海外成員/第一個勾選中的海外系統),沒有海外則台灣。
+function activePool() {
+  const f = focusedSys(); // 世界群組:以聚焦城市的池為準
+  if (f) return poolKey(f.id);
+  for (const s of (state.schedSystems || [])) { const p = poolKey(s.id); if (p !== 'tw') return p; }
+  return 'tw';
+}
+// 顯示/統計/成就判定一律吃這份過濾後的紀錄:只留指定池(預設聚焦池)的完乘,切城市互不干擾。
+function ridesInScope(pool) {
+  const key = pool || activePool();
+  return loadRides().filter(r => poolKey(r.sys) === key);
+}
+// 特別列車圖鑑(明星/車種/支線)與其衍生成就是台灣('tw')專屬資料;
+// 聚焦池非台灣時,這些類別整組不渲染——海外池不留一堆未達成空殼佔版面。
+function scopeHasSpecial() { return !!state.special && activePool() === 'tw'; }
 function recordRide(tr) {
   if (state.autoTour) return; // 掛機自動跑完不算,親自跟完才蓋章
   const today = todayStr(activeTz()); // 海外群組:以該群當地日期判定「今天」
@@ -3179,7 +3257,9 @@ function recordRide(tr) {
   const it = trainIntro(tr), s = tr.stops;
   journeyProgress(tr, 0); // 確保 _totalKm 已算
   const spd = specialOf(tr) || {}; // 圖鑑收集用的比對 id(undefined 會被 JSON 丟掉,舊記錄以名稱字串補配)
-  const prevColl = collectionOf(rides), prevAch = unlockedAchievements(rides); // push 前快照,差分找新蓋的章
+  const ridePool = poolKey(tr.sys); // 差分快照/通知一律以「這班車自己的池」為準,別城的章不摻進通知
+  const scopedBefore = ridesInScope(ridePool);
+  const prevColl = collectionOf(scopedBefore), prevAch = unlockedAchievements(scopedBefore);
   rides.push({
     train: tr.train,
     sys: tr.sys, // 系統維度:去重/跨系統統計用(舊紀錄無此欄,讀取時視為 'tra_sched')
@@ -3199,12 +3279,12 @@ function recordRide(tr) {
   pushFollowEvent('ride:' + tr.train, '🎫 完乘達成！已記入旅程收集', true);
   renderRidePanel();
   renderPassport();
-  announceCollections(tr, rides, prevColl, prevAch);
+  announceCollections(tr, ridesInScope(ridePool), prevColl, prevAch); // 重讀已含新章的同池紀錄
 }
 function renderRidePanel() {
   const el = document.getElementById('ridePanel');
   if (el.hidden) return;
-  const rides = loadRides();
+  const rides = ridesInScope(); // 只算目前群組(城市/國家)的完乘
   const totalKm = rides.reduce((a, r) => a + (r.km || 0), 0);
   const kinds = [...new Set(rides.map(r => r.kind))];
   el.innerHTML = `<button class="close" id="rideClose">×</button>` +
@@ -3266,12 +3346,12 @@ const ACHIEVEMENTS = [
   { id: 'stops50',  icon: '🐌', name: '站站是風景',     desc: '完乘一班停靠 50 站以上的慢車' },
   { id: 'early',    icon: '🌄', name: '早鳥',           desc: '完乘一班清晨 6 點前發車的列車' },
   { id: 'night',    icon: '🌙', name: '夜行者',         desc: '完乘一班晚上 10 點後發車的列車' },
-  { id: 'loop',     icon: '♾️', name: '山海平原',       desc: '跟著山海號或平原號連續跟滿一整輪來回（臺北⇄枋寮⇄臺北）' },
+  { id: 'loop',     icon: '♾️', name: '山海平原',       desc: '跟著山海號或平原號連續跟滿一整輪來回（臺北⇄枋寮⇄臺北）', special: true },
   { id: 'day3',     icon: '📅', name: '一日三乘',       desc: '同一天完乘 3 趟' },
-  { id: 'tilting',  icon: '⚖️', name: '傾斜雙雄',       desc: '收集太魯閣號與普悠瑪號兩枚傾斜式車種章' },
-  { id: 'namedAll', icon: '🌟', name: '明星集郵冊',     desc: '收集所有明星列車章' },
-  { id: 'stockAll', icon: '📖', name: '車種全圖鑑',     desc: '收集全部車種章' },
-  { id: 'branchAll', icon: '🌿', name: '支線制霸',      desc: '六條支線全數完乘' },
+  { id: 'tilting',  icon: '⚖️', name: '傾斜雙雄',       desc: '收集太魯閣號與普悠瑪號兩枚傾斜式車種章', special: true },
+  { id: 'namedAll', icon: '🌟', name: '明星集郵冊',     desc: '收集所有明星列車章', special: true },
+  { id: 'stockAll', icon: '📖', name: '車種全圖鑑',     desc: '收集全部車種章', special: true },
+  { id: 'branchAll', icon: '🌿', name: '支線制霸',      desc: '六條支線全數完乘', special: true },
 ];
 const ACH_TESTS = {
   first:  r => r.length >= 1,
@@ -3292,10 +3372,12 @@ const ACH_TESTS = {
   stockAll: (r, c) => state.special && c.stock.size >= state.special.rollingStock.length,
   branchAll: (r, c) => state.special && c.branch.size >= state.special.branchLines.length,
 };
+// 作用中群組看得到的成就:海外群組(不含台鐵)濾掉特別列車衍生成就,只留通用成就(完乘趟數/里程等每城獨立計數)。
+function scopedAchievements() { return scopeHasSpecial() ? ACHIEVEMENTS : ACHIEVEMENTS.filter(a => !a.special); }
 function unlockedAchievements(rides) {
   const coll = collectionOf(rides);
   const km = rides.reduce((a, r) => a + (r.km || 0), 0);
-  return new Set(ACHIEVEMENTS.filter(a => ACH_TESTS[a.id](rides, coll, km)).map(a => a.id));
+  return new Set(scopedAchievements().filter(a => ACH_TESTS[a.id](rides, coll, km)).map(a => a.id));
 }
 // 收集通知:完乘的當下彈出「完乘達成→新蓋的章→解鎖的成就」,間隔 700ms 依序出現
 function showToast(msg) {
@@ -3310,25 +3392,25 @@ function showToast(msg) {
 }
 function announceCollections(tr, rides, prevColl, prevAch) {
   const msgs = [`🎫 完乘達成　<b>${tr.train} 次</b> 抵達終點`];
-  const coll = collectionOf(rides), sd = state.special;
+  const coll = collectionOf(rides), sd = scopeHasSpecial() ? state.special : null;
   if (sd) {
     sd.namedTrains.forEach(n => { if (coll.named.has(n.id) && !prevColl.named.has(n.id)) msgs.push(`⭐ 明星列車　<b>${n.name}</b> 蓋章！`); });
     sd.rollingStock.forEach(s => { if (coll.stock.has(s.id) && !prevColl.stock.has(s.id)) msgs.push(`🚆 車種圖鑑　<b>${s.name}</b> 蓋章！`); });
     sd.branchLines.forEach(b => { if (coll.branch.has(b.id) && !prevColl.branch.has(b.id)) msgs.push(`🛤 支線行腳　<b>${b.name}</b> 蓋章！`); });
   }
   const ach = unlockedAchievements(rides);
-  ACHIEVEMENTS.forEach(a => { if (ach.has(a.id) && !prevAch.has(a.id)) msgs.push(`🏆 成就解鎖　<b>${a.icon} ${a.name}</b>`); });
+  scopedAchievements().forEach(a => { if (ach.has(a.id) && !prevAch.has(a.id)) msgs.push(`🏆 成就解鎖　<b>${a.icon} ${a.name}</b>`); });
   msgs.forEach((m, i) => setTimeout(() => showToast(m), i * 700));
 }
 function repTrainOf(cands) {
-  return cands.find(t => trainPos(t, state.simSec))
-    || cands.filter(t => t.stops[0].depSec > state.simSec).sort((a, b) => a.stops[0].depSec - b.stops[0].depSec)[0]
+  return cands.find(t => trainPos(t, trainSimSec(t)))
+    || cands.filter(t => t.stops[0].depSec > trainSimSec(t)).sort((a, b) => a.stops[0].depSec - b.stops[0].depSec)[0]
     || cands[0] || null;
 }
 function renderPassport() {
   const el = document.getElementById('passport');
   if (state.mode !== 'sched') { el.hidden = true; el.innerHTML = ''; return; }
-  const rides = loadRides();
+  const rides = ridesInScope(); // 只算目前群組(城市/國家)的完乘
   const totalKm = rides.reduce((a, r) => a + (r.km || 0), 0);
   const longest = rides.reduce((a, r) => Math.max(a, r.km || 0), 0);
   const stampRow = (label, items) => {
@@ -3339,7 +3421,7 @@ function renderPassport() {
         ` title="${i.tip || ''}">${i.got ? '✓ ' : ''}${i.name}</span>`).join('') + `</div>`;
   };
   let stamps = '';
-  const sd = state.special;
+  const sd = scopeHasSpecial() ? state.special : null; // 海外群組不含台鐵→不渲染台灣特別列車圖鑑
   if (sd) {
     const coll = collectionOf(rides);
     const MISS_TIP = '還沒搭過——點我去搭一班';
@@ -3360,10 +3442,11 @@ function renderPassport() {
     });
     stamps = stampRow('明星列車', named) + stampRow('車種圖鑑', stocks) + stampRow('支線行腳', branches);
   }
-  // 成就徽章:全由完乘記錄推導,鎖住的滑過看解鎖條件
+  // 成就徽章:全由完乘記錄推導,鎖住的滑過看解鎖條件;海外群組只列通用成就(不含台灣特別列車衍生成就)
   const ach = unlockedAchievements(rides);
-  stamps += `<div class="ph-sec">成就徽章<b>${ach.size}/${ACHIEVEMENTS.length}</b></div><div class="ph-stamps">` +
-    ACHIEVEMENTS.map(a =>
+  const achList = scopedAchievements();
+  stamps += `<div class="ph-sec">成就徽章<b>${ach.size}/${achList.length}</b></div><div class="ph-stamps">` +
+    achList.map(a =>
       `<span class="stamp na${ach.has(a.id) ? ' got' : ''}" title="${a.desc}">${ach.has(a.id) ? '✓ ' : ''}${a.icon} ${a.name}</span>`).join('') + '</div>';
   const list = rides.slice().reverse().map(r =>
     `<div class="ph-row"><span class="d">${(r.date || '').slice(5)}</span><b>${r.train}</b>` +
@@ -3430,8 +3513,8 @@ function computeHighlights() {
     }
     // 稀有車種各挑一班代表:行駛中優先,其次最近一班未發車
     const pickRep = cands =>
-      cands.find(t => trainPos(t, state.simSec))
-      || cands.filter(t => t.stops[0].depSec > state.simSec).sort((a, b) => a.stops[0].depSec - b.stops[0].depSec)[0]
+      cands.find(t => trainPos(t, trainSimSec(t)))
+      || cands.filter(t => t.stops[0].depSec > trainSimSec(t)).sort((a, b) => a.stops[0].depSec - b.stops[0].depSec)[0]
       || cands[0];
     for (const r of sd.rollingStock) {
       if (r.rarity !== '稀有') continue;
@@ -3446,10 +3529,10 @@ function computeHighlights() {
   return out;
 }
 function hlRow(h) {
-  const tr = h.tr, last = tr.stops[tr.stops.length - 1];
-  const running = !!trainPos(tr, state.simSec);
+  const tr = h.tr, last = tr.stops[tr.stops.length - 1], ts = trainSimSec(tr);
+  const running = !!trainPos(tr, ts);
   const status = running ? '行駛中'
-    : (state.simSec > last.arrSec ? '重播' : fmtHM(tr.stops[0].depSec % 86400) + ' 發');
+    : (ts > last.arrSec ? '重播' : fmtHM(tr.stops[0].depSec % 86400) + ' 發');
   return `<div class="row" data-no="${tr.train}" title="跟隨 ${tr.train} 次"><span class="dot" style="background:${tr.color}"></span>` +
     `<b>${h.title}</b><span class="dest">${tr.train}次 ${tr.stops[0].name}→${last.name}${h.sub ? ' · ' + h.sub : ''}</span>` +
     `<span class="min">${status}</span></div>`;
@@ -3526,7 +3609,7 @@ function renderFollowEvents() {
 function scanFollowEvents() {
   const tr = state.followTrain;
   if (!tr || state.mode !== 'sched') return;
-  const t = state.simSec;
+  const t = trainSimSec(tr);
   const myP = trainPos(tr, t); if (!myP) return;
   const dw = dwellInfoOf(tr, effT(tr));
   if (dw && dw.st.stop !== false && dw.total >= 20) {
@@ -3539,10 +3622,11 @@ function scanFollowEvents() {
   const myMoving = !dw && Math.hypot(mvx, mvy) > 1e-7;
   for (const o of state.trains) {
     if (o === tr) continue;
-    const p = trainPos(o, t); if (!p) continue;
+    const ot = trainSimSec(o); // 對向車依自己城市時間評估(跨城不會空間相近,粗篩會擋掉)
+    const p = trainPos(o, ot); if (!p) continue;
     if (Math.abs(p.lat - myP.lat) > 0.006 || Math.abs(p.lon - myP.lon) > 0.006) continue; // 粗篩 ~600m
     if (haversineKm(myP, p) > 0.45) continue;
-    const q = trainPos(o, t + 30) || p;
+    const q = trainPos(o, ot + 30) || p;
     const ovx = q.lon - p.lon, ovy = q.lat - p.lat;
     if (Math.hypot(ovx, ovy) < 1e-7) continue; // 對方也停著(同站停靠),不記
     const dot = mvx * ovx + mvy * ovy;
@@ -3698,7 +3782,8 @@ function updateFollowPanel(tr) {
     plate.classList.add('show');
   } else { plate.classList.remove('show'); state._plateStop = null; }
   // 即時時速(取前後 20 秒位移換算);大數字讀數,看著有速度感
-  const pa = trainPos(tr, state.simSec), pb = trainPos(tr, state.simSec + 20);
+  const _ts = trainSimSec(tr);
+  const pa = trainPos(tr, _ts), pb = trainPos(tr, _ts + 20);
   const kmh = (pa && pb) ? haversineKm(pa, pb) / 20 * 3600 : 0;
   document.getElementById('fpSpd').innerHTML = '<b>' + Math.round(kmh) + '</b> km/h';
   // 旅程進度條
@@ -3791,7 +3876,7 @@ function updateFollowCamera() {
     }
     return;
   }
-  const pos = trainPos(tr, state.simSec);
+  const pos = trainPos(tr, trainSimSec(tr));
   if (!pos) { const f = tr.stops[0]; if (state.followLock) recenterTo(f.lat, f.lon); setFollowStatus('pre', '尚未發車'); return; }
   setFollowStatus('run', '');
   if (state.followLock) recenterTo(pos.lat, pos.lon);
@@ -3803,9 +3888,9 @@ function setFollowLock(on) {
   state.followLock = on;
   if (on && state.followTrain) {
     // trainPos 為 null 有兩種:發車前回起點、抵達後回終點,不能一律回起點
-    const s = state.followTrain.stops;
-    const p = trainPos(state.followTrain, state.simSec)
-      || (state.simSec > s[s.length - 1].depSec ? s[s.length - 1] : s[0]);
+    const s = state.followTrain.stops, ts = trainSimSec(state.followTrain);
+    const p = trainPos(state.followTrain, ts)
+      || (ts > s[s.length - 1].depSec ? s[s.length - 1] : s[0]);
     recenterTo(p.lat, p.lon);
   }
   updateFollowLockUI();
@@ -3852,7 +3937,7 @@ function tzOffsetSec(tz) {
 // 作用中情境的時區:sched 用已載入系統、freq/單系統用 state.sys 或群組首個成員,預設台北
 function activeTz() {
   let sys = null;
-  if (state.mode === 'sched' && state.schedSystems && state.schedSystems.length) sys = state.schedSystems[0];
+  if (state.mode === 'sched' && state.schedSystems && state.schedSystems.length) sys = focusedSys() || state.schedSystems[0];
   else if (state.sys) sys = state.sys;
   else {
     const g = GROUPS.find(x => x.id === state.group);
@@ -3875,6 +3960,70 @@ function nowHour(tz) {
 function todayStr(tz) {
   if (!tz || tz === 'Asia/Taipei') return new Date().toLocaleDateString('sv'); // 預設:裝置本地日期
   return new Date().toLocaleDateString('sv', { timeZone: tz });
+}
+
+// ── 多時區同框(世界群組):state.simSec 一律是「聚焦城市的當地當日秒數」；
+// 各系統列車評估時間 = simSec + 該系統與聚焦城市的 UTC 偏移差(sysShiftSec)。
+// 台灣/單一時區群組:所有成員同時區,shift 全 0,trainSimSec === state.simSec,行為零變化。
+function focusedSys() {
+  const ss = state.schedSystems || [];
+  return ss.find(s => s.id === state.focusSys) || ss[0] || null;
+}
+function focusedTz() { const s = focusedSys(); return (s && s.tz) || 'Asia/Taipei'; }
+// 每個 sched 系統相對聚焦城市要加的秒數(=off(sysTz)-off(focusTz));聚焦/套用系統時重算並快取
+function recomputeTzShift() {
+  const m = {}, fOff = tzOffsetSec(focusedTz());
+  for (const s of (state.schedSystems || [])) m[s.id] = tzOffsetSec(s.tz || 'Asia/Taipei') - fOff;
+  state._tzShift = m;
+}
+function sysShiftSec(id) { return (state._tzShift && state._tzShift[id]) || 0; }
+// 某系統當前的「當地當日秒數」(normalize 到 [0,86400);trainPos 內部再處理跨午夜 +86400)
+function simSecForSys(id) { const v = state.simSec + sysShiftSec(id); return ((v % 86400) + 86400) % 86400; }
+function trainSimSec(tr) { return simSecForSys(tr.sys); }
+// 切換聚焦城市:同一絕對時刻換基準(simSec 加兩城 offset 差),所有列車位置不跳動；
+// 時鐘/成就池/頭牌端點站名跟著換。opts.fly=飛往該城；opts.force 強制重跑(初始套用用)。
+function setFocusSys(id, opts) {
+  opts = opts || {};
+  const ss = state.schedSystems || [];
+  if (!ss.some(s => s.id === id)) return;
+  if (state.focusSys === id && !opts.force) { if (opts.fly) flyToSys(id); return; }
+  const oldTz = focusedTz();
+  state.focusSys = id;
+  const newTz = focusedTz();
+  state.simSec = (((state.simSec + tzOffsetSec(newTz) - tzOffsetSec(oldTz)) % 86400) + 86400) % 86400;
+  recomputeTzShift();
+  syncTimeUI();
+  if (state.group === 'world') { // 世界群組:頭牌端點站名/副標跟著聚焦城市換
+    const meta = SYS_META[id];
+    if (meta) {
+      document.getElementById('plateL').textContent = meta.plateL;
+      document.getElementById('plateR').textContent = meta.plateR;
+      document.getElementById('plateSub').textContent = meta.sub;
+      document.getElementById('lead').textContent = meta.lead;
+    }
+  }
+  renderPassport(); renderFavs(); refreshBadge();
+  if (state.boardStation) renderBoard();
+  renderSystemsBar(); // 更新聚焦城市的高亮
+  if (opts.fly) flyToSys(id);
+}
+// 某系統的地理範圍(由軌道 shape/stations 算,快取在 sys 上)
+function sysLatLngs(sys) {
+  if (sys._latlngs) return sys._latlngs;
+  const pts = [];
+  if (sys._track && sys._track.lines) for (const l of sys._track.lines) {
+    if (l.shape) for (const p of l.shape) pts.push([p[0], p[1]]);
+    else if (l.stations) for (const s of l.stations) pts.push([s.lat, s.lon]);
+  }
+  if (!pts.length && sys.data && sys.data.trains) // 無軌道檔:退回時刻表停靠站抽樣
+    for (const tr of sys.data.trains) for (const s of tr.stops) pts.push([s.lat, s.lon]);
+  return (sys._latlngs = pts);
+}
+function flyToSys(id) {
+  const sys = state.systems.find(s => s.id === id); if (!sys) return;
+  const pts = sysLatLngs(sys); if (!pts.length) return;
+  const b = L.latLngBounds(pts); if (!b.isValid()) return;
+  map.flyToBounds(b, { padding: [40, 40], duration: 0.8, maxZoom: 13 });
 }
 
 // ── 台鐵即時誤點(TDX TrainLiveBoard,經 /api/tra-live 代理,每分鐘更新) ──
@@ -4109,6 +4258,7 @@ function renderBoard() {
   const el = document.getElementById('board'), st = state.boardStation;
   if (!st) { el.hidden = true; updateSheetOpenClass(); return; }
   state.boardRenderedAt = state.simSec;
+  const boardSec = simSecForSys(st.sys); // 看板以該站所屬城市的當地時間倒數(多時區同框)
   const rows = [];
   for (const tr of state.trains) {
     const stops = tr.stops;
@@ -4120,7 +4270,7 @@ function renderBoard() {
       const dl = Math.round(liveDelaySec(tr) / 60);
       // 山海/平原號一輪來回 12 小時=同站每日多個時刻(去程/回程×兩輪),每個都要上看板
       for (const t of (tr.loop ? [s.depSec, s.depSec + tr.loopSec] : [isLast ? s.arrSec : s.depSec])) {
-        let dtm = t + dl * 60 - state.simSec; // 誤點車以估計實際時刻排序/倒數
+        let dtm = t + dl * 60 - boardSec; // 誤點車以估計實際時刻排序/倒數
         if (dtm > 43200) dtm -= 86400; else if (dtm < -43200) dtm += 86400; // 跨午夜換日對齊
         if (dtm < -30 || dtm > 3 * 3600) continue; // 未來 3 小時內
         rows.push({ tr, t, dtm, dl, isLast, dest: stops[stops.length - 1].name,
@@ -4598,6 +4748,7 @@ async function boot() {
     { id: 'krtc', label: '高雄捷運', url: './data/krtc.json', speed: 36, mode: 'freq' },
     { id: 'tmrt', label: '台中捷運', url: './data/tmrt.json', speed: 32, mode: 'freq' },
     { id: 'norway_sched', label: '挪威鐵道', url: './data/norway_schedule_dense.json', mode: 'sched', track: './data/norway.json', tz: 'Europe/Oslo' },
+    { id: 'nyc_sched', label: '紐約地鐵', url: './data/nyc_schedule_dense.json', mode: 'sched', track: './data/nyc.json', tz: 'America/New_York' },
   ];
   for (const d of defs) {
     const data = await fetchJSON(d.url);
@@ -4625,11 +4776,13 @@ async function boot() {
     const m = /^(\d{1,2}):(\d{2})$/.exec(qs.get('t') || '');
     if (m) deepT = (+m[1] % 24) * 3600 + (+m[2]) * 60;
   } catch (e) {}
-  // 海外實驗版首屏:挪威群組打頭陣(POC 訪客第一眼看新東西);缺挪威資料時退回台灣國家鐵路群組。
-  const norwayGroup = GROUPS.find(g => g.id === 'norway');
+  // 海外實驗版首屏:世界群組(挪威打頭陣,聚焦挪威);缺挪威資料時退回台灣國家鐵路群組。
+  // 預設勾選城市由效能實測決定:WORLD_DEFAULT(見下)。全開跑得動就全開,跑不動只開挪威。
+  const worldGroup = GROUPS.find(g => g.id === 'world');
   const natGroup = GROUPS.find(g => g.id === 'nat');
-  if (norwayGroup && state.systems.some(s => s.id === 'norway_sched')) loadSchedGroup(norwayGroup);
-  else if (natGroup) loadSchedGroup(natGroup); // 首屏:台鐵+高鐵同框(缺高鐵資料時自動退回單台鐵)
+  if (worldGroup && state.systems.some(s => s.id === 'norway_sched')) {
+    loadSchedGroup(worldGroup); // 預設勾選由 loadSchedGroup 依 WORLD_DEFAULT 決定
+  } else if (natGroup) loadSchedGroup(natGroup); // 首屏:台鐵+高鐵同框(缺高鐵資料時自動退回單台鐵)
   else loadSystem(state.systems.find(s => s.id === 'tra_sched') || state.systems[0]);
   if (deepTrain && state.mode === 'sched') {
     if (deepT != null) setSimSec(deepT);
