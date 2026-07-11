@@ -2424,11 +2424,27 @@ const GROUPS = [
       lead: '全台鐵道一次看 — 台鐵與高鐵依真實時刻表運行（台鐵套即時誤點），捷運與輕軌為示意動畫（非即時），只為讓整張地圖熱鬧好看。' } },
   { id: 'world', label: '世界', mode: 'sched', members: ['norway_sched', 'nyc_sched', 'tokyo_sched', 'swiss_sched', 'singapore', 'london', 'istanbul_sched', 'sydney_sched', 'paris_sched', 'melbourne_sched', 'budapest_sched', 'vienna_sched'],
     plate: { plateL: 'Oslo', plateR: 'Tokyo', sub: 'WORLD RAIL · 海外實驗版',
-      lead: '海外城市同框 — 勾選上方城市即飛往當地，各城列車依當地時間運行。此為海外擴張 POC，資料時區與路網為實驗性質。' } },
+      lead: '海外城市 — 預設隨機開啟一座城市，勾選上方其他城市即時載入並飛往當地，各城列車依當地時間運行。此為海外擴張 POC，資料時區與路網為實驗性質。' } },
 ];
 const groupOf = id => GROUPS.find(g => g.members.includes(id)) || GROUPS[0];
-// 世界群組首屏預設勾選:'both'=挪威+紐約全開、'norway'=只開挪威(效能實測決定,見 boot)
-const WORLD_DEFAULT = 'both';
+// 世界群組首屏:不全開(12 城全載太重、fps 掉)。改為隨機開一座大城市三選一,其餘懶載入。
+const WORLD_BOOT_CANDIDATES = ['nyc_sched', 'tokyo_sched', 'istanbul_sched'];
+// 開場全世界視角(zoom 2,中心蓋歐亞美三洲);隨機城資料載妥後 flyToSys 降落。
+const WORLD_VIEW_CENTER = [30, 20], WORLD_VIEW_ZOOM = 2;
+// 各 sched 群組(世界/國家鐵路)記住上次勾選,切走再切回不重算、狀態保持。
+const GROUP_SEL = {};
+// 解析某 sched 群組要勾選哪些城市:先取記憶,無則世界群組隨機一城、台灣全成員。
+function schedGroupSel(g) {
+  const avail = g.members.filter(id => state.systems.some(s => s.id === id));
+  const saved = GROUP_SEL[g.id];
+  if (saved && saved.size) { const f = [...saved].filter(id => avail.includes(id)); if (f.length) return new Set(f); }
+  if (g.id === 'world') {
+    const c = WORLD_BOOT_CANDIDATES.filter(id => avail.includes(id));
+    const pick = c.length ? c[Math.floor(Math.random() * c.length)] : avail[0];
+    return new Set(pick ? [pick] : []);
+  }
+  return new Set(avail); // 台灣國家鐵路:全成員同框
+}
 
 // 台鐵/高鐵(sched)專屬工具鈕(今日亮點/我的最愛/旅程收集/隨機跟隨/特殊站介紹)只在 sched 顯示;
 // 捷運/輕軌(freq)沒有車次、完乘、特別列車這些概念,隱藏這些鈕。用 inline display 蓋過 .stage-tools 的 flex。
@@ -2463,6 +2479,8 @@ function finishLoad(meta) {
 }
 
 function loadSystem(sys) {
+  // 懶載入保險:資料未備妥(如放空/隨機跟隨從捷運切回台鐵時),先抓再重跑,期間顯示膠囊。
+  if (sys && !sys.data) { ensureSysData([sys.id]).then(ok => { if (ok) loadSystem(sys); }); return; }
   state.sysId = sys.id; state.sys = sys; state.data = sys.data; state.mode = sys.mode || 'freq';
   state.deco = false; state.decoLines = null; // 單系統載入不帶裝飾層
   if (state.autoTour) setAutoTour(false); // 手動換系統即退出隨機模式
@@ -2538,9 +2556,10 @@ function renderSystemsBar() {
     b.dataset.id = id;
     if (cur.mode === 'sched') {
       const on = !!(state.schedSel && state.schedSel.has(id));
+      const loading = !!(state._chipLoading && state._chipLoading.has(id)); // 懶載入中
       const foc = cur.id === 'world' && state.focusSys === id; // 世界群組:標示聚焦城市
-      b.className = 'mem sched' + (on ? ' on' : ' off') + (foc ? ' focused' : '');
-      b.innerHTML = '<span class="memck">' + (on ? '✓' : '') + '</span>' + sys.label;
+      b.className = 'mem sched' + (on ? ' on' : ' off') + (foc ? ' focused' : '') + (loading ? ' loading' : '');
+      b.innerHTML = '<span class="memck">' + (loading ? '⏳' : on ? '✓' : '') + '</span>' + sys.label;
       b.onclick = () => toggleSchedMember(id);
     } else {
       const on = !!(state.freqSel && state.freqSel.has(id));
@@ -2553,11 +2572,27 @@ function renderSystemsBar() {
   box.appendChild(mem);
 }
 
-function selectGroup(g) {
+// 群組切換:先懶載入該群組首屏需要的城市資料(載入膠囊 n/m),再套用。
+// 台灣國家鐵路「首次切換才載入」即走這條;世界群組沿用記憶勾選(狀態保持)。
+async function selectGroup(g) {
   if (state.group === g.id) return;
-  if (g.mode === 'all') loadAllGroup(g);
-  else if (g.mode === 'sched') loadSchedGroup(g);
-  else loadFreqGroup(g);
+  if (g.mode === 'freq') {
+    // freq 群組框景讀全成員(含未勾)幾何,故整組備妥;檔案皆小。
+    if (!(await ensureSysData(g.members))) { renderSystemsBar(); return; }
+    if (state.group === g.id) return; // 載入期間又被切走
+    loadFreqGroup(g); return;
+  }
+  if (g.mode === 'all') {
+    const freq = GROUPS.filter(x => x.mode === 'freq').flatMap(x => x.members);
+    if (!(await ensureSysData(['tra_sched', 'thsr_sched', ...freq]))) { renderSystemsBar(); return; }
+    if (state.group === g.id) return;
+    loadAllGroup(g); return;
+  }
+  // sched(世界/國家鐵路):解析一次勾選集,只抓要勾的城市,再以同一集套用(避免二次隨機不一致)。
+  const sel = schedGroupSel(g);
+  if (!(await ensureSysData([...sel]))) { renderSystemsBar(); return; }
+  if (state.group === g.id) return;
+  loadSchedGroup(g, sel);
 }
 
 // freq 群組:把選中成員系統的所有線路併入 state.lines,同框顯示(班距示意)
@@ -2613,25 +2648,26 @@ function toggleFreqMember(id) {
   renderSystemsBar(); // 不重新 fitData,地圖不跳動
 }
 
-// sched 群組(國家鐵路):台鐵+高鐵同框(皆真實時刻表);群內可多選,預設全開
-// fitAll:僅 boot 首屏傳 true——世界群組框景改框全部十二城範圍,不自動飛去聚焦城市(挪威);
-// 之後使用者點城市勾選框走 toggleSchedMember→setFocusSys(fly:true)才飛入,此參數不影響那條路徑
-function loadSchedGroup(g, sel, keepView, keepTime, fitAll) {
+// sched 群組:台灣國家鐵路=台鐵+高鐵同框(多選);世界=懶載入,預設隨機一城、可勾選其他城市。
+// keepView:切換成員/飛入前不重新框景;boot 世界首屏用 keepView 保住全世界視角,由 flyToSys 降落。
+function loadSchedGroup(g, sel, keepView, keepTime) {
   if (state.autoTour) setAutoTour(false);
   clearFollow();
   const ts = document.getElementById('trainSearch'); if (ts) ts.value = '';
   state.group = g.id;
   const avail = g.members.filter(id => state.systems.some(s => s.id === id));
-  // 世界群組首屏預設勾選由 WORLD_DEFAULT 決定(norway=只挪威、both=全開);台灣一律全成員
-  state.schedSel = sel || (g.id === 'world' && WORLD_DEFAULT === 'norway'
-    ? new Set(avail.filter(id => id === 'norway_sched')) : new Set(avail));
-  const list = avail.filter(id => state.schedSel.has(id)).map(id => state.systems.find(s => s.id === id));
+  // 勾選集:呼叫端給定就用;否則走記憶/預設(世界=隨機一城、台灣=全成員)。懶載入下這裡不觸發抓取,
+  // 呼叫端(selectGroup/boot/toggleSchedMember)已先 ensureSysData 把需要的城市資料備妥。
+  state.schedSel = sel || schedGroupSel(g);
+  GROUP_SEL[g.id] = new Set(state.schedSel); // 記住本群組勾選,切走再切回狀態保持
+  // 懶載入保險:只保留已載入資料的城市(理論上呼叫端已備妥,避免競態下讀到未載入而爆)
+  const list = avail.filter(id => state.schedSel.has(id))
+    .map(id => state.systems.find(s => s.id === id)).filter(s => s && s.data);
   if (!list.length) { renderSystemsBar(); return; } // toggle 有防呆,理論上不會空
   state.sysId = list[0].id; // 收藏/成就沿用主系統 key(台鐵),不因同框改動
   applySchedSystems(list, { keepTime });
-  // 世界群組:預設框景只框聚焦城市(不框橫跨大西洋的兩城合集);fitAll=true(僅 boot 首屏)改框全部十二城範圍。
-  // 台灣照舊框全部
-  if (!keepView) fitData(g.id === 'world' ? (fitAll ? list.flatMap(sysLatLngs) : sysLatLngs(focusedSys())) : state.schedStations.map(s => [s.lat, s.lon]));
+  // 世界群組:框景只框聚焦城市(懶載入下也只有已載入城市可框);台灣照舊框全部車站。
+  if (!keepView) fitData(g.id === 'world' ? sysLatLngs(focusedSys()) : state.schedStations.map(s => [s.lat, s.lon]));
   reproject();
   const total = state.trains.length;
   document.getElementById('note').textContent = g.id === 'world'
@@ -2656,12 +2692,23 @@ function loadSchedGroup(g, sel, keepView, keepTime, fitAll) {
 
 // 世界群組:勾選=聚焦+飛往;點已勾選的非聚焦城市=只聚焦+飛(不跳動);點聚焦中城市=關閉(至少留一)。
 // 台灣國家鐵路:原多選同框行為,不動聚焦與地圖。
-function toggleSchedMember(id) {
+async function toggleSchedMember(id) {
   if (!state.schedSel) state.schedSel = new Set();
   const g = GROUPS.find(x => x.id === state.group);
   const on = state.schedSel.has(id);
   if (g && g.id === 'world') {
-    if (!on) { // OFF→ON:加入同框、聚焦、飛過去
+    if (!on) { // OFF→ON:懶載入該城(若尚未載)、加入同框、聚焦、飛過去
+      const s = state.systems.find(x => x.id === id);
+      if (s && !s.data) {
+        if (state._chipLoading && state._chipLoading.has(id)) return; // 抓取中重複點:忽略,不重複 fetch
+        (state._chipLoading = state._chipLoading || new Set()).add(id);
+        renderSystemsBar(); // chip 顯示載入中
+        const okc = await ensureSysData([id]);
+        if (state._chipLoading) state._chipLoading.delete(id);
+        if (!okc) { renderSystemsBar(); return; }         // 失敗:chip 回未勾狀態,可重試
+        if (state.group !== 'world') { renderSystemsBar(); return; } // 期間切了群組:資料已快取,不套用
+        if (state.schedSel.has(id)) { renderSystemsBar(); return; }  // 期間已被加入:不重覆
+      }
       state.schedSel.add(id);
       loadSchedGroup(g, state.schedSel, true, true); // keepView + keepTime(不重置時刻)
       setFocusSys(id, { fly: true, force: true });
@@ -3249,7 +3296,7 @@ function followTrainNo(no, opts) {
   let tr = findTrain(no);
   if (!tr) { // 當前時刻表系統找不到 → 找其他 sched 系統(台鐵↔高鐵)有此車次就切換
     const other = state.systems.find(x => x.mode === 'sched' && x.id !== state.sysId
-      && (x.data.trains || []).some(t => String(t.train) === String(no)));
+      && x.data && (x.data.trains || []).some(t => String(t.train) === String(no))); // 懶載入:未載入系統跳過
     if (other) { loadSystem(other); tr = findTrain(no); }
   }
   if (tr) {
@@ -4589,6 +4636,40 @@ async function fetchJSON(url) {
   catch (e) { return null; }
 }
 
+// ── 懶載入:系統班表(.data)＋軌形(._track)首次需要時才抓 ──────────────────────────
+// 記憶體快取:抓過就掛在 sys 上,取消勾選再勾回不重抓。並發呼叫共用同一 promise(_loadPromise)
+// 防重複 fetch/競態;失敗回 false 並清 promise,允許 chip 回未勾狀態後重試。
+function loadSysData(s) {
+  if (!s) return Promise.resolve(false);
+  if (s.data) return Promise.resolve(true);          // 已快取
+  if (s._loadPromise) return s._loadPromise;         // 抓取中:共用同一 promise
+  s._loadPromise = (async () => {
+    const data = await fetchJSON(s.url);
+    if (!data) { s._loadPromise = null; return false; } // 失敗:清 promise 允許重試
+    s.data = data;
+    if (s.track && !s._track) s._track = await fetchJSON(s.track); // 軌形一起備妥(sysLatLngs/貼軌要用)
+    return true;
+  })();
+  return s._loadPromise;
+}
+// 確保一組系統資料就緒,期間顯示載入膠囊(已載入的略過,只計待抓 n/m)。全成功回 true。
+async function ensureSysData(ids) {
+  const pending = [...new Set(ids)].map(id => state.systems.find(x => x.id === id))
+    .filter(s => s && !s.data);
+  if (!pending.length) return true;                  // 全部已快取:不顯示膠囊、不 fetch
+  const m = pending.length;
+  let done = 0, ok = true;
+  loadPillShow(`🌍 載入城市資料中 ${done}/${m}…`);
+  await Promise.all(pending.map(async s => {
+    const r = await loadSysData(s);
+    if (!r) ok = false;
+    done++;
+    loadPillShow(ok ? `🌍 載入城市資料中 ${done}/${m}…` : '部分資料載入失敗', !ok);
+  }));
+  if (ok) loadPillHide(); // 失敗時 loadPillShow(isErr) 已排自動隱藏,不重複呼叫
+  return ok;
+}
+
 // ── 底圖切換(亮 CARTO Positron / 暗 Dark Matter / 衛星 Esri) ──
 function setBasemap() {
   if (!map) return;
@@ -5016,16 +5097,9 @@ async function boot() {
     { id: 'budapest_sched', label: '布達佩斯', url: './data/budapest_schedule_dense.json', mode: 'sched', track: './data/budapest.json', tz: 'Europe/Budapest' },
     { id: 'vienna_sched', label: '維也納', url: './data/vienna_schedule_dense.json', mode: 'sched', track: './data/vienna.json', tz: 'Europe/Vienna' },
   ];
-  loadPillShow(`🌍 載入城市資料中 0/${defs.length}…`);
-  for (let i = 0; i < defs.length; i++) {
-    const d = defs[i];
-    const data = await fetchJSON(d.url);
-    if (data) state.systems.push({ ...d, data });
-    loadPillShow(data ? `🌍 載入城市資料中 ${i + 1}/${defs.length}…` : '部分資料載入失敗', !data);
-  }
-  loadPillHide();
-  // 各 sched 系統的軌道底圖幾何(台鐵 tra.json / 高鐵 thsr_track.json)掛在該系統上,loadSystem 依系統取用
-  for (const s of state.systems) if (s.track) s._track = await fetchJSON(s.track);
+  // 懶載入:先只登記系統定義(不含大檔班表 .data 與軌形 ._track),首屏只抓實際要開的城市。
+  // 各城 schedule_dense 檔可達數十 MB,一次全抓會拖慢首屏、壓 fps;改為勾選/切群組時才 loadSysData。
+  for (const d of defs) state.systems.push({ ...d });
   // 站等資料(特等/一等/…),缺檔就全走停靠班次數啟發式
   state.stnClassMap = await fetchJSON('./data/tra_station_class.json') || {};
   // 台鐵各站地址(TDX Rail/TRA/Station);key 為「台」正規化站名,feature 欄之後補
@@ -5046,15 +5120,28 @@ async function boot() {
     const m = /^(\d{1,2}):(\d{2})$/.exec(qs.get('t') || '');
     if (m) deepT = (+m[1] % 24) * 3600 + (+m[2]) * 60;
   } catch (e) {}
-  // 海外實驗版首屏:世界群組,聚焦挪威(時鐘走挪威當地時間)但視角不飛過去,先看全世界十二城範圍——
-  // 資料量大讀取需時,一開機就飛窄視角容易讓人誤以為只有一座城市;缺挪威資料時退回台灣國家鐵路群組。
-  // 預設勾選城市由效能實測決定:WORLD_DEFAULT(見下)。全開跑得動就全開,跑不動只開挪威。
+  // 海外實驗版首屏:世界群組,隨機開一座大城市(紐約/東京/伊斯坦堡三選一)——12 城全開太重(fps 掉),
+  // 改為只載這一城,其餘懶載入。開場先擺全世界視角(先看世界),隨機城資料載妥後 flyToSys 降落到「今日城市」。
+  // 缺全部候選城資料時退回台灣國家鐵路群組。
   const worldGroup = GROUPS.find(g => g.id === 'world');
   const natGroup = GROUPS.find(g => g.id === 'nat');
-  if (worldGroup && state.systems.some(s => s.id === 'norway_sched')) {
-    loadSchedGroup(worldGroup, null, false, false, true); // fitAll=true:首屏框全部十二城,不自動飛聚焦城市;預設勾選由 WORLD_DEFAULT 決定
-  } else if (natGroup) loadSchedGroup(natGroup); // 首屏:台鐵+高鐵同框(缺高鐵資料時自動退回單台鐵)
-  else loadSystem(state.systems.find(s => s.id === 'tra_sched') || state.systems[0]);
+  const cands = worldGroup ? WORLD_BOOT_CANDIDATES.filter(id => state.systems.some(s => s.id === id)) : [];
+  let pick = cands.length ? cands[Math.floor(Math.random() * cands.length)] : null;
+  if (pick) {
+    map.setView(WORLD_VIEW_CENTER, WORLD_VIEW_ZOOM, { animate: false }); // 全世界視角起手
+    if (await ensureSysData([pick])) {
+      loadSchedGroup(worldGroup, new Set([pick]), true, false); // keepView:保住世界視角(稍後才飛入)
+      setTimeout(() => { // 停留約 1 秒讓人看見世界,再降落到今日城市(flyToSys 沿用既有飛行參數)
+        if (state.group === 'world' && state.focusSys === pick && !state.followTrain) flyToSys(pick);
+      }, 1000);
+    } else pick = null; // 隨機城載入失敗 → 走台灣退路
+  }
+  if (!pick) { // 無候選城或隨機城載入失敗:退回台灣(部分成員失敗由 loadSchedGroup 濾除)
+    await ensureSysData(['tra_sched', 'thsr_sched']);
+    const tra = state.systems.find(s => s.id === 'tra_sched');
+    if (natGroup && tra && tra.data) loadSchedGroup(natGroup);
+    else loadSystem(tra || state.systems[0]);
+  }
   if (deepTrain && state.mode === 'sched') {
     if (deepT != null) setSimSec(deepT);
     const tr0 = findTrain(deepTrain);
