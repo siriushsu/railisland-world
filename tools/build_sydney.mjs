@@ -148,6 +148,25 @@ function rdp(pts, epsKm) {
 }
 const hmsToSec = t => { const p = t.split(':').map(Number); return p[0] * 3600 + p[1] * 60 + (p[2] || 0); };
 
+// 月台縮併:TfNSW stops.txt 的站名是月台層級(「Milsons Point Station, Platform 1」),
+// 其他城市資料都是站層級——不清併會在地圖上一站多點多標籤、跟隨面板顯示又長又醜。
+// 三種實測到的尾綴形態(2026-07-15 白名單 801 個相異站名全量盤點):
+//   「X Station, Platform N」(732 筆,重鐵/地鐵)→ X
+//   「X, Platform N」(Newcastle Interchange / Shellharbour Junction 這類不帶 Station 字樣的)→ X
+//   「X Light Rail」(69 筆,輕軌)→ X(與重鐵同名者如 Wynyard/Town Hall 本就是同一轉乘點,合併是預期)
+// 另防禦性處理孤立「X Station」尾綴(目前資料無,保險用)。
+// 一致性:sydney.json lines[].stations 與 schedule_dense trains[].stops 兩邊都要過同一個函式
+// (引擎按站名對 d,兩邊不一致配對全滅);同一 trip 不會停同站兩月台,清名安全。
+function cleanStopName(name) {
+  let n = name;
+  n = n.replace(/\s+Station,\s*Platform\s+\d+$/i, '');
+  n = n.replace(/,\s*Platform\s+\d+$/i, '');
+  n = n.replace(/\s+Station$/i, '');
+  n = n.replace(/\s+Light Rail$/i, '');
+  n = n.trim();
+  return n || name; // 清完變空字串就退回原名,不產生空站名
+}
+
 // 1) routes.txt
 const routes = new Map();
 const candidateRouteIds = new Set();
@@ -255,6 +274,7 @@ const usedLineIds = new Set();
 const lines = [];
 const patchedLog = [];
 const dropLog = [];
+const mergeStats = { before: 0, after: 0 }; // 月台縮併前/後的 line stations 總數(含跨線重複)
 for (const routeId of routeFirstSeenOrder) {
   const stopIdSet = routeStopIds.get(routeId);
   if (!stopIdSet) continue;
@@ -304,10 +324,15 @@ for (const routeId of routeFirstSeenOrder) {
     if (!info) continue;
     for (const pr of projectAll([info.lat, info.lon], simplified, cum)) {
       if (pr.dist >= PERP_MAX_KM) { droppedOffBranch++; continue; }
-      stationList.push({ name: info.name, lat: +info.lat.toFixed(6), lon: +info.lon.toFixed(6), d: +pr.s.toFixed(4) });
+      // 月台縮併第 1 步:清名(月台層級 → 母站名);第 2 步併點靠下方 seenD 去重
+      stationList.push({ name: cleanStopName(info.name), lat: +info.lat.toFixed(6), lon: +info.lon.toFixed(6), d: +pr.s.toFixed(4) });
     }
   }
   if (droppedOffBranch) dropLog.push({ routeId, shortName: route.shortName, droppedOffBranch });
+  // 月台縮併第 2 步:先按 d 升冪再去重——同名且 d 相近(<REVISIT_MIN_SEP_KM)的月台群,
+  // 保留的代表(第一筆)即該群 d 最小者,座標取該月台的座標;同名但 d 相距夠遠者是真實的
+  // 環狀/放射再訪(如 City Circle 的 Central 在 d≈0 與 d≈6 各一次),兩筆都保留。
+  stationList.sort((a, b) => a.d - b.d);
   const seenD = new Map();
   const dedup = stationList.filter(s => {
     const ds = seenD.get(s.name);
@@ -315,7 +340,8 @@ for (const routeId of routeFirstSeenOrder) {
     if (ds) ds.push(s.d); else seenD.set(s.name, [s.d]);
     return true;
   });
-  dedup.sort((a, b) => a.d - b.d);
+  mergeStats.before += stationList.length;
+  mergeStats.after += dedup.length;
 
   let id = (route.shortName || routeId).replace(/[^A-Za-z0-9_-]/g, '');
   if (!id) id = routeId.replace(/[^A-Za-z0-9_-]/g, '');
@@ -341,6 +367,8 @@ for (const p of patchedLog) console.log(`  ${p.shortName} (${p.routeId}): 舊 ${
 
 console.log(`\n因不在代表 shape 上(perpKm>=${0.3})而剔除離群站的路線(${dropLog.length} 條):`);
 for (const p of dropLog) console.log(`  ${p.shortName} (${p.routeId}): 剔除 ${p.droppedOffBranch} 筆(不同分支的站)`);
+
+console.log(`\n月台縮併:line stations 總數 ${mergeStats.before} → ${mergeStats.after}(清名後同名近距月台合併,環狀再訪保留)`);
 
 // 8) 讀回現有 data/sydney.json,依 routeId 對應(用 id 生成順序比對,失敗則退回用 name+color+站名交集比對)取代 shape/shapeLen/stations
 const existing = JSON.parse(readFileSync(SYDNEY_JSON, 'utf8'));
@@ -370,15 +398,24 @@ const SYDNEY_SOURCE_NOTES = '來源:Transport for NSW (TfNSW) Open Data Hub GTFS
   'NSW TrainLink 長途客運巴士與鐵路代替巴士);每路線代表 shape 依當日白名單 trip 中「原始地理長度最長」者擇優' +
   '(而非單純以當日 trip 次數多寡,修正單日抽樣下端到端長途線被短程 turn-back shape 以些微票數險勝、截斷代表路徑的問題,' +
   '如 CCN 雪梨—Newcastle 線);站點須落在代表 shape 上(垂直距離<0.3km)才收錄,不同實體分支(如 CCN 部分班次繞經北岸線過' +
-  '海港大橋)的站點若不在代表 shape 上則剔除,避免被強制投影到 shape 端點造成地圖瞬移/零距離假象。';
+  '海港大橋)的站點若不在代表 shape 上則剔除,避免被強制投影到 shape 端點造成地圖瞬移/零距離假象;' +
+  '月台縮併:原始站名為月台層級(「X Station, Platform N」/「X Light Rail」),已清併為母站名層級' +
+  '(同名近距月台合一,座標取 d 最小月台;City Circle 等環狀再訪的同名遠距點保留)。';
 existing.source_notes = SYDNEY_SOURCE_NOTES;
 writeFileSync(SYDNEY_JSON, JSON.stringify(existing));
 console.log(`寫回 ${SYDNEY_JSON}`);
 
-// schedule_dense.json 的 source_notes 同樣是 gtfs2rail.mjs 寫死的 Entur/NLOD 字串,一併修正。
+// schedule_dense.json:(a) source_notes 同樣是 gtfs2rail.mjs 寫死的 Entur/NLOD 字串,一併修正;
+// (b) trains[].stops[].name 同步過 cleanStopName——引擎按站名對 d,track 與 schedule 兩邊必須一致。
 const SCHED_JSON = SYDNEY_JSON.replace(/\.json$/, '_schedule_dense.json');
 if (existsSync(SCHED_JSON)) {
   const sched = JSON.parse(readFileSync(SCHED_JSON, 'utf8'));
+  let renamed = 0, total = 0;
+  for (const tr of sched.trains) for (const st of tr.stops) {
+    total++;
+    const cn = cleanStopName(st.name);
+    if (cn !== st.name) { st.name = cn; renamed++; }
+  }
   sched.source_notes = '來源:Transport for NSW (TfNSW) Open Data Hub GTFS Static 完整時刻表 ' +
     '(https://opendata.transport.nsw.gov.au/dataset/timetables-complete-gtfs ,檔名 full_greater_sydney_gtfs_static_0.zip);' +
     '授權 Creative Commons Attribution 4.0(CC BY 4.0,https://creativecommons.org/licenses/by/4.0/legalcode ),' +
@@ -386,7 +423,8 @@ if (existsSync(SCHED_JSON)) {
     '下載快照日 2026-07-11;風險:UI 顯示需登入,但直接對 resource 檔案 URL 匿名 GET 可下載成功(HTTP 200),' +
     '此為觀察到的現況、非官方書面保證的公開 API,若未來收緊,備援為使用者自行免費註冊取 API key;' +
     `篩選 route_type∈{2,401,900};目標服務日期 ${TARGET_DATE}(時區 Australia/Sydney);` +
-    '時刻為 GTFS 原始 HH:MM:SS 直接轉秒(跨午夜 HH>=24 不 wrap,與現有 tra_schedule_dense.json 慣例一致)';
+    '時刻為 GTFS 原始 HH:MM:SS 直接轉秒(跨午夜 HH>=24 不 wrap,與現有 tra_schedule_dense.json 慣例一致);' +
+    '站名已由月台層級清併為母站名層級(同 track 檔,兩邊一致)';
   writeFileSync(SCHED_JSON, JSON.stringify(sched));
-  console.log(`寫回 ${SCHED_JSON}(僅更新 source_notes,trains[] 不動)`);
+  console.log(`寫回 ${SCHED_JSON}(stops 站名清名 ${renamed}/${total} 筆)`);
 }
