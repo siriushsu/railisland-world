@@ -1,0 +1,2302 @@
+{
+  "auditedAt": "2026-08-31",
+  "sources": {
+    "zh-TW": "https://www.tokyometro.jp/lang_tcn/station/index.html",
+    "en": "https://www.tokyometro.jp/lang_en/station/index.html",
+    "ja": "https://www.tokyometro.jp/station/index.html"
+  },
+  "lines": {
+    "ginza": {
+      "zh-TW": [
+        {
+          "code": "G01",
+          "name": "澀谷"
+        },
+        {
+          "code": "G02",
+          "name": "表參道"
+        },
+        {
+          "code": "G03",
+          "name": "外苑前"
+        },
+        {
+          "code": "G04",
+          "name": "青山一丁目"
+        },
+        {
+          "code": "G05",
+          "name": "赤坂見附"
+        },
+        {
+          "code": "G06",
+          "name": "溜池山王"
+        },
+        {
+          "code": "G07",
+          "name": "虎之門"
+        },
+        {
+          "code": "G08",
+          "name": "新橋"
+        },
+        {
+          "code": "G09",
+          "name": "銀座"
+        },
+        {
+          "code": "G10",
+          "name": "京橋"
+        },
+        {
+          "code": "G11",
+          "name": "日本橋"
+        },
+        {
+          "code": "G12",
+          "name": "三越前"
+        },
+        {
+          "code": "G13",
+          "name": "神田"
+        },
+        {
+          "code": "G14",
+          "name": "末廣町"
+        },
+        {
+          "code": "G15",
+          "name": "上野廣小路"
+        },
+        {
+          "code": "G16",
+          "name": "上野"
+        },
+        {
+          "code": "G17",
+          "name": "稻荷町"
+        },
+        {
+          "code": "G18",
+          "name": "田原町"
+        },
+        {
+          "code": "G19",
+          "name": "淺草"
+        }
+      ],
+      "en": [
+        {
+          "code": "G01",
+          "name": "Shibuya"
+        },
+        {
+          "code": "G02",
+          "name": "Omote-sando"
+        },
+        {
+          "code": "G03",
+          "name": "Gaiemmae"
+        },
+        {
+          "code": "G04",
+          "name": "Aoyama-itchome"
+        },
+        {
+          "code": "G05",
+          "name": "Akasaka-mitsuke"
+        },
+        {
+          "code": "G06",
+          "name": "Tameike-sanno"
+        },
+        {
+          "code": "G07",
+          "name": "Toranomon"
+        },
+        {
+          "code": "G08",
+          "name": "Shimbashi"
+        },
+        {
+          "code": "G09",
+          "name": "Ginza"
+        },
+        {
+          "code": "G10",
+          "name": "Kyobashi"
+        },
+        {
+          "code": "G11",
+          "name": "Nihombashi"
+        },
+        {
+          "code": "G12",
+          "name": "Mitsukoshimae"
+        },
+        {
+          "code": "G13",
+          "name": "Kanda"
+        },
+        {
+          "code": "G14",
+          "name": "Suehirocho"
+        },
+        {
+          "code": "G15",
+          "name": "Ueno-hirokoji"
+        },
+        {
+          "code": "G16",
+          "name": "Ueno"
+        },
+        {
+          "code": "G17",
+          "name": "Inaricho"
+        },
+        {
+          "code": "G18",
+          "name": "Tawaramachi"
+        },
+        {
+          "code": "G19",
+          "name": "Asakusa"
+        }
+      ],
+      "ja": [
+        {
+          "code": "G01",
+          "name": "渋谷"
+        },
+        {
+          "code": "G02",
+          "name": "表参道"
+        },
+        {
+          "code": "G03",
+          "name": "外苑前"
+        },
+        {
+          "code": "G04",
+          "name": "青山一丁目"
+        },
+        {
+          "code": "G05",
+          "name": "赤坂見附"
+        },
+        {
+          "code": "G06",
+          "name": "溜池山王"
+        },
+        {
+          "code": "G07",
+          "name": "虎ノ門"
+        },
+        {
+          "code": "G08",
+          "name": "新橋"
+        },
+        {
+          "code": "G09",
+          "name": "銀座"
+        },
+        {
+          "code": "G10",
+          "name": "京橋"
+        },
+        {
+          "code": "G11",
+          "name": "日本橋"
+        },
+        {
+          "code": "G12",
+          "name": "三越前"
+        },
+        {
+          "code": "G13",
+          "name": "神田"
+        },
+        {
+          "code": "G14",
+          "name": "末広町"
+        },
+        {
+          "code": "G15",
+          "name": "上野広小路"
+        },
+        {
+          "code": "G16",
+          "name": "上野"
+        },
+        {
+          "code": "G17",
+          "name": "稲荷町"
+        },
+        {
+          "code": "G18",
+          "name": "田原町"
+        },
+        {
+          "code": "G19",
+          "name": "浅草"
+        }
+      ]
+    },
+    "marunouchi": {
+      "zh-TW": [
+        {
+          "code": "M01",
+          "name": "荻窪"
+        },
+        {
+          "code": "M02",
+          "name": "南阿佐谷"
+        },
+        {
+          "code": "M03",
+          "name": "新高圓寺"
+        },
+        {
+          "code": "M04",
+          "name": "東高圓寺"
+        },
+        {
+          "code": "M05",
+          "name": "新中野"
+        },
+        {
+          "code": "m03",
+          "name": "方南町"
+        },
+        {
+          "code": "m04",
+          "name": "中野富士見町"
+        },
+        {
+          "code": "m05",
+          "name": "中野新橋"
+        },
+        {
+          "code": "M06",
+          "name": "中野坂上"
+        },
+        {
+          "code": "M07",
+          "name": "西新宿"
+        },
+        {
+          "code": "M08",
+          "name": "新宿"
+        },
+        {
+          "code": "M09",
+          "name": "新宿三丁目"
+        },
+        {
+          "code": "M10",
+          "name": "新宿御苑前"
+        },
+        {
+          "code": "M11",
+          "name": "四谷三丁目"
+        },
+        {
+          "code": "M12",
+          "name": "四谷"
+        },
+        {
+          "code": "M13",
+          "name": "赤坂見附"
+        },
+        {
+          "code": "M14",
+          "name": "國會議事堂前"
+        },
+        {
+          "code": "M15",
+          "name": "霞關"
+        },
+        {
+          "code": "M16",
+          "name": "銀座"
+        },
+        {
+          "code": "M17",
+          "name": "東京"
+        },
+        {
+          "code": "M18",
+          "name": "大手町"
+        },
+        {
+          "code": "M19",
+          "name": "淡路町"
+        },
+        {
+          "code": "M20",
+          "name": "御茶之水"
+        },
+        {
+          "code": "M21",
+          "name": "本鄉三丁目"
+        },
+        {
+          "code": "M22",
+          "name": "後樂園"
+        },
+        {
+          "code": "M23",
+          "name": "茗荷谷"
+        },
+        {
+          "code": "M24",
+          "name": "新大塚"
+        },
+        {
+          "code": "M25",
+          "name": "池袋"
+        }
+      ],
+      "en": [
+        {
+          "code": "M01",
+          "name": "Ogikubo"
+        },
+        {
+          "code": "M02",
+          "name": "Minami-asagaya"
+        },
+        {
+          "code": "M03",
+          "name": "Shin-koenji"
+        },
+        {
+          "code": "M04",
+          "name": "Higashi-koenji"
+        },
+        {
+          "code": "M05",
+          "name": "Shin-nakano"
+        },
+        {
+          "code": "m03",
+          "name": "Honancho"
+        },
+        {
+          "code": "m04",
+          "name": "Nakano-fujimicho"
+        },
+        {
+          "code": "m05",
+          "name": "NakanoShimbashi"
+        },
+        {
+          "code": "M06",
+          "name": "Nakano-sakaue"
+        },
+        {
+          "code": "M07",
+          "name": "Nishi-shinjuku"
+        },
+        {
+          "code": "M08",
+          "name": "Shinjuku"
+        },
+        {
+          "code": "M09",
+          "name": "Shinjuku-sanchome"
+        },
+        {
+          "code": "M10",
+          "name": "Shinjuku-gyoemmae"
+        },
+        {
+          "code": "M11",
+          "name": "Yotsuya-sanchome"
+        },
+        {
+          "code": "M12",
+          "name": "Yotsuya"
+        },
+        {
+          "code": "M13",
+          "name": "Akasaka-mitsuke"
+        },
+        {
+          "code": "M14",
+          "name": "Kokkai-gijidomae"
+        },
+        {
+          "code": "M15",
+          "name": "Kasumigaseki"
+        },
+        {
+          "code": "M16",
+          "name": "Ginza"
+        },
+        {
+          "code": "M17",
+          "name": "Tokyo"
+        },
+        {
+          "code": "M18",
+          "name": "Otemachi"
+        },
+        {
+          "code": "M19",
+          "name": "Awajicho"
+        },
+        {
+          "code": "M20",
+          "name": "Ochanomizu"
+        },
+        {
+          "code": "M21",
+          "name": "Hongo-sanchome"
+        },
+        {
+          "code": "M22",
+          "name": "Korakuen"
+        },
+        {
+          "code": "M23",
+          "name": "Myogadani"
+        },
+        {
+          "code": "M24",
+          "name": "Shin-otsuka"
+        },
+        {
+          "code": "M25",
+          "name": "Ikebukuro"
+        }
+      ],
+      "ja": [
+        {
+          "code": "M01",
+          "name": "荻窪"
+        },
+        {
+          "code": "M02",
+          "name": "南阿佐ケ谷"
+        },
+        {
+          "code": "M03",
+          "name": "新高円寺"
+        },
+        {
+          "code": "M04",
+          "name": "東高円寺"
+        },
+        {
+          "code": "M05",
+          "name": "新中野"
+        },
+        {
+          "code": "m03",
+          "name": "方南町"
+        },
+        {
+          "code": "m04",
+          "name": "中野富士見町"
+        },
+        {
+          "code": "m05",
+          "name": "中野新橋"
+        },
+        {
+          "code": "M06",
+          "name": "中野坂上"
+        },
+        {
+          "code": "M07",
+          "name": "西新宿"
+        },
+        {
+          "code": "M08",
+          "name": "新宿"
+        },
+        {
+          "code": "M09",
+          "name": "新宿三丁目"
+        },
+        {
+          "code": "M10",
+          "name": "新宿御苑前"
+        },
+        {
+          "code": "M11",
+          "name": "四谷三丁目"
+        },
+        {
+          "code": "M12",
+          "name": "四ツ谷"
+        },
+        {
+          "code": "M13",
+          "name": "赤坂見附"
+        },
+        {
+          "code": "M14",
+          "name": "国会議事堂前"
+        },
+        {
+          "code": "M15",
+          "name": "霞ケ関"
+        },
+        {
+          "code": "M16",
+          "name": "銀座"
+        },
+        {
+          "code": "M17",
+          "name": "東京"
+        },
+        {
+          "code": "M18",
+          "name": "大手町"
+        },
+        {
+          "code": "M19",
+          "name": "淡路町"
+        },
+        {
+          "code": "M20",
+          "name": "御茶ノ水"
+        },
+        {
+          "code": "M21",
+          "name": "本郷三丁目"
+        },
+        {
+          "code": "M22",
+          "name": "後楽園"
+        },
+        {
+          "code": "M23",
+          "name": "茗荷谷"
+        },
+        {
+          "code": "M24",
+          "name": "新大塚"
+        },
+        {
+          "code": "M25",
+          "name": "池袋"
+        }
+      ]
+    },
+    "hibiya": {
+      "zh-TW": [
+        {
+          "code": "H01",
+          "name": "中目黑"
+        },
+        {
+          "code": "H02",
+          "name": "惠比壽"
+        },
+        {
+          "code": "H03",
+          "name": "廣尾"
+        },
+        {
+          "code": "H04",
+          "name": "六本木"
+        },
+        {
+          "code": "H05",
+          "name": "神谷町"
+        },
+        {
+          "code": "H06",
+          "name": "虎之門Hills"
+        },
+        {
+          "code": "H07",
+          "name": "霞關"
+        },
+        {
+          "code": "H08",
+          "name": "日比谷"
+        },
+        {
+          "code": "H09",
+          "name": "銀座"
+        },
+        {
+          "code": "H10",
+          "name": "東銀座"
+        },
+        {
+          "code": "H11",
+          "name": "築地"
+        },
+        {
+          "code": "H12",
+          "name": "八丁堀"
+        },
+        {
+          "code": "H13",
+          "name": "茅場町"
+        },
+        {
+          "code": "H14",
+          "name": "人形町"
+        },
+        {
+          "code": "H15",
+          "name": "小傳馬町"
+        },
+        {
+          "code": "H16",
+          "name": "秋葉原"
+        },
+        {
+          "code": "H17",
+          "name": "仲御徒町"
+        },
+        {
+          "code": "H18",
+          "name": "上野"
+        },
+        {
+          "code": "H19",
+          "name": "入谷"
+        },
+        {
+          "code": "H20",
+          "name": "三之輪"
+        },
+        {
+          "code": "H21",
+          "name": "南千住"
+        },
+        {
+          "code": "H22",
+          "name": "北千住"
+        }
+      ],
+      "en": [
+        {
+          "code": "H01",
+          "name": "Naka-meguro"
+        },
+        {
+          "code": "H02",
+          "name": "Ebisu"
+        },
+        {
+          "code": "H03",
+          "name": "Hiro-o"
+        },
+        {
+          "code": "H04",
+          "name": "Roppongi"
+        },
+        {
+          "code": "H05",
+          "name": "Kamiyacho"
+        },
+        {
+          "code": "H06",
+          "name": "Toranomon Hills"
+        },
+        {
+          "code": "H07",
+          "name": "Kasumigaseki"
+        },
+        {
+          "code": "H08",
+          "name": "Hibiya"
+        },
+        {
+          "code": "H09",
+          "name": "Ginza"
+        },
+        {
+          "code": "H10",
+          "name": "Higashi-ginza"
+        },
+        {
+          "code": "H11",
+          "name": "Tsukiji"
+        },
+        {
+          "code": "H12",
+          "name": "Hatchobori"
+        },
+        {
+          "code": "H13",
+          "name": "Kayabacho"
+        },
+        {
+          "code": "H14",
+          "name": "Ningyocho"
+        },
+        {
+          "code": "H15",
+          "name": "Kodemmacho"
+        },
+        {
+          "code": "H16",
+          "name": "Akihabara"
+        },
+        {
+          "code": "H17",
+          "name": "Naka-okachimachi"
+        },
+        {
+          "code": "H18",
+          "name": "Ueno"
+        },
+        {
+          "code": "H19",
+          "name": "Iriya"
+        },
+        {
+          "code": "H20",
+          "name": "Minowa"
+        },
+        {
+          "code": "H21",
+          "name": "Minami-senju"
+        },
+        {
+          "code": "H22",
+          "name": "Kita-senju"
+        }
+      ],
+      "ja": [
+        {
+          "code": "H01",
+          "name": "中目黒"
+        },
+        {
+          "code": "H02",
+          "name": "恵比寿"
+        },
+        {
+          "code": "H03",
+          "name": "広尾"
+        },
+        {
+          "code": "H04",
+          "name": "六本木"
+        },
+        {
+          "code": "H05",
+          "name": "神谷町"
+        },
+        {
+          "code": "H06",
+          "name": "虎ノ門ヒルズ"
+        },
+        {
+          "code": "H07",
+          "name": "霞ケ関"
+        },
+        {
+          "code": "H08",
+          "name": "日比谷"
+        },
+        {
+          "code": "H09",
+          "name": "銀座"
+        },
+        {
+          "code": "H10",
+          "name": "東銀座"
+        },
+        {
+          "code": "H11",
+          "name": "築地"
+        },
+        {
+          "code": "H12",
+          "name": "八丁堀"
+        },
+        {
+          "code": "H13",
+          "name": "茅場町"
+        },
+        {
+          "code": "H14",
+          "name": "人形町"
+        },
+        {
+          "code": "H15",
+          "name": "小伝馬町"
+        },
+        {
+          "code": "H16",
+          "name": "秋葉原"
+        },
+        {
+          "code": "H17",
+          "name": "仲御徒町"
+        },
+        {
+          "code": "H18",
+          "name": "上野"
+        },
+        {
+          "code": "H19",
+          "name": "入谷"
+        },
+        {
+          "code": "H20",
+          "name": "三ノ輪"
+        },
+        {
+          "code": "H21",
+          "name": "南千住"
+        },
+        {
+          "code": "H22",
+          "name": "北千住"
+        }
+      ]
+    },
+    "tozai": {
+      "zh-TW": [
+        {
+          "code": "T01",
+          "name": "中野"
+        },
+        {
+          "code": "T02",
+          "name": "落合"
+        },
+        {
+          "code": "T03",
+          "name": "高田馬場"
+        },
+        {
+          "code": "T04",
+          "name": "早稻田"
+        },
+        {
+          "code": "T05",
+          "name": "神樂坂"
+        },
+        {
+          "code": "T06",
+          "name": "飯田橋"
+        },
+        {
+          "code": "T07",
+          "name": "九段下"
+        },
+        {
+          "code": "T08",
+          "name": "竹橋"
+        },
+        {
+          "code": "T09",
+          "name": "大手町"
+        },
+        {
+          "code": "T10",
+          "name": "日本橋"
+        },
+        {
+          "code": "T11",
+          "name": "茅場町"
+        },
+        {
+          "code": "T12",
+          "name": "門前仲町"
+        },
+        {
+          "code": "T13",
+          "name": "木場"
+        },
+        {
+          "code": "T14",
+          "name": "東陽町"
+        },
+        {
+          "code": "T15",
+          "name": "南砂町"
+        },
+        {
+          "code": "T16",
+          "name": "西葛西"
+        },
+        {
+          "code": "T17",
+          "name": "葛西"
+        },
+        {
+          "code": "T18",
+          "name": "浦安"
+        },
+        {
+          "code": "T19",
+          "name": "南行德"
+        },
+        {
+          "code": "T20",
+          "name": "行德"
+        },
+        {
+          "code": "T21",
+          "name": "妙典"
+        },
+        {
+          "code": "T22",
+          "name": "原木中山"
+        },
+        {
+          "code": "T23",
+          "name": "西船橋"
+        }
+      ],
+      "en": [
+        {
+          "code": "T01",
+          "name": "Nakano"
+        },
+        {
+          "code": "T02",
+          "name": "Ochiai"
+        },
+        {
+          "code": "T03",
+          "name": "Takadanobaba"
+        },
+        {
+          "code": "T04",
+          "name": "Waseda"
+        },
+        {
+          "code": "T05",
+          "name": "Kagurazaka"
+        },
+        {
+          "code": "T06",
+          "name": "Iidabashi"
+        },
+        {
+          "code": "T07",
+          "name": "Kudanshita"
+        },
+        {
+          "code": "T08",
+          "name": "Takebashi"
+        },
+        {
+          "code": "T09",
+          "name": "Otemachi"
+        },
+        {
+          "code": "T10",
+          "name": "Nihombashi"
+        },
+        {
+          "code": "T11",
+          "name": "Kayabacho"
+        },
+        {
+          "code": "T12",
+          "name": "Monzen-nakacho"
+        },
+        {
+          "code": "T13",
+          "name": "Kiba"
+        },
+        {
+          "code": "T14",
+          "name": "Toyocho"
+        },
+        {
+          "code": "T15",
+          "name": "Minami-sunamachi"
+        },
+        {
+          "code": "T16",
+          "name": "Nishi-kasai"
+        },
+        {
+          "code": "T17",
+          "name": "Kasai"
+        },
+        {
+          "code": "T18",
+          "name": "Urayasu"
+        },
+        {
+          "code": "T19",
+          "name": "Minami-gyotoku"
+        },
+        {
+          "code": "T20",
+          "name": "Gyotoku"
+        },
+        {
+          "code": "T21",
+          "name": "Myoden"
+        },
+        {
+          "code": "T22",
+          "name": "Baraki-nakayama"
+        },
+        {
+          "code": "T23",
+          "name": "Nishi-funabashi"
+        }
+      ],
+      "ja": [
+        {
+          "code": "T01",
+          "name": "中野"
+        },
+        {
+          "code": "T02",
+          "name": "落合"
+        },
+        {
+          "code": "T03",
+          "name": "高田馬場"
+        },
+        {
+          "code": "T04",
+          "name": "早稲田"
+        },
+        {
+          "code": "T05",
+          "name": "神楽坂"
+        },
+        {
+          "code": "T06",
+          "name": "飯田橋"
+        },
+        {
+          "code": "T07",
+          "name": "九段下"
+        },
+        {
+          "code": "T08",
+          "name": "竹橋"
+        },
+        {
+          "code": "T09",
+          "name": "大手町"
+        },
+        {
+          "code": "T10",
+          "name": "日本橋"
+        },
+        {
+          "code": "T11",
+          "name": "茅場町"
+        },
+        {
+          "code": "T12",
+          "name": "門前仲町"
+        },
+        {
+          "code": "T13",
+          "name": "木場"
+        },
+        {
+          "code": "T14",
+          "name": "東陽町"
+        },
+        {
+          "code": "T15",
+          "name": "南砂町"
+        },
+        {
+          "code": "T16",
+          "name": "西葛西"
+        },
+        {
+          "code": "T17",
+          "name": "葛西"
+        },
+        {
+          "code": "T18",
+          "name": "浦安"
+        },
+        {
+          "code": "T19",
+          "name": "南行徳"
+        },
+        {
+          "code": "T20",
+          "name": "行徳"
+        },
+        {
+          "code": "T21",
+          "name": "妙典"
+        },
+        {
+          "code": "T22",
+          "name": "原木中山"
+        },
+        {
+          "code": "T23",
+          "name": "西船橋"
+        }
+      ]
+    },
+    "chiyoda": {
+      "zh-TW": [
+        {
+          "code": "C01",
+          "name": "代代木上原"
+        },
+        {
+          "code": "C02",
+          "name": "代代木公園"
+        },
+        {
+          "code": "C03",
+          "name": "明治神宮前 <原宿>"
+        },
+        {
+          "code": "C04",
+          "name": "表參道"
+        },
+        {
+          "code": "C05",
+          "name": "乃木坂"
+        },
+        {
+          "code": "C06",
+          "name": "赤坂"
+        },
+        {
+          "code": "c07",
+          "name": "國會議事堂前"
+        },
+        {
+          "code": "C08",
+          "name": "霞關"
+        },
+        {
+          "code": "C09",
+          "name": "日比谷"
+        },
+        {
+          "code": "C10",
+          "name": "二重橋前 <丸之內>"
+        },
+        {
+          "code": "C11",
+          "name": "大手町"
+        },
+        {
+          "code": "C12",
+          "name": "新御茶之水"
+        },
+        {
+          "code": "C13",
+          "name": "湯島"
+        },
+        {
+          "code": "C14",
+          "name": "根津"
+        },
+        {
+          "code": "C15",
+          "name": "千駄木"
+        },
+        {
+          "code": "C16",
+          "name": "西日暮里"
+        },
+        {
+          "code": "C17",
+          "name": "町屋"
+        },
+        {
+          "code": "C18",
+          "name": "北千住"
+        },
+        {
+          "code": "C19",
+          "name": "綾瀨"
+        },
+        {
+          "code": "C20",
+          "name": "北綾瀨"
+        }
+      ],
+      "en": [
+        {
+          "code": "C01",
+          "name": "Yoyogi-uehara"
+        },
+        {
+          "code": "C02",
+          "name": "Yoyogi-koen"
+        },
+        {
+          "code": "C03",
+          "name": "Meiji-jingumae <Harajuku>"
+        },
+        {
+          "code": "C04",
+          "name": "Omote-sando"
+        },
+        {
+          "code": "C05",
+          "name": "Nogizaka"
+        },
+        {
+          "code": "C06",
+          "name": "Akasaka"
+        },
+        {
+          "code": "c07",
+          "name": "Kokkai-gijidomae"
+        },
+        {
+          "code": "C08",
+          "name": "Kasumigaseki"
+        },
+        {
+          "code": "C09",
+          "name": "Hibiya"
+        },
+        {
+          "code": "C10",
+          "name": "Nijubashimae <Marunouchi>"
+        },
+        {
+          "code": "C11",
+          "name": "Otemachi"
+        },
+        {
+          "code": "C12",
+          "name": "Shin-ochanomizu"
+        },
+        {
+          "code": "C13",
+          "name": "Yushima"
+        },
+        {
+          "code": "C14",
+          "name": "Nezu"
+        },
+        {
+          "code": "C15",
+          "name": "Sendagi"
+        },
+        {
+          "code": "C16",
+          "name": "Nishi-nippori"
+        },
+        {
+          "code": "C17",
+          "name": "Machiya"
+        },
+        {
+          "code": "C18",
+          "name": "Kita-senju"
+        },
+        {
+          "code": "C19",
+          "name": "Ayase"
+        },
+        {
+          "code": "C20",
+          "name": "Kita-ayase"
+        }
+      ],
+      "ja": [
+        {
+          "code": "C01",
+          "name": "代々木上原"
+        },
+        {
+          "code": "C02",
+          "name": "代々木公園"
+        },
+        {
+          "code": "C03",
+          "name": "明治神宮前〈原宿〉"
+        },
+        {
+          "code": "C04",
+          "name": "表参道"
+        },
+        {
+          "code": "C05",
+          "name": "乃木坂"
+        },
+        {
+          "code": "C06",
+          "name": "赤坂"
+        },
+        {
+          "code": "c07",
+          "name": "国会議事堂前"
+        },
+        {
+          "code": "C08",
+          "name": "霞ケ関"
+        },
+        {
+          "code": "C09",
+          "name": "日比谷"
+        },
+        {
+          "code": "C10",
+          "name": "二重橋前〈丸の内〉"
+        },
+        {
+          "code": "C11",
+          "name": "大手町"
+        },
+        {
+          "code": "C12",
+          "name": "新御茶ノ水"
+        },
+        {
+          "code": "C13",
+          "name": "湯島"
+        },
+        {
+          "code": "C14",
+          "name": "根津"
+        },
+        {
+          "code": "C15",
+          "name": "千駄木"
+        },
+        {
+          "code": "C16",
+          "name": "西日暮里"
+        },
+        {
+          "code": "C17",
+          "name": "町屋"
+        },
+        {
+          "code": "C18",
+          "name": "北千住"
+        },
+        {
+          "code": "C19",
+          "name": "綾瀬"
+        },
+        {
+          "code": "C20",
+          "name": "北綾瀬"
+        }
+      ]
+    },
+    "yurakucho": {
+      "zh-TW": [
+        {
+          "code": "Y01",
+          "name": "和光市"
+        },
+        {
+          "code": "Y02",
+          "name": "地鐵成增"
+        },
+        {
+          "code": "Y03",
+          "name": "地鐵赤塚"
+        },
+        {
+          "code": "Y04",
+          "name": "平和台"
+        },
+        {
+          "code": "Y05",
+          "name": "冰川台"
+        },
+        {
+          "code": "Y06",
+          "name": "小竹向原"
+        },
+        {
+          "code": "Y07",
+          "name": "千川"
+        },
+        {
+          "code": "Y08",
+          "name": "要町"
+        },
+        {
+          "code": "Y09",
+          "name": "池袋"
+        },
+        {
+          "code": "Y10",
+          "name": "東池袋"
+        },
+        {
+          "code": "Y11",
+          "name": "護國寺"
+        },
+        {
+          "code": "Y12",
+          "name": "江戶川橋"
+        },
+        {
+          "code": "Y13",
+          "name": "飯田橋"
+        },
+        {
+          "code": "Y14",
+          "name": "市谷"
+        },
+        {
+          "code": "Y15",
+          "name": "麴町"
+        },
+        {
+          "code": "Y16",
+          "name": "永田町"
+        },
+        {
+          "code": "Y17",
+          "name": "櫻田門"
+        },
+        {
+          "code": "Y18",
+          "name": "有樂町"
+        },
+        {
+          "code": "Y19",
+          "name": "銀座一丁目"
+        },
+        {
+          "code": "Y20",
+          "name": "新富町"
+        },
+        {
+          "code": "Y21",
+          "name": "月島"
+        },
+        {
+          "code": "Y22",
+          "name": "豐洲"
+        },
+        {
+          "code": "Y23",
+          "name": "辰巳"
+        },
+        {
+          "code": "Y24",
+          "name": "新木場"
+        }
+      ],
+      "en": [
+        {
+          "code": "Y01",
+          "name": "Wakoshi"
+        },
+        {
+          "code": "Y02",
+          "name": "Chikatetsu-narimasu"
+        },
+        {
+          "code": "Y03",
+          "name": "Chikatetsu-akatsuka"
+        },
+        {
+          "code": "Y04",
+          "name": "Heiwadai"
+        },
+        {
+          "code": "Y05",
+          "name": "Hikawadai"
+        },
+        {
+          "code": "Y06",
+          "name": "Kotake-mukaihara"
+        },
+        {
+          "code": "Y07",
+          "name": "Senkawa"
+        },
+        {
+          "code": "Y08",
+          "name": "Kanamecho"
+        },
+        {
+          "code": "Y09",
+          "name": "Ikebukuro"
+        },
+        {
+          "code": "Y10",
+          "name": "Higashi-ikebukuro"
+        },
+        {
+          "code": "Y11",
+          "name": "Gokokuji"
+        },
+        {
+          "code": "Y12",
+          "name": "Edogawabashi"
+        },
+        {
+          "code": "Y13",
+          "name": "Iidabashi"
+        },
+        {
+          "code": "Y14",
+          "name": "Ichigaya"
+        },
+        {
+          "code": "Y15",
+          "name": "Kojimachi"
+        },
+        {
+          "code": "Y16",
+          "name": "Nagatacho"
+        },
+        {
+          "code": "Y17",
+          "name": "Sakuradamon"
+        },
+        {
+          "code": "Y18",
+          "name": "Yurakucho"
+        },
+        {
+          "code": "Y19",
+          "name": "Ginza-itchome"
+        },
+        {
+          "code": "Y20",
+          "name": "Shintomicho"
+        },
+        {
+          "code": "Y21",
+          "name": "Tsukishima"
+        },
+        {
+          "code": "Y22",
+          "name": "Toyosu"
+        },
+        {
+          "code": "Y23",
+          "name": "Tatsumi"
+        },
+        {
+          "code": "Y24",
+          "name": "Shin-kiba"
+        }
+      ],
+      "ja": [
+        {
+          "code": "Y01",
+          "name": "和光市"
+        },
+        {
+          "code": "Y02",
+          "name": "地下鉄成増"
+        },
+        {
+          "code": "Y03",
+          "name": "地下鉄赤塚"
+        },
+        {
+          "code": "Y04",
+          "name": "平和台"
+        },
+        {
+          "code": "Y05",
+          "name": "氷川台"
+        },
+        {
+          "code": "Y06",
+          "name": "小竹向原"
+        },
+        {
+          "code": "Y07",
+          "name": "千川"
+        },
+        {
+          "code": "Y08",
+          "name": "要町"
+        },
+        {
+          "code": "Y09",
+          "name": "池袋"
+        },
+        {
+          "code": "Y10",
+          "name": "東池袋"
+        },
+        {
+          "code": "Y11",
+          "name": "護国寺"
+        },
+        {
+          "code": "Y12",
+          "name": "江戸川橋"
+        },
+        {
+          "code": "Y13",
+          "name": "飯田橋"
+        },
+        {
+          "code": "Y14",
+          "name": "市ケ谷"
+        },
+        {
+          "code": "Y15",
+          "name": "麹町"
+        },
+        {
+          "code": "Y16",
+          "name": "永田町"
+        },
+        {
+          "code": "Y17",
+          "name": "桜田門"
+        },
+        {
+          "code": "Y18",
+          "name": "有楽町"
+        },
+        {
+          "code": "Y19",
+          "name": "銀座一丁目"
+        },
+        {
+          "code": "Y20",
+          "name": "新富町"
+        },
+        {
+          "code": "Y21",
+          "name": "月島"
+        },
+        {
+          "code": "Y22",
+          "name": "豊洲"
+        },
+        {
+          "code": "Y23",
+          "name": "辰巳"
+        },
+        {
+          "code": "Y24",
+          "name": "新木場"
+        }
+      ]
+    },
+    "hanzomon": {
+      "zh-TW": [
+        {
+          "code": "Z01",
+          "name": "澀谷"
+        },
+        {
+          "code": "Z02",
+          "name": "表參道"
+        },
+        {
+          "code": "Z03",
+          "name": "青山一丁目"
+        },
+        {
+          "code": "Z04",
+          "name": "永田町"
+        },
+        {
+          "code": "Z05",
+          "name": "半藏門"
+        },
+        {
+          "code": "Z06",
+          "name": "九段下"
+        },
+        {
+          "code": "Z07",
+          "name": "神保町"
+        },
+        {
+          "code": "Z08",
+          "name": "大手町"
+        },
+        {
+          "code": "Z09",
+          "name": "三越前"
+        },
+        {
+          "code": "Z10",
+          "name": "水天宮前"
+        },
+        {
+          "code": "Z11",
+          "name": "清澄白河"
+        },
+        {
+          "code": "Z12",
+          "name": "住吉"
+        },
+        {
+          "code": "Z13",
+          "name": "錦糸町"
+        },
+        {
+          "code": "Z14",
+          "name": "押上 <晴空塔>"
+        }
+      ],
+      "en": [
+        {
+          "code": "Z01",
+          "name": "Shibuya"
+        },
+        {
+          "code": "Z02",
+          "name": "Omote-sando"
+        },
+        {
+          "code": "Z03",
+          "name": "Aoyama-itchome"
+        },
+        {
+          "code": "Z04",
+          "name": "Nagatacho"
+        },
+        {
+          "code": "Z05",
+          "name": "Hanzomon"
+        },
+        {
+          "code": "Z06",
+          "name": "Kudanshita"
+        },
+        {
+          "code": "Z07",
+          "name": "Jimbocho"
+        },
+        {
+          "code": "Z08",
+          "name": "Otemachi"
+        },
+        {
+          "code": "Z09",
+          "name": "Mitsukoshimae"
+        },
+        {
+          "code": "Z10",
+          "name": "Suitengumae"
+        },
+        {
+          "code": "Z11",
+          "name": "Kiyosumi-shirakawa"
+        },
+        {
+          "code": "Z12",
+          "name": "Sumiyoshi"
+        },
+        {
+          "code": "Z13",
+          "name": "Kinshicho"
+        },
+        {
+          "code": "Z14",
+          "name": "Oshiage <SKYTREE>"
+        }
+      ],
+      "ja": [
+        {
+          "code": "Z01",
+          "name": "渋谷"
+        },
+        {
+          "code": "Z02",
+          "name": "表参道"
+        },
+        {
+          "code": "Z03",
+          "name": "青山一丁目"
+        },
+        {
+          "code": "Z04",
+          "name": "永田町"
+        },
+        {
+          "code": "Z05",
+          "name": "半蔵門"
+        },
+        {
+          "code": "Z06",
+          "name": "九段下"
+        },
+        {
+          "code": "Z07",
+          "name": "神保町"
+        },
+        {
+          "code": "Z08",
+          "name": "大手町"
+        },
+        {
+          "code": "Z09",
+          "name": "三越前"
+        },
+        {
+          "code": "Z10",
+          "name": "水天宮前"
+        },
+        {
+          "code": "Z11",
+          "name": "清澄白河"
+        },
+        {
+          "code": "Z12",
+          "name": "住吉"
+        },
+        {
+          "code": "Z13",
+          "name": "錦糸町"
+        },
+        {
+          "code": "Z14",
+          "name": "押上〈スカイツリー前〉"
+        }
+      ]
+    },
+    "namboku": {
+      "zh-TW": [
+        {
+          "code": "N01",
+          "name": "目黑"
+        },
+        {
+          "code": "N02",
+          "name": "白金台"
+        },
+        {
+          "code": "N03",
+          "name": "白金高輪"
+        },
+        {
+          "code": "N04",
+          "name": "麻布十番"
+        },
+        {
+          "code": "N05",
+          "name": "六本木一丁目"
+        },
+        {
+          "code": "N06",
+          "name": "溜池山王"
+        },
+        {
+          "code": "N07",
+          "name": "永田町"
+        },
+        {
+          "code": "N08",
+          "name": "四谷"
+        },
+        {
+          "code": "N09",
+          "name": "市谷"
+        },
+        {
+          "code": "N10",
+          "name": "飯田橋"
+        },
+        {
+          "code": "N11",
+          "name": "後樂園"
+        },
+        {
+          "code": "N12",
+          "name": "東大前"
+        },
+        {
+          "code": "N13",
+          "name": "本駒込"
+        },
+        {
+          "code": "N14",
+          "name": "駒込"
+        },
+        {
+          "code": "N15",
+          "name": "西原"
+        },
+        {
+          "code": "N16",
+          "name": "王子"
+        },
+        {
+          "code": "N17",
+          "name": "王子神谷"
+        },
+        {
+          "code": "N18",
+          "name": "志茂"
+        },
+        {
+          "code": "N19",
+          "name": "赤羽岩淵"
+        }
+      ],
+      "en": [
+        {
+          "code": "N01",
+          "name": "Meguro"
+        },
+        {
+          "code": "N02",
+          "name": "Shirokanedai"
+        },
+        {
+          "code": "N03",
+          "name": "Shirokane-takanawa"
+        },
+        {
+          "code": "N04",
+          "name": "Azabu-juban"
+        },
+        {
+          "code": "N05",
+          "name": "Roppongi-itchome"
+        },
+        {
+          "code": "N06",
+          "name": "Tameike-sanno"
+        },
+        {
+          "code": "N07",
+          "name": "Nagatacho"
+        },
+        {
+          "code": "N08",
+          "name": "Yotsuya"
+        },
+        {
+          "code": "N09",
+          "name": "Ichigaya"
+        },
+        {
+          "code": "N10",
+          "name": "Iidabashi"
+        },
+        {
+          "code": "N11",
+          "name": "Korakuen"
+        },
+        {
+          "code": "N12",
+          "name": "Todaimae"
+        },
+        {
+          "code": "N13",
+          "name": "Hon-komagome"
+        },
+        {
+          "code": "N14",
+          "name": "Komagome"
+        },
+        {
+          "code": "N15",
+          "name": "Nishigahara"
+        },
+        {
+          "code": "N16",
+          "name": "Oji"
+        },
+        {
+          "code": "N17",
+          "name": "Oji-kamiya"
+        },
+        {
+          "code": "N18",
+          "name": "Shimo"
+        },
+        {
+          "code": "N19",
+          "name": "Akabane-iwabuchi"
+        }
+      ],
+      "ja": [
+        {
+          "code": "N01",
+          "name": "目黒"
+        },
+        {
+          "code": "N02",
+          "name": "白金台"
+        },
+        {
+          "code": "N03",
+          "name": "白金高輪"
+        },
+        {
+          "code": "N04",
+          "name": "麻布十番"
+        },
+        {
+          "code": "N05",
+          "name": "六本木一丁目"
+        },
+        {
+          "code": "N06",
+          "name": "溜池山王"
+        },
+        {
+          "code": "N07",
+          "name": "永田町"
+        },
+        {
+          "code": "N08",
+          "name": "四ツ谷"
+        },
+        {
+          "code": "N09",
+          "name": "市ケ谷"
+        },
+        {
+          "code": "N10",
+          "name": "飯田橋"
+        },
+        {
+          "code": "N11",
+          "name": "後楽園"
+        },
+        {
+          "code": "N12",
+          "name": "東大前"
+        },
+        {
+          "code": "N13",
+          "name": "本駒込"
+        },
+        {
+          "code": "N14",
+          "name": "駒込"
+        },
+        {
+          "code": "N15",
+          "name": "西ケ原"
+        },
+        {
+          "code": "N16",
+          "name": "王子"
+        },
+        {
+          "code": "N17",
+          "name": "王子神谷"
+        },
+        {
+          "code": "N18",
+          "name": "志茂"
+        },
+        {
+          "code": "N19",
+          "name": "赤羽岩淵"
+        }
+      ]
+    },
+    "fukutoshin": {
+      "zh-TW": [
+        {
+          "code": "F01",
+          "name": "和光市"
+        },
+        {
+          "code": "F02",
+          "name": "地鐵成增"
+        },
+        {
+          "code": "F03",
+          "name": "地鐵赤塚"
+        },
+        {
+          "code": "F04",
+          "name": "平和台"
+        },
+        {
+          "code": "F05",
+          "name": "冰川台"
+        },
+        {
+          "code": "F06",
+          "name": "小竹向原"
+        },
+        {
+          "code": "F07",
+          "name": "千川"
+        },
+        {
+          "code": "F08",
+          "name": "要町"
+        },
+        {
+          "code": "F09",
+          "name": "池袋"
+        },
+        {
+          "code": "F10",
+          "name": "雜司谷"
+        },
+        {
+          "code": "F11",
+          "name": "西早稻田"
+        },
+        {
+          "code": "F12",
+          "name": "東新宿"
+        },
+        {
+          "code": "F13",
+          "name": "新宿三丁目"
+        },
+        {
+          "code": "F14",
+          "name": "北參道"
+        },
+        {
+          "code": "F15",
+          "name": "明治神宮前 <原宿>"
+        },
+        {
+          "code": "F16",
+          "name": "澀谷"
+        }
+      ],
+      "en": [
+        {
+          "code": "F01",
+          "name": "Wakoshi"
+        },
+        {
+          "code": "F02",
+          "name": "Chikatetsu-narimasu"
+        },
+        {
+          "code": "F03",
+          "name": "Chikatetsu-akatsuka"
+        },
+        {
+          "code": "F04",
+          "name": "Heiwadai"
+        },
+        {
+          "code": "F05",
+          "name": "Hikawadai"
+        },
+        {
+          "code": "F06",
+          "name": "Kotake-mukaihara"
+        },
+        {
+          "code": "F07",
+          "name": "Senkawa"
+        },
+        {
+          "code": "F08",
+          "name": "Kanamecho"
+        },
+        {
+          "code": "F09",
+          "name": "Ikebukuro"
+        },
+        {
+          "code": "F10",
+          "name": "Zoshigaya"
+        },
+        {
+          "code": "F11",
+          "name": "Nishi-waseda"
+        },
+        {
+          "code": "F12",
+          "name": "Higashi-shinjuku"
+        },
+        {
+          "code": "F13",
+          "name": "Shinjuku-sanchome"
+        },
+        {
+          "code": "F14",
+          "name": "Kita-sando"
+        },
+        {
+          "code": "F15",
+          "name": "Meiji-jingumae <Harajuku>"
+        },
+        {
+          "code": "F16",
+          "name": "Shibuya"
+        }
+      ],
+      "ja": [
+        {
+          "code": "F01",
+          "name": "和光市"
+        },
+        {
+          "code": "F02",
+          "name": "地下鉄成増"
+        },
+        {
+          "code": "F03",
+          "name": "地下鉄赤塚"
+        },
+        {
+          "code": "F04",
+          "name": "平和台"
+        },
+        {
+          "code": "F05",
+          "name": "氷川台"
+        },
+        {
+          "code": "F06",
+          "name": "小竹向原"
+        },
+        {
+          "code": "F07",
+          "name": "千川"
+        },
+        {
+          "code": "F08",
+          "name": "要町"
+        },
+        {
+          "code": "F09",
+          "name": "池袋"
+        },
+        {
+          "code": "F10",
+          "name": "雑司が谷"
+        },
+        {
+          "code": "F11",
+          "name": "西早稲田"
+        },
+        {
+          "code": "F12",
+          "name": "東新宿"
+        },
+        {
+          "code": "F13",
+          "name": "新宿三丁目"
+        },
+        {
+          "code": "F14",
+          "name": "北参道"
+        },
+        {
+          "code": "F15",
+          "name": "明治神宮前〈原宿〉"
+        },
+        {
+          "code": "F16",
+          "name": "渋谷"
+        }
+      ]
+    }
+  }
+}

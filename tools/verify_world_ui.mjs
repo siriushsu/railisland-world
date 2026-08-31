@@ -88,8 +88,8 @@ for (const [engine, browserType] of [['chromium', chromium], ['webkit', webkit]]
     left: document.querySelector('#plateL')?.textContent,
     right: document.querySelector('#plateR')?.textContent,
   }));
-  if (cityResult.system !== 'tokyo_sched' || cityResult.selected !== 'tokyo_sched' || cityResult.trains !== 2818 ||
-      cityResult.left !== '光が丘' || cityResult.right !== '西馬込')
+  if (cityResult.system !== 'tokyo_sched' || cityResult.selected !== 'tokyo_sched' || cityResult.trains !== 8628 ||
+      cityResult.left !== '和光市' || cityResult.right !== '西船橋')
     fail(engine, `東京切換結果不符：${JSON.stringify(cityResult)}`);
   if (pageErrors.length) fail(engine, `pageerror：${pageErrors.join(' | ')}`);
   console.log(`✓ ${engine}: 4 widths、真實 tap、東京懶載入`);
