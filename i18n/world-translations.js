@@ -24,6 +24,9 @@
     '維也納': 'Vienna',
     '載入城市資料中…': 'Loading city data…',
     '城市資料載入失敗，請稍後再試。': 'City data could not be loaded. Please try again later.',
+    '跟隨 {route}': 'Follow {route}',
+    '取消跟隨 {route}': 'Stop following {route}',
+    '跟隨 {route}　{destination}': 'Follow {route} · {destination}',
     '選一座城市，看列車依當地時刻表在真實路網上運行。資料完整度會逐城查證與更新；目前為時刻表推演，並非即時列車位置。': 'Choose a city and watch trains move across the real network using local timetables. Coverage is being verified city by city; positions are timetable simulations, not live train locations.',
     '列車依當地公開時刻表推演，並非即時位置。路線範圍與更新日期請見資料來源與路線稽核。': 'Trains are simulated from public local timetables, not live positions. See Data Sources and the route audit for coverage and update dates.',
     '選一座城市，看列車依公開時刻或明示模擬班距在真實路網上運行。路線完整度會逐城查證與更新；畫面並非即時列車位置。': 'Choose a city and watch trains move on the real network using public timetables or clearly labelled simulated headways. Route coverage is verified city by city; positions are not live.',
@@ -52,6 +55,7 @@
     '東京路網補完：Tokyo Metro 銀座、丸之內、日比谷、東西、千代田、有樂町、半藏門、南北、副都心 9 線已全部加入，連同都營 6 線共 16 個可見路徑；方南町支線獨立畫出，千代田線也完整接到北綾瀨。Metro 站名採官方繁中、英文、日文，列車用明示模擬班距在正確路網雙向流動；都營仍依官方平日時刻。這不是即時位置，也不包含 JR 與全部私鐵': 'Tokyo network coverage is complete for this launch scope. All nine Tokyo Metro lines—Ginza, Marunouchi, Hibiya, Tozai, Chiyoda, Yurakucho, Hanzomon, Namboku and Fukutoshin—now join six Toei services across 16 visible paths. The Honancho branch is separate and the Chiyoda Line reaches Kita-ayase. Metro station names use the operator’s official Traditional Chinese, English and Japanese pages; trains move both ways using clearly labelled simulated headways, while Toei retains the official weekday timetable. Positions are not live, and JR and the full private-rail network are not included.',
     '倫敦路網補完：依 TfL 現行資料加入 Underground、Elizabeth line、DLR、Tram 與六條新命名 London Overground，20 個線別依端點與 via 拆成 67 個可見路徑；Central、District、Northern 舊版漏掉的分支也一併補齊，Tram 市中心單向環不會反向虛構。464 個站名與全部路線內容備妥繁中、英文、日文；TfL 沒有官方中日站名的專名保留英文。8,590 班使用明示模擬班距，只代表正確路網上的流動，不是即時位置': 'London network coverage is complete for this launch scope. Current TfL data now supplies Underground, Elizabeth line, DLR, Tram and all six newly named London Overground lines. Twenty branded lines are split by termini and via into 67 visible paths; previously missing Central, District and Northern branches are restored, and the central Tram one-way loop is never reversed. All 464 station names and route content are available in Traditional Chinese, English and Japanese; official English proper names are retained where TfL publishes no Chinese or Japanese set. The 8,590 services use clearly labelled simulated headways to show motion on the correct network, not live positions.',
     '伊斯坦堡路網補完：依 Metro İstanbul、UAB、TCDD 與 IETT 現行官方資料重建 12 個 Metro 路徑、6 條電車、4 條纜索鐵路、Marmaray 與 Halkalı－Bahçeşehir 通勤線，另保留 2 條纜車，共 26 個可見路徑。M11 已完整接通 Gayrettepe－Halkalı，M3、M4、M5、M8、M9 延伸及 T2、T5、T6、F4 都已補齊；T3 單向環不會反向虛構，尚未通車的 T7 不會提前加入。277 個站名與全部路線內容備妥繁中、英文、日文；7,679 班為明示模擬班距，臨時停駛與改點仍請以官方公告為準': 'Istanbul network coverage is complete for this launch scope. Current Metro İstanbul, UAB, TCDD and IETT sources now supply 12 Metro paths, 6 tram lines, 4 funiculars, Marmaray and the Halkalı–Bahçeşehir commuter line, plus 2 cable cars—26 visible paths in total. M11 now connects Gayrettepe to Halkalı; the M3, M4, M5, M8 and M9 extensions and T2, T5, T6 and F4 are restored. The T3 one-way loop is never reversed, and unopened T7 is excluded. All 277 station names and route content are available in Traditional Chinese, English and Japanese. The 7,679 services use clearly labelled simulated headways; check official notices for temporary suspensions or timetable changes.',
+    '世界城市的列車標記簡化了：一般視野只留彩色圓點，避免紐約、東京等密集路網被車牌塞滿；放到最大或跟隨一班車時，才顯示乘客看得懂的路線代號或官方線名。GTFS 內部代碼與模擬流水號不再冒充公開車次': 'World-city train markers are now simpler: normal views show coloured dots so dense networks such as New York and Tokyo are not buried under labels. At maximum zoom or while following a train, the map shows a passenger-facing route code or official line name. Internal GTFS IDs and simulated sequence numbers are no longer presented as public train numbers.',
   });
   Object.assign(messages.ja, {
     '軌島・世界': '軌島・世界',
@@ -76,6 +80,9 @@
     '維也納': 'ウィーン',
     '載入城市資料中…': '都市データを読み込み中…',
     '城市資料載入失敗，請稍後再試。': '都市データを読み込めませんでした。しばらくしてからもう一度お試しください。',
+    '跟隨 {route}': '{route}を追跡',
+    '取消跟隨 {route}': '{route}の追跡を終了',
+    '跟隨 {route}　{destination}': '{route}を追跡・{destination}',
     '選一座城市，看列車依當地時刻表在真實路網上運行。資料完整度會逐城查證與更新；目前為時刻表推演，並非即時列車位置。': '都市を選ぶと、現地の時刻表にもとづいて実際の路線上を列車が走ります。収録範囲は都市ごとに検証・更新中で、現在位置はリアルタイムではなく時刻表シミュレーションです。',
     '列車依當地公開時刻表推演，並非即時位置。路線範圍與更新日期請見資料來源與路線稽核。': '列車は現地の公開時刻表にもとづくシミュレーションで、リアルタイム位置ではありません。収録範囲と更新日はデータ出典・路線監査をご覧ください。',
     '選一座城市，看列車依公開時刻或明示模擬班距在真實路網上運行。路線完整度會逐城查證與更新；畫面並非即時列車位置。': '都市を選ぶと、公開時刻表または明示した模擬運転間隔にもとづいて、実際の路線上を列車が走ります。収録範囲は都市ごとに検証・更新中で、表示位置はリアルタイムではありません。',
@@ -104,5 +111,6 @@
     '東京路網補完：Tokyo Metro 銀座、丸之內、日比谷、東西、千代田、有樂町、半藏門、南北、副都心 9 線已全部加入，連同都營 6 線共 16 個可見路徑；方南町支線獨立畫出，千代田線也完整接到北綾瀨。Metro 站名採官方繁中、英文、日文，列車用明示模擬班距在正確路網雙向流動；都營仍依官方平日時刻。這不是即時位置，也不包含 JR 與全部私鐵': '東京の路線網を今回の対象範囲で補完しました。東京メトロの銀座・丸ノ内・日比谷・東西・千代田・有楽町・半蔵門・南北・副都心の9路線と、都営交通6路線を16本の表示経路で収録しています。方南町支線は独立表示し、千代田線は北綾瀬まで接続しました。東京メトロの駅名は公式の繁体字中国語・英語・日本語ページを使用し、列車は明示した模擬運転間隔で両方向に走ります。都営は公式平日時刻を維持しています。リアルタイム位置ではなく、JRと私鉄全線は含みません。',
     '倫敦路網補完：依 TfL 現行資料加入 Underground、Elizabeth line、DLR、Tram 與六條新命名 London Overground，20 個線別依端點與 via 拆成 67 個可見路徑；Central、District、Northern 舊版漏掉的分支也一併補齊，Tram 市中心單向環不會反向虛構。464 個站名與全部路線內容備妥繁中、英文、日文；TfL 沒有官方中日站名的專名保留英文。8,590 班使用明示模擬班距，只代表正確路網上的流動，不是即時位置': 'ロンドンの首発範囲を補完しました。TfLの現行データからUnderground、Elizabeth line、DLR、Tram、名称が付いたLondon Overground 6路線を収録し、20ブランドを終点とvia別に67本の表示経路へ分けています。旧版で不足していたCentral、District、Northernの分岐も追加し、Tramの市内一方向ループを逆走させません。464駅名と全路線内容を繁体字中国語・英語・日本語で表示できます。TfLが中日公式駅名を公開していない固有名は英語を維持します。8,590本は正しい路線上の動きを示す明示済み模擬運転間隔で、リアルタイム位置ではありません。',
     '伊斯坦堡路網補完：依 Metro İstanbul、UAB、TCDD 與 IETT 現行官方資料重建 12 個 Metro 路徑、6 條電車、4 條纜索鐵路、Marmaray 與 Halkalı－Bahçeşehir 通勤線，另保留 2 條纜車，共 26 個可見路徑。M11 已完整接通 Gayrettepe－Halkalı，M3、M4、M5、M8、M9 延伸及 T2、T5、T6、F4 都已補齊；T3 單向環不會反向虛構，尚未通車的 T7 不會提前加入。277 個站名與全部路線內容備妥繁中、英文、日文；7,679 班為明示模擬班距，臨時停駛與改點仍請以官方公告為準': 'イスタンブールの首発範囲を補完しました。Metro İstanbul、UAB、TCDD、IETTの現行公式資料からMetro 12経路、tram 6路線、funicular 4路線、Marmaray、Halkalı－Bahçeşehir近郊線、補足表示のケーブルカー2路線を再構築し、計26表示経路を収録しています。M11はGayrettepe－Halkalı間を全通し、M3・M4・M5・M8・M9の延伸とT2・T5・T6・F4を追加しました。T3の一方向ループは逆走させず、未開業のT7は含めません。277駅名と全路線内容を繁体字中国語・英語・日本語で表示できます。7,679本は明示済みの模擬運転間隔です。臨時運休や時刻変更は公式公告をご確認ください。',
+    '世界城市的列車標記簡化了：一般視野只留彩色圓點，避免紐約、東京等密集路網被車牌塞滿；放到最大或跟隨一班車時，才顯示乘客看得懂的路線代號或官方線名。GTFS 內部代碼與模擬流水號不再冒充公開車次': '世界都市の列車表示を簡素化しました。通常表示では色付きの点だけを描き、ニューヨークや東京のような高密度路線網をラベルで埋めません。最大ズームまたは列車追跡中にだけ、利用者向けの路線記号・公式路線名を表示します。GTFS内部IDや模擬連番を公開列車番号のようには表示しません。',
   });
 })();

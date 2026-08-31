@@ -3827,6 +3827,7 @@
            內容 li 上限 8 條(li.grp 是標題不算)。 -->
       <ul class="foot-list foot-recent">
         <li class="grp">最近更新</li>
+        <li data-cl-of="worldmarker"><span class="d">8/31</span><span>世界城市的列車標記簡化了：一般視野只留彩色圓點，避免紐約、東京等密集路網被車牌塞滿；放到最大或跟隨一班車時，才顯示乘客看得懂的路線代號或官方線名。GTFS 內部代碼與模擬流水號不再冒充公開車次</span></li>
         <li data-cl-of="istanbulaudit"><span class="d">8/31</span><span>伊斯坦堡路網補完：依 Metro İstanbul、UAB、TCDD 與 IETT 現行官方資料重建 12 個 Metro 路徑、6 條電車、4 條纜索鐵路、Marmaray 與 Halkalı－Bahçeşehir 通勤線，另保留 2 條纜車，共 26 個可見路徑。M11 已完整接通 Gayrettepe－Halkalı，M3、M4、M5、M8、M9 延伸及 T2、T5、T6、F4 都已補齊；T3 單向環不會反向虛構，尚未通車的 T7 不會提前加入。277 個站名與全部路線內容備妥繁中、英文、日文；7,679 班為明示模擬班距，臨時停駛與改點仍請以官方公告為準</span></li>
         <li data-cl-of="londonaudit"><span class="d">8/31</span><span>倫敦路網補完：依 TfL 現行資料加入 Underground、Elizabeth line、DLR、Tram 與六條新命名 London Overground，20 個線別依端點與 via 拆成 67 個可見路徑；Central、District、Northern 舊版漏掉的分支也一併補齊，Tram 市中心單向環不會反向虛構。464 個站名與全部路線內容備妥繁中、英文、日文；TfL 沒有官方中日站名的專名保留英文。8,590 班使用明示模擬班距，只代表正確路網上的流動，不是即時位置</span></li>
         <li data-cl-of="tokyoaudit"><span class="d">8/31</span><span>東京路網補完：Tokyo Metro 銀座、丸之內、日比谷、東西、千代田、有樂町、半藏門、南北、副都心 9 線已全部加入，連同都營 6 線共 16 個可見路徑；方南町支線獨立畫出，千代田線也完整接到北綾瀨。Metro 站名採官方繁中、英文、日文，列車用明示模擬班距在正確路網雙向流動；都營仍依官方平日時刻。這不是即時位置，也不包含 JR 與全部私鐵</span></li>
@@ -3993,6 +3994,7 @@
         <li><span class="d">7/21</span><span>手機大改版：打開就是全螢幕地圖，面板都住進底部；新增「捷」分頁，北中高捷運一張圖同框</span></li>
         <li><span class="d">7/13</span><span>新增「省電」模式（手機預設開啟）：降到 30fps；手機一次只開一個面板</span></li>
         <li class="grp">外觀與品牌</li>
+        <li data-cl="worldmarker"><span class="d">8/31</span><span>世界城市的列車標記簡化了：一般視野只留彩色圓點，避免紐約、東京等密集路網被車牌塞滿；放到最大或跟隨一班車時，才顯示乘客看得懂的路線代號或官方線名。GTFS 內部代碼與模擬流水號不再冒充公開車次</span></li>
         <li data-cl="satfallback"><span class="d">8/30</span><span>衛星影像模式下放大或縮小時，畫面會有一瞬間整片變成深綠色，在 Android 手機上特別明顯。一次縮小好幾級的時候，新的衛星圖磚還沒補上，露出來的是墊在底下的台灣輪廓，而它的顏色是當初憑感覺挑的森林綠，和真正的衛星影像差了一整個色相。現在改成照衛星影像在台灣上空的實際顏色（取台北、板橋、桃園、台中、高雄、花蓮與全島七處、四種縮放共 28 張圖磚量出來），圖磚補上前後的色差從一眼就看得到降到幾乎分辨不出來。亮色與暗色地圖本來就已經貼齊各自的底圖，這次沒有變動</span></li>
         <li data-cl="cdarrivestamp"><span class="d">8/19</span><span>使用者回報「還是會有推到疊在一起，通常是前車位置不對沒有被認走」。查出官方看板上「列車進站」那一列的到站時刻，每一輪都會被官方重新標成「當下」——連錄 16 輪、107 條進站中的列全部如此，沒有一條保留真正的到站時刻。我們原本拿這個值去算「這台車停站多久了、該不該開走」，展開之後等於在算「我們手上這份資料是幾秒前抓到的」；而抓到的資料新舊本來就會在 2 到 30 秒之間跳，只要超過停站秒數（多數站 25 秒），畫面上所有停靠中的車就同時被推進下一站，下一輪抓到新資料又整批退回來——而畫面只准前進不准倒退，被退的那台就凍在原地等，後車追上來就疊住。回放兩段各 22 輪的真實官方資料實測：基準版分別退站 6 次與 14 次，集中在 2 輪與 3 輪、每次都是整整一站，單輪最多 5 台同時退，第二段還真的出現一對疊在 100 公尺內的車。改成用「第一次看到它進站」的那一刻當真正的到站時刻，同一批官方資料回放：兩段的退站都降到 0 次、那對疊車消失，車數與車輛編號的變動一台都沒少</span></li>
         <li data-cl="brsametrain"><span class="d">8/19</span><span>文湖線的列車是從官方各站的到站倒數切出來的：相鄰兩站的倒數差得夠多才算同一台車。原本的門檻只要求「差距達到該段行駛時間的一半」，於是明明是兩台的車會被併成一台——例如大直站還有 41 秒到站、松山機場站 150 秒，而大直開到松山機場光行駛就要 172 秒，物理上不可能是同一台。併掉之後不只少一台車，那一台的位置還會在兩站的倒數之間來回跳（實測 5 秒內倒退半個站距），而畫面只准前進、不准倒退，車就凍在原地（最遠與官方差 1669 公尺），後面的車追上來就疊在一起。門檻改成物理下限「差距至少要有該段的行駛時間」：實測 161 組相鄰站對，合理是同一台的那 96 組最小恰好等於行駛時間，不可能是同一台的那側最大只有 0.875 倍，兩群乾淨分開。同一份官方資料實測，修正後補回被併掉的車、沒有任何一台消失</span></li>
@@ -4441,7 +4443,7 @@
 //         逐 hunk 比對過:兩版四項做法幾乎相同,v0831d 多做了第三件(clock-off 放出「現在」鈕),
 //         v0831e 只多幾行註解且其中一句寫錯(openNearbyStations 不讀 simSec,它不吃撥鐘影響),
 //         故正文全取 v0831d。守門人:scripts/verify_merge_no_loss.mjs --parents 兩顆。
-const BUILD = 'world-v0831g';
+const BUILD = 'world-v0831h';
 // 輕量多語 runtime：繁中原文同時是安全 fallback，外語字典只存差異字串。
 // 所有插值一律先當純文字處理；需要 HTML 的呼叫端仍須用 escHtml() 包住結果。
 const I18N_STORAGE_KEY = 'trainmap-language';
@@ -9160,10 +9162,50 @@ function drawCollectSegs(w, h) {
   }
 }
 
+// 世界版班表的 tr.train 是程式內部身分：可能是 GTFS trip ID，也可能是班距模擬器生成的流水號，
+// 不能直接冒充乘客會看到的車次號。地圖、跟隨卡與車站看板只顯示路線代號／官方線名；內部 ID
+// 仍留給跟隨、網址與資料鍵使用。台鐵／高鐵等真正有公開車次號的非 world 系統維持原樣。
+function worldSchedSystemOf(tr) {
+  return (state.schedSystems || []).find(sys => sys.id === tr.sys && sys.world) || null;
+}
+function worldRouteBadge(tr) {
+  const raw = String(tr.train || '');
+  // 倫敦的內部 ID 是完整 route variant slug；墨爾本另帶 VL/MT/TR 資料源前綴。
+  // 兩者直接取營運路線名，比從內部 ID 猜縮寫更接近乘客實際看到的名稱。
+  if (tr.sys === 'london' || tr.sys === 'melbourne_sched') {
+    const named = String(tr.carName || '').split('·')[0].trim();
+    if (named) return named;
+  }
+  // 班距合成班次：NSL↓001、M1A↑023；以及時刻表轉換後的 1-0006、A-0500、RE7-0955。
+  const arrow = raw.match(/^(.+?)[↓↑→]\d+$/);
+  if (arrow) return arrow[1];
+  const timed = raw.match(/^(.+?)-\d{3,4}$/);
+  if (timed) return timed[1];
+  const named = String(tr.carName || '').split('·')[0].trim();
+  return named || raw;
+}
+function schedMarkerLabel(tr) {
+  return worldSchedSystemOf(tr) ? worldRouteBadge(tr) : String(tr.train);
+}
+function schedMarkerTitle(tr) {
+  const label = schedMarkerLabel(tr);
+  return worldSchedSystemOf(tr)
+    ? t('跟隨 {route}', { route: label })
+    : t('跟隨 {train} 次', { train: label });
+}
+const WORLD_ROUTE_BADGE_ZOOM = 18; // 世界向量底圖沒有有限 getMaxZoom；z18 是實際可閱讀的最深城市近景
+function schedTagsVisibleAt(z) {
+  const systems = state.schedSystems || [];
+  if (!systems.length || !systems.every(sys => sys.world)) return z >= 11;
+  return z >= WORLD_ROUTE_BADGE_ZOOM;
+}
+
 function drawSched(w, h, paintDecoTrains) {
   const P = pal();
   const z = map.getZoom();
-  const showTrain = z >= 11;
+  // 世界城市的列車密度遠高於台灣幹線：一般視野只畫圓點，只有最大縮放才展開路線牌。
+  // 跟隨中的主角仍由下方 isFollow 分支無條件畫牌，不受這道縮放門檻限制。
+  const showTrain = schedTagsVisibleAt(z);
   if (!state._featured) buildFeatured(); // 每日之最快取:換系統/時刻表被 applySchedSystems 作廢後,這裡補建一次
   if (!state._punctual) buildPunctual(); // 準點排行快取:同上,換系統/資料到貨後補建一次
   const inView = p => p.x >= -40 && p.x <= w + 40 && p.y >= -20 && p.y <= h + 20;
@@ -9256,7 +9298,7 @@ function drawSched(w, h, paintDecoTrains) {
       if (state._punctual.has(tr)) drawPunctualRing(cp);
       else if (state._featured.has(tr)) drawFeaturedRing(cp); // 今日之最(探索面板推薦)→ 地圖上加繪金色光環識別
       glowUnder(cp, glowC, showTrain ? 10 : 3.5); // 車號牌模式:光暈放大到繞出牌緣,近看也發亮
-      if (showTrain) isHSR(tr) ? drawHSRTag(cp, tr.train) : drawTag(cp, tr.train, tr.color, textColorFor(tr.color));
+      if (showTrain) isHSR(tr) ? drawHSRTag(cp, tr.train) : drawTag(cp, schedMarkerLabel(tr), tr.color, textColorFor(tr.color));
       else isHSR(tr) ? drawHSRDot(cp) : drawDot(cp, tr.color);
       if (state.dirArrow && showTrain) drawDirArrow(cp, tr, glowC, sh); // 車號牌前緣加行進方向箭頭(遠景圓點不畫,避免密集小點雜亂)
     });
@@ -9316,7 +9358,7 @@ function drawFollowMarker(p, tr) {
   ctx.beginPath(); ctx.arc(p.x, p.y, 11, 0, 7);
   ctx.strokeStyle = tr.color; ctx.globalAlpha = 0.9; ctx.lineWidth = 2.5; ctx.stroke();
   ctx.globalAlpha = 1;
-  isHSR(tr) ? drawHSRTag(p, tr.train) : drawTag(p, tr.train, tr.color, textColorFor(tr.color));
+  isHSR(tr) ? drawHSRTag(p, tr.train) : drawTag(p, schedMarkerLabel(tr), tr.color, textColorFor(tr.color));
   if (state.dirArrow && map.getZoom() >= 11) drawDirArrow(p, tr, glowC); // 跟隨主角同樣加方向箭頭(牌模式才畫)
 }
 
@@ -9550,7 +9592,11 @@ const _blockSideEase = new Map();      // 進出偏移要漸變,不能一到門�
 const _blockSideLatch = new Set();     // 已經讓開的:通過的車真的走遠之前不准回到軌道上
 // 車號牌實寬(與 drawTag 同一條算式);標籤不變 → 每班量一次就夠
 function tagW(tr) {
-  if (tr._tagW == null) { ctx.font = '700 10px ' + FONT; tr._tagW = ctx.measureText(String(tr.train)).width + TAG_PAD; }
+  const label = schedMarkerLabel(tr);
+  if (tr._tagLabel !== label || tr._tagW == null) {
+    ctx.font = '700 10px ' + FONT;
+    tr._tagLabel = label; tr._tagW = ctx.measureText(label).width + TAG_PAD;
+  }
   return tr._tagW;
 }
 // 「這台車在畫面上實際佔多大」——命中測試的唯一尺寸來源。
@@ -9611,7 +9657,8 @@ function drawDirArrow(cp, tr, color, sh) { // 台鐵/高鐵:牌=車次號(數字
   if (cpB && sh) { cpB.x += sh.x; cpB.y += sh.y; }
   const ang = dirAngOf(tr, cp, cpB);
   if (ang === undefined) return;
-  drawArrowAt(cp, ang, color, 6 + String(tr.train).length * 3, 8);
+  const hw = worldSchedSystemOf(tr) ? tagW(tr) / 2 : 6 + String(tr.train).length * 3;
+  drawArrowAt(cp, ang, color, hw, 8);
 }
 function drawFreqDirArrow(cp, ln, carrier, pB) { // 捷運/輕軌:牌=線路縮寫(CJK 全形 10px/字),半寬 5/字+6
   const ang = dirAngOf(carrier, cp, pB ? map.latLngToContainerPoint([pB.lat, pB.lon]) : null);
@@ -13722,7 +13769,7 @@ function nextTourTrain(now) {
     else fadeSwitchMetro(metro);
     return;
   }
-  const ts = document.getElementById('trainSearch'); if (ts) ts.value = tr.train;
+  const ts = document.getElementById('trainSearch'); if (ts) ts.value = schedMarkerLabel(tr);
   if (!state.ambient) { setFollow(tr, true); return; }
   if (state._ambientFresh) { state._ambientFresh = false; ambientJumpTo(tr); }
   else fadeSwitch(tr);
@@ -14882,7 +14929,7 @@ function renderTrainCard(tr) {
   const it = trainIntro(tr);
   const first = tr.stops[0], last = tr.stops[tr.stops.length - 1];
   document.getElementById('tcDot').style.background = tr.color;
-  document.getElementById('tcNo').textContent = tr.train;
+  document.getElementById('tcNo').textContent = schedMarkerLabel(tr);
   document.getElementById('tcKind').textContent = tr.loop ? t('觀光列車') : tr.est ? `${trainTypeName(tr.typeName)}・${t('時刻推算')}`
     : it.stock ? i18nContentData('rollingStock', it.stock, 'name') : trainTypeName(it.kind || tr.typeName);
   document.getElementById('tcRoute').textContent =
@@ -15153,7 +15200,7 @@ function followTrainNo(no, opts) {
     if (other) { loadSystem(other); tr = findTrain(no, wantSys); }
   }
   if (tr) {
-    const ts = document.getElementById('trainSearch'); if (ts) ts.value = no;
+    const ts = document.getElementById('trainSearch'); if (ts) ts.value = schedMarkerLabel(tr);
     setFollow(tr, false, false, opts);
     laSync(tr, true); // 跟車即時動態:成功跟上就立刻推一次,不等 updateFollowPanel 的節流
   } else showSearchMiss(no + '（今日無此班次）');
@@ -18663,7 +18710,7 @@ function showFollowPanel(tr) {
   const fp = document.getElementById('followPanel');
   if (state.mode !== 'sched' || !tr) { fp.hidden = true; closeRideBox(); syncFollowOnClass(); return; }
   document.getElementById('fpDot').style.background = tr.color;
-  document.getElementById('fpTrain').textContent = tr.train;
+  document.getElementById('fpTrain').textContent = schedMarkerLabel(tr);
   const it = renderTrainCard(tr);
   document.getElementById('fpKind').textContent = tr.loop ? `${t(tr.loopName)}・${t('觀光列車')}` : trainTypeName(it.kind || tr.typeName);
   const first = tr.stops[0], last = tr.stops[tr.stops.length - 1];
@@ -18830,7 +18877,7 @@ function renderFollowBar(msg) {
   fb.className = 'followbar'; fb.hidden = false;
   fb.innerHTML =
     `<span class="dot" style="background:${tr.color}"></span>` +
-    `<b>${escHtml(tr.train)}</b> ${tr.loop ? `${escHtml(t(tr.loopName))}　${escHtml(t('臺北⇄枋寮 永續來回中'))}` : `${escHtml(trainTypeName(tr.typeName))}　${escHtml(stationName(first.name, tr.sys))}→${escHtml(stationName(last.name, tr.sys))}　` +
+    `<b>${escHtml(schedMarkerLabel(tr))}</b> ${tr.loop ? `${escHtml(t(tr.loopName))}　${escHtml(t('臺北⇄枋寮 永續來回中'))}` : `${escHtml(trainTypeName(tr.typeName))}　${escHtml(stationName(first.name, tr.sys))}→${escHtml(stationName(last.name, tr.sys))}　` +
     `${fmtHM(first.depSec % 86400)}–${fmtHM(last.arrSec % 86400)}`}` +
     (msg ? `　· ${escHtml(t(msg))}` : '') +
     `<button id="unfollow">${escHtml(t('取消跟隨'))}</button>`;
@@ -23204,7 +23251,7 @@ function renderSearchDrop() {
     html += trs.map((o, i) => {
       const tr = o.tr, a = tr.stops[0].name, b = tr.stops[tr.stops.length - 1].name;
       const spd = specialOf(tr), sp = (spd && spd.named) || SPECIAL_TRAINS[String(tr.train)];
-      return `<div class="row tr-row" data-ti="${i}"><span class="nm">${escHtml(String(tr.train))}</span>`
+      return `<div class="row tr-row" data-ti="${i}"><span class="nm">${escHtml(schedMarkerLabel(tr))}</span>`
         + `<span class="sys-chip">${escHtml(t(o.sys.label))}</span>`
         + `<span class="tr-meta">${sp ? escHtml(spd?.named ? i18nContentData('namedTrains', spd.named, 'name') : t(sp.name)) + '・' : ''}${escHtml(trainTypeName(tr.typeName))}　${escHtml(stationName(a, tr.sys))}→${escHtml(stationName(b, tr.sys))}</span></div>`;
     }).join('');
@@ -23590,10 +23637,11 @@ function renderBoard() {
     const min = r.off ? t('停駛') : r.dtm < 60 ? t('即將') : t('{n} 分', { n: i18nNumber(minutes) }, minutes);
     const dest = r.tr.loop ? t('往 {station}', { station: stationName(r.loopDest, r.tr.sys) }) : (r.isLast ? t('（終點到達）') : t('往 {station}', { station: stationName(r.dest, r.tr.sys) }));
     // 停駛列不掛 data-no/title:點了不該去跟一台不存在的車(followTrainNo 也找不到它)
-    return `<div class="row${r.off ? ' off' : ''}"${r.off ? '' : ` data-no="${escHtml(r.tr.train)}" data-sys="${escHtml(r.tr.sys || '')}" title="${escHtml(t('跟隨 {train} 次', { train: r.tr.train }))}"`}><span class="dot" style="background:${r.tr.color}"></span>` +
+    const markerLabel = schedMarkerLabel(r.tr);
+    return `<div class="row${r.off ? ' off' : ''}"${r.off ? '' : ` data-no="${escHtml(r.tr.train)}" data-sys="${escHtml(r.tr.sys || '')}" title="${escHtml(schedMarkerTitle(r.tr))}"`}><span class="dot" style="background:${r.tr.color}"></span>` +
       // 「推算」標貼著時刻放(被推算的是時間不是路線),與 lateTag 同位、不會同時出現(est 車無誤點資料);
       // 放 dest 欄會把「（終點到達）」擠成「(…」(280px 看板實測)。
-      `<b>${escHtml(r.tr.train)}</b><span class="dest">${escHtml(r.tr.loop ? t(r.tr.loopName) : trainTypeName(r.tr.typeName))}　${escHtml(dest)}</span>` +
+      `<b>${escHtml(markerLabel)}</b><span class="dest">${escHtml(r.tr.loop ? t(r.tr.loopName) : trainTypeName(r.tr.typeName))}　${escHtml(dest)}</span>` +
       `<span class="t">${fmtHM(r.t % 86400)}${r.off ? '' : r.tr.est ? `<span class="estTag">${escHtml(t('推算'))}</span>` : r.dl > 0 ? `<span class="lateTag">+${i18nNumber(r.dl)}</span>` : ''}</span><span class="min">${escHtml(min)}</span></div>`;
   }).join('');
   const fav = isFavStation(st);
@@ -26597,10 +26645,11 @@ async function boot() {
     const dest = tr.loop ? routeName(tr.loopName, tr.sys) :
       [trainTypeName(tr.typeName), t('往 {station}', { station: stationName(tr.stops[tr.stops.length - 1].name, tr.sys) })].filter(Boolean).join(' ');
     return {
-      icon: '', label: on ? t('取消跟隨 {train} 次', { train: tr.train }) : t('跟隨 {train} 次　{destination}', { train: tr.train, destination: dest }),
+      icon: '', label: on ? t('取消跟隨 {route}', { route: schedMarkerLabel(tr) })
+        : t('跟隨 {route}　{destination}', { route: schedMarkerLabel(tr), destination: dest }),
       run: () => {
         if (on) { setAutoTour(false); clearFollow(); return; }
-        const ts = document.getElementById('trainSearch'); if (ts) ts.value = tr.train;
+        const ts = document.getElementById('trainSearch'); if (ts) ts.value = schedMarkerLabel(tr);
         setFollow(tr);
       },
     };
@@ -27193,7 +27242,7 @@ async function boot() {
     if (deepT != null) setSimSec(deepT);
     if (deepTrain && state.mode === 'sched') {
       const tr0 = findTrain(deepTrain);
-      if (tr0) { document.getElementById('trainSearch').value = tr0.train; setFollow(tr0); }
+      if (tr0) { document.getElementById('trainSearch').value = schedMarkerLabel(tr0); setFollow(tr0); }
     } else if (deepAt) {
       map.setView(deepAt, deepZ != null ? deepZ : map.getZoom(), { animate: false });
     } else if (defPlace) {
