@@ -793,6 +793,10 @@
 
   window.RAIL_I18N_CHANGELOG = {
     en: [
+      { name: 'World city networks', items: [
+        { date: '31 Aug 2026', text: 'Completed New York with all 28 MTA Subway services and Staten Island Railway. Branches and separate corridors are split into 36 verified paths, with multilingual city and route content.' },
+        { date: '31 Aug 2026', text: 'Completed Singapore’s six MRT and three LRT systems, including CCL6, with 185 station names in Traditional Chinese, English and Japanese.' }
+      ]},
       { name: 'Map and live data', items: [
         { date: 'Aug 2026', text: 'Improved metro live-position matching, station boards, fallback notices and TRA pass-through movement.' },
         { date: 'Jul 2026', text: 'Added the nationwide view, Alishan Forest Railway, branch lines, station boards and live TRA delay correction.' }
@@ -807,6 +811,10 @@
       ]}
     ],
     ja: [
+      { name: '世界都市の路線網', items: [
+        { date: '2026年8月31日', text: 'MTA地下鉄28系統とスタテンアイランド鉄道をすべて収録し、分岐・別経路を36本の検証済み経路に分けました。都市・路線コンテンツは3言語対応です。' },
+        { date: '2026年8月31日', text: 'CCL6を含むシンガポールのMRT 6系統・LRT 3系統を収録し、185駅を繁体字中国語・英語・日本語で整備しました。' }
+      ]},
       { name: '地図とリアルタイム情報', items: [
         { date: '2026年8月', text: 'メトロ列車位置の対応付け、駅案内、フォールバック表示、台湾鉄路の通過駅アニメーションを改善しました。' },
         { date: '2026年7月', text: '台湾全土表示、阿里山林業鉄路、支線、駅案内、台湾鉄路のリアルタイム遅延補正を追加しました。' }

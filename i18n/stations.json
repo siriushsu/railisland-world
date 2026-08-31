@@ -3111,6 +3111,1903 @@
         "en": "Sam Kee",
         "ja": "サム・キー"
       }
+    },
+    "nyc_sched": {
+      "1 Av": {
+        "zh-TW": "1 Av",
+        "en": "1 Av",
+        "ja": "1 Av"
+      },
+      "103 St": {
+        "zh-TW": "103 St",
+        "en": "103 St",
+        "ja": "103 St"
+      },
+      "103 St-Corona Plaza": {
+        "zh-TW": "103 St-Corona Plaza",
+        "en": "103 St-Corona Plaza",
+        "ja": "103 St-Corona Plaza"
+      },
+      "104 St": {
+        "zh-TW": "104 St",
+        "en": "104 St",
+        "ja": "104 St"
+      },
+      "110 St": {
+        "zh-TW": "110 St",
+        "en": "110 St",
+        "ja": "110 St"
+      },
+      "110 St-Malcolm X Plaza": {
+        "zh-TW": "110 St-Malcolm X Plaza",
+        "en": "110 St-Malcolm X Plaza",
+        "ja": "110 St-Malcolm X Plaza"
+      },
+      "111 St": {
+        "zh-TW": "111 St",
+        "en": "111 St",
+        "ja": "111 St"
+      },
+      "116 St": {
+        "zh-TW": "116 St",
+        "en": "116 St",
+        "ja": "116 St"
+      },
+      "116 St-Columbia University": {
+        "zh-TW": "116 St-Columbia University",
+        "en": "116 St-Columbia University",
+        "ja": "116 St-Columbia University"
+      },
+      "121 St": {
+        "zh-TW": "121 St",
+        "en": "121 St",
+        "ja": "121 St"
+      },
+      "125 St": {
+        "zh-TW": "125 St",
+        "en": "125 St",
+        "ja": "125 St"
+      },
+      "135 St": {
+        "zh-TW": "135 St",
+        "en": "135 St",
+        "ja": "135 St"
+      },
+      "137 St-City College": {
+        "zh-TW": "137 St-City College",
+        "en": "137 St-City College",
+        "ja": "137 St-City College"
+      },
+      "138 St-Grand Concourse": {
+        "zh-TW": "138 St-Grand Concourse",
+        "en": "138 St-Grand Concourse",
+        "ja": "138 St-Grand Concourse"
+      },
+      "14 St": {
+        "zh-TW": "14 St",
+        "en": "14 St",
+        "ja": "14 St"
+      },
+      "14 St-Union Sq": {
+        "zh-TW": "14 St-Union Sq",
+        "en": "14 St-Union Sq",
+        "ja": "14 St-Union Sq"
+      },
+      "145 St": {
+        "zh-TW": "145 St",
+        "en": "145 St",
+        "ja": "145 St"
+      },
+      "149 St-Hostos": {
+        "zh-TW": "149 St-Hostos",
+        "en": "149 St-Hostos",
+        "ja": "149 St-Hostos"
+      },
+      "15 St-Prospect Park": {
+        "zh-TW": "15 St-Prospect Park",
+        "en": "15 St-Prospect Park",
+        "ja": "15 St-Prospect Park"
+      },
+      "155 St": {
+        "zh-TW": "155 St",
+        "en": "155 St",
+        "ja": "155 St"
+      },
+      "157 St": {
+        "zh-TW": "157 St",
+        "en": "157 St",
+        "ja": "157 St"
+      },
+      "161 St-Yankee Stadium": {
+        "zh-TW": "161 St-Yankee Stadium",
+        "en": "161 St-Yankee Stadium",
+        "ja": "161 St-Yankee Stadium"
+      },
+      "163 St-Amsterdam Av": {
+        "zh-TW": "163 St-Amsterdam Av",
+        "en": "163 St-Amsterdam Av",
+        "ja": "163 St-Amsterdam Av"
+      },
+      "167 St": {
+        "zh-TW": "167 St",
+        "en": "167 St",
+        "ja": "167 St"
+      },
+      "168 St": {
+        "zh-TW": "168 St",
+        "en": "168 St",
+        "ja": "168 St"
+      },
+      "168 St-Washington Hts": {
+        "zh-TW": "168 St-Washington Hts",
+        "en": "168 St-Washington Hts",
+        "ja": "168 St-Washington Hts"
+      },
+      "169 St": {
+        "zh-TW": "169 St",
+        "en": "169 St",
+        "ja": "169 St"
+      },
+      "170 St": {
+        "zh-TW": "170 St",
+        "en": "170 St",
+        "ja": "170 St"
+      },
+      "174 St": {
+        "zh-TW": "174 St",
+        "en": "174 St",
+        "ja": "174 St"
+      },
+      "174-175 Sts": {
+        "zh-TW": "174-175 Sts",
+        "en": "174-175 Sts",
+        "ja": "174-175 Sts"
+      },
+      "175 St": {
+        "zh-TW": "175 St",
+        "en": "175 St",
+        "ja": "175 St"
+      },
+      "176 St": {
+        "zh-TW": "176 St",
+        "en": "176 St",
+        "ja": "176 St"
+      },
+      "18 Av": {
+        "zh-TW": "18 Av",
+        "en": "18 Av",
+        "ja": "18 Av"
+      },
+      "18 St": {
+        "zh-TW": "18 St",
+        "en": "18 St",
+        "ja": "18 St"
+      },
+      "181 St": {
+        "zh-TW": "181 St",
+        "en": "181 St",
+        "ja": "181 St"
+      },
+      "182-183 Sts": {
+        "zh-TW": "182-183 Sts",
+        "en": "182-183 Sts",
+        "ja": "182-183 Sts"
+      },
+      "183 St": {
+        "zh-TW": "183 St",
+        "en": "183 St",
+        "ja": "183 St"
+      },
+      "190 St": {
+        "zh-TW": "190 St",
+        "en": "190 St",
+        "ja": "190 St"
+      },
+      "191 St": {
+        "zh-TW": "191 St",
+        "en": "191 St",
+        "ja": "191 St"
+      },
+      "2 Av": {
+        "zh-TW": "2 Av",
+        "en": "2 Av",
+        "ja": "2 Av"
+      },
+      "20 Av": {
+        "zh-TW": "20 Av",
+        "en": "20 Av",
+        "ja": "20 Av"
+      },
+      "207 St": {
+        "zh-TW": "207 St",
+        "en": "207 St",
+        "ja": "207 St"
+      },
+      "21 St": {
+        "zh-TW": "21 St",
+        "en": "21 St",
+        "ja": "21 St"
+      },
+      "21 St-Queensbridge": {
+        "zh-TW": "21 St-Queensbridge",
+        "en": "21 St-Queensbridge",
+        "ja": "21 St-Queensbridge"
+      },
+      "215 St": {
+        "zh-TW": "215 St",
+        "en": "215 St",
+        "ja": "215 St"
+      },
+      "219 St": {
+        "zh-TW": "219 St",
+        "en": "219 St",
+        "ja": "219 St"
+      },
+      "225 St": {
+        "zh-TW": "225 St",
+        "en": "225 St",
+        "ja": "225 St"
+      },
+      "23 St": {
+        "zh-TW": "23 St",
+        "en": "23 St",
+        "ja": "23 St"
+      },
+      "23 St-Baruch College": {
+        "zh-TW": "23 St-Baruch College",
+        "en": "23 St-Baruch College",
+        "ja": "23 St-Baruch College"
+      },
+      "231 St": {
+        "zh-TW": "231 St",
+        "en": "231 St",
+        "ja": "231 St"
+      },
+      "233 St": {
+        "zh-TW": "233 St",
+        "en": "233 St",
+        "ja": "233 St"
+      },
+      "238 St": {
+        "zh-TW": "238 St",
+        "en": "238 St",
+        "ja": "238 St"
+      },
+      "25 Av": {
+        "zh-TW": "25 Av",
+        "en": "25 Av",
+        "ja": "25 Av"
+      },
+      "25 St": {
+        "zh-TW": "25 St",
+        "en": "25 St",
+        "ja": "25 St"
+      },
+      "28 St": {
+        "zh-TW": "28 St",
+        "en": "28 St",
+        "ja": "28 St"
+      },
+      "3 Av": {
+        "zh-TW": "3 Av",
+        "en": "3 Av",
+        "ja": "3 Av"
+      },
+      "3 Av-138 St": {
+        "zh-TW": "3 Av-138 St",
+        "en": "3 Av-138 St",
+        "ja": "3 Av-138 St"
+      },
+      "3 Av-149 St": {
+        "zh-TW": "3 Av-149 St",
+        "en": "3 Av-149 St",
+        "ja": "3 Av-149 St"
+      },
+      "30 Av": {
+        "zh-TW": "30 Av",
+        "en": "30 Av",
+        "ja": "30 Av"
+      },
+      "33 St": {
+        "zh-TW": "33 St",
+        "en": "33 St",
+        "ja": "33 St"
+      },
+      "33 St-Rawson St": {
+        "zh-TW": "33 St-Rawson St",
+        "en": "33 St-Rawson St",
+        "ja": "33 St-Rawson St"
+      },
+      "34 St-Herald Sq": {
+        "zh-TW": "34 St-Herald Sq",
+        "en": "34 St-Herald Sq",
+        "ja": "34 St-Herald Sq"
+      },
+      "34 St-Hudson Yards": {
+        "zh-TW": "34 St-Hudson Yards",
+        "en": "34 St-Hudson Yards",
+        "ja": "34 St-Hudson Yards"
+      },
+      "34 St-Penn Station": {
+        "zh-TW": "34 St-Penn Station",
+        "en": "34 St-Penn Station",
+        "ja": "34 St-Penn Station"
+      },
+      "36 Av": {
+        "zh-TW": "36 Av",
+        "en": "36 Av",
+        "ja": "36 Av"
+      },
+      "36 St": {
+        "zh-TW": "36 St",
+        "en": "36 St",
+        "ja": "36 St"
+      },
+      "39 Av-Dutch Kills": {
+        "zh-TW": "39 Av-Dutch Kills",
+        "en": "39 Av-Dutch Kills",
+        "ja": "39 Av-Dutch Kills"
+      },
+      "4 Av-9 St": {
+        "zh-TW": "4 Av-9 St",
+        "en": "4 Av-9 St",
+        "ja": "4 Av-9 St"
+      },
+      "40 St-Lowery St": {
+        "zh-TW": "40 St-Lowery St",
+        "en": "40 St-Lowery St",
+        "ja": "40 St-Lowery St"
+      },
+      "42 St-Bryant Pk": {
+        "zh-TW": "42 St-Bryant Pk",
+        "en": "42 St-Bryant Pk",
+        "ja": "42 St-Bryant Pk"
+      },
+      "42 St-Port Authority Bus Terminal": {
+        "zh-TW": "42 St-Port Authority Bus Terminal",
+        "en": "42 St-Port Authority Bus Terminal",
+        "ja": "42 St-Port Authority Bus Terminal"
+      },
+      "45 St": {
+        "zh-TW": "45 St",
+        "en": "45 St",
+        "ja": "45 St"
+      },
+      "46 St": {
+        "zh-TW": "46 St",
+        "en": "46 St",
+        "ja": "46 St"
+      },
+      "46 St-Bliss St": {
+        "zh-TW": "46 St-Bliss St",
+        "en": "46 St-Bliss St",
+        "ja": "46 St-Bliss St"
+      },
+      "47-50 Sts-Rockefeller Ctr": {
+        "zh-TW": "47-50 Sts-Rockefeller Ctr",
+        "en": "47-50 Sts-Rockefeller Ctr",
+        "ja": "47-50 Sts-Rockefeller Ctr"
+      },
+      "49 St": {
+        "zh-TW": "49 St",
+        "en": "49 St",
+        "ja": "49 St"
+      },
+      "5 Av": {
+        "zh-TW": "5 Av",
+        "en": "5 Av",
+        "ja": "5 Av"
+      },
+      "5 Av/53 St": {
+        "zh-TW": "5 Av/53 St",
+        "en": "5 Av/53 St",
+        "ja": "5 Av/53 St"
+      },
+      "5 Av/59 St": {
+        "zh-TW": "5 Av/59 St",
+        "en": "5 Av/59 St",
+        "ja": "5 Av/59 St"
+      },
+      "50 St": {
+        "zh-TW": "50 St",
+        "en": "50 St",
+        "ja": "50 St"
+      },
+      "51 St": {
+        "zh-TW": "51 St",
+        "en": "51 St",
+        "ja": "51 St"
+      },
+      "52 St": {
+        "zh-TW": "52 St",
+        "en": "52 St",
+        "ja": "52 St"
+      },
+      "53 St": {
+        "zh-TW": "53 St",
+        "en": "53 St",
+        "ja": "53 St"
+      },
+      "55 St": {
+        "zh-TW": "55 St",
+        "en": "55 St",
+        "ja": "55 St"
+      },
+      "57 St": {
+        "zh-TW": "57 St",
+        "en": "57 St",
+        "ja": "57 St"
+      },
+      "57 St-7 Av": {
+        "zh-TW": "57 St-7 Av",
+        "en": "57 St-7 Av",
+        "ja": "57 St-7 Av"
+      },
+      "59 St": {
+        "zh-TW": "59 St",
+        "en": "59 St",
+        "ja": "59 St"
+      },
+      "59 St-Columbus Circle": {
+        "zh-TW": "59 St-Columbus Circle",
+        "en": "59 St-Columbus Circle",
+        "ja": "59 St-Columbus Circle"
+      },
+      "6 Av": {
+        "zh-TW": "6 Av",
+        "en": "6 Av",
+        "ja": "6 Av"
+      },
+      "61 St-Woodside": {
+        "zh-TW": "61 St-Woodside",
+        "en": "61 St-Woodside",
+        "ja": "61 St-Woodside"
+      },
+      "62 St": {
+        "zh-TW": "62 St",
+        "en": "62 St",
+        "ja": "62 St"
+      },
+      "63 Dr-Rego Park": {
+        "zh-TW": "63 Dr-Rego Park",
+        "en": "63 Dr-Rego Park",
+        "ja": "63 Dr-Rego Park"
+      },
+      "65 St": {
+        "zh-TW": "65 St",
+        "en": "65 St",
+        "ja": "65 St"
+      },
+      "66 St-Lincoln Center": {
+        "zh-TW": "66 St-Lincoln Center",
+        "en": "66 St-Lincoln Center",
+        "ja": "66 St-Lincoln Center"
+      },
+      "67 Av": {
+        "zh-TW": "67 Av",
+        "en": "67 Av",
+        "ja": "67 Av"
+      },
+      "68 St-Hunter College": {
+        "zh-TW": "68 St-Hunter College",
+        "en": "68 St-Hunter College",
+        "ja": "68 St-Hunter College"
+      },
+      "69 St": {
+        "zh-TW": "69 St",
+        "en": "69 St",
+        "ja": "69 St"
+      },
+      "7 Av": {
+        "zh-TW": "7 Av",
+        "en": "7 Av",
+        "ja": "7 Av"
+      },
+      "71 St": {
+        "zh-TW": "71 St",
+        "en": "71 St",
+        "ja": "71 St"
+      },
+      "72 St": {
+        "zh-TW": "72 St",
+        "en": "72 St",
+        "ja": "72 St"
+      },
+      "74 St-Broadway": {
+        "zh-TW": "74 St-Broadway",
+        "en": "74 St-Broadway",
+        "ja": "74 St-Broadway"
+      },
+      "75 Av": {
+        "zh-TW": "75 Av",
+        "en": "75 Av",
+        "ja": "75 Av"
+      },
+      "75 St-Elderts Ln": {
+        "zh-TW": "75 St-Elderts Ln",
+        "en": "75 St-Elderts Ln",
+        "ja": "75 St-Elderts Ln"
+      },
+      "77 St": {
+        "zh-TW": "77 St",
+        "en": "77 St",
+        "ja": "77 St"
+      },
+      "79 St": {
+        "zh-TW": "79 St",
+        "en": "79 St",
+        "ja": "79 St"
+      },
+      "8 Av": {
+        "zh-TW": "8 Av",
+        "en": "8 Av",
+        "ja": "8 Av"
+      },
+      "8 St-NYU": {
+        "zh-TW": "8 St-NYU",
+        "en": "8 St-NYU",
+        "ja": "8 St-NYU"
+      },
+      "80 St": {
+        "zh-TW": "80 St",
+        "en": "80 St",
+        "ja": "80 St"
+      },
+      "81 St-Museum of Natural History": {
+        "zh-TW": "81 St-Museum of Natural History",
+        "en": "81 St-Museum of Natural History",
+        "ja": "81 St-Museum of Natural History"
+      },
+      "82 St-Jackson Hts": {
+        "zh-TW": "82 St-Jackson Hts",
+        "en": "82 St-Jackson Hts",
+        "ja": "82 St-Jackson Hts"
+      },
+      "85 St-Forest Pkwy": {
+        "zh-TW": "85 St-Forest Pkwy",
+        "en": "85 St-Forest Pkwy",
+        "ja": "85 St-Forest Pkwy"
+      },
+      "86 St": {
+        "zh-TW": "86 St",
+        "en": "86 St",
+        "ja": "86 St"
+      },
+      "88 St": {
+        "zh-TW": "88 St",
+        "en": "88 St",
+        "ja": "88 St"
+      },
+      "9 Av": {
+        "zh-TW": "9 Av",
+        "en": "9 Av",
+        "ja": "9 Av"
+      },
+      "90 St-Elmhurst Av": {
+        "zh-TW": "90 St-Elmhurst Av",
+        "en": "90 St-Elmhurst Av",
+        "ja": "90 St-Elmhurst Av"
+      },
+      "96 St": {
+        "zh-TW": "96 St",
+        "en": "96 St",
+        "ja": "96 St"
+      },
+      "Alabama Av": {
+        "zh-TW": "Alabama Av",
+        "en": "Alabama Av",
+        "ja": "Alabama Av"
+      },
+      "Allerton Av": {
+        "zh-TW": "Allerton Av",
+        "en": "Allerton Av",
+        "ja": "Allerton Av"
+      },
+      "Annadale": {
+        "zh-TW": "Annadale",
+        "en": "Annadale",
+        "ja": "Annadale"
+      },
+      "Aqueduct Racetrack": {
+        "zh-TW": "Aqueduct Racetrack",
+        "en": "Aqueduct Racetrack",
+        "ja": "Aqueduct Racetrack"
+      },
+      "Aqueduct-N Conduit Av": {
+        "zh-TW": "Aqueduct-N Conduit Av",
+        "en": "Aqueduct-N Conduit Av",
+        "ja": "Aqueduct-N Conduit Av"
+      },
+      "Arthur Kill": {
+        "zh-TW": "Arthur Kill",
+        "en": "Arthur Kill",
+        "ja": "Arthur Kill"
+      },
+      "Astor Pl": {
+        "zh-TW": "Astor Pl",
+        "en": "Astor Pl",
+        "ja": "Astor Pl"
+      },
+      "Astoria Blvd": {
+        "zh-TW": "Astoria Blvd",
+        "en": "Astoria Blvd",
+        "ja": "Astoria Blvd"
+      },
+      "Astoria-Ditmars Blvd": {
+        "zh-TW": "Astoria-Ditmars Blvd",
+        "en": "Astoria-Ditmars Blvd",
+        "ja": "Astoria-Ditmars Blvd"
+      },
+      "Atlantic Av": {
+        "zh-TW": "Atlantic Av",
+        "en": "Atlantic Av",
+        "ja": "Atlantic Av"
+      },
+      "Atlantic Av-Barclays Ctr": {
+        "zh-TW": "Atlantic Av-Barclays Ctr",
+        "en": "Atlantic Av-Barclays Ctr",
+        "ja": "Atlantic Av-Barclays Ctr"
+      },
+      "Avenue H": {
+        "zh-TW": "Avenue H",
+        "en": "Avenue H",
+        "ja": "Avenue H"
+      },
+      "Avenue I": {
+        "zh-TW": "Avenue I",
+        "en": "Avenue I",
+        "ja": "Avenue I"
+      },
+      "Avenue J": {
+        "zh-TW": "Avenue J",
+        "en": "Avenue J",
+        "ja": "Avenue J"
+      },
+      "Avenue M": {
+        "zh-TW": "Avenue M",
+        "en": "Avenue M",
+        "ja": "Avenue M"
+      },
+      "Avenue N": {
+        "zh-TW": "Avenue N",
+        "en": "Avenue N",
+        "ja": "Avenue N"
+      },
+      "Avenue P": {
+        "zh-TW": "Avenue P",
+        "en": "Avenue P",
+        "ja": "Avenue P"
+      },
+      "Avenue U": {
+        "zh-TW": "Avenue U",
+        "en": "Avenue U",
+        "ja": "Avenue U"
+      },
+      "Avenue X": {
+        "zh-TW": "Avenue X",
+        "en": "Avenue X",
+        "ja": "Avenue X"
+      },
+      "Bay 50 St": {
+        "zh-TW": "Bay 50 St",
+        "en": "Bay 50 St",
+        "ja": "Bay 50 St"
+      },
+      "Bay Pkwy": {
+        "zh-TW": "Bay Pkwy",
+        "en": "Bay Pkwy",
+        "ja": "Bay Pkwy"
+      },
+      "Bay Ridge Av": {
+        "zh-TW": "Bay Ridge Av",
+        "en": "Bay Ridge Av",
+        "ja": "Bay Ridge Av"
+      },
+      "Bay Ridge-95 St": {
+        "zh-TW": "Bay Ridge-95 St",
+        "en": "Bay Ridge-95 St",
+        "ja": "Bay Ridge-95 St"
+      },
+      "Bay Terrace": {
+        "zh-TW": "Bay Terrace",
+        "en": "Bay Terrace",
+        "ja": "Bay Terrace"
+      },
+      "Baychester Av": {
+        "zh-TW": "Baychester Av",
+        "en": "Baychester Av",
+        "ja": "Baychester Av"
+      },
+      "Beach 105 St": {
+        "zh-TW": "Beach 105 St",
+        "en": "Beach 105 St",
+        "ja": "Beach 105 St"
+      },
+      "Beach 25 St": {
+        "zh-TW": "Beach 25 St",
+        "en": "Beach 25 St",
+        "ja": "Beach 25 St"
+      },
+      "Beach 36 St": {
+        "zh-TW": "Beach 36 St",
+        "en": "Beach 36 St",
+        "ja": "Beach 36 St"
+      },
+      "Beach 44 St": {
+        "zh-TW": "Beach 44 St",
+        "en": "Beach 44 St",
+        "ja": "Beach 44 St"
+      },
+      "Beach 60 St": {
+        "zh-TW": "Beach 60 St",
+        "en": "Beach 60 St",
+        "ja": "Beach 60 St"
+      },
+      "Beach 67 St": {
+        "zh-TW": "Beach 67 St",
+        "en": "Beach 67 St",
+        "ja": "Beach 67 St"
+      },
+      "Beach 90 St": {
+        "zh-TW": "Beach 90 St",
+        "en": "Beach 90 St",
+        "ja": "Beach 90 St"
+      },
+      "Beach 98 St": {
+        "zh-TW": "Beach 98 St",
+        "en": "Beach 98 St",
+        "ja": "Beach 98 St"
+      },
+      "Bedford Av": {
+        "zh-TW": "Bedford Av",
+        "en": "Bedford Av",
+        "ja": "Bedford Av"
+      },
+      "Bedford Park Blvd": {
+        "zh-TW": "Bedford Park Blvd",
+        "en": "Bedford Park Blvd",
+        "ja": "Bedford Park Blvd"
+      },
+      "Bedford Park Blvd-Lehman College": {
+        "zh-TW": "Bedford Park Blvd-Lehman College",
+        "en": "Bedford Park Blvd-Lehman College",
+        "ja": "Bedford Park Blvd-Lehman College"
+      },
+      "Bedford-Nostrand Avs": {
+        "zh-TW": "Bedford-Nostrand Avs",
+        "en": "Bedford-Nostrand Avs",
+        "ja": "Bedford-Nostrand Avs"
+      },
+      "Bergen St": {
+        "zh-TW": "Bergen St",
+        "en": "Bergen St",
+        "ja": "Bergen St"
+      },
+      "Beverley Rd": {
+        "zh-TW": "Beverley Rd",
+        "en": "Beverley Rd",
+        "ja": "Beverley Rd"
+      },
+      "Beverly Rd": {
+        "zh-TW": "Beverly Rd",
+        "en": "Beverly Rd",
+        "ja": "Beverly Rd"
+      },
+      "Bleecker St": {
+        "zh-TW": "Bleecker St",
+        "en": "Bleecker St",
+        "ja": "Bleecker St"
+      },
+      "Borough Hall": {
+        "zh-TW": "Borough Hall",
+        "en": "Borough Hall",
+        "ja": "Borough Hall"
+      },
+      "Botanic Garden": {
+        "zh-TW": "Botanic Garden",
+        "en": "Botanic Garden",
+        "ja": "Botanic Garden"
+      },
+      "Bowery": {
+        "zh-TW": "Bowery",
+        "en": "Bowery",
+        "ja": "Bowery"
+      },
+      "Bowling Green": {
+        "zh-TW": "Bowling Green",
+        "en": "Bowling Green",
+        "ja": "Bowling Green"
+      },
+      "Briarwood": {
+        "zh-TW": "Briarwood",
+        "en": "Briarwood",
+        "ja": "Briarwood"
+      },
+      "Brighton Beach": {
+        "zh-TW": "Brighton Beach",
+        "en": "Brighton Beach",
+        "ja": "Brighton Beach"
+      },
+      "Broad Channel": {
+        "zh-TW": "Broad Channel",
+        "en": "Broad Channel",
+        "ja": "Broad Channel"
+      },
+      "Broad St": {
+        "zh-TW": "Broad St",
+        "en": "Broad St",
+        "ja": "Broad St"
+      },
+      "Broadway": {
+        "zh-TW": "Broadway",
+        "en": "Broadway",
+        "ja": "Broadway"
+      },
+      "Broadway Junction": {
+        "zh-TW": "Broadway Junction",
+        "en": "Broadway Junction",
+        "ja": "Broadway Junction"
+      },
+      "Broadway-Lafayette St": {
+        "zh-TW": "Broadway-Lafayette St",
+        "en": "Broadway-Lafayette St",
+        "ja": "Broadway-Lafayette St"
+      },
+      "Bronx Park East": {
+        "zh-TW": "Bronx Park East",
+        "en": "Bronx Park East",
+        "ja": "Bronx Park East"
+      },
+      "Brook Av": {
+        "zh-TW": "Brook Av",
+        "en": "Brook Av",
+        "ja": "Brook Av"
+      },
+      "Brooklyn Bridge-City Hall": {
+        "zh-TW": "Brooklyn Bridge-City Hall",
+        "en": "Brooklyn Bridge-City Hall",
+        "ja": "Brooklyn Bridge-City Hall"
+      },
+      "Buhre Av": {
+        "zh-TW": "Buhre Av",
+        "en": "Buhre Av",
+        "ja": "Buhre Av"
+      },
+      "Burke Av": {
+        "zh-TW": "Burke Av",
+        "en": "Burke Av",
+        "ja": "Burke Av"
+      },
+      "Burnside Av": {
+        "zh-TW": "Burnside Av",
+        "en": "Burnside Av",
+        "ja": "Burnside Av"
+      },
+      "Bushwick Av-Aberdeen St": {
+        "zh-TW": "Bushwick Av-Aberdeen St",
+        "en": "Bushwick Av-Aberdeen St",
+        "ja": "Bushwick Av-Aberdeen St"
+      },
+      "Canal St": {
+        "zh-TW": "Canal St",
+        "en": "Canal St",
+        "ja": "Canal St"
+      },
+      "Canarsie-Rockaway Pkwy": {
+        "zh-TW": "Canarsie-Rockaway Pkwy",
+        "en": "Canarsie-Rockaway Pkwy",
+        "ja": "Canarsie-Rockaway Pkwy"
+      },
+      "Carroll St": {
+        "zh-TW": "Carroll St",
+        "en": "Carroll St",
+        "ja": "Carroll St"
+      },
+      "Castle Hill Av": {
+        "zh-TW": "Castle Hill Av",
+        "en": "Castle Hill Av",
+        "ja": "Castle Hill Av"
+      },
+      "Cathedral Pkwy (110 St)": {
+        "zh-TW": "Cathedral Pkwy (110 St)",
+        "en": "Cathedral Pkwy (110 St)",
+        "ja": "Cathedral Pkwy (110 St)"
+      },
+      "Central Av": {
+        "zh-TW": "Central Av",
+        "en": "Central Av",
+        "ja": "Central Av"
+      },
+      "Chambers St": {
+        "zh-TW": "Chambers St",
+        "en": "Chambers St",
+        "ja": "Chambers St"
+      },
+      "Chauncey St": {
+        "zh-TW": "Chauncey St",
+        "en": "Chauncey St",
+        "ja": "Chauncey St"
+      },
+      "Christopher St-Stonewall": {
+        "zh-TW": "Christopher St-Stonewall",
+        "en": "Christopher St-Stonewall",
+        "ja": "Christopher St-Stonewall"
+      },
+      "Church Av": {
+        "zh-TW": "Church Av",
+        "en": "Church Av",
+        "ja": "Church Av"
+      },
+      "City Hall": {
+        "zh-TW": "City Hall",
+        "en": "City Hall",
+        "ja": "City Hall"
+      },
+      "Clark St": {
+        "zh-TW": "Clark St",
+        "en": "Clark St",
+        "ja": "Clark St"
+      },
+      "Classon Av": {
+        "zh-TW": "Classon Av",
+        "en": "Classon Av",
+        "ja": "Classon Av"
+      },
+      "Cleveland St": {
+        "zh-TW": "Cleveland St",
+        "en": "Cleveland St",
+        "ja": "Cleveland St"
+      },
+      "Clifton": {
+        "zh-TW": "Clifton",
+        "en": "Clifton",
+        "ja": "Clifton"
+      },
+      "Clinton-Washington Avs": {
+        "zh-TW": "Clinton-Washington Avs",
+        "en": "Clinton-Washington Avs",
+        "ja": "Clinton-Washington Avs"
+      },
+      "Coney Island-Stillwell Av": {
+        "zh-TW": "Coney Island-Stillwell Av",
+        "en": "Coney Island-Stillwell Av",
+        "ja": "Coney Island-Stillwell Av"
+      },
+      "Cortelyou Rd": {
+        "zh-TW": "Cortelyou Rd",
+        "en": "Cortelyou Rd",
+        "ja": "Cortelyou Rd"
+      },
+      "Cortlandt St": {
+        "zh-TW": "Cortlandt St",
+        "en": "Cortlandt St",
+        "ja": "Cortlandt St"
+      },
+      "Court Sq": {
+        "zh-TW": "Court Sq",
+        "en": "Court Sq",
+        "ja": "Court Sq"
+      },
+      "Court Sq-23 St": {
+        "zh-TW": "Court Sq-23 St",
+        "en": "Court Sq-23 St",
+        "ja": "Court Sq-23 St"
+      },
+      "Court St": {
+        "zh-TW": "Court St",
+        "en": "Court St",
+        "ja": "Court St"
+      },
+      "Crescent St": {
+        "zh-TW": "Crescent St",
+        "en": "Crescent St",
+        "ja": "Crescent St"
+      },
+      "Crown Hts-Utica Av": {
+        "zh-TW": "Crown Hts-Utica Av",
+        "en": "Crown Hts-Utica Av",
+        "ja": "Crown Hts-Utica Av"
+      },
+      "Cypress Av": {
+        "zh-TW": "Cypress Av",
+        "en": "Cypress Av",
+        "ja": "Cypress Av"
+      },
+      "Cypress Hills": {
+        "zh-TW": "Cypress Hills",
+        "en": "Cypress Hills",
+        "ja": "Cypress Hills"
+      },
+      "DeKalb Av": {
+        "zh-TW": "DeKalb Av",
+        "en": "DeKalb Av",
+        "ja": "DeKalb Av"
+      },
+      "Delancey St-Essex St": {
+        "zh-TW": "Delancey St-Essex St",
+        "en": "Delancey St-Essex St",
+        "ja": "Delancey St-Essex St"
+      },
+      "Ditmas Av": {
+        "zh-TW": "Ditmas Av",
+        "en": "Ditmas Av",
+        "ja": "Ditmas Av"
+      },
+      "Dongan Hills": {
+        "zh-TW": "Dongan Hills",
+        "en": "Dongan Hills",
+        "ja": "Dongan Hills"
+      },
+      "Dyckman St": {
+        "zh-TW": "Dyckman St",
+        "en": "Dyckman St",
+        "ja": "Dyckman St"
+      },
+      "E 143 St-St Mary's St": {
+        "zh-TW": "E 143 St-St Mary's St",
+        "en": "E 143 St-St Mary's St",
+        "ja": "E 143 St-St Mary's St"
+      },
+      "E 149 St": {
+        "zh-TW": "E 149 St",
+        "en": "E 149 St",
+        "ja": "E 149 St"
+      },
+      "E 180 St": {
+        "zh-TW": "E 180 St",
+        "en": "E 180 St",
+        "ja": "E 180 St"
+      },
+      "East 105 St": {
+        "zh-TW": "East 105 St",
+        "en": "East 105 St",
+        "ja": "East 105 St"
+      },
+      "East Broadway": {
+        "zh-TW": "East Broadway",
+        "en": "East Broadway",
+        "ja": "East Broadway"
+      },
+      "Eastchester-Dyre Av": {
+        "zh-TW": "Eastchester-Dyre Av",
+        "en": "Eastchester-Dyre Av",
+        "ja": "Eastchester-Dyre Av"
+      },
+      "Eastern Pkwy-Brooklyn Museum": {
+        "zh-TW": "Eastern Pkwy-Brooklyn Museum",
+        "en": "Eastern Pkwy-Brooklyn Museum",
+        "ja": "Eastern Pkwy-Brooklyn Museum"
+      },
+      "Elder Av": {
+        "zh-TW": "Elder Av",
+        "en": "Elder Av",
+        "ja": "Elder Av"
+      },
+      "Elmhurst Av": {
+        "zh-TW": "Elmhurst Av",
+        "en": "Elmhurst Av",
+        "ja": "Elmhurst Av"
+      },
+      "Eltingville": {
+        "zh-TW": "Eltingville",
+        "en": "Eltingville",
+        "ja": "Eltingville"
+      },
+      "Euclid Av": {
+        "zh-TW": "Euclid Av",
+        "en": "Euclid Av",
+        "ja": "Euclid Av"
+      },
+      "Far Rockaway-Mott Av": {
+        "zh-TW": "Far Rockaway-Mott Av",
+        "en": "Far Rockaway-Mott Av",
+        "ja": "Far Rockaway-Mott Av"
+      },
+      "Flatbush Av-Brooklyn College": {
+        "zh-TW": "Flatbush Av-Brooklyn College",
+        "en": "Flatbush Av-Brooklyn College",
+        "ja": "Flatbush Av-Brooklyn College"
+      },
+      "Flushing Av": {
+        "zh-TW": "Flushing Av",
+        "en": "Flushing Av",
+        "ja": "Flushing Av"
+      },
+      "Flushing-Main St": {
+        "zh-TW": "Flushing-Main St",
+        "en": "Flushing-Main St",
+        "ja": "Flushing-Main St"
+      },
+      "Fordham Rd": {
+        "zh-TW": "Fordham Rd",
+        "en": "Fordham Rd",
+        "ja": "Fordham Rd"
+      },
+      "Forest Av": {
+        "zh-TW": "Forest Av",
+        "en": "Forest Av",
+        "ja": "Forest Av"
+      },
+      "Forest Hills-71 Av": {
+        "zh-TW": "Forest Hills-71 Av",
+        "en": "Forest Hills-71 Av",
+        "ja": "Forest Hills-71 Av"
+      },
+      "Fort Hamilton Pkwy": {
+        "zh-TW": "Fort Hamilton Pkwy",
+        "en": "Fort Hamilton Pkwy",
+        "ja": "Fort Hamilton Pkwy"
+      },
+      "Franklin Av": {
+        "zh-TW": "Franklin Av",
+        "en": "Franklin Av",
+        "ja": "Franklin Av"
+      },
+      "Franklin Av-Medgar Evers College": {
+        "zh-TW": "Franklin Av-Medgar Evers College",
+        "en": "Franklin Av-Medgar Evers College",
+        "ja": "Franklin Av-Medgar Evers College"
+      },
+      "Franklin St": {
+        "zh-TW": "Franklin St",
+        "en": "Franklin St",
+        "ja": "Franklin St"
+      },
+      "Freeman St": {
+        "zh-TW": "Freeman St",
+        "en": "Freeman St",
+        "ja": "Freeman St"
+      },
+      "Fresh Pond Rd": {
+        "zh-TW": "Fresh Pond Rd",
+        "en": "Fresh Pond Rd",
+        "ja": "Fresh Pond Rd"
+      },
+      "Fulton St": {
+        "zh-TW": "Fulton St",
+        "en": "Fulton St",
+        "ja": "Fulton St"
+      },
+      "Gates Av": {
+        "zh-TW": "Gates Av",
+        "en": "Gates Av",
+        "ja": "Gates Av"
+      },
+      "Graham Av": {
+        "zh-TW": "Graham Av",
+        "en": "Graham Av",
+        "ja": "Graham Av"
+      },
+      "Grand Army Plaza": {
+        "zh-TW": "Grand Army Plaza",
+        "en": "Grand Army Plaza",
+        "ja": "Grand Army Plaza"
+      },
+      "Grand Av-Newtown": {
+        "zh-TW": "Grand Av-Newtown",
+        "en": "Grand Av-Newtown",
+        "ja": "Grand Av-Newtown"
+      },
+      "Grand Central-42 St": {
+        "zh-TW": "Grand Central-42 St",
+        "en": "Grand Central-42 St",
+        "ja": "Grand Central-42 St"
+      },
+      "Grand St": {
+        "zh-TW": "Grand St",
+        "en": "Grand St",
+        "ja": "Grand St"
+      },
+      "Grant Av": {
+        "zh-TW": "Grant Av",
+        "en": "Grant Av",
+        "ja": "Grant Av"
+      },
+      "Grant City": {
+        "zh-TW": "Grant City",
+        "en": "Grant City",
+        "ja": "Grant City"
+      },
+      "Grasmere": {
+        "zh-TW": "Grasmere",
+        "en": "Grasmere",
+        "ja": "Grasmere"
+      },
+      "Great Kills": {
+        "zh-TW": "Great Kills",
+        "en": "Great Kills",
+        "ja": "Great Kills"
+      },
+      "Greenpoint Av": {
+        "zh-TW": "Greenpoint Av",
+        "en": "Greenpoint Av",
+        "ja": "Greenpoint Av"
+      },
+      "Gun Hill Rd": {
+        "zh-TW": "Gun Hill Rd",
+        "en": "Gun Hill Rd",
+        "ja": "Gun Hill Rd"
+      },
+      "Halsey St": {
+        "zh-TW": "Halsey St",
+        "en": "Halsey St",
+        "ja": "Halsey St"
+      },
+      "Harlem-148 St": {
+        "zh-TW": "Harlem-148 St",
+        "en": "Harlem-148 St",
+        "ja": "Harlem-148 St"
+      },
+      "Hewes St": {
+        "zh-TW": "Hewes St",
+        "en": "Hewes St",
+        "ja": "Hewes St"
+      },
+      "High St": {
+        "zh-TW": "High St",
+        "en": "High St",
+        "ja": "High St"
+      },
+      "Houston St": {
+        "zh-TW": "Houston St",
+        "en": "Houston St",
+        "ja": "Houston St"
+      },
+      "Howard Beach-JFK Airport": {
+        "zh-TW": "Howard Beach-JFK Airport",
+        "en": "Howard Beach-JFK Airport",
+        "ja": "Howard Beach-JFK Airport"
+      },
+      "Hoyt St": {
+        "zh-TW": "Hoyt St",
+        "en": "Hoyt St",
+        "ja": "Hoyt St"
+      },
+      "Hoyt-Schermerhorn Sts": {
+        "zh-TW": "Hoyt-Schermerhorn Sts",
+        "en": "Hoyt-Schermerhorn Sts",
+        "ja": "Hoyt-Schermerhorn Sts"
+      },
+      "Huguenot": {
+        "zh-TW": "Huguenot",
+        "en": "Huguenot",
+        "ja": "Huguenot"
+      },
+      "Hunters Point Av": {
+        "zh-TW": "Hunters Point Av",
+        "en": "Hunters Point Av",
+        "ja": "Hunters Point Av"
+      },
+      "Hunts Point Av": {
+        "zh-TW": "Hunts Point Av",
+        "en": "Hunts Point Av",
+        "ja": "Hunts Point Av"
+      },
+      "Intervale Av": {
+        "zh-TW": "Intervale Av",
+        "en": "Intervale Av",
+        "ja": "Intervale Av"
+      },
+      "Inwood-207 St": {
+        "zh-TW": "Inwood-207 St",
+        "en": "Inwood-207 St",
+        "ja": "Inwood-207 St"
+      },
+      "Jackson Av": {
+        "zh-TW": "Jackson Av",
+        "en": "Jackson Av",
+        "ja": "Jackson Av"
+      },
+      "Jackson Hts-Roosevelt Av": {
+        "zh-TW": "Jackson Hts-Roosevelt Av",
+        "en": "Jackson Hts-Roosevelt Av",
+        "ja": "Jackson Hts-Roosevelt Av"
+      },
+      "Jamaica Center-Parsons/Archer": {
+        "zh-TW": "Jamaica Center-Parsons/Archer",
+        "en": "Jamaica Center-Parsons/Archer",
+        "ja": "Jamaica Center-Parsons/Archer"
+      },
+      "Jamaica-179 St": {
+        "zh-TW": "Jamaica-179 St",
+        "en": "Jamaica-179 St",
+        "ja": "Jamaica-179 St"
+      },
+      "Jamaica-Van Wyck": {
+        "zh-TW": "Jamaica-Van Wyck",
+        "en": "Jamaica-Van Wyck",
+        "ja": "Jamaica-Van Wyck"
+      },
+      "Jay St-MetroTech": {
+        "zh-TW": "Jay St-MetroTech",
+        "en": "Jay St-MetroTech",
+        "ja": "Jay St-MetroTech"
+      },
+      "Jefferson Av": {
+        "zh-TW": "Jefferson Av",
+        "en": "Jefferson Av",
+        "ja": "Jefferson Av"
+      },
+      "Jefferson St": {
+        "zh-TW": "Jefferson St",
+        "en": "Jefferson St",
+        "ja": "Jefferson St"
+      },
+      "Junction Blvd": {
+        "zh-TW": "Junction Blvd",
+        "en": "Junction Blvd",
+        "ja": "Junction Blvd"
+      },
+      "Junius St": {
+        "zh-TW": "Junius St",
+        "en": "Junius St",
+        "ja": "Junius St"
+      },
+      "Kew Gardens-Union Tpke": {
+        "zh-TW": "Kew Gardens-Union Tpke",
+        "en": "Kew Gardens-Union Tpke",
+        "ja": "Kew Gardens-Union Tpke"
+      },
+      "Kings Hwy": {
+        "zh-TW": "Kings Hwy",
+        "en": "Kings Hwy",
+        "ja": "Kings Hwy"
+      },
+      "Kingsbridge Rd": {
+        "zh-TW": "Kingsbridge Rd",
+        "en": "Kingsbridge Rd",
+        "ja": "Kingsbridge Rd"
+      },
+      "Kingston Av": {
+        "zh-TW": "Kingston Av",
+        "en": "Kingston Av",
+        "ja": "Kingston Av"
+      },
+      "Kingston-Throop Avs": {
+        "zh-TW": "Kingston-Throop Avs",
+        "en": "Kingston-Throop Avs",
+        "ja": "Kingston-Throop Avs"
+      },
+      "Knickerbocker Av": {
+        "zh-TW": "Knickerbocker Av",
+        "en": "Knickerbocker Av",
+        "ja": "Knickerbocker Av"
+      },
+      "Kosciuszko St": {
+        "zh-TW": "Kosciuszko St",
+        "en": "Kosciuszko St",
+        "ja": "Kosciuszko St"
+      },
+      "Lafayette Av": {
+        "zh-TW": "Lafayette Av",
+        "en": "Lafayette Av",
+        "ja": "Lafayette Av"
+      },
+      "Lexington Av/53 St": {
+        "zh-TW": "Lexington Av/53 St",
+        "en": "Lexington Av/53 St",
+        "ja": "Lexington Av/53 St"
+      },
+      "Lexington Av/59 St": {
+        "zh-TW": "Lexington Av/59 St",
+        "en": "Lexington Av/59 St",
+        "ja": "Lexington Av/59 St"
+      },
+      "Lexington Av/63 St": {
+        "zh-TW": "Lexington Av/63 St",
+        "en": "Lexington Av/63 St",
+        "ja": "Lexington Av/63 St"
+      },
+      "Liberty Av": {
+        "zh-TW": "Liberty Av",
+        "en": "Liberty Av",
+        "ja": "Liberty Av"
+      },
+      "Livonia Av": {
+        "zh-TW": "Livonia Av",
+        "en": "Livonia Av",
+        "ja": "Livonia Av"
+      },
+      "Longwood Av": {
+        "zh-TW": "Longwood Av",
+        "en": "Longwood Av",
+        "ja": "Longwood Av"
+      },
+      "Lorimer St": {
+        "zh-TW": "Lorimer St",
+        "en": "Lorimer St",
+        "ja": "Lorimer St"
+      },
+      "Marble Hill-225 St": {
+        "zh-TW": "Marble Hill-225 St",
+        "en": "Marble Hill-225 St",
+        "ja": "Marble Hill-225 St"
+      },
+      "Marcy Av": {
+        "zh-TW": "Marcy Av",
+        "en": "Marcy Av",
+        "ja": "Marcy Av"
+      },
+      "Metropolitan Av": {
+        "zh-TW": "Metropolitan Av",
+        "en": "Metropolitan Av",
+        "ja": "Metropolitan Av"
+      },
+      "Mets-Willets Point": {
+        "zh-TW": "Mets-Willets Point",
+        "en": "Mets-Willets Point",
+        "ja": "Mets-Willets Point"
+      },
+      "Middle Village-Metropolitan Av": {
+        "zh-TW": "Middle Village-Metropolitan Av",
+        "en": "Middle Village-Metropolitan Av",
+        "ja": "Middle Village-Metropolitan Av"
+      },
+      "Middletown Rd": {
+        "zh-TW": "Middletown Rd",
+        "en": "Middletown Rd",
+        "ja": "Middletown Rd"
+      },
+      "Montrose Av": {
+        "zh-TW": "Montrose Av",
+        "en": "Montrose Av",
+        "ja": "Montrose Av"
+      },
+      "Morgan Av": {
+        "zh-TW": "Morgan Av",
+        "en": "Morgan Av",
+        "ja": "Morgan Av"
+      },
+      "Morris Park": {
+        "zh-TW": "Morris Park",
+        "en": "Morris Park",
+        "ja": "Morris Park"
+      },
+      "Morrison Av-Soundview": {
+        "zh-TW": "Morrison Av-Soundview",
+        "en": "Morrison Av-Soundview",
+        "ja": "Morrison Av-Soundview"
+      },
+      "Mosholu Pkwy": {
+        "zh-TW": "Mosholu Pkwy",
+        "en": "Mosholu Pkwy",
+        "ja": "Mosholu Pkwy"
+      },
+      "Mt Eden Av": {
+        "zh-TW": "Mt Eden Av",
+        "en": "Mt Eden Av",
+        "ja": "Mt Eden Av"
+      },
+      "Myrtle Av": {
+        "zh-TW": "Myrtle Av",
+        "en": "Myrtle Av",
+        "ja": "Myrtle Av"
+      },
+      "Myrtle-Willoughby Avs": {
+        "zh-TW": "Myrtle-Willoughby Avs",
+        "en": "Myrtle-Willoughby Avs",
+        "ja": "Myrtle-Willoughby Avs"
+      },
+      "Myrtle-Wyckoff Avs": {
+        "zh-TW": "Myrtle-Wyckoff Avs",
+        "en": "Myrtle-Wyckoff Avs",
+        "ja": "Myrtle-Wyckoff Avs"
+      },
+      "Nassau Av": {
+        "zh-TW": "Nassau Av",
+        "en": "Nassau Av",
+        "ja": "Nassau Av"
+      },
+      "Neck Rd": {
+        "zh-TW": "Neck Rd",
+        "en": "Neck Rd",
+        "ja": "Neck Rd"
+      },
+      "Neptune Av": {
+        "zh-TW": "Neptune Av",
+        "en": "Neptune Av",
+        "ja": "Neptune Av"
+      },
+      "Nereid Av": {
+        "zh-TW": "Nereid Av",
+        "en": "Nereid Av",
+        "ja": "Nereid Av"
+      },
+      "Nevins St": {
+        "zh-TW": "Nevins St",
+        "en": "Nevins St",
+        "ja": "Nevins St"
+      },
+      "New Dorp": {
+        "zh-TW": "New Dorp",
+        "en": "New Dorp",
+        "ja": "New Dorp"
+      },
+      "New Lots Av": {
+        "zh-TW": "New Lots Av",
+        "en": "New Lots Av",
+        "ja": "New Lots Av"
+      },
+      "New Utrecht Av": {
+        "zh-TW": "New Utrecht Av",
+        "en": "New Utrecht Av",
+        "ja": "New Utrecht Av"
+      },
+      "Newkirk Av-Little Haiti": {
+        "zh-TW": "Newkirk Av-Little Haiti",
+        "en": "Newkirk Av-Little Haiti",
+        "ja": "Newkirk Av-Little Haiti"
+      },
+      "Newkirk Plaza": {
+        "zh-TW": "Newkirk Plaza",
+        "en": "Newkirk Plaza",
+        "ja": "Newkirk Plaza"
+      },
+      "Northern Blvd": {
+        "zh-TW": "Northern Blvd",
+        "en": "Northern Blvd",
+        "ja": "Northern Blvd"
+      },
+      "Norwood Av": {
+        "zh-TW": "Norwood Av",
+        "en": "Norwood Av",
+        "ja": "Norwood Av"
+      },
+      "Norwood-205 St": {
+        "zh-TW": "Norwood-205 St",
+        "en": "Norwood-205 St",
+        "ja": "Norwood-205 St"
+      },
+      "Nostrand Av": {
+        "zh-TW": "Nostrand Av",
+        "en": "Nostrand Av",
+        "ja": "Nostrand Av"
+      },
+      "Oakwood Heights": {
+        "zh-TW": "Oakwood Heights",
+        "en": "Oakwood Heights",
+        "ja": "Oakwood Heights"
+      },
+      "Ocean Pkwy": {
+        "zh-TW": "Ocean Pkwy",
+        "en": "Ocean Pkwy",
+        "ja": "Ocean Pkwy"
+      },
+      "Old Town": {
+        "zh-TW": "Old Town",
+        "en": "Old Town",
+        "ja": "Old Town"
+      },
+      "Ozone Park-Lefferts Blvd": {
+        "zh-TW": "Ozone Park-Lefferts Blvd",
+        "en": "Ozone Park-Lefferts Blvd",
+        "ja": "Ozone Park-Lefferts Blvd"
+      },
+      "Park Pl": {
+        "zh-TW": "Park Pl",
+        "en": "Park Pl",
+        "ja": "Park Pl"
+      },
+      "Park Place": {
+        "zh-TW": "Park Place",
+        "en": "Park Place",
+        "ja": "Park Place"
+      },
+      "Parkchester": {
+        "zh-TW": "Parkchester",
+        "en": "Parkchester",
+        "ja": "Parkchester"
+      },
+      "Parkside Av": {
+        "zh-TW": "Parkside Av",
+        "en": "Parkside Av",
+        "ja": "Parkside Av"
+      },
+      "Parsons Blvd": {
+        "zh-TW": "Parsons Blvd",
+        "en": "Parsons Blvd",
+        "ja": "Parsons Blvd"
+      },
+      "Pelham Bay Park": {
+        "zh-TW": "Pelham Bay Park",
+        "en": "Pelham Bay Park",
+        "ja": "Pelham Bay Park"
+      },
+      "Pelham Pkwy": {
+        "zh-TW": "Pelham Pkwy",
+        "en": "Pelham Pkwy",
+        "ja": "Pelham Pkwy"
+      },
+      "Pennsylvania Av": {
+        "zh-TW": "Pennsylvania Av",
+        "en": "Pennsylvania Av",
+        "ja": "Pennsylvania Av"
+      },
+      "Pleasant Plains": {
+        "zh-TW": "Pleasant Plains",
+        "en": "Pleasant Plains",
+        "ja": "Pleasant Plains"
+      },
+      "President St-Medgar Evers College": {
+        "zh-TW": "President St-Medgar Evers College",
+        "en": "President St-Medgar Evers College",
+        "ja": "President St-Medgar Evers College"
+      },
+      "Prince St": {
+        "zh-TW": "Prince St",
+        "en": "Prince St",
+        "ja": "Prince St"
+      },
+      "Prince's Bay": {
+        "zh-TW": "Prince's Bay",
+        "en": "Prince's Bay",
+        "ja": "Prince's Bay"
+      },
+      "Prospect Av": {
+        "zh-TW": "Prospect Av",
+        "en": "Prospect Av",
+        "ja": "Prospect Av"
+      },
+      "Prospect Park": {
+        "zh-TW": "Prospect Park",
+        "en": "Prospect Park",
+        "ja": "Prospect Park"
+      },
+      "Queens Plaza": {
+        "zh-TW": "Queens Plaza",
+        "en": "Queens Plaza",
+        "ja": "Queens Plaza"
+      },
+      "Queensboro Plaza": {
+        "zh-TW": "Queensboro Plaza",
+        "en": "Queensboro Plaza",
+        "ja": "Queensboro Plaza"
+      },
+      "Ralph Av": {
+        "zh-TW": "Ralph Av",
+        "en": "Ralph Av",
+        "ja": "Ralph Av"
+      },
+      "Rector St": {
+        "zh-TW": "Rector St",
+        "en": "Rector St",
+        "ja": "Rector St"
+      },
+      "Richmond Valley": {
+        "zh-TW": "Richmond Valley",
+        "en": "Richmond Valley",
+        "ja": "Richmond Valley"
+      },
+      "Rockaway Av": {
+        "zh-TW": "Rockaway Av",
+        "en": "Rockaway Av",
+        "ja": "Rockaway Av"
+      },
+      "Rockaway Blvd": {
+        "zh-TW": "Rockaway Blvd",
+        "en": "Rockaway Blvd",
+        "ja": "Rockaway Blvd"
+      },
+      "Rockaway Park-Beach 116 St": {
+        "zh-TW": "Rockaway Park-Beach 116 St",
+        "en": "Rockaway Park-Beach 116 St",
+        "ja": "Rockaway Park-Beach 116 St"
+      },
+      "Roosevelt Island": {
+        "zh-TW": "Roosevelt Island",
+        "en": "Roosevelt Island",
+        "ja": "Roosevelt Island"
+      },
+      "Saratoga Av": {
+        "zh-TW": "Saratoga Av",
+        "en": "Saratoga Av",
+        "ja": "Saratoga Av"
+      },
+      "Seneca Av": {
+        "zh-TW": "Seneca Av",
+        "en": "Seneca Av",
+        "ja": "Seneca Av"
+      },
+      "Sheepshead Bay": {
+        "zh-TW": "Sheepshead Bay",
+        "en": "Sheepshead Bay",
+        "ja": "Sheepshead Bay"
+      },
+      "Shepherd Av": {
+        "zh-TW": "Shepherd Av",
+        "en": "Shepherd Av",
+        "ja": "Shepherd Av"
+      },
+      "Simpson St": {
+        "zh-TW": "Simpson St",
+        "en": "Simpson St",
+        "ja": "Simpson St"
+      },
+      "Smith-9 Sts": {
+        "zh-TW": "Smith-9 Sts",
+        "en": "Smith-9 Sts",
+        "ja": "Smith-9 Sts"
+      },
+      "South Ferry": {
+        "zh-TW": "South Ferry",
+        "en": "South Ferry",
+        "ja": "South Ferry"
+      },
+      "Spring St": {
+        "zh-TW": "Spring St",
+        "en": "Spring St",
+        "ja": "Spring St"
+      },
+      "St George": {
+        "zh-TW": "St George",
+        "en": "St George",
+        "ja": "St George"
+      },
+      "St Lawrence Av": {
+        "zh-TW": "St Lawrence Av",
+        "en": "St Lawrence Av",
+        "ja": "St Lawrence Av"
+      },
+      "Stapleton": {
+        "zh-TW": "Stapleton",
+        "en": "Stapleton",
+        "ja": "Stapleton"
+      },
+      "Steinway St": {
+        "zh-TW": "Steinway St",
+        "en": "Steinway St",
+        "ja": "Steinway St"
+      },
+      "Sterling St": {
+        "zh-TW": "Sterling St",
+        "en": "Sterling St",
+        "ja": "Sterling St"
+      },
+      "Sutphin Blvd": {
+        "zh-TW": "Sutphin Blvd",
+        "en": "Sutphin Blvd",
+        "ja": "Sutphin Blvd"
+      },
+      "Sutphin Blvd-Archer Av-JFK Airport": {
+        "zh-TW": "Sutphin Blvd-Archer Av-JFK Airport",
+        "en": "Sutphin Blvd-Archer Av-JFK Airport",
+        "ja": "Sutphin Blvd-Archer Av-JFK Airport"
+      },
+      "Sutter Av": {
+        "zh-TW": "Sutter Av",
+        "en": "Sutter Av",
+        "ja": "Sutter Av"
+      },
+      "Sutter Av-Rutland Rd": {
+        "zh-TW": "Sutter Av-Rutland Rd",
+        "en": "Sutter Av-Rutland Rd",
+        "ja": "Sutter Av-Rutland Rd"
+      },
+      "Times Sq-42 St": {
+        "zh-TW": "Times Sq-42 St",
+        "en": "Times Sq-42 St",
+        "ja": "Times Sq-42 St"
+      },
+      "Tompkinsville": {
+        "zh-TW": "Tompkinsville",
+        "en": "Tompkinsville",
+        "ja": "Tompkinsville"
+      },
+      "Tottenville": {
+        "zh-TW": "Tottenville",
+        "en": "Tottenville",
+        "ja": "Tottenville"
+      },
+      "Tremont Av": {
+        "zh-TW": "Tremont Av",
+        "en": "Tremont Av",
+        "ja": "Tremont Av"
+      },
+      "Union St": {
+        "zh-TW": "Union St",
+        "en": "Union St",
+        "ja": "Union St"
+      },
+      "Utica Av": {
+        "zh-TW": "Utica Av",
+        "en": "Utica Av",
+        "ja": "Utica Av"
+      },
+      "Van Cortlandt Park-242 St": {
+        "zh-TW": "Van Cortlandt Park-242 St",
+        "en": "Van Cortlandt Park-242 St",
+        "ja": "Van Cortlandt Park-242 St"
+      },
+      "Van Siclen Av": {
+        "zh-TW": "Van Siclen Av",
+        "en": "Van Siclen Av",
+        "ja": "Van Siclen Av"
+      },
+      "Vernon Blvd-Jackson Av": {
+        "zh-TW": "Vernon Blvd-Jackson Av",
+        "en": "Vernon Blvd-Jackson Av",
+        "ja": "Vernon Blvd-Jackson Av"
+      },
+      "W 4 St-Wash Sq": {
+        "zh-TW": "W 4 St-Wash Sq",
+        "en": "W 4 St-Wash Sq",
+        "ja": "W 4 St-Wash Sq"
+      },
+      "W 8 St-NY Aquarium": {
+        "zh-TW": "W 8 St-NY Aquarium",
+        "en": "W 8 St-NY Aquarium",
+        "ja": "W 8 St-NY Aquarium"
+      },
+      "Wakefield-241 St": {
+        "zh-TW": "Wakefield-241 St",
+        "en": "Wakefield-241 St",
+        "ja": "Wakefield-241 St"
+      },
+      "Wall St": {
+        "zh-TW": "Wall St",
+        "en": "Wall St",
+        "ja": "Wall St"
+      },
+      "West Farms Sq-E Tremont Av": {
+        "zh-TW": "West Farms Sq-E Tremont Av",
+        "en": "West Farms Sq-E Tremont Av",
+        "ja": "West Farms Sq-E Tremont Av"
+      },
+      "Westchester Sq-E Tremont Av": {
+        "zh-TW": "Westchester Sq-E Tremont Av",
+        "en": "Westchester Sq-E Tremont Av",
+        "ja": "Westchester Sq-E Tremont Av"
+      },
+      "Whitehall St-South Ferry": {
+        "zh-TW": "Whitehall St-South Ferry",
+        "en": "Whitehall St-South Ferry",
+        "ja": "Whitehall St-South Ferry"
+      },
+      "Whitlock Av": {
+        "zh-TW": "Whitlock Av",
+        "en": "Whitlock Av",
+        "ja": "Whitlock Av"
+      },
+      "Wilson Av": {
+        "zh-TW": "Wilson Av",
+        "en": "Wilson Av",
+        "ja": "Wilson Av"
+      },
+      "Winthrop St": {
+        "zh-TW": "Winthrop St",
+        "en": "Winthrop St",
+        "ja": "Winthrop St"
+      },
+      "Woodhaven Blvd": {
+        "zh-TW": "Woodhaven Blvd",
+        "en": "Woodhaven Blvd",
+        "ja": "Woodhaven Blvd"
+      },
+      "Woodlawn": {
+        "zh-TW": "Woodlawn",
+        "en": "Woodlawn",
+        "ja": "Woodlawn"
+      },
+      "World Trade Center": {
+        "zh-TW": "World Trade Center",
+        "en": "World Trade Center",
+        "ja": "World Trade Center"
+      },
+      "WTC Cortlandt": {
+        "zh-TW": "WTC Cortlandt",
+        "en": "WTC Cortlandt",
+        "ja": "WTC Cortlandt"
+      },
+      "York St": {
+        "zh-TW": "York St",
+        "en": "York St",
+        "ja": "York St"
+      },
+      "Zerega Av": {
+        "zh-TW": "Zerega Av",
+        "en": "Zerega Av",
+        "ja": "Zerega Av"
+      }
     }
   },
   "routes": {
@@ -3273,6 +5170,188 @@
         "zh-TW": "榜鵝輕軌西環",
         "en": "Punggol LRT West Loop",
         "ja": "プンゴルLRT西環状線"
+      }
+    },
+    "nyc_sched": {
+      "1 Broadway–7 Avenue Local": {
+        "zh-TW": "1號線 百老匯–第七大道慢車",
+        "en": "1 Broadway–7 Avenue Local",
+        "ja": "1系統 ブロードウェイ–7番街各駅停車"
+      },
+      "2 7 Avenue Express": {
+        "zh-TW": "2號線 第七大道快車",
+        "en": "2 7 Avenue Express",
+        "ja": "2系統 7番街急行"
+      },
+      "3 7 Avenue Express": {
+        "zh-TW": "3號線 第七大道快車",
+        "en": "3 7 Avenue Express",
+        "ja": "3系統 7番街急行"
+      },
+      "4 Lexington Avenue Express · Utica": {
+        "zh-TW": "4號線 萊辛頓大道快車・尤提卡",
+        "en": "4 Lexington Avenue Express · Utica",
+        "ja": "4系統 レキシントン・アベニュー急行・ユーティカ"
+      },
+      "4 Lexington Avenue Express · New Lots": {
+        "zh-TW": "4號線 萊辛頓大道快車・新洛茲",
+        "en": "4 Lexington Avenue Express · New Lots",
+        "ja": "4系統 レキシントン・アベニュー急行・ニュー・ロッツ"
+      },
+      "5 Lexington Avenue Express · Bowling Green": {
+        "zh-TW": "5號線 萊辛頓大道快車・鮑靈格林",
+        "en": "5 Lexington Avenue Express · Bowling Green",
+        "ja": "5系統 レキシントン・アベニュー急行・ボウリング・グリーン"
+      },
+      "5 Lexington Avenue Express · Flatbush": {
+        "zh-TW": "5號線 萊辛頓大道快車・弗拉特布希",
+        "en": "5 Lexington Avenue Express · Flatbush",
+        "ja": "5系統 レキシントン・アベニュー急行・フラットブッシュ"
+      },
+      "5 Lexington Avenue Express · Nereid": {
+        "zh-TW": "5號線 萊辛頓大道快車・尼瑞德",
+        "en": "5 Lexington Avenue Express · Nereid",
+        "ja": "5系統 レキシントン・アベニュー急行・ネリード"
+      },
+      "6 Lexington Avenue Local": {
+        "zh-TW": "6號線 萊辛頓大道慢車",
+        "en": "6 Lexington Avenue Local",
+        "ja": "6系統 レキシントン・アベニュー各駅停車"
+      },
+      "6 Express": {
+        "zh-TW": "6號線快車",
+        "en": "6 Express",
+        "ja": "6系統急行"
+      },
+      "7 Flushing Local": {
+        "zh-TW": "7號線 法拉盛慢車",
+        "en": "7 Flushing Local",
+        "ja": "7系統 フラッシング各駅停車"
+      },
+      "7 Express": {
+        "zh-TW": "7號線快車",
+        "en": "7 Express",
+        "ja": "7系統急行"
+      },
+      "A 8 Avenue Express · Far Rockaway": {
+        "zh-TW": "A線 第八大道快車・遠洛克威",
+        "en": "A 8 Avenue Express · Far Rockaway",
+        "ja": "A系統 8番街急行・ファー・ロッカウェイ"
+      },
+      "A 8 Avenue Express · Lefferts": {
+        "zh-TW": "A線 第八大道快車・萊弗茲",
+        "en": "A 8 Avenue Express · Lefferts",
+        "ja": "A系統 8番街急行・レファーツ"
+      },
+      "A 8 Avenue Express · Rockaway Park": {
+        "zh-TW": "A線 第八大道快車・洛克威公園",
+        "en": "A 8 Avenue Express · Rockaway Park",
+        "ja": "A系統 8番街急行・ロッカウェイ・パーク"
+      },
+      "B 6 Avenue Express": {
+        "zh-TW": "B線 第六大道快車",
+        "en": "B 6 Avenue Express",
+        "ja": "B系統 6番街急行"
+      },
+      "C 8 Avenue Local": {
+        "zh-TW": "C線 第八大道慢車",
+        "en": "C 8 Avenue Local",
+        "ja": "C系統 8番街各駅停車"
+      },
+      "D 6 Avenue Express": {
+        "zh-TW": "D線 第六大道快車",
+        "en": "D 6 Avenue Express",
+        "ja": "D系統 6番街急行"
+      },
+      "E 8 Avenue Local": {
+        "zh-TW": "E線 第八大道慢車",
+        "en": "E 8 Avenue Local",
+        "ja": "E系統 8番街各駅停車"
+      },
+      "F Queens Boulevard Express · 53 St": {
+        "zh-TW": "F線 皇后大道快車・53街",
+        "en": "F Queens Boulevard Express · 53 St",
+        "ja": "F系統 クイーンズ・ブールバード急行・53丁目"
+      },
+      "F Queens Boulevard Express · 63 St": {
+        "zh-TW": "F線 皇后大道快車・63街",
+        "en": "F Queens Boulevard Express · 63 St",
+        "ja": "F系統 クイーンズ・ブールバード急行・63丁目"
+      },
+      "FX Brooklyn F Express": {
+        "zh-TW": "FX 布魯克林F線快車",
+        "en": "FX Brooklyn F Express",
+        "ja": "FX ブルックリンF急行"
+      },
+      "G Brooklyn–Queens Crosstown": {
+        "zh-TW": "G線 布魯克林–皇后跨城線",
+        "en": "G Brooklyn–Queens Crosstown",
+        "ja": "G系統 ブルックリン–クイーンズ・クロスタウン"
+      },
+      "S Franklin Avenue Shuttle": {
+        "zh-TW": "S 富蘭克林大道接駁線",
+        "en": "S Franklin Avenue Shuttle",
+        "ja": "S フランクリン・アベニュー・シャトル"
+      },
+      "S 42 Street Shuttle": {
+        "zh-TW": "S 42街接駁線",
+        "en": "S 42 Street Shuttle",
+        "ja": "S 42丁目シャトル"
+      },
+      "S Rockaway Park Shuttle": {
+        "zh-TW": "S 洛克威公園接駁線",
+        "en": "S Rockaway Park Shuttle",
+        "ja": "S ロッカウェイ・パーク・シャトル"
+      },
+      "J Nassau Street Local": {
+        "zh-TW": "J線 納蘇街慢車",
+        "en": "J Nassau Street Local",
+        "ja": "J系統 ナッソー・ストリート各駅停車"
+      },
+      "L 14 Street–Canarsie Local": {
+        "zh-TW": "L線 14街–卡納西慢車",
+        "en": "L 14 Street–Canarsie Local",
+        "ja": "L系統 14丁目–カナーシー各駅停車"
+      },
+      "M Queens Boulevard / 6 Avenue Local": {
+        "zh-TW": "M線 皇后大道／第六大道慢車",
+        "en": "M Queens Boulevard / 6 Avenue Local",
+        "ja": "M系統 クイーンズ・ブールバード／6番街各駅停車"
+      },
+      "N Broadway Express · Manhattan Bridge": {
+        "zh-TW": "N線 百老匯快車・曼哈頓橋",
+        "en": "N Broadway Express · Manhattan Bridge",
+        "ja": "N系統 ブロードウェイ急行・マンハッタン橋"
+      },
+      "N Broadway Local · Montague Tunnel": {
+        "zh-TW": "N線 百老匯慢車・蒙塔格隧道",
+        "en": "N Broadway Local · Montague Tunnel",
+        "ja": "N系統 ブロードウェイ各駅停車・モンタギュー・トンネル"
+      },
+      "Q Broadway Express": {
+        "zh-TW": "Q線 百老匯快車",
+        "en": "Q Broadway Express",
+        "ja": "Q系統 ブロードウェイ急行"
+      },
+      "R Broadway Local": {
+        "zh-TW": "R線 百老匯慢車",
+        "en": "R Broadway Local",
+        "ja": "R系統 ブロードウェイ各駅停車"
+      },
+      "Staten Island Railway": {
+        "zh-TW": "史泰登島鐵路",
+        "en": "Staten Island Railway",
+        "ja": "スタテンアイランド鉄道"
+      },
+      "W Broadway Local": {
+        "zh-TW": "W線 百老匯慢車",
+        "en": "W Broadway Local",
+        "ja": "W系統 ブロードウェイ各駅停車"
+      },
+      "Z Nassau Street Express": {
+        "zh-TW": "Z線 納蘇街快車",
+        "en": "Z Nassau Street Express",
+        "ja": "Z系統 ナッソー・ストリート急行"
       }
     }
   },

@@ -53,6 +53,12 @@ const RDP_EPS = args['rdp-eps'] ? Number(args['rdp-eps']) : 0.03; // km
 // typeName 來源:'agency'(預設,挪威式──多路線共用同個 operator 品牌)｜'route'(單一營運商多路線各自
 // 有自己的 route_short_name,如 NYC 地鐵 1/A/Q,用 agency 會全部併成同一個 typeName,故需可切換)。
 const TYPENAME_MODE = args['typename-mode'] === 'route' ? 'route' : 'agency';
+// 資料來源說明預設維持原先 Entur 用途；其他城市可由 CLI 明示官方來源，避免沿用
+// 「Entur 全國 GTFS」字樣造成公開 metadata 失真。
+const SOURCE_NAME = args['source-name'] || 'Entur 全國 GTFS 聚合檔';
+const SOURCE_URL = args['source-url'] || '';
+const SOURCE_LICENSE = args['source-license'] || 'NLOD 授權';
+const SOURCE_LABEL = `${SOURCE_NAME}${SOURCE_URL ? `（${SOURCE_URL}）` : ''}`;
 const agencyInclude = args['agency-include'] ? new Set(args['agency-include'].split(',').map(s => s.trim().toUpperCase())) : null;
 const agencyExclude = args['agency-exclude'] ? new Set(args['agency-exclude'].split(',').map(s => s.trim().toUpperCase())) : null;
 
@@ -401,7 +407,7 @@ for (const t of trains) {
 const scheduleDenseOut = {
   system: SYS_NAME,
   date: TARGET_DATE,
-  source_notes: `來源:Entur 全國 GTFS 聚合檔(NLOD 授權,含 shapes.txt);${GTFS_PATH.split('/').pop()};` +
+  source_notes: `來源:${SOURCE_LABEL}（${SOURCE_LICENSE}，含 shapes.txt）；${GTFS_PATH.split('/').pop()}；` +
     `篩選 route_type∈{${[...ROUTE_TYPES].join(',')}}${agencyExclude ? `,排除 agency ${[...agencyExclude].join('/')}` : ''};` +
     `目標服務日期 ${TARGET_DATE}(時區 ${TZ});時刻為 GTFS 原始 HH:MM:SS 直接轉秒(跨午夜 HH>=24 不 wrap,與現有 tra_schedule_dense.json 慣例一致)`,
   types,
@@ -476,7 +482,7 @@ lines.sort((a, b) => b.shapeLen - a.shapeLen);
 
 const trackOut = {
   system: SYS_NAME,
-  source_notes: `來源:Entur 全國 GTFS 聚合檔 shapes.txt(NLOD 授權)與 stops.txt;` +
+  source_notes: `來源:${SOURCE_LABEL}（${SOURCE_LICENSE}）的 shapes.txt 與 stops.txt；` +
     `每路線取最常用 shape_id 代表線型,Douglas-Peucker 簡化(eps=${RDP_EPS}km);站點依投影弧長(km)排序`,
   lines,
 };

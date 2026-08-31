@@ -14,7 +14,7 @@
 | P0 | 東京 | 6 線：都營地下鐵 4 線＋日暮里・舍人線＋東京櫻花路面電車 | 由 [Tokyo Metro 官方路線圖](https://www.tokyometro.jp/en/subwaymap/index.html)與 [ODPT 官方資料目錄](https://ckan.odpt.org/en/dataset/?license_id=odpt-ptodbl&organization=tokyometro)補 9 條 Tokyo Metro。 |
 | P0 | 伊斯坦堡 | 23 條舊快照路線／variant | 補 M11、T2、T5、T6、F4，並重建 M3、M4、M5、M8、M9 延伸；依 [Metro İstanbul](https://www.metro.istanbul/en/)現行官方圖逐線核對。 |
 | P0 | 倫敦 | 只有 Underground，22 個分支 variant | 依 [TfL Tube and Rail](https://tfl.gov.uk/maps/track?intcmp=40400)補 London Overground、Elizabeth line、DLR、Tram；Overground 使用現行六個線名。 |
-| P0 | 紐約 | Subway 28 個 service pattern | Subway 主體齊，但 [MTA 現行圖](https://www.mta.info/map/5341)另含 [Staten Island Railway](https://www.mta.info/schedules/subway/staten-island-railway)，本站尚缺；現有來源說明誤寫 Entur 也要一併修正。 |
+| P0 | 紐約 | 28 個 Subway service＋Staten Island Railway，共 36 個 route variant | 2026-08-31 已用 [MTA regular static GTFS](https://rrgtfsfeeds.s3.amazonaws.com/gtfs_subway.zip)重建 8,497 班官方時刻與線形；[MTA 現行圖](https://www.mta.info/map/5341)及 [SIR 官方時刻表](https://www.mta.info/schedules/subway/staten-island-railway)逐線複核。SIR 21 站已加入，A／4／5 分支與 F／N 不同走廊各自建線，公開 metadata 也已改回 MTA。MTA 未發布中日官方站名集，因此站名保留官方英文，城市與路線內容提供繁中／英／日。 |
 | P1 | 維也納 | 5 U-Bahn＋Badner Bahn＋27 個 tram route／variant | 官方現行資訊可見 33、40、41、42，本站快照未收錄；刷新 GTFS 時先判斷是服務日篩選還是 route 被漏掉。來源：[Wiener Linien 路網圖](https://www.wienerlinien.at/web/wl-en/maps)、[時刻表](https://www.wienerlinien.at/web/guest/fahrplaene)。 |
 | P1 | 布達佩斯 | 4 Metro＋5 HÉV＋tram，共 45 | 與 [BKK 固定軌道路網](https://bkk.hu/en/journey-planning/maps/fixed-rail-and-trolleybus-network/)及 [官方 Open Data](https://opendata.bkk.hu/)範圍相符；列為第二波。 |
 | 拆層 | 巴黎 | 41 線 | 建置腳本曾主動略去 T7、T9、T10、T12、T13、T14；補線前先把 Metro／Tram 與 RER／Transilien 拆成預設核心與郊區層。[Île-de-France Mobilités](https://www.iledefrance-mobilites.fr/le-reseau/plans) |
@@ -51,4 +51,4 @@ node tools/audit_route_coverage.mjs --release
 node tools/audit_route_coverage.mjs --all-release
 ```
 
-`--release` 現在仍應是紅燈，因為東京、紐約、倫敦、伊斯坦堡尚有已知缺口；新加坡的路線與三語 gate 已先轉綠。它只把現行路線、基本流動／誠實標示與三語內容列為硬條件。分鐘級時刻準確、即時位置與誤點校正列在 `scheduleEnhancements`，不會阻擋首發。
+`--release` 現在仍應是紅燈，因為東京、倫敦、伊斯坦堡尚有已知缺口；新加坡與紐約的路線、流動、來源標示及三語 gate 已轉綠。它只把現行路線、基本流動／誠實標示與三語內容列為硬條件。分鐘級時刻準確、即時位置與誤點校正列在 `scheduleEnhancements`，不會阻擋首發。

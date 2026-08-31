@@ -3827,6 +3827,7 @@
            內容 li 上限 8 條(li.grp 是標題不算)。 -->
       <ul class="foot-list foot-recent">
         <li class="grp">最近更新</li>
+        <li data-cl-of="nycaudit"><span class="d">8/31</span><span>紐約現行 MTA 路網補完：28 個 Subway service 與 Staten Island Railway 都改用 MTA 官方靜態 GTFS，SIR 的 St George－Tottenville 21 站已加入；A、4、5 的分支及 F、N 的不同走廊拆成 36 個可見路徑，沒有把分岔壓成一條線。路線名稱與城市說明備妥繁中、英文、日文；MTA 沒有官方中日站名的車站保留官方英文。畫面依 8/31 官方時刻表推演，不是即時位置</span></li>
         <li data-cl-of="sgaudit"><span class="d">8/31</span><span>新加坡現行路網與三語內容已完成逐線查證：6 套 MRT、3 套 LRT 共 13 個營運分支都鎖定官方站序與端點，185 個站名及路線名稱補齊繁中、英文、日文；未通車車站不會提前混入。列車仍使用明示的模擬班距，先求路線正確與可見流動，不代表即時位置</span></li>
         <li data-cl-of="sgcomplete"><span class="d">8/31</span><span>新加坡第一輪路網補完：Circle Line 6 的 Keppel、Cantonment、Prince Edward Road 已接成完整環線，也加入武吉班讓、盛港與榜鵝三套輕軌；每個環與分支都有順逆方向列車流動。班次目前是明示的模擬班距，不代表即時位置</span></li>
         <li><span class="d">8/31</span><span>世界版重新啟動：換上台灣版現行介面與繁中、英文、日文切換，12 座城市改成一次載一城；時鐘會切到當地時間，列車跟隨、車站看板、搜尋、速度與分享也一併接回。路線完整度另做官方來源稽核，已知缺線會明白列出，不再用「實驗版」三字含糊帶過</span></li>
@@ -3837,6 +3838,7 @@
         <summary>完整更新歷史（依主題分類）</summary>
         <ul class="foot-list">
         <li class="grp">路網與車站</li>
+        <li data-cl="nycaudit"><span class="d">8/31</span><span>紐約現行 MTA 路網補完：28 個 Subway service 與 Staten Island Railway 都改用 MTA 官方靜態 GTFS，SIR 的 St George－Tottenville 21 站已加入；A、4、5 的分支及 F、N 的不同走廊拆成 36 個可見路徑，沒有把分岔壓成一條線。路線名稱與城市說明備妥繁中、英文、日文；MTA 沒有官方中日站名的車站保留官方英文。畫面依 8/31 官方時刻表推演，不是即時位置</span></li>
         <li data-cl="sgaudit"><span class="d">8/31</span><span>新加坡現行路網與三語內容已完成逐線查證：6 套 MRT、3 套 LRT 共 13 個營運分支都鎖定官方站序與端點，185 個站名及路線名稱補齊繁中、英文、日文；未通車車站不會提前混入。列車仍使用明示的模擬班距，先求路線正確與可見流動，不代表即時位置</span></li>
         <li data-cl="sgcomplete"><span class="d">8/31</span><span>新加坡第一輪路網補完：Circle Line 6 的 Keppel、Cantonment、Prince Edward Road 已接成完整環線，也加入武吉班讓、盛港與榜鵝三套輕軌；每個環與分支都有順逆方向列車流動。班次目前是明示的模擬班距，不代表即時位置</span></li>
         <li data-cl="metrosamename"><span class="d">8/21</span><span>捷運站看板原本只用站名找路線，沒有同時確認所屬系統，因此台北捷運與台中捷運都有的「市政府」會被誤認成同一站，混入另一座城市的路線與班次。現在從搜尋、地圖點擊、活動與最愛開站都會保留車站所屬系統；舊收藏若沒有這項資料，也會依車站座標找到正確系統。所有跨系統同名站都套用同一項修正</span></li>
@@ -4433,7 +4435,7 @@
 //         逐 hunk 比對過:兩版四項做法幾乎相同,v0831d 多做了第三件(clock-off 放出「現在」鈕),
 //         v0831e 只多幾行註解且其中一句寫錯(openNearbyStations 不讀 simSec,它不吃撥鐘影響),
 //         故正文全取 v0831d。守門人:scripts/verify_merge_no_loss.mjs --parents 兩顆。
-const BUILD = 'world-v0831c';
+const BUILD = 'world-v0831d';
 // 輕量多語 runtime：繁中原文同時是安全 fallback，外語字典只存差異字串。
 // 所有插值一律先當純文字處理；需要 HTML 的呼叫端仍須用 escHtml() 包住結果。
 const I18N_STORAGE_KEY = 'trainmap-language';
@@ -4916,7 +4918,7 @@ function pal() { return MAP_PAL[state.basemap === 'sat' ? 'sat' : (state.mapDark
 // 各系統的站名牌／副標／導言文案(loadSystem 依系統套用)
 const SYS_META = {
   norway_sched: { plateL: 'Bodø', plateR: 'Stavanger', sub: 'NORWAY RAIL', lead: '挪威國鐵依 Entur 公開時刻表推演；目前收錄全國旅客鐵路，資料會依官方 feed 持續重查。' },
-  nyc_sched: { plateL: 'Inwood', plateR: 'Coney Island', sub: 'NEW YORK SUBWAY', lead: '紐約地鐵依 MTA 公開時刻表推演；目前涵蓋 28 個 Subway service，Staten Island Railway 尚待補入。' },
+  nyc_sched: { plateL: 'Inwood-207 St', plateR: 'Tottenville', sub: 'NEW YORK SUBWAY · SIR', lead: '紐約現行 28 個 Subway service 與 Staten Island Railway 已逐線查證，分支與不同走廊拆成 36 個可見路徑；列車依 MTA 官方 2026-08-31 靜態時刻表推演，並非即時位置。' },
   tokyo_sched: { plateL: '光が丘', plateR: '西馬込', sub: 'TOKYO TOEI', lead: '東京目前收錄都營地下鐵、日暮里・舍人線與東京櫻花路面電車；Tokyo Metro 9 線已列為第一優先補齊項目。' },
   swiss_sched: { plateL: 'Zermatt', plateR: 'St. Moritz', sub: 'SWISS SCENIC RAIL', lead: '瑞士目前是景觀窄軌策展集，不宣稱全國完整；列車依瑞士公開交通資料時刻表推演。' },
   singapore: { plateL: 'Changi Airport', plateR: 'Tuas Link', sub: 'SINGAPORE MRT · LRT', lead: '新加坡現行 6 套 MRT、3 套 LRT 與 Circle Line 6 完整環線已逐線查證，185 個站名提供繁中、英文、日文；列車依明示模擬班距在正確路網上流動，並非即時位置。' },
@@ -4941,6 +4943,11 @@ const SYS_META = {
   afr_sched: { plateL: '嘉義', plateR: '阿里山', sub: 'ALISHAN FOREST RAILWAY', lead: '阿里山林業鐵路從嘉義平原一路盤旋上山，途中經過獨立山螺旋與第一分道的之字形折返——列車依官方公告時刻表運行（本線無即時資訊，且常因天候或維修停駛）。祝山線觀日列車每天隨日出調整、前一日 16:30 才公告，畫面依官方日出時間表推算並標示「推算」，實際請以林鐵官網為準。' },
 };
 const WORLD_DATA_NOTES = {
+  nyc_sched: {
+    'zh-TW': '列車依 MTA New York City Transit regular static GTFS 推演，並非即時位置。資料快照與服務日：20260831。收錄 28 個 Subway service 與 Staten Island Railway；A、4、5 的分支及 F、N 的不同走廊拆成 36 個 route variants。路線、站序、站點、線形與班次均取 MTA 官方 GTFS，正常營運端點另與 MTA 官方大型路線圖及 SIR 時刻表複核。',
+    en: 'Trains are simulated from the MTA New York City Transit regular static GTFS, not live positions. Snapshot and service date: 20260831. Coverage includes all 28 Subway services and the Staten Island Railway. Branches on A, 4 and 5, plus the separate F and N corridors, are represented by 36 route variants. Routes, stop order, stations, shapes and schedules come from the official MTA GTFS and were cross-checked against the official large-print map and SIR timetable.',
+    ja: '列車はMTA New York City Transitのregular static GTFSにもとづくシミュレーションで、リアルタイム位置ではありません。データスナップショット・運行日：20260831。地下鉄28系統とスタテンアイランド鉄道を収録し、A・4・5系統の分岐、F・N系統の別経路を36個のroute variantに分けています。路線・駅順・駅・線形・時刻はMTA公式GTFSを使用し、公式大型路線図とSIR時刻表でも照合しました。'
+  },
   singapore: {
     'zh-TW': '列車依明示模擬班距推演，並非即時位置。資料快照：20260831。路線範圍依 LTA MRT/LRT Map（2026-08-31 查證）；CCL6 與三套 LRT 的站序與線形採 OpenStreetMap route relations（© OpenStreetMap contributors，ODbL）。班表依尖峰／離峰班距與 05:30–00:30 營運時間雙向生成，只供流動示意。',
     en: 'Trains use clearly labelled simulated headways, not live positions. Data snapshot: 20260831. Network coverage was checked against the LTA MRT/LRT Map on 2026-08-31. CCL6 and the three LRT systems use OpenStreetMap route relations (© OpenStreetMap contributors, ODbL). Services are generated in both directions from peak/off-peak headways and 05:30–00:30 operating hours, for visible motion only.',
