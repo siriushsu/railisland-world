@@ -2,24 +2,26 @@
 
 這份稽核把「完整」拆成三件可驗證的事：官方現行路網範圍、本站實際收錄範圍、資料快照日期。城市型路網以官方現行固定軌道系統為目標；挪威、瑞士這類全國尺度資料若採策展範圍，必須明說，不用「完整」包裝選集。
 
+產品首發已另依實際桌機／手機構圖與路網跨度分級：東京、紐約、倫敦、伊斯坦堡、新加坡為首發核心；其餘地區的保留、拆層與延後理由見 [`city-scope-review-2026-08-31.md`](city-scope-review-2026-08-31.md)。本表的優先級已依此決策更新。
+
 機器可讀的同一份範圍在 [`data/route_scope.json`](../data/route_scope.json)，可執行檢查在 [`tools/audit_route_coverage.mjs`](../tools/audit_route_coverage.mjs)。
 
 ## 結論與優先順序
 
 | 優先 | 地區 | 現況 | 已確認缺口／下一步 |
 | --- | --- | --- | --- |
-| P0 | 新加坡 | 6 套 MRT、8 個 shape variant | 補 Bukit Panjang／Sengkang／Punggol LRT；補 2026-07-12 通車的 CCL6 三站 Keppel、Cantonment、Prince Edward Road。LTA 現行頁列出 6 MRT＋3 LRT，[CCL6 官方頁](https://www.lta.gov.sg/content/ltagov/en/upcoming_projects/rail_expansion/circle_line_6.html)已標示通車日期。 |
+| P0 | 新加坡 | 6 套 MRT、8 個 shape variant | 補 Bukit Panjang／Sengkang／Punggol LRT；補 2026-07-12 通車的 CCL6 三站 Keppel、Cantonment、Prince Edward Road。LTA 現行頁列出 6 MRT＋3 LRT，[CCL6 官方頁](https://www.lta.gov.sg/content/ltagov/en/upcoming_projects/rail_expansion/circle_line_6.html)已標示通車日期；現有人工班距下一版改接 [LTA DataMall Train GTFS](https://datamall.lta.gov.sg/content/datamall/en/dynamic-data.html)。 |
 | P0 | 東京 | 6 線：都營地下鐵 4 線＋日暮里・舍人線＋東京櫻花路面電車 | 由 [Tokyo Metro 官方路線圖](https://www.tokyometro.jp/en/subwaymap/index.html)與 [ODPT 官方資料目錄](https://ckan.odpt.org/en/dataset/?license_id=odpt-ptodbl&organization=tokyometro)補 9 條 Tokyo Metro。 |
-| P0 | 巴黎 | 41 線 | 建置腳本曾為檔案大小主動略去 T7、T9、T10、T12、T13、T14；現在改成單城市懶載入後，這個限制不再合理。以 [Île-de-France Mobilités 現行路網圖](https://www.iledefrance-mobilites.fr/le-reseau/plans)補回。 |
 | P0 | 伊斯坦堡 | 23 條舊快照路線／variant | 補 M11、T2、T5、T6、F4，並重建 M3、M4、M5、M8、M9 延伸；依 [Metro İstanbul](https://www.metro.istanbul/en/)現行官方圖逐線核對。 |
-| P1 | 倫敦 | 只有 Underground，22 個分支 variant | 依 [TfL Tube and Rail](https://tfl.gov.uk/maps/track?intcmp=40400)補 London Overground、Elizabeth line、DLR、Tram；Overground 使用現行六個線名。 |
-| P1 | 紐約 | Subway 28 個 service pattern | Subway 主體齊，但 [MTA 現行圖](https://www.mta.info/map/5341)另含 [Staten Island Railway](https://www.mta.info/schedules/subway/staten-island-railway)，本站尚缺。 |
+| P0 | 倫敦 | 只有 Underground，22 個分支 variant | 依 [TfL Tube and Rail](https://tfl.gov.uk/maps/track?intcmp=40400)補 London Overground、Elizabeth line、DLR、Tram；Overground 使用現行六個線名。 |
+| P0 | 紐約 | Subway 28 個 service pattern | Subway 主體齊，但 [MTA 現行圖](https://www.mta.info/map/5341)另含 [Staten Island Railway](https://www.mta.info/schedules/subway/staten-island-railway)，本站尚缺；現有來源說明誤寫 Entur 也要一併修正。 |
 | P1 | 維也納 | 5 U-Bahn＋Badner Bahn＋27 個 tram route／variant | 官方現行資訊可見 33、40、41、42，本站快照未收錄；刷新 GTFS 時先判斷是服務日篩選還是 route 被漏掉。來源：[Wiener Linien 路網圖](https://www.wienerlinien.at/web/wl-en/maps)、[時刻表](https://www.wienerlinien.at/web/guest/fahrplaene)。 |
-| P1 | 墨爾本 | 13 V/Line＋16 Metro＋24 Tram，共 53 | 路線集合大致完整，但要用 Metro Tunnel 通車後 feed 重建並核對 Sunbury／Cranbourne／Pakenham 新運行形狀；來源：[PTV Maps](https://www.ptv.vic.gov.au/more/maps/)。 |
-| P2 | 挪威 | 28 條旅客鐵路 service | 以 [Entur 現行 feed](https://developer.entur.org/stops-and-timetable-data/)刷新。Entur 明示 NeTEx 最完整、GTFS 隨供應者更新；刷新後要重跑雙方向與折返檢查。 |
-| P2 | 瑞士 | 36 條景觀窄軌／代表性 service | 定位改成「景觀策展集」，不宣稱全瑞士完整。時刻可由 [Swiss 2026 GTFS](https://data.opentransportdata.swiss/en/dataset/timetable-2026-gtfs2020)刷新，但官方說明指出 GTFS 不含 shapes，幾何仍需獨立維護。 |
-| 維持 | 雪梨 | 24 線，涵蓋 Train、Metro、Light Rail | 與 [TfNSW Train](https://transportnsw.info/travel-info/ways-to-get-around/train)、[Metro](https://transportnsw.info/travel-info/ways-to-get-around/metro)、[Light Rail](https://transportnsw.info/routes/light-rail)現行分類相符；納入例行刷新。 |
-| 維持 | 布達佩斯 | 4 Metro＋5 HÉV＋tram，共 45 | 與 [BKK 固定軌道路網](https://bkk.hu/en/journey-planning/maps/fixed-rail-and-trolleybus-network/)及 [官方 Open Data](https://opendata.bkk.hu/)範圍相符；納入例行刷新。 |
+| P1 | 布達佩斯 | 4 Metro＋5 HÉV＋tram，共 45 | 與 [BKK 固定軌道路網](https://bkk.hu/en/journey-planning/maps/fixed-rail-and-trolleybus-network/)及 [官方 Open Data](https://opendata.bkk.hu/)範圍相符；列為第二波。 |
+| 拆層 | 巴黎 | 41 線 | 建置腳本曾主動略去 T7、T9、T10、T12、T13、T14；補線前先把 Metro／Tram 與 RER／Transilien 拆成預設核心與郊區層。[Île-de-France Mobilités](https://www.iledefrance-mobilites.fr/le-reseau/plans) |
+| 拆層 | 雪梨 | 24 線，涵蓋 Train、Metro、Light Rail | 官方範圍大致相符，但 Intercity 導致首屏跨度 373 km；都會核心與城際線先拆層。[TfNSW Train](https://transportnsw.info/travel-info/ways-to-get-around/train)、[Metro](https://transportnsw.info/travel-info/ways-to-get-around/metro)、[Light Rail](https://transportnsw.info/routes/light-rail) |
+| 拆層 | 墨爾本 | 13 V/Line＋16 Metro＋24 Tram，共 53 | Metro／Tram 與 V/Line 先拆層，再以 Metro Tunnel 通車後 feed 重建。[PTV Maps](https://www.ptv.vic.gov.au/more/maps/) |
+| 策展 | 瑞士 | 36 條景觀窄軌／代表性 service | 改成一次一組景觀走廊，不宣稱全瑞士完整。時刻可由 [Swiss 2026 GTFS](https://data.opentransportdata.swiss/en/dataset/timetable-2026-gtfs2020)刷新，但 GTFS 不含 shapes。 |
+| 延後 | 挪威 | 28 條旅客鐵路 service | 全國跨度 1,403 km，不適合首發同框；若保留，先拆城市或長途走廊，再用 [Entur 現行 feed](https://developer.entur.org/stops-and-timetable-data/)刷新。 |
 
 ## 每一城完成的共同 gate
 
@@ -38,8 +40,11 @@
 # 現有快照結構與必要 route ID 不得退步；已知缺口只列出，不阻擋開發
 node tools/audit_route_coverage.mjs
 
-# 準備宣稱「路線完整」或正式發布時使用；blockingGaps 未清空即失敗
+# 首發發布 gate：只檢查 productTier=launch-core 的五個核心城市
 node tools/audit_route_coverage.mjs --release
+
+# 全部 12 區都要無缺口時才用；策展／拆層城市也會納入
+node tools/audit_route_coverage.mjs --all-release
 ```
 
-`--release` 現在應該是紅燈；這是刻意的。只有路線真的補齊，或把產品範圍明確改成策展集並寫進公開說明，才可清掉對應缺口。
+`--release` 現在應該是紅燈；這是刻意的。它不再被挪威、瑞士等非首發地區卡住，但東京、紐約、倫敦、伊斯坦堡、新加坡任一核心範圍仍有缺口就不能宣稱首發完成。
