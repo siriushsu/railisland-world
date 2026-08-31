@@ -2283,6 +2283,42 @@
     }
   },
   "trainTypes": {
+    "南北線": {
+      "en": "North–South Line",
+      "ja": "南北線"
+    },
+    "東西線": {
+      "en": "East–West Line",
+      "ja": "東西線"
+    },
+    "東北線": {
+      "en": "North East Line",
+      "ja": "北東線"
+    },
+    "環線": {
+      "en": "Circle Line",
+      "ja": "環状線"
+    },
+    "濱海市區線": {
+      "en": "Downtown Line",
+      "ja": "ダウンタウン線"
+    },
+    "湯申-東海岸線": {
+      "en": "Thomson–East Coast Line",
+      "ja": "トムソン・イーストコースト線"
+    },
+    "武吉班讓輕軌": {
+      "en": "Bukit Panjang LRT",
+      "ja": "ブキ・パンジャンLRT"
+    },
+    "盛港輕軌": {
+      "en": "Sengkang LRT",
+      "ja": "センカンLRT"
+    },
+    "榜鵝輕軌": {
+      "en": "Punggol LRT",
+      "ja": "プンゴルLRT"
+    },
     "其他": {
       "en": "Other",
       "ja": "その他"

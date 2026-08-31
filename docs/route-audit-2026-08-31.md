@@ -10,7 +10,7 @@
 
 | 優先 | 地區 | 現況 | 已確認缺口／下一步 |
 | --- | --- | --- | --- |
-| P0 | 新加坡 | 6 套 MRT、8 個 shape variant | 補 Bukit Panjang／Sengkang／Punggol LRT；補 2026-07-12 通車的 CCL6 三站 Keppel、Cantonment、Prince Edward Road。LTA 現行頁列出 6 MRT＋3 LRT，[CCL6 官方頁](https://www.lta.gov.sg/content/ltagov/en/upcoming_projects/rail_expansion/circle_line_6.html)已標示通車日期；現有人工班距可繼續作明示模擬，[LTA DataMall Train GTFS](https://datamall.lta.gov.sg/content/datamall/en/dynamic-data.html)列為時刻增強。 |
+| P0 | 新加坡 | 13 個營運 variant：6 MRT、CCL 主環／分支與 3 LRT | 2026-08-31 已補 Bukit Panjang／Sengkang／Punggol LRT 與 CCL6 三站，CCL 合併 33 站；站序、關鍵新站、幾何跳距與雙向流動 gate 已通過。發布前仍須逐線複核既有 MRT，並完成三語內容。人工班距繼續明示為模擬，[LTA DataMall Train GTFS](https://datamall.lta.gov.sg/content/datamall/en/dynamic-data.html)列為時刻增強。 |
 | P0 | 東京 | 6 線：都營地下鐵 4 線＋日暮里・舍人線＋東京櫻花路面電車 | 由 [Tokyo Metro 官方路線圖](https://www.tokyometro.jp/en/subwaymap/index.html)與 [ODPT 官方資料目錄](https://ckan.odpt.org/en/dataset/?license_id=odpt-ptodbl&organization=tokyometro)補 9 條 Tokyo Metro。 |
 | P0 | 伊斯坦堡 | 23 條舊快照路線／variant | 補 M11、T2、T5、T6、F4，並重建 M3、M4、M5、M8、M9 延伸；依 [Metro İstanbul](https://www.metro.istanbul/en/)現行官方圖逐線核對。 |
 | P0 | 倫敦 | 只有 Underground，22 個分支 variant | 依 [TfL Tube and Rail](https://tfl.gov.uk/maps/track?intcmp=40400)補 London Overground、Elizabeth line、DLR、Tram；Overground 使用現行六個線名。 |

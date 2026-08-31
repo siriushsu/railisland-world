@@ -34,6 +34,11 @@ node tools/analyze_city_visual_scope.mjs
 
 # 取得新加坡官方 Train GTFS（AccountKey 不寫進 repo）
 LTA_DATAMALL_ACCOUNT_KEY=... node tools/fetch_lta_train_gtfs.mjs /private/tmp/singapore-lta-gtfs.zip
+
+# 重建／驗證新加坡 CCL6 與三套 LRT（首次執行會讀取 OSM 公開 relation）
+node tools/build_singapore.mjs --refresh
+node tools/headway2sched.mjs singapore
+node tools/verify_singapore_routes.mjs
 ```
 
 ## 資料與授權

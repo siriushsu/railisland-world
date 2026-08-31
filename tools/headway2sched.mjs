@@ -39,8 +39,11 @@ const isPeak = (s) => PEAKS.some(([a, b]) => s >= a && s < b);
 function foldSingapore(lineId) {
   const M = {
     NSL: ['南北線', '#d42e12'], EWL: ['東西線', '#009645'], EWL_CGA: ['東西線', '#009645'],
-    NEL: ['東北線', '#9900aa'], CCL: ['環線', '#fa9e0d'], CCL_CE: ['環線', '#fa9e0d'],
+    NEL: ['東北線', '#9900aa'], CCL: ['環線', '#fa9e0d'], CCL_DG: ['環線', '#fa9e0d'],
     DTL: ['濱海市區線', '#005ec4'], TEL: ['湯申-東海岸線', '#9D5B25'],
+    BPLRT: ['武吉班讓輕軌', '#748477'],
+    SKLRT_E: ['盛港輕軌', '#748477'], SKLRT_W: ['盛港輕軌', '#748477'],
+    PGLRT_E: ['榜鵝輕軌', '#748477'], PGLRT_W: ['榜鵝輕軌', '#748477'],
   };
   return M[lineId] || [lineId, '#888888'];
 }
@@ -109,7 +112,7 @@ function build(cityFile, foldFn, cruiseKmh, dwellSec, system, srcNotes, outFile)
   const seqRef = { types: new Map() };
   for (const line of geo.lines) genLine(line, foldFn, cruiseKmh, dwellSec, out, seqRef);
   const types = [...seqRef.types.entries()].map(([key, color]) => ({ key, color }));
-  const doc = { system, date: '20260715', source_notes: srcNotes, types, trains: out };
+  const doc = { system, date: geo.data_date || '20260715', source_notes: srcNotes, types, trains: out };
   writeFileSync(path.join(DATA, outFile), JSON.stringify(doc));
   // 統計
   let maxT = 0, stopRows = 0;
@@ -119,17 +122,26 @@ function build(cityFile, foldFn, cruiseKmh, dwellSec, system, srcNotes, outFile)
   console.log(`  車種: ${types.map(t => t.key).join(', ')}`);
 }
 
-build(
-  'singapore.json', foldSingapore, 48, 25, 'SGMRT',
-  '班距模擬合成,非官方逐車時刻。站點與路線拓撲:OpenStreetMap route relations(ODbL,需標註來源);' +
-  '線形:OSM railway=subway ways 最短路徑串接;班距:LTA/SMRT/SBS Transit 官方公告區間之合理中值。' +
-  '本班表由 tools/headway2sched.mjs 依 peak/offpeak 班距與營運時間(05:30–00:30)雙向生成,僅供示意。',
-  'singapore_schedule_dense.json'
-);
-build(
-  'london.json', foldLondon, 38, 25, 'LU',
-  '班距模擬合成,非官方逐車時刻。Powered by TfL Open Data(站序/分支拓撲,匿名 API);' +
-  'Contains OS data © Crown copyright and database rights;線形:OSM Overpass(ODbL)真實軌跡;' +
-  '班距綜合 TfL 官方數據與 Wikipedia 引用之 TfL 資料。本班表由 tools/headway2sched.mjs 依 peak/offpeak 班距與營運時間(05:30–00:30)雙向生成,僅供示意。',
-  'london_schedule_dense.json'
-);
+const target = process.argv[2] || 'all';
+if (target === 'all' || target === 'singapore') {
+  build(
+    'singapore.json', foldSingapore, 48, 25, 'SGMRT',
+    '班距模擬合成，非官方逐車時刻或即時位置。現行路線範圍依 LTA MRT/LRT Map（2026-08-31 查證）；' +
+    'CCL6 與三套 LRT 的站序／線形採 OSM route relations（© OpenStreetMap contributors，ODbL）。' +
+    '本班表由 tools/headway2sched.mjs 依 peak/offpeak 合成班距與營運時間（05:30–00:30）雙向生成，僅供流動示意。',
+    'singapore_schedule_dense.json'
+  );
+}
+if (target === 'all' || target === 'london') {
+  build(
+    'london.json', foldLondon, 38, 25, 'LU',
+    '班距模擬合成,非官方逐車時刻。Powered by TfL Open Data(站序/分支拓撲,匿名 API);' +
+    'Contains OS data © Crown copyright and database rights;線形:OSM Overpass(ODbL)真實軌跡;' +
+    '班距綜合 TfL 官方數據與 Wikipedia 引用之 TfL 資料。本班表由 tools/headway2sched.mjs 依 peak/offpeak 班距與營運時間(05:30–00:30)雙向生成,僅供示意。',
+    'london_schedule_dense.json'
+  );
+}
+if (!['all', 'singapore', 'london'].includes(target)) {
+  console.error('用法：node tools/headway2sched.mjs [all|singapore|london]');
+  process.exit(1);
+}

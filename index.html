@@ -6,7 +6,7 @@
      地圖內縮放由 Leaflet 自理不受影響。iOS Safari 會無視 user-scalable,另以 gesturestart 補擋(見檔尾) -->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
 <title>軌島・世界</title>
-<meta name="description" content="軌島・世界：把世界各城鐵道依公開時刻表畫成一張會動的地圖。" />
+<meta name="description" content="軌島・世界：把世界各城的正確路網與公開時刻／班距畫成一張會動的地圖。" />
 <meta property="og:title" content="軌島・世界" />
 <meta property="og:description" content="Railways around the world, moving by timetable." />
 <meta property="og:type" content="website" />
@@ -3473,7 +3473,7 @@
     </div>
     </div>
     <!-- 導言靜態預置世界群組文案:boot 會換字,結構保持一致以控制 CLS。 -->
-    <p id="lead">選一座城市，看列車依當地時刻表在真實路網上運行。資料完整度會逐城查證與更新；目前為時刻表推演，並非即時列車位置。</p>
+    <p id="lead">選一座城市，看列車依公開時刻或明示模擬班距在真實路網上運行。路線完整度會逐城查證與更新；畫面並非即時列車位置。</p>
     </div>
     <!-- 搜尋+跟隨票:側欄取消後上移 header 右側。搜尋框常駐(首繪即在=零 CLS),站名與車次共用一框
          (車次在捷運分頁也可搜,會自動切國家鐵路,故 placeholder 全模式同一句);
@@ -3827,6 +3827,7 @@
            內容 li 上限 8 條(li.grp 是標題不算)。 -->
       <ul class="foot-list foot-recent">
         <li class="grp">最近更新</li>
+        <li data-cl-of="sgcomplete"><span class="d">8/31</span><span>新加坡第一輪路網補完：Circle Line 6 的 Keppel、Cantonment、Prince Edward Road 已接成完整環線，也加入武吉班讓、盛港與榜鵝三套輕軌；每個環與分支都有順逆方向列車流動。班次目前是明示的模擬班距，不代表即時位置</span></li>
         <li><span class="d">8/31</span><span>世界版重新啟動：換上台灣版現行介面與繁中、英文、日文切換，12 座城市改成一次載一城；時鐘會切到當地時間，列車跟隨、車站看板、搜尋、速度與分享也一併接回。路線完整度另做官方來源稽核，已知缺線會明白列出，不再用「實驗版」三字含糊帶過</span></li>
       </ul>
       <!-- 第二層:完整歷史。刻意不掛 .foot-box 類名——placeFootBoxes() 用
@@ -3835,6 +3836,7 @@
         <summary>完整更新歷史（依主題分類）</summary>
         <ul class="foot-list">
         <li class="grp">路網與車站</li>
+        <li data-cl="sgcomplete"><span class="d">8/31</span><span>新加坡第一輪路網補完：Circle Line 6 的 Keppel、Cantonment、Prince Edward Road 已接成完整環線，也加入武吉班讓、盛港與榜鵝三套輕軌；每個環與分支都有順逆方向列車流動。班次目前是明示的模擬班距，不代表即時位置</span></li>
         <li data-cl="metrosamename"><span class="d">8/21</span><span>捷運站看板原本只用站名找路線，沒有同時確認所屬系統，因此台北捷運與台中捷運都有的「市政府」會被誤認成同一站，混入另一座城市的路線與班次。現在從搜尋、地圖點擊、活動與最愛開站都會保留車站所屬系統；舊收藏若沒有這項資料，也會依車站座標找到正確系統。所有跨系統同名站都套用同一項修正</span></li>
         <li data-cl="metropos819"><span class="d">8/19</span><span>台北捷運各線與環狀線的列車位置整個重做：車子到站後會照官方公布的停靠秒數停一下再開，往下一站的速度改成用「還剩多少路、官方說還剩多少秒」即時算，所以會準時到站，也不會再出現車卡在月台上不動、兩班車黏在一起、或位置突然往回跳。環狀線另外補上官方的逐站行駛時間與停靠時間，之前那條線是用估算的固定秒數在跑</span></li>
         <li data-cl="zuoyingalias"><span class="d">8/16</span><span>台鐵左營站點開會跳出「左營」與「左營(舊城)」兩個選項，後者看板永遠沒班次——其實是同一座站；現在合併成一顆、看板正常。新城站同一問題一併修好（謝謝網友回報）</span></li>
@@ -4429,7 +4431,7 @@
 //         逐 hunk 比對過:兩版四項做法幾乎相同,v0831d 多做了第三件(clock-off 放出「現在」鈕),
 //         v0831e 只多幾行註解且其中一句寫錯(openNearbyStations 不讀 simSec,它不吃撥鐘影響),
 //         故正文全取 v0831d。守門人:scripts/verify_merge_no_loss.mjs --parents 兩顆。
-const BUILD = 'world-v0831a';
+const BUILD = 'world-v0831b';
 // 輕量多語 runtime：繁中原文同時是安全 fallback，外語字典只存差異字串。
 // 所有插值一律先當純文字處理；需要 HTML 的呼叫端仍須用 escHtml() 包住結果。
 const I18N_STORAGE_KEY = 'trainmap-language';
@@ -4604,7 +4606,7 @@ function i18nSyncLanguageControl() {
 function i18nSyncDocumentMeta() {
   document.title = t('軌島・世界');
   const description = document.querySelector('meta[name="description"]');
-  if (description) description.content = t('軌島・世界：把世界各城鐵道依公開時刻表畫成一張會動的地圖。');
+  if (description) description.content = t('軌島・世界：把世界各城的正確路網與公開時刻／班距畫成一張會動的地圖。');
 }
 let I18N_CHANGELOG_ZH_HTML = null;
 function i18nRenderChangelog() {
@@ -4914,7 +4916,7 @@ const SYS_META = {
   nyc_sched: { plateL: 'Inwood', plateR: 'Coney Island', sub: 'NEW YORK SUBWAY', lead: '紐約地鐵依 MTA 公開時刻表推演；目前涵蓋 28 個 Subway service，Staten Island Railway 尚待補入。' },
   tokyo_sched: { plateL: '光が丘', plateR: '西馬込', sub: 'TOKYO TOEI', lead: '東京目前收錄都營地下鐵、日暮里・舍人線與東京櫻花路面電車；Tokyo Metro 9 線已列為第一優先補齊項目。' },
   swiss_sched: { plateL: 'Zermatt', plateR: 'St. Moritz', sub: 'SWISS SCENIC RAIL', lead: '瑞士目前是景觀窄軌策展集，不宣稱全國完整；列車依瑞士公開交通資料時刻表推演。' },
-  singapore: { plateL: 'Changi Airport', plateR: 'Tuas Link', sub: 'SINGAPORE MRT', lead: '新加坡目前收錄 6 套 MRT；三套 LRT 與 2026 年通車的 Circle Line 6 是第一優先補齊項目。' },
+  singapore: { plateL: 'Changi Airport', plateR: 'Tuas Link', sub: 'SINGAPORE MRT · LRT', lead: '新加坡現行 6 套 MRT、3 套 LRT 與 Circle Line 6 完整環線皆已收錄；列車依明示模擬班距在正確路網上流動，並非即時位置。' },
   london: { plateL: 'Cockfosters', plateR: 'Heathrow', sub: 'LONDON UNDERGROUND', lead: '倫敦目前先收錄 Underground；Overground、Elizabeth line、DLR 與 Tram 將依 TfL 官方範圍分階段加入。' },
   istanbul_sched: { plateL: 'Gebze', plateR: 'Halkalı', sub: 'İSTANBUL RAIL', lead: '伊斯坦堡目前沿用較舊官方 feed；M11、T2、T5、T6、F4 與多段延伸已列為第一優先重建。' },
   sydney_sched: { plateL: 'Emu Plains', plateR: 'Berowra', sub: 'SYDNEY RAIL', lead: '雪梨收錄 Sydney Trains、Metro 與 Light Rail，依 Transport for NSW 公開時刻表推演。' },
@@ -12801,7 +12803,7 @@ const TAIWAN_GROUPS = [
 const GROUPS = [
   { id: 'world', label: '世界城市', short: '世', tab: true, mode: 'world', members: SYS_DEFS.map(sys => sys.id),
     plate: { plateL: 'New York', plateR: 'Tokyo', sub: 'WORLD RAIL · TIMETABLE MAP',
-      lead: '選一座城市，看列車依當地時刻表在真實路網上運行。資料完整度會逐城查證與更新；目前為時刻表推演，並非即時列車位置。' } },
+      lead: '選一座城市，看列車依公開時刻或明示模擬班距在真實路網上運行。路線完整度會逐城查證與更新；畫面並非即時列車位置。' } },
 ];
 const groupOf = id => GROUPS.find(g => g.members.includes(id)) || GROUPS[0];
 // 頁籤列要渲染哪幾顆、以及某個 state.group 該亮哪一顆（桌面與手機共用同一份，兩處永遠一致）
@@ -12910,7 +12912,7 @@ function refreshDataNoteI18n() {
   if (I18N_LANG === 'zh-TW') { note.innerHTML = state._noteZh; return; }
   const ids = new Set((state.schedSystems || []).map(sys => sys.id));
   let source;
-  if (state.sys && state.sys.world) source = '列車依當地公開時刻表推演，並非即時位置。路線範圍與更新日期請見資料來源與路線稽核。';
+  if (state.sys && state.sys.world) source = '列車依當地公開時刻或明示模擬班距推演，並非即時位置。路線範圍與更新日期請見資料來源與路線稽核。';
   else if (state.deco && ids.size > 1) source = '資料來源：各營運機構官方時刻表與交通部 TDX。台鐵套用即時誤點，支援的捷運路網依官方即時資訊校正；停駛、取消、加開與臨時班距調整可能未反映。';
   else if (ids.has('afr_sched') && ids.size === 1) source = '資料來源：交通部 TDX 阿里山林業鐵路定期時刻表。本線無即時位置或誤點資料，且可能因天候或維修停駛；祝山觀日列車為推算，請以林鐵當日公告為準。';
   else if (ids.has('tra_sched')) source = '資料來源：台鐵官方每日時刻表與交通部 TDX 即時誤點。動畫依時刻表推演並在目前時刻套用誤點；停駛、取消或加開班次可能未反映。';
@@ -12980,7 +12982,7 @@ function loadSystem(sys) {
     fitData(state.schedStations.map(s => [s.lat, s.lon]));
     reproject();
     document.getElementById('note').textContent = sys.world
-      ? ('列車依當地公開時刻表推演，並非即時位置。' +
+      ? ('列車依當地公開時刻或明示模擬班距推演，並非即時位置。' +
         (sys.data && sys.data.date ? '資料快照：' + sys.data.date + '。' : '') +
         (sys.data && sys.data.source_notes ? '資料來源：' + sys.data.source_notes : ''))
       : sys.id === 'afr_sched'
@@ -13174,7 +13176,7 @@ async function loadWorldSystem(id, opts = {}) {
   state.freqSel = null;
   syncPanFence();
   const source = sys.data && sys.data.source_notes ? '　資料來源：' + sys.data.source_notes : '';
-  if (note) note.textContent = t('列車依當地公開時刻表推演，並非即時位置。路線範圍與更新日期請見資料來源與路線稽核。') + source;
+  if (note) note.textContent = t('列車依當地公開時刻或明示模擬班距推演，並非即時位置。路線範圍與更新日期請見資料來源與路線稽核。') + source;
   document.documentElement.dataset.activeSystem = id;
   document.documentElement.dataset.trainCount = String(state.trains.length);
   renderSystemsBar();

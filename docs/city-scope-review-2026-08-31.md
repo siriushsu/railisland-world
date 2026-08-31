@@ -56,6 +56,7 @@
 
 - 範圍：6 套 MRT，加 Bukit Panjang、Sengkang、Punggol 3 套 LRT。
 - CCL 必須包含 2026-07-12 通車的 Keppel、Cantonment、Prince Edward Road，成為完整環線。[LTA CCL6](https://www.lta.gov.sg/content/ltagov/en/upcoming_projects/rail_expansion/circle_line_6.html)
+- 2026-08-31 第一輪重建已完成：資料含 CCL 主環、Dhoby Ghaut—Prince Edward Road 分支、Bukit Panjang LRT、Sengkang 東／西環、Punggol 東／西環，共 13 個營運 variant。CCL 合併計 33 個營運站，三套 LRT 與關鍵新站均通過 `tools/verify_singapore_routes.mjs` 的站序、幾何與雙向流動 gate。
 - 現有資料是人工班距合成。LTA DataMall 已在 2026-08-03推出 Train GTFS Schedule、Trip Updates 與 Service Alerts，下一版應以官方 GTFS 重建；即時資料可留到 App 後續版本。[LTA DataMall](https://datamall.lta.gov.sg/content/datamall/en/dynamic-data.html)
 - 官方 v6.9 文件指定端點為 `GTFSScheduleTrain`，回傳 15 分鐘有效的 GTFS ZIP 連結；repo 已備妥 `tools/fetch_lta_train_gtfs.mjs`，只從 `LTA_DATAMALL_ACCOUNT_KEY` 環境變數讀金鑰。[LTA API v6.9](https://datamall.lta.gov.sg/content/dam/datamall/datasets/LTA_DataMall_API_User_Guide.pdf)
 - 這城優先第一個做：範圍小、視覺最好、官方新 feed 剛好能取代人工班距。
@@ -95,7 +96,7 @@
 
 ## 實作順序與 gate
 
-1. 新加坡：先補 3 LRT＋CCL6 並完成雙向流動；LTA Train GTFS 是時刻增強，不阻擋路線首發。
+1. 新加坡：3 LRT＋CCL6 與雙向流動已完成第一輪；下一步逐線複核既有 6 套 MRT 並補齊三語站名／路線內容。LTA Train GTFS 是時刻增強，不阻擋路線首發。
 2. 紐約：補 SIR、修來源與抓取管線。
 3. 東京：合併 Toei＋Tokyo Metro，先不擴 JR／私鐵。
 4. 倫敦：補 Overground／Elizabeth／DLR／Tram，依模式拆資料檔。
