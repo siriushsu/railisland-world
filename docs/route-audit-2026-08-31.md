@@ -13,7 +13,7 @@
 | P0 | 新加坡 | 13 個營運 variant：6 MRT、CCL 主環／分支與 3 LRT | 2026-08-31 已依 LTA 現行圖與六條 MRT 官方頁完成逐線稽核：NSL 27、EWL 35（含樟宜支線）、NEL 17、CCL 33、DTL 35、TEL 現行 27 站；Bukit Panjang、Sengkang、Punggol LRT 亦完成逐環站序與雙向流動驗證。185 個唯一站名與 13 個路線名稱已補齊繁中／英／日。人工班距繼續明示為模擬，[LTA DataMall Train GTFS](https://datamall.lta.gov.sg/content/datamall/en/dynamic-data.html)列為時刻增強，不阻擋路線首發。 |
 | P0 | 東京 | Toei 6 線＋Tokyo Metro 9 線，共 16 個路徑 variant | 2026-08-31 已由 [Tokyo Metro 官方繁中](https://www.tokyometro.jp/lang_tcn/station/index.html)、[英文](https://www.tokyometro.jp/lang_en/station/index.html)、[日文](https://www.tokyometro.jp/station/index.html)各線頁逐站複核 9 線；方南町支線獨立成 `Mb`，千代田線接完整至北綾瀨。Toei 2,818 班沿用 [東京都交通局官方 GTFS-JP](https://api-public.odpt.org/api/v4/files/Toei/data/Toei-Train-GTFS.zip)普通平日時刻；Tokyo Metro 使用明示合成班距，不冒充官方逐班時刻。258 個唯一站名與 16 個路徑名已有繁中／英／日索引。 |
 | P0 | 伊斯坦堡 | 23 條舊快照路線／variant | 補 M11、T2、T5、T6、F4，並重建 M3、M4、M5、M8、M9 延伸；依 [Metro İstanbul](https://www.metro.istanbul/en/)現行官方圖逐線核對。 |
-| P0 | 倫敦 | 只有 Underground，22 個分支 variant | 依 [TfL Tube and Rail](https://tfl.gov.uk/maps/track?intcmp=40400)補 London Overground、Elizabeth line、DLR、Tram；Overground 使用現行六個線名。 |
+| P0 | 倫敦 | TfL 20 個現行線別，共 67 個端點／via variant | 2026-08-31 已用 [TfL Unified API](https://api.tfl.gov.uk/Line/Mode/tube,overground,elizabeth-line,dlr,tram)逐線重建：Underground 33、DLR 6、Elizabeth 10、Overground 12、Tram 6。Overground 採 [TfL 現行六線名](https://tfl.gov.uk/modes/london-overground/the-new-look-london-overground?intcmp=75267)；Tram 市中心單向環保留六個官方方向路徑。464 個唯一站名、67 個路徑與 20 個線別已有繁中／英／日索引；TfL 未提供官方中日站名者保留官方英文專名。8,590 班為明示合成班距，不冒充即時位置或官方逐班時刻。 |
 | P0 | 紐約 | 28 個 Subway service＋Staten Island Railway，共 36 個 route variant | 2026-08-31 已用 [MTA regular static GTFS](https://rrgtfsfeeds.s3.amazonaws.com/gtfs_subway.zip)重建 8,497 班官方時刻與線形；[MTA 現行圖](https://www.mta.info/map/5341)及 [SIR 官方時刻表](https://www.mta.info/schedules/subway/staten-island-railway)逐線複核。SIR 21 站已加入，A／4／5 分支與 F／N 不同走廊各自建線，公開 metadata 也已改回 MTA。MTA 未發布中日官方站名集，因此站名保留官方英文，城市與路線內容提供繁中／英／日。 |
 | P1 | 維也納 | 5 U-Bahn＋Badner Bahn＋27 個 tram route／variant | 官方現行資訊可見 33、40、41、42，本站快照未收錄；刷新 GTFS 時先判斷是服務日篩選還是 route 被漏掉。來源：[Wiener Linien 路網圖](https://www.wienerlinien.at/web/wl-en/maps)、[時刻表](https://www.wienerlinien.at/web/guest/fahrplaene)。 |
 | P1 | 布達佩斯 | 4 Metro＋5 HÉV＋tram，共 45 | 與 [BKK 固定軌道路網](https://bkk.hu/en/journey-planning/maps/fixed-rail-and-trolleybus-network/)及 [官方 Open Data](https://opendata.bkk.hu/)範圍相符；列為第二波。 |
@@ -51,4 +51,4 @@ node tools/audit_route_coverage.mjs --release
 node tools/audit_route_coverage.mjs --all-release
 ```
 
-`--release` 現在仍應是紅燈，因為倫敦與伊斯坦堡尚有已知缺口；新加坡、紐約與東京的路線、流動、來源標示及三語 gate 已轉綠。它只把現行路線、基本流動／誠實標示與三語內容列為硬條件。分鐘級時刻準確、即時位置與誤點校正列在 `scheduleEnhancements`，不會阻擋首發。
+`--release` 現在仍應是紅燈，因為伊斯坦堡尚有已知缺口；新加坡、紐約、東京與倫敦的路線、流動、來源標示及三語 gate 已轉綠。它只把現行路線、基本流動／誠實標示與三語內容列為硬條件。分鐘級時刻準確、即時位置與誤點校正列在 `scheduleEnhancements`，不會阻擋首發。

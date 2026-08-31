@@ -3827,6 +3827,7 @@
            內容 li 上限 8 條(li.grp 是標題不算)。 -->
       <ul class="foot-list foot-recent">
         <li class="grp">最近更新</li>
+        <li data-cl-of="londonaudit"><span class="d">8/31</span><span>倫敦路網補完：依 TfL 現行資料加入 Underground、Elizabeth line、DLR、Tram 與六條新命名 London Overground，20 個線別依端點與 via 拆成 67 個可見路徑；Central、District、Northern 舊版漏掉的分支也一併補齊，Tram 市中心單向環不會反向虛構。464 個站名與全部路線內容備妥繁中、英文、日文；TfL 沒有官方中日站名的專名保留英文。8,590 班使用明示模擬班距，只代表正確路網上的流動，不是即時位置</span></li>
         <li data-cl-of="tokyoaudit"><span class="d">8/31</span><span>東京路網補完：Tokyo Metro 銀座、丸之內、日比谷、東西、千代田、有樂町、半藏門、南北、副都心 9 線已全部加入，連同都營 6 線共 16 個可見路徑；方南町支線獨立畫出，千代田線也完整接到北綾瀨。Metro 站名採官方繁中、英文、日文，列車用明示模擬班距在正確路網雙向流動；都營仍依官方平日時刻。這不是即時位置，也不包含 JR 與全部私鐵</span></li>
         <li data-cl-of="nycaudit"><span class="d">8/31</span><span>紐約現行 MTA 路網補完：28 個 Subway service 與 Staten Island Railway 都改用 MTA 官方靜態 GTFS，SIR 的 St George－Tottenville 21 站已加入；A、4、5 的分支及 F、N 的不同走廊拆成 36 個可見路徑，沒有把分岔壓成一條線。路線名稱與城市說明備妥繁中、英文、日文；MTA 沒有官方中日站名的車站保留官方英文。畫面依 8/31 官方時刻表推演，不是即時位置</span></li>
         <li data-cl-of="sgaudit"><span class="d">8/31</span><span>新加坡現行路網與三語內容已完成逐線查證：6 套 MRT、3 套 LRT 共 13 個營運分支都鎖定官方站序與端點，185 個站名及路線名稱補齊繁中、英文、日文；未通車車站不會提前混入。列車仍使用明示的模擬班距，先求路線正確與可見流動，不代表即時位置</span></li>
@@ -3839,6 +3840,7 @@
         <summary>完整更新歷史（依主題分類）</summary>
         <ul class="foot-list">
         <li class="grp">路網與車站</li>
+        <li data-cl="londonaudit"><span class="d">8/31</span><span>倫敦路網補完：依 TfL 現行資料加入 Underground、Elizabeth line、DLR、Tram 與六條新命名 London Overground，20 個線別依端點與 via 拆成 67 個可見路徑；Central、District、Northern 舊版漏掉的分支也一併補齊，Tram 市中心單向環不會反向虛構。464 個站名與全部路線內容備妥繁中、英文、日文；TfL 沒有官方中日站名的專名保留英文。8,590 班使用明示模擬班距，只代表正確路網上的流動，不是即時位置</span></li>
         <li data-cl="tokyoaudit"><span class="d">8/31</span><span>東京路網補完：Tokyo Metro 銀座、丸之內、日比谷、東西、千代田、有樂町、半藏門、南北、副都心 9 線已全部加入，連同都營 6 線共 16 個可見路徑；方南町支線獨立畫出，千代田線也完整接到北綾瀨。Metro 站名採官方繁中、英文、日文，列車用明示模擬班距在正確路網雙向流動；都營仍依官方平日時刻。這不是即時位置，也不包含 JR 與全部私鐵</span></li>
         <li data-cl="nycaudit"><span class="d">8/31</span><span>紐約現行 MTA 路網補完：28 個 Subway service 與 Staten Island Railway 都改用 MTA 官方靜態 GTFS，SIR 的 St George－Tottenville 21 站已加入；A、4、5 的分支及 F、N 的不同走廊拆成 36 個可見路徑，沒有把分岔壓成一條線。路線名稱與城市說明備妥繁中、英文、日文；MTA 沒有官方中日站名的車站保留官方英文。畫面依 8/31 官方時刻表推演，不是即時位置</span></li>
         <li data-cl="sgaudit"><span class="d">8/31</span><span>新加坡現行路網與三語內容已完成逐線查證：6 套 MRT、3 套 LRT 共 13 個營運分支都鎖定官方站序與端點，185 個站名及路線名稱補齊繁中、英文、日文；未通車車站不會提前混入。列車仍使用明示的模擬班距，先求路線正確與可見流動，不代表即時位置</span></li>
@@ -4437,7 +4439,7 @@
 //         逐 hunk 比對過:兩版四項做法幾乎相同,v0831d 多做了第三件(clock-off 放出「現在」鈕),
 //         v0831e 只多幾行註解且其中一句寫錯(openNearbyStations 不讀 simSec,它不吃撥鐘影響),
 //         故正文全取 v0831d。守門人:scripts/verify_merge_no_loss.mjs --parents 兩顆。
-const BUILD = 'world-v0831e';
+const BUILD = 'world-v0831f';
 // 輕量多語 runtime：繁中原文同時是安全 fallback，外語字典只存差異字串。
 // 所有插值一律先當純文字處理；需要 HTML 的呼叫端仍須用 escHtml() 包住結果。
 const I18N_STORAGE_KEY = 'trainmap-language';
@@ -4924,7 +4926,7 @@ const SYS_META = {
   tokyo_sched: { plateL: '和光市', plateR: '西船橋', sub: 'TOKYO METRO · TOEI', lead: '東京現行 Tokyo Metro 9 線與都營交通 6 線已逐線查證；方南町支線與千代田線北綾瀨端均按真實拓撲建置。Metro 以明示模擬班距流動，都營依官方平日時刻；不包含 JR 與全部私鐵。' },
   swiss_sched: { plateL: 'Zermatt', plateR: 'St. Moritz', sub: 'SWISS SCENIC RAIL', lead: '瑞士目前是景觀窄軌策展集，不宣稱全國完整；列車依瑞士公開交通資料時刻表推演。' },
   singapore: { plateL: 'Changi Airport', plateR: 'Tuas Link', sub: 'SINGAPORE MRT · LRT', lead: '新加坡現行 6 套 MRT、3 套 LRT 與 Circle Line 6 完整環線已逐線查證，185 個站名提供繁中、英文、日文；列車依明示模擬班距在正確路網上流動，並非即時位置。' },
-  london: { plateL: 'Cockfosters', plateR: 'Heathrow', sub: 'LONDON UNDERGROUND', lead: '倫敦目前先收錄 Underground；Overground、Elizabeth line、DLR 與 Tram 將依 TfL 官方範圍分階段加入。' },
+  london: { plateL: 'Reading', plateR: 'Shenfield', sub: 'TFL TUBE · RAIL · TRAM', lead: '倫敦 TfL 現行 20 個線別已逐線查證：Underground、Elizabeth line、DLR、Tram 與六條 London Overground 共拆成 67 個可見路徑。Tram 單向環按真實方向建置；列車使用明示模擬班距，不包含一般 National Rail。' },
   istanbul_sched: { plateL: 'Gebze', plateR: 'Halkalı', sub: 'İSTANBUL RAIL', lead: '伊斯坦堡目前沿用較舊官方 feed；M11、T2、T5、T6、F4 與多段延伸已列為第一優先重建。' },
   sydney_sched: { plateL: 'Emu Plains', plateR: 'Berowra', sub: 'SYDNEY RAIL', lead: '雪梨收錄 Sydney Trains、Metro 與 Light Rail，依 Transport for NSW 公開時刻表推演。' },
   paris_sched: { plateL: 'La Défense', plateR: 'Château de Vincennes', sub: 'PARIS RAIL', lead: '巴黎收錄 Métro、RER、Transilien 與多數 Tram；先前因檔案大小略去的 6 條電車已列為優先補回。' },
@@ -4945,6 +4947,11 @@ const SYS_META = {
   afr_sched: { plateL: '嘉義', plateR: '阿里山', sub: 'ALISHAN FOREST RAILWAY', lead: '阿里山林業鐵路從嘉義平原一路盤旋上山，途中經過獨立山螺旋與第一分道的之字形折返——列車依官方公告時刻表運行（本線無即時資訊，且常因天候或維修停駛）。祝山線觀日列車每天隨日出調整、前一日 16:30 才公告，畫面依官方日出時間表推算並標示「推算」，實際請以林鐵官網為準。' },
 };
 const WORLD_DATA_NOTES = {
+  london: {
+    'zh-TW': '倫敦路網於 2026-08-31 依 TfL Unified API 現行 Route/Sequence 查證：Underground 33、DLR 6、Elizabeth line 10、London Overground 12、Tram 6，共 20 個品牌線別、67 個可見路徑與 464 個唯一站名。Underground 細部線形沿用 OpenStreetMap route relations（© OpenStreetMap contributors，ODbL），其餘依 TfL 官方站序與座標；8,590 班為明示合成班距。Tram 單向環保留官方方向，畫面不是即時位置，也不含一般 National Rail。',
+    en: 'London coverage was audited against the current TfL Unified API Route/Sequence data on 31 August 2026: 33 Underground, 6 DLR, 10 Elizabeth line, 12 London Overground and 6 Tram paths—20 branded lines, 67 visible paths and 464 unique station names. Detailed Underground geometry retains OpenStreetMap route relations (© OpenStreetMap contributors, ODbL); the rest follows official TfL stop order and coordinates. All 8,590 services use clearly labelled simulated headways. The Tram one-way loop preserves the official direction. Positions are not live, and ordinary National Rail is outside this scope.',
+    ja: 'ロンドンの収録範囲を2026年8月31日にTfL Unified APIの現行Route/Sequenceで検証しました。Underground 33、DLR 6、Elizabeth line 10、London Overground 12、Tram 6、計20ブランド・67表示経路・464駅名です。Undergroundの詳細線形はOpenStreetMapのroute relation（© OpenStreetMap contributors、ODbL）、その他はTfL公式の駅順と座標を使用しています。8,590本は明示した模擬運転間隔です。Tramの一方向ループは公式の進行方向を維持しています。リアルタイム位置ではなく、一般のNational Railは対象外です。'
+  },
   tokyo_sched: {
     'zh-TW': '東京現行路網於 2026-08-31 查證：Tokyo Metro 9 線與都營交通 6 線，共 16 個可見路徑。Tokyo Metro 站序與三語名稱取官方各線頁，線形採 OpenStreetMap route relations（© OpenStreetMap contributors，ODbL）；5,810 班為明示的合成班距。Toei 2,818 班取東京都交通局官方 GTFS-JP 普通平日時刻。畫面不是即時位置，範圍不含 JR 與全部私鐵。',
     en: 'Tokyo coverage was audited on 31 August 2026: all nine Tokyo Metro lines and six Toei services, represented by 16 visible paths. Tokyo Metro station order and names come from the operator’s official Japanese, English and Traditional Chinese line pages; shapes use OpenStreetMap route relations (© OpenStreetMap contributors, ODbL). Its 5,810 services use clearly labelled simulated headways. The 2,818 Toei services retain the official weekday GTFS-JP timetable. Positions are not live, and JR and the full private-rail network are outside this scope.',

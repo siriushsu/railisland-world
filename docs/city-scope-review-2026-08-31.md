@@ -24,7 +24,7 @@
 | 東京 | 16 | 8,628 | 261 | 328 | 40 km | 10 km | 15.8 MiB | 緊湊都會 |
 | 瑞士景觀線 | 36 | 912 | 57 | 193 | 221 km | 119 km | 0.9 MiB | 區域路網過散 |
 | 新加坡 | 13 | 6,060 | 152 | 219 | 44 km | 13 km | 11.1 MiB | 緊湊都會 |
-| 倫敦 | 22 | 6,836 | 342 | 269 | 68 km | 20 km | 15.3 MiB | 緊湊都會 |
+| 倫敦 | 67 | 8,590 | 290 | 506 | 99 km | 21 km | 16.7 MiB | 緊湊都會 |
 | 伊斯坦堡 | 23 | 7,122 | 211 | 241 | 73 km | 19 km | 9.1 MiB | 緊湊都會 |
 | 雪梨 | 24 | 5,044 | 190 | 417 | 373 km | 111 km | 8.9 MiB | 區域路網過散 |
 | 巴黎 | 41 | 19,716 | 502 | 993 | 207 km | 36 km | 40.6 MiB | 都會＋遠郊混合 |
@@ -40,7 +40,7 @@
 
 首發硬條件依序是：官方現行營運範圍完整；軌道幾何、站序、分支、轉乘與營運方向正確；每一條營運路線／分支都有列車可流動，且正反方向各驗一例。分鐘級準確時刻、即時位置、準點率與誤點校正都不是首發條件。
 
-不能因為舊資料中「已經有這條線」就視為驗證通過。五城必須逐線對照官方現行路網並留下 evidence，才可把 `routeVerificationStatus` 改為 `complete`；新加坡、紐約、東京已在 2026-08-31 完成，倫敦與伊斯坦堡仍是 pending。正式發布時，官方路網查證日不得超過 45 天，避免剛補完就已落後新通車或延伸。
+不能因為舊資料中「已經有這條線」就視為驗證通過。五城必須逐線對照官方現行路網並留下 evidence，才可把 `routeVerificationStatus` 改為 `complete`；新加坡、紐約、東京、倫敦已在 2026-08-31 完成，伊斯坦堡仍是 pending。正式發布時，官方路網查證日不得超過 45 天，避免剛補完就已落後新通車或延伸。
 
 沒有可靠逐班時刻時，可以用官方公告班距或合理的合成班距產生動畫；但 UI、資料 metadata 與三語說明都必須明示「班距模擬／位置示意」，不得寫成官方即時位置或現行逐班時刻。列車仍須沿正確軌形通過正確站序，不能為了視覺密度移動真實路線、站點或車輛位置。
 
@@ -79,8 +79,11 @@
 ### 4. 倫敦
 
 - 範圍：Underground、Elizabeth line、DLR、Tram，加 London Overground 六個現行線名；不含一般 National Rail。
-- Overground 六線為 Lioness、Mildmay、Windrush、Weaver、Suffragette、Liberty。[TfL Overground](https://tfl.gov.uk/modes/london-overground/the-new-look-london-overground?intcmp=75267)
-- TfL Unified API 可提供路線、地理拓撲與時刻；Journey Planner timetable feed 每週更新。下一版不應只在舊 Underground 拓撲上增加人工班距。[TfL Open Data](https://tfl.gov.uk/info-for/open-data-users/our-open-data?intcmp=3671)
+- 2026-08-31 已用 TfL Unified API 的 2026-08-27 現行 Route/Sequence 快照重建 20 個品牌線別：Underground 33、DLR 6、Elizabeth 10、Overground 12、Tram 6，共 67 個端點／via 路徑。Central、District、Northern 原先漏掉的營運分支也一起補齊。[TfL Tube and Rail](https://tfl.gov.uk/maps/track?intcmp=40400)
+- Overground 六線為 Lioness、Mildmay、Windrush、Weaver、Suffragette、Liberty；每個分支依現行官方端點獨立建線。[TfL Overground](https://tfl.gov.uk/modes/london-overground/the-new-look-london-overground?intcmp=75267)
+- Croydon Tram 市中心單向環按 TfL 六個方向性站序建置，動畫不會把單向路段反向虛構。其餘 61 個路徑均有正反向流動。
+- 464 個唯一站名、67 個路徑與 20 個線別已完成繁中、英文、日文索引。TfL 未提供官方中日站名集，因此專有站名在中日介面保留官方英文，不杜撰營運機構譯名。
+- 8,590 班為明示的合成班距，只求正確路線上的可見流動；分鐘級時刻可日後再接 TfL／National Rail timetable，不阻擋首發。[TfL Open Data](https://tfl.gov.uk/info-for/open-data-users/our-open-data?intcmp=3671)
 
 ### 5. 伊斯坦堡
 
@@ -102,7 +105,7 @@
 1. 新加坡：現行 6 MRT＋3 LRT 的路線、站序、分支、雙向流動與三語內容已完成；LTA Train GTFS 是時刻增強，不阻擋路線首發。
 2. 紐約：補 SIR、修來源與抓取管線。
 3. 東京：Toei＋Tokyo Metro 路線、分岔、雙向流動與三語內容已完成；官方 Metro GTFS 為後續時刻增強，先不擴 JR／私鐵。
-4. 倫敦：補 Overground／Elizabeth／DLR／Tram，依模式拆資料檔。
+4. 倫敦：20 個 TfL 現行線別、67 個路徑、方向性流動與三語內容已完成；官方逐班時刻列為後續增強。
 5. 伊斯坦堡：先以現行官方路網補線與延伸；舊 calendar 若暫作動畫樣板，必須在三語 UI 與 metadata 明示為模擬。
 
 每城完成時仍需通過 `route-audit-2026-08-31.md` 的共同 gate：官方 route ID、兩方向各一例、Y 字分支、反向重走偵測、站序／轉乘、授權與 Chromium＋WebKit 手機實測。

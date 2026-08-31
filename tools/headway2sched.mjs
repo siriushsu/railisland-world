@@ -48,18 +48,23 @@ function foldSingapore(lineId) {
   return M[lineId] || [lineId, '#888888'];
 }
 function foldLondon(lineId) {
-  if (lineId === 'bakerloo') return ['Bakerloo', '#B26300'];
-  if (lineId.startsWith('central')) return ['Central', '#DC241F'];
-  if (lineId === 'circle') return ['Circle', '#FFC80A'];
-  if (lineId.startsWith('district')) return ['District', '#007D32'];
-  if (lineId === 'hammersmith-city') return ['H&C', '#F589A6'];
-  if (lineId === 'jubilee') return ['Jubilee', '#838D93'];
-  if (lineId.startsWith('met')) return ['Metropolitan', '#9B0058'];
-  if (lineId.startsWith('northern')) return ['Northern', '#000000'];
-  if (lineId.startsWith('piccadilly')) return ['Piccadilly', '#0019A8'];
-  if (lineId === 'victoria') return ['Victoria', '#039BE5'];
-  if (lineId === 'waterloo-city') return ['W&C', '#76D0BD'];
-  return [lineId, '#888888'];
+  const base = lineId.split('-')[0];
+  const M = {
+    bakerloo: ['貝克盧線', '#B26300'], central: ['中央線', '#DC241F'],
+    circle: ['環線', '#FFC80A'], district: ['區域線', '#007D32'],
+    hammersmith: ['漢默史密斯及城市線', '#F589A6'], jubilee: ['銀禧線', '#838D93'],
+    metropolitan: ['大都會線', '#9B0058'], northern: ['北線', '#000000'],
+    piccadilly: ['皮卡迪利線', '#0019A8'], victoria: ['維多利亞線', '#039BE5'],
+    waterloo: ['滑鐵盧及城市線', '#76D0BD'], dlr: ['碼頭區輕便鐵路 DLR', '#00A4A7'],
+    elizabeth: ['伊利沙伯線', '#6950A1'], tram: ['倫敦電車', '#84B817'],
+    liberty: ['London Overground・Liberty 線', '#5D6061'],
+    lioness: ['London Overground・Lioness 線', '#F4A900'],
+    mildmay: ['London Overground・Mildmay 線', '#0072CE'],
+    windrush: ['London Overground・Windrush 線', '#DC241F'],
+    weaver: ['London Overground・Weaver 線', '#9B0058'],
+    suffragette: ['London Overground・Suffragette 線', '#18A558'],
+  };
+  return M[base] || [lineId, '#888888'];
 }
 
 const r5 = (x) => Math.round(x * 1e5) / 1e5;
@@ -67,7 +72,7 @@ const r5 = (x) => Math.round(x * 1e5) / 1e5;
 // 從一條 line 生成一個方向的所有班次。stations 已按行進方向排好(rev 傳反轉後陣列)。
 function genLine(line, foldFn, cruiseKmh, dwellSec, out, seqRef) {
   const [typeName, typeColor] = foldFn(line.id);
-  const dirs = [
+  const dirs = line.oneWay ? [{ tag: '→', sts: line.stations }] : [
     { tag: '↓', sts: line.stations },
     { tag: '↑', sts: [...line.stations].reverse() },
   ];
@@ -134,10 +139,10 @@ if (target === 'all' || target === 'singapore') {
 }
 if (target === 'all' || target === 'london') {
   build(
-    'london.json', foldLondon, 38, 25, 'LU',
-    '班距模擬合成,非官方逐車時刻。Powered by TfL Open Data(站序/分支拓撲,匿名 API);' +
-    'Contains OS data © Crown copyright and database rights;線形:OSM Overpass(ODbL)真實軌跡;' +
-    '班距綜合 TfL 官方數據與 Wikipedia 引用之 TfL 資料。本班表由 tools/headway2sched.mjs 依 peak/offpeak 班距與營運時間(05:30–00:30)雙向生成,僅供示意。',
+    'london.json', foldLondon, 42, 25, 'TFL',
+    '班距模擬合成，非官方逐車時刻或即時位置。Powered by TfL Open Data（2026-08-31 現行線別、端點、via、站序與站點座標）；' +
+    'Underground 細部線形沿用 OSM route relations（© OpenStreetMap contributors，ODbL）。' +
+    '本班表依 peak/offpeak 合成班距與營運時間（05:30–00:30）生成；Tram 單向環按官方方向，其他路徑雙向，僅供流動示意。',
     'london_schedule_dense.json'
   );
 }
