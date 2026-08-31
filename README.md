@@ -39,6 +39,10 @@ LTA_DATAMALL_ACCOUNT_KEY=... node tools/fetch_lta_train_gtfs.mjs /private/tmp/si
 node tools/build_singapore.mjs --refresh
 node tools/headway2sched.mjs singapore
 node tools/verify_singapore_routes.mjs
+
+# 重建／驗證新加坡 185 站與 13 個路線 variant 的繁中、英文、日文索引
+node tools/build_singapore_i18n.mjs
+node tools/verify_singapore_i18n.mjs
 ```
 
 ## 資料與授權

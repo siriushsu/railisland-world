@@ -5,6 +5,7 @@
     '軌島・世界': 'Rail Island · World',
     '軌島・世界：把世界各城鐵道依公開時刻表畫成一張會動的地圖。': 'Rail Island World animates railway timetables from cities around the world on their real networks.',
     '軌島・世界：把世界各城的正確路網與公開時刻／班距畫成一張會動的地圖。': 'Rail Island World animates accurate city rail networks using public timetables or clearly labelled headway simulations.',
+    '看看這座城市的正確路網與列車流動': 'Explore this city’s verified rail network in motion',
     '世界城市': 'World Cities',
     '選擇城市': 'Choose a city',
     '世': 'World',
@@ -32,6 +33,7 @@
     '瑞士目前是景觀窄軌策展集，不宣稱全國完整；列車依瑞士公開交通資料時刻表推演。': 'Switzerland is a curated scenic and narrow-gauge collection, not a complete national network, simulated from Swiss open transport timetables.',
     '新加坡目前收錄 6 套 MRT；三套 LRT 與 2026 年通車的 Circle Line 6 是第一優先補齊項目。': 'Singapore currently includes six MRT systems. Three LRT systems and the 2026 Circle Line 6 extension are the first gaps to close.',
     '新加坡現行 6 套 MRT、3 套 LRT 與 Circle Line 6 完整環線皆已收錄；列車依明示模擬班距在正確路網上流動，並非即時位置。': 'Singapore now includes all six current MRT systems, all three LRT systems and the completed Circle Line 6 loop. Trains move on the verified network using clearly labelled simulated headways, not live positions.',
+    '新加坡現行 6 套 MRT、3 套 LRT 與 Circle Line 6 完整環線已逐線查證，185 個站名提供繁中、英文、日文；列車依明示模擬班距在正確路網上流動，並非即時位置。': 'Singapore’s six current MRT systems, three LRT systems and completed Circle Line 6 loop have been audited line by line. All 185 station names are available in Traditional Chinese, English and Japanese. Trains move on the verified network using clearly labelled simulated headways, not live positions.',
     '倫敦目前先收錄 Underground；Overground、Elizabeth line、DLR 與 Tram 將依 TfL 官方範圍分階段加入。': 'London currently includes the Underground. Overground, Elizabeth line, DLR and Tram will be added from TfL sources in stages.',
     '伊斯坦堡目前沿用較舊官方 feed；M11、T2、T5、T6、F4 與多段延伸已列為第一優先重建。': 'Istanbul uses an older official feed. M11, T2, T5, T6, F4 and several extensions are first-priority rebuilds.',
     '雪梨收錄 Sydney Trains、Metro 與 Light Rail，依 Transport for NSW 公開時刻表推演。': 'Sydney includes Sydney Trains, Metro and Light Rail, simulated from Transport for NSW timetables.',
@@ -41,11 +43,13 @@
     '維也納收錄 U-Bahn、Badner Bahn 與多數電車；33、40、41、42 路電車已列入缺口重查。': 'Vienna includes U-Bahn, Badner Bahn and most trams. Routes 33, 40, 41 and 42 are flagged for gap verification.',
     '世界版重新啟動：換上台灣版現行介面與繁中、英文、日文切換，12 座城市改成一次載一城；時鐘會切到當地時間，列車跟隨、車站看板、搜尋、速度與分享也一併接回。路線完整度另做官方來源稽核，已知缺線會明白列出，不再用「實驗版」三字含糊帶過': 'Rail Island World has restarted with the current Taiwan UI and Chinese, English and Japanese. Twelve cities now load one at a time, with local clocks, train following, station boards, search, speed controls and sharing restored. Route coverage is now audited against official sources, with known gaps stated clearly.',
     '新加坡第一輪路網補完：Circle Line 6 的 Keppel、Cantonment、Prince Edward Road 已接成完整環線，也加入武吉班讓、盛港與榜鵝三套輕軌；每個環與分支都有順逆方向列車流動。班次目前是明示的模擬班距，不代表即時位置': 'Singapore network pass one is complete: Circle Line 6 now closes the loop through Keppel, Cantonment and Prince Edward Road, and Bukit Panjang, Sengkang and Punggol LRT are included. Every loop and branch has trains in both directions. Service uses clearly labelled simulated headways, not live positions.',
+    '新加坡現行路網與三語內容已完成逐線查證：6 套 MRT、3 套 LRT 共 13 個營運分支都鎖定官方站序與端點，185 個站名及路線名稱補齊繁中、英文、日文；未通車車站不會提前混入。列車仍使用明示的模擬班距，先求路線正確與可見流動，不代表即時位置': 'Singapore’s current network and three-language content have completed line-by-line verification. All 13 operating variants across six MRT and three LRT systems now have audited station sequences and endpoints, with 185 station and route names in Traditional Chinese, English and Japanese. Unopened stations are excluded. Trains still use clearly labelled simulated headways to prioritise correct routes and visible motion, not live positions.',
   });
   Object.assign(messages.ja, {
     '軌島・世界': '軌島・世界',
     '軌島・世界：把世界各城鐵道依公開時刻表畫成一張會動的地圖。': '世界各都市の鉄道を公開時刻表にもとづいて動かす地図です。',
     '軌島・世界：把世界各城的正確路網與公開時刻／班距畫成一張會動的地圖。': '世界各都市の正確な路線網を、公開時刻表または明示した模擬運転間隔にもとづいて動かす地図です。',
+    '看看這座城市的正確路網與列車流動': 'この都市の検証済み路線網と列車の動きを見る',
     '世界城市': '世界の都市',
     '選擇城市': '都市を選択',
     '世': '世界',
@@ -73,6 +77,7 @@
     '瑞士目前是景觀窄軌策展集，不宣稱全國完整；列車依瑞士公開交通資料時刻表推演。': 'スイスは景観・狭軌路線のセレクションで、全国網を網羅するものではありません。公開交通データの時刻表から再現しています。',
     '新加坡目前收錄 6 套 MRT；三套 LRT 與 2026 年通車的 Circle Line 6 是第一優先補齊項目。': 'シンガポールは現在6つのMRTを収録しています。3つのLRTと2026年開業のCircle Line 6を最優先で追加します。',
     '新加坡現行 6 套 MRT、3 套 LRT 與 Circle Line 6 完整環線皆已收錄；列車依明示模擬班距在正確路網上流動，並非即時位置。': 'シンガポールの現行MRT 6系統、LRT 3系統、Circle Line 6による完全な環状線を収録しました。列車は明示した模擬運転間隔で正確な路線上を走り、リアルタイム位置ではありません。',
+    '新加坡現行 6 套 MRT、3 套 LRT 與 Circle Line 6 完整環線已逐線查證，185 個站名提供繁中、英文、日文；列車依明示模擬班距在正確路網上流動，並非即時位置。': 'シンガポールの現行MRT 6系統、LRT 3系統、Circle Line 6による完全な環状線を路線ごとに検証しました。185駅の名称を繁体字中国語・英語・日本語で表示できます。列車は明示した模擬運転間隔で正確な路線上を走り、リアルタイム位置ではありません。',
     '倫敦目前先收錄 Underground；Overground、Elizabeth line、DLR 與 Tram 將依 TfL 官方範圍分階段加入。': 'ロンドンは現在 Underground を収録しています。Overground、Elizabeth line、DLR、Tram は TfL の公式範囲に沿って段階的に追加します。',
     '伊斯坦堡目前沿用較舊官方 feed；M11、T2、T5、T6、F4 與多段延伸已列為第一優先重建。': 'イスタンブールは旧版の公式フィードを使用中です。M11、T2、T5、T6、F4と複数の延伸区間を最優先で再構築します。',
     '雪梨收錄 Sydney Trains、Metro 與 Light Rail，依 Transport for NSW 公開時刻表推演。': 'シドニーは Sydney Trains、Metro、Light Rail を収録し、Transport for NSW の公開時刻表から再現しています。',
@@ -82,5 +87,6 @@
     '維也納收錄 U-Bahn、Badner Bahn 與多數電車；33、40、41、42 路電車已列入缺口重查。': 'ウィーンは U-Bahn、Badner Bahn と大半のトラムを収録しています。33・40・41・42系統は欠落候補として再確認します。',
     '世界版重新啟動：換上台灣版現行介面與繁中、英文、日文切換，12 座城市改成一次載一城；時鐘會切到當地時間，列車跟隨、車站看板、搜尋、速度與分享也一併接回。路線完整度另做官方來源稽核，已知缺線會明白列出，不再用「實驗版」三字含糊帶過': '世界版を現行UIと繁体字中国語・英語・日本語で再始動しました。12都市は1都市ずつ読み込み、現地時刻、列車追跡、駅案内、検索、速度調整、共有を復元しています。路線範囲は公式資料で監査し、既知の不足を明示します。',
     '新加坡第一輪路網補完：Circle Line 6 的 Keppel、Cantonment、Prince Edward Road 已接成完整環線，也加入武吉班讓、盛港與榜鵝三套輕軌；每個環與分支都有順逆方向列車流動。班次目前是明示的模擬班距，不代表即時位置': 'シンガポール路線網の第1回補完が完了しました。Circle Line 6はKeppel、Cantonment、Prince Edward Roadを通る完全な環状線となり、Bukit Panjang、Sengkang、Punggolの各LRTも追加しました。すべての環状区間と支線で両方向に列車が走ります。運転間隔は明示した模擬値で、リアルタイム位置ではありません。',
+    '新加坡現行路網與三語內容已完成逐線查證：6 套 MRT、3 套 LRT 共 13 個營運分支都鎖定官方站序與端點，185 個站名及路線名稱補齊繁中、英文、日文；未通車車站不會提前混入。列車仍使用明示的模擬班距，先求路線正確與可見流動，不代表即時位置': 'シンガポールの現行路線網と3言語コンテンツを路線ごとに検証しました。MRT 6系統・LRT 3系統の全13運行パターンについて、公式の駅順と終点を確認し、185駅と路線名を繁体字中国語・英語・日本語で整備しました。未開業駅は含めません。列車は正しい路線と目に見える動きを優先した明示済みの模擬運転間隔で、リアルタイム位置ではありません。',
   });
 })();

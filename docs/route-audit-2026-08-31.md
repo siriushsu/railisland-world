@@ -10,7 +10,7 @@
 
 | 優先 | 地區 | 現況 | 已確認缺口／下一步 |
 | --- | --- | --- | --- |
-| P0 | 新加坡 | 13 個營運 variant：6 MRT、CCL 主環／分支與 3 LRT | 2026-08-31 已補 Bukit Panjang／Sengkang／Punggol LRT 與 CCL6 三站，CCL 合併 33 站；站序、關鍵新站、幾何跳距與雙向流動 gate 已通過。發布前仍須逐線複核既有 MRT，並完成三語內容。人工班距繼續明示為模擬，[LTA DataMall Train GTFS](https://datamall.lta.gov.sg/content/datamall/en/dynamic-data.html)列為時刻增強。 |
+| P0 | 新加坡 | 13 個營運 variant：6 MRT、CCL 主環／分支與 3 LRT | 2026-08-31 已依 LTA 現行圖與六條 MRT 官方頁完成逐線稽核：NSL 27、EWL 35（含樟宜支線）、NEL 17、CCL 33、DTL 35、TEL 現行 27 站；Bukit Panjang、Sengkang、Punggol LRT 亦完成逐環站序與雙向流動驗證。185 個唯一站名與 13 個路線名稱已補齊繁中／英／日。人工班距繼續明示為模擬，[LTA DataMall Train GTFS](https://datamall.lta.gov.sg/content/datamall/en/dynamic-data.html)列為時刻增強，不阻擋路線首發。 |
 | P0 | 東京 | 6 線：都營地下鐵 4 線＋日暮里・舍人線＋東京櫻花路面電車 | 由 [Tokyo Metro 官方路線圖](https://www.tokyometro.jp/en/subwaymap/index.html)與 [ODPT 官方資料目錄](https://ckan.odpt.org/en/dataset/?license_id=odpt-ptodbl&organization=tokyometro)補 9 條 Tokyo Metro。 |
 | P0 | 伊斯坦堡 | 23 條舊快照路線／variant | 補 M11、T2、T5、T6、F4，並重建 M3、M4、M5、M8、M9 延伸；依 [Metro İstanbul](https://www.metro.istanbul/en/)現行官方圖逐線核對。 |
 | P0 | 倫敦 | 只有 Underground，22 個分支 variant | 依 [TfL Tube and Rail](https://tfl.gov.uk/maps/track?intcmp=40400)補 London Overground、Elizabeth line、DLR、Tram；Overground 使用現行六個線名。 |
@@ -51,4 +51,4 @@ node tools/audit_route_coverage.mjs --release
 node tools/audit_route_coverage.mjs --all-release
 ```
 
-`--release` 現在應該是紅燈；這是刻意的。它只把現行路線、基本流動／誠實標示與三語內容列為硬條件。分鐘級時刻準確、即時位置與誤點校正列在 `scheduleEnhancements`，不會阻擋首發。
+`--release` 現在仍應是紅燈，因為東京、紐約、倫敦、伊斯坦堡尚有已知缺口；新加坡的路線與三語 gate 已先轉綠。它只把現行路線、基本流動／誠實標示與三語內容列為硬條件。分鐘級時刻準確、即時位置與誤點校正列在 `scheduleEnhancements`，不會阻擋首發。

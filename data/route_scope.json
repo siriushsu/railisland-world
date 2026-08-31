@@ -91,18 +91,18 @@
       "presentation": "全島 MRT／LRT 同框",
       "completionDefinition": "現行 6 套 MRT ＋ Bukit Panjang、Sengkang、Punggol 3 套 LRT，含 CCL6 完整環線",
       "officialNetworkCheckedAt": "2026-08-31",
-      "routeVerificationStatus": "pending-existing-mrt-line-by-line-audit",
-      "routeVerificationEvidence": ["LTA MRT/LRT Map 於 2026-08-31 查證現行 6 MRT＋3 LRT", "LTA CCL6 官方頁確認 2026-07-12 通車並閉合 33 站 Circle Line", "CCL6 與三套 LRT 依 OSM route relations 重建；tools/verify_singapore_routes.mjs 已通過 13 variant、關鍵新站、站數、站序、幾何跳距與雙向流動 gate"],
-      "localeStatus": {"zh-TW": "pending", "en": "pending", "ja": "pending"},
+      "routeVerificationStatus": "complete",
+      "routeVerificationEvidence": ["LTA 2026-07-21 現行 MRT/LRT 系統圖與六條 MRT 官方路線頁逐線複核：NSL 27 站、EWL 35 站（含樟宜支線）、NEL 17 站、CCL 33 站、DTL 35 站、TEL 現行 27 站", "LTA CCL6 官方頁確認 2026-07-12 通車；Circle Line 已閉合，CCL 主環與 Dhoby Ghaut—Prince Edward Road 營運分支分開建線", "LTA Bukit Panjang 與 Sengkang–Punggol LRT 官方頁逐環複核；Teck Lee 已依 2024-08-15 通車公告納入", "tools/verify_singapore_routes.mjs 已鎖定 13 個 variant 的現行站序、端點、分支、營運站數、未營運站排除、幾何跳距及正反向流動", "LTA 官方英文／中文站名資料與 2026 中文系統圖補齊 185 個唯一站名；既有日文讀法參考新加坡旅遊局日文指南，新站依現行英文名一致轉寫；tools/verify_singapore_i18n.mjs 已通過"],
+      "localeStatus": {"zh-TW": "complete", "en": "complete", "ja": "complete"},
       "scope": "LTA MRT 與 LRT",
       "snapshotLineCount": 13,
       "requiredLineIds": ["NSL", "EWL", "EWL_CGA", "NEL", "CCL", "CCL_DG", "DTL", "TEL", "BPLRT", "SKLRT_E", "SKLRT_W", "PGLRT_E", "PGLRT_W"],
-      "status": "route-rebuild-complete-pending-full-audit",
+      "status": "release-ready-route-and-locale",
       "routeBlockingGaps": [],
       "motionBlockingGaps": [],
       "truthfulnessBlockingGaps": [],
       "scheduleEnhancements": ["現有班表為已明示的人工班距合成；LTA Train GTFS 可在路線補完後提升時刻準確度，但不阻擋首發"],
-      "sources": ["https://www.lta.gov.sg/content/ltagov/en/map/train.html", "https://www.lta.gov.sg/content/ltagov/en/getting_around/public_transport/rail_network.html/", "https://www.lta.gov.sg/content/ltagov/en/getting_around/public_transport/rail_network/sengkang_punggol_lrt.html", "https://www.lta.gov.sg/content/ltagov/en/getting_around/public_transport/rail_network/bukit_panjang_lrt.html", "https://www.lta.gov.sg/content/ltagov/en/upcoming_projects/rail_expansion/circle_line_6.html", "https://datamall.lta.gov.sg/content/datamall/en/dynamic-data.html"]
+      "sources": ["https://www.lta.gov.sg/content/ltagov/en/map/train.html", "https://www.lta.gov.sg/content/ltagov/en/getting_around/public_transport/rail_network/north_south_line.html", "https://www.lta.gov.sg/content/ltagov/en/getting_around/public_transport/rail_network/east_west_line.html", "https://www.lta.gov.sg/content/ltagov/en/getting_around/public_transport/rail_network/north_east_line.html", "https://www.lta.gov.sg/content/ltagov/en/getting_around/public_transport/rail_network/circle_line.html", "https://www.lta.gov.sg/content/ltagov/en/getting_around/public_transport/rail_network/downtown_line.html", "https://www.lta.gov.sg/content/ltagov/en/getting_around/public_transport/rail_network/thomson_east_coast_line.html", "https://www.lta.gov.sg/content/ltagov/en/getting_around/public_transport/rail_network/sengkang_punggol_lrt.html", "https://www.lta.gov.sg/content/ltagov/en/getting_around/public_transport/rail_network/bukit_panjang_lrt.html", "https://www.lta.gov.sg/content/ltagov/en/upcoming_projects/rail_expansion/circle_line_6.html", "https://data.gov.sg/datasets/d_d312a5b127e1ae74299b8ae664cedd4e/view", "https://datamall.lta.gov.sg/content/datamall/en/dynamic-data.html"]
     },
     {
       "id": "london",

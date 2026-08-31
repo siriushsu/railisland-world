@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-27",
+  "generated": "2026-08-31",
   "systems": {
     "thsr_sched": {
       "台中": {
@@ -2184,6 +2184,933 @@
         "en": "Linluo",
         "ja": "麟洛"
       }
+    },
+    "singapore": {
+      "Marina South Pier": {
+        "zh-TW": "濱海南碼頭",
+        "en": "Marina South Pier",
+        "ja": "マリーナ・サウス・ピア"
+      },
+      "Marina Bay": {
+        "zh-TW": "濱海灣",
+        "en": "Marina Bay",
+        "ja": "マリーナ・ベイ"
+      },
+      "Raffles Place": {
+        "zh-TW": "萊佛士坊",
+        "en": "Raffles Place",
+        "ja": "ラッフルズ・プレイス"
+      },
+      "City Hall": {
+        "zh-TW": "政府大廈",
+        "en": "City Hall",
+        "ja": "シティ・ホール"
+      },
+      "Dhoby Ghaut": {
+        "zh-TW": "多美歌",
+        "en": "Dhoby Ghaut",
+        "ja": "ドービー・ゴート"
+      },
+      "Somerset": {
+        "zh-TW": "索美塞",
+        "en": "Somerset",
+        "ja": "サマセット"
+      },
+      "Orchard": {
+        "zh-TW": "烏節",
+        "en": "Orchard",
+        "ja": "オーチャード"
+      },
+      "Newton": {
+        "zh-TW": "紐頓",
+        "en": "Newton",
+        "ja": "ニュートン"
+      },
+      "Novena": {
+        "zh-TW": "諾維娜",
+        "en": "Novena",
+        "ja": "ノベナ"
+      },
+      "Toa Payoh": {
+        "zh-TW": "大巴窯",
+        "en": "Toa Payoh",
+        "ja": "トア・パヨ"
+      },
+      "Braddell": {
+        "zh-TW": "布萊德",
+        "en": "Braddell",
+        "ja": "ブラデル"
+      },
+      "Bishan": {
+        "zh-TW": "碧山",
+        "en": "Bishan",
+        "ja": "ビシャン"
+      },
+      "Ang Mo Kio": {
+        "zh-TW": "宏茂橋",
+        "en": "Ang Mo Kio",
+        "ja": "アン・モ・キオ"
+      },
+      "Yio Chu Kang": {
+        "zh-TW": "楊厝港",
+        "en": "Yio Chu Kang",
+        "ja": "イオ・チュー・カン"
+      },
+      "Khatib": {
+        "zh-TW": "卡迪",
+        "en": "Khatib",
+        "ja": "カティブ"
+      },
+      "Yishun": {
+        "zh-TW": "義順",
+        "en": "Yishun",
+        "ja": "イシュン"
+      },
+      "Canberra": {
+        "zh-TW": "坎貝拉",
+        "en": "Canberra",
+        "ja": "キャンベラ"
+      },
+      "Sembawang": {
+        "zh-TW": "三巴旺",
+        "en": "Sembawang",
+        "ja": "センバワン"
+      },
+      "Admiralty": {
+        "zh-TW": "海軍部",
+        "en": "Admiralty",
+        "ja": "アドミラルティ"
+      },
+      "Woodlands": {
+        "zh-TW": "兀蘭",
+        "en": "Woodlands",
+        "ja": "ウッドランズ"
+      },
+      "Marsiling": {
+        "zh-TW": "馬西嶺",
+        "en": "Marsiling",
+        "ja": "マーシリン"
+      },
+      "Kranji": {
+        "zh-TW": "克蘭芝",
+        "en": "Kranji",
+        "ja": "クランジ"
+      },
+      "Yew Tee": {
+        "zh-TW": "油池",
+        "en": "Yew Tee",
+        "ja": "イウ・ティー"
+      },
+      "Choa Chu Kang": {
+        "zh-TW": "蔡厝港",
+        "en": "Choa Chu Kang",
+        "ja": "チョア・チュー・カン"
+      },
+      "Bukit Gombak": {
+        "zh-TW": "武吉甘柏",
+        "en": "Bukit Gombak",
+        "ja": "ブキット・ゴンバク"
+      },
+      "Bukit Batok": {
+        "zh-TW": "武吉巴督",
+        "en": "Bukit Batok",
+        "ja": "ブキット・バトック"
+      },
+      "Jurong East": {
+        "zh-TW": "裕廊東",
+        "en": "Jurong East",
+        "ja": "ジュロン・イースト"
+      },
+      "Tuas Link": {
+        "zh-TW": "大士連路",
+        "en": "Tuas Link",
+        "ja": "トゥアス・リンク"
+      },
+      "Tuas West Road": {
+        "zh-TW": "大士西路",
+        "en": "Tuas West Road",
+        "ja": "トゥアス・ウェスト・ロード"
+      },
+      "Tuas Crescent": {
+        "zh-TW": "大士彎",
+        "en": "Tuas Crescent",
+        "ja": "トゥアス・クレセント"
+      },
+      "Gul Circle": {
+        "zh-TW": "卡爾圈",
+        "en": "Gul Circle",
+        "ja": "ガル・サークル"
+      },
+      "Joo Koon": {
+        "zh-TW": "裕群",
+        "en": "Joo Koon",
+        "ja": "ジュー・クーン"
+      },
+      "Pioneer": {
+        "zh-TW": "先驅",
+        "en": "Pioneer",
+        "ja": "パイオニア"
+      },
+      "Boon Lay": {
+        "zh-TW": "文禮",
+        "en": "Boon Lay",
+        "ja": "ブーン・レイ"
+      },
+      "Lakeside": {
+        "zh-TW": "湖畔",
+        "en": "Lakeside",
+        "ja": "レイクサイド"
+      },
+      "Chinese Garden": {
+        "zh-TW": "裕華園",
+        "en": "Chinese Garden",
+        "ja": "チャイニーズ・ガーデン"
+      },
+      "Clementi": {
+        "zh-TW": "金文泰",
+        "en": "Clementi",
+        "ja": "クレメンティ"
+      },
+      "Dover": {
+        "zh-TW": "杜弗",
+        "en": "Dover",
+        "ja": "ドーバー"
+      },
+      "Buona Vista": {
+        "zh-TW": "波那維斯達",
+        "en": "Buona Vista",
+        "ja": "ブオナ・ビスタ"
+      },
+      "Commonwealth": {
+        "zh-TW": "聯邦",
+        "en": "Commonwealth",
+        "ja": "コモンウェルス"
+      },
+      "Queenstown": {
+        "zh-TW": "女皇鎮",
+        "en": "Queenstown",
+        "ja": "クイーンズタウン"
+      },
+      "Redhill": {
+        "zh-TW": "紅山",
+        "en": "Redhill",
+        "ja": "レッドヒル"
+      },
+      "Tiong Bahru": {
+        "zh-TW": "中峇魯",
+        "en": "Tiong Bahru",
+        "ja": "ティオン・バル"
+      },
+      "Outram Park": {
+        "zh-TW": "歐南園",
+        "en": "Outram Park",
+        "ja": "オートラム・パーク"
+      },
+      "Tanjong Pagar": {
+        "zh-TW": "丹戎巴葛",
+        "en": "Tanjong Pagar",
+        "ja": "タンジョン・パガー"
+      },
+      "Bugis": {
+        "zh-TW": "武吉士",
+        "en": "Bugis",
+        "ja": "ブギス"
+      },
+      "Lavender": {
+        "zh-TW": "勞明達",
+        "en": "Lavender",
+        "ja": "ラベンダー"
+      },
+      "Kallang": {
+        "zh-TW": "加冷",
+        "en": "Kallang",
+        "ja": "カラン"
+      },
+      "Aljunied": {
+        "zh-TW": "阿裕尼",
+        "en": "Aljunied",
+        "ja": "アルジュニード"
+      },
+      "Paya Lebar": {
+        "zh-TW": "巴耶利峇",
+        "en": "Paya Lebar",
+        "ja": "パヤ・レバ"
+      },
+      "Eunos": {
+        "zh-TW": "友諾士",
+        "en": "Eunos",
+        "ja": "ユーノス"
+      },
+      "Kembangan": {
+        "zh-TW": "景萬岸",
+        "en": "Kembangan",
+        "ja": "カンバンガン"
+      },
+      "Bedok": {
+        "zh-TW": "勿洛",
+        "en": "Bedok",
+        "ja": "ベドック"
+      },
+      "Tanah Merah": {
+        "zh-TW": "丹那美拉",
+        "en": "Tanah Merah",
+        "ja": "タナ・メラ"
+      },
+      "Simei": {
+        "zh-TW": "四美",
+        "en": "Simei",
+        "ja": "シメイ"
+      },
+      "Tampines (EW2)": {
+        "zh-TW": "淡濱尼",
+        "en": "Tampines",
+        "ja": "タンピネス"
+      },
+      "Pasir Ris": {
+        "zh-TW": "巴西立",
+        "en": "Pasir Ris",
+        "ja": "パシル・リス"
+      },
+      "Expo": {
+        "zh-TW": "博覽",
+        "en": "Expo",
+        "ja": "エキスポ"
+      },
+      "Changi Airport": {
+        "zh-TW": "樟宜機場",
+        "en": "Changi Airport",
+        "ja": "チャンギ空港"
+      },
+      "HarbourFront": {
+        "zh-TW": "港灣",
+        "en": "HarbourFront",
+        "ja": "ハーバーフロント"
+      },
+      "Chinatown": {
+        "zh-TW": "牛車水",
+        "en": "Chinatown",
+        "ja": "チャイナタウン"
+      },
+      "Clarke Quay": {
+        "zh-TW": "克拉碼頭",
+        "en": "Clarke Quay",
+        "ja": "クラーク・キー"
+      },
+      "Little India": {
+        "zh-TW": "小印度",
+        "en": "Little India",
+        "ja": "リトル・インディア"
+      },
+      "Farrer Park": {
+        "zh-TW": "花拉公園",
+        "en": "Farrer Park",
+        "ja": "ファラー・パーク"
+      },
+      "Boon Keng": {
+        "zh-TW": "文慶",
+        "en": "Boon Keng",
+        "ja": "ブーン・ケン"
+      },
+      "Potong Pasir": {
+        "zh-TW": "波東巴西",
+        "en": "Potong Pasir",
+        "ja": "ポトン・パシール"
+      },
+      "Woodleigh": {
+        "zh-TW": "兀裡",
+        "en": "Woodleigh",
+        "ja": "ウッドレイ"
+      },
+      "Serangoon": {
+        "zh-TW": "實龍崗",
+        "en": "Serangoon",
+        "ja": "セラングーン"
+      },
+      "Kovan": {
+        "zh-TW": "高文",
+        "en": "Kovan",
+        "ja": "コヴァン"
+      },
+      "Hougang": {
+        "zh-TW": "後港",
+        "en": "Hougang",
+        "ja": "ホウガン"
+      },
+      "Buangkok": {
+        "zh-TW": "萬國",
+        "en": "Buangkok",
+        "ja": "ブアンコック"
+      },
+      "Sengkang": {
+        "zh-TW": "盛港",
+        "en": "Sengkang",
+        "ja": "センカン"
+      },
+      "Punggol": {
+        "zh-TW": "榜鵝",
+        "en": "Punggol",
+        "ja": "プンゴル"
+      },
+      "Punggol Coast": {
+        "zh-TW": "榜鵝海岸",
+        "en": "Punggol Coast",
+        "ja": "プンゴル・コースト"
+      },
+      "Bayfront": {
+        "zh-TW": "海灣舫",
+        "en": "Bayfront",
+        "ja": "ベイフロント"
+      },
+      "Prince Edward Road": {
+        "zh-TW": "愛德華太子路",
+        "en": "Prince Edward Road",
+        "ja": "プリンス・エドワード・ロード"
+      },
+      "Cantonment": {
+        "zh-TW": "廣東民",
+        "en": "Cantonment",
+        "ja": "カントンメント"
+      },
+      "Keppel": {
+        "zh-TW": "吉寶",
+        "en": "Keppel",
+        "ja": "ケッペル"
+      },
+      "Telok Blangah": {
+        "zh-TW": "直落布蘭雅",
+        "en": "Telok Blangah",
+        "ja": "テロック・ブランガー"
+      },
+      "Labrador Park": {
+        "zh-TW": "拉柏多公園",
+        "en": "Labrador Park",
+        "ja": "ラブラドール・パーク"
+      },
+      "Pasir Panjang": {
+        "zh-TW": "巴西班讓",
+        "en": "Pasir Panjang",
+        "ja": "パシル・パンジャン"
+      },
+      "Haw Par Villa": {
+        "zh-TW": "虎豹別墅",
+        "en": "Haw Par Villa",
+        "ja": "ハウ・パー・ヴィラ"
+      },
+      "Kent Ridge": {
+        "zh-TW": "肯特崗",
+        "en": "Kent Ridge",
+        "ja": "ケント・リッジ"
+      },
+      "one-north": {
+        "zh-TW": "緯壹",
+        "en": "one-north",
+        "ja": "ワン・ノース"
+      },
+      "Holland Village": {
+        "zh-TW": "荷蘭村",
+        "en": "Holland Village",
+        "ja": "ホーランド・ビレッジ"
+      },
+      "Farrer Road": {
+        "zh-TW": "花拉路",
+        "en": "Farrer Road",
+        "ja": "ファラー・ロード"
+      },
+      "Botanic Gardens": {
+        "zh-TW": "植物園",
+        "en": "Botanic Gardens",
+        "ja": "ボタニック・ガーデンズ"
+      },
+      "Caldecott": {
+        "zh-TW": "加利谷",
+        "en": "Caldecott",
+        "ja": "カルデコット"
+      },
+      "Marymount": {
+        "zh-TW": "瑪麗蒙",
+        "en": "Marymount",
+        "ja": "メリーマウント"
+      },
+      "Lorong Chuan": {
+        "zh-TW": "羅弄泉",
+        "en": "Lorong Chuan",
+        "ja": "ロロン・チュアン"
+      },
+      "Bartley": {
+        "zh-TW": "巴特禮",
+        "en": "Bartley",
+        "ja": "バートレー"
+      },
+      "Tai Seng": {
+        "zh-TW": "大成",
+        "en": "Tai Seng",
+        "ja": "タイ・セン"
+      },
+      "MacPherson": {
+        "zh-TW": "麥波申",
+        "en": "MacPherson",
+        "ja": "マクファーソン"
+      },
+      "Dakota": {
+        "zh-TW": "達科達",
+        "en": "Dakota",
+        "ja": "ダコタ"
+      },
+      "Mountbatten": {
+        "zh-TW": "蒙巴登",
+        "en": "Mountbatten",
+        "ja": "マウントバッテン"
+      },
+      "Stadium": {
+        "zh-TW": "體育場",
+        "en": "Stadium",
+        "ja": "スタジアム"
+      },
+      "Nicoll Highway": {
+        "zh-TW": "尼誥大道",
+        "en": "Nicoll Highway",
+        "ja": "ニコル・ハイウェイ"
+      },
+      "Promenade": {
+        "zh-TW": "寶門廊",
+        "en": "Promenade",
+        "ja": "プロムナード"
+      },
+      "Bras Basah": {
+        "zh-TW": "百勝",
+        "en": "Bras Basah",
+        "ja": "ブラス・バサー"
+      },
+      "Esplanade": {
+        "zh-TW": "濱海中心",
+        "en": "Esplanade",
+        "ja": "エスプラネード"
+      },
+      "Bukit Panjang": {
+        "zh-TW": "武吉班讓",
+        "en": "Bukit Panjang",
+        "ja": "ブキット・パンジャン"
+      },
+      "Cashew": {
+        "zh-TW": "凱秀",
+        "en": "Cashew",
+        "ja": "カシュー"
+      },
+      "Hillview": {
+        "zh-TW": "山景",
+        "en": "Hillview",
+        "ja": "ヒルビュー"
+      },
+      "Hume": {
+        "zh-TW": "謙道",
+        "en": "Hume",
+        "ja": "ヒューム"
+      },
+      "Beauty World": {
+        "zh-TW": "美世界",
+        "en": "Beauty World",
+        "ja": "ビューティー・ワールド"
+      },
+      "King Albert Park": {
+        "zh-TW": "阿爾柏王園",
+        "en": "King Albert Park",
+        "ja": "キング・アルバート・パーク"
+      },
+      "Sixth Avenue": {
+        "zh-TW": "第六道",
+        "en": "Sixth Avenue",
+        "ja": "シックス・アベニュー"
+      },
+      "Tan Kah Kee": {
+        "zh-TW": "陳嘉庚",
+        "en": "Tan Kah Kee",
+        "ja": "タン・カー・キー"
+      },
+      "Stevens": {
+        "zh-TW": "史蒂芬",
+        "en": "Stevens",
+        "ja": "スティーブンス"
+      },
+      "Rochor": {
+        "zh-TW": "梧槽",
+        "en": "Rochor",
+        "ja": "ローチョー"
+      },
+      "Downtown": {
+        "zh-TW": "市中心",
+        "en": "Downtown",
+        "ja": "ダウンタウン"
+      },
+      "Telok Ayer": {
+        "zh-TW": "直落亞逸",
+        "en": "Telok Ayer",
+        "ja": "テロック・アヤー"
+      },
+      "Fort Canning": {
+        "zh-TW": "福康寧",
+        "en": "Fort Canning",
+        "ja": "フォート・カニング"
+      },
+      "Bencoolen": {
+        "zh-TW": "明古連",
+        "en": "Bencoolen",
+        "ja": "ベンクーレン"
+      },
+      "Jalan Besar": {
+        "zh-TW": "惹蘭勿剎",
+        "en": "Jalan Besar",
+        "ja": "ジャラン・ベサール"
+      },
+      "Bendemeer": {
+        "zh-TW": "明地迷亞",
+        "en": "Bendemeer",
+        "ja": "ベンデミア"
+      },
+      "Geylang Bahru": {
+        "zh-TW": "芽籠峇魯",
+        "en": "Geylang Bahru",
+        "ja": "ゲイラン・バル"
+      },
+      "Mattar": {
+        "zh-TW": "瑪達",
+        "en": "Mattar",
+        "ja": "マター"
+      },
+      "Ubi": {
+        "zh-TW": "烏美",
+        "en": "Ubi",
+        "ja": "ウビ"
+      },
+      "Kaki Bukit": {
+        "zh-TW": "加基武吉",
+        "en": "Kaki Bukit",
+        "ja": "カキ・ブキット"
+      },
+      "Bedok North": {
+        "zh-TW": "勿洛北",
+        "en": "Bedok North",
+        "ja": "ベドック・ノース"
+      },
+      "Bedok Reservoir": {
+        "zh-TW": "勿洛蓄水池",
+        "en": "Bedok Reservoir",
+        "ja": "ベドック・リザーバー"
+      },
+      "Tampines West": {
+        "zh-TW": "淡濱尼西",
+        "en": "Tampines West",
+        "ja": "タンピネス・ウェスト"
+      },
+      "Tampines (DT32)": {
+        "zh-TW": "淡濱尼",
+        "en": "Tampines",
+        "ja": "タンピネス"
+      },
+      "Tampines East": {
+        "zh-TW": "淡濱尼東",
+        "en": "Tampines East",
+        "ja": "タンピネス・イースト"
+      },
+      "Upper Changi": {
+        "zh-TW": "樟宜上段",
+        "en": "Upper Changi",
+        "ja": "アッパー・チャンギ"
+      },
+      "Woodlands North": {
+        "zh-TW": "兀蘭北",
+        "en": "Woodlands North",
+        "ja": "ウッドランズ・ノース"
+      },
+      "Woodlands South": {
+        "zh-TW": "兀蘭南",
+        "en": "Woodlands South",
+        "ja": "ウッドランズ・サウス"
+      },
+      "Springleaf": {
+        "zh-TW": "春葉",
+        "en": "Springleaf",
+        "ja": "スプリングリーフ"
+      },
+      "Lentor": {
+        "zh-TW": "倫多",
+        "en": "Lentor",
+        "ja": "レンター"
+      },
+      "Mayflower": {
+        "zh-TW": "美華",
+        "en": "Mayflower",
+        "ja": "メイフラワー"
+      },
+      "Bright Hill": {
+        "zh-TW": "光明山",
+        "en": "Bright Hill",
+        "ja": "ブライト・ヒル"
+      },
+      "Upper Thomson": {
+        "zh-TW": "湯申路上段",
+        "en": "Upper Thomson",
+        "ja": "アッパー・トムソン"
+      },
+      "Napier": {
+        "zh-TW": "納比雅",
+        "en": "Napier",
+        "ja": "ネイピア"
+      },
+      "Orchard Boulevard": {
+        "zh-TW": "烏節大道",
+        "en": "Orchard Boulevard",
+        "ja": "オーチャード・ブールバード"
+      },
+      "Great World": {
+        "zh-TW": "大世界",
+        "en": "Great World",
+        "ja": "グレート・ワールド"
+      },
+      "Havelock": {
+        "zh-TW": "合樂",
+        "en": "Havelock",
+        "ja": "ハブロック"
+      },
+      "Maxwell": {
+        "zh-TW": "麥士威",
+        "en": "Maxwell",
+        "ja": "マクスウェル"
+      },
+      "Shenton Way": {
+        "zh-TW": "珊頓道",
+        "en": "Shenton Way",
+        "ja": "シェントン・ウェイ"
+      },
+      "Gardens by the Bay": {
+        "zh-TW": "濱海灣花園",
+        "en": "Gardens by the Bay",
+        "ja": "ガーデンズ・バイ・ザ・ベイ"
+      },
+      "Tanjong Rhu": {
+        "zh-TW": "丹戎禺",
+        "en": "Tanjong Rhu",
+        "ja": "タンジョン・ルー"
+      },
+      "Katong Park": {
+        "zh-TW": "加東公園",
+        "en": "Katong Park",
+        "ja": "カトン・パーク"
+      },
+      "Tanjong Katong": {
+        "zh-TW": "丹戎加東",
+        "en": "Tanjong Katong",
+        "ja": "タンジョン・カトン"
+      },
+      "Marine Parade": {
+        "zh-TW": "馬林百列",
+        "en": "Marine Parade",
+        "ja": "マリン・パレード"
+      },
+      "Marine Terrace": {
+        "zh-TW": "馬林臺",
+        "en": "Marine Terrace",
+        "ja": "マリン・テラス"
+      },
+      "Siglap": {
+        "zh-TW": "實乞納",
+        "en": "Siglap",
+        "ja": "シグラップ"
+      },
+      "Bayshore": {
+        "zh-TW": "碧灣",
+        "en": "Bayshore",
+        "ja": "ベイショア"
+      },
+      "South View": {
+        "zh-TW": "南山",
+        "en": "South View",
+        "ja": "サウス・ビュー"
+      },
+      "Keat Hong": {
+        "zh-TW": "吉豐",
+        "en": "Keat Hong",
+        "ja": "キート・ホン"
+      },
+      "Teck Whye": {
+        "zh-TW": "德惠",
+        "en": "Teck Whye",
+        "ja": "テック・ホワイ"
+      },
+      "Phoenix": {
+        "zh-TW": "鳳凰",
+        "en": "Phoenix",
+        "ja": "フェニックス"
+      },
+      "Senja": {
+        "zh-TW": "信佳",
+        "en": "Senja",
+        "ja": "センジャ"
+      },
+      "Jelapang": {
+        "zh-TW": "澤拉邦",
+        "en": "Jelapang",
+        "ja": "ジェラパン"
+      },
+      "Segar": {
+        "zh-TW": "實加",
+        "en": "Segar",
+        "ja": "セガー"
+      },
+      "Fajar": {
+        "zh-TW": "法嘉",
+        "en": "Fajar",
+        "ja": "ファジャール"
+      },
+      "Bangkit": {
+        "zh-TW": "萬吉",
+        "en": "Bangkit",
+        "ja": "バンキット"
+      },
+      "Pending": {
+        "zh-TW": "秉定",
+        "en": "Pending",
+        "ja": "ペンディング"
+      },
+      "Petir": {
+        "zh-TW": "柏提",
+        "en": "Petir",
+        "ja": "ペティア"
+      },
+      "Compassvale": {
+        "zh-TW": "康埔樺",
+        "en": "Compassvale",
+        "ja": "コンパスヴェイル"
+      },
+      "Rumbia": {
+        "zh-TW": "棕美",
+        "en": "Rumbia",
+        "ja": "ルンビア"
+      },
+      "Bakau": {
+        "zh-TW": "碼高",
+        "en": "Bakau",
+        "ja": "バカウ"
+      },
+      "Kangkar": {
+        "zh-TW": "港腳",
+        "en": "Kangkar",
+        "ja": "カンカー"
+      },
+      "Ranggung": {
+        "zh-TW": "蘭崗",
+        "en": "Ranggung",
+        "ja": "ラングン"
+      },
+      "Renjong": {
+        "zh-TW": "仁宗",
+        "en": "Renjong",
+        "ja": "レンジョン"
+      },
+      "Tongkang": {
+        "zh-TW": "同港",
+        "en": "Tongkang",
+        "ja": "トンカン"
+      },
+      "Layar": {
+        "zh-TW": "拉雅",
+        "en": "Layar",
+        "ja": "ラヤール"
+      },
+      "Fernvale": {
+        "zh-TW": "芬微",
+        "en": "Fernvale",
+        "ja": "ファーンヴェイル"
+      },
+      "Thanggam": {
+        "zh-TW": "丹甘",
+        "en": "Thanggam",
+        "ja": "タンガム"
+      },
+      "Kupang": {
+        "zh-TW": "古邦",
+        "en": "Kupang",
+        "ja": "クパン"
+      },
+      "Farmway": {
+        "zh-TW": "農道",
+        "en": "Farmway",
+        "ja": "ファームウェイ"
+      },
+      "Cheng Lim": {
+        "zh-TW": "振林",
+        "en": "Cheng Lim",
+        "ja": "チェン・リム"
+      },
+      "Damai": {
+        "zh-TW": "達邁",
+        "en": "Damai",
+        "ja": "ダマイ"
+      },
+      "Oasis": {
+        "zh-TW": "綠洲",
+        "en": "Oasis",
+        "ja": "オアシス"
+      },
+      "Kadaloor": {
+        "zh-TW": "卡達魯",
+        "en": "Kadaloor",
+        "ja": "カダルール"
+      },
+      "Riviera": {
+        "zh-TW": "里維拉",
+        "en": "Riviera",
+        "ja": "リビエラ"
+      },
+      "Coral Edge": {
+        "zh-TW": "珊瑚",
+        "en": "Coral Edge",
+        "ja": "コーラル・エッジ"
+      },
+      "Meridian": {
+        "zh-TW": "麗園",
+        "en": "Meridian",
+        "ja": "メリディアン"
+      },
+      "Cove": {
+        "zh-TW": "海灣",
+        "en": "Cove",
+        "ja": "コーブ"
+      },
+      "Soo Teck": {
+        "zh-TW": "樹德",
+        "en": "Soo Teck",
+        "ja": "スー・テック"
+      },
+      "Sumang": {
+        "zh-TW": "蘇芒",
+        "en": "Sumang",
+        "ja": "スマン"
+      },
+      "Nibong": {
+        "zh-TW": "尼蒙",
+        "en": "Nibong",
+        "ja": "ニボン"
+      },
+      "Samudera": {
+        "zh-TW": "山姆",
+        "en": "Samudera",
+        "ja": "サムデラ"
+      },
+      "Punggol Point": {
+        "zh-TW": "榜鵝坊",
+        "en": "Punggol Point",
+        "ja": "プンゴル・ポイント"
+      },
+      "Teck Lee": {
+        "zh-TW": "德利",
+        "en": "Teck Lee",
+        "ja": "テック・リー"
+      },
+      "Sam Kee": {
+        "zh-TW": "三記",
+        "en": "Sam Kee",
+        "ja": "サム・キー"
+      }
     }
   },
   "routes": {
@@ -2279,6 +3206,73 @@
       "高鐵": {
         "en": "Taiwan High Speed Rail",
         "ja": "台湾高速鉄道"
+      }
+    },
+    "singapore": {
+      "南北線 North-South Line": {
+        "zh-TW": "南北線",
+        "en": "North–South Line",
+        "ja": "南北線"
+      },
+      "東西線 East-West Line": {
+        "zh-TW": "東西線",
+        "en": "East–West Line",
+        "ja": "東西線"
+      },
+      "東西線—樟宜機場支線 EWL Changi Airport Branch": {
+        "zh-TW": "東西線—樟宜機場支線",
+        "en": "Changi Airport Branch",
+        "ja": "チャンギ空港支線"
+      },
+      "東北線 North East Line": {
+        "zh-TW": "東北線",
+        "en": "North East Line",
+        "ja": "北東線"
+      },
+      "環線主環 Circle Line Loop": {
+        "zh-TW": "環線主環",
+        "en": "Circle Line Loop",
+        "ja": "環状線本線"
+      },
+      "環線多美歌支線 Circle Line Dhoby Ghaut–Prince Edward Road": {
+        "zh-TW": "環線多美歌支線",
+        "en": "Circle Line: Dhoby Ghaut–Prince Edward Road",
+        "ja": "環状線：ドービー・ゴート～プリンス・エドワード・ロード"
+      },
+      "濱海市區線 Downtown Line": {
+        "zh-TW": "濱海市區線",
+        "en": "Downtown Line",
+        "ja": "ダウンタウン線"
+      },
+      "湯申—東海岸線 Thomson-East Coast Line": {
+        "zh-TW": "湯申—東海岸線",
+        "en": "Thomson–East Coast Line",
+        "ja": "トムソン・イーストコースト線"
+      },
+      "武吉班讓輕軌 Bukit Panjang LRT": {
+        "zh-TW": "武吉班讓輕軌",
+        "en": "Bukit Panjang LRT",
+        "ja": "ブキット・パンジャンLRT"
+      },
+      "盛港輕軌東環 Sengkang LRT East Loop": {
+        "zh-TW": "盛港輕軌東環",
+        "en": "Sengkang LRT East Loop",
+        "ja": "センカンLRT東環状線"
+      },
+      "盛港輕軌西環 Sengkang LRT West Loop": {
+        "zh-TW": "盛港輕軌西環",
+        "en": "Sengkang LRT West Loop",
+        "ja": "センカンLRT西環状線"
+      },
+      "榜鵝輕軌東環 Punggol LRT East Loop": {
+        "zh-TW": "榜鵝輕軌東環",
+        "en": "Punggol LRT East Loop",
+        "ja": "プンゴルLRT東環状線"
+      },
+      "榜鵝輕軌西環 Punggol LRT West Loop": {
+        "zh-TW": "榜鵝輕軌西環",
+        "en": "Punggol LRT West Loop",
+        "ja": "プンゴルLRT西環状線"
       }
     }
   },
