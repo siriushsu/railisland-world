@@ -10,7 +10,7 @@
 
 | 優先 | 地區 | 現況 | 已確認缺口／下一步 |
 | --- | --- | --- | --- |
-| P0 | 新加坡 | 6 套 MRT、8 個 shape variant | 補 Bukit Panjang／Sengkang／Punggol LRT；補 2026-07-12 通車的 CCL6 三站 Keppel、Cantonment、Prince Edward Road。LTA 現行頁列出 6 MRT＋3 LRT，[CCL6 官方頁](https://www.lta.gov.sg/content/ltagov/en/upcoming_projects/rail_expansion/circle_line_6.html)已標示通車日期；現有人工班距下一版改接 [LTA DataMall Train GTFS](https://datamall.lta.gov.sg/content/datamall/en/dynamic-data.html)。 |
+| P0 | 新加坡 | 6 套 MRT、8 個 shape variant | 補 Bukit Panjang／Sengkang／Punggol LRT；補 2026-07-12 通車的 CCL6 三站 Keppel、Cantonment、Prince Edward Road。LTA 現行頁列出 6 MRT＋3 LRT，[CCL6 官方頁](https://www.lta.gov.sg/content/ltagov/en/upcoming_projects/rail_expansion/circle_line_6.html)已標示通車日期；現有人工班距可繼續作明示模擬，[LTA DataMall Train GTFS](https://datamall.lta.gov.sg/content/datamall/en/dynamic-data.html)列為時刻增強。 |
 | P0 | 東京 | 6 線：都營地下鐵 4 線＋日暮里・舍人線＋東京櫻花路面電車 | 由 [Tokyo Metro 官方路線圖](https://www.tokyometro.jp/en/subwaymap/index.html)與 [ODPT 官方資料目錄](https://ckan.odpt.org/en/dataset/?license_id=odpt-ptodbl&organization=tokyometro)補 9 條 Tokyo Metro。 |
 | P0 | 伊斯坦堡 | 23 條舊快照路線／variant | 補 M11、T2、T5、T6、F4，並重建 M3、M4、M5、M8、M9 延伸；依 [Metro İstanbul](https://www.metro.istanbul/en/)現行官方圖逐線核對。 |
 | P0 | 倫敦 | 只有 Underground，22 個分支 variant | 依 [TfL Tube and Rail](https://tfl.gov.uk/maps/track?intcmp=40400)補 London Overground、Elizabeth line、DLR、Tram；Overground 使用現行六個線名。 |
@@ -26,14 +26,17 @@
 ## 每一城完成的共同 gate
 
 1. 官方路線清單：route ID、公開名稱、營運狀態、起訖／分支、啟用日期都有來源。
-2. 資料新鮮度：記錄 feed 下載日、採用 service day、時區與 DST；不得用人工延長舊 calendar 冒充現行資料。
+2. 路線新鮮度：官方現行 route、營運端點、通車／停駛日期必須刷新；記錄資料查證日，不能拿舊路網冒充現行完整。
+   首發五城在 release 時的官方路網查證日不得超過 45 天；既有路線也要逐線複核，不因檔案已存在就自動算完成。
 3. 幾何完整度：每個營運分支各自建線；Y 字路網不得壓成單一 chainage。
 4. 方向驗證：每條有方向的資料至少各跑一班正反向；端點、站序、行進方向與時刻皆一致。
 5. 折返驗證：除點到走廊距離外，必跑「非相鄰點距離 <15m 且方向點積 <-0.5」的反向重走偵測。
 6. 站名與轉乘：同母站多月台可合併，但環線重訪與遠距同名站不可誤併。
 7. 授權：資料與地圖幾何分開記錄來源、授權、署名文字與衍生限制。
-8. 三語內容：首發核心五城都要完成繁中、英文、日文；包含城市介紹、路線／站名、轉乘、搜尋別名、來源／授權／更新日期、範圍警告與分享文字。
-9. 瀏覽器驗收：桌機＋360／375／414／768 寬、真實觸控、Chromium＋WebKit；每城至少驗城市切換、正反向列車、跟隨、站牌、搜尋與分享深連結，並逐一切換 `zh-TW`／`en`／`ja`。
+8. 基本流動：每一條營運路線與分支都要能看到列車，正反方向各驗至少一例；可用明示的合成班距，不要求分鐘級準時或即時位置。
+9. 誠實標示：合成班距與舊班表若只作動畫樣板，UI 和 metadata 必須明示「模擬／示意」，不得宣稱官方現行時刻或即時位置。
+10. 三語內容：首發核心五城都要完成繁中、英文、日文；包含城市介紹、路線／站名、轉乘、搜尋別名、來源／授權／更新日期、範圍警告與分享文字。
+11. 瀏覽器驗收：桌機＋360／375／414／768 寬、真實觸控、Chromium＋WebKit；每城至少驗城市切換、正反向列車、跟隨、站牌、搜尋與分享深連結，並逐一切換 `zh-TW`／`en`／`ja`。
 
 ## 稽核指令
 
@@ -48,4 +51,4 @@ node tools/audit_route_coverage.mjs --release
 node tools/audit_route_coverage.mjs --all-release
 ```
 
-`--release` 現在應該是紅燈；這是刻意的。它不再被挪威、瑞士等非首發地區卡住，但東京、紐約、倫敦、伊斯坦堡、新加坡任一核心範圍仍有缺口，或繁中／英文／日文任一語內容尚未驗證，就不能宣稱首發完成。
+`--release` 現在應該是紅燈；這是刻意的。它只把現行路線、基本流動／誠實標示與三語內容列為硬條件。分鐘級時刻準確、即時位置與誤點校正列在 `scheduleEnhancements`，不會阻擋首發。
