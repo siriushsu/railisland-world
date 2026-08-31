@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// headway → schedule_dense 合成器(新加坡 MRT / 倫敦 Tube 專用)。
+// headway → schedule_dense 合成器（新加坡／倫敦／伊斯坦堡）。
 //
 // 動機:軌島「世界」群組是 sched 引擎(state.trains[] + trainPos + 多時區同框 +
 // 聚焦城市時鐘/成就池/跟隨),東京/瑞士/挪威/紐約都是 sched。新加坡/倫敦原始資料是
@@ -66,12 +66,21 @@ function foldLondon(lineId) {
   };
   return M[base] || [lineId, '#888888'];
 }
+function foldIstanbul(lineId, line) {
+  if (line.mode === 'metro') return [`${lineId} 地鐵`, line.color];
+  if (line.mode === 'tram') return [`${lineId} 電車`, line.color];
+  if (line.mode === 'funicular') return [`${lineId} 纜索鐵路`, line.color];
+  if (line.mode === 'cable') return [`${lineId} 纜車`, line.color];
+  if (lineId === 'Marmaray') return ['Marmaray 通勤鐵路', line.color];
+  if (lineId === 'B2') return ['Halkalı–Bahçeşehir 通勤鐵路', line.color];
+  return [lineId, line.color];
+}
 
 const r5 = (x) => Math.round(x * 1e5) / 1e5;
 
 // 從一條 line 生成一個方向的所有班次。stations 已按行進方向排好(rev 傳反轉後陣列)。
 function genLine(line, foldFn, cruiseKmh, dwellSec, out, seqRef) {
-  const [typeName, typeColor] = foldFn(line.id);
+  const [typeName, typeColor] = foldFn(line.id, line);
   const dirs = line.oneWay ? [{ tag: '→', sts: line.stations }] : [
     { tag: '↓', sts: line.stations },
     { tag: '↑', sts: [...line.stations].reverse() },
@@ -146,7 +155,14 @@ if (target === 'all' || target === 'london') {
     'london_schedule_dense.json'
   );
 }
-if (!['all', 'singapore', 'london'].includes(target)) {
-  console.error('用法：node tools/headway2sched.mjs [all|singapore|london]');
+if (target === 'all' || target === 'istanbul') {
+  build(
+    'istanbul.json', foldIstanbul, 42, 25, 'İSTANBUL RAIL',
+    '班距模擬合成，非官方逐車時刻或即時位置。2026-08-31 已依 Metro İstanbul、UAB、TCDD 與 IETT 官方現行資料逐線核對 Metro、tram、funicular、Marmaray 與 Halkalı–Bahçeşehir；細部線形採 OpenStreetMap route relations（© OpenStreetMap contributors，ODbL）。T3 按單向環生成，其他路徑雙向；所有班次只供正確路網上的流動示意，臨時停駛與改點請以官方公告為準。',
+    'istanbul_schedule_dense.json'
+  );
+}
+if (!['all', 'singapore', 'london', 'istanbul'].includes(target)) {
+  console.error('用法：node tools/headway2sched.mjs [all|singapore|london|istanbul]');
   process.exit(1);
 }

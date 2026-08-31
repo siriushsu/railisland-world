@@ -88,8 +88,11 @@
 ### 5. 伊斯坦堡
 
 - 首發範圍：Metro、tram、funicular 與 Marmaray；纜車可顯示，但不列入「軌道路線完整」宣稱。排除 Metrobus 與渡輪。
-- 現有快照至少缺 M11、T2、T5、T6、F4，且 M3、M4、M5、M8、M9 已有延伸需要重建。[Metro İstanbul 現行路線](https://metro.istanbul/en/)
-- 最大風險不是線少，而是現有 IBB GTFS calendar 原始效期停在 2024，過去曾技術性延長到 2026。這份資料只能當舊版視覺樣本，不能以「2026 現行班表」發布。
+- 2026-08-31 已完成首發範圍：12 個 Metro 路徑、6 條 tram、4 條 funicular、Marmaray 與 Halkalı－Bahçeşehir，另把 TF1／TF2 作補充顯示，共 26 個可見路徑。M2 Seyrantepe 支線獨立建線；T3 以單向環建置，沒有反向虛構。[Metro İstanbul 現行路線](https://metro.istanbul/en/)
+- M11 依 UAB 2026-06-19 通車公告完整接通 Gayrettepe－Halkalı；現行 15 個載客站依路線資料建置，沒有把規劃中的 Terminal 2 當成已營運站。[UAB 通車公告](https://www.uab.gov.tr/haberler/halkali-arnavutkoey-hatti-31-temmuz-a-kadar-uecretsiz/)
+- M5 延至 Sultanbeyli；M3、M4、M8、M9 也已依 Metro İstanbul 各線現行官方站序重建。T5、F4 取 Metro İstanbul，T6 依 UAB 的 Sirkeci－Kazlıçeşme 8 站複核。[T6 官方說明](https://www.uab.gov.tr/haberler/sirkeci-kazlicesme-hatti-2-yasinda/)
+- T2 依 IETT 官方路線頁保留 5 站。6 月曾有活動期間的短期停駛公告，但 7 月與 8 月後續官方節日公告仍把 T2／F2 列為營運、只是排除在免費搭乘外，因此不把舊臨時公告誤作現況；動畫仍不反映臨時停駛與改點。[T2 路線](https://iett.istanbul/RouteDetail?hkod=T2&routename=TAKS%C4%B0M+-+T%C3%9CNEL)／[8 月公告](https://iett.istanbul/Announcement/Detail/3305)
+- 舊 2024 IBB calendar 已完全退出公開資料；7,679 班重新由現行路網合成，明示不是官方逐班時刻或即時位置。277 個唯一站名與 26 個路徑／類型皆有繁中、英文、日文索引；官方沒有中日站名集時保留土耳其文專名。
 
 ## 其餘七區怎麼處理
 
@@ -106,7 +109,7 @@
 2. 紐約：補 SIR、修來源與抓取管線。
 3. 東京：Toei＋Tokyo Metro 路線、分岔、雙向流動與三語內容已完成；官方 Metro GTFS 為後續時刻增強，先不擴 JR／私鐵。
 4. 倫敦：20 個 TfL 現行線別、67 個路徑、方向性流動與三語內容已完成；官方逐班時刻列為後續增強。
-5. 伊斯坦堡：先以現行官方路網補線與延伸；舊 calendar 若暫作動畫樣板，必須在三語 UI 與 metadata 明示為模擬。
+5. 伊斯坦堡：現行路網、延伸、分支、方向性流動、三語內容與誠實標示已完成；官方逐班時刻列為後續增強。
 
 每城完成時仍需通過 `route-audit-2026-08-31.md` 的共同 gate：官方 route ID、兩方向各一例、Y 字分支、反向重走偵測、站序／轉乘、授權與 Chromium＋WebKit 手機實測。
 

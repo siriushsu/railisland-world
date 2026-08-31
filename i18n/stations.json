@@ -8622,6 +8622,1393 @@
         "en": "Woolwich Arsenal",
         "ja": "Woolwich Arsenal"
       }
+    },
+    "istanbul_sched": {
+      "15 Temmuz": {
+        "zh-TW": "15 Temmuz",
+        "en": "15 Temmuz",
+        "ja": "15 Temmuz"
+      },
+      "29 Ekim Cumhuriyet": {
+        "zh-TW": "29 Ekim Cumhuriyet",
+        "en": "29 Ekim Cumhuriyet",
+        "ja": "29 Ekim Cumhuriyet"
+      },
+      "4.Levent": {
+        "zh-TW": "4.Levent",
+        "en": "4.Levent",
+        "ja": "4.Levent"
+      },
+      "50.Yıl-Baştabya": {
+        "zh-TW": "50.Yıl-Baştabya",
+        "en": "50.Yıl-Baştabya",
+        "ja": "50.Yıl-Baştabya"
+      },
+      "Acıbadem": {
+        "zh-TW": "Acıbadem",
+        "en": "Acıbadem",
+        "ja": "Acıbadem"
+      },
+      "Aksaray": {
+        "zh-TW": "Aksaray",
+        "en": "Aksaray",
+        "ja": "Aksaray"
+      },
+      "Akıncılar": {
+        "zh-TW": "Akıncılar",
+        "en": "Akıncılar",
+        "ja": "Akıncılar"
+      },
+      "Ali Fuat Başgil": {
+        "zh-TW": "Ali Fuat Başgil",
+        "en": "Ali Fuat Başgil",
+        "ja": "Ali Fuat Başgil"
+      },
+      "Alibeyköy": {
+        "zh-TW": "Alibeyköy",
+        "en": "Alibeyköy",
+        "ja": "Alibeyköy"
+      },
+      "Alibeyköy Cep Otogarı": {
+        "zh-TW": "Alibeyköy Cep Otogarı",
+        "en": "Alibeyköy Cep Otogarı",
+        "ja": "Alibeyköy Cep Otogarı"
+      },
+      "Alibeyköy Merkez": {
+        "zh-TW": "Alibeyköy Merkez",
+        "en": "Alibeyköy Merkez",
+        "ja": "Alibeyköy Merkez"
+      },
+      "Alibeyköy Metro": {
+        "zh-TW": "Alibeyköy Metro",
+        "en": "Alibeyköy Metro",
+        "ja": "Alibeyköy Metro"
+      },
+      "Altunizade": {
+        "zh-TW": "Altunizade",
+        "en": "Altunizade",
+        "ja": "Altunizade"
+      },
+      "Altınşehir": {
+        "zh-TW": "Altınşehir",
+        "en": "Altınşehir",
+        "ja": "Altınşehir"
+      },
+      "Altıyol": {
+        "zh-TW": "Altıyol",
+        "en": "Altıyol",
+        "ja": "Altıyol"
+      },
+      "Arnavutköy Hastane": {
+        "zh-TW": "Arnavutköy Hastane",
+        "en": "Arnavutköy Hastane",
+        "ja": "Arnavutköy Hastane"
+      },
+      "Ataköy": {
+        "zh-TW": "Ataköy",
+        "en": "Ataköy",
+        "ja": "Ataköy"
+      },
+      "Ataköy-Şirinevler": {
+        "zh-TW": "Ataköy-Şirinevler",
+        "en": "Ataköy-Şirinevler",
+        "ja": "Ataköy-Şirinevler"
+      },
+      "Atalar": {
+        "zh-TW": "Atalar",
+        "en": "Atalar",
+        "ja": "Atalar"
+      },
+      "Atatürk Havalimanı": {
+        "zh-TW": "Atatürk Havalimanı",
+        "en": "Atatürk Havalimanı",
+        "ja": "Atatürk Havalimanı"
+      },
+      "Atatürk Mahallesi": {
+        "zh-TW": "Atatürk Mahallesi",
+        "en": "Atatürk Mahallesi",
+        "ja": "Atatürk Mahallesi"
+      },
+      "Atatürk Oto Sanayi": {
+        "zh-TW": "Atatürk Oto Sanayi",
+        "en": "Atatürk Oto Sanayi",
+        "ja": "Atatürk Oto Sanayi"
+      },
+      "Aydıntepe": {
+        "zh-TW": "Aydıntepe",
+        "en": "Aydıntepe",
+        "ja": "Aydıntepe"
+      },
+      "Ayrılık Çeşmesi": {
+        "zh-TW": "Ayrılık Çeşmesi",
+        "en": "Ayrılık Çeşmesi",
+        "ja": "Ayrılık Çeşmesi"
+      },
+      "Ayrılıkçeşmesi": {
+        "zh-TW": "Ayrılıkçeşmesi",
+        "en": "Ayrılıkçeşmesi",
+        "ja": "Ayrılıkçeşmesi"
+      },
+      "Ayvansaray": {
+        "zh-TW": "Ayvansaray",
+        "en": "Ayvansaray",
+        "ja": "Ayvansaray"
+      },
+      "Ayşekadın": {
+        "zh-TW": "Ayşekadın",
+        "en": "Ayşekadın",
+        "ja": "Ayşekadın"
+      },
+      "Aşiyan": {
+        "zh-TW": "Aşiyan",
+        "en": "Aşiyan",
+        "ja": "Aşiyan"
+      },
+      "Bahariye": {
+        "zh-TW": "Bahariye",
+        "en": "Bahariye",
+        "ja": "Bahariye"
+      },
+      "Bahçelievler": {
+        "zh-TW": "Bahçelievler",
+        "en": "Bahçelievler",
+        "ja": "Bahçelievler"
+      },
+      "Bahçeşehir": {
+        "zh-TW": "Bahçeşehir",
+        "en": "Bahçeşehir",
+        "ja": "Bahçeşehir"
+      },
+      "Bakırköy": {
+        "zh-TW": "Bakırköy",
+        "en": "Bakırköy",
+        "ja": "Bakırköy"
+      },
+      "Bakırköy Sahil": {
+        "zh-TW": "Bakırköy Sahil",
+        "en": "Bakırköy Sahil",
+        "ja": "Bakırköy Sahil"
+      },
+      "Bakırköy-İncirli": {
+        "zh-TW": "Bakırköy-İncirli",
+        "en": "Bakırköy-İncirli",
+        "ja": "Bakırköy-İncirli"
+      },
+      "Balat": {
+        "zh-TW": "Balat",
+        "en": "Balat",
+        "ja": "Balat"
+      },
+      "Bayrampaşa-Maltepe": {
+        "zh-TW": "Bayrampaşa-Maltepe",
+        "en": "Bayrampaşa-Maltepe",
+        "ja": "Bayrampaşa-Maltepe"
+      },
+      "Bağcılar": {
+        "zh-TW": "Bağcılar",
+        "en": "Bağcılar",
+        "ja": "Bağcılar"
+      },
+      "Bağcılar Meydan": {
+        "zh-TW": "Bağcılar Meydan",
+        "en": "Bağcılar Meydan",
+        "ja": "Bağcılar Meydan"
+      },
+      "Bağlarbaşı": {
+        "zh-TW": "Bağlarbaşı",
+        "en": "Bağlarbaşı",
+        "ja": "Bağlarbaşı"
+      },
+      "Başak": {
+        "zh-TW": "Başak",
+        "en": "Başak",
+        "ja": "Başak"
+      },
+      "Başak Konutları": {
+        "zh-TW": "Başak Konutları",
+        "en": "Başak Konutları",
+        "ja": "Başak Konutları"
+      },
+      "Başakşehir-Metrokent": {
+        "zh-TW": "Başakşehir-Metrokent",
+        "en": "Başakşehir-Metrokent",
+        "ja": "Başakşehir-Metrokent"
+      },
+      "Beyazıt-Kapalıçarşı": {
+        "zh-TW": "Beyazıt-Kapalıçarşı",
+        "en": "Beyazıt-Kapalıçarşı",
+        "ja": "Beyazıt-Kapalıçarşı"
+      },
+      "Beyoğlu": {
+        "zh-TW": "Beyoğlu",
+        "en": "Beyoğlu",
+        "ja": "Beyoğlu"
+      },
+      "Beyoğlu Tünel": {
+        "zh-TW": "Beyoğlu Tünel",
+        "en": "Beyoğlu Tünel",
+        "ja": "Beyoğlu Tünel"
+      },
+      "Bosna Çukurçeşme": {
+        "zh-TW": "Bosna Çukurçeşme",
+        "en": "Bosna Çukurçeşme",
+        "ja": "Bosna Çukurçeşme"
+      },
+      "Bostancı": {
+        "zh-TW": "Bostancı",
+        "en": "Bostancı",
+        "ja": "Bostancı"
+      },
+      "Boğaziçi Ü.-Hisarüstü": {
+        "zh-TW": "Boğaziçi Ü.-Hisarüstü",
+        "en": "Boğaziçi Ü.-Hisarüstü",
+        "ja": "Boğaziçi Ü.-Hisarüstü"
+      },
+      "Boğaziçi Ü./Hisarüstü": {
+        "zh-TW": "Boğaziçi Ü./Hisarüstü",
+        "en": "Boğaziçi Ü./Hisarüstü",
+        "ja": "Boğaziçi Ü./Hisarüstü"
+      },
+      "Bulgurlu": {
+        "zh-TW": "Bulgurlu",
+        "en": "Bulgurlu",
+        "ja": "Bulgurlu"
+      },
+      "Cankurtaran": {
+        "zh-TW": "Cankurtaran",
+        "en": "Cankurtaran",
+        "ja": "Cankurtaran"
+      },
+      "Cebeci": {
+        "zh-TW": "Cebeci",
+        "en": "Cebeci",
+        "ja": "Cebeci"
+      },
+      "Cerrahpaşa": {
+        "zh-TW": "Cerrahpaşa",
+        "en": "Cerrahpaşa",
+        "ja": "Cerrahpaşa"
+      },
+      "Cevizli": {
+        "zh-TW": "Cevizli",
+        "en": "Cevizli",
+        "ja": "Cevizli"
+      },
+      "Cevizlibağ-AÖY": {
+        "zh-TW": "Cevizlibağ-AÖY",
+        "en": "Cevizlibağ-AÖY",
+        "ja": "Cevizlibağ-AÖY"
+      },
+      "Cibali": {
+        "zh-TW": "Cibali",
+        "en": "Cibali",
+        "ja": "Cibali"
+      },
+      "Cumhuriyet Mahallesi": {
+        "zh-TW": "Cumhuriyet Mahallesi",
+        "en": "Cumhuriyet Mahallesi",
+        "ja": "Cumhuriyet Mahallesi"
+      },
+      "DTM-İstanbul Fuar Merkezi": {
+        "zh-TW": "DTM-İstanbul Fuar Merkezi",
+        "en": "DTM-İstanbul Fuar Merkezi",
+        "ja": "DTM-İstanbul Fuar Merkezi"
+      },
+      "Damga Sokak": {
+        "zh-TW": "Damga Sokak",
+        "en": "Damga Sokak",
+        "ja": "Damga Sokak"
+      },
+      "Darüşşafaka": {
+        "zh-TW": "Darüşşafaka",
+        "en": "Darüşşafaka",
+        "ja": "Darüşşafaka"
+      },
+      "Darıca": {
+        "zh-TW": "Darıca",
+        "en": "Darıca",
+        "ja": "Darıca"
+      },
+      "Davutpaşa-YTÜ": {
+        "zh-TW": "Davutpaşa-YTÜ",
+        "en": "Davutpaşa-YTÜ",
+        "ja": "Davutpaşa-YTÜ"
+      },
+      "Demirkapı": {
+        "zh-TW": "Demirkapı",
+        "en": "Demirkapı",
+        "ja": "Demirkapı"
+      },
+      "Doğu Sanayi": {
+        "zh-TW": "Doğu Sanayi",
+        "en": "Doğu Sanayi",
+        "ja": "Doğu Sanayi"
+      },
+      "Dudullu": {
+        "zh-TW": "Dudullu",
+        "en": "Dudullu",
+        "ja": "Dudullu"
+      },
+      "Edirnekapı": {
+        "zh-TW": "Edirnekapı",
+        "en": "Edirnekapı",
+        "ja": "Edirnekapı"
+      },
+      "Emin Ali Paşa": {
+        "zh-TW": "Emin Ali Paşa",
+        "en": "Emin Ali Paşa",
+        "ja": "Emin Ali Paşa"
+      },
+      "Eminönü": {
+        "zh-TW": "Eminönü",
+        "en": "Eminönü",
+        "ja": "Eminönü"
+      },
+      "Emniyet-Fatih": {
+        "zh-TW": "Emniyet-Fatih",
+        "en": "Emniyet-Fatih",
+        "ja": "Emniyet-Fatih"
+      },
+      "Erenköy": {
+        "zh-TW": "Erenköy",
+        "en": "Erenköy",
+        "ja": "Erenköy"
+      },
+      "Esenkent": {
+        "zh-TW": "Esenkent",
+        "en": "Esenkent",
+        "ja": "Esenkent"
+      },
+      "Esenler": {
+        "zh-TW": "Esenler",
+        "en": "Esenler",
+        "ja": "Esenler"
+      },
+      "Etiler": {
+        "zh-TW": "Etiler",
+        "en": "Etiler",
+        "ja": "Etiler"
+      },
+      "Eyüp": {
+        "zh-TW": "Eyüp",
+        "en": "Eyüp",
+        "ja": "Eyüp"
+      },
+      "Eyüpsultan Devlet Hastanesi": {
+        "zh-TW": "Eyüpsultan Devlet Hastanesi",
+        "en": "Eyüpsultan Devlet Hastanesi",
+        "ja": "Eyüpsultan Devlet Hastanesi"
+      },
+      "Eyüpsultan Teleferik": {
+        "zh-TW": "Eyüpsultan Teleferik",
+        "en": "Eyüpsultan Teleferik",
+        "ja": "Eyüpsultan Teleferik"
+      },
+      "Fatih": {
+        "zh-TW": "Fatih",
+        "en": "Fatih",
+        "ja": "Fatih"
+      },
+      "Fener": {
+        "zh-TW": "Fener",
+        "en": "Fener",
+        "ja": "Fener"
+      },
+      "Feneryolu": {
+        "zh-TW": "Feneryolu",
+        "en": "Feneryolu",
+        "ja": "Feneryolu"
+      },
+      "Feshane": {
+        "zh-TW": "Feshane",
+        "en": "Feshane",
+        "ja": "Feshane"
+      },
+      "Fetihkapı": {
+        "zh-TW": "Fetihkapı",
+        "en": "Fetihkapı",
+        "ja": "Fetihkapı"
+      },
+      "Fevzi Çakmak-Hastane": {
+        "zh-TW": "Fevzi Çakmak-Hastane",
+        "en": "Fevzi Çakmak-Hastane",
+        "ja": "Fevzi Çakmak-Hastane"
+      },
+      "Florya": {
+        "zh-TW": "Florya",
+        "en": "Florya",
+        "ja": "Florya"
+      },
+      "Florya Akvaryum": {
+        "zh-TW": "Florya Akvaryum",
+        "en": "Florya Akvaryum",
+        "ja": "Florya Akvaryum"
+      },
+      "Fulya": {
+        "zh-TW": "Fulya",
+        "en": "Fulya",
+        "ja": "Fulya"
+      },
+      "Fındıklı-Mimar Sinan Ü.": {
+        "zh-TW": "Fındıklı-Mimar Sinan Ü.",
+        "en": "Fındıklı-Mimar Sinan Ü.",
+        "ja": "Fındıklı-Mimar Sinan Ü."
+      },
+      "Fındıkzade": {
+        "zh-TW": "Fındıkzade",
+        "en": "Fındıkzade",
+        "ja": "Fındıkzade"
+      },
+      "Fıstıkağacı": {
+        "zh-TW": "Fıstıkağacı",
+        "en": "Fıstıkağacı",
+        "ja": "Fıstıkağacı"
+      },
+      "Galatasaray Lisesi": {
+        "zh-TW": "Galatasaray Lisesi",
+        "en": "Galatasaray Lisesi",
+        "ja": "Galatasaray Lisesi"
+      },
+      "Gayrettepe": {
+        "zh-TW": "Gayrettepe",
+        "en": "Gayrettepe",
+        "ja": "Gayrettepe"
+      },
+      "Gebze": {
+        "zh-TW": "Gebze",
+        "en": "Gebze",
+        "ja": "Gebze"
+      },
+      "Giyimkent-Tekstilkent": {
+        "zh-TW": "Giyimkent-Tekstilkent",
+        "en": "Giyimkent-Tekstilkent",
+        "ja": "Giyimkent-Tekstilkent"
+      },
+      "Göktürk": {
+        "zh-TW": "Göktürk",
+        "en": "Göktürk",
+        "ja": "Göktürk"
+      },
+      "Göztepe": {
+        "zh-TW": "Göztepe",
+        "en": "Göztepe",
+        "ja": "Göztepe"
+      },
+      "Göztepe Mahallesi": {
+        "zh-TW": "Göztepe Mahallesi",
+        "en": "Göztepe Mahallesi",
+        "ja": "Göztepe Mahallesi"
+      },
+      "Gülhane": {
+        "zh-TW": "Gülhane",
+        "en": "Gülhane",
+        "ja": "Gülhane"
+      },
+      "Gülsuyu": {
+        "zh-TW": "Gülsuyu",
+        "en": "Gülsuyu",
+        "ja": "Gülsuyu"
+      },
+      "Güneştepe": {
+        "zh-TW": "Güneştepe",
+        "en": "Güneştepe",
+        "ja": "Güneştepe"
+      },
+      "Güngören": {
+        "zh-TW": "Güngören",
+        "en": "Güngören",
+        "ja": "Güngören"
+      },
+      "Güzelyalı": {
+        "zh-TW": "Güzelyalı",
+        "en": "Güzelyalı",
+        "ja": "Güzelyalı"
+      },
+      "Hacı Şükrü": {
+        "zh-TW": "Hacı Şükrü",
+        "en": "Hacı Şükrü",
+        "ja": "Hacı Şükrü"
+      },
+      "Hacıosman": {
+        "zh-TW": "Hacıosman",
+        "en": "Hacıosman",
+        "ja": "Hacıosman"
+      },
+      "Haliç": {
+        "zh-TW": "Haliç",
+        "en": "Haliç",
+        "ja": "Haliç"
+      },
+      "Halkalı": {
+        "zh-TW": "Halkalı",
+        "en": "Halkalı",
+        "ja": "Halkalı"
+      },
+      "Halkalı Caddesi": {
+        "zh-TW": "Halkalı Caddesi",
+        "en": "Halkalı Caddesi",
+        "ja": "Halkalı Caddesi"
+      },
+      "Halkalı Stadı": {
+        "zh-TW": "Halkalı Stadı",
+        "en": "Halkalı Stadı",
+        "ja": "Halkalı Stadı"
+      },
+      "Hasanpaşa": {
+        "zh-TW": "Hasanpaşa",
+        "en": "Hasanpaşa",
+        "ja": "Hasanpaşa"
+      },
+      "Haseki": {
+        "zh-TW": "Haseki",
+        "en": "Haseki",
+        "ja": "Haseki"
+      },
+      "Hastane-Adliye": {
+        "zh-TW": "Hastane-Adliye",
+        "en": "Hastane-Adliye",
+        "ja": "Hastane-Adliye"
+      },
+      "Haznedar": {
+        "zh-TW": "Haznedar",
+        "en": "Haznedar",
+        "ja": "Haznedar"
+      },
+      "Huzur": {
+        "zh-TW": "Huzur",
+        "en": "Huzur",
+        "ja": "Huzur"
+      },
+      "Huzurevi": {
+        "zh-TW": "Huzurevi",
+        "en": "Huzurevi",
+        "ja": "Huzurevi"
+      },
+      "Hüseyin Ağa Camii": {
+        "zh-TW": "Hüseyin Ağa Camii",
+        "en": "Hüseyin Ağa Camii",
+        "ja": "Hüseyin Ağa Camii"
+      },
+      "Ihlamurkuyu": {
+        "zh-TW": "Ihlamurkuyu",
+        "en": "Ihlamurkuyu",
+        "ja": "Ihlamurkuyu"
+      },
+      "Ispartakule": {
+        "zh-TW": "Ispartakule",
+        "en": "Ispartakule",
+        "ja": "Ispartakule"
+      },
+      "Kabataş": {
+        "zh-TW": "Kabataş",
+        "en": "Kabataş",
+        "ja": "Kabataş"
+      },
+      "Kadıköy": {
+        "zh-TW": "Kadıköy",
+        "en": "Kadıköy",
+        "ja": "Kadıköy"
+      },
+      "Kadıköy İDO": {
+        "zh-TW": "Kadıköy İDO",
+        "en": "Kadıköy İDO",
+        "ja": "Kadıköy İDO"
+      },
+      "Karadeniz": {
+        "zh-TW": "Karadeniz",
+        "en": "Karadeniz",
+        "ja": "Karadeniz"
+      },
+      "Karadeniz Mahallesi": {
+        "zh-TW": "Karadeniz Mahallesi",
+        "en": "Karadeniz Mahallesi",
+        "ja": "Karadeniz Mahallesi"
+      },
+      "Karaköy": {
+        "zh-TW": "Karaköy",
+        "en": "Karaköy",
+        "ja": "Karaköy"
+      },
+      "Kargo Terminali": {
+        "zh-TW": "Kargo Terminali",
+        "en": "Kargo Terminali",
+        "ja": "Kargo Terminali"
+      },
+      "Kartal": {
+        "zh-TW": "Kartal",
+        "en": "Kartal",
+        "ja": "Kartal"
+      },
+      "Kayaşehir": {
+        "zh-TW": "Kayaşehir",
+        "en": "Kayaşehir",
+        "ja": "Kayaşehir"
+      },
+      "Kayaşehir Merkez": {
+        "zh-TW": "Kayaşehir Merkez",
+        "en": "Kayaşehir Merkez",
+        "ja": "Kayaşehir Merkez"
+      },
+      "Kaynarca": {
+        "zh-TW": "Kaynarca",
+        "en": "Kaynarca",
+        "ja": "Kaynarca"
+      },
+      "Kayışdağı": {
+        "zh-TW": "Kayışdağı",
+        "en": "Kayışdağı",
+        "ja": "Kayışdağı"
+      },
+      "Kazlıçeşme": {
+        "zh-TW": "Kazlıçeşme",
+        "en": "Kazlıçeşme",
+        "ja": "Kazlıçeşme"
+      },
+      "Kazım Karabekir": {
+        "zh-TW": "Kazım Karabekir",
+        "en": "Kazım Karabekir",
+        "ja": "Kazım Karabekir"
+      },
+      "Kağıthane": {
+        "zh-TW": "Kağıthane",
+        "en": "Kağıthane",
+        "ja": "Kağıthane"
+      },
+      "Kemerburgaz": {
+        "zh-TW": "Kemerburgaz",
+        "en": "Kemerburgaz",
+        "ja": "Kemerburgaz"
+      },
+      "Kilise": {
+        "zh-TW": "Kilise",
+        "en": "Kilise",
+        "ja": "Kilise"
+      },
+      "Kiptaş-Venezia": {
+        "zh-TW": "Kiptaş-Venezia",
+        "en": "Kiptaş-Venezia",
+        "ja": "Kiptaş-Venezia"
+      },
+      "Kirazlı-Bağcılar": {
+        "zh-TW": "Kirazlı-Bağcılar",
+        "en": "Kirazlı-Bağcılar",
+        "ja": "Kirazlı-Bağcılar"
+      },
+      "Kocamustafapaşa": {
+        "zh-TW": "Kocamustafapaşa",
+        "en": "Kocamustafapaşa",
+        "ja": "Kocamustafapaşa"
+      },
+      "Kocatepe": {
+        "zh-TW": "Kocatepe",
+        "en": "Kocatepe",
+        "ja": "Kocatepe"
+      },
+      "Kozyatağı": {
+        "zh-TW": "Kozyatağı",
+        "en": "Kozyatağı",
+        "ja": "Kozyatağı"
+      },
+      "Kumkapı": {
+        "zh-TW": "Kumkapı",
+        "en": "Kumkapı",
+        "ja": "Kumkapı"
+      },
+      "Kurtköy": {
+        "zh-TW": "Kurtköy",
+        "en": "Kurtköy",
+        "ja": "Kurtköy"
+      },
+      "Küçükbakkalköy": {
+        "zh-TW": "Küçükbakkalköy",
+        "en": "Küçükbakkalköy",
+        "ja": "Küçükbakkalköy"
+      },
+      "Küçükpazar": {
+        "zh-TW": "Küçükpazar",
+        "en": "Küçükpazar",
+        "ja": "Küçükpazar"
+      },
+      "Küçükyalı": {
+        "zh-TW": "Küçükyalı",
+        "en": "Küçükyalı",
+        "ja": "Küçükyalı"
+      },
+      "Küçükçekmece": {
+        "zh-TW": "Küçükçekmece",
+        "en": "Küçükçekmece",
+        "ja": "Küçükçekmece"
+      },
+      "Kısıklı": {
+        "zh-TW": "Kısıklı",
+        "en": "Kısıklı",
+        "ja": "Kısıklı"
+      },
+      "Laleli-İstanbul Ü.": {
+        "zh-TW": "Laleli-İstanbul Ü.",
+        "en": "Laleli-İstanbul Ü.",
+        "ja": "Laleli-İstanbul Ü."
+      },
+      "Levent": {
+        "zh-TW": "Levent",
+        "en": "Levent",
+        "ja": "Levent"
+      },
+      "MASKO": {
+        "zh-TW": "MASKO",
+        "en": "MASKO",
+        "ja": "MASKO"
+      },
+      "MODOKO-KEYAP": {
+        "zh-TW": "MODOKO-KEYAP",
+        "en": "MODOKO-KEYAP",
+        "ja": "MODOKO-KEYAP"
+      },
+      "Mahmutbey": {
+        "zh-TW": "Mahmutbey",
+        "en": "Mahmutbey",
+        "ja": "Mahmutbey"
+      },
+      "Maltepe": {
+        "zh-TW": "Maltepe",
+        "en": "Maltepe",
+        "ja": "Maltepe"
+      },
+      "Maçka": {
+        "zh-TW": "Maçka",
+        "en": "Maçka",
+        "ja": "Maçka"
+      },
+      "Mecidiyeköy": {
+        "zh-TW": "Mecidiyeköy",
+        "en": "Mecidiyeköy",
+        "ja": "Mecidiyeköy"
+      },
+      "Meclis": {
+        "zh-TW": "Meclis",
+        "en": "Meclis",
+        "ja": "Meclis"
+      },
+      "Mehmet Akif": {
+        "zh-TW": "Mehmet Akif",
+        "en": "Mehmet Akif",
+        "ja": "Mehmet Akif"
+      },
+      "Menderes": {
+        "zh-TW": "Menderes",
+        "en": "Menderes",
+        "ja": "Menderes"
+      },
+      "Merkezefendi": {
+        "zh-TW": "Merkezefendi",
+        "en": "Merkezefendi",
+        "ja": "Merkezefendi"
+      },
+      "Merter": {
+        "zh-TW": "Merter",
+        "en": "Merter",
+        "ja": "Merter"
+      },
+      "Merter Tekstil Merkezi": {
+        "zh-TW": "Merter Tekstil Merkezi",
+        "en": "Merter Tekstil Merkezi",
+        "ja": "Merter Tekstil Merkezi"
+      },
+      "Mescid-i Selam": {
+        "zh-TW": "Mescid-i Selam",
+        "en": "Mescid-i Selam",
+        "ja": "Mescid-i Selam"
+      },
+      "Mevlana": {
+        "zh-TW": "Mevlana",
+        "en": "Mevlana",
+        "ja": "Mevlana"
+      },
+      "Mimar Sinan": {
+        "zh-TW": "Mimar Sinan",
+        "en": "Mimar Sinan",
+        "ja": "Mimar Sinan"
+      },
+      "Mithatpaşa": {
+        "zh-TW": "Mithatpaşa",
+        "en": "Mithatpaşa",
+        "ja": "Mithatpaşa"
+      },
+      "Moda": {
+        "zh-TW": "Moda",
+        "en": "Moda",
+        "ja": "Moda"
+      },
+      "Moda İlkokulu": {
+        "zh-TW": "Moda İlkokulu",
+        "en": "Moda İlkokulu",
+        "ja": "Moda İlkokulu"
+      },
+      "Molla Gürani": {
+        "zh-TW": "Molla Gürani",
+        "en": "Molla Gürani",
+        "ja": "Molla Gürani"
+      },
+      "Mustafa Kemal": {
+        "zh-TW": "Mustafa Kemal",
+        "en": "Mustafa Kemal",
+        "ja": "Mustafa Kemal"
+      },
+      "Mühürdar": {
+        "zh-TW": "Mühürdar",
+        "en": "Mühürdar",
+        "ja": "Mühürdar"
+      },
+      "Necip Fazıl": {
+        "zh-TW": "Necip Fazıl",
+        "en": "Necip Fazıl",
+        "ja": "Necip Fazıl"
+      },
+      "Nispetiye": {
+        "zh-TW": "Nispetiye",
+        "en": "Nispetiye",
+        "ja": "Nispetiye"
+      },
+      "Nurtepe": {
+        "zh-TW": "Nurtepe",
+        "en": "Nurtepe",
+        "ja": "Nurtepe"
+      },
+      "Odakule": {
+        "zh-TW": "Odakule",
+        "en": "Odakule",
+        "ja": "Odakule"
+      },
+      "Olimpiyat": {
+        "zh-TW": "Olimpiyat",
+        "en": "Olimpiyat",
+        "ja": "Olimpiyat"
+      },
+      "Olimpiyatköy": {
+        "zh-TW": "Olimpiyatköy",
+        "en": "Olimpiyatköy",
+        "ja": "Olimpiyatköy"
+      },
+      "Onurkent": {
+        "zh-TW": "Onurkent",
+        "en": "Onurkent",
+        "ja": "Onurkent"
+      },
+      "Oruç Reis": {
+        "zh-TW": "Oruç Reis",
+        "en": "Oruç Reis",
+        "ja": "Oruç Reis"
+      },
+      "Osmanbey": {
+        "zh-TW": "Osmanbey",
+        "en": "Osmanbey",
+        "ja": "Osmanbey"
+      },
+      "Osmangazi": {
+        "zh-TW": "Osmangazi",
+        "en": "Osmangazi",
+        "ja": "Osmangazi"
+      },
+      "Otogar": {
+        "zh-TW": "Otogar",
+        "en": "Otogar",
+        "ja": "Otogar"
+      },
+      "Parseller": {
+        "zh-TW": "Parseller",
+        "en": "Parseller",
+        "ja": "Parseller"
+      },
+      "Pazartekke": {
+        "zh-TW": "Pazartekke",
+        "en": "Pazartekke",
+        "ja": "Pazartekke"
+      },
+      "Pendik": {
+        "zh-TW": "Pendik",
+        "en": "Pendik",
+        "ja": "Pendik"
+      },
+      "Piyer Loti": {
+        "zh-TW": "Piyer Loti",
+        "en": "Piyer Loti",
+        "ja": "Piyer Loti"
+      },
+      "Rami": {
+        "zh-TW": "Rami",
+        "en": "Rami",
+        "ja": "Rami"
+      },
+      "Rızapaşa": {
+        "zh-TW": "Rızapaşa",
+        "en": "Rızapaşa",
+        "ja": "Rızapaşa"
+      },
+      "Sabiha Gökçen Havalimanı": {
+        "zh-TW": "Sabiha Gökçen Havalimanı",
+        "en": "Sabiha Gökçen Havalimanı",
+        "ja": "Sabiha Gökçen Havalimanı"
+      },
+      "Samandıra Merkez": {
+        "zh-TW": "Samandıra Merkez",
+        "en": "Samandıra Merkez",
+        "ja": "Samandıra Merkez"
+      },
+      "Sanayi Mahallesi": {
+        "zh-TW": "Sanayi Mahallesi",
+        "en": "Sanayi Mahallesi",
+        "ja": "Sanayi Mahallesi"
+      },
+      "Sancaktepe": {
+        "zh-TW": "Sancaktepe",
+        "en": "Sancaktepe",
+        "ja": "Sancaktepe"
+      },
+      "Sancaktepe Şehir Hastanesi": {
+        "zh-TW": "Sancaktepe Şehir Hastanesi",
+        "en": "Sancaktepe Şehir Hastanesi",
+        "ja": "Sancaktepe Şehir Hastanesi"
+      },
+      "Sarıgazi": {
+        "zh-TW": "Sarıgazi",
+        "en": "Sarıgazi",
+        "ja": "Sarıgazi"
+      },
+      "Sağmalcılar": {
+        "zh-TW": "Sağmalcılar",
+        "en": "Sağmalcılar",
+        "ja": "Sağmalcılar"
+      },
+      "Seyitnizam-Akşemsettin": {
+        "zh-TW": "Seyitnizam-Akşemsettin",
+        "en": "Seyitnizam-Akşemsettin",
+        "ja": "Seyitnizam-Akşemsettin"
+      },
+      "Seyrantepe": {
+        "zh-TW": "Seyrantepe",
+        "en": "Seyrantepe",
+        "ja": "Seyrantepe"
+      },
+      "Silahtarağa Mahallesi": {
+        "zh-TW": "Silahtarağa Mahallesi",
+        "en": "Silahtarağa Mahallesi",
+        "ja": "Silahtarağa Mahallesi"
+      },
+      "Sirkeci": {
+        "zh-TW": "Sirkeci",
+        "en": "Sirkeci",
+        "ja": "Sirkeci"
+      },
+      "Siteler": {
+        "zh-TW": "Siteler",
+        "en": "Siteler",
+        "ja": "Siteler"
+      },
+      "Soğanlı": {
+        "zh-TW": "Soğanlı",
+        "en": "Soğanlı",
+        "ja": "Soğanlı"
+      },
+      "Soğanlık": {
+        "zh-TW": "Soğanlık",
+        "en": "Soğanlık",
+        "ja": "Soğanlık"
+      },
+      "Suadiye": {
+        "zh-TW": "Suadiye",
+        "en": "Suadiye",
+        "ja": "Suadiye"
+      },
+      "Sultanahmet": {
+        "zh-TW": "Sultanahmet",
+        "en": "Sultanahmet",
+        "ja": "Sultanahmet"
+      },
+      "Sultanbeyli": {
+        "zh-TW": "Sultanbeyli",
+        "en": "Sultanbeyli",
+        "ja": "Sultanbeyli"
+      },
+      "Sultançiftliği": {
+        "zh-TW": "Sultançiftliği",
+        "en": "Sultançiftliği",
+        "ja": "Sultançiftliği"
+      },
+      "Söğütlüçeşme": {
+        "zh-TW": "Söğütlüçeşme",
+        "en": "Söğütlüçeşme",
+        "ja": "Söğütlüçeşme"
+      },
+      "Sürayya Plajı": {
+        "zh-TW": "Sürayya Plajı",
+        "en": "Sürayya Plajı",
+        "ja": "Sürayya Plajı"
+      },
+      "Taksim": {
+        "zh-TW": "Taksim",
+        "en": "Taksim",
+        "ja": "Taksim"
+      },
+      "Taksim Meydan": {
+        "zh-TW": "Taksim Meydan",
+        "en": "Taksim Meydan",
+        "ja": "Taksim Meydan"
+      },
+      "Tavşantepe": {
+        "zh-TW": "Tavşantepe",
+        "en": "Tavşantepe",
+        "ja": "Tavşantepe"
+      },
+      "Taşköprü": {
+        "zh-TW": "Taşköprü",
+        "en": "Taşköprü",
+        "ja": "Taşköprü"
+      },
+      "Taşkışla": {
+        "zh-TW": "Taşkışla",
+        "en": "Taşkışla",
+        "ja": "Taşkışla"
+      },
+      "Taşoluk": {
+        "zh-TW": "Taşoluk",
+        "en": "Taşoluk",
+        "ja": "Taşoluk"
+      },
+      "Terazidere": {
+        "zh-TW": "Terazidere",
+        "en": "Terazidere",
+        "ja": "Terazidere"
+      },
+      "Tersane": {
+        "zh-TW": "Tersane",
+        "en": "Tersane",
+        "ja": "Tersane"
+      },
+      "Tophane": {
+        "zh-TW": "Tophane",
+        "en": "Tophane",
+        "ja": "Tophane"
+      },
+      "Topkapı": {
+        "zh-TW": "Topkapı",
+        "en": "Topkapı",
+        "ja": "Topkapı"
+      },
+      "Topkapı-Ulubatlı": {
+        "zh-TW": "Topkapı-Ulubatlı",
+        "en": "Topkapı-Ulubatlı",
+        "ja": "Topkapı-Ulubatlı"
+      },
+      "Toplu Konutlar": {
+        "zh-TW": "Toplu Konutlar",
+        "en": "Toplu Konutlar",
+        "ja": "Toplu Konutlar"
+      },
+      "Topçular": {
+        "zh-TW": "Topçular",
+        "en": "Topçular",
+        "ja": "Topçular"
+      },
+      "Turgut Özal": {
+        "zh-TW": "Turgut Özal",
+        "en": "Turgut Özal",
+        "ja": "Turgut Özal"
+      },
+      "Tuzla": {
+        "zh-TW": "Tuzla",
+        "en": "Tuzla",
+        "ja": "Tuzla"
+      },
+      "Uluyol Bereç": {
+        "zh-TW": "Uluyol Bereç",
+        "en": "Uluyol Bereç",
+        "ja": "Uluyol Bereç"
+      },
+      "Vadistanbul": {
+        "zh-TW": "Vadistanbul",
+        "en": "Vadistanbul",
+        "ja": "Vadistanbul"
+      },
+      "Vatan": {
+        "zh-TW": "Vatan",
+        "en": "Vatan",
+        "ja": "Vatan"
+      },
+      "Veysel Karani": {
+        "zh-TW": "Veysel Karani",
+        "en": "Veysel Karani",
+        "ja": "Veysel Karani"
+      },
+      "Veysel Karani-Akşemsettin": {
+        "zh-TW": "Veysel Karani-Akşemsettin",
+        "en": "Veysel Karani-Akşemsettin",
+        "ja": "Veysel Karani-Akşemsettin"
+      },
+      "Vezneciler-İstanbul Ü.": {
+        "zh-TW": "Vezneciler-İstanbul Ü.",
+        "en": "Vezneciler-İstanbul Ü.",
+        "ja": "Vezneciler-İstanbul Ü."
+      },
+      "Yakacık-Adnan Kahveci": {
+        "zh-TW": "Yakacık-Adnan Kahveci",
+        "en": "Yakacık-Adnan Kahveci",
+        "ja": "Yakacık-Adnan Kahveci"
+      },
+      "Yamanevler": {
+        "zh-TW": "Yamanevler",
+        "en": "Yamanevler",
+        "ja": "Yamanevler"
+      },
+      "Yavuzselim": {
+        "zh-TW": "Yavuzselim",
+        "en": "Yavuzselim",
+        "ja": "Yavuzselim"
+      },
+      "Yayalar-Şeyhli": {
+        "zh-TW": "Yayalar-Şeyhli",
+        "en": "Yayalar-Şeyhli",
+        "ja": "Yayalar-Şeyhli"
+      },
+      "Yedikule": {
+        "zh-TW": "Yedikule",
+        "en": "Yedikule",
+        "ja": "Yedikule"
+      },
+      "Yenibosna": {
+        "zh-TW": "Yenibosna",
+        "en": "Yenibosna",
+        "ja": "Yenibosna"
+      },
+      "Yenikapı": {
+        "zh-TW": "Yenikapı",
+        "en": "Yenikapı",
+        "ja": "Yenikapı"
+      },
+      "Yenimahalle": {
+        "zh-TW": "Yenimahalle",
+        "en": "Yenimahalle",
+        "ja": "Yenimahalle"
+      },
+      "Yenisahra": {
+        "zh-TW": "Yenisahra",
+        "en": "Yenisahra",
+        "ja": "Yenisahra"
+      },
+      "Yeşilköy": {
+        "zh-TW": "Yeşilköy",
+        "en": "Yeşilköy",
+        "ja": "Yeşilköy"
+      },
+      "Yeşilpınar": {
+        "zh-TW": "Yeşilpınar",
+        "en": "Yeşilpınar",
+        "ja": "Yeşilpınar"
+      },
+      "Yeşilyurt": {
+        "zh-TW": "Yeşilyurt",
+        "en": "Yeşilyurt",
+        "ja": "Yeşilyurt"
+      },
+      "Yunus": {
+        "zh-TW": "Yunus",
+        "en": "Yunus",
+        "ja": "Yunus"
+      },
+      "Yusufpaşa": {
+        "zh-TW": "Yusufpaşa",
+        "en": "Yusufpaşa",
+        "ja": "Yusufpaşa"
+      },
+      "Yıldız": {
+        "zh-TW": "Yıldız",
+        "en": "Yıldız",
+        "ja": "Yıldız"
+      },
+      "Yıldıztepe": {
+        "zh-TW": "Yıldıztepe",
+        "en": "Yıldıztepe",
+        "ja": "Yıldıztepe"
+      },
+      "Zeytinburnu": {
+        "zh-TW": "Zeytinburnu",
+        "en": "Zeytinburnu",
+        "ja": "Zeytinburnu"
+      },
+      "Ziya Gökalp Mahallesi": {
+        "zh-TW": "Ziya Gökalp Mahallesi",
+        "en": "Ziya Gökalp Mahallesi",
+        "ja": "Ziya Gökalp Mahallesi"
+      },
+      "Çakmak": {
+        "zh-TW": "Çakmak",
+        "en": "Çakmak",
+        "ja": "Çakmak"
+      },
+      "Çapa-Şehremini": {
+        "zh-TW": "Çapa-Şehremini",
+        "en": "Çapa-Şehremini",
+        "ja": "Çapa-Şehremini"
+      },
+      "Çarşı": {
+        "zh-TW": "Çarşı",
+        "en": "Çarşı",
+        "ja": "Çarşı"
+      },
+      "Çayırova": {
+        "zh-TW": "Çayırova",
+        "en": "Çayırova",
+        "ja": "Çayırova"
+      },
+      "Çağlayan": {
+        "zh-TW": "Çağlayan",
+        "en": "Çağlayan",
+        "ja": "Çağlayan"
+      },
+      "Çekmeköy": {
+        "zh-TW": "Çekmeköy",
+        "en": "Çekmeköy",
+        "ja": "Çekmeköy"
+      },
+      "Çemberlitaş": {
+        "zh-TW": "Çemberlitaş",
+        "en": "Çemberlitaş",
+        "ja": "Çemberlitaş"
+      },
+      "Çobançeşme": {
+        "zh-TW": "Çobançeşme",
+        "en": "Çobançeşme",
+        "ja": "Çobançeşme"
+      },
+      "Çırçır Mahallesi": {
+        "zh-TW": "Çırçır Mahallesi",
+        "en": "Çırçır Mahallesi",
+        "ja": "Çırçır Mahallesi"
+      },
+      "Özgürlük Meydanı": {
+        "zh-TW": "Özgürlük Meydanı",
+        "en": "Özgürlük Meydanı",
+        "ja": "Özgürlük Meydanı"
+      },
+      "Ümraniye": {
+        "zh-TW": "Ümraniye",
+        "en": "Ümraniye",
+        "ja": "Ümraniye"
+      },
+      "Ünalan": {
+        "zh-TW": "Ünalan",
+        "en": "Ünalan",
+        "ja": "Ünalan"
+      },
+      "Üniversite": {
+        "zh-TW": "Üniversite",
+        "en": "Üniversite",
+        "ja": "Üniversite"
+      },
+      "Üniversite-Hasdal": {
+        "zh-TW": "Üniversite-Hasdal",
+        "en": "Üniversite-Hasdal",
+        "ja": "Üniversite-Hasdal"
+      },
+      "Üsküdar": {
+        "zh-TW": "Üsküdar",
+        "en": "Üsküdar",
+        "ja": "Üsküdar"
+      },
+      "Üçyüzlü": {
+        "zh-TW": "Üçyüzlü",
+        "en": "Üçyüzlü",
+        "ja": "Üçyüzlü"
+      },
+      "İMES": {
+        "zh-TW": "İMES",
+        "en": "İMES",
+        "ja": "İMES"
+      },
+      "İSTOÇ": {
+        "zh-TW": "İSTOÇ",
+        "en": "İSTOÇ",
+        "ja": "İSTOÇ"
+      },
+      "İTÜ-Ayazağa": {
+        "zh-TW": "İTÜ-Ayazağa",
+        "en": "İTÜ-Ayazağa",
+        "ja": "İTÜ-Ayazağa"
+      },
+      "İbn Haldun Üniversitesi": {
+        "zh-TW": "İbn Haldun Üniversitesi",
+        "en": "İbn Haldun Üniversitesi",
+        "ja": "İbn Haldun Üniversitesi"
+      },
+      "İdealtepe": {
+        "zh-TW": "İdealtepe",
+        "en": "İdealtepe",
+        "ja": "İdealtepe"
+      },
+      "İhsaniye": {
+        "zh-TW": "İhsaniye",
+        "en": "İhsaniye",
+        "ja": "İhsaniye"
+      },
+      "İkitelli Sanayi": {
+        "zh-TW": "İkitelli Sanayi",
+        "en": "İkitelli Sanayi",
+        "ja": "İkitelli Sanayi"
+      },
+      "İlkyuva": {
+        "zh-TW": "İlkyuva",
+        "en": "İlkyuva",
+        "ja": "İlkyuva"
+      },
+      "İmam Hatip Lisesi": {
+        "zh-TW": "İmam Hatip Lisesi",
+        "en": "İmam Hatip Lisesi",
+        "ja": "İmam Hatip Lisesi"
+      },
+      "İncirli": {
+        "zh-TW": "İncirli",
+        "en": "İncirli",
+        "ja": "İncirli"
+      },
+      "İskele Camii": {
+        "zh-TW": "İskele Camii",
+        "en": "İskele Camii",
+        "ja": "İskele Camii"
+      },
+      "İstanbul Havalimanı": {
+        "zh-TW": "İstanbul Havalimanı",
+        "en": "İstanbul Havalimanı",
+        "ja": "İstanbul Havalimanı"
+      },
+      "İçerenköy": {
+        "zh-TW": "İçerenköy",
+        "en": "İçerenköy",
+        "ja": "İçerenköy"
+      },
+      "İçmeler": {
+        "zh-TW": "İçmeler",
+        "en": "İçmeler",
+        "ja": "İçmeler"
+      },
+      "Şehir Hastanesi": {
+        "zh-TW": "Şehir Hastanesi",
+        "en": "Şehir Hastanesi",
+        "ja": "Şehir Hastanesi"
+      },
+      "Şehitlik": {
+        "zh-TW": "Şehitlik",
+        "en": "Şehitlik",
+        "ja": "Şehitlik"
+      },
+      "Şişhane": {
+        "zh-TW": "Şişhane",
+        "en": "Şişhane",
+        "ja": "Şişhane"
+      },
+      "Şişli-Mecidiyeköy": {
+        "zh-TW": "Şişli-Mecidiyeköy",
+        "en": "Şişli-Mecidiyeköy",
+        "ja": "Şişli-Mecidiyeköy"
+      }
     }
   },
   "routes": {
@@ -9386,6 +10773,138 @@
         "en": "London Overground · Windrush line · Highbury & Islington–West Croydon",
         "ja": "ロンドン・オーバーグラウンド・Windrush線・Highbury & Islington–West Croydon"
       }
+    },
+    "istanbul_sched": {
+      "M1A · Yenikapı–Atatürk Havalimanı": {
+        "zh-TW": "M1A 地鐵・Yenikapı–Atatürk Havalimanı",
+        "en": "M1A metro · Yenikapı–Atatürk Havalimanı",
+        "ja": "M1A 地下鉄・Yenikapı–Atatürk Havalimanı"
+      },
+      "M1B · Yenikapı–Kirazlı-Bağcılar": {
+        "zh-TW": "M1B 地鐵・Yenikapı–Kirazlı-Bağcılar",
+        "en": "M1B metro · Yenikapı–Kirazlı-Bağcılar",
+        "ja": "M1B 地下鉄・Yenikapı–Kirazlı-Bağcılar"
+      },
+      "M2 · Yenikapı–Hacıosman": {
+        "zh-TW": "M2 地鐵・Yenikapı–Hacıosman",
+        "en": "M2 metro · Yenikapı–Hacıosman",
+        "ja": "M2 地下鉄・Yenikapı–Hacıosman"
+      },
+      "M2A · Sanayi Mahallesi–Seyrantepe": {
+        "zh-TW": "M2A 地鐵・Sanayi Mahallesi–Seyrantepe",
+        "en": "M2A metro · Sanayi Mahallesi–Seyrantepe",
+        "ja": "M2A 地下鉄・Sanayi Mahallesi–Seyrantepe"
+      },
+      "M3 · Bakırköy Sahil–Kayaşehir Merkez": {
+        "zh-TW": "M3 地鐵・Bakırköy Sahil–Kayaşehir Merkez",
+        "en": "M3 metro · Bakırköy Sahil–Kayaşehir Merkez",
+        "ja": "M3 地下鉄・Bakırköy Sahil–Kayaşehir Merkez"
+      },
+      "M4 · Kadıköy–Sabiha Gökçen Havalimanı": {
+        "zh-TW": "M4 地鐵・Kadıköy–Sabiha Gökçen Havalimanı",
+        "en": "M4 metro · Kadıköy–Sabiha Gökçen Havalimanı",
+        "ja": "M4 地下鉄・Kadıköy–Sabiha Gökçen Havalimanı"
+      },
+      "M5 · Üsküdar–Sultanbeyli": {
+        "zh-TW": "M5 地鐵・Üsküdar–Sultanbeyli",
+        "en": "M5 metro · Üsküdar–Sultanbeyli",
+        "ja": "M5 地下鉄・Üsküdar–Sultanbeyli"
+      },
+      "M6 · Levent–Boğaziçi Ü.-Hisarüstü": {
+        "zh-TW": "M6 地鐵・Levent–Boğaziçi Ü.-Hisarüstü",
+        "en": "M6 metro · Levent–Boğaziçi Ü.-Hisarüstü",
+        "ja": "M6 地下鉄・Levent–Boğaziçi Ü.-Hisarüstü"
+      },
+      "M7 · Yıldız–Mahmutbey": {
+        "zh-TW": "M7 地鐵・Yıldız–Mahmutbey",
+        "en": "M7 metro · Yıldız–Mahmutbey",
+        "ja": "M7 地下鉄・Yıldız–Mahmutbey"
+      },
+      "M8 · Bostancı–Parseller": {
+        "zh-TW": "M8 地鐵・Bostancı–Parseller",
+        "en": "M8 metro · Bostancı–Parseller",
+        "ja": "M8 地下鉄・Bostancı–Parseller"
+      },
+      "M9 · Ataköy–Olimpiyat": {
+        "zh-TW": "M9 地鐵・Ataköy–Olimpiyat",
+        "en": "M9 metro · Ataköy–Olimpiyat",
+        "ja": "M9 地下鉄・Ataköy–Olimpiyat"
+      },
+      "M11 · Gayrettepe–Halkalı": {
+        "zh-TW": "M11 地鐵・Gayrettepe–Halkalı",
+        "en": "M11 metro · Gayrettepe–Halkalı",
+        "ja": "M11 地下鉄・Gayrettepe–Halkalı"
+      },
+      "T1 · Kabataş–Bağcılar": {
+        "zh-TW": "T1 電車・Kabataş–Bağcılar",
+        "en": "T1 tram · Kabataş–Bağcılar",
+        "ja": "T1 トラム・Kabataş–Bağcılar"
+      },
+      "T2 · Taksim Meydan–Beyoğlu Tünel": {
+        "zh-TW": "T2 電車・Taksim Meydan–Beyoğlu Tünel",
+        "en": "T2 tram · Taksim Meydan–Beyoğlu Tünel",
+        "ja": "T2 トラム・Taksim Meydan–Beyoğlu Tünel"
+      },
+      "T3 · Kadıköy İDO–Kadıköy İDO": {
+        "zh-TW": "T3 電車・Kadıköy İDO–Kadıköy İDO",
+        "en": "T3 tram · Kadıköy İDO–Kadıköy İDO",
+        "ja": "T3 トラム・Kadıköy İDO–Kadıköy İDO"
+      },
+      "T4 · Topkapı–Mescid-i Selam": {
+        "zh-TW": "T4 電車・Topkapı–Mescid-i Selam",
+        "en": "T4 tram · Topkapı–Mescid-i Selam",
+        "ja": "T4 トラム・Topkapı–Mescid-i Selam"
+      },
+      "T5 · Eminönü–Alibeyköy Cep Otogarı": {
+        "zh-TW": "T5 電車・Eminönü–Alibeyköy Cep Otogarı",
+        "en": "T5 tram · Eminönü–Alibeyköy Cep Otogarı",
+        "ja": "T5 トラム・Eminönü–Alibeyköy Cep Otogarı"
+      },
+      "T6 · Sirkeci–Kazlıçeşme": {
+        "zh-TW": "T6 電車・Sirkeci–Kazlıçeşme",
+        "en": "T6 tram · Sirkeci–Kazlıçeşme",
+        "ja": "T6 トラム・Sirkeci–Kazlıçeşme"
+      },
+      "F1 · Taksim–Kabataş": {
+        "zh-TW": "F1 纜索鐵路・Taksim–Kabataş",
+        "en": "F1 funicular · Taksim–Kabataş",
+        "ja": "F1 ケーブルカー・Taksim–Kabataş"
+      },
+      "F2 · Karaköy–Beyoğlu": {
+        "zh-TW": "F2 纜索鐵路・Karaköy–Beyoğlu",
+        "en": "F2 funicular · Karaköy–Beyoğlu",
+        "ja": "F2 ケーブルカー・Karaköy–Beyoğlu"
+      },
+      "F3 · Seyrantepe–Vadistanbul": {
+        "zh-TW": "F3 纜索鐵路・Seyrantepe–Vadistanbul",
+        "en": "F3 funicular · Seyrantepe–Vadistanbul",
+        "ja": "F3 ケーブルカー・Seyrantepe–Vadistanbul"
+      },
+      "F4 · Boğaziçi Ü./Hisarüstü–Aşiyan": {
+        "zh-TW": "F4 纜索鐵路・Boğaziçi Ü./Hisarüstü–Aşiyan",
+        "en": "F4 funicular · Boğaziçi Ü./Hisarüstü–Aşiyan",
+        "ja": "F4 ケーブルカー・Boğaziçi Ü./Hisarüstü–Aşiyan"
+      },
+      "TF1 · Maçka–Taşkışla": {
+        "zh-TW": "TF1 纜車・Maçka–Taşkışla",
+        "en": "TF1 aerial cable car · Maçka–Taşkışla",
+        "ja": "TF1 ロープウェイ・Maçka–Taşkışla"
+      },
+      "TF2 · Eyüp–Piyer Loti": {
+        "zh-TW": "TF2 纜車・Eyüp–Piyer Loti",
+        "en": "TF2 aerial cable car · Eyüp–Piyer Loti",
+        "ja": "TF2 ロープウェイ・Eyüp–Piyer Loti"
+      },
+      "Marmaray · Halkalı–Gebze": {
+        "zh-TW": "Marmaray 通勤鐵路・Halkalı–Gebze",
+        "en": "Marmaray commuter rail · Halkalı–Gebze",
+        "ja": "Marmaray近郊鉄道・Halkalı–Gebze"
+      },
+      "B2 · Halkalı–Bahçeşehir": {
+        "zh-TW": "Halkalı–Bahçeşehir 通勤鐵路・Halkalı–Bahçeşehir",
+        "en": "Halkalı–Bahçeşehir commuter rail · Halkalı–Bahçeşehir",
+        "ja": "Halkalı–Bahçeşehir近郊鉄道・Halkalı–Bahçeşehir"
+      }
     }
   },
   "trainTypes": {
@@ -9640,6 +11159,136 @@
       "zh-TW": "London Overground・Windrush 線",
       "en": "London Overground · Windrush line",
       "ja": "ロンドン・オーバーグラウンド・Windrush線"
+    },
+    "M1A 地鐵": {
+      "zh-TW": "M1A 地鐵",
+      "en": "M1A metro",
+      "ja": "M1A 地下鉄"
+    },
+    "M1B 地鐵": {
+      "zh-TW": "M1B 地鐵",
+      "en": "M1B metro",
+      "ja": "M1B 地下鉄"
+    },
+    "M2 地鐵": {
+      "zh-TW": "M2 地鐵",
+      "en": "M2 metro",
+      "ja": "M2 地下鉄"
+    },
+    "M2A 地鐵": {
+      "zh-TW": "M2A 地鐵",
+      "en": "M2A metro",
+      "ja": "M2A 地下鉄"
+    },
+    "M3 地鐵": {
+      "zh-TW": "M3 地鐵",
+      "en": "M3 metro",
+      "ja": "M3 地下鉄"
+    },
+    "M4 地鐵": {
+      "zh-TW": "M4 地鐵",
+      "en": "M4 metro",
+      "ja": "M4 地下鉄"
+    },
+    "M5 地鐵": {
+      "zh-TW": "M5 地鐵",
+      "en": "M5 metro",
+      "ja": "M5 地下鉄"
+    },
+    "M6 地鐵": {
+      "zh-TW": "M6 地鐵",
+      "en": "M6 metro",
+      "ja": "M6 地下鉄"
+    },
+    "M7 地鐵": {
+      "zh-TW": "M7 地鐵",
+      "en": "M7 metro",
+      "ja": "M7 地下鉄"
+    },
+    "M8 地鐵": {
+      "zh-TW": "M8 地鐵",
+      "en": "M8 metro",
+      "ja": "M8 地下鉄"
+    },
+    "M9 地鐵": {
+      "zh-TW": "M9 地鐵",
+      "en": "M9 metro",
+      "ja": "M9 地下鉄"
+    },
+    "M11 地鐵": {
+      "zh-TW": "M11 地鐵",
+      "en": "M11 metro",
+      "ja": "M11 地下鉄"
+    },
+    "T1 電車": {
+      "zh-TW": "T1 電車",
+      "en": "T1 tram",
+      "ja": "T1 トラム"
+    },
+    "T2 電車": {
+      "zh-TW": "T2 電車",
+      "en": "T2 tram",
+      "ja": "T2 トラム"
+    },
+    "T3 電車": {
+      "zh-TW": "T3 電車",
+      "en": "T3 tram",
+      "ja": "T3 トラム"
+    },
+    "T4 電車": {
+      "zh-TW": "T4 電車",
+      "en": "T4 tram",
+      "ja": "T4 トラム"
+    },
+    "T5 電車": {
+      "zh-TW": "T5 電車",
+      "en": "T5 tram",
+      "ja": "T5 トラム"
+    },
+    "T6 電車": {
+      "zh-TW": "T6 電車",
+      "en": "T6 tram",
+      "ja": "T6 トラム"
+    },
+    "F1 纜索鐵路": {
+      "zh-TW": "F1 纜索鐵路",
+      "en": "F1 funicular",
+      "ja": "F1 ケーブルカー"
+    },
+    "F2 纜索鐵路": {
+      "zh-TW": "F2 纜索鐵路",
+      "en": "F2 funicular",
+      "ja": "F2 ケーブルカー"
+    },
+    "F3 纜索鐵路": {
+      "zh-TW": "F3 纜索鐵路",
+      "en": "F3 funicular",
+      "ja": "F3 ケーブルカー"
+    },
+    "F4 纜索鐵路": {
+      "zh-TW": "F4 纜索鐵路",
+      "en": "F4 funicular",
+      "ja": "F4 ケーブルカー"
+    },
+    "TF1 纜車": {
+      "zh-TW": "TF1 纜車",
+      "en": "TF1 aerial cable car",
+      "ja": "TF1 ロープウェイ"
+    },
+    "TF2 纜車": {
+      "zh-TW": "TF2 纜車",
+      "en": "TF2 aerial cable car",
+      "ja": "TF2 ロープウェイ"
+    },
+    "Marmaray 通勤鐵路": {
+      "zh-TW": "Marmaray 通勤鐵路",
+      "en": "Marmaray commuter rail",
+      "ja": "Marmaray近郊鉄道"
+    },
+    "Halkalı–Bahçeşehir 通勤鐵路": {
+      "zh-TW": "Halkalı–Bahçeşehir 通勤鐵路",
+      "en": "Halkalı–Bahçeşehir commuter rail",
+      "ja": "Halkalı–Bahçeşehir近郊鉄道"
     }
   }
 }

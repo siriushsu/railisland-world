@@ -1,256 +1,255 @@
 #!/usr/bin/env node
-// 伊斯坦堡 İBB 全市 GTFS 前置展開器──城市專用一次性腳本(cp1254 轉碼 + frequencies.csv 班距展開成逐車
-// stop_times),輸出標準 GTFS .txt 目錄,供 tools/gtfs2rail.mjs(不支援 frequencies.txt、不做編碼轉換、
-// 假設檔名為 .txt)原封不動消化。gtfs2rail.mjs 本身不修改,其他城市重跑結果不受影響。
+// 以 Metro İstanbul 現行各線頁與 OSM route relations 重建伊斯坦堡首發路網。
 //
-// 動機:İBB 原始匯出的 .csv 是 Windows-1254(cp1254)編碼,且班次多以 frequencies.csv 的班距(headway)
-// 表達(exact_times=0),而非逐車 stop_times;gtfs2rail.mjs 只認標準逐車 stop_times.txt。此腳本把兩者
-// 併為「已展開的標準 GTFS」,對 gtfs2rail.mjs 零侵入。
+// 路線／站序真相：
+//   - Metro İstanbul 官方各線頁：M1A–M9、T1/T3/T4/T5、F1/F4、TF1/TF2
+//   - UAB/TCDD/IETT：M11、T2、T6、F2/F3、Marmaray、B2
+// 幾何：OpenStreetMap route relations（© OpenStreetMap contributors，ODbL）。
 //
-// 只保留軌道路線(route_type∈{0,1,6,7}:電車 Tram/地鐵-Marmaray Metro-Rail/纜車 Cable car/纜索 Funicular),
-// 排除公車(3)、渡輪(4)、小巴(9)、計程共乘(10)──此為 İBB feed 的路線類型慣例,非 GTFS 標準列舉值,
-// 已用實際資料核對(route_short_name/agency 對照)。
+// 下載官方頁與 Overpass `rel(...);out geom;` 結果後執行：
+//   node tools/build_istanbul.mjs --official-dir /private/tmp/istanbul-official --osm-dir /private/tmp
 //
-// calendar.txt 效期延展:原始快照多數 service end_date 止於 2024-12-31(feed 為停止更新的舊快照)。
-// 本站以「代表性星期三班表」呈現各城市而非即時時刻,故僅將 end_date 技術性延展至 2026-12-31 以命中
-// --date 20260715,不改動 start_date 與星期位元(服務所屬星期幾不變、班距/班次型態不變)。
-//
-// 用法:node tools/build_istanbul.mjs [srcDir] [outDir]
-//   接續:node tools/gtfs2rail.mjs --gtfs <outDir> --sys 伊斯坦堡軌道 --tz Europe/Istanbul \
-//     --route-types 0,1,6,7 --out-prefix data/istanbul --date 20260715 --typename-mode route
-
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+// 這支腳本只重建 data/istanbul.json；示意班距由 tools/headway2sched.mjs 生成。
+import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
-const SCRATCH = '/private/tmp/claude-501/-Users-xuxiang-Code------/2cbdb064-06d3-4c63-90ae-6b17706bf3bc/scratchpad';
-const SRC_DIR = process.argv[2] || path.join(SCRATCH, 'istanbul/gtfs_ibb');
-const OUT_DIR = process.argv[3] || path.join(SCRATCH, 'istanbul/gtfs_norm');
-mkdirSync(OUT_DIR, { recursive: true });
-
-// ── cp1254 CSV 讀寫(全文字元機掃描,quote-aware,支援欄位內嵌逗號/換行,RFC4180 子集) ──
-function parseCSV(text) {
-  const rows = [];
-  let row = [], field = '', inQ = false;
-  for (let i = 0; i < text.length; i++) {
-    const c = text[i];
-    if (inQ) {
-      if (c === '"') { if (text[i + 1] === '"') { field += '"'; i++; } else inQ = false; }
-      else field += c;
-      continue;
-    }
-    if (c === '"') { inQ = true; continue; }
-    if (c === ',') { row.push(field); field = ''; continue; }
-    if (c === '\r') continue;
-    if (c === '\n') { row.push(field); rows.push(row); row = []; field = ''; continue; }
-    field += c;
-  }
-  if (field.length || row.length) { row.push(field); rows.push(row); }
-  return rows;
-}
-function rowsToObjects(rows, fileLabel) {
-  const header = rows[0];
-  const out = [];
-  let malformed = 0;
-  for (let i = 1; i < rows.length; i++) {
-    const r = rows[i];
-    if (r.length === 1 && r[0] === '') continue;
-    // 少數來源列整行被誤包成單一引號欄位(如 routes.csv route_id=7431 該列),欄位數對不上表頭;
-    // 直接跳過,避免其餘欄位以 ''(空字串)頂替時被 Number('')===0 誤判成合法列舉值(如 route_type)。
-    if (r.length !== header.length) { malformed++; continue; }
-    const obj = {};
-    for (let j = 0; j < header.length; j++) obj[header[j]] = r[j] ?? '';
-    out.push(obj);
-  }
-  if (malformed) console.warn(`  ${fileLabel}: 跳過 ${malformed} 筆欄位數不符表頭的異常列`);
-  return out;
-}
-function readCSV(name) {
-  const buf = readFileSync(path.join(SRC_DIR, name));
-  const text = new TextDecoder('windows-1254').decode(buf);
-  return rowsToObjects(parseCSV(text), name);
-}
-function csvEscape(v) {
-  v = v == null ? '' : String(v);
-  if (/[",\n\r]/.test(v)) return '"' + v.replace(/"/g, '""') + '"';
-  return v;
-}
-function writeCSV(name, header, rows) {
-  const lines = [header.join(',')];
-  for (const r of rows) lines.push(header.map(h => csvEscape(r[h])).join(','));
-  writeFileSync(path.join(OUT_DIR, name), lines.join('\r\n') + '\r\n', 'utf8');
-}
-const hmsToSec = t => {
-  const p = t.split(':').map(Number);
-  return p[0] * 3600 + p[1] * 60 + (p[2] || 0);
+const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
+const OUT = path.join(ROOT, 'data', 'istanbul.json');
+const OLD = JSON.parse(fs.readFileSync(OUT, 'utf8'));
+const argv = process.argv.slice(2);
+const arg = (name, fallback) => {
+  const i = argv.indexOf(name);
+  return i >= 0 && argv[i + 1] ? argv[i + 1] : fallback;
 };
-const secToHms = s => {
-  s = Math.round(s);
-  const hh = Math.floor(s / 3600), mm = Math.floor((s % 3600) / 60), ss = s % 60;
-  return `${String(hh).padStart(2, '0')}:${String(mm).padStart(2, '0')}:${String(ss).padStart(2, '0')}`;
-};
+const OFFICIAL_DIR = arg('--official-dir', '/private/tmp/istanbul-official');
+const OSM_DIR = arg('--osm-dir', '/private/tmp');
 
-// ══════════════════════════════════════════════════════════════════
-// 1) routes.txt:只留軌道 route_type,補官方線色(Wikipedia Module:Adjacent_stations/Istanbul_Metro
-//    與 en.wikipedia.org/wiki/Marmaray 之 rail line 樣板色,curl 直接讀取原始 wikitext 核對;
-//    TF1/TF2 纜車查無官方色票,以區辨色暫代,已於 source_notes 註明)
-// ══════════════════════════════════════════════════════════════════
-const RAIL_TYPES = new Set([0, 1, 6, 7]);
-const COLOR_MAP = { // route_short_name -> hex(不含#)
-  M1A: 'EE2229', M1B: 'EE2229', M2: '059A4D', M2A: '059A4D', M3: '0CA6DF', M3A: '0CA6DF',
-  M4: 'E81E77', M5: '683166', M6: 'C9AA79', M7: 'F490B3', M8: '487ABF', M9: 'FCD10D',
-  Marmaray: '5A5F5C', Marmaray1: '5A5F5C', Marmaray2: '5A5F5C',
-  T1: '004b86', T3: '99562f', T4: 'ff7e42',
-  F1: '7A745A', F2: '7A745A', F3: '7A745A',
-  TF1: '3AA6A0', TF2: '3AA6A0', // 無官方色票,區辨色暫代
-};
-const routesAll = readCSV('routes.csv');
-const railRoutes = routesAll.filter(r => RAIL_TYPES.has(Number(r.route_type)));
-for (const r of railRoutes) {
-  const c = COLOR_MAP[r.route_short_name];
-  if (c) r.route_color = c;
+const OFFICIAL_IDS = ['M1A','M1B','M2','M3','M4','M5','M6','M7','M8','M9','T1','T3','T4','T5','F1','F4','TF1','TF2'];
+const official = new Map();
+for (const id of OFFICIAL_IDS) {
+  const html = fs.readFileSync(path.join(OFFICIAL_DIR, `${id}.html`), 'utf8');
+  const stationsMatch = html.match(/<h4 class="text-primary">Stations<\/h4>\s*([^<\r\n][\s\S]*?)\s*<input id="colorRGB"/);
+  const colorMatch = html.match(/<input id="colorRGB"[^>]*value="([0-9]+),([0-9]+),([0-9]+)"/);
+  if (!stationsMatch || !colorMatch) throw new Error(`${id}: cannot parse official station list/color`);
+  const stations = stationsMatch[1].replace(/<[^>]+>/g, ' ').replace(/&[^;]+;/g, ' ').replace(/\s+/g, ' ').trim()
+    .split(',').map((x) => x.trim()).filter(Boolean);
+  const color = '#' + colorMatch.slice(1).map((x) => Number(x).toString(16).padStart(2, '0')).join('').toUpperCase();
+  official.set(id, { stations, color });
 }
-console.log(`routes: 軌道路線 ${railRoutes.length} 條(route_type∈{0,1,6,7})`);
-const railRouteIds = new Set(railRoutes.map(r => r.route_id));
-writeCSV('routes.txt', ['route_id', 'agency_id', 'route_short_name', 'route_long_name', 'route_desc', 'route_type', 'route_url', 'route_color', 'route_text_color'], railRoutes);
 
-// ── agency.txt:passthrough(僅轉碼) ──
-const agencyAll = readCSV('agency.csv');
-writeCSV('agency.txt', ['agency_id', 'agency_name', 'agency_url', 'agency_timezone', 'agency_lang', 'agency_phone', 'agency_fare_url', 'agency_email'], agencyAll);
-
-// ══════════════════════════════════════════════════════════════════
-// 2) calendar.txt:end_date < 20260715 者延展至 20261231(星期位元/start_date 不變)
-// ══════════════════════════════════════════════════════════════════
-const calendarAll = readCSV('calendar.csv');
-let extended = 0;
-for (const c of calendarAll) {
-  if (c.end_date < '20260715') { c.end_date = '20261231'; extended++; }
+const relationFiles = fs.readdirSync(OSM_DIR)
+  .filter((name) => /^istanbul-geom-(?:a|b2|c|d|e|2396287|11344904|7719781)\.json$/.test(name));
+const relations = new Map();
+for (const name of relationFiles) {
+  const doc = JSON.parse(fs.readFileSync(path.join(OSM_DIR, name), 'utf8'));
+  for (const rel of doc.elements || []) if (rel.type === 'relation') relations.set(rel.id, rel);
 }
-console.log(`calendar: ${calendarAll.length} 筆服務日曆,延展 end_date ${extended} 筆(原始快照效期止於 2024 年)`);
-writeCSV('calendar.txt', ['service_id', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'start_date', 'end_date'], calendarAll);
-writeCSV('calendar_dates.txt', ['service_id', 'date', 'exception_type'], []); // 原始 feed 無此檔,補空表頭避免 gtfs2rail.mjs 開檔失敗
+const needRelations = [
+  305496,4289712,11341406,7719796,4289797,2396287,11344904,7719781,
+  15085833,11799409,14900216,4289800,15083964,2962729,301617,2409338,
+  11344897,12174616,19587363,300961,301616,9476599,14738977,9987139,14039181,
+];
+for (const id of needRelations) if (!relations.has(id)) throw new Error(`missing OSM relation ${id}`);
 
-// ══════════════════════════════════════════════════════════════════
-// 3) trips.txt / stop_times.txt / frequencies.txt → 展開 frequencies 為逐車 trip
-// ══════════════════════════════════════════════════════════════════
-const tripsAll = readCSV('trips.csv');
-const railTrips = tripsAll.filter(t => railRouteIds.has(t.route_id));
-const railTripIds = new Set(railTrips.map(t => t.trip_id));
-console.log(`trips: 軌道 trip ${railTrips.length} 筆(全 feed ${tripsAll.length} 筆)`);
-
-const freqAll = readCSV('frequencies.csv');
-const freqRail = freqAll.filter(f => railTripIds.has(f.trip_id));
-const freqByTrip = new Map(); // tripId -> [freq rows]
-for (const f of freqRail) {
-  if (!freqByTrip.has(f.trip_id)) freqByTrip.set(f.trip_id, []);
-  freqByTrip.get(f.trip_id).push(f);
+const R = 6371;
+const rad = (x) => x * Math.PI / 180;
+function km(a, b) {
+  const dlat = rad(b[0] - a[0]), dlon = rad(b[1] - a[1]);
+  const q = Math.sin(dlat / 2) ** 2 + Math.cos(rad(a[0])) * Math.cos(rad(b[0])) * Math.sin(dlon / 2) ** 2;
+  return 2 * R * Math.asin(Math.min(1, Math.sqrt(q)));
 }
-console.log(`frequencies: 軌道班距列 ${freqRail.length} 筆,涵蓋 trip(樣板)${freqByTrip.size} 個`);
+const point = (x) => Array.isArray(x)
+  ? [Number(x[0].toFixed(7)), Number(x[1].toFixed(7))]
+  : [Number(x.lat.toFixed(7)), Number(x.lon.toFixed(7))];
+const stopsOf = (rel) => rel.members
+  .filter((m) => m.type === 'node' && /^(?:stop|terminal)/.test(m.role || '') && Number.isFinite(m.lat) && Number.isFinite(m.lon))
+  .map(point);
 
-const stopTimesAllRaw = readCSV('stop_times.csv');
-const stByTrip = new Map(); // tripId -> [{...}] (依 stop_sequence 排序)
-for (const st of stopTimesAllRaw) {
-  if (!railTripIds.has(st.trip_id)) continue;
-  if (!stByTrip.has(st.trip_id)) stByTrip.set(st.trip_id, []);
-  stByTrip.get(st.trip_id).push(st);
-}
-for (const arr of stByTrip.values()) arr.sort((a, b) => Number(a.stop_sequence) - Number(b.stop_sequence));
-console.log(`stop_times: 軌道列 ${[...stByTrip.values()].reduce((a, v) => a + v.length, 0)} 筆(trip ${stByTrip.size} 個)`);
-
-// ── 站間零/負秒行駛時間修補(只修真正的 Δt≤0 缺陷,不動任何正常正時距的段) ──────
-// İBB 原始快照本身有缺陷:少數 trip 尾段連續站的 arrival_time 直接複製上一站的 departure_time
-// (實測 M7 兩個方向樣板 trip 3166571/3166570,Mecidiyeköy→Fulya→Yıldız 三站間隔皆 0 秒,
-// 但實際站距各約 0.9~1.1km,不可能瞬移)。此為來源資料本身的錯,不是本腳本展開造成。
-// 只在 Δt≤0 時,用「站間距÷30km/h」補一個保守的最低行駛時間,之後同 trip 後續站依同一累積
-// 位移一起順延(維持原有 dwell 與相對站距不變);Δt>0 的正常段(哪怕只有 20~30 秒)完全不動,
-// 避免誤傷市區密集站距的合理短程時間。
-const stopsAll = readCSV('stops.csv'); // 也供最末 stops.txt passthrough 沿用,避免重複讀檔
-const stopLatLon = new Map(stopsAll.map(s => [s.stop_id, { lat: Number(s.stop_lat), lon: Number(s.stop_lon) }]));
-const toRad = Math.PI / 180, EARTH_R_KM = 6371;
-function haversineKm(a, b) {
-  const dLat = (b.lat - a.lat) * toRad, dLon = (b.lon - a.lon) * toRad;
-  const h = Math.sin(dLat / 2) ** 2 + Math.cos(a.lat * toRad) * Math.cos(b.lat * toRad) * Math.sin(dLon / 2) ** 2;
-  return 2 * EARTH_R_KM * Math.asin(Math.sqrt(h));
-}
-const IMPUTE_KMH = 30; // 僅用於「補值」的保守速度假設,不是全域最低速限
-let repairedGaps = 0;
-const repairedTrips = new Set();
-for (const [tripId, sts] of stByTrip) {
-  let shift = 0;
-  for (let i = 1; i < sts.length; i++) {
-    const prev = sts[i - 1], cur = sts[i]; // prev.departure_time 已在前一輪迭代套用過累積 shift(原地寫回)
-    const gap = hmsToSec(cur.arrival_time) - hmsToSec(prev.departure_time);
-    if (gap <= 0) {
-      const a = stopLatLon.get(prev.stop_id), b = stopLatLon.get(cur.stop_id);
-      const distKm = (a && b) ? haversineKm(a, b) : 0;
-      const minGapSec = Math.max(10, Math.ceil(distKm / IMPUTE_KMH * 3600));
-      shift += minGapSec - gap;
-      repairedGaps++;
-      repairedTrips.add(tripId);
-    }
-    if (shift > 0) {
-      const dwell = hmsToSec(cur.departure_time) - hmsToSec(cur.arrival_time);
-      const newArr = hmsToSec(cur.arrival_time) + shift;
-      cur.arrival_time = secToHms(newArr);
-      cur.departure_time = secToHms(newArr + dwell);
+function networkShape(ids, stationCoords) {
+  const graph = new Map();
+  const key = (p) => `${p[0].toFixed(7)},${p[1].toFixed(7)}`;
+  const ensure = (p) => {
+    const k = key(p);
+    if (!graph.has(k)) graph.set(k, { p, edges: new Map() });
+    return k;
+  };
+  for (const id of ids) for (const member of relations.get(id).members) {
+    if (member.type !== 'way' || !member.geometry || /^platform/.test(member.role || '')) continue;
+    const pts = member.geometry.map(point);
+    for (let i = 1; i < pts.length; i++) {
+      const a = ensure(pts[i - 1]), b = ensure(pts[i]), w = km(pts[i - 1], pts[i]);
+      graph.get(a).edges.set(b, Math.min(w, graph.get(a).edges.get(b) ?? Infinity));
+      graph.get(b).edges.set(a, Math.min(w, graph.get(b).edges.get(a) ?? Infinity));
     }
   }
-}
-if (repairedGaps) console.log(`stop_times 修補:${repairedGaps} 段 Δt≤0 站距補上最低行駛時間(涉及 ${repairedTrips.size} 個 trip,含樣板)`);
-
-const finalTrips = [];
-const finalStopTimes = [];
-let negOffsetCount = 0, expandedTripCount = 0;
-
-// 非樣板 trip(無 frequencies 項目)原樣保留
-for (const t of railTrips) {
-  if (freqByTrip.has(t.trip_id)) continue;
-  finalTrips.push(t);
-  const sts = stByTrip.get(t.trip_id) || [];
-  for (const st of sts) finalStopTimes.push(st);
-}
-
-// 樣板 trip → 依 frequencies 展開成逐車(樣板本身不輸出,依 GTFS 慣例它只是時距/站序模板)
-for (const [tripId, freqRows] of freqByTrip) {
-  const template = tripsAll.find(t => t.trip_id === tripId); // 用全量 trips 找(樣板本身也在 railTrips 內)
-  const sts = stByTrip.get(tripId);
-  if (!template || !sts || sts.length === 0) { console.warn(`  跳過樣板 trip ${tripId}:缺 trips/stop_times`); continue; }
-  const baseDep = hmsToSec(sts[0].departure_time);
-  for (const fr of freqRows) {
-    const startSec = hmsToSec(fr.start_time), endSec = hmsToSec(fr.end_time);
-    const headway = Number(fr.headway_secs);
-    for (let s = startSec; s < endSec; s += headway) {
-      const offset = s - baseDep;
-      const newTripId = `${tripId}_F${expandedTripCount++}`;
-      finalTrips.push({ ...template, trip_id: newTripId });
-      for (const st of sts) {
-        const arr = hmsToSec(st.arrival_time) + offset;
-        const dep = hmsToSec(st.departure_time) + offset;
-        if (arr < 0 || dep < 0) negOffsetCount++;
-        finalStopTimes.push({ ...st, trip_id: newTripId, arrival_time: secToHms(arr), departure_time: secToHms(dep) });
+  const nodes = [...graph.entries()];
+  const snap = (p) => nodes.reduce((best, item) => {
+    const d = km(p, item[1].p);
+    return !best || d < best.d ? { k: item[0], d } : best;
+  }, null).k;
+  const shortest = (start, goal) => {
+    const dist = new Map([[start, 0]]), prev = new Map(), heap = [[0, start]];
+    const push = (item) => {
+      heap.push(item);
+      let i = heap.length - 1;
+      while (i) {
+        const p = Math.floor((i - 1) / 2);
+        if (heap[p][0] <= heap[i][0]) break;
+        [heap[p], heap[i]] = [heap[i], heap[p]]; i = p;
+      }
+    };
+    const pop = () => {
+      const top = heap[0], last = heap.pop();
+      if (heap.length) {
+        heap[0] = last;
+        for (let i = 0;;) {
+          let n = i, a = i * 2 + 1, b = a + 1;
+          if (a < heap.length && heap[a][0] < heap[n][0]) n = a;
+          if (b < heap.length && heap[b][0] < heap[n][0]) n = b;
+          if (n === i) break;
+          [heap[n], heap[i]] = [heap[i], heap[n]]; i = n;
+        }
+      }
+      return top;
+    };
+    while (heap.length) {
+      const [d, at] = pop();
+      if (d !== dist.get(at)) continue;
+      if (at === goal) break;
+      for (const [to, w] of graph.get(at).edges) {
+        const nd = d + w;
+        if (nd >= (dist.get(to) ?? Infinity)) continue;
+        dist.set(to, nd); prev.set(to, at); push([nd, to]);
       }
     }
+    if (!dist.has(goal)) throw new Error(`OSM graph disconnected: ${start} -> ${goal}`);
+    const out = [];
+    for (let at = goal;; at = prev.get(at)) {
+      out.push(graph.get(at).p);
+      if (at === start) break;
+    }
+    return out.reverse();
+  };
+  const snapped = stationCoords.map(snap), out = [];
+  for (let i = 1; i < snapped.length; i++) {
+    let part = shortest(snapped[i - 1], snapped[i]);
+    if (out.length && key(out.at(-1)) === key(part[0])) part = part.slice(1);
+    out.push(...part);
   }
+  return out;
 }
-console.log(`frequencies 展開:合成 ${expandedTripCount} 個逐車 trip(負時刻異常 ${negOffsetCount} 筆)`);
-console.log(`trips.txt 最終 ${finalTrips.length} 筆,stop_times.txt 最終 ${finalStopTimes.length} 筆`);
+function cumulative(shape) {
+  const d = [0];
+  for (let i = 1; i < shape.length; i++) d.push(d[i - 1] + km(shape[i - 1], shape[i]));
+  return d;
+}
+function projectDistance(shape, cum, station, minD = -Infinity) {
+  const latScale = 111.32, lonScale = 111.32 * Math.cos(rad(station[0]));
+  let best = null;
+  for (let i = 0; i < shape.length - 1; i++) {
+    const a = shape[i], b = shape[i + 1];
+    const vx = (b[1] - a[1]) * lonScale, vy = (b[0] - a[0]) * latScale;
+    const wx = (station[1] - a[1]) * lonScale, wy = (station[0] - a[0]) * latScale;
+    const vv = vx * vx + vy * vy;
+    const t = vv ? Math.max(0, Math.min(1, (wx * vx + wy * vy) / vv)) : 0;
+    const d = cum[i] + (cum[i + 1] - cum[i]) * t;
+    if (d + 1e-6 < minD) continue;
+    const dx = wx - vx * t, dy = wy - vy * t, dist2 = dx * dx + dy * dy;
+    if (!best || dist2 < best.dist2) best = { d, dist2 };
+  }
+  return best?.d;
+}
+function orient(shape, first) {
+  return km(first, shape.at(-1)) < km(first, shape[0]) ? [...shape].reverse() : shape;
+}
+function lineFrom({ id, lineId = id, mode, names, coords, shape, color, oneWay = false, headway, serviceNote }) {
+  if (names.length !== coords.length) throw new Error(`${id}: ${names.length} names != ${coords.length} coordinates`);
+  shape = orient(shape, coords[0]);
+  const cum = cumulative(shape), shapeLen = cum.at(-1);
+  let prev = -1;
+  const stations = names.map((name, i) => {
+    let d;
+    if (oneWay && i === names.length - 1 && name === names[0]) d = shapeLen;
+    else d = projectDistance(shape, cum, coords[i], prev < 0 ? -Infinity : prev + 0.001);
+    if (!Number.isFinite(d)) d = i ? prev + Math.max(0.001, (shapeLen - prev) / (names.length - i)) : 0;
+    prev = d;
+    return { name, lat: coords[i][0], lon: coords[i][1], d: Number(d.toFixed(4)) };
+  });
+  const [peakHeadwaySec, offpeakHeadwaySec] = headway;
+  return {
+    id, lineId, mode, name: `${id} · ${names[0]}–${names.at(-1)}`,
+    color, peakHeadwaySec, offpeakHeadwaySec, oneWay, serviceNote,
+    stations, shape, shapeLen: Number(shapeLen.toFixed(4)),
+  };
+}
+function officialLine(id, relId, mode, options = {}) {
+  const spec = official.get(id), rel = relations.get(relId);
+  let names = options.names || spec.stations;
+  let coords = options.coords || stopsOf(rel);
+  if (id === 'T1' || id === 'T4') {
+    const old = OLD.lines.find((x) => x.id === id);
+    coords = old.stations.map((s) => [s.lat, s.lon]);
+    if (km(coords[0], stopsOf(rel)[0]) > km(coords.at(-1), stopsOf(rel)[0])) coords.reverse();
+  }
+  return lineFrom({ id, mode, names, coords, shape: networkShape([relId], coords), color: spec.color, ...options });
+}
 
-writeCSV('trips.txt', ['route_id', 'service_id', 'trip_id', 'trip_headsign', 'trip_short_name', 'direction_id', 'block_id', 'shape_id', 'wheelchair_accessible', 'bikes_allowed'], finalTrips);
-writeCSV('stop_times.txt', ['trip_id', 'arrival_time', 'departure_time', 'stop_id', 'stop_sequence', 'stop_headsign', 'pickup_type', 'drop_off_type', 'shape_dist_traveled', 'timepoint'], finalStopTimes);
+const lines = [];
+const metroHeadway = [480, 720], tramHeadway = [600, 900], funicularHeadway = [120, 180], cableHeadway = [300, 600];
+lines.push(officialLine('M1A', 305496, 'metro', { headway: metroHeadway }));
+lines.push(officialLine('M1B', 4289712, 'metro', { headway: metroHeadway }));
+const m2Main = official.get('M2').stations.filter((name) => name !== 'Seyrantepe');
+lines.push(officialLine('M2', 11341406, 'metro', { names: m2Main, headway: metroHeadway }));
+{ const coords = stopsOf(relations.get(7719796)); lines.push(lineFrom({ id: 'M2A', lineId: 'M2', mode: 'metro', names: ['Sanayi Mahallesi','Seyrantepe'], coords, shape: networkShape([7719796], coords), color: official.get('M2').color, headway: [600, 900] })); }
+lines.push(officialLine('M3', 4289797, 'metro', { headway: metroHeadway }));
+lines.push(officialLine('M4', 2396287, 'metro', { headway: metroHeadway }));
+lines.push(officialLine('M5', 11344904, 'metro', { headway: metroHeadway }));
+lines.push(officialLine('M6', 7719781, 'metro', { headway: [360, 600] }));
+const m7a = stopsOf(relations.get(15085833)), m7b = stopsOf(relations.get(11799409));
+{ const coords = [...m7a, ...m7b.slice(1)]; lines.push(lineFrom({ id: 'M7', mode: 'metro', names: official.get('M7').stations, coords, shape: networkShape([15085833,11799409], coords), color: official.get('M7').color, headway: metroHeadway })); }
+lines.push(officialLine('M8', 14900216, 'metro', { headway: metroHeadway }));
+lines.push(officialLine('M9', 4289800, 'metro', { headway: metroHeadway }));
+const m11Names = ['Gayrettepe','Kağıthane','Üniversite-Hasdal','Kemerburgaz','Göktürk','İhsaniye','İstanbul Havalimanı','Kargo Terminali','Taşoluk','Arnavutköy Hastane','İbn Haldun Üniversitesi','Kayaşehir','Olimpiyatköy','Halkalı Stadı','Halkalı'];
+{ const coords = stopsOf(relations.get(15083964)); lines.push(lineFrom({ id: 'M11', mode: 'metro', names: m11Names, coords, shape: networkShape([15083964], coords), color: '#6B2C91', headway: [900, 1200] })); }
 
-// ══════════════════════════════════════════════════════════════════
-// 4) shapes.txt:只留最終 trips 用到的 shape_id
-// ══════════════════════════════════════════════════════════════════
-const neededShapeIds = new Set(finalTrips.map(t => t.shape_id).filter(Boolean));
-const shapesAllRaw = readCSV('shapes.csv');
-const shapesRail = shapesAllRaw.filter(s => neededShapeIds.has(s.shape_id));
-console.log(`shapes: 保留 ${shapesRail.length} 點(shape_id ${neededShapeIds.size} 個,全 feed ${shapesAllRaw.length} 點)`);
-writeCSV('shapes.txt', ['shape_id', 'shape_pt_lat', 'shape_pt_lon', 'shape_pt_sequence', 'shape_dist_traveled'], shapesRail);
+lines.push(officialLine('T1', 2962729, 'tram', { headway: tramHeadway }));
+{ const coords = stopsOf(relations.get(301617)); lines.push(lineFrom({ id: 'T2', mode: 'tram', names: ['Taksim Meydan','Hüseyin Ağa Camii','Galatasaray Lisesi','Odakule','Beyoğlu Tünel'], coords, shape: networkShape([301617], coords), color: '#D71920', headway: [900, 1200] })); }
+const t3Names = [...official.get('T3').stations, official.get('T3').stations[0]];
+const t3Coords = stopsOf(relations.get(2409338));
+{ const coords = [...t3Coords, t3Coords[0]]; lines.push(lineFrom({ id: 'T3', mode: 'tram', names: t3Names, coords, shape: networkShape([2409338], coords), color: official.get('T3').color, oneWay: true, headway: [900, 1200] })); }
+lines.push(officialLine('T4', 11344897, 'tram', { headway: tramHeadway }));
+lines.push(officialLine('T5', 12174616, 'tram', { headway: tramHeadway }));
+{ const coords = stopsOf(relations.get(19587363)); lines.push(lineFrom({ id: 'T6', mode: 'tram', names: ['Sirkeci','Cankurtaran','Kumkapı','Yenikapı','Cerrahpaşa','Kocamustafapaşa','Yedikule','Kazlıçeşme'], coords, shape: networkShape([19587363], coords), color: '#8A6D3B', headway: [900, 1200] })); }
 
-// ── stops.txt:passthrough(僅轉碼,gtfs2rail.mjs 本就整檔載入不篩選) ──
-writeCSV('stops.txt', ['stop_id', 'stop_code', 'stop_name', 'stop_desc', 'stop_lat', 'stop_lon', 'zone_id', 'stop_url', 'location_type', 'parent_station', 'stop_timezone', 'wheelchair_boarding'], stopsAll);
-console.log(`stops: ${stopsAll.length} 筆(passthrough)`);
+lines.push(officialLine('F1', 300961, 'funicular', { headway: funicularHeadway }));
+{ const coords = stopsOf(relations.get(301616)); lines.push(lineFrom({ id: 'F2', mode: 'funicular', names: ['Karaköy','Beyoğlu'], coords, shape: networkShape([301616], coords), color: '#7C7358', headway: funicularHeadway })); }
+{ const coords = stopsOf(relations.get(9476599)); lines.push(lineFrom({ id: 'F3', mode: 'funicular', names: ['Seyrantepe','Vadistanbul'], coords, shape: networkShape([9476599], coords), color: '#7C7358', headway: funicularHeadway })); }
+lines.push(officialLine('F4', 14738977, 'funicular', { headway: funicularHeadway }));
 
-console.log(`\n已輸出標準 GTFS(UTF-8)到 ${OUT_DIR}`);
-console.log('done');
+for (const id of ['TF1','TF2']) {
+  const old = OLD.lines.find((x) => x.id === id), spec = official.get(id);
+  lines.push(lineFrom({ id, mode: 'cable', names: spec.stations, coords: old.stations.map((s) => [s.lat,s.lon]), shape: old.shape, color: spec.color, headway: cableHeadway }));
+}
+
+const marmarayRel = relations.get(9987139);
+const marmarayNames = ['Halkalı','Mustafa Kemal','Küçükçekmece','Florya','Florya Akvaryum','Yeşilköy','Yeşilyurt','Ataköy','Bakırköy','Yenimahalle','Zeytinburnu','Kazlıçeşme','Yenikapı','Sirkeci','Üsküdar','Ayrılıkçeşmesi','Söğütlüçeşme','Feneryolu','Göztepe','Erenköy','Suadiye','Bostancı','Küçükyalı','İdealtepe','Sürayya Plajı','Maltepe','Cevizli','Atalar','Başak','Kartal','Yunus','Pendik','Kaynarca','Tersane','Güzelyalı','Aydıntepe','İçmeler','Tuzla','Çayırova','Fatih','Osmangazi','Darıca','Gebze'];
+{ const coords = stopsOf(marmarayRel); lines.push(lineFrom({ id: 'Marmaray', lineId: 'B1', mode: 'suburban', names: marmarayNames, coords, shape: networkShape([9987139], coords), color: '#5A5F5C', headway: [600,900] })); }
+{ const coords = stopsOf(relations.get(14039181)); lines.push(lineFrom({ id: 'B2', mode: 'suburban', names: ['Halkalı','Ispartakule','Bahçeşehir'], coords, shape: networkShape([14039181], coords), color: '#8A7664', headway: [900,1200] })); }
+
+const modes = Object.fromEntries([...new Set(lines.map((line) => line.mode))].map((mode) => [mode, lines.filter((line) => line.mode === mode).length]));
+const doc = {
+  system: 'İSTANBUL RAIL',
+  data_date: '20260831',
+  source_notes: '2026-08-31 現行路網稽核：Metro İstanbul 官方各線頁提供 M1A–M9、T1/T3/T4/T5、F1/F4、TF1/TF2 站序與線色；UAB/TCDD/IETT 官方資料補 M11、T2、T6、F2/F3、Marmaray 與 Halkalı–Bahçeşehir。細部線形採 OpenStreetMap route relations（© OpenStreetMap contributors，ODbL）。排除 Metrobus、渡輪與尚未通車的 T7；所有列車均為明示模擬合成班距，不是官方逐班時刻或即時位置，臨時停駛與改點不另行建模。',
+  coverage: {
+    auditedAt: '2026-08-31', visibleRoutePaths: lines.length, modes,
+    includes: ['Metro','tram','funicular','Marmaray','Halkalı–Bahçeşehir suburban rail'],
+    supplementary: ['TF1','TF2'], excludes: ['Metrobus','ferries','unopened T7'],
+  },
+  lines,
+};
+fs.writeFileSync(OUT, JSON.stringify(doc));
+console.log(`WROTE ${OUT}`);
+console.log(`  ${lines.length} paths: ${Object.entries(modes).map(([k,v]) => `${k} ${v}`).join(', ')}`);
+console.log(`  ${new Set(lines.flatMap((line) => line.stations.map((s) => s.name))).size} unique station names`);
