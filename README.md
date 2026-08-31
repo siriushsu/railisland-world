@@ -1,13 +1,31 @@
-# 軌島・海外實驗版（Norway POC）
+# 軌島・世界 / Rail Island World
 
-鐵道排程動畫的海外城市概念驗證站。正式站（台灣）：https://railisland.tw
+把世界各城的公開鐵道時刻表畫成一張會動的地圖。這是 [軌島台灣版](https://railisland.tw)的獨立姊妹專案；程式、資料與發布流程皆分開，不會把海外城市內容放進台灣版 repo。
 
-本站為實驗性質，資料為排程快照，非即時營運資訊。
+目前已接上台灣版 2026-08-31 的現行 UI 與多語骨架，保留地圖、時鐘、速度、列車跟隨、車站看板、搜尋、主題與分享機制。世界版一次只載入一座城市，以免 12 份大型班表同時下載或拖慢手機。
 
-## Data sources & licences
+## 現有城市
 
-- **Norway rail data**: Contains data under the [Norwegian licence for Open Government data (NLOD) 2.0](https://data.norge.no/nlod/en/2.0) distributed by [Entur](https://developer.entur.org/). Data has been converted/reformatted for animation purposes.
-- **Taiwan rail/metro data**: 交通部 TDX 運輸資料流通服務平臺（詳站內「資料來源與授權」面板）。
-- Basemap tiles: CARTO / Esri（詳站內面板）。
+挪威、紐約、東京、瑞士景觀線、新加坡、倫敦、伊斯坦堡、雪梨、巴黎、墨爾本、布達佩斯、維也納。
 
-本站與 Entur、Bane NOR、Vy、交通部或任何營運機構均無隸屬或背書關係。
+現有資料不是全部都已達到「現行完整」：東京、新加坡、巴黎、伊斯坦堡等已有明確缺口；瑞士則定位為景觀策展集。完整查證結果、官方來源與逐城優先順序見 [2026-08-31 路線稽核](docs/route-audit-2026-08-31.md)。
+
+## 本機執行
+
+本專案沒有 build step：
+
+```bash
+python3 -m http.server 5188
+```
+
+開啟 `http://127.0.0.1:5188/`。資料快照結構檢查：
+
+```bash
+node tools/audit_route_coverage.mjs
+```
+
+## 資料與授權
+
+各城市資料源與範圍記錄於 [`data/route_scope.json`](data/route_scope.json)以及各 `data/*_schedule_dense.json` 的 `source_notes`。底圖來源為 OpenStreetMap／CARTO；各營運資料仍依原發布者授權與署名要求使用。
+
+本站是個人愛好者專案，與資料提供者、鐵路營運機構及交通主管機關均無隸屬或背書關係。動畫依時刻表推演，不代表即時列車位置或正式旅運資訊。

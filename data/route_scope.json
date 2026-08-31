@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 1,
+  "auditedAt": "2026-08-31",
+  "policy": "城市型系統以官方現行路網為目標；跨國或全國鐵路若採策展範圍，必須明確標示而不宣稱完整。",
+  "systems": [
+    {
+      "id": "norway_sched",
+      "file": "norway.json",
+      "label": "挪威",
+      "scope": "全國旅客鐵路（Entur 公開資料）",
+      "snapshotLineCount": 28,
+      "requiredLineIds": [],
+      "status": "refresh-needed",
+      "blockingGaps": ["2026-07-15 快照需以最新 Entur feed 重建並重跑方向／折返稽核"],
+      "sources": ["https://developer.entur.org/stops-and-timetable-data/"]
+    },
+    {
+      "id": "nyc_sched",
+      "file": "nyc.json",
+      "label": "紐約",
+      "scope": "MTA Subway ＋ Staten Island Railway",
+      "snapshotLineCount": 28,
+      "requiredLineIds": ["1", "2", "3", "4", "5", "6", "6X", "7", "7X", "A", "B", "C", "D", "E", "F", "FX", "G", "J", "L", "M", "N", "Q", "R", "W", "Z", "S"],
+      "status": "known-gap",
+      "blockingGaps": ["Staten Island Railway 尚未收錄"],
+      "sources": ["https://www.mta.info/map/5341", "https://www.mta.info/schedules/subway/staten-island-railway"]
+    },
+    {
+      "id": "tokyo_sched",
+      "file": "tokyo.json",
+      "label": "東京",
+      "scope": "都營交通 ＋ Tokyo Metro",
+      "snapshotLineCount": 6,
+      "requiredLineIds": ["A", "I", "S", "E", "SA", "NT"],
+      "status": "known-gap",
+      "blockingGaps": ["Tokyo Metro 9 線：G、M、H、T、C、Y、Z、F、N"],
+      "sources": ["https://www.tokyometro.jp/en/subwaymap/index.html", "https://ckan.odpt.org/en/dataset/?license_id=odpt-ptodbl&organization=tokyometro"]
+    },
+    {
+      "id": "swiss_sched",
+      "file": "swiss.json",
+      "label": "瑞士景觀線",
+      "scope": "策展：景觀窄軌與代表性路線，不宣稱全瑞士完整",
+      "snapshotLineCount": 36,
+      "requiredLineIds": [],
+      "status": "curated",
+      "blockingGaps": ["2026 時刻表需刷新；官方 GTFS 不含 shapes，幾何需獨立維護"],
+      "sources": ["https://data.opentransportdata.swiss/en/dataset/timetable-2026-gtfs2020", "https://opentransportdata.swiss/en/cookbook/timetable-cookbook/gtfs/"]
+    },
+    {
+      "id": "singapore",
+      "file": "singapore.json",
+      "label": "新加坡",
+      "scope": "LTA MRT 與 LRT",
+      "snapshotLineCount": 8,
+      "requiredLineIds": ["NSL", "EWL", "NEL", "CCL", "DTL", "TEL"],
+      "status": "known-gap",
+      "blockingGaps": ["Bukit Panjang、Sengkang、Punggol 三套 LRT 尚未收錄", "Circle Line 6 已於 2026-07-12 通車，需補 Keppel、Cantonment、Prince Edward Road"],
+      "sources": ["https://www.lta.gov.sg/content/ltagov/en/map/train.html", "https://www.lta.gov.sg/content/ltagov/en/upcoming_projects/rail_expansion/circle_line_6.html"]
+    },
+    {
+      "id": "london",
+      "file": "london.json",
+      "label": "倫敦",
+      "scope": "TfL Tube and Rail",
+      "snapshotLineCount": 22,
+      "requiredLineIds": ["bakerloo", "circle", "hammersmith-city", "jubilee", "victoria", "waterloo-city"],
+      "status": "known-gap",
+      "blockingGaps": ["目前只有 Underground；尚缺 London Overground、Elizabeth line、DLR、Tram"],
+      "sources": ["https://tfl.gov.uk/maps/track?intcmp=40400", "https://tfl.gov.uk/travel-information/visiting-london/getting-around-london/visitor-maps"]
+    },
+    {
+      "id": "istanbul_sched",
+      "file": "istanbul.json",
+      "label": "伊斯坦堡",
+      "scope": "Metro İstanbul 與都會固定軌道系統",
+      "snapshotLineCount": 23,
+      "requiredLineIds": ["M1A", "M1B", "M2", "M3", "M4", "M5", "M6", "M7", "M8", "M9", "T1", "T3", "T4", "F1", "F2", "F3", "TF1", "TF2", "Marmaray"],
+      "status": "known-gap",
+      "blockingGaps": ["尚缺 M11、T2、T5、T6、F4", "M3、M4、M5、M8、M9 端點與延伸需用現行官方圖重建"],
+      "sources": ["https://www.metro.istanbul/en/", "https://www.metro.istanbul/Content/assets/uploaded/%C4%B0stanbul%20Tramvay%20Hatlar%C4%B1%20Haritas%C4%B1.pdf"]
+    },
+    {
+      "id": "sydney_sched",
+      "file": "sydney.json",
+      "label": "雪梨",
+      "scope": "Sydney Trains、Sydney Metro、Light Rail 與目前 feed 中的城際線",
+      "snapshotLineCount": 24,
+      "requiredLineIds": ["M1", "T1", "T2", "T3", "T4", "T5", "T6", "T7", "T8", "T9", "L1", "L2", "L3", "L4", "LX", "NLR"],
+      "status": "verified-scope",
+      "blockingGaps": [],
+      "sources": ["https://transportnsw.info/routes/light-rail", "https://transportnsw.info/travel-info/ways-to-get-around/metro", "https://transportnsw.info/travel-info/ways-to-get-around/train"]
+    },
+    {
+      "id": "paris_sched",
+      "file": "paris.json",
+      "label": "巴黎",
+      "scope": "Île-de-France Métro、RER、Transilien、Tram",
+      "snapshotLineCount": 41,
+      "requiredLineIds": ["1", "2", "3", "3B", "4", "5", "6", "7", "7B", "8", "9", "10", "11", "12", "13", "14", "A", "B", "C", "D", "E", "T1", "T2", "T3a", "T3b", "T4", "T5", "T6", "T8", "T11"],
+      "status": "known-gap",
+      "blockingGaps": ["建置腳本曾為檔案大小略去 T7、T9、T10、T12、T13、T14，需恢復"],
+      "sources": ["https://www.iledefrance-mobilites.fr/le-reseau/plans"]
+    },
+    {
+      "id": "melbourne_sched",
+      "file": "melbourne.json",
+      "label": "墨爾本",
+      "scope": "Metro Trains、V/Line、全部 24 條 tram route",
+      "snapshotLineCount": 53,
+      "requiredLineIds": ["MT-Pakenham", "MT-Cranbourne", "MT-Sunbury", "TR-1", "TR-3", "TR-5", "TR-6", "TR-11", "TR-12", "TR-16", "TR-19", "TR-30", "TR-35", "TR-48", "TR-57", "TR-58", "TR-59", "TR-64", "TR-67", "TR-70", "TR-72", "TR-75", "TR-78", "TR-82", "TR-86", "TR-96", "TR-109"],
+      "status": "refresh-needed",
+      "blockingGaps": ["需以 Metro Tunnel 通車後官方 GTFS 重建並核對 Sunbury／Cranbourne／Pakenham 運行形狀"],
+      "sources": ["https://www.ptv.vic.gov.au/more/maps/"]
+    },
+    {
+      "id": "budapest_sched",
+      "file": "budapest.json",
+      "label": "布達佩斯",
+      "scope": "BKK Metro、HÉV 與 tram",
+      "snapshotLineCount": 45,
+      "requiredLineIds": ["M1", "M2", "M3", "M4", "H5", "H6", "H7", "H8", "H9", "1", "2", "4", "6", "47", "49", "61"],
+      "status": "verified-scope",
+      "blockingGaps": [],
+      "sources": ["https://bkk.hu/en/journey-planning/maps/fixed-rail-and-trolleybus-network/", "https://opendata.bkk.hu/"]
+    },
+    {
+      "id": "vienna_sched",
+      "file": "vienna.json",
+      "label": "維也納",
+      "scope": "Wiener Linien U-Bahn 與 tram，加 Badner Bahn",
+      "snapshotLineCount": 33,
+      "requiredLineIds": ["U1", "U2", "U3", "U4", "U6", "1", "2", "5", "6", "9", "10", "11", "12", "18", "25", "26", "27", "30", "31", "37", "38", "43", "44", "46", "49", "52", "60", "62", "71", "D", "O", "BB"],
+      "status": "candidate-gap",
+      "blockingGaps": ["官方現行資訊可見 33、40、41、42；現有快照未收錄，需在刷新 GTFS 時確認服務日與 route 篩選"],
+      "sources": ["https://www.wienerlinien.at/web/wl-en/maps", "https://www.wienerlinien.at/web/guest/fahrplaene"]
+    }
+  ]
+}
