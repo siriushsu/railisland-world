@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
 """
-瑞士景觀鐵道（RhB＋MGB）資料管線。
+瑞士景觀鐵道資料管線（RhB＋MGB 全網 ∪ 官方景觀類別全集）。
 
 opentransportdata.swiss 的全國 GTFS 官方明文不提供 shapes.txt（上游 HAFAS 資料無幾何,
 怕自動產生品質不佳,見 hand off/海外研究_2026-07-11/scenic_railways.md）。本腳本:
   1. 下載全國 GTFS(免註冊,CKAN 資源頁抓最新 GTFS_FP2026_*.zip permalink)。
-  2. 篩出 RhB(agency_id 72)＋MGB(agency_id 48 fo / 93 bvz)的鐵路路線(排除 route_type=700 巴士)。
-  3. 用 Overpass 抓 OSM railway=narrow_gauge 路網(operator=RhB/MGB 優先,缺口才退到全 narrow_gauge
-     圖,再退到直線),每條 GTFS 路線用當日聯合停靠站集合的「最遠兩端點」做 Dijkstra 取得真實線形
+  2. 篩出 RhB(agency_id 72)＋MGB(agency_id 48 fo / 93 bvz)的鐵路路線,聯集官方景觀類別全集
+     (route_type=107 / route_desc=PE 的 10 條,橫跨 SBB／BLS／MOB／FART／Zentralbahn 等八家
+     營運商)。兩個景觀判準若選到不同集合就中止,代表官方分類欄位變了。
+  3. 用 Overpass 抓 OSM railway=narrow_gauge 與 railway=rail 兩套路網,**各建一張獨立的圖**
+     (合圖會讓米軌路線在共用節點處抄標準軌捷徑),依路線營運商決定走哪張;圖內優先走已知營運商
+     的軌道,缺口才退該軌距全圖,再退到直線。每條 GTFS 路線用當日聯合停靠站集合的「最遠兩端點」做 Dijkstra 取得真實線形
      (比對單一代表車次:多數路線同日有長短交路,單一代表車次涵蓋不了聯合站集合,故改用端點法+
      跨連通分量(如 Brig 折返)分段拼接)。
   4. 組一份自包含的合成 GTFS 目錄(agency/routes/trips[補 shape_id]/stop_times/stops/calendar/
@@ -15,7 +18,8 @@ opentransportdata.swiss 的全國 GTFS 官方明文不提供 shapes.txt（上游
      data/swiss.json + data/swiss_schedule_dense.json,schema 與 norway.json 同構。
   5. 驗證:站點到 shape 距離、d 單調遞增、抽驗車次、Albula 螺旋隧道座標密度檢查。
 
-用法: python3 scripts/build_swiss_shapes.py
+用法: SWISS_SCRATCH=<暫存目錄> python3 tools/build_swiss_shapes.py
+      (暫存目錄放 241MB 的 GTFS zip 與解壓中繼檔;未設則用 ~/.cache/railisland-swiss)
 """
 import csv
 import io
@@ -31,8 +35,12 @@ from collections import deque
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
-SCRATCH = "/private/tmp/claude-501/-Users-xuxiang-Code------/2cbdb064-06d3-4c63-90ae-6b17706bf3bc/scratchpad/swiss"
-CACHE = os.path.join(HERE, ".overpass_cache")
+# 暫存區改吃環境變數：原本寫死的是某個 session 的 scratchpad，session 一結束就消失，
+# 下次跑會靜默重下 500MB。SWISS_SCRATCH 未設就退到 repo 外的固定路徑。
+SCRATCH = os.environ.get("SWISS_SCRATCH") or os.path.expanduser("~/.cache/railisland-swiss")
+# Overpass 快取放暫存區,不放 repo 樹:它是衍生資料(單檔 12MB),而 repo 是 PUBLIC、
+# 又沒有被 .gitignore 蓋到,留在 tools/ 底下遲早會被一次 `git add -A` 收進公開歷史。
+CACHE = os.path.join(SCRATCH, "overpass_cache")
 os.makedirs(SCRATCH, exist_ok=True)
 os.makedirs(CACHE, exist_ok=True)
 
@@ -43,13 +51,37 @@ OUT_PREFIX = os.path.join(ROOT, "data", "swiss")
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
 
-RAIL_AGENCIES = {"72", "48", "93"}          # RhB, MGB(fo), MGB(bvz)
-AGENCY_DISPLAY = {"72": "Rhätische Bahn", "48": "Matterhorn Gotthard Bahn", "93": "Matterhorn Gotthard Bahn"}
-AGENCY_COLOR = {"72": "#D9291C", "48": "#1B3668", "93": "#1B3668"}
+RAIL_AGENCIES = {"72", "48", "93"}          # RhB, MGB(fo), MGB(bvz) 的完整路網
+# 官方景觀類別:GTFS 的 route_desc="PE"(Panoramic Express)與 route_type=107 選到完全同一組
+# 10 條路線(2026-08-29 版 feed 實測),故以 route_type 為準、route_desc 為交叉驗證。
+SCENIC_ROUTE_TYPE = "107"
+SCENIC_ROUTE_DESC = "PE"
+# 景觀線橫跨八家營運商,不再只有 RhB/MGB
+AGENCY_DISPLAY = {
+    "72": "Rhätische Bahn", "48": "Matterhorn Gotthard Bahn", "93": "Matterhorn Gotthard Bahn",
+    "11": "SBB", "33": "BLS", "49": "FART", "64": "MOB", "86": "Zentralbahn", "9999": "Glacier Express",
+}
+AGENCY_COLOR = {
+    "72": "#D9291C", "48": "#1B3668", "93": "#1B3668",
+    "11": "#EB0000", "33": "#005AA0", "49": "#E2001A", "64": "#0F5FA6", "86": "#C8102E", "9999": "#B01C2E",
+}
+DEFAULT_COLOR = "#666666"
+# 標準軌營運商:其餘全是米軌。混成同一張圖會讓冰河快車在 Brig 被繞到辛普隆標準軌上,
+# 所以兩種軌距各建一張圖,依路線的營運商分派。
+STANDARD_GAUGE_AGENCIES = {"11", "33"}       # SBB(哥達全景 PE)、BLS(金色山口快車東段)
 EXCLUDE_ROUTE_TYPES = {"700"}                # 巴士替代役
 
-TARGET_DATE = "20260715"          # 下週三(今天 2026-07-11 六)
-TARGET_WEEKDAY_IDX = 2            # Mon=0..Sun=6, 週三=2
+# 基準日:2026-09-05(週六)。整週聯集 46 條候選路線,週六到 45 條、只差「38」一條,
+# 是七天裡最完整的;十條景觀線則每天都有班,不影響選日。
+TARGET_DATE = "20260905"
+TARGET_WEEKDAY_IDX = 5            # Mon=0..Sun=6, 週六=5
+
+# OSM 的 operator 標籤值(用來挑「優先走這些營運商的軌道」的 op 圖;比對不到就退 full 圖)
+OSM_OPERATORS = {
+    "RhB", "Rhätische Bahn", "MGB", "Matterhorn Gotthard Bahn",
+    "MOB", "Montreux-Oberland Bernois", "Chemin de fer Montreux Oberland bernois",
+    "FART", "SSIF", "BLS", "BLS AG", "SBB", "SBB CFF FFS", "zb", "Zentralbahn",
+}
 
 OVERPASS = [
     "https://overpass-api.de/api/interpreter",
@@ -134,9 +166,16 @@ def service_active(sid, calendar, exceptions):
 
 def load_gtfs_subset():
     routes = {r["route_id"]: r for r in stream_csv("routes.txt")}
+    scenic = {rid for rid, r in routes.items() if r["route_type"] == SCENIC_ROUTE_TYPE}
+    by_desc = {rid for rid, r in routes.items() if r.get("route_desc") == SCENIC_ROUTE_DESC}
+    if scenic != by_desc:
+        raise RuntimeError(f"景觀類別兩個判準不一致:route_type={len(scenic)} vs route_desc={len(by_desc)};"
+                           "官方 feed 的分類欄位變了,先查清楚再跑")
     cand_routes = {rid: r for rid, r in routes.items()
-                   if r["agency_id"] in RAIL_AGENCIES and r["route_type"] not in EXCLUDE_ROUTE_TYPES}
-    log(f"routes.txt: RhB+MGB 候選鐵路路線 {len(cand_routes)} 條(已排除 route_type=700 巴士)")
+                   if (r["agency_id"] in RAIL_AGENCIES or rid in scenic)
+                   and r["route_type"] not in EXCLUDE_ROUTE_TYPES}
+    log(f"routes.txt: 候選 {len(cand_routes)} 條 = RhB/MGB 全網 ∪ 官方景觀類別 {len(scenic)} 條"
+        f"(已排除 route_type=700 巴士)")
 
     calendar = {r["service_id"]: r for r in stream_csv("calendar.txt")}
     exceptions = {}
@@ -206,6 +245,9 @@ def overpass_fetch(bbox, cache_key):
     query = (
         "[out:json][timeout:300];\n(\n"
         f'  way["railway"="narrow_gauge"]["service"!~"siding|yard|spur"]'
+        f"({bbox[0]:.3f},{bbox[1]:.3f},{bbox[2]:.3f},{bbox[3]:.3f});\n"
+        # 標準軌:金色山口快車東段(BLS Zweisimmen–Interlaken)與哥達全景(SBB)不在窄軌網上
+        f'  way["railway"="rail"]["service"!~"siding|yard|spur"]'
         f"({bbox[0]:.3f},{bbox[1]:.3f},{bbox[2]:.3f},{bbox[3]:.3f});\n"
         ");\nout geom;\n"
     )
@@ -400,6 +442,71 @@ def route_one_pair(a_pt, b_pt, coord_op, adj_op, coord_full, adj_full):
     return [a_pt, b_pt], "straight", True
 
 
+def order_stops_for_segment(mem, order_hint):
+    """回傳這一段的停靠順序。骨架用「代表車次的實際停靠序列」——那是營運商給的真實站序。
+
+    原本是用「最遠兩端點連線的投影」排序,對彎折的路網會排錯:RhB 的
+    Chur–Thusis–Filisur–St. Moritz 是個大 Z 字,投影到一條直線之後站序被打亂,
+    接著逐站 Dijkstra 就一路來回折返。實測 BEX 兩端只差 88km 卻畫出 363km,
+    53% 的網格被走過兩次以上;R38 更誇張,迂迴比 7.8。
+    代表車次沒涵蓋到的站,用「插入後增加的直線里程最小」的位置補進去,不再用投影。
+    """
+    # 先按「實體位置」去重:同一條線的去程與回程在 GTFS 裡是不同的 stop_id,但指的是同一個
+    # 車站。不去重的話聯集裡每個站會出現兩次,排序後就變成「走到底再折回來」——BEX 因此
+    # 一路走到 Domat/Ems 又折回 Thusis 才去 Chur。線的幾何每個實體車站只該經過一次。
+    # 格子約 160m,鐵路上不可能有兩個相異車站落在同一格。
+    def loc_key(pt):
+        return (round(pt[0] * 700), round(pt[1] * 700))
+
+    pt_of = {}                      # locKey -> pt(首見者)
+    key_of_sid = {}
+    for sid, pt in mem:
+        k = loc_key(pt)
+        pt_of.setdefault(k, pt)
+        key_of_sid.setdefault(sid, k)
+
+    seq = list(dict.fromkeys(key_of_sid[sid] for sid in order_hint if sid in key_of_sid))
+    rest = [k for k in pt_of if k not in set(seq)]
+
+    if len(seq) < 2:
+        # 代表車次幾乎沒涵蓋這一段(例如跨連通分量的另一半),退回原本的投影排序
+        pts = list(dict.fromkeys(pt_of.values()))
+        if len(pts) < 2:
+            return pts
+        best_pair, best_d = (pts[0], pts[1]), -1
+        for i in range(len(pts)):
+            for j in range(i + 1, len(pts)):
+                d = haversine(pts[i], pts[j])
+                if d > best_d:
+                    best_d, best_pair = d, (pts[i], pts[j])
+        a, b = best_pair
+        ax_lat, ax_lon = b[0] - a[0], b[1] - a[1]
+        return sorted(pts, key=lambda q: (q[0] - a[0]) * ax_lat + (q[1] - a[1]) * ax_lon)
+
+    for key in rest:
+        q = pt_of[key]
+        best_k, best_add = 0, None
+        for k in range(len(seq) + 1):
+            a = pt_of[seq[k - 1]] if k > 0 else None
+            b = pt_of[seq[k]] if k < len(seq) else None
+            if a is None:
+                add = haversine(q, b)
+            elif b is None:
+                add = haversine(a, q)
+            else:
+                add = haversine(a, q) + haversine(q, b) - haversine(a, b)
+            if best_add is None or add < best_add:
+                best_add, best_k = add, k
+        seq.insert(best_k, key)
+
+    out = []
+    for key in seq:
+        q = pt_of[key]
+        if not out or q != out[-1]:
+            out.append(q)
+    return out
+
+
 def build_route_shape(union_stop_pts, comp_of_full, coord_op, adj_op, coord_full, adj_full, order_hint):
     """union_stop_pts: [(stopId,(lat,lon))]。order_hint: 代表車次的 stopId 順序(可能不含全部站),
     用來判斷跨連通分量時的段落先後。回傳 (shape:[[lat,lon]], fallback_hops, seg_breaks)
@@ -429,29 +536,20 @@ def build_route_shape(union_stop_pts, comp_of_full, coord_op, adj_op, coord_full
     fallback_hops = 0
     seg_breaks = []
     for ci, comp in enumerate(comps_present):
-        members = [pt for sid, pt in union_stop_pts if stop_comp.get(sid) == comp]
-        if len(members) < 2:
-            full_shape.extend(members)
+        mem = [(sid, pt) for sid, pt in union_stop_pts if stop_comp.get(sid) == comp]
+        if len(mem) < 2:
+            full_shape.extend([pt for _, pt in mem])
             continue
-        # 該段最遠兩端點當「軸線」,其餘站投影排序(只用來定順序,不是真的量測)。
-        # 重要:不能對「最遠兩端點」直接跑單趟長程 Dijkstra ── Chur 這類多線交會樞紐,
-        # 圖上真正最短路徑常會抄到別條支線繞一大圈(實測 Thusis↔Schiers 最短路徑長達 81km,
-        # 抄去 Filisur/Davos 方向,而非直達的 35km Chur 正線)。改採「投影排序後逐站相鄰
-        # Dijkstra」,每一段都是幾公里的短程,不會被全域最短路徑帶偏,做法比照
-        # fetch_shapes.py 對 TRA/MRT 的既有慣例(相鄰站逐段路由)。
-        best_pair, best_d = None, -1
-        for i in range(len(members)):
-            for j in range(i + 1, len(members)):
-                d = haversine(members[i], members[j])
-                if d > best_d:
-                    best_d, best_pair = d, (members[i], members[j])
-        axis_a, axis_b = best_pair
-        ax_lat, ax_lon = axis_b[0] - axis_a[0], axis_b[1] - axis_a[1]
-
-        def proj(pt):
-            return (pt[0] - axis_a[0]) * ax_lat + (pt[1] - axis_a[1]) * ax_lon
-
-        ordered = sorted(dict.fromkeys(members), key=proj)  # 去重(同座標)+投影排序
+        # 站序照代表車次的真實停靠順序(見 order_stops_for_segment)。
+        # 排好序之後才逐站相鄰 Dijkstra ── 不能對「最遠兩端點」直接跑單趟長程 Dijkstra:
+        # Chur 這類多線交會樞紐,圖上真正最短路徑常會抄到別條支線繞一大圈(實測
+        # Thusis↔Schiers 最短路徑長達 81km,抄去 Filisur/Davos 方向,而非直達的 35km 正線)。
+        # 每一段都是幾公里的短程,不會被全域最短路徑帶偏,做法比照 fetch_shapes.py 對
+        # TRA/MRT 的既有慣例(相鄰站逐段路由)。
+        ordered = order_stops_for_segment(mem, order_hint)
+        if len(ordered) < 2:
+            full_shape.extend(ordered)
+            continue
         if full_shape:
             seg_breaks.append(len(full_shape))
         full_shape.append(ordered[0])
@@ -502,20 +600,27 @@ def main():
     lon0, lon1 = min(p[1] for p in all_pts) - 0.05, max(p[1] for p in all_pts) + 0.05
     log(f"OSM bbox: lat[{lat0:.3f},{lat1:.3f}] lon[{lon0:.3f},{lon1:.3f}]")
 
-    osm = overpass_fetch((lat0, lon0, lat1, lon1), "swiss_rhb_mgb")
-    ways = [e for e in osm["elements"] if e.get("type") == "way"]
-    op_ways = [w for w in ways if w.get("tags", {}).get("operator") in ("RhB", "MGB")]
-    log(f"OSM narrow_gauge ways: {len(ways)} 條,operator=RhB/MGB {len(op_ways)} 條")
+    osm = overpass_fetch((lat0, lon0, lat1, lon1), "swiss_scenic_v2")
+    all_ways = [e for e in osm["elements"] if e.get("type") == "way"]
 
-    coord_op, adj_op = build_graph(op_ways)
-    coord_full, adj_full = build_graph(ways)
-    nb_op = bridge_gaps(coord_op, adj_op)
-    nb_full = bridge_gaps(coord_full, adj_full)
-    log(f"補橋接邊(修 OSM 節點未共用的拓撲缺口,<50m 才接): op圖 {nb_op} 條, full圖 {nb_full} 條")
-    comp_of_op, comps = connected_components(coord_op, adj_op)
-    log(f"graph_op: {len(coord_op)} nodes, {len(comps)} 個連通分量(前 5 大: {sorted([len(c) for c in comps], reverse=True)[:5]})")
-    comp_of_full, comps_full = connected_components(coord_full, adj_full)
-    log(f"graph_full: {len(coord_full)} nodes, {len(comps_full)} 個連通分量(前 5 大: {sorted([len(c) for c in comps_full], reverse=True)[:5]})")
+    # 兩種軌距各建一張獨立的圖。**不可以合成一張**:米軌與標準軌在 Brig、Interlaken Ost、
+    # Zweisimmen 等站的 OSM 節點常常是共用的,合圖之後 Dijkstra 會讓冰河快車(米軌)沿辛普隆
+    # 標準軌線抄捷徑,畫出一條實際上不存在的路徑。
+    G = {}
+    for gauge, tag in (("narrow", "narrow_gauge"), ("rail", "rail")):
+        ways = [w for w in all_ways if w.get("tags", {}).get("railway") == tag]
+        op_ways = [w for w in ways if w.get("tags", {}).get("operator") in OSM_OPERATORS]
+        coord_op, adj_op = build_graph(op_ways)
+        coord_full, adj_full = build_graph(ways)
+        nb_op = bridge_gaps(coord_op, adj_op)
+        nb_full = bridge_gaps(coord_full, adj_full)
+        comp_of_op, comps = connected_components(coord_op, adj_op)
+        comp_of_full, comps_full = connected_components(coord_full, adj_full)
+        G[gauge] = dict(coord_op=coord_op, adj_op=adj_op, coord_full=coord_full,
+                        adj_full=adj_full, comp_of_full=comp_of_full)
+        log(f"OSM {tag}: ways {len(ways)} 條,已知營運商 {len(op_ways)} 條;"
+            f"op圖 {len(coord_op)} nodes/{len(comps)} 分量、full圖 {len(coord_full)} nodes/{len(comps_full)} 分量;"
+            f"橋接邊 op {nb_op}/full {nb_full}")
 
     # 逐路線建 shape
     line_shapes = {}    # routeId -> {'shape':[[lat,lon]...], 'fallback_hops':n}
@@ -523,11 +628,14 @@ def main():
     for rid, union in route_union.items():
         pts = [(sid, (stops[sid]["lat"], stops[sid]["lon"])) for sid in union]
         order_hint = route_rep_order[rid] if route_rep_order[rid] else union
-        shape, fb, seg_breaks = build_route_shape(pts, comp_of_full, coord_op, adj_op, coord_full, adj_full, order_hint)
+        gauge = "rail" if cand_routes[rid]["agency_id"] in STANDARD_GAUGE_AGENCIES else "narrow"
+        gg = G[gauge]
+        shape, fb, seg_breaks = build_route_shape(
+            pts, gg["comp_of_full"], gg["coord_op"], gg["adj_op"], gg["coord_full"], gg["adj_full"], order_hint)
         total_fb += fb
         line_shapes[rid] = {"shape": shape, "fallback_hops": fb, "seg_breaks": seg_breaks}
         r = cand_routes[rid]
-        log(f"  {r['route_short_name']:6s} ({rid:16s}) union_stops={len(union):3d} shapePts={len(shape):5d} "
+        log(f"  {r['route_short_name']:6s} ({rid:16s}) {gauge:6s} union_stops={len(union):3d} shapePts={len(shape):5d} "
             f"fallback_hops={fb} segs={len(seg_breaks)+1}")
     log(f"總 fallback hops(退直線): {total_fb} / {len(route_union)} 條路線")
 
@@ -559,13 +667,15 @@ def main():
     # agency.txt(僅 RhB/MGB;MGB 兩個 agency_id 顯示名稱統一,typeName 才會合併成同一品牌)
     agency_by_id = {r["agency_id"]: r for r in g["agency_rows"]}
     w("agency.txt", ["agency_id", "agency_name", "agency_url", "agency_timezone", "agency_lang"],
-      [[aid, AGENCY_DISPLAY[aid], agency_by_id[aid]["agency_url"], "Europe/Zurich", "de"]
-       for aid in sorted(RAIL_AGENCIES) if aid in agency_by_id])
+      [[aid, AGENCY_DISPLAY.get(aid, agency_by_id[aid]["agency_name"]),
+        agency_by_id[aid]["agency_url"], "Europe/Zurich", "de"]
+       for aid in sorted({cand_routes[rid]["agency_id"] for rid in route_union}) if aid in agency_by_id])
 
     # routes.txt(僅有當日班次的路線;補 route_color / route_long_name)
     w("routes.txt", ["route_id", "agency_id", "route_short_name", "route_long_name", "route_type", "route_color"],
       [[rid, cand_routes[rid]["agency_id"], cand_routes[rid]["route_short_name"], route_long_name[rid],
-        cand_routes[rid]["route_type"], AGENCY_COLOR[cand_routes[rid]["agency_id"]].lstrip("#")]
+        cand_routes[rid]["route_type"],
+        AGENCY_COLOR.get(cand_routes[rid]["agency_id"], DEFAULT_COLOR).lstrip("#")]
        for rid in route_union])
 
     # trips.txt(白名單 trip,補 shape_id)
@@ -631,9 +741,15 @@ def main():
         d["source_notes"] = (
             "時刻表來源:opentransportdata.swiss 全國 GTFS(免費/免註冊/可商用,需標註來源 "
             "\"opentransportdata.swiss\";檔案 gtfs_fp2026,服務日 " + TARGET_DATE + ");"
-            "官方不提供 shapes.txt,線形自建:OpenStreetMap railway=narrow_gauge 路網"
-            "(© OpenStreetMap contributors, ODbL,operator=RhB/MGB 優先,缺口退全 narrow_gauge 圖)"
-            "跑 Dijkstra 取真實軌跡;每路線取當日聯合停靠站最遠兩端點(跨連通分量如 Brig 折返則分段拼接),"
+            "路線母體 = RhB/MGB 全網 ∪ 官方景觀類別全集(GTFS route_type=107、route_desc=PE,"
+            "兩個判準選到完全同一組 10 條:金色山口全景 30、百谷線 72、伯連納快車 BEX、冰河快車 GEX×3、"
+            "金色山口快車 GPX×2、琉森-茵特拉肯快車 LIX、哥達全景快車 PE);"
+            "官方不提供 shapes.txt,線形自建:OpenStreetMap 路網"
+            "(© OpenStreetMap contributors, ODbL)跑 Dijkstra 取真實軌跡——米軌走 railway=narrow_gauge、"
+            "標準軌(哥達全景與金色山口快車東段)走 railway=rail,**兩張圖各自獨立**,"
+            "因為兩種軌距在 Brig／Interlaken Ost／Zweisimmen 的 OSM 節點常共用,合圖會讓米軌路線抄捷徑;"
+            "各圖內優先走已知營運商的軌道,缺口才退該軌距的全圖。"
+            "每路線取當日聯合停靠站最遠兩端點(跨連通分量如 Brig 折返則分段拼接),"
             "Douglas-Peucker 簡化(eps=0.03km)。"
         )
         json.dump(d, open(p, "w"), ensure_ascii=False, separators=(",", ":"))
