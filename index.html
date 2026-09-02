@@ -3827,6 +3827,8 @@
            內容 li 上限 8 條(li.grp 是標題不算)。 -->
       <ul class="foot-list foot-recent">
         <li class="grp">最近更新</li>
+        <li data-cl-of="worldlabels"><span class="d">9/2</span><span>地圖縮小時只標主要車站，不再整片站名擠在一起；放大才逐層顯示次要車站</span></li>
+        <li data-cl-of="worldtrail"><span class="d">9/2</span><span>少數列車旁邊會多射出一條光芒的狀況修掉了</span></li>
         <li data-cl-of="mapsync"><span class="d">9/2</span><span>地圖縮放時，底圖、路線與列車改成同一拍直接落定，不再各跑一段動畫後短暫分開</span></li>
         <li data-cl-of="worldmarker"><span class="d">8/31</span><span>世界城市的列車標記簡化了：一般視野只留彩色圓點，避免紐約、東京等密集路網被車牌塞滿；放到最大或跟隨一班車時，才顯示乘客看得懂的路線代號或官方線名。GTFS 內部代碼與模擬流水號不再冒充公開車次</span></li>
         <li data-cl-of="istanbulaudit"><span class="d">8/31</span><span>伊斯坦堡路網補完：依 Metro İstanbul、UAB、TCDD 與 IETT 現行官方資料重建 12 個 Metro 路徑、6 條電車、4 條纜索鐵路、Marmaray 與 Halkalı－Bahçeşehir 通勤線，另保留 2 條纜車，共 26 個可見路徑。M11 已完整接通 Gayrettepe－Halkalı，M3、M4、M5、M8、M9 延伸及 T2、T5、T6、F4 都已補齊；T3 單向環不會反向虛構，尚未通車的 T7 不會提前加入。277 個站名與全部路線內容備妥繁中、英文、日文；7,679 班為明示模擬班距，臨時停駛與改點仍請以官方公告為準</span></li>
@@ -3843,6 +3845,8 @@
         <summary>完整更新歷史（依主題分類）</summary>
         <ul class="foot-list">
         <li class="grp">路網與車站</li>
+        <li data-cl="worldlabels"><span class="d">9/2</span><span>車站名字的顯示層級改成「在自己的路網裡排名」，不再看絕對停靠班次數。原本的門檻是照台鐵一天的班次量訂的，而世界城市單一路網動輒上萬班，於是幾乎每一站都被當成大站——紐約 379 站有 344 站在都會區視野就開始標名字，縮小看就是一整面文字。現在縮小只標各路網最主要的車站，放大才逐層顯示次要車站，各城市不論路網大小都選得出自己的大站</span></li>
+        <li data-cl="worldtrail"><span class="d">9/2</span><span>少數列車的光點旁邊會多射出一條光芒，已修正。列車尾巴原本用螢幕像素判斷要不要斷開，而同樣一段位置跳躍在縮小的視野只佔幾十像素、擋不掉，就被畫成一條直線。改成用該段隱含的時速判斷，與地圖縮放無關；不合理的跳躍不再畫成尾巴</span></li>
         <li data-cl="mapsync"><span class="d">9/2</span><span>地圖縮放改用真機較穩定的同步方式：底圖、路線與列車不再各自跑一段縮放動畫，而是在同一拍直接落到新倍率，縮放過程中路線不會與底圖分開。代價是縮放少了平滑收尾；拖曳、flyTo 與跟隨列車仍走原本的平滑路徑</span></li>
         <li data-cl="istanbulaudit"><span class="d">8/31</span><span>伊斯坦堡路網補完：依 Metro İstanbul、UAB、TCDD 與 IETT 現行官方資料重建 12 個 Metro 路徑、6 條電車、4 條纜索鐵路、Marmaray 與 Halkalı－Bahçeşehir 通勤線，另保留 2 條纜車，共 26 個可見路徑。M11 已完整接通 Gayrettepe－Halkalı，M3、M4、M5、M8、M9 延伸及 T2、T5、T6、F4 都已補齊；T3 單向環不會反向虛構，尚未通車的 T7 不會提前加入。277 個站名與全部路線內容備妥繁中、英文、日文；7,679 班為明示模擬班距，臨時停駛與改點仍請以官方公告為準</span></li>
         <li data-cl="londonaudit"><span class="d">8/31</span><span>倫敦路網補完：依 TfL 現行資料加入 Underground、Elizabeth line、DLR、Tram 與六條新命名 London Overground，20 個線別依端點與 via 拆成 67 個可見路徑；Central、District、Northern 舊版漏掉的分支也一併補齊，Tram 市中心單向環不會反向虛構。464 個站名與全部路線內容備妥繁中、英文、日文；TfL 沒有官方中日站名的專名保留英文。8,590 班使用明示模擬班距，只代表正確路網上的流動，不是即時位置</span></li>
@@ -8461,11 +8465,26 @@ function applySchedSystems(sysList) {
   const stopCount = {};
   for (const tr of state.trains) for (const s of tr.stops)
     if (s.stop !== false) { const k = tr.sys + '|' + s.name; stopCount[k] = (stopCount[k] || 0) + 1; }
+  // 停靠次數的絕對門檻(≥200 次→一等)是照台鐵一天的班次量校準的。世界城市單一路網動輒
+  // 8,000~19,000 班,幾乎每一站都越過 200 → 紐約 379 站有 344 站(91%)拿到 tier 1(lz 9),
+  // 分級形同虛設,城市概觀就是一整面站名。改成在「自己的系統內排名」:名次是相對量,
+  // 不隨路網規模漂移,大都會與支線各自選得出自己的大站。台鐵仍優先吃官方站等表。
+  const bySys = new Map();
   state.schedStations.forEach(st => {
-    const c = st.sys === 'tra_sched' ? (clsMap[st.name] || clsMap[st.name.replace(/台/g, '臺')]) : null;
-    st.tier = c ? (CLS_TIER[c] != null ? CLS_TIER[c] : 4)
-      : (n => n >= 200 ? 1 : n >= 90 ? 2 : n >= 30 ? 3 : 4)(stopCount[st.sys + '|' + st.name] || 0);
+    st._cls = st.sys === 'tra_sched' ? (clsMap[st.name] || clsMap[st.name.replace(/台/g, '臺')]) : null;
+    st._stops = stopCount[st.sys + '|' + st.name] || 0;
+    if (!bySys.has(st.sys)) bySys.set(st.sys, []);
+    bySys.get(st.sys).push(st);
   });
+  for (const list of bySys.values()) {
+    list.sort((a, b) => b._stops - a._stops || (a.name < b.name ? -1 : a.name > b.name ? 1 : 0));
+    const last = Math.max(1, list.length - 1);
+    list.forEach((st, i) => {
+      if (st._cls) { st.tier = CLS_TIER[st._cls] != null ? CLS_TIER[st._cls] : 4; return; }
+      const q = i / last; // 0=停靠最多的那站
+      st.tier = q <= 0.03 ? 1 : q <= 0.12 ? 2 : q <= 0.35 ? 3 : 4;
+    });
+  }
   // 共構站群(跨系統 ≤150m:台北/板橋/南港 台鐵×高鐵、新左營×左營、六家×新竹、沙崙×台南…):
   // 地圖站名標籤要成組帶系統名標出「這個點疊著兩家」;新烏日×台中 347m 拉近即分開,不列
   for (const st of state.schedStations) st._co = null;
@@ -9295,7 +9314,7 @@ function drawSched(w, h, paintDecoTrains) {
     state._trainHits.push({ x: cp.x, y: cp.y, tr, ...trainMarkBox(tr, showTrain) }); // 供點擊/hover 命中測試(每幀重建)
     const glowC = isHSR(tr) ? HSR_ORANGE : tr.color;
     paintTrain(cp.x, cp.y, tr.sys, null, () => {
-      drawTrail(dt => trainPos(tr, state.simSec - dt), cp, glowC, sh);
+      drawTrail(dt => trainPos(tr, state.simSec - dt), cp, glowC, sh, isHSR(tr) ? 400 : 200);
       // 兩環互斥:準點排行(綠)比今日之最(金)難得,同時中選只畫綠環;drawFeaturedRing 本體與既有金環零變化
       if (state._punctual.has(tr)) drawPunctualRing(cp);
       else if (state._featured.has(tr)) drawFeaturedRing(cp); // 今日之最(探索面板推薦)→ 地圖上加繪金色光環識別
@@ -9347,7 +9366,7 @@ function drawSched(w, h, paintDecoTrains) {
 
 function drawFollowMarker(p, tr) {
   const glowC = isHSR(tr) ? HSR_ORANGE : tr.color;
-  drawTrail(dt => trainPos(tr, state.simSec - dt), p, glowC);
+  drawTrail(dt => trainPos(tr, state.simSec - dt), p, glowC, null, isHSR(tr) ? 400 : 200);
   glowUnder(p, glowC, 7); // 跟隨主角:光暈最強
   const dw = dwellInfoOf(tr, effTLive(tr));
   if (dw && dw.st.stop !== false) { // 停站脈動:外圈呼吸擴散
@@ -9715,18 +9734,26 @@ function trailRibbon(P, w0, fillA, color) {
   g.addColorStop(1, trailRGBA(color, 0));
   ctx.fillStyle = g; ctx.fill();
 }
-function drawTrail(getPos, head, color, sh) {
+function drawTrail(getPos, head, color, sh, maxKmh) {
   if (!trainGlow()) return;
   const step = TRAIL_SEC / TRAIL_STEPS;
+  // 位置跳躍的防護判準用「這一步隱含的時速」,不用螢幕像素——像素門檻會隨縮放漂移:
+  // 實測紐約 6X 有一步跳 1,308 公尺(時速 1,712 公里),在 z12 只佔 45px,遠低於舊的 200px 門檻,
+  // 於是被當成正常尾跡畫出來,看起來就是光點旁邊多射出一條光芒(396 台車中 14 台中鏢)。
+  // 時速是物理量,任何縮放下判準一致;200px 那條保留當極端縮放的保底。
+  const capKmh = maxKmh || 400;
   _trailPts.length = 0; _trailPts.push(head);
+  let prevGeo = getPos(0);
   for (let k = 1; k <= TRAIL_STEPS; k++) {
     const pos = getPos(k * step);
     if (!pos) break; // 早於發車 / 環島與跨午夜回繞 → 沒有更早的位置,尾巴到此為止
+    if (prevGeo && map.distance([prevGeo.lat, prevGeo.lon], [pos.lat, pos.lon]) / step * 3.6 > capKmh) break;
+    prevGeo = pos;
     const cp = map.latLngToContainerPoint([pos.lat, pos.lon]);
     if (sh) { cp.x += sh.x; cp.y += sh.y; } // 整條尾巴跟著偏(頭已經偏了):只偏頭會在車底折一個角
     const prev = _trailPts[_trailPts.length - 1];
     const d = Math.hypot(cp.x - prev.x, cp.y - prev.y);
-    if (d > 200) break;      // 防回繞/跳站在畫面上拉出長弦
+    if (d > 200) break;      // 保底:極端縮放下仍不拉出長弦
     if (d < 0.8) continue;   // 停站取樣重合:跳過零長段,法線才不會退化
     _trailPts.push(cp);
   }
@@ -23570,7 +23597,9 @@ function stationIntroText(name) {
   if (blurb) return `<span class="dp-intro-lbl">${escHtml(t('車站特色'))}</span>${escHtml(t(blurb))}`;
   const feat = info && info.feature;
   if (feat) return `<span class="dp-intro-lbl">${escHtml(t('車站特色'))}</span>${escHtml(t(feat))}`;
-  const stn = (state.schedStations || []).find(s => s.name === name);
+  // 站等是台鐵的制度。原本跨系統用站名比對,海外車站只要排到 tier 1 就會被標成
+  // 「台鐵一等站」(紐約 344 站中鏢);限定 tra_sched 才取。
+  const stn = (state.schedStations || []).find(s => s.name === name && s.sys === 'tra_sched');
   const tier = stn ? stn.tier : null;
   const tierLabel = tier === 0 ? '特等站' : tier === 1 ? '一等站' : '';
   if (tierLabel) return `<span class="dp-intro-lbl">${escHtml(t('站等'))}</span>${escHtml(t('台鐵{tier}　鐵路運輸的重要節點', { tier: t(tierLabel) }))}`;
