@@ -3827,6 +3827,7 @@
            內容 li 上限 8 條(li.grp 是標題不算)。 -->
       <ul class="foot-list foot-recent">
         <li class="grp">最近更新</li>
+        <li data-cl-of="mapsync"><span class="d">9/2</span><span>地圖縮放時，底圖、路線與列車改成同一拍直接落定，不再各跑一段動畫後短暫分開</span></li>
         <li data-cl-of="worldmarker"><span class="d">8/31</span><span>世界城市的列車標記簡化了：一般視野只留彩色圓點，避免紐約、東京等密集路網被車牌塞滿；放到最大或跟隨一班車時，才顯示乘客看得懂的路線代號或官方線名。GTFS 內部代碼與模擬流水號不再冒充公開車次</span></li>
         <li data-cl-of="istanbulaudit"><span class="d">8/31</span><span>伊斯坦堡路網補完：依 Metro İstanbul、UAB、TCDD 與 IETT 現行官方資料重建 12 個 Metro 路徑、6 條電車、4 條纜索鐵路、Marmaray 與 Halkalı－Bahçeşehir 通勤線，另保留 2 條纜車，共 26 個可見路徑。M11 已完整接通 Gayrettepe－Halkalı，M3、M4、M5、M8、M9 延伸及 T2、T5、T6、F4 都已補齊；T3 單向環不會反向虛構，尚未通車的 T7 不會提前加入。277 個站名與全部路線內容備妥繁中、英文、日文；7,679 班為明示模擬班距，臨時停駛與改點仍請以官方公告為準</span></li>
         <li data-cl-of="londonaudit"><span class="d">8/31</span><span>倫敦路網補完：依 TfL 現行資料加入 Underground、Elizabeth line、DLR、Tram 與六條新命名 London Overground，20 個線別依端點與 via 拆成 67 個可見路徑；Central、District、Northern 舊版漏掉的分支也一併補齊，Tram 市中心單向環不會反向虛構。464 個站名與全部路線內容備妥繁中、英文、日文；TfL 沒有官方中日站名的專名保留英文。8,590 班使用明示模擬班距，只代表正確路網上的流動，不是即時位置</span></li>
@@ -3842,6 +3843,7 @@
         <summary>完整更新歷史（依主題分類）</summary>
         <ul class="foot-list">
         <li class="grp">路網與車站</li>
+        <li data-cl="mapsync"><span class="d">9/2</span><span>地圖縮放改用真機較穩定的同步方式：底圖、路線與列車不再各自跑一段縮放動畫，而是在同一拍直接落到新倍率，縮放過程中路線不會與底圖分開。代價是縮放少了平滑收尾；拖曳、flyTo 與跟隨列車仍走原本的平滑路徑</span></li>
         <li data-cl="istanbulaudit"><span class="d">8/31</span><span>伊斯坦堡路網補完：依 Metro İstanbul、UAB、TCDD 與 IETT 現行官方資料重建 12 個 Metro 路徑、6 條電車、4 條纜索鐵路、Marmaray 與 Halkalı－Bahçeşehir 通勤線，另保留 2 條纜車，共 26 個可見路徑。M11 已完整接通 Gayrettepe－Halkalı，M3、M4、M5、M8、M9 延伸及 T2、T5、T6、F4 都已補齊；T3 單向環不會反向虛構，尚未通車的 T7 不會提前加入。277 個站名與全部路線內容備妥繁中、英文、日文；7,679 班為明示模擬班距，臨時停駛與改點仍請以官方公告為準</span></li>
         <li data-cl="londonaudit"><span class="d">8/31</span><span>倫敦路網補完：依 TfL 現行資料加入 Underground、Elizabeth line、DLR、Tram 與六條新命名 London Overground，20 個線別依端點與 via 拆成 67 個可見路徑；Central、District、Northern 舊版漏掉的分支也一併補齊，Tram 市中心單向環不會反向虛構。464 個站名與全部路線內容備妥繁中、英文、日文；TfL 沒有官方中日站名的專名保留英文。8,590 班使用明示模擬班距，只代表正確路網上的流動，不是即時位置</span></li>
         <li data-cl="tokyoaudit"><span class="d">8/31</span><span>東京路網補完：Tokyo Metro 銀座、丸之內、日比谷、東西、千代田、有樂町、半藏門、南北、副都心 9 線已全部加入，連同都營 6 線共 16 個可見路徑；方南町支線獨立畫出，千代田線也完整接到北綾瀨。Metro 站名採官方繁中、英文、日文，列車用明示模擬班距在正確路網雙向流動；都營仍依官方平日時刻。這不是即時位置，也不包含 JR 與全部私鐵</span></li>
@@ -4443,7 +4445,7 @@
 //         逐 hunk 比對過:兩版四項做法幾乎相同,v0831d 多做了第三件(clock-off 放出「現在」鈕),
 //         v0831e 只多幾行註解且其中一句寫錯(openNearbyStations 不讀 simSec,它不吃撥鐘影響),
 //         故正文全取 v0831d。守門人:scripts/verify_merge_no_loss.mjs --parents 兩顆。
-const BUILD = 'world-v0831h';
+const BUILD = 'world-v0902a';
 // 輕量多語 runtime：繁中原文同時是安全 fallback，外語字典只存差異字串。
 // 所有插值一律先當純文字處理；需要 HTML 的呼叫端仍須用 escHtml() 包住結果。
 const I18N_STORAGE_KEY = 'trainmap-language';
@@ -26484,13 +26486,11 @@ async function boot() {
   ensureMetroWaitListener(); // 捷運等車卡(Task 6)深連結監聽,boot 時掛(僅原生殼有此 plugin,web/PWA 無操作)
   if (!WORLD_BUILD) ensureCrossLevels(); // 世界版沒有台灣立體交叉資料，不發無效請求
   cv = document.getElementById('overlay'); ctx = cv.getContext('2d');
-  // zoomAnimation:true —— 縮放走 Leaflet 250ms CSS 平滑補間(舊圖磚縮放到位、新圖磚淡入),不再「瞬間跳格→
-  // 舊圖磚被丟、新圖磚還沒到→畫面消失一下下」(TestFlight 回報)。overlay 畫布在 Leaflet pane 體系外、以
-  // container 座標每幀重投影,若補間期間立刻按目標 zoom 重畫會與圖磚錯位「殘影」(issue #4,首幀曾錯 186px)——
-  // 舊版 v0714a 靠關掉動畫規避,代價即上述「消失」。現改為:縮放動畫期間凍結 overlay 的 JS 重投影/重繪,
-  // 改對 overlay 施加與圖磚同一條曲線的 CSS transform 同步縮放(見下方 onZoomAnim/endZoomAnim),兩者同幀落定,
-  // 既根除殘影、又不再有消失感。平移/flyTo/跟車(setView animate:false)不發 zoomanim,一律不受此機制影響。
-  map = L.map('map', { zoomControl: true, attributionControl: true, preferCanvas: true, zoomAnimation: true })
+  // zoomAnimation:false —— Leaflet 圖磚層與 #overlay canvas 是兩個獨立渲染層；若讓圖磚走 250ms CSS
+  // 補間、overlay 同時依目標 zoom 重投影，Android WebView 真機會短暫分開。先前的仿射補償在桌面測試
+  // 可對齊，真機仍會失步，因此回到已驗證的穩定方案：縮放同一拍直接落定。代價是縮放不再有平滑收尾，
+  // 但路線、列車與底圖不會分家；flyTo、平移與跟車仍走各自原本的平滑路徑。
+  map = L.map('map', { zoomControl: true, attributionControl: true, preferCanvas: true, zoomAnimation: false })
     .setView(WORLD_BUILD ? [30, 20] : [24.5, 121], WORLD_BUILD ? 2 : 8);
   // Leaflet 每次增減圖層都會把署名 DOM 重新建立；只在 addAttribution/setBasemap 後翻一次，
   // 下一次內部 _update 就會退回中文。包住唯一的重繪入口，確保切底圖與晚到資料都維持目前語言。
