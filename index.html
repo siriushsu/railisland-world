@@ -3827,6 +3827,7 @@
            內容 li 上限 8 條(li.grp 是標題不算)。 -->
       <ul class="foot-list foot-recent">
         <li class="grp">最近更新</li>
+        <li data-cl-of="worldroutes"><span class="d">9/2</span><span>巴黎、維也納、墨爾本、挪威四地依官方現行資料重新查證路網，補上 13 條漏掉的路線，也修好兩條被畫成半截的維也納電車</span></li>
         <li data-cl-of="worldmapnames"><span class="d">9/2</span><span>底圖地名改用當地的寫法：巴黎寫 Paris、東京寫東京都，不再一律轉成中文譯名</span></li>
         <li data-cl-of="worldlabels"><span class="d">9/2</span><span>地圖縮小時只標主要車站，不再整片站名擠在一起；放大才逐層顯示次要車站</span></li>
         <li data-cl-of="worldtrail"><span class="d">9/2</span><span>少數列車旁邊會多射出一條光芒的狀況修掉了</span></li>
@@ -3834,7 +3835,6 @@
         <li data-cl-of="worldmarker"><span class="d">8/31</span><span>世界城市的列車標記簡化了：一般視野只留彩色圓點，避免紐約、東京等密集路網被車牌塞滿；放到最大或跟隨一班車時，才顯示乘客看得懂的路線代號或官方線名。GTFS 內部代碼與模擬流水號不再冒充公開車次</span></li>
         <li data-cl-of="istanbulaudit"><span class="d">8/31</span><span>伊斯坦堡路網補完：依 Metro İstanbul、UAB、TCDD 與 IETT 現行官方資料重建 12 個 Metro 路徑、6 條電車、4 條纜索鐵路、Marmaray 與 Halkalı－Bahçeşehir 通勤線，另保留 2 條纜車，共 26 個可見路徑。M11 已完整接通 Gayrettepe－Halkalı，M3、M4、M5、M8、M9 延伸及 T2、T5、T6、F4 都已補齊；T3 單向環不會反向虛構，尚未通車的 T7 不會提前加入。277 個站名與全部路線內容備妥繁中、英文、日文；7,679 班為明示模擬班距，臨時停駛與改點仍請以官方公告為準</span></li>
         <li data-cl-of="londonaudit"><span class="d">8/31</span><span>倫敦路網補完：依 TfL 現行資料加入 Underground、Elizabeth line、DLR、Tram 與六條新命名 London Overground，20 個線別依端點與 via 拆成 67 個可見路徑；Central、District、Northern 舊版漏掉的分支也一併補齊，Tram 市中心單向環不會反向虛構。464 個站名與全部路線內容備妥繁中、英文、日文；TfL 沒有官方中日站名的專名保留英文。8,590 班使用明示模擬班距，只代表正確路網上的流動，不是即時位置</span></li>
-        <li data-cl-of="tokyoaudit"><span class="d">8/31</span><span>東京路網補完：Tokyo Metro 銀座、丸之內、日比谷、東西、千代田、有樂町、半藏門、南北、副都心 9 線已全部加入，連同都營 6 線共 16 個可見路徑；方南町支線獨立畫出，千代田線也完整接到北綾瀨。Metro 站名採官方繁中、英文、日文，列車用明示模擬班距在正確路網雙向流動；都營仍依官方平日時刻。這不是即時位置，也不包含 JR 與全部私鐵</span></li>
       </ul>
       <!-- 第二層:完整歷史。刻意不掛 .foot-box 類名——placeFootBoxes() 用
            `.site-foot .foot-box` 搬移面板,巢狀同名會被當成另一個盒子一起搬走。 -->
@@ -3842,6 +3842,7 @@
         <summary>完整更新歷史（依主題分類）</summary>
         <ul class="foot-list">
         <li class="grp">路網與車站</li>
+        <li data-cl="worldroutes"><span class="d">9/2</span><span>四地路網依官方現行資料逐條查證後重建。巴黎 41→49 條：補回 T7、T9、T10、T12、T13、T14 六條電車（它們當初是為了壓檔案大小被砍掉的，官方全部仍在營運），另收纜車 C1 與蒙馬特纜索鐵路；T1 也從只畫 10 站修正到完整 37 站。維也納 33→35 條：補回 40、41、42——它們不是漏抓，是夏季施工停駛期剛好落在原本的取樣日，官方已於 8/22 復駛；同時修好被畫成半截的 31（12 站→27 站，終點正確接到 Stammersdorf）與 71，已結束的施工替駛線則退場。墨爾本 53→55 條：補上 The Overland 跨州列車與 Flemington 賽馬特別線。挪威 28→30 條：補回 L1、FLY2、RE30，並改以官方線號表為準，剔除時刻表系統內部的班次變體碼</span></li>
         <li data-cl="worldmapnames"><span class="d">9/2</span><span>底圖上的地名改成以當地名稱為準。原本沿用台灣版的設定，優先取非拉丁名再取中文名，這在台灣是對的，但套到世界地圖就變成巴黎標「巴黎」、倫敦標「伦敦」、雪梨標「悉尼」，而且來源資料給的是簡體。收錄的 12 座城市裡只有東京不受影響。現在一律先取當地名稱、沒有才退回拉丁拼寫：巴黎是 Paris、Boulogne-Billancourt，東京是東京都、新宿区，首爾是서울특별시，雅典是 Αθήνα</span></li>
         <li data-cl="worldrelaunch"><span class="d">8/31</span><span>世界版重新啟動：換上台灣版現行介面與繁中、英文、日文切換，12 座城市改成一次載一城；時鐘會切到當地時間，列車跟隨、車站看板、搜尋、速度與分享也一併接回。路線完整度另做官方來源稽核，已知缺線會明白列出，不再用「實驗版」三字含糊帶過</span></li>
         <li data-cl="worldlabels"><span class="d">9/2</span><span>車站名字的顯示層級改成「在自己的路網裡排名」，不再看絕對停靠班次數。原本的門檻是照台鐵一天的班次量訂的，而世界城市單一路網動輒上萬班，於是幾乎每一站都被當成大站——紐約 379 站有 344 站在都會區視野就開始標名字，縮小看就是一整面文字。現在縮小只標各路網最主要的車站，放大才逐層顯示次要車站，各城市不論路網大小都選得出自己的大站</span></li>

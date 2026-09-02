@@ -4,7 +4,7 @@
 //
 // (1) 巴黎專屬篩選 ── agencyPrefix() 對 IDFM:71(RER)/IDFM:1046(Transilien)/IDFM:93(TER)
 //     三者前綴皆為 "IDFM",既有工具的 --agency-exclude 對此無效,故用 route_short_name 後製
-//     排除 TER(10 條線延伸出大巴黎大區外)；電車依量級門檻砍最小 6 條支線。
+//     排除 TER(10 條線延伸出大巴黎大區外)。電車量級門檻已於 2026-09-02 解除，15 條電車全收。
 //
 // (2) 代表 shape 重選 ── gtfs2rail.mjs 對每線挑「目標日期最常見(trip 數最多)的 shape_id」,
 //     但巴黎 RER/Transilien 分支極多,「最常見」常是尖峰折返的短程支線變體,不含穿越市中心的
@@ -18,7 +18,7 @@
 // 用法:先跑 gtfs2rail.mjs 產生 data/paris.json + data/paris_schedule_dense.json,
 // 再跑本腳本原地覆寫同兩檔(需原始 GTFS zip 路徑,因 shape 重選需重新掃 trips.txt/shapes.txt):
 //   node tools/gtfs2rail.mjs --gtfs <zip> --sys 巴黎軌道 --tz Europe/Paris \
-//     --route-types 0,1,2 --out-prefix data/paris --date 20260715 --typename-mode route
+//     --route-types 0,1,2,6,7 --out-prefix data/paris --date 20260909 --typename-mode route
 //   node tools/build_paris.mjs --gtfs <zip>
 
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
@@ -31,7 +31,7 @@ import { fileURLToPath } from 'node:url';
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const TRACK_PATH = path.join(ROOT, 'data/paris.json');
 const SCHED_PATH = path.join(ROOT, 'data/paris_schedule_dense.json');
-const TARGET_DATE = '20260715';
+const TARGET_DATE = '20260909';
 
 const argv = process.argv.slice(2);
 const gtfsIdx = argv.indexOf('--gtfs');
@@ -149,8 +149,13 @@ function rdp(pts, epsKm) {
 // 3.8%)。優先序:地鐵(10,942)全保、RER(2,051)全保、Transilien(2,082)全保 ── 三者合計
 // 15,075,尚有餘裕;優先序未提及的電車(5,708)列為最後順位,砍最小的 6 條支線
 // (T14/T13/T12/T7/T10/T9,合計 1,067 車次)湊足門檻,其餘 11 條主力電車線保留。
-// 砍後總量 19,716 車次,在 20,000 門檻內。
-const EXCLUDE_TYPENAMES = new Set(['TER', 'T14', 'T13', 'T12', 'T7', 'T10', 'T9']);
+// （2026-09-02：此門檻已解除，見下方 EXCLUDE_TYPENAMES 上的說明。）
+// 2026-09-02：六條電車（T7/T9/T10/T12/T13/T14）解除排除。原因是官方稽核逐條確認它們
+// 在 IDFM referentiel-des-lignes 全部 status="active"（T7 自 2014 通車、T14 自 2025-03-22），
+// 而它們當初被砍純粹是為了壓在 20,000 車次的檔案大小門檻內——那道門檻訂於「一次載入全部城市」
+// 的舊架構，世界版現已改為一次只載一城，巴黎單城多這 1,067 車次不影響其他城市。
+// 只保留 TER 排除（10 條線延伸出大巴黎大區外，非巴黎系統範圍）。
+const EXCLUDE_TYPENAMES = new Set(['TER']);
 
 const track = JSON.parse(readFileSync(TRACK_PATH, 'utf8'));
 const sched = JSON.parse(readFileSync(SCHED_PATH, 'utf8'));
@@ -340,13 +345,14 @@ const SOURCE_NOTES_TRACK =
   'aux conditions de la « Licence Mobilités »」,並附來源資料庫連結 ' +
   'https://prim.iledefrance-mobilites.fr/fr/jeux-de-donnees/horaires-theoriques-et-temps-reel-tous-les-modes-de-transport-en-si ' +
   '＋授權文本連結 https://prim.iledefrance-mobilites.fr/en/licences。' +
-  '範圍:route_type∈{0=電車,1=地鐵,2=RER+Transilien},排除 agency「TER」(route_short_name 統一為 ' +
+  '範圍:route_type∈{0=電車,1=地鐵,2=RER+Transilien,6=纜車,7=纜索鐵路},排除 agency「TER」(route_short_name 統一為 ' +
   '"TER",10 條線延伸出大巴黎大區到 Normandie/Bourgogne-Franche-Comté/Centre-Val de Loire/' +
   'Hauts-de-France/Grand-Est,非巴黎系統範圍;RER/Transilien/TER 三 agency_id 前綴皆為 "IDFM" ' +
   '無法用既有 --agency-exclude 區分,已改用 route_short_name 後製排除)。' +
-  '電車支線因目標日期總量超過 20,000 門檻,砍最小 6 條(T14/T13/T12/T7/T10/T9);地鐵剛好 16 條線' +
-  '(1,2,3,3B,4,5,6,7,7B,8,9,10,11,12,13,14)全數 RATP;RER 5 線(A-E);Transilien 9 線' +
-  '(H,J,K,L,N,P,R,U,V);電車保留 11 線(T1,T2,T3a,T3b,T4,T5,T6,T8,T11,ORLYVAL,CDG VAL)。' +
+  '電車 15 線全收(T1,T2,T3a,T3b,T4,T5,T6,T7,T8,T9,T10,T11,T12,T13,T14);' +
+  '地鐵 16 線(1,2,3,3B,4,5,6,7,7B,8,9,10,11,12,13,14)全數 RATP;RER 5 線(A-E);' +
+  'Transilien 9 線(H,J,K,L,N,P,R,U,V);另收自動導軌 ORLYVAL/CDG VAL、纜車 C1(route_type 6)' +
+  '與蒙馬特纜索鐵路 FUN(route_type 7)。' +
   '每路線 shape 選取:目標日期各候選 trip 之 shape 中,「讓最多真實站點落在路徑中段(非起訖點' +
   '夾死)」者(而非最常見 trip 數者,也非單純比里程最長 ── 純比里程最長仍可能選到讓某方向分支' +
   '全部夾死在端點的 shape,已實測驗證改採涵蓋度本身排序更準)。巴黎 RER/Transilien 分支極多,' +
@@ -362,11 +368,11 @@ const SOURCE_NOTES_TRACK =
 
 const SOURCE_NOTES_SCHED =
   '來源與授權同 data/paris.json(見該檔 source_notes;transport.data.gouv.fr 鏡射 IDFM GTFS,' +
-  'Licence Mobilités,Article 5.4 標註義務同上)。目標服務日期 20260715(週三,時區 Europe/Paris);' +
+  'Licence Mobilités,Article 5.4 標註義務同上)。目標服務日期 20260909(週三,時區 Europe/Paris);' +
   '時刻為 GTFS 原始 HH:MM:SS 直接轉秒(跨午夜 HH>=24 不 wrap,與現有 tra_schedule_dense.json 慣例一致)。' +
-  '已排除 agency「TER」(10 條區域線延伸出大巴黎大區外,見 data/paris.json 說明)；電車已砍最小 6 條支線 ' +
-  '(T14/T13/T12/T7/T10/T9,共 1,067 車次)以符合 20,000 車次量級門檻,其餘電車/全數地鐵/全數 RER/' +
-  '全數 Transilien 保留,詳見 tools/build_paris.mjs。';
+  '已排除 agency「TER」(10 條區域線延伸出大巴黎大區外,見 data/paris.json 說明);' +
+  '電車 15 線、地鐵 16 線、RER 5 線、Transilien 9 線、ORLYVAL/CDG VAL、纜車 C1 與纜索鐵路 FUN 全收,' +
+  '詳見 tools/build_paris.mjs。';
 
 track.source_notes = SOURCE_NOTES_TRACK;
 sched.source_notes = SOURCE_NOTES_SCHED;
