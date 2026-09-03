@@ -422,23 +422,45 @@ def project_point_to_polyline(pt, poly):
     return best_dist, best_s
 
 
+DETOUR_SANITY_RATIO = 2.0   # op 圖路徑超過直線這個倍數就不直接採用,改跟 full 圖比一次取較短者
+
+
 def route_one_pair(a_pt, b_pt, coord_op, adj_op, coord_full, adj_full):
-    """單一端點對:先在 op 圖找路,失敗退到 full 圖,再失敗直線退。回傳 (poly[(lat,lon)], used, fallback_flag)"""
+    """單一端點對:先在 op 圖找路,失敗退到 full 圖,再失敗直線退。回傳 (poly[(lat,lon)], used, fallback_flag)
+
+    原本只要 op 圖「找得到路」就採用,對「找到一條荒謬的路」完全沒有判斷,而退 full 圖只在
+    完全找不到時才發生。實測 R38 的 Domat/Ems→Domat/Ems Werk 直線 1.87km,op 圖繞 7.64km、
+    full 圖只要 2.83km——多出來的那段折返會讓 gtfs2rail 的 projectAll 對同一個站投影出多個
+    位置,成品站列因此印出「Felsberg → Domat/Ems → Felsberg → Felsberg」。
+    所以 op 圖路徑明顯過長時多花一次 Dijkstra 比 full 圖,取較短者:這一步只可能縮短路徑,
+    而且正常的跳(全網 518 跳裡的中位數是直線的 1.08 倍)會在第一個 return 就走掉,不付代價。
+    門檻 2.0 是量出來的,而且刻意訂在真實山岳幾何(Klosters→Cavadürli 4.3、Alp Grüm 的馬蹄彎
+    4.0)**之下**:那些跳的 op 與 full 長度完全相同,多比一次不會改變結果,所以門檻訂低只是多花
+    Dijkstra、不會為它們選錯路。反過來訂高會漏掉真的假折返——實測 RE8 的 Domat/Ems→Bonaduz
+    op 13.01km、full 只要 7.26km,比值 2.6,訂 3.0 就抓不到。全網 518 跳的比值中位數 1.08、
+    p90 1.47,所以絕大多數跳仍在第一個 return 就採用 op 圖,營運商優先沒有被放棄。"""
+    straight = haversine(a_pt, b_pt)
+    best = None                      # (km, poly, used)
     na, da = nearest_node(coord_op, a_pt)
     nb, db = nearest_node(coord_op, b_pt)
     if da < 0.3 and db < 0.3:
         p = dijkstra(adj_op, coord_op, na, nb)
         if p:
-            poly, _ = path_polyline_and_len(p, coord_op)
-            return poly, "op", False
+            poly, km = path_polyline_and_len(p, coord_op)
+            if km <= straight * DETOUR_SANITY_RATIO + 0.5:
+                return poly, "op", False
+            best = (km, poly, "op")
     # 退到全 narrow_gauge 圖(含非 RhB/MGB tag 但實體相連的路段)
     na2, da2 = nearest_node(coord_full, a_pt)
     nb2, db2 = nearest_node(coord_full, b_pt)
     if da2 < 0.3 and db2 < 0.3:
         p = dijkstra(adj_full, coord_full, na2, nb2)
         if p:
-            poly, _ = path_polyline_and_len(p, coord_full)
-            return poly, "full", False
+            poly, km = path_polyline_and_len(p, coord_full)
+            if best is None or km < best[0]:
+                best = (km, poly, "full")
+    if best is not None:
+        return best[1], best[2], False
     return [a_pt, b_pt], "straight", True
 
 
@@ -1047,7 +1069,9 @@ def main():
             "兩個判準選到完全同一組 10 條:金色山口全景 30、百谷線 72、伯連納快車 BEX、冰河快車 GEX×3、"
             "金色山口快車 GPX×2、琉森-茵特拉肯快車 LIX、哥達全景快車 PE);"
             "官方不提供 shapes.txt,線形自建:OpenStreetMap 路網"
-            "(© OpenStreetMap contributors, ODbL)跑 Dijkstra 取真實軌跡——米軌走 railway=narrow_gauge、"
+            "(© OpenStreetMap contributors, ODbL)跑 Dijkstra 取真實軌跡——米軌走 railway=narrow_gauge "
+            "以及 gauge 含 1000 的三軌雙軌距路段(庫爾站區的 RhB 軌道標成 railway=rail + "
+            "gauge=1000;1435,漏收會讓米軌網在庫爾斷開)、"
             "標準軌(哥達全景與金色山口快車東段)走 railway=rail,**兩張圖各自獨立**,"
             "因為兩種軌距在 Brig／Interlaken Ost／Zweisimmen 的 OSM 節點常共用,合圖會讓米軌路線抄捷徑;"
             "各圖內優先走已知營運商的軌道,缺口才退該軌距的全圖。"
