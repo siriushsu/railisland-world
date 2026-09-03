@@ -1,0 +1,14 @@
+*{box-sizing:border-box}
+:root{color-scheme:light;--paper:#fffdf6;--bg:#efe6d2;--ink:#243247;--muted:#655c4e;--line:#cfbf9b;--red:#b43b31;--navy:#324f75}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","PingFang TC","Hiragino Sans",sans-serif;line-height:1.75}
+main{width:min(760px,calc(100% - 32px));margin:42px auto;padding:34px;background:var(--paper);border:1px solid var(--line);box-shadow:0 12px 36px #43391f1c}
+h1{margin:0 0 8px;font-size:clamp(27px,6vw,40px);letter-spacing:.04em}h2{margin:30px 0 8px;font-size:20px}p,li{font-size:15px}ul{padding-left:1.35em}
+a{color:var(--navy)}.brand{color:#9c2f27;font-weight:900;letter-spacing:.12em}.effective,.small{color:var(--muted);font-size:14px}.lead{font-size:16px;color:#554a38}
+.langbar{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 26px}.langbar button{min-height:44px;padding:7px 15px;border:1.5px solid var(--line);border-radius:999px;background:var(--paper);color:var(--navy);font:inherit;font-weight:800;cursor:pointer}.langbar button[aria-pressed=true]{background:var(--navy);border-color:var(--navy);color:#fff}
+.actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:26px 0}.action{display:flex;align-items:center;justify-content:center;min-height:52px;padding:11px 16px;border-radius:6px;background:var(--red);color:#fff;text-align:center;text-decoration:none;font-weight:900}.action.secondary{background:var(--navy)}
+.note{padding:13px 15px;border-left:4px solid #b49a67;background:#f5eddc;color:#554a38}.checks{padding:14px 18px;background:#f4f0e6;border:1px solid #dfd2b7;border-radius:8px}
+details{border-top:1px solid #dfd2b7;padding:10px 0}details:last-of-type{border-bottom:1px solid #dfd2b7}summary{display:flex;align-items:center;min-height:44px;font-weight:850;cursor:pointer}
+footer{margin-top:32px;padding-top:18px;border-top:1px solid #dfd2b7;color:var(--muted);font-size:14px}footer a{display:inline-flex;align-items:center;min-height:44px;margin-right:12px}
+[data-lang]{display:none}html[data-legal-lang="zh-TW"] [data-lang="zh-TW"],html[data-legal-lang=en] [data-lang=en],html[data-legal-lang=ja] [data-lang=ja]{display:block}
+button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+@media(max-width:520px){main{width:100%;min-height:100vh;margin:0;padding:24px 20px;border:0;box-shadow:none}.actions{grid-template-columns:1fr}}

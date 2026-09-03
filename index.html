@@ -3687,13 +3687,13 @@
     <!-- 首訪「怎麼玩」卡:僅首次(localStorage 記憶),setupHowto 決定顯示 -->
     <div class="howto-wrap" id="howtoWrap" hidden>
       <div class="howto" role="dialog" aria-modal="true" aria-labelledby="howtoTitle">
-        <div class="hw-head"><div class="lbl">歡迎搭乘</div><div class="ttl" id="howtoTitle">軌島怎麼玩</div></div>
+        <div class="hw-head"><div class="lbl">歡迎搭乘</div><div class="ttl" id="howtoTitle">世界版怎麼玩</div></div>
         <!-- 三行＝「三步上手」;文案與 HELP_QUICK 的 short 同一句,改一邊要同步另一邊
              (刻意留靜態 HTML:首訪第一眼不等 JS,比照 #lead／#systems 的靜態佔位慣例) -->
         <div class="hw-rows">
-          <div class="hw-row"><span class="ic" style="font-size:12px;font-weight:900;color:var(--navy)">台鐵</span><span>上面<b>全／台／高／捷</b>選要看哪個系統</span></div>
-          <div class="hw-row"><span class="ic"><span class="hw-tag">431</span></span><span>點<b>列車</b>＝鏡頭跟著它跑，陪到終點蓋完乘章</span></div>
-          <div class="hw-row"><span class="ic"><span class="hw-stnbox"><i></i></span></span><span>點<b>車站</b>＝看接下來的班次與倒數</span></div>
+          <div class="hw-row"><span class="ic" style="font-size:12px;font-weight:900;color:var(--navy)">城市</span><span>上面選城市，切換五座首發城市</span></div>
+          <div class="hw-row"><span class="ic"><span class="hw-tag">G</span></span><span>點列車＝鏡頭跟著它；放大或跟隨時顯示路線代號</span></div>
+          <div class="hw-row"><span class="ic"><span class="hw-stnbox"><i></i></span></span><span>點車站＝看接下來的班次；位置為時刻／班距推演，並非即時</span></div>
         </div>
         <div class="hw-foot"><button class="hw-go" id="howtoGo">開始看車</button><button class="hw-skip" id="howtoMore">看完整說明</button><button class="hw-skip" id="howtoSkip">不再顯示</button></div>
       </div>
@@ -3819,7 +3819,7 @@
 
   <footer class="site-foot">
     <details class="foot-box">
-      <summary><span>更新紀錄</span><span class="foot-sub">最後更新：2026/9/2</span></summary>
+      <summary><span>更新紀錄</span><span class="foot-sub">最後更新：2026/9/4</span></summary>
       <!-- 第一層是「最近更新」的檢視,不是正本:每一條都用 data-cl-of 指向第二層某條的 data-cl。
            要把一條擠出第一層之前,它的正本必須已經在第二層存在——2026-08-03 就踩過一次:8/1 的
            衛星計費那條只活在第一層(第二層只有一句夾在 7/25 條目裡、日期對不上的附帶說明),
@@ -3827,6 +3827,7 @@
            內容 li 上限 8 條(li.grp 是標題不算)。 -->
       <ul class="foot-list foot-recent">
         <li class="grp">最近更新</li>
+        <li data-cl-of="worldapp"><span class="d">9/4</span><span>開始準備 iPhone 與 Android 版：第一版先收錄東京、紐約、倫敦、伊斯坦堡與新加坡五座已通過路線、流動與三語檢查的城市；首開說明也已改成世界版，網站仍保留全部十二個地區</span></li>
         <li data-cl-of="swisssplit"><span class="d">9/4</span><span>瑞士把混了兩種走法的路線拆成多條線，伯連納快車的庫爾與聖莫里茲兩條走法現在分開畫；路線不再來回折返</span></li>
         <li data-cl-of="swissscenic"><span class="d">9/2</span><span>瑞士補齊官方景觀類別全部十條，新收金色山口全景與快車、百谷線、琉森–茵特拉肯快車、哥達全景快車；多條路線的來回折返線形也修好了</span></li>
         <li data-cl-of="worldroutes"><span class="d">9/2</span><span>巴黎、維也納、墨爾本、挪威四地依官方現行資料重新查證路網，補上 13 條漏掉的路線，也修好兩條被畫成半截的維也納電車</span></li>
@@ -3834,7 +3835,6 @@
         <li data-cl-of="worldlabels"><span class="d">9/2</span><span>地圖縮小時只標主要車站，不再整片站名擠在一起；放大才逐層顯示次要車站</span></li>
         <li data-cl-of="worldtrail"><span class="d">9/2</span><span>少數列車旁邊會多射出一條光芒的狀況修掉了</span></li>
         <li data-cl-of="mapsync"><span class="d">9/2</span><span>地圖縮放時，底圖、路線與列車改成同一拍直接落定，不再各跑一段動畫後短暫分開</span></li>
-        <li data-cl-of="worldmarker"><span class="d">8/31</span><span>世界城市的列車標記簡化了：一般視野只留彩色圓點，避免紐約、東京等密集路網被車牌塞滿；放到最大或跟隨一班車時，才顯示乘客看得懂的路線代號或官方線名。GTFS 內部代碼與模擬流水號不再冒充公開車次</span></li>
       </ul>
       <!-- 第二層:完整歷史。刻意不掛 .foot-box 類名——placeFootBoxes() 用
            `.site-foot .foot-box` 搬移面板,巢狀同名會被當成另一個盒子一起搬走。 -->
@@ -3842,6 +3842,7 @@
         <summary>完整更新歷史（依主題分類）</summary>
         <ul class="foot-list">
         <li class="grp">路網與車站</li>
+        <li data-cl="worldapp"><span class="d">9/4</span><span>iPhone／Android 第一版先收錄東京、紐約、倫敦、伊斯坦堡與新加坡。這五城都已通過路線缺口、列車流動、資料來源與繁中／英文／日文檢查；其餘七個地區繼續留在網站逐步校正，不會因為要上架而把成熟度不同的內容一起塞進 App</span></li>
         <li data-cl="swisssplit"><span class="d">9/4</span><span>瑞士 45→47 條。官方時刻表會把同一條路線底下的不同走法放在同一個代碼裡：伯連納快車 BEX 同時有庫爾↔蒂拉諾與聖莫里茲↔蒂拉諾兩種走法，恩加丁線 R15 也有聖莫里茲起與蓬特雷西納起兩種。畫成單一條線的話，在分岔的地方就只能來回折返。現在先把每條路線的停靠序列折疊成「服務型態」再各自建線，實際會分岔的只有這兩條（各拆成兩條），其餘 43 條的線別不變。同輪修好米軌路網在庫爾被切斷的問題：庫爾站區有 15 段 RhB 軌道是米軌與標準軌共用同一條路基的三軌路段，資料上標成標準軌，只認米軌標籤就會把網路切開，庫爾西站到庫爾這 1.1 公里因此得繞 133 公里。兩件事修完之後，47 條線沒有任何一條再有超過四分之一的路段被重複走過（原本有七條），線形總里程從 4169 公里降到 2702 公里，少掉的全是原本虛構出來的折返。另外，逐段找路原本只要在「已知營運商的軌道」上找得到路就採用，即使那條路明顯繞遠；現在超過直線距離兩倍就會再比一次完整路網、取較短的，站牌因此不再出現「費爾斯貝格 → 多馬特／埃姆斯 → 費爾斯貝格 → 費爾斯貝格」這種重複（重複站從 138 個降到 13 個）</span></li>
         <li data-cl="swissscenic"><span class="d">9/2</span><span>瑞士 36→45 條。官方把景觀列車獨立成一個類別（GTFS route_type=107／route_desc=PE，兩個判準選到完全相同的十條），原本只收了其中的伯連納快車與冰河快車，這次把缺的五條服務補齊：金色山口全景 30（蒙特勒–茨魏西門）、百谷線 72（多莫多索拉–洛迦諾）、金色山口快車 GPX 的米軌與標準軌兩段、琉森–茵特拉肯快車 LIX、哥達全景快車 PE。標準軌那兩段不在原本抓的窄軌路網上，改成窄軌與標準軌各建一張獨立的圖再依營運商分派——兩種軌距在布里格、茵特拉肯東、茨魏西門共用節點，合成一張圖會讓米軌路線抄捷徑走到標準軌上。同輪修好線形的來回折返：站序原本是把車站投影到「最遠兩端點的連線」上排序，遇到 Z 字形路網就會排錯而讓線一路折返，改用班表本身的真實停靠順序後，12 條線的重疊大幅下降、沒有任何一條變差（阿爾布拉線 368→221 公里、伯連納快車 363→269 公里）。基準日改用 9/5 週六，是整週裡路線最齊的一天（45/46）</span></li>
         <li data-cl="worldroutes"><span class="d">9/2</span><span>四地路網依官方現行資料逐條查證後重建。巴黎 41→49 條：補回 T7、T9、T10、T12、T13、T14 六條電車（它們當初是為了壓檔案大小被砍掉的，官方全部仍在營運），另收纜車 C1 與蒙馬特纜索鐵路；T1 也從只畫 10 站修正到完整 37 站。維也納 33→35 條：補回 40、41、42——它們不是漏抓，是夏季施工停駛期剛好落在原本的取樣日，官方已於 8/22 復駛；同時修好被畫成半截的 31（12 站→27 站，終點正確接到 Stammersdorf）與 71，已結束的施工替駛線則退場。墨爾本 53→55 條：補上 The Overland 跨州列車與 Flemington 賽馬特別線。挪威 28→30 條：補回 L1、FLY2、RE30，並改以官方線號表為準，剔除時刻表系統內部的班次變體碼</span></li>
@@ -4070,13 +4071,16 @@
         <li><span class="d">路線</span><span>各城市官方路網、現有收錄範圍與已知缺口，統一記錄在公開的路線稽核；不確定或策展範圍會明白標示</span></li>
         <li><span class="d">時刻</span><span>來源包括各地官方 GTFS／GTFS-JP、公共運輸開放資料與營運者公開班距；每個城市的原始來源與授權寫在資料檔 source_notes</span></li>
         <li><span class="d">軌道</span><span>官方 feed 有 shapes 時優先使用；缺少幾何的城市另採 OpenStreetMap（© OpenStreetMap 貢獻者，ODbL）或經查證的衍生線形</span></li>
-        <li><span class="d">底圖</span><span>CARTO（© OpenStreetMap © CARTO）；衛星影像入口仍在整備，世界版不依賴台灣站的私有 API</span></li>
+        <li><span class="d">底圖</span><span>OpenFreeMap（© OpenFreeMap © OpenMapTiles © OpenStreetMap）；衛星影像入口仍在整備，世界版不依賴台灣站的私有 API</span></li>
         <li><span class="d">稽核</span><a href="docs/route-audit-2026-08-31.md">查看 12 個地區的官方來源與補線順序</a></li>
       </ul>
       <p class="foot-note">本站為個人愛好者專案，與任何資料提供者、營運機構或交通主管機關均無隸屬或背書關係。畫面是時刻表推演，不是即時列車位置；旅運決策請以當地官方資訊為準。</p>
     </details>
     <div class="foot-links">
       <a class="help-open" href="#" role="button">使用說明</a>
+      <a href="privacy.html">隱私權政策</a>
+      <a href="terms.html">服務條款</a>
+      <a href="app-support.html">App 支援</a>
       <a href="https://github.com/siriushsu/railisland-world/issues/new" target="_blank" rel="noopener noreferrer">回報問題或建議</a>
       <a href="https://github.com/siriushsu/railisland-world" target="_blank" rel="noopener noreferrer">原始碼公開，歡迎貢獻</a>
       <span class="ver" id="buildVer"></span>
@@ -4100,12 +4104,12 @@
     </details>
     <!-- APP_STRIP_END donate-box -->
     <!-- 隱私與服務條款(Batch B 新增第四盒):桌面 footer 多這一小盒(預期新增);手機隨 placeFootBoxes 進「關於」段 -->
-    <details class="foot-box" hidden>
+    <details class="foot-box">
       <summary><span>隱私與服務條款</span></summary>
       <ul class="foot-list">
         <li><span class="d">隱私</span><a href="privacy.html">隱私權政策</a></li>
         <li><span class="d">條款</span><a href="terms.html">服務條款</a></li>
-        <li><span class="d">帳號</span><a href="account-deletion.html">帳號與資料刪除</a></li>
+        <li><span class="d">支援</span><a href="app-support.html">App 支援與常見問題</a></li>
       </ul>
     </details>
   </footer>
@@ -4451,7 +4455,7 @@
 //         逐 hunk 比對過:兩版四項做法幾乎相同,v0831d 多做了第三件(clock-off 放出「現在」鈕),
 //         v0831e 只多幾行註解且其中一句寫錯(openNearbyStations 不讀 simSec,它不吃撥鐘影響),
 //         故正文全取 v0831d。守門人:scripts/verify_merge_no_loss.mjs --parents 兩顆。
-const BUILD = 'world-v0902a';
+const BUILD = 'world-v0904b';
 // 輕量多語 runtime：繁中原文同時是安全 fallback，外語字典只存差異字串。
 // 所有插值一律先當純文字處理；需要 HTML 的呼叫端仍須用 escHtml() 包住結果。
 const I18N_STORAGE_KEY = 'trainmap-language';
@@ -10135,6 +10139,7 @@ const ACCOUNT_ENABLED = false; // 此旗標只控制帳號 UI 要不要 eager �
 // 面板停在「請在 App 內訂閱」,不出現任何購買鈕)。未訂閱者在網站看到的是 teaser/upsell 面,
 // 90 天逐日資料本身由 worker.js 的 checkPlusEntitlement() 伺服器端強制,不靠這支前端旗標。
 const PLUS_ENABLED = (() => { try {
+  if (APP_CFG.plusEnabled === false) return false;
   if (window.Capacitor && Capacitor.isNativePlatform && Capacitor.isNativePlatform()) return true;
   return new URLSearchParams(location.search).get('plus') === '1';
 } catch (e) { return false; } })();
@@ -12882,7 +12887,7 @@ const SYS_DEFS = [
   { id: 'melbourne_sched', label: '墨爾本', url: './data/melbourne_schedule_dense.json', mode: 'sched', track: './data/melbourne.json', tz: 'Australia/Melbourne', world: true },
   { id: 'budapest_sched', label: '布達佩斯', url: './data/budapest_schedule_dense.json', mode: 'sched', track: './data/budapest.json', tz: 'Europe/Budapest', world: true },
   { id: 'vienna_sched', label: '維也納', url: './data/vienna_schedule_dense.json', mode: 'sched', track: './data/vienna.json', tz: 'Europe/Vienna', world: true },
-];
+].filter(sys => !Array.isArray(APP_CFG.worldCityIds) || APP_CFG.worldCityIds.includes(sys.id));
 const WORLD_BUILD = SYS_DEFS.length > 0 && SYS_DEFS.every(sys => sys.world);
 // 2026-07-27 v0727c：桌面與 App 分頁統一成四顆「全／台／高／捷」（使用者定案）。
 // 舊制「台＝全台同框、鐵＝國家鐵路」與並列的「高」層級不對等（台被讀成台鐵、鐵又疑似涵蓋高），
@@ -13308,7 +13313,7 @@ function selectGroup(g, keepView) {
   if (!state.systems.length) return; // 預渲染期(資料未載入)頁籤先不動作,boot 完成後恢復
   if (state.group === g.id) return;
   const keep = !!keepView && groupInView(g);
-  if (g.mode === 'world') loadWorldSystem(state.sysId || 'nyc_sched');
+  if (g.mode === 'world') loadWorldSystem(state.sysId || APP_CFG.defaultWorldCityId || 'nyc_sched');
   else if (g.mode === 'all') loadAllGroup(g, keep);
   else if (g.mode === 'sched') loadSchedGroup(g, null, keep);
   else loadFreqGroup(g, null, keep);
@@ -25189,7 +25194,7 @@ function ofmNoticeWeb(why) {
     : '街道底圖載入異常，列車與路線不受影響。重新整理即可重試。'), { wrap: true });
 }
 function ofmFallToRaster(why) {
-  if (!ofmRasterFallback) return; // 已經退過(或沒備退路)就不再退:只退一次,不來回跳
+  if (!ofmRasterFallback) { ofmNoticeWeb(why); return; } // App 的 OFM-only 包刻意不接未授權的 raster 退路；明白提示後保留路線與列車
   const built = ofmRasterFallback; ofmRasterFallback = null;
   for (const k of ['light', 'dark']) {
     if (!built[k]) continue;
@@ -26918,8 +26923,10 @@ async function boot() {
       // 的前提下裁示**的:CARTO 2025-10 起把 hosted 圖磚限定給 enterprise(那正是 08-18 換走它的
       // 原因),但「OFM 掛掉時一片空白的地圖」被判定比「一條授權有疑慮的緊急退路」更糟。
       // 只有 ofmWatch 判定 OFM 失效時才叫得到這個 thunk——日常路徑仍然是 OFM,不是 CARTO。
-      if (!ofmRasterFallback) ofmRasterFallback = {};
-      ofmRasterFallback[k] = () => L.tileLayer(t.url, opt);
+      if (!APP_CFG.ofmOnly) {
+        if (!ofmRasterFallback) ofmRasterFallback = {};
+        ofmRasterFallback[k] = () => L.tileLayer(t.url, opt);
+      }
       baseLayers[k] = L.maplibreGL({ style: OFM_STYLE[k], attribution: OFM_ATTRIBUTION, interactive: false });
       ofmWatch(baseLayers[k]);
       if (ALIGN_DOT) { // 底圖那半的對齊探針:交給底圖引擎自己依經緯度畫,不經過我們任何投影程式碼
@@ -27260,7 +27267,7 @@ async function boot() {
     if (bootGroup.mode === 'world') await loadWorldSystem(
       (deepCity && bootGroup.members.includes(deepCity) ? deepCity : null) ||
       (lastView && lastView.city && bootGroup.members.includes(lastView.city) ? lastView.city : null) ||
-      'nyc_sched'
+      APP_CFG.defaultWorldCityId || 'nyc_sched'
     );
     else if (bootGroup.mode === 'all') loadAllGroup(bootGroup);
     else if (bootGroup.mode === 'sched') loadSchedGroup(bootGroup, lastSel); // 台鐵+高鐵同框(缺高鐵資料時自動退回單台鐵)

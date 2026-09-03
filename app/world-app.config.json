@@ -1,0 +1,14 @@
+{
+  "appId": "tw.railisland.world",
+  "appName": "軌島・世界",
+  "version": "1.0.0",
+  "publicUrl": "https://siriushsu.github.io/railisland-world/",
+  "defaultCityId": "tokyo_sched",
+  "cityIds": [
+    "tokyo_sched",
+    "nyc_sched",
+    "london",
+    "istanbul_sched",
+    "singapore"
+  ]
+}

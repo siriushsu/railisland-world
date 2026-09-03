@@ -31,22 +31,50 @@ for (const [engine, browserType] of [['chromium', chromium], ['webkit', webkit]]
     })).catch(() => ({}));
     throw new Error(`${engine} 開機逾時：${JSON.stringify(state)}；page errors=${pageErrors.join(' | ') || 'none'}`, { cause: error });
   }
-  if (await page.locator('#howtoWrap').isVisible()) await page.tap('#howtoGo');
+  if (!(await page.locator('#howtoWrap').isVisible())) {
+    fail(engine, '全新安裝未顯示首訪說明卡');
+  } else {
+    const expectedHowto = {
+      'zh-TW': ['世界版怎麼玩', '並非即時'],
+      en: ['How to use Rail Island World', 'not live'],
+      ja: ['軌島・世界の使い方', 'リアルタイムではありません'],
+    };
+    for (const [lang, expected] of Object.entries(expectedHowto)) {
+      await page.evaluate(value => window.__i18n.setLanguage(value), lang);
+      const text = await page.locator('#howtoWrap').innerText();
+      if (!expected.every(value => text.includes(value))) fail(engine, `${lang} 首訪說明不符：${text.replaceAll('\n', ' / ')}`);
+    }
+    await page.evaluate(() => window.__i18n.setLanguage('zh-TW'));
+    await page.tap('#howtoGo');
+  }
 
   for (const width of widths) {
     await page.setViewportSize({ width, height: 780 });
     await page.waitForTimeout(150);
     const audit = await page.evaluate(() => {
+      const visibleRect = element => {
+        const raw = element.getBoundingClientRect();
+        const rect = { left: Math.max(0, raw.left), top: Math.max(0, raw.top), right: Math.min(innerWidth, raw.right), bottom: Math.min(innerHeight, raw.bottom) };
+        for (let parent = element.parentElement; parent && parent !== document.documentElement; parent = parent.parentElement) {
+          const style = getComputedStyle(parent), box = parent.getBoundingClientRect();
+          if (/^(hidden|clip|scroll|auto)$/.test(style.overflowX)) {
+            rect.left = Math.max(rect.left, box.left); rect.right = Math.min(rect.right, box.right);
+          }
+          if (/^(hidden|clip|scroll|auto)$/.test(style.overflowY)) {
+            rect.top = Math.max(rect.top, box.top); rect.bottom = Math.min(rect.bottom, box.bottom);
+          }
+        }
+        return rect;
+      };
       const visible = [...document.querySelectorAll('button,input,select,a[href]')].filter(element => {
-        const style = getComputedStyle(element), rect = element.getBoundingClientRect();
+        const style = getComputedStyle(element), rect = visibleRect(element);
         return style.display !== 'none' && style.visibility !== 'hidden' && Number(style.opacity) !== 0 &&
-          style.pointerEvents !== 'none' && rect.width > 0 && rect.height > 0 && rect.right > 0 && rect.bottom > 0 &&
-          rect.left < innerWidth && rect.top < innerHeight;
+          style.pointerEvents !== 'none' && rect.right > rect.left && rect.bottom > rect.top;
       });
       const rows = visible.map(element => {
-        const rect = element.getBoundingClientRect();
-        const x = Math.max(0, Math.min(innerWidth - 1, rect.left + rect.width / 2));
-        const y = Math.max(0, Math.min(innerHeight - 1, rect.top + rect.height / 2));
+        const rect = visibleRect(element);
+        const x = Math.max(0, Math.min(innerWidth - 1, (rect.left + rect.right) / 2));
+        const y = Math.max(0, Math.min(innerHeight - 1, (rect.top + rect.bottom) / 2));
         const hit = document.elementFromPoint(x, y);
         return {
           label: (element.getAttribute('aria-label') || element.title || element.textContent || element.id).trim().slice(0, 40),
