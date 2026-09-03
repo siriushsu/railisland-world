@@ -451,17 +451,14 @@ def order_stops_for_segment(mem, order_hint):
     53% 的網格被走過兩次以上;R38 更誇張,迂迴比 7.8。
     代表車次沒涵蓋到的站,用「插入後增加的直線里程最小」的位置補進去,不再用投影。
     """
-    # 先按「實體位置」去重:同一條線的去程與回程在 GTFS 裡是不同的 stop_id,但指的是同一個
-    # 車站。不去重的話聯集裡每個站會出現兩次,排序後就變成「走到底再折回來」——BEX 因此
-    # 一路走到 Domat/Ems 又折回 Thusis 才去 Chur。線的幾何每個實體車站只該經過一次。
-    # 格子約 160m,鐵路上不可能有兩個相異車站落在同一格。
-    def loc_key(pt):
-        return (round(pt[0] * 700), round(pt[1] * 700))
-
-    pt_of = {}                      # locKey -> pt(首見者)
+    # 按車站去重:同一條線的去程與回程在 GTFS 裡是不同的 stop_id,但指的是同一個車站。
+    # 不去重的話每個站會出現兩次,排序後就變成「走到底再折回來」。
+    # 用官方 stop_id 裡的車站段,不用幾何網格——網格在邊界會把同一個車站的兩個月台
+    # 切成兩格(見 station_key 的說明)。
+    pt_of = {}                      # stationKey -> pt(首見者)
     key_of_sid = {}
     for sid, pt in mem:
-        k = loc_key(pt)
+        k = station_key(sid)
         pt_of.setdefault(k, pt)
         key_of_sid.setdefault(sid, k)
 
@@ -564,6 +561,307 @@ def build_route_shape(union_stop_pts, comp_of_full, coord_op, adj_op, coord_full
 # ══════════════════════════════════════════════════════════════════
 # main
 # ══════════════════════════════════════════════════════════════════
+# ══════════════════════════════════════════════════════════════════
+# 服務型態拆線
+# ══════════════════════════════════════════════════════════════════
+# 一個 GTFS route_id 常混著多條**實體走法**。BEX(伯連納快車)當日 10 個 trip 其實是兩條:
+#   Chur–(阿爾布拉線)–Tirano 15 站,與 St. Moritz–(伯連納線)–Tirano 8 站。
+# 把兩者的聯集當成一條線來排序,折線必然來回折返(實測兩端直線差 88km 卻畫出 269km)。
+# 這一組函式把每條 route 拆成若干「服務型態」,每個型態各自成為一條線。
+MERGE_EXTRA_KM = 5.0      # 合併後總直線里程相對較長者容許的增量上限(公里),純安全網
+
+
+def station_key(stop_id):
+    """車站識別:直接取官方 stop_id 裡的車站段,不用幾何網格。
+
+    網格量化有邊界假象——迪森蒂斯各月台實際只差 15m,但經度乘 700 取整分別落在
+    6198 與 6199,同一條走法因此被誤判成兩種型態。網格只保證「同格必近」,
+    不保證「相近必同格」。瑞士 GTFS 的 stop_id 本身就帶車站 id(sloid)與月台後綴:
+        ch:1:sloid:1300:2:5                          → ch:1:sloid:1300
+        ch:1:sloid:9179_gen:ch:1:sloid:9179:0:110081 → ch:1:sloid:9179
+        8301003_gen:missingSLOID_pf:31               → 8301003
+    實測 348 個 stop_id 收斂成 213 個車站,三道閘門全過(同鍵點距 ≤300m、同鍵同名、
+    沒有同名被拆成多鍵)——閘門在 verify_station_keys() 裡,每次建置都會跑。
+    """
+    base = stop_id.split("_gen", 1)[0]
+    m = re.match(r"^(ch:\d+:sloid:\d+)(?::.*)?$", base)
+    if m:
+        return m.group(1)
+    m = re.match(r"^(\d+)", base)
+    if m:
+        return m.group(1)
+    return base
+
+
+def verify_station_keys(stops):
+    """車站識別的三道閘門。解析規則是對官方 id 格式的假設,格式一變就要當場炸,
+    不能讓它靜默把兩個車站併成一個(線形會少站)或把一個拆成兩個(線形會多折返)。"""
+    by = {}
+    for sid, st in stops.items():
+        by.setdefault(station_key(sid), []).append((sid, st))
+    far, mixed = [], []
+    for k, v in by.items():
+        pts = [(st["lat"], st["lon"]) for _, st in v]
+        if len(pts) > 1:
+            d = max(haversine(a, b) for a in pts for b in pts)
+            if d > 0.3:
+                far.append((k, round(d * 1000)))
+        if len({st["name"] for _, st in v}) > 1:
+            mixed.append((k, sorted({st["name"] for _, st in v})))
+    byname = {}
+    for k, v in by.items():
+        for _, st in v:
+            byname.setdefault(st["name"], set()).add(k)
+    split = [(n, sorted(ks)) for n, ks in byname.items() if len(ks) > 1]
+    if far or mixed or split:
+        raise RuntimeError(
+            f"車站識別解析失敗,官方 stop_id 格式可能變了:"
+            f"同鍵點距超過 300m {far[:5]};同鍵異名 {mixed[:5]};同名被拆多鍵 {split[:5]}")
+    log(f"車站識別:{len(stops)} 個 stop_id → {len(by)} 個車站(三道閘門全過)")
+    return by
+
+
+def _is_subseq(a, b):
+    """a 是 b 的子序列嗎(不必連續)。"""
+    it = iter(b)
+    return all(x in it for x in a)
+
+
+def _absorbed_by(a, b):
+    """a 或其反轉是 b 的子序列嗎。
+
+    雙向的理由:方向正規化是各自比較首末站鍵決定的,兩個端點集合不同的序列很容易
+    選到相反的朝向(例 91-GEX-j26-1 的 2 站型態 Chur → Disentis 相對 6 站型態是反向)。
+
+    誠實話:**在目前這份資料上,改成單向的結果與雙向逐字相同**(比對含站序、朝向與
+    每個 trip 歸屬的完整指紋)。因為後面的合併步驟本來就會試 b 的反轉,反向的子序列
+    在那裡也會被吸收掉。保留雙向是讓「吸收」這一步自己語意完整,不是靠下游補救,
+    但它現在不是承重的判準——別把它當成「有牙的閘門」引用。
+    """
+    return _is_subseq(a, b) or _is_subseq(tuple(reversed(a)), b)
+
+
+def _order_compatible(a, b):
+    """共同站(至少 2 個)在雙方的相對順序是否完全一致。"""
+    common = set(a) & set(b)
+    if len(common) < 2:
+        return False
+    return [x for x in a if x in common] == [x for x in b if x in common]
+
+
+def _scs_merge(a, b):
+    """兩個順序相容的序列合成最短共同超序列;走不下去就回 None。
+
+    結尾兩道守門是刻意的。原本那裡是「輸出去重」,遇到折返或環狀(同一站在序列裡
+    出現兩次)會把第二次出現**靜默刪掉**:合併結果不再是輸入的超序列,那條 trip 的
+    折返腿就在成品裡消失,而線數、trip 數都對得上,看不出來。今天這 45 條 route、
+    1013 個 trip 實測 0 個非相鄰重複,但換基準日或官方改點就會踩到,所以改成偵測
+    到就拒絕合併——寧可多留一條線,不要吐出壞掉的站序。
+    """
+    i = j = 0
+    out = []
+    while i < len(a) and j < len(b):
+        if a[i] == b[j]:
+            out.append(a[i]); i += 1; j += 1
+        elif a[i] not in b[j:]:
+            out.append(a[i]); i += 1
+        elif b[j] not in a[i:]:
+            out.append(b[j]); j += 1
+        else:
+            return None
+    out.extend(a[i:])
+    out.extend(b[j:])
+    if len(set(out)) != len(out):
+        return None                    # 有站重複出現(折返/環狀)→ 不合併
+    m = tuple(out)
+    if not (_is_subseq(a, m) and _is_subseq(b, m)):
+        return None                    # 不變式:合併結果必須是雙方的超序列
+    return m
+
+
+def _is_subpath(inner, outer):
+    """inner 的兩個端點是否都落在 outer 的站集裡——即 inner 是 outer 的一段,不是分支。
+
+    這是「該不該合併」的關鍵判準,而**距離不是**。實測數字:
+      BEX 的分支型態(St. Moritz–Tirano)硬合進主型態時,St. Moritz 會被插在
+      Bergün/Bravuogn 與 Pontresina 之間,直線增量只有約 2 公里——因為聖莫里茲本來就在
+      那兩站的直線附近。可是鐵路上那是另一條走法(阿爾布拉線 vs 伯連納線),必須留成兩條線。
+      反過來 GEX 兩個型態只差 Tiefencastel/Filisur 一站,直線增量約 3 公里,卻是同一條走法。
+    也就是說,任何直線距離門檻都會同時弄錯這兩個——2 公里放行 BEX、3 公里擋掉 GEX。
+    改看拓樸:端點都在對方裡面 ⇒ 子路徑,可以合;端點是對方沒有的站 ⇒ 分支,不能合。
+      S 線 型態2(Chur–Landquart)兩端都在 型態1(Schiers–Thusis)裡 ⇒ 合併 ✓
+      BEX 型態2 的 St. Moritz 不在 型態1 裡 ⇒ 不合 ✓
+      R15 型態2 的 Pontresina 不在 型態1 裡 ⇒ 不合 ✓
+    """
+    outer_set = set(outer)
+    return inner[0] in outer_set and inner[-1] in outer_set
+
+
+def _seq_km(seq, pt_of):
+    return sum(haversine(pt_of[a], pt_of[b]) for a, b in zip(seq, seq[1:]))
+
+
+def _fold_patterns(pats, pt_of):
+    """pats: {序列 tuple -> set(tripId)}。反覆吸收與合併,直到收斂。
+
+    順序固定(依 -長度、再依序列本身)才不會因為配對順序不同而給出不同的型態集。
+    """
+    def key(t):
+        return (-len(t), t)
+
+    changed = True
+    while changed:
+        changed = False
+        order = sorted(pats, key=key)
+        # 1) 吸收:a(或其反轉)是 b 的子序列 → a 併入 b
+        for a in order:
+            if a not in pats:
+                continue
+            for b in order:
+                if b is a or b not in pats or a not in pats or a == b:
+                    continue
+                if len(a) <= len(b) and _absorbed_by(a, b):
+                    pats[b] |= pats.pop(a)
+                    changed = True
+                    break
+            if changed:
+                break
+        if changed:
+            continue
+        # 2) 合併:順序相容(任一朝向)、一方是另一方的子路徑、且總里程沒暴增 → 合成超序列。
+        #    從**所有**可行配對裡挑「共同站最多」的那一組,不是掃到的第一組。
+        #    貪婪取第一組會有順序依賴:實測放寬里程安全網之後 BEX 反而從 2 個型態變成 3 個
+        #    (先成立的一次合併吃掉了兩個型態,擋住後面更好的摺疊)。條件放寬卻得到更多型態
+        #    是非單調的,代表結果取決於掃描順序而不是判準本身。挑重疊最大的可以讓
+        #    「最像同一條走法」的先合,結果只由判準決定。
+        order = sorted(pats, key=key)
+        best = None
+        for ai in range(len(order)):
+            for bi in range(ai + 1, len(order)):
+                a, b = order[ai], order[bi]
+                for cand in (b, tuple(reversed(b))):
+                    if not _order_compatible(a, cand):
+                        continue
+                    if not (_is_subpath(cand, a) or _is_subpath(a, cand)):
+                        continue
+                    m = _scs_merge(a, cand)
+                    if m is None:
+                        continue
+                    if _seq_km(m, pt_of) > max(_seq_km(a, pt_of), _seq_km(cand, pt_of)) + MERGE_EXTRA_KM:
+                        continue
+                    # 排序鍵:共同站多者優先;同分再比合併後里程小者、最後比序列本身求確定性
+                    score = (-len(set(a) & set(cand)), _seq_km(m, pt_of), m)
+                    if best is None or score < best[0]:
+                        best = (score, a, b, m)
+        if best is not None:
+            _, a, b, m = best
+            pats[m] = pats.pop(a) | pats.pop(b)
+            changed = True
+    return pats
+
+
+def _terminus_tag(pt_name):
+    """端點站名壓成可放進線 id 的短標籤。"""
+    t = re.sub(r"[^0-9A-Za-zÀ-ÿ]+", "", pt_name.split("(")[0])
+    return t[:14] or "X"
+
+
+def split_route_patterns(trip_route, trip_stops, stops, cand_routes):
+    """把每條 route 拆成服務型態。回傳 (pattern_of_trip, pattern_routes, pattern_order)。
+
+    trip 歸屬靠**來源追蹤**而不是事後比對:每個相異序列一開始就帶著自己的 trip 集合,
+    吸收與合併時把集合搬過去。事後用「這個 trip 是不是該型態的子序列」去回推的話,
+    對不到的 trip 會靜默消失、對到多個的無從裁決——而少掉的車次在成品裡看不出來。
+    """
+    verify_station_keys(stops)
+    rep_stop, pt_of = {}, {}
+    for sid, st in stops.items():
+        k = station_key(sid)
+        if k not in rep_stop:
+            rep_stop[k] = sid
+            pt_of[k] = (st["lat"], st["lon"])
+
+    by_route = {}
+    for tid, rid in trip_route.items():
+        by_route.setdefault(rid, []).append(tid)
+
+    pattern_of_trip, pattern_routes, pattern_order = {}, {}, {}
+    n_short = 0
+    for rid in sorted(by_route):
+        tids = by_route[rid]
+        pats = {}
+        for tid in tids:
+            seq = []
+            for _, sid in sorted(trip_stops.get(tid, [])):
+                k = station_key(sid)
+                if not seq or seq[-1] != k:
+                    seq.append(k)
+            if len(seq) < 2:
+                n_short += 1
+                continue
+            t = tuple(seq)
+            if t[0] > t[-1]:
+                t = tuple(reversed(t))
+            pats.setdefault(t, set()).add(tid)
+        if not pats:
+            continue
+        n_raw = len(pats)
+        pats = _fold_patterns(pats, pt_of)
+
+        # 閘門:每個 trip 恰好落在一個型態裡,總數守恆
+        assigned = [t for v in pats.values() for t in v]
+        if len(assigned) != len(set(assigned)):
+            raise RuntimeError(f"{rid}: 有 trip 落在多個型態裡")
+        if len(assigned) + sum(1 for t in tids if len(trip_stops.get(t, [])) < 2) != len(tids):
+            raise RuntimeError(f"{rid}: trip 總數不守恆 {len(assigned)} vs {len(tids)}")
+
+        base = cand_routes[rid]
+        short = base["route_short_name"] or rid
+        ordered = sorted(pats, key=lambda t: (-len(t), t))
+        multi = len(ordered) > 1
+        used = set()
+        # 短名不只決定線 id,還會漏進車次代碼:gtfs2rail.mjs:390 用
+        # `{route_short_name}-{時分}` 當 train code,跟車面板與 ?train= 深連結都看得到。
+        # 所以只把「真的有差異的那一端」寫進去——BEX 兩條都到 Tirano,差在 Chur /
+        # St. Moritz,命名成 BEX-Chur / BEX-StMoritz,車次代碼就還是 BEX-Chur-0730。
+        heads = {s[0] for s in ordered}
+        tails = {s[-1] for s in ordered}
+        nm = lambda k: _terminus_tag(stops[rep_stop[k]]["name"])
+        for seq in ordered:
+            if multi:
+                # 會分岔的 route:每條都用端點命名,不設「主線」。
+                # 用排名(-2、-3)的話,下次重建若站數互換,兩條線就會互換身分。
+                if len(tails) == 1 and len(heads) > 1:
+                    tag = f"{short}-{nm(seq[0])}"
+                elif len(heads) == 1 and len(tails) > 1:
+                    tag = f"{short}-{nm(seq[-1])}"
+                else:
+                    tag = f"{short}-{nm(seq[0])}-{nm(seq[-1])}"
+                stem, n = tag, 2
+                while tag in used:
+                    tag = f"{stem}-{n}"; n += 1
+            else:
+                tag = short          # 單一型態的 route 維持原短名,線 id 零變動
+            used.add(tag)
+            pid = f"{rid}::{tag}"
+            r = dict(base)
+            r["route_id"] = pid
+            r["route_short_name"] = tag
+            pattern_routes[pid] = r
+            pattern_order[pid] = [rep_stop[k] for k in seq]
+            for tid in pats[seq]:
+                pattern_of_trip[tid] = pid
+        if multi:
+            log(f"  拆線 {short}({rid}): {len(tids)} trip、{n_raw} 個相異序列 → {len(ordered)} 條線 "
+                + "; ".join(f"{stops[rep_stop[q[0]]]['name']}–{stops[rep_stop[q[-1]]]['name']}({len(q)}站,{len(pats[q])}trip)"
+                            for q in ordered))
+    if n_short:
+        log(f"  ⚠ 略過停靠少於 2 站的 trip {n_short} 筆")
+    log(f"服務型態拆線:{len(by_route)} 條 route → {len(pattern_routes)} 條線"
+        f"(其中 {sum(1 for r in by_route if sum(1 for p in pattern_routes.values() if p['route_id'].startswith(r + '::')) > 1)} 條 route 有多條走法)")
+    return pattern_of_trip, pattern_routes, pattern_order
+
+
 def sanitize(s):
     return re.sub(r"[^A-Za-z0-9_-]", "", s)
 
@@ -574,25 +872,16 @@ def main():
     routes, cand_routes = g["routes"], g["cand_routes"]
     trip_route, trip_stops, stops = g["trip_route"], g["trip_stops"], g["stops"]
 
-    # 每條路線的聯合停靠站集合(當日全部 trip),及代表車次(當日停靠站最多者)供順序提示
-    route_union = {}   # routeId -> [stopId,...] (去重,依代表車次+其餘出現順序)
-    route_rep_order = {}  # routeId -> [stopId,...] 代表車次原始順序(給分段判斷用)
-    trip_by_route = {}
-    for tid, rid in trip_route.items():
-        trip_by_route.setdefault(rid, []).append(tid)
-    for rid, tids in trip_by_route.items():
-        best_tid = max(tids, key=lambda t: len(trip_stops.get(t, [])))
-        rep_order = [sid for _, sid in trip_stops.get(best_tid, [])]
-        route_rep_order[rid] = rep_order
-        union = list(dict.fromkeys(rep_order))
-        seen = set(union)
-        for tid in tids:
-            for _, sid in trip_stops.get(tid, []):
-                if sid not in seen:
-                    seen.add(sid)
-                    union.append(sid)
-        route_union[rid] = union
-    log(f"共 {len(route_union)} 條路線當日有服務(其餘候選路線當日無班次,略過)")
+    # 先把每條 route 拆成服務型態,之後整條管線都以「型態」為單位,一個型態一條線。
+    # 原本是把一條 route 當日所有 trip 的停靠站取聯集、再挑「站最多的代表車次」定順序——
+    # 對混了多條走法的 route(BEX 同時有阿爾布拉線與伯連納線)必然畫出來回折返的折線。
+    pattern_of_trip, pattern_routes, pattern_order = split_route_patterns(
+        trip_route, trip_stops, stops, cand_routes)
+    trip_route = dict(pattern_of_trip)
+    cand_routes = pattern_routes
+    # 型態序列本身就是正確的站序(直接來自真實班次的停靠順序),不必再聯集後另行排序
+    route_union = pattern_order
+    route_rep_order = pattern_order
 
     # bbox(含 5% 邊界緩衝)
     all_pts = [(stops[sid]["lat"], stops[sid]["lon"]) for u in route_union.values() for sid in u]
@@ -606,9 +895,22 @@ def main():
     # 兩種軌距各建一張獨立的圖。**不可以合成一張**:米軌與標準軌在 Brig、Interlaken Ost、
     # Zweisimmen 等站的 OSM 節點常常是共用的,合圖之後 Dijkstra 會讓冰河快車(米軌)沿辛普隆
     # 標準軌線抄捷徑,畫出一條實際上不存在的路徑。
+    def gauges_of(w):
+        return set((w.get("tags", {}).get("gauge") or "").split(";"))
+
     G = {}
     for gauge, tag in (("narrow", "narrow_gauge"), ("rail", "rail")):
-        ways = [w for w in all_ways if w.get("tags", {}).get("railway") == tag]
+        if gauge == "narrow":
+            # 米軌圖要收「三軌雙軌距」路段:Chur 站區有 15 條 RhB 軌道標成
+            # railway=rail + gauge=1000;1435(米軌與標準軌共用同一段路基),只認
+            # railway=narrow_gauge 的話,米軌網會在 Chur 整個斷開——實測 Chur West→Chur
+            # 直線 1.13km 卻要繞 133km(佔 S 線全長 199km 的三分之二),而且退到全窄軌圖
+            # 也一樣,因為那段路本來就不在窄軌圖裡。全快取只有 51 條這種路段
+            # (全部 gauge=1000;1435),納入不會把標準軌專用線帶進來:純 1435 仍被排除。
+            ways = [w for w in all_ways
+                    if w.get("tags", {}).get("railway") == "narrow_gauge" or "1000" in gauges_of(w)]
+        else:
+            ways = [w for w in all_ways if w.get("tags", {}).get("railway") == tag]
         op_ways = [w for w in ways if w.get("tags", {}).get("operator") in OSM_OPERATORS]
         coord_op, adj_op = build_graph(op_ways)
         coord_full, adj_full = build_graph(ways)
