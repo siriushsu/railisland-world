@@ -28,12 +28,16 @@
 ## 已落地的 App 基礎
 
 - App 專用設定集中在 `app/world-app.config.json`，第一版城市數量固定為五城，預設東京。
-- Capacitor iOS／Android 共用殼；暫定 bundle/application id 為 `tw.railisland.world`，與台灣版分開。
+- Capacitor iOS／Android 共用殼；bundle/application id 已由開發者於 2026-09-04 確認鎖定為 `tw.railisland.world`，與台灣版分開。
 - 建置只複製五城資料，防止把成熟度不同的七個地區或 241 MB 全資料誤塞入 App。
 - 保留原本軌島 icon，不製作或申請新 icon。
 - 原生功能只帶 App metadata 與系統分享；沒有 Firebase、RevenueCat、定位、通知或廣告 SDK。
 - App 包內的 Leaflet 改成本地檔；OpenFreeMap 是唯一日常底圖，不使用需要 API key 的來源。
 - 新增繁中／英文／日文隱私權政策、服務條款與支援頁，首頁有可見入口。
+- 三語 Apple／Google Play 商店文案、審核備註、隱私／Data safety 與分級建議答案已集中在 `app/store/`。
+- 已產生 60 張五城三語裝置截圖、3 張 Google feature graphic 與 1 張沿用軌島原 icon 的 Play icon，共 64 張。
+- iOS `PrivacyInfo.xcprivacy`、三語 App 顯示名稱、非豁免加密回答與 Android 外部簽章範本已就位。
+- 已以 Xcode 26.6 建立未簽章 iOS Release archive，並以 Android API 36 建立未簽章 release AAB，兩邊均以 `tw.railisland.world` 與 `1.0.0 (1)` 通過內容檢查。
 - `npm run build:verify` 會重跑路線 release gate，並檢查五城資料集合、三語法律頁、禁用功能、外部贊助移除與原生平台設定。
 
 ## 商店審核風險與處置
@@ -66,16 +70,14 @@ Apple 要求 App 內與 App Store Connect 都能開啟隱私權政策；Google P
 
 官方說明：<https://support.google.com/googleplay/android-developer/answer/11926878?hl=en>
 
-## 尚未完成，不能直接送審
+## 需帳號持有人後續完成
 
-1. **確認 application id**：`tw.railisland.world` 目前只是建議值。第一次上傳到 App Store Connect／Play Console 後不應再改，建立商店紀錄前由開發者最後確認。
-2. **簽署與商店帳號**：iOS Team、certificate、provisioning；Android upload key、Play App Signing 尚未設定。不要把私鑰放入 repo。
-3. **實機 QA**：至少 iPhone SE 尺寸、一般 iPhone、iPad、Android 360／375／414／768 寬；五城各跑一次切換、縮放、跟車、車站看板、三語、分享、前後景與低網速。
-4. **商店素材**：iPhone／iPad／Android 截圖、feature graphic、App Preview（可選）、三語 description、support URL、privacy URL。
-5. **完整 license text**：目前有第三方清單，發行前要把 lockfile 對應的完整 license text 與 MapLibre／Leaflet adapter 授權全文打進 bundle。
-6. **底圖壓力測試**：確認 OpenFreeMap 在 iOS WKWebView 與 Android WebView 的字形、跨來源請求、失敗提示和署名；第一版不設未授權的 raster 退路。
-7. **正式 archive**：iOS archive／Android release AAB 必須以 release signing 建立並在 TestFlight／Play internal testing 驗證；目前的 debug build 不等於可送審包。
-8. **上架前資料重查**：若距最近官方查證超過 45 天，重跑 route release gate 並更新五城 snapshot；商店審查期間也需再抽查一次營運變更。
+1. **簽署與商店帳號**：iOS Team、certificate、provisioning；Android upload key、Play App Signing 尚未設定。不要把私鑰放入 repo。
+2. **實機 QA**：至少 iPhone SE 尺寸、一般 iPhone、iPad、Android 360／375／414／768 寬；五城各跑一次切換、縮放、跟車、車站看板、三語、分享、前後景與低網速。
+3. **公開法律網址**：repo 內已有三語 privacy／terms／support 頁；2026-09-04 實測首頁為 HTTP 200，但三個法律／支援 URL 仍為 404。必須先合併並部署，才能填入商店。
+4. **底圖壓力測試**：確認 OpenFreeMap 在 iOS WKWebView 與 Android WebView 的字形、跨來源請求、失敗提示和署名；第一版不設未授權的 raster 退路。
+5. **正式簽署包**：未簽章 Release archive／AAB 已成功建立，只證明 release build 可產出；仍須以正式憑證重建，送進 TestFlight／Play internal testing 驗證。
+6. **上架前資料重查**：若距最近官方查證超過 45 天，重跑 route release gate 並更新五城 snapshot；商店審查期間也需再抽查一次營運變更。
 
 ## 建議商店定位
 
@@ -103,7 +105,7 @@ Apple 要求 App 內與 App Store Connect 都能開啟隱私權政策；Google P
 
 1. 合併已驗證但尚未公開的七個世界版 commits，再合併本 App readiness branch。
 2. 部署法律頁與首頁入口，先用公開 HTTPS URL 驗證無 404。
-3. 確認 application id，建立 App Store Connect／Play Console 記錄。
+3. 以已確認的 `tw.railisland.world` 建立 App Store Connect／Play Console 記錄。
 4. 建 release archive，先進 TestFlight 與 Play internal testing。
 5. 五城、三語、四種螢幕寬度實機驗收；修正後重新跑 `npm run build:verify`。
 6. 準備三語商店文案與截圖，填寫 App Privacy／Data safety，再送審。

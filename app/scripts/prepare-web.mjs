@@ -54,8 +54,7 @@ async function copyTree(relative) {
 for (const file of [
   'index.html', 'privacy.html', 'terms.html', 'app-support.html', 'legal.css', 'legal.js',
   'manifest.webmanifest', 'favicon-16.png', 'favicon-32.png', 'favicon-48.png',
-  'favicon-192.png', 'favicon-512.png', 'apple-touch-180.png', 'icon-maskable-512.png',
-  'og-world-1200x630.png'
+  'favicon-192.png', 'favicon-512.png', 'apple-touch-180.png', 'icon-maskable-512.png'
 ]) await copyFile(file);
 for (const directory of ['assets', 'i18n', 'vendor']) await copyTree(directory);
 for (const id of appSpec.cityIds) for (const file of coreData[id]) await copyFile(file);
@@ -97,12 +96,41 @@ html = replaceRegion(
 html = stripHtml(html, 'donate-box');
 html = stripHtml(html, 'donation-log');
 html = stripJs(html, 'donation-handler');
+html = stripJs(html, 'web-tiles');
+html = replaceRegion(
+  html,
+  'satellite-session',
+  '// 開一顆 session。App 殼用自己 build 內的金鑰直接跟 Esri 要',
+  '// 每次衛星圖磚載入時呼叫。三件事:累計張數、跨門檻就升級、效期快到就續一顆。',
+  "async function fetchSatSession() { throw new Error('satellite disabled in Rail Island World'); }"
+);
+html = replaceRegion(
+  html,
+  'non-ofm-basemap-runtime',
+  '  if (baseLayers.sat) {',
+  '  // 外觀三段(亮/暗/自動;自動=跟隨系統)。舊鍵 trainmap-theme(light/dark)沿用為固定亮/暗',
+  `  satTokenState = 'failed';
+  const satButton = document.getElementById('satBtn'); if (satButton) satButton.style.display = 'none';
+  const satRow = document.querySelector('.ms-row[data-proxy="satBtn"]'); if (satRow) satRow.style.display = 'none';
+  try { localStorage.setItem('trainmap-basemap', 'map'); } catch (e) {}
+  // 外觀三段(亮/暗/自動;自動=跟隨系統)。舊鍵 trainmap-theme(light/dark)沿用為固定亮/暗`
+);
+const rejectedOgImage = 'https://siriushsu.github.io/railisland-world/og-world-1200x630.png';
+if (!html.includes(rejectedOgImage)) throw new Error('找不到預期的網站 og:image，拒絕產出可能沿用舊宣傳圖的 App bundle');
+html = html.replace(rejectedOgImage, 'favicon-512.png');
+html = html.replace('<meta property="og:image:width" content="1200" />', '<meta property="og:image:width" content="512" />');
+html = html.replace('<meta property="og:image:height" content="630" />', '<meta property="og:image:height" content="512" />');
 
 const injected = `<script>\nwindow.RAIL_APP = true;\nwindow.RAIL_ONLINE_BASEMAPS_AVAILABLE = true;\nwindow.RAIL_APP_CONFIG = ${JSON.stringify({
   worldCityIds: appSpec.cityIds,
   defaultWorldCityId: appSpec.defaultCityId,
   plusEnabled: false,
   ofmOnly: true,
+  streetSrc: 'ofm',
+  tiles: {
+    light: { url: 'ofm://vector', maxZoom: 20, attribution: 'OpenFreeMap / OpenMapTiles / OpenStreetMap' },
+    dark: { url: 'ofm://vector', maxZoom: 20, attribution: 'OpenFreeMap / OpenMapTiles / OpenStreetMap' }
+  },
   publicUrl: appSpec.publicUrl
 })};\n</script>\n<script src="native-bridge.js"></script>`;
 const configTags = '<script src="firebase-config.js"></script>\n<script src="revenuecat-config.js"></script>';
@@ -110,18 +138,25 @@ if (!html.includes(configTags)) throw new Error('找不到世界版的空 Fireba
 html = html.replace(configTags, injected);
 await writeFile(indexPath, html);
 
-await writeFile(join(out, 'third-party-notices.txt'), [
-  '軌島・世界 App 第三方軟體與圖資聲明',
+const licenseFiles = [
+  'CAPACITOR-CORE-MIT.txt',
+  'CAPACITOR-PLUGINS-MIT.txt',
+  'LEAFLET-BSD-2-CLAUSE.txt',
+  'MAPLIBRE-GL-JS-BSD-3-CLAUSE.txt',
+  'MAPLIBRE-GL-LEAFLET-ISC.txt',
+  'MAP-DATA-ATTRIBUTION.txt'
+];
+const licenseSections = [];
+for (const file of licenseFiles) {
+  const source = await readFile(join(appRoot, 'licenses', file), 'utf8');
+  licenseSections.push(`===== ${file} =====\n\n${source.trim()}\n`);
+}
+await writeFile(join(out, 'third-party-licenses.txt'), [
+  '軌島・世界 App 第三方軟體授權與圖資聲明',
+  'Rail Island World — Third-Party Licenses and Map Data Attribution',
   '',
-  'Capacitor 8.4.2 / Capacitor App 8.1.1 / Capacitor Share 8.0.1 — MIT License',
-  'Leaflet 1.9.4 — BSD 2-Clause License',
-  'MapLibre GL JS 4.7.1 — BSD 3-Clause License',
-  'MapLibre GL Leaflet — MIT License',
-  'OpenFreeMap — https://openfreemap.org/',
-  'OpenMapTiles — https://openmaptiles.org/',
-  'OpenStreetMap contributors — Open Database License (ODbL), https://www.openstreetmap.org/copyright',
-  '',
-  '各城市交通資料的來源與授權說明存放於對應 data/*.json 的 source_notes。'
+  ...licenseSections
 ].join('\n'));
+await cp(join(appRoot, 'THIRD_PARTY_NOTICES.md'), join(out, 'third-party-notices.txt'));
 
 console.log(`軌島・世界 App web bundle 已建立：${appSpec.cityIds.length} 城，預設 ${appSpec.defaultCityId}`);

@@ -1,5 +1,11 @@
 apply plugin: 'com.android.application'
 
+def railWorldStoreFile = project.findProperty('RAILISLAND_WORLD_STORE_FILE') ?: System.getenv('RAILISLAND_WORLD_STORE_FILE')
+def railWorldStorePassword = project.findProperty('RAILISLAND_WORLD_STORE_PASSWORD') ?: System.getenv('RAILISLAND_WORLD_STORE_PASSWORD')
+def railWorldKeyAlias = project.findProperty('RAILISLAND_WORLD_KEY_ALIAS') ?: System.getenv('RAILISLAND_WORLD_KEY_ALIAS')
+def railWorldKeyPassword = project.findProperty('RAILISLAND_WORLD_KEY_PASSWORD') ?: System.getenv('RAILISLAND_WORLD_KEY_PASSWORD')
+def railWorldReleaseSigningReady = [railWorldStoreFile, railWorldStorePassword, railWorldKeyAlias, railWorldKeyPassword].every { it }
+
 android {
     namespace = "tw.railisland.world"
     compileSdk = rootProject.ext.compileSdkVersion
@@ -16,11 +22,34 @@ android {
             ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
         }
     }
+    if (railWorldReleaseSigningReady) {
+        signingConfigs {
+            release {
+                storeFile file(railWorldStoreFile)
+                storePassword railWorldStorePassword
+                keyAlias railWorldKeyAlias
+                keyPassword railWorldKeyPassword
+                enableV1Signing true
+                enableV2Signing true
+            }
+        }
+    }
     buildTypes {
         release {
+            if (railWorldReleaseSigningReady) {
+                signingConfig signingConfigs.release
+            }
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+}
+
+tasks.register('reportReleaseSigning') {
+    doLast {
+        println railWorldReleaseSigningReady
+            ? '軌島・世界：Android release signing 已由外部環境提供。'
+            : '軌島・世界：目前建立未簽章 release；上傳 Play 前請提供 RAILISLAND_WORLD_* 簽章變數。'
     }
 }
 

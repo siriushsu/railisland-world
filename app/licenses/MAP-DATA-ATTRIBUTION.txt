@@ -1,0 +1,13 @@
+Online basemap and map data attribution
+
+OpenFreeMap — https://openfreemap.org/
+OpenMapTiles — https://openmaptiles.org/
+Data from OpenStreetMap contributors — https://www.openstreetmap.org/copyright
+
+OpenStreetMap data is made available under the Open Data Commons Open Database
+License (ODbL): https://opendatacommons.org/licenses/odbl/1-0/
+
+OpenFreeMap's hosted service is used to deliver the online vector basemap.
+Attribution remains visible on the map. Rail routes and timetable/headway data
+are separate from the basemap; each bundled data/*.json file contains its own
+source_notes field with source and scope information.

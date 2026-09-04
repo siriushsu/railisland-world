@@ -26990,7 +26990,7 @@ async function boot() {
   }
   // L1 遠端來源開關:只更新快取給**下一次**開機用,本次一律照 APP_STREET_SRC 走。
   // 問不到、逾時、回了認不得的值 —— 全部沿用現有快取,這條永遠不影響開機。
-  if (APP_CFG.tiles) {
+  if (APP_CFG.tiles && !APP_CFG.ofmOnly) {
     fetch(apiUrl('api/basemap-src'), { cache: 'no-store' })
       .then(r => r.ok ? r.json() : null)
       .then(d => {

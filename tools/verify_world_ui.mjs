@@ -19,7 +19,9 @@ for (const [engine, browserType] of [['chromium', chromium], ['webkit', webkit]]
   });
   const page = await context.newPage();
   const pageErrors = [];
+  const requests = [];
   page.on('pageerror', error => pageErrors.push(error.stack || String(error)));
+  page.on('request', request => requests.push(request.url()));
   await page.goto(new URL('?lang=zh-TW', baseUrl).href, { waitUntil: 'domcontentloaded' });
   try {
     await page.waitForSelector('html[data-world-ready="1"]', { timeout: 30000 });
@@ -119,6 +121,11 @@ for (const [engine, browserType] of [['chromium', chromium], ['webkit', webkit]]
   if (cityResult.system !== 'tokyo_sched' || cityResult.selected !== 'tokyo_sched' || cityResult.trains !== 8628 ||
       cityResult.left !== '和光市' || cityResult.right !== '西船橋')
     fail(engine, `東京切換結果不符：${JSON.stringify(cityResult)}`);
+  const ofmOnly = await page.evaluate(() => window.RAIL_APP_CONFIG?.ofmOnly === true);
+  if (ofmOnly) {
+    const unexpected = requests.filter(url => /\/api\/basemap-(?:src|token|session)|arcgis\.com|stadiamaps\.com|cartocdn\.com/i.test(url));
+    if (unexpected.length) fail(engine, `OFM-only App 仍發出其他底圖請求：${[...new Set(unexpected)].join(', ')}`);
+  }
   if (pageErrors.length) fail(engine, `pageerror：${pageErrors.join(' | ')}`);
   console.log(`✓ ${engine}: 4 widths、真實 tap、東京懶載入`);
   await browser.close();

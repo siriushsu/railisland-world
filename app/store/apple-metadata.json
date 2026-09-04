@@ -1,0 +1,38 @@
+{
+  "appId": "tw.railisland.world",
+  "sku": "railisland-world-ios-1",
+  "version": "1.0.0",
+  "primaryCategory": "TRAVEL",
+  "secondaryCategory": "REFERENCE",
+  "price": "FREE",
+  "copyright": "2026 Hsu Hsiang",
+  "marketingUrl": "https://siriushsu.github.io/railisland-world/",
+  "supportUrl": "https://siriushsu.github.io/railisland-world/app-support.html",
+  "privacyPolicyUrl": "https://siriushsu.github.io/railisland-world/privacy.html",
+  "locales": {
+    "zh-Hant": {
+      "name": "軌島・世界",
+      "subtitle": "世界城市的鐵道流動",
+      "promotionalText": "一次看見五座城市的鐵道路網與列車流動。路線與班次依公開資料整理，列車位置為時刻表／班距推演，並非即時定位。",
+      "description": "讓城市鐵道在地圖上流動。\n\n軌島・世界第一版收錄東京、紐約、倫敦、伊斯坦堡與新加坡。你可以切換城市與當地時間，查看路線、車站與模擬行進中的列車，放大地圖或跟隨列車時再看路線代號與車次資訊。\n\n主要功能：\n・五座城市的互動式鐵道路網\n・依公開時刻表或明示班距推演列車流動\n・列車跟隨、縮放、搜尋與車站班次查看\n・繁體中文、英文、日文介面\n・使用系統分享面板分享目前畫面連結\n・路網與時刻資料隨 App 提供；線上底圖需要網路\n\n重要說明：地圖上的列車不是即時位置，也不代表臨時停駛、誤點或月台資訊。乘車與轉乘決策請以當地運輸業者的官方公告為準。東京範圍不代表日本全國或所有 JR／私鐵。\n\n軌島・世界是台灣版「軌島」的姊妹作品，專注於用同一套視覺語言觀察不同城市的鐵道流動。",
+      "keywords": "鐵道,捷運,地鐵,火車,東京,紐約,倫敦,伊斯坦堡,新加坡,交通,地圖",
+      "whatsNew": "首個版本：五座城市、三種語言、互動路網、列車流動、跟隨、搜尋、車站資訊與原生分享。"
+    },
+    "en-US": {
+      "name": "Rail Island World",
+      "subtitle": "City railways in motion",
+      "promotionalText": "Watch rail networks flow across five cities. Routes use public sources; moving trains are timetable/headway simulations, not live locations.",
+      "description": "Watch urban railways come alive on the map.\n\nRail Island World begins with Tokyo, New York, London, Istanbul, and Singapore. Switch cities and local time, explore routes and stations, follow simulated trains, and reveal route or service labels when you zoom in or follow a train.\n\nFeatures:\n• Interactive rail networks for five cities\n• Train movement simulated from public timetables or stated headways\n• Train following, map search, zoom controls, and station service views\n• Traditional Chinese, English, and Japanese interfaces\n• Native system share sheet for the current map link\n• Rail and timetable data bundled with the app; the online basemap needs a connection\n\nImportant: Train markers are not live positions and do not reflect disruptions, delays, or platform changes. Always use the local operator’s official information for travel decisions. Tokyo coverage does not mean all railways in Japan, JR, or every private railway are included.\n\nRail Island World is the worldwide companion to the Taiwan-focused Rail Island project, using one visual language to compare how city railways move.",
+      "keywords": "rail,metro,subway,train,map,Tokyo,New York,London,Istanbul,Singapore,transit",
+      "whatsNew": "First release: five cities, three languages, interactive networks, simulated train movement, following, search, station views, and native sharing."
+    },
+    "ja": {
+      "name": "軌島・世界",
+      "subtitle": "都市鉄道の流れを地図で",
+      "promotionalText": "5都市の鉄道路線と列車の流れを一つの地図で。公開時刻表・運転間隔によるシミュレーションで、リアルタイム位置ではありません。",
+      "description": "都市鉄道の流れを、地図の上で眺める App です。\n\n初版は東京、ニューヨーク、ロンドン、イスタンブール、シンガポールを収録。都市と現地時刻を切り替え、路線や駅を確認し、シミュレーション列車を追いかけられます。拡大表示または列車の追跡中に、路線記号や列車情報を詳しく表示します。\n\n主な機能：\n・5都市のインタラクティブ鉄道路線図\n・公開時刻表または明記した運転間隔による列車の流れ\n・列車追跡、検索、ズーム、駅の運行表示\n・繁体字中国語、英語、日本語に対応\n・現在の地図リンクを OS の共有画面から共有\n・路線と時刻データは App に同梱（オンライン地図には通信が必要）\n\n重要：列車マーカーはリアルタイム位置ではなく、運休、遅延、番線変更を反映しません。乗車判断には現地事業者の公式情報を利用してください。東京の収録範囲は日本全国、JR 全線、すべての私鉄を意味しません。\n\n軌島・世界は、台湾版「軌島」の姉妹作品です。同じ視覚表現で、都市ごとに異なる鉄道の流れを楽しめます。",
+      "keywords": "鉄道,地下鉄,電車,路線図,東京,ニューヨーク,ロンドン,シンガポール",
+      "whatsNew": "初版：5都市、3言語、路線表示、列車シミュレーション、追跡、検索、駅情報、OS共有に対応しました。"
+    }
+  }
+}

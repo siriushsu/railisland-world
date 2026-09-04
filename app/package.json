@@ -7,6 +7,9 @@
     "build": "node scripts/prepare-web.mjs",
     "verify": "node scripts/audit-app-readiness.mjs",
     "build:verify": "npm run build && npm run verify",
+    "store:capture": "node scripts/capture-store-assets.mjs",
+    "store:verify": "node scripts/audit-store-submission.mjs",
+    "release:verify": "npm run build:verify && npm run store:verify",
     "sync": "npm run build && cap sync",
     "open:ios": "cap open ios",
     "open:android": "cap open android"
@@ -21,6 +24,7 @@
   },
   "devDependencies": {
     "@capacitor/cli": "8.4.2",
-    "esbuild": "0.28.1"
+    "esbuild": "0.28.1",
+    "playwright": "1.61.1"
   }
 }
