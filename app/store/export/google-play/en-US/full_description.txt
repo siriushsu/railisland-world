@@ -1,0 +1,16 @@
+Watch urban railways come alive on the map.
+
+Rail Island World begins with Tokyo, New York, London, Istanbul, and Singapore. Switch cities and local time, explore routes and stations, follow simulated trains, and reveal route or service labels when you zoom in or follow a train.
+
+Features
+• Interactive rail networks for five cities
+• Train movement simulated from public timetables or stated headways
+• Train following, map search, zoom controls, and station service views
+• Traditional Chinese, English, and Japanese interfaces
+• Native system share sheet for the current map link
+• Rail and timetable data bundled with the app; the online basemap needs a connection
+
+Important
+Train markers are not live positions and do not reflect disruptions, delays, platforms, or transfers. Always use the local operator’s official information for travel decisions. Tokyo coverage does not mean all railways in Japan, JR, or every private railway are included.
+
+Rail Island World is the worldwide companion to the Taiwan-focused Rail Island project, using one visual language to compare how city railways move.

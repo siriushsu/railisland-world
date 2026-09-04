@@ -39,6 +39,8 @@
 - iOS `PrivacyInfo.xcprivacy`、三語 App 顯示名稱、非豁免加密回答與 Android 外部簽章範本已就位。
 - 已以 Xcode 26.6 建立未簽章 iOS Release archive，並以 Android API 36 建立未簽章 release AAB，兩邊均以 `tw.railisland.world` 與 `1.0.0 (1)` 通過內容檢查。
 - `npm run build:verify` 會重跑路線 release gate，並檢查五城資料集合、三語法律頁、禁用功能、外部贊助移除與原生平台設定。
+- `npm run store:export` 會輸出 Apple／Google Play 三語逐欄文字；`npm run release:online` 會在部署後檢查四個送審公開網址。
+- 商店 Console 填寫指南、真機測試矩陣與 iOS export options 範本已就位，不含任何私鑰或私人電話。
 
 ## 商店審核風險與處置
 
@@ -78,6 +80,8 @@ Apple 要求 App 內與 App Store Connect 都能開啟隱私權政策；Google P
 4. **底圖壓力測試**：確認 OpenFreeMap 在 iOS WKWebView 與 Android WebView 的字形、跨來源請求、失敗提示和署名；第一版不設未授權的 raster 退路。
 5. **正式簽署包**：未簽章 Release archive／AAB 已成功建立，只證明 release build 可產出；仍須以正式憑證重建，送進 TestFlight／Play internal testing 驗證。
 6. **上架前資料重查**：若距最近官方查證超過 45 天，重跑 route release gate 並更新五城 snapshot；商店審查期間也需再抽查一次營運變更。
+7. **Google 新個人帳號測試門檻**：若 Play 個人帳號建立於 2023-11-13 之後，production access 前需至少 12 位測試者連續 opt-in closed test 14 天；實際資格以 Console 為準。
+8. **法律身分與聯絡資料**：Apple／Google 的 trader status、身分驗證、地址及送審聯絡電話必須由帳號持有人如實填寫，repo 不代判斷或保存私人資料。
 
 ## 建議商店定位
 

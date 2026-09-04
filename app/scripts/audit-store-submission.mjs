@@ -64,8 +64,34 @@ for (const [locale, copy] of Object.entries(google.locales)) {
   expect(!/即時列車位置|real-time train location|リアルタイム位置情報/.test(copy.fullDescription), `Google ${locale} 出現不實的即時定位宣稱`);
 }
 
-for (const file of ['SUBMISSION-CHECKLIST.md', 'APPLE-REVIEW-NOTES.md', 'APPLE-PRIVACY-AND-RATING.md', 'GOOGLE-PLAY-DECLARATIONS.md']) {
+for (const file of ['SUBMISSION-CHECKLIST.md', 'APPLE-REVIEW-NOTES.md', 'APPLE-PRIVACY-AND-RATING.md', 'GOOGLE-PLAY-DECLARATIONS.md', 'CONSOLE-ENTRY-GUIDE.md', 'REAL-DEVICE-TEST-PLAN.md']) {
   expect((await stat(join(storeRoot, file))).size > 500, `${file} 不存在或內容不足`);
+}
+
+for (const [locale, copy] of Object.entries(apple.locales)) {
+  const dir = join(storeRoot, 'export', 'apple', locale);
+  for (const [file, value] of Object.entries({
+    'name.txt': copy.name,
+    'subtitle.txt': copy.subtitle,
+    'promotional_text.txt': copy.promotionalText,
+    'description.txt': copy.description,
+    'keywords.txt': copy.keywords,
+    'release_notes.txt': copy.whatsNew,
+    'marketing_url.txt': apple.marketingUrl,
+    'support_url.txt': apple.supportUrl,
+    'privacy_url.txt': apple.privacyPolicyUrl
+  })) expect((await readFile(join(dir, file), 'utf8')).trimEnd() === value.trimEnd(), `Apple ${locale}/${file} 與 metadata 不一致`);
+}
+for (const [locale, copy] of Object.entries(google.locales)) {
+  const dir = join(storeRoot, 'export', 'google-play', locale);
+  for (const [file, value] of Object.entries({
+    'title.txt': copy.title,
+    'short_description.txt': copy.shortDescription,
+    'full_description.txt': copy.fullDescription,
+    'support_email.txt': google.supportEmail,
+    'support_url.txt': google.supportUrl,
+    'privacy_policy_url.txt': google.privacyPolicyUrl
+  })) expect((await readFile(join(dir, file), 'utf8')).trimEnd() === value.trimEnd(), `Google Play ${locale}/${file} 與 metadata 不一致`);
 }
 
 const cities = ['01-tokyo.jpg', '02-new-york.jpg', '03-london.jpg', '04-istanbul.jpg', '05-singapore.jpg'];

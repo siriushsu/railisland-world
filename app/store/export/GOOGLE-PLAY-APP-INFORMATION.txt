@@ -1,0 +1,7 @@
+Package name: tw.railisland.world
+Version name: 1.0.0
+Version code: 1
+App or game: APP
+Category: TRAVEL_AND_LOCAL
+Price: FREE
+Contains ads: false

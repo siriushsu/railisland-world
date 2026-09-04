@@ -94,12 +94,14 @@ try {
   const pbx = await readFile(join(appRoot, 'ios/App/App.xcodeproj/project.pbxproj'), 'utf8');
   const info = await readFile(join(appRoot, 'ios/App/App/Info.plist'), 'utf8');
   const privacyManifest = await readFile(join(appRoot, 'ios/App/App/PrivacyInfo.xcprivacy'), 'utf8');
+  const exportOptions = await readFile(join(appRoot, 'ios/App/ExportOptions.plist.example'), 'utf8');
   expect(pbx.includes(spec.appId), 'iOS project 未使用世界版 bundle id');
   expect(pbx.includes('MARKETING_VERSION = 1.0.0;'), 'iOS 行銷版本不是 1.0.0');
   expect(!/NSLocation|NSUserTracking|NSCamera|NSPhotoLibrary/.test(info), 'iOS 第一版不應宣告定位、追蹤、相機或相簿用途');
   expect(pbx.includes('PrivacyInfo.xcprivacy in Resources'), 'iOS PrivacyInfo.xcprivacy 未加入 Resources');
   expect(privacyManifest.includes('<key>NSPrivacyTracking</key>') && privacyManifest.includes('<false/>'), 'iOS privacy manifest 未明確關閉追蹤');
   expect(privacyManifest.includes('<key>NSPrivacyCollectedDataTypes</key>') && privacyManifest.includes('<key>NSPrivacyAccessedAPITypes</key>'), 'iOS privacy manifest 缺必要宣告欄位');
+  expect(exportOptions.includes('<string>app-store-connect</string>') && exportOptions.includes('<string>automatic</string>'), 'iOS App Store Connect export options 範本缺失或方法錯誤');
   const icon = await readFile(join(appRoot, 'ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-512@2x.png'));
   expect(createHash('sha256').update(icon).digest('hex') === 'c96ddc1db58208fa64a90dea358994e76c992306dd334920046f00799deb9201', 'iOS 沒有沿用原本軌島 icon');
   nativeChecks.push('iOS project 已建立');

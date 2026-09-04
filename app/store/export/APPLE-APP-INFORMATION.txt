@@ -1,0 +1,7 @@
+Bundle ID: tw.railisland.world
+SKU: railisland-world-ios-1
+Version: 1.0.0
+Primary category: TRAVEL
+Secondary category: REFERENCE
+Price: FREE
+Copyright: 2026 Hsu Hsiang
