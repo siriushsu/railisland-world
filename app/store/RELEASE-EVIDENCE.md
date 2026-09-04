@@ -60,7 +60,7 @@ build 輸出在 gitignore 範圍內，不進版控。要上傳時必須在相同
 - App Review 聯絡人真實姓名與電話。
 - TestFlight／Play internal testing 的實機驗收。
 - 商店紀錄建立、metadata／圖片上傳與正式送審。
-- 公開法律頁：2026-09-04 實測首頁為 200，`privacy.html`、`terms.html`、`app-support.html` 均為 404；合併部署後必須再測。
+- 公開法律頁：2026-09-04 已由 GitHub Pages build `1193994115` 發布 commit `56fae89`；首頁、`privacy.html`、`terms.html`、`app-support.html` 均以 HTTPS 200 通過檢查。
 - 送審文字可由 `npm run store:export` 從 metadata 重建；`store:verify` 會逐欄比對輸出，避免 Console 貼入檔與 JSON 分岔。
-- 公開網址可由 `npm run release:online` 做 cache-buster GET、HTTP status、Content-Type、頁面標記與託管錯誤頁檢查；目前因尚未部署法律頁，預期不通過。
+- 公開網址由 `npm run release:online` 做 cache-buster GET、HTTP status、Content-Type、頁面標記與託管錯誤頁檢查；2026-09-04 四頁全部通過。正式站另以 Chromium／WebKit、360／375／414／768 寬度與真實 touch 通過互動驗收。
 - 真機測試與 Google closed testing 任務已列在 `REAL-DEVICE-TEST-PLAN.md`，尚未宣稱完成。

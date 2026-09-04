@@ -17,6 +17,7 @@
 - `npm run release:verify` 會檢查內容 gate、App bundle、商店文案與素材規格。
 - `npm run store:export` 會從唯一 metadata 來源產生兩間商店可逐欄貼入的三語文字，並由驗收腳本防止內容分岔。
 - `npm run release:online` 會在部署後檢查公開首頁、隱私、條款與支援頁均為 HTTPS HTML 且不是 404／託管錯誤頁。
+- 2026-09-04 已部署 GitHub Pages，首頁、隱私、條款與支援頁均以 HTTPS 200 通過 `release:online`；Chromium／WebKit 正式站驗收亦通過。
 - 已備妥 Console 填寫指南、真機測試矩陣與 iOS App Store Connect export options 範本。
 
 ## 需要帳號持有人完成
@@ -26,7 +27,7 @@
 - [ ] 用 bundle ID／package name `tw.railisland.world` 建立兩個商店紀錄。
 - [ ] Apple SKU 建議 `railisland-world-ios-1`；Google 預設語言建議繁中。
 - [ ] 填入送審聯絡人的真實姓名、電話與 `support@railisland.tw`；repo 不保存私人電話。
-- [ ] 先公開部署 `privacy.html`、`terms.html`、`app-support.html`，逐一確認 HTTPS、手機可讀且無 404。2026-09-04 實測三頁均為 404，現階段不可先填進商店。
+- [x] 已公開部署 `privacy.html`、`terms.html`、`app-support.html`；2026-09-04 逐頁確認 HTTPS 200、手機可讀且無託管錯誤頁。
 - [ ] 建立 iOS distribution signing 與 Android upload key；不要把憑證、`.p12`、`.mobileprovision`、`.jks` 或密碼 commit。
 - [ ] 以正式簽章上傳 TestFlight 與 Play internal testing，五城、三語、分享、前後景、旋轉與低網速各跑一次。
 - [ ] 若 Google 是 2023-11-13 後建立的個人開發者帳號，完成至少 12 位測試者連續 opt-in 14 天的 closed test，再申請 production access；以 Console 顯示為準。

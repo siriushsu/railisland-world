@@ -77,7 +77,7 @@ Apple 要求 App 內與 App Store Connect 都能開啟隱私權政策；Google P
 
 1. **簽署與商店帳號**：iOS Team、certificate、provisioning；Android upload key、Play App Signing 尚未設定。不要把私鑰放入 repo。
 2. **實機 QA**：至少 iPhone SE 尺寸、一般 iPhone、iPad、Android 360／375／414／768 寬；五城各跑一次切換、縮放、跟車、車站看板、三語、分享、前後景與低網速。
-3. **公開法律網址**：repo 內已有三語 privacy／terms／support 頁；2026-09-04 實測首頁為 HTTP 200，但三個法律／支援 URL 仍為 404。必須先合併並部署，才能填入商店。
+3. **公開法律網址**：三語 privacy／terms／support 頁已於 2026-09-04 部署；首頁與三頁均為 HTTPS 200，並通過 Content-Type、頁面標記、Chromium／WebKit 手機觸控驗收，可填入商店。
 4. **底圖壓力測試**：確認 OpenFreeMap 在 iOS WKWebView 與 Android WebView 的字形、跨來源請求、失敗提示和署名；第一版不設未授權的 raster 退路。
 5. **正式簽署包**：未簽章 Release archive／AAB 已成功建立，只證明 release build 可產出；仍須以正式憑證重建，送進 TestFlight／Play internal testing 驗證。
 6. **上架前資料重查**：若距最近官方查證超過 45 天，重跑 route release gate 並更新五城 snapshot；商店審查期間也需再抽查一次營運變更。
