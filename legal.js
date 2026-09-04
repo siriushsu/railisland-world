@@ -16,5 +16,9 @@
     if(persist){try{localStorage.setItem(KEY,lang);const url=new URL(location.href);url.searchParams.set('lang',lang);history.replaceState(null,'',url)}catch(_){}}
   };
   document.querySelectorAll('[data-set-lang]').forEach(button=>button.addEventListener('click',()=>setLang(button.dataset.setLang,true)));
+  const ua=navigator.userAgent||'';
+  const appleMobile=/iPhone|iPad|iPod/.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+  const railIslandUrl=/Android/i.test(ua)?'https://play.google.com/store/apps/details?id=tw.railisland.app':appleMobile?'https://apps.apple.com/tw/app/id6792673516':'https://railisland.tw';
+  document.querySelectorAll('[data-rail-island-link]').forEach(link=>link.href=railIslandUrl);
   setLang(choose(),false);
 })();

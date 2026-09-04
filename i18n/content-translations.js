@@ -794,6 +794,7 @@
   window.RAIL_I18N_CHANGELOG = {
     en: [
       { name: 'World city networks', items: [
+        { date: '4 Sep 2026', text: 'Added a quiet link from Support and About to the released Taiwan app: iPhone and iPad open the App Store, Android opens Google Play, and other devices open railisland.tw.' },
         { date: '31 Aug 2026', text: 'Completed New York with all 28 MTA Subway services and Staten Island Railway. Branches and separate corridors are split into 36 verified paths, with multilingual city and route content.' },
         { date: '31 Aug 2026', text: 'Completed Singapore’s six MRT and three LRT systems, including CCL6, with 185 station names in Traditional Chinese, English and Japanese.' }
       ]},
@@ -812,6 +813,7 @@
     ],
     ja: [
       { name: '世界都市の路線網', items: [
+        { date: '2026年9月4日', text: 'サポートと案内ページから公開中の台湾版「軌島」へ移動できるようにしました。iPhone／iPad は App Store、Android は Google Play、その他の端末は railisland.tw を開きます。' },
         { date: '2026年8月31日', text: 'MTA地下鉄28系統とスタテンアイランド鉄道をすべて収録し、分岐・別経路を36本の検証済み経路に分けました。都市・路線コンテンツは3言語対応です。' },
         { date: '2026年8月31日', text: 'CCL6を含むシンガポールのMRT 6系統・LRT 3系統を収録し、185駅を繁体字中国語・英語・日本語で整備しました。' }
       ]},

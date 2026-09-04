@@ -18,6 +18,8 @@ Suggested review path:
 
 This is not a thin web bookmark. It bundles the selected cities’ rail/timetable data, renders a full-screen animated canvas map, keeps preferences on device, follows simulated trains, presents station service views in local city time, and integrates the native share sheet. It is distinct from the Taiwan-focused Rail Island app: that app covers Taiwan and local live-delay features, while this app covers the five international cities above and makes no live-position claim.
 
+Support and About contain one unobtrusive, platform-appropriate link to the already released Taiwan-focused app. It does not appear as a launch prompt, banner, advertisement, or requirement for using Rail Island World.
+
 The map retains OpenFreeMap / OpenMapTiles / OpenStreetMap attribution. Source scope and limitations are available inside the app.
 
 ## App Review Information

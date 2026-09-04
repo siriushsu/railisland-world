@@ -33,6 +33,12 @@ for (const file of ['privacy.html', 'terms.html', 'app-support.html']) {
   const source = await readFile(join(repoRoot, file), 'utf8');
   for (const lang of ['zh-TW', 'en', 'ja']) expect(source.includes(`data-lang="${lang}"`), `${file} 缺 ${lang}`);
 }
+const supportPage = await readFile(join(repoRoot, 'app-support.html'), 'utf8');
+const legalRuntime = await readFile(join(repoRoot, 'legal.js'), 'utf8');
+for (const url of ['https://apps.apple.com/tw/app/id6792673516', 'https://play.google.com/store/apps/details?id=tw.railisland.app', 'https://railisland.tw']) {
+  expect(legalRuntime.includes(url), `台灣版軌島對應連結缺 ${url}`);
+}
+expect((supportPage.match(/data-rail-island-link/g) || []).length === 3, '三語支援頁沒有各自提供台灣版軌島入口');
 
 const builtIndex = await readFile(join(out, 'index.html'), 'utf8');
 const builtWorldI18n = await readFile(join(out, 'i18n/world-translations.js'), 'utf8');
@@ -69,8 +75,9 @@ for (const marker of ['Capacitor', 'Leaflet', 'MapLibre GL JS', 'MapLibre GL Lea
 }
 
 const indexSource = await readFile(join(repoRoot, 'index.html'), 'utf8');
-expect(indexSource.includes("const BUILD = 'world-v0904b'"), '網站 BUILD 尚未更新為 world-v0904b');
+expect(indexSource.includes("const BUILD = 'world-v0904c'"), '網站 BUILD 尚未更新為 world-v0904c');
 expect(indexSource.includes('OpenFreeMap（© OpenFreeMap'), '公開資料來源仍未正確標示 OpenFreeMap');
+expect(indexSource.includes('id="taiwanAppLink"') && indexSource.includes('tw.railisland.app') && indexSource.includes('id6792673516'), '網站關於頁缺台灣版軌島的對應商店入口');
 
 const nativeChecks = [];
 try {

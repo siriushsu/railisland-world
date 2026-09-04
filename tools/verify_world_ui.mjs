@@ -126,8 +126,36 @@ for (const [engine, browserType] of [['chromium', chromium], ['webkit', webkit]]
     const unexpected = requests.filter(url => /\/api\/basemap-(?:src|token|session)|arcgis\.com|stadiamaps\.com|cartocdn\.com/i.test(url));
     if (unexpected.length) fail(engine, `OFM-only App 仍發出其他底圖請求：${[...new Set(unexpected)].join(', ')}`);
   }
+  const desktopTaiwanHref = await page.locator('#taiwanAppLink').getAttribute('href');
+  if (desktopTaiwanHref !== 'https://railisland.tw') fail(engine, `桌面台灣版入口不符：${desktopTaiwanHref}`);
+
+  const platformCase = engine === 'webkit'
+    ? {
+        name: 'iOS',
+        userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_6 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148',
+        expected: 'https://apps.apple.com/tw/app/id6792673516'
+      }
+    : {
+        name: 'Android',
+        userAgent: 'Mozilla/5.0 (Linux; Android 16; Pixel 9) AppleWebKit/537.36 Chrome/139.0 Mobile Safari/537.36',
+        expected: 'https://play.google.com/store/apps/details?id=tw.railisland.app'
+      };
+  const linkContext = await browser.newContext({
+    viewport: { width: 375, height: 780 },
+    isMobile: true,
+    hasTouch: true,
+    locale: 'zh-TW',
+    userAgent: platformCase.userAgent
+  });
+  const linkPage = await linkContext.newPage();
+  await linkPage.goto(new URL('app-support.html?lang=zh-TW', baseUrl).href, { waitUntil: 'domcontentloaded' });
+  const supportLinks = await linkPage.locator('[data-rail-island-link]').evaluateAll(links => links.map(link => link.href));
+  if (supportLinks.length !== 3 || supportLinks.some(href => href !== platformCase.expected)) {
+    fail(engine, `${platformCase.name} 支援頁台灣版入口不符：${supportLinks.join(', ')}`);
+  }
+  await linkContext.close();
   if (pageErrors.length) fail(engine, `pageerror：${pageErrors.join(' | ')}`);
-  console.log(`✓ ${engine}: 4 widths、真實 tap、東京懶載入`);
+  console.log(`✓ ${engine}: 4 widths、真實 tap、東京懶載入、${platformCase.name} 台灣版入口`);
   await browser.close();
 }
 

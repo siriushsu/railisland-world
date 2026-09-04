@@ -34,6 +34,7 @@
 - 原生功能只帶 App metadata 與系統分享；沒有 Firebase、RevenueCat、定位、通知或廣告 SDK。
 - App 包內的 Leaflet 改成本地檔；OpenFreeMap 是唯一日常底圖，不使用需要 API key 的來源。
 - 新增繁中／英文／日文隱私權政策、服務條款與支援頁，首頁有可見入口。
+- 支援與關於頁以單一低調入口連到已上架的台灣版軌島；iPhone／iPad 直達 App Store、Android 直達 Google Play，其他裝置回 `railisland.tw`。
 - 三語 Apple／Google Play 商店文案、審核備註、隱私／Data safety 與分級建議答案已集中在 `app/store/`。
 - 已產生 60 張五城三語裝置截圖、3 張 Google feature graphic 與 1 張沿用軌島原 icon 的 Play icon，共 64 張。
 - iOS `PrivacyInfo.xcprivacy`、三語 App 顯示名稱、非豁免加密回答與 Android 外部簽章範本已就位。

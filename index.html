@@ -3827,6 +3827,7 @@
            內容 li 上限 8 條(li.grp 是標題不算)。 -->
       <ul class="foot-list foot-recent">
         <li class="grp">最近更新</li>
+        <li data-cl-of="taiwanapp"><span class="d">9/4</span><span>世界版的支援與關於頁新增台灣版「軌島」入口：iPhone／iPad 會前往 App Store、Android 會前往 Google Play，其他裝置則開啟 railisland.tw</span></li>
         <li data-cl-of="worldapp"><span class="d">9/4</span><span>開始準備 iPhone 與 Android 版：第一版先收錄東京、紐約、倫敦、伊斯坦堡與新加坡五座已通過路線、流動與三語檢查的城市；首開說明也已改成世界版，網站仍保留全部十二個地區</span></li>
         <li data-cl-of="swisssplit"><span class="d">9/4</span><span>瑞士把混了兩種走法的路線拆成多條線，伯連納快車的庫爾與聖莫里茲兩條走法現在分開畫；路線不再來回折返</span></li>
         <li data-cl-of="swissscenic"><span class="d">9/2</span><span>瑞士補齊官方景觀類別全部十條，新收金色山口全景與快車、百谷線、琉森–茵特拉肯快車、哥達全景快車；多條路線的來回折返線形也修好了</span></li>
@@ -3834,7 +3835,6 @@
         <li data-cl-of="worldmapnames"><span class="d">9/2</span><span>底圖地名改用當地的寫法：巴黎寫 Paris、東京寫東京都，不再一律轉成中文譯名</span></li>
         <li data-cl-of="worldlabels"><span class="d">9/2</span><span>地圖縮小時只標主要車站，不再整片站名擠在一起；放大才逐層顯示次要車站</span></li>
         <li data-cl-of="worldtrail"><span class="d">9/2</span><span>少數列車旁邊會多射出一條光芒的狀況修掉了</span></li>
-        <li data-cl-of="mapsync"><span class="d">9/2</span><span>地圖縮放時，底圖、路線與列車改成同一拍直接落定，不再各跑一段動畫後短暫分開</span></li>
       </ul>
       <!-- 第二層:完整歷史。刻意不掛 .foot-box 類名——placeFootBoxes() 用
            `.site-foot .foot-box` 搬移面板,巢狀同名會被當成另一個盒子一起搬走。 -->
@@ -4003,6 +4003,7 @@
         <li><span class="d">7/21</span><span>手機大改版：打開就是全螢幕地圖，面板都住進底部；新增「捷」分頁，北中高捷運一張圖同框</span></li>
         <li><span class="d">7/13</span><span>新增「省電」模式（手機預設開啟）：降到 30fps；手機一次只開一個面板</span></li>
         <li class="grp">外觀與品牌</li>
+        <li data-cl="taiwanapp"><span class="d">9/4</span><span>世界版與台灣版正式接成同一個軌島系列：頁尾與 App 支援頁加入低調入口，iPhone／iPad 直接前往已上架的 App Store 台灣版，Android 直接前往 Google Play，桌面等其他裝置開啟 railisland.tw；不使用彈窗或橫幅打斷地圖</span></li>
         <li data-cl="worldmarker"><span class="d">8/31</span><span>世界城市的列車標記簡化了：一般視野只留彩色圓點，避免紐約、東京等密集路網被車牌塞滿；放到最大或跟隨一班車時，才顯示乘客看得懂的路線代號或官方線名。GTFS 內部代碼與模擬流水號不再冒充公開車次</span></li>
         <li data-cl="satfallback"><span class="d">8/30</span><span>衛星影像模式下放大或縮小時，畫面會有一瞬間整片變成深綠色，在 Android 手機上特別明顯。一次縮小好幾級的時候，新的衛星圖磚還沒補上，露出來的是墊在底下的台灣輪廓，而它的顏色是當初憑感覺挑的森林綠，和真正的衛星影像差了一整個色相。現在改成照衛星影像在台灣上空的實際顏色（取台北、板橋、桃園、台中、高雄、花蓮與全島七處、四種縮放共 28 張圖磚量出來），圖磚補上前後的色差從一眼就看得到降到幾乎分辨不出來。亮色與暗色地圖本來就已經貼齊各自的底圖，這次沒有變動</span></li>
         <li data-cl="cdarrivestamp"><span class="d">8/19</span><span>使用者回報「還是會有推到疊在一起，通常是前車位置不對沒有被認走」。查出官方看板上「列車進站」那一列的到站時刻，每一輪都會被官方重新標成「當下」——連錄 16 輪、107 條進站中的列全部如此，沒有一條保留真正的到站時刻。我們原本拿這個值去算「這台車停站多久了、該不該開走」，展開之後等於在算「我們手上這份資料是幾秒前抓到的」；而抓到的資料新舊本來就會在 2 到 30 秒之間跳，只要超過停站秒數（多數站 25 秒），畫面上所有停靠中的車就同時被推進下一站，下一輪抓到新資料又整批退回來——而畫面只准前進不准倒退，被退的那台就凍在原地等，後車追上來就疊住。回放兩段各 22 輪的真實官方資料實測：基準版分別退站 6 次與 14 次，集中在 2 輪與 3 輪、每次都是整整一站，單輪最多 5 台同時退，第二段還真的出現一對疊在 100 公尺內的車。改成用「第一次看到它進站」的那一刻當真正的到站時刻，同一批官方資料回放：兩段的退站都降到 0 次、那對疊車消失，車數與車輛編號的變動一台都沒少</span></li>
@@ -4081,6 +4082,7 @@
       <a href="privacy.html">隱私權政策</a>
       <a href="terms.html">服務條款</a>
       <a href="app-support.html">App 支援</a>
+      <a id="taiwanAppLink" href="https://railisland.tw" target="_blank" rel="noopener noreferrer">台灣版軌島</a>
       <a href="https://github.com/siriushsu/railisland-world/issues/new" target="_blank" rel="noopener noreferrer">回報問題或建議</a>
       <a href="https://github.com/siriushsu/railisland-world" target="_blank" rel="noopener noreferrer">原始碼公開，歡迎貢獻</a>
       <span class="ver" id="buildVer"></span>
@@ -4455,7 +4457,7 @@
 //         逐 hunk 比對過:兩版四項做法幾乎相同,v0831d 多做了第三件(clock-off 放出「現在」鈕),
 //         v0831e 只多幾行註解且其中一句寫錯(openNearbyStations 不讀 simSec,它不吃撥鐘影響),
 //         故正文全取 v0831d。守門人:scripts/verify_merge_no_loss.mjs --parents 兩顆。
-const BUILD = 'world-v0904b';
+const BUILD = 'world-v0904c';
 // 輕量多語 runtime：繁中原文同時是安全 fallback，外語字典只存差異字串。
 // 所有插值一律先當純文字處理；需要 HTML 的呼叫端仍須用 escHtml() 包住結果。
 const I18N_STORAGE_KEY = 'trainmap-language';
@@ -27384,6 +27386,15 @@ function toggleDefaultPlace(key) {
 
 // 對外分享一律用正式公開站。原生 App 的 location 是 capacitor://localhost，傳出去無法由一般瀏覽器開啟。
 const PUBLIC_SHARE_BASE = 'https://siriushsu.github.io/railisland-world/';
+// 世界版只放一個不打斷操作的姊妹 App 入口；手機直達對應商店，其他裝置回正式網站。
+const railIslandTaiwanLink = document.getElementById('taiwanAppLink');
+if (railIslandTaiwanLink) {
+  const appleMobile = /iPhone|iPad|iPod/.test(navigator.userAgent || '') ||
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  railIslandTaiwanLink.href = /Android/i.test(navigator.userAgent || '')
+    ? 'https://play.google.com/store/apps/details?id=tw.railisland.app'
+    : appleMobile ? 'https://apps.apple.com/tw/app/id6792673516' : 'https://railisland.tw';
+}
 // 分享目前畫面:正在跟車→沿用 ?train= 深連結;否則打包 地點+縮放+路網+時間。手機叫原生分享面板,桌面複製連結。
 function buildShareUrl() {
   const base = PUBLIC_SHARE_BASE;
