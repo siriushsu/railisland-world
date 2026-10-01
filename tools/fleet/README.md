@@ -19,7 +19,8 @@
 | JR 東日本 E235 系 | `e235`、`e235-mid` | 東京 JY |
 | 紐約地鐵 R142（R142A 共用） | `r142`、`r142-mid` | 紐約 2、4、5 |
 | JR 東日本 E231 系通勤型 | `e231`、`e231-mid` | 東京 JB、JJ、JM、JHK |
-| 紐約地鐵 R211 | `r211`、`r211-mid` | 紐約 A（三個分支）、C、G、S Rockaway |
+| 紐約地鐵 R211 | `r211`、`r211-mid` | 紐約 A（三個分支）、C、G、S Rockaway、SIR（R211S）、B／D 少數 |
+| 紐約地鐵 R68（R68A 共用）、R46 | `r68`、`r46` 與各自的 `-mid` | 紐約 B、D、N、Q、W、S Franklin |
 | 東京地鐵 1000 系 | `tm1000`、`tm1000-mid` | 東京 G 銀座線（固定塗裝，不換色） |
 
 尺寸、塗裝與參考照片的出處寫在各 `t_*.py` 開頭與 `export_world_fleet.py` 的 `MODELS`；車型清單與建模優先順序見 `docs/rolling-stock/`。

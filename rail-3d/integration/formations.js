@@ -39,33 +39,30 @@ export const FORMATIONS={
   ankeng:spec('ankeng',repeat(5,34.45/5),2.65,'路線標準 5 分節；單節長度示意',{articulated:true}),
   caf:spec('caf',repeat(5,34/5),2.65,'路線標準 5 分節；CAF 代表外觀、長度約值',{articulated:true}),
 };
-// 世界版：紐約、東京沒有逐班派車資料，一律用路線標準編組（推估）。主力車型已建模的路線用當地車型網格
-// （tools/fleet：紐約 R160、R62A、R142、R211，東京 E233、E235、E231、銀座線 1000 系），其餘借 C381 圓弧車頭網格；色帶換成路線色（map3d.js 的 tint），
-// 標示為外觀示意。逐條出處見 FORMATIONS-world.md。
-const R160='路線標準編組（推估）；R160 外觀依照片簡化建模，路線圓標為路線色';
-const E233='路線標準編組（推估）；E233 系外觀依照片簡化建模，色帶為路線色';
-const R62A='路線標準編組（推估）；R62A／R62 外觀依照片簡化建模，路線圓標為路線色';
-const R142='路線標準編組（推估）；R142／R142A 外觀依照片簡化建模，路線圓標為路線色';
-const E231='路線標準編組（推估）；E231 系通勤型外觀依照片簡化建模，色帶為路線色';
-const R211='路線標準編組（推估）；R211 外觀依照片簡化建模，路線圓標為路線色';
+// 世界版：紐約、東京沒有逐班派車資料，一律用路線標準編組（推估）。兩城全部路線都用當地車型網格（tools/fleet），
+// 同線多車型依車次號碼固定分配；路線色部位由 map3d.js 的 tint 換色。逐條出處見 FORMATIONS-world.md。
+const NYC='路線標準編組（推估）；車型依 NYCT 配車表推估分配（依車次號碼固定），外觀依照片簡化建模，路線圓標為路線色';
 const FLEET='路線標準編組（推估）；車型依該線主力／少數車型推估分配（依車次號碼固定），外觀依照片簡化建模';
-const TM1000='路線標準編組（推估）；1000 系外觀依照片簡化建模（銀座線固定塗裝）';
-const E235='路線標準編組（推估）；E235 系外觀依照片簡化建模，車頭與門邊為路線色';
 const WORLD_STOCK={
   // 紐約 A 系統（數字線）51 ft 車 10 節、7 線 11 節；B 系統（字母線）60 ft 車，依路線常態節數
   nyc_sched:{
-    narrow:[15.6,2.67],wide:[18.4,3.05],sir:[22.9,3.05],r160:[18.35,2.98],r62a:[15.56,2.62],r142:[15.65,2.68],r211:[18.35,3.05],
+    narrow:[15.6,2.67],wide:[18.4,3.05],r160:[18.35,2.98],r62a:[15.56,2.62],r142:[15.65,2.68],r211:[18.35,3.05],r68:[22.77,3.05],
     routes:{
-      // 1、6、6X、42 街接駁線為 R62A，3 線為外觀相同的 R62（NYCT 2025-11 配車表）
-      // 2、4、5 線為 R142（4 線另有外觀相近的 R142A）
-      '1':['r62a',10,'r62a',R62A],'2':['r142',10,'r142',R142],'3':['r62a',10,'r62a',R62A],'4_Utica':['r142',10,'r142',R142],'4_NewLots':['r142',10,'r142',R142],
-      '5_BowlingGreen':['r142',10,'r142',R142],'5_Flatbush':['r142',10,'r142',R142],'5_Nereid':['r142',10,'r142',R142],'6':['r62a',10,'r62a',R62A],'6X':['r62a',10,'r62a',R62A],
-      '7':['narrow',11],'7X':['narrow',11],'S_42St':['r62a',6,'r62a',R62A],
-      G:['r211',5,'r211',R211],J:['r160',8,'r160',R160],Z:['r160',8,'r160',R160],L:['wide',8],M:['r160',8,'r160',R160],S_Franklin:['wide',2],S_Rockaway:['r211',4,'r211',R211],SIR:['sir',4],
-      // R211 為主力車型的路線（A 線三個分支、C、G、洛克威公園接駁線）
-      A_FarRockaway:['r211',10,'r211',R211],A_Lefferts:['r211',10,'r211',R211],A_RockawayPark:['r211',10,'r211',R211],C:['r211',10,'r211',R211],
-      // R160 為主力車型的路線（NYCT 2025-11 配車表）
-      E:['r160',10,'r160',R160],F_53:['r160',10,'r160',R160],F_63:['r160',10,'r160',R160],FX:['r160',10,'r160',R160],R:['r160',10,'r160',R160],
+      // NYCT 2025-11 配車表（catalog 的 main 權重 1、minor 0.3）；每班依車次號碼固定分配一款。
+      // R68A 與 R68、R142A／R188 與 R142、R179／R143 與 R160、R211S 與 R211 外觀相近，共用同一份網格。
+      '1':['r62a',10,'r62a',NYC],'3':['r62a',10,'r62a',NYC],'6':['r62a',10,'r62a',NYC],'6X':['r62a',10,'r62a',NYC],'S_42St':['r62a',6,'r62a',NYC],
+      '2':['r142',10,'r142',NYC],'4_Utica':['r142',10,'r142',NYC],'4_NewLots':['r142',10,'r142',NYC],
+      '5_BowlingGreen':['r142',10,'r142',NYC],'5_Flatbush':['r142',10,'r142',NYC],'5_Nereid':['r142',10,'r142',NYC],
+      '7':['r142',11,'r142',NYC],'7X':['r142',11,'r142',NYC],
+      A_FarRockaway:['r211',10,[['r211',1],['r160',1]],NYC],A_Lefferts:['r211',10,[['r211',1],['r160',1]],NYC],A_RockawayPark:['r211',10,[['r211',1],['r160',1]],NYC],
+      C:['r211',10,[['r211',1],['r160',1]],NYC],G:['r211',5,'r211',NYC],S_Rockaway:['r211',4,[['r211',1],['r160',0.3]],NYC],
+      E:['r160',10,'r160',NYC],F_53:['r160',10,'r160',NYC],F_63:['r160',10,'r160',NYC],FX:['r160',10,'r160',NYC],R:['r160',10,'r160',NYC],
+      J:['r160',8,'r160',NYC],Z:['r160',8,'r160',NYC],M:['r160',8,'r160',NYC],L:['r160',8,'r160',NYC],
+      // 75 呎車：B、D 線 8 節，N、Q、W 線 8 節（R68／R68A 為主、R46 汰換中）
+      B:['r68',8,[['r68',1],['r211',0.3,'r211',10]],NYC],D:['r68',8,[['r68',1],['r211',0.3,'r211',10]],NYC],
+      N_Bridge:['r68',8,[['r68',1],['r46',0.3]],NYC],N_Tunnel:['r68',8,[['r68',1],['r46',0.3]],NYC],Q:['r68',8,[['r68',1],['r46',0.3]],NYC],W:['r68',8,[['r68',1],['r46',0.3]],NYC],
+      S_Franklin:['r68',2,'r68',NYC],
+      SIR:['r211',4,'r211',NYC],
     },
     fallback:['wide',10],
   },
@@ -101,16 +98,18 @@ const worldFormations=new Map();
 // 同一條線有多種車型時（mesh 為 [[網格, 權重], …]），依車次號碼雜湊固定挑一種：同一班車每次都是同一款，
 // 各款出現比例約等於權重。沒有逐班派車資料，所以是推估，不代表當班實際車型。
 function pickMesh(mesh,label){
-  if(!Array.isArray(mesh))return mesh;
+  if(!Array.isArray(mesh))return [mesh];
   let h=2166136261;for(const ch of String(label||''))h=Math.imul(h^ch.charCodeAt(0),16777619);
+  h^=h>>>16;h=Math.imul(h,0x85ebca6b);h^=h>>>13;h=Math.imul(h,0xc2b2ae35);h^=h>>>16;   // 收尾混合，車次號碼相近時分配仍平均
   const total=mesh.reduce((a,[,w])=>a+w,0);let x=((h>>>0)/4294967296)*total;
-  for(const [id,w] of mesh){if((x-=w)<0)return id;}return mesh.at(-1)[0];
+  for(const e of mesh){if((x-=e[1])<0)return [e[0],e[2],e[3]];}const e=mesh.at(-1);return [e[0],e[2],e[3]];
 }
 function worldFormation(v){
   const stock=WORLD_STOCK[v.systemId];if(!stock)return null;
-  const [kind,count,meshes='c381',quality='路線標準編組（推估）；外觀示意，色帶為路線色']=stock.routes[v.routeId]||stock.fallback;
-  const mesh=pickMesh(meshes,v.publicLabel);
-  const [carM,widthM]=stock[kind],key=[v.systemId,v.routeId,v.color,mesh].join('|');
+  const [routeKind,routeCount,meshes='c381',quality='路線標準編組（推估）；外觀示意，色帶為路線色']=stock.routes[v.routeId]||stock.fallback;
+  // 網格項目可另帶 [網格, 權重, 車種, 節數]：同線混跑車長不同的車型時（例如 B 線的 75 呎 R68 與 60 呎 R211）各用各的編組
+  const [mesh,kind=routeKind,count=routeCount]=pickMesh(meshes,v.publicLabel);
+  const [carM,widthM]=stock[kind],key=[v.systemId,v.routeId,v.color,mesh,kind,count].join('|');
   if(!worldFormations.has(key))worldFormations.set(key,estimated(mesh,repeat(count,carM),widthM,quality));
   const f=worldFormations.get(key);f.tint=v.color||null;return f;
 }
