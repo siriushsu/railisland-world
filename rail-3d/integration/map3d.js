@@ -4,6 +4,7 @@ import {registerTerrainProtocol} from '../terrain.js';
 import {terrainArchive} from '../terrain-source.js';
 import {createStationLayer} from '../station-layer.js';
 import {createWenhuGeometry,createWenhuMaterial} from '../assets/wenhu-v1/wenhu.js';
+import {gunzipSync} from '../vendor/fflate-gunzip.js';
 import {createRailClearance} from './rail-clearance.js';
 import {routeWidth,readableScale,stationNames,vehicleMarkers} from './readability.js';
 import {formationFor,assembleFormation} from './formations.js';
@@ -270,7 +271,9 @@ export async function createLiveMap({map,landscape=false,isCurrent=()=>true,onGe
   // 世界版路線換色：同一份網格依路線色各存一份，只改色帶頂點（見 tintMesh）。
   async function geometry(id,tint){const key=tint?id+'|'+tint:id;if(cache.has(key))return cache.get(key);if(!pending.has(key))pending.set(key,(async()=>{
     if(tint){const g0=await geometry(id);if(!g0||disposed)return null;const g=g0.clone();tintMesh(g,tint);cache.set(key,g);return g;}
-    const meta=catalog.meshes[id],r=await fetch(asset('assets/blender-map-v1/'+meta.file));if(!r.ok)throw Error('列車模型載入失敗');const b=await r.arrayBuffer();
+    const meta=catalog.meshes[id],r=await fetch(asset('assets/blender-map-v1/'+meta.file));if(!r.ok)throw Error('列車模型載入失敗');let b=await r.arrayBuffer();
+    // 世界版程序化網格以 gzip 存放（.bin.gz）；伺服器若已代為解壓（Content-Encoding）就直接用，所以看檔頭而不是看副檔名。
+    if(meta.encoding==='gzip'){const u=new Uint8Array(b);if(u[0]===0x1f&&u[1]===0x8b){const raw=gunzipSync(u);b=raw.buffer.slice(raw.byteOffset,raw.byteOffset+raw.byteLength);}}
     if(b.byteLength!==meta.byteLength)throw Error('列車模型長度不符');
     if(globalThis.crypto?.subtle){
       const hash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',b)),v=>v.toString(16).padStart(2,'0')).join('');

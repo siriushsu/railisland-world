@@ -1,10 +1,11 @@
-"""把 tools/fleet 的世界版車款網格輸出到 3D 圖層：rail-3d/assets/blender-map-v1/<id>.bin，並更新同目錄 manifest.json。
+"""把 tools/fleet 的世界版車款網格輸出到 3D 圖層：rail-3d/assets/blender-map-v1/<id>.bin.gz，並更新同目錄 manifest.json。
 
 用法：python3 tools/fleet/export_world_fleet.py
 只改寫本檔 MODELS 列出的網格與車款；manifest 裡其他項目（c381、wenhu）原樣保留。
 網格格式與台灣版相同：非索引三角形，每頂點 10 個 float32（位置、法線、sRGB 顏色、光澤），+X 車頭、z=0 軌面、1 單位＝1 公尺。
+以 gzip -9（不含時間戳）存放，約原大小的 1/15；manifest 的 byteLength／sha256 是解壓後的原始資料，載入時解壓再驗證（map3d.js）。
 """
-import sys, os, json
+import sys, os, json, gzip
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import kit, cars
 
@@ -69,10 +70,17 @@ def main():
             m, _ = cars.BUILDERS[mesh_id](0)
             if m.ntri > MAX_TRIS:
                 sys.exit(f'{mesh_id}: {m.ntri} 三角形超過上限 {MAX_TRIS}')
-            info = kit.export(m, os.path.join(DEST, mesh_id + '.bin'))
+            raw_path = os.path.join(DEST, mesh_id + '.bin')
+            info = kit.export(m, raw_path)
+            raw = open(raw_path, 'rb').read()
+            os.remove(raw_path)
+            packed = gzip.compress(raw, 9, mtime=0)
+            with open(raw_path + '.gz', 'wb') as f:
+                f.write(packed)
             del info['triangles']
-            manifest['meshes'][mesh_id] = {**info, 'source': source, 'appearance': 'procedural-v1'}
-            print(f"{mesh_id:10s} {m.ntri:5d} 三角形  {info['byteLength']:,} bytes")
+            info['file'] = mesh_id + '.bin.gz'
+            manifest['meshes'][mesh_id] = {**info, 'encoding': 'gzip', 'gzBytes': len(packed), 'source': source, 'appearance': 'procedural-v1'}
+            print(f"{mesh_id:12s} {m.ntri:5d} 三角形  {len(packed):,} bytes（gzip）")
         manifest['models'][mid] = {
             'id': mid, 'name': spec['name'], 'family': spec['family'], 'articulated': False,
             'parts': [{'mesh': spec['cab'], 'flip': False}, {'mesh': spec['mid'], 'flip': False}, {'mesh': spec['cab'], 'flip': True}],

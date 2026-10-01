@@ -95,10 +95,19 @@ const WORLD_STOCK={
   },
 };
 const worldFormations=new Map();
+// 同一條線有多種車型時（mesh 為 [[網格, 權重], …]），依車次號碼雜湊固定挑一種：同一班車每次都是同一款，
+// 各款出現比例約等於權重。沒有逐班派車資料，所以是推估，不代表當班實際車型。
+function pickMesh(mesh,label){
+  if(!Array.isArray(mesh))return mesh;
+  let h=2166136261;for(const ch of String(label||''))h=Math.imul(h^ch.charCodeAt(0),16777619);
+  const total=mesh.reduce((a,[,w])=>a+w,0);let x=((h>>>0)/4294967296)*total;
+  for(const [id,w] of mesh){if((x-=w)<0)return id;}return mesh.at(-1)[0];
+}
 function worldFormation(v){
   const stock=WORLD_STOCK[v.systemId];if(!stock)return null;
-  const [kind,count,mesh='c381',quality='路線標準編組（推估）；外觀示意，色帶為路線色']=stock.routes[v.routeId]||stock.fallback;
-  const [carM,widthM]=stock[kind],key=[v.systemId,v.routeId,v.color].join('|');
+  const [kind,count,meshes='c381',quality='路線標準編組（推估）；外觀示意，色帶為路線色']=stock.routes[v.routeId]||stock.fallback;
+  const mesh=pickMesh(meshes,v.publicLabel);
+  const [carM,widthM]=stock[kind],key=[v.systemId,v.routeId,v.color,mesh].join('|');
   if(!worldFormations.has(key))worldFormations.set(key,estimated(mesh,repeat(count,carM),widthM,quality));
   const f=worldFormations.get(key);f.tint=v.color||null;return f;
 }
@@ -164,5 +173,7 @@ export function assembleFormation(spec,catalog){
   const parts=lengths.map((lengthM,i)=>{const first=i===0,last=i===lengths.length-1,source=sources[i],offsetM=front-lengthM/2;front-=lengthM;
     const gap=spec.articulated?.04:.16,leftGap=last?0:gap,rightGap=first?0:gap,groundAnchorZ=sharedGroundZ??catalog.meshes[source.mesh].min[2];
     return {...source,lengthM,bodyLengthM:lengthM-leftGap-rightGap,bodyShiftM:(leftGap-rightGap)/2,offsetM,groundAnchorZ};});
-  return {...template,...spec,displayWidthM:spec.widthM,lengthM,parts,illustrative:true,lengthScale:1};
+  // 世界版程序化網格（tools/fleet）本身就是實際寬度：用網格寬，避免同線混跑不同寬度車型時被拉寬或壓扁（寬度比例也會套在高度）。
+  const own=template.appearance==='procedural-v1'?catalog.meshes[template.parts[0].mesh]:null,widthM=own?+(own.max[1]-own.min[1]).toFixed(3):spec.widthM;
+  return {...template,...spec,widthM,displayWidthM:widthM,lengthM,parts,illustrative:true,lengthScale:1};
 }
