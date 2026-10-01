@@ -10,7 +10,7 @@
 
 | 地區 | 可見路徑 | v1 App | 現況 |
 |---|---:|---|---|
-| 東京 | 16 | 是 | 首發閘門通過；目前為 Tokyo Metro＋都營範圍，不宣稱日本全國或含 JR／全部私鐵 |
+| 東京 | 75 | 是 | 首發閘門通過；2026-10-01 起為東京都全境（都營、Tokyo Metro、JR 東日本、私鐵），裁到都界，不宣稱日本全國、新幹線或特急 |
 | 紐約 | 36 | 是 | MTA Subway services＋Staten Island Railway；分支分開呈現 |
 | 倫敦 | 67 | 是 | Underground、Elizabeth line、DLR、Tram、London Overground 的營運路徑分拆 |
 | 伊斯坦堡 | 26 | 是 | Metro、電車、纜索鐵路、Marmaray 等現行範圍 |
