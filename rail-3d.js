@@ -81,11 +81,13 @@
         if(tr!==state.followTrain&&!state.visible.has(tr.typeName))continue;
         const pos=trainPos(tr,state.simSec);if(!pos||!nearby(pos,state.followTrain===tr))continue;
         const g=trainSeg(tr,state.simSec-liveDelaySec(tr)-blockHoldSec(tr));
-        // 世界版依列車自己的路線取線形（worldTrainLine）；共線區段 trainSeg 會貼到別條線
-        const own=typeof worldTrainLine==='function'?worldTrainLine(tr):null,routeLn=own||g?.ln;
-        const route=pos.physical?pos.route:routeLn?lineRecord(routeLn,tr.sys):null;
+        // 世界版：編組（routeId 決定車型與節數）依列車自己的路線（worldTrainLine），線形則用位置實際所在的那一條（g.ln）：
+        // 3D 拿 route 線形擺車廂，位置離線形超過 3 公尺就退回示意。路段已優先貼自己的路線（assignSchedShapePathsFor），
+        // 兩者只在自己的路線涵蓋不到的路段不同，例如紐約 2 線部分班次經 Eastern Pkwy 開往 New Lots Av，而路線資料只有往 Flatbush Av 的線形。
+        const own=typeof worldTrainLine==='function'?worldTrainLine(tr):null,routeLn=own||g?.ln,pathLn=g?.ln||routeLn;
+        const route=pos.physical?pos.route:pathLn?lineRecord(pathLn,tr.sys):null;
         const id=[tr.sys,day,tr.train,tr.stops[0]?.depSec,tr.stops.at(-1)?.arrSec].join(':');
-        add(id,pos,{systemId:tr.sys,routeId:route?.routeId||null,route,color:tr.color||'#438477',publicLabel:String(tr.train),typeName:tr.typeName,carName:tr.carName,stockId:specialOf(tr)?.stock?.id||null,branchId:specialOf(tr)?.branch?.id||null,namedId:specialOf(tr)?.named?.id||null,chainageM:pos.physical?pos.chainageM:routeLn===g?.ln&&Number.isFinite(g?.d)?g.d*1000:null,railDirection:pos.physical?pos.railDirection:null,formationFacing:pos.formationFacing||1,
+        add(id,pos,{systemId:tr.sys,routeId:(pos.physical?route?.routeId:routeLn&&String(routeLn.id))||null,route,color:tr.color||'#438477',publicLabel:String(tr.train),typeName:tr.typeName,carName:tr.carName,stockId:specialOf(tr)?.stock?.id||null,branchId:specialOf(tr)?.branch?.id||null,namedId:specialOf(tr)?.named?.id||null,chainageM:pos.physical?pos.chainageM:pathLn===g?.ln&&Number.isFinite(g?.d)?g.d*1000:null,railDirection:pos.physical?pos.railDirection:null,formationFacing:pos.formationFacing||1,
           sourceKind:'timetable',direction:g?.dir??null,followed:state.followTrain===tr},{tr});
       }
     }
