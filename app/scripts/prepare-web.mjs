@@ -58,10 +58,10 @@ for (const file of [
 ]) await copyFile(file);
 for (const file of [
   // 台灣版 2026-09 介面跟上時帶進來的通用模組:暗色 2.0、路線導覽、日夜光影、列車光環
-  'night-theme.css', 'night-board.js', 'night-map.js', 'rail-discovery.js', 'rail-3d.css',
-  'rail-3d/environment/sun.mjs', 'rail-3d/integration/train-halo-style.js', 'rail-3d/integration/formations.js'
+  'night-theme.css', 'night-board.js', 'night-map.js', 'rail-discovery.js', 'rail-3d.css', 'rail-3d.js'
 ]) await copyFile(file);
-for (const directory of ['assets', 'i18n', 'vendor']) await copyTree(directory);
+// rail-3d/ 整棵（已追蹤檔）：立體列車程式、three.js 與紐約／東京用的四個示意網格
+for (const directory of ['assets', 'i18n', 'vendor', 'rail-3d']) await copyTree(directory);
 for (const id of appSpec.cityIds) for (const file of coreData[id]) await copyFile(file);
 
 await build({
@@ -132,6 +132,9 @@ const licenseFiles = [
   'CAPACITOR-CORE-MIT.txt',
   'CAPACITOR-PLUGINS-MIT.txt',
   'MAPLIBRE-GL-JS-BSD-3-CLAUSE.txt',
+  'THREE-JS-MIT.txt',
+  'PMTILES-BSD-3-CLAUSE.txt',
+  'FFLATE-MIT.txt',
   'MAP-DATA-ATTRIBUTION.txt'
 ];
 const licenseSections = [];

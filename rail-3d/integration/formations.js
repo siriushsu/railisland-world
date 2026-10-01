@@ -39,7 +39,41 @@ export const FORMATIONS={
   ankeng:spec('ankeng',repeat(5,34.45/5),2.65,'路線標準 5 分節；單節長度示意',{articulated:true}),
   caf:spec('caf',repeat(5,34/5),2.65,'路線標準 5 分節；CAF 代表外觀、長度約值',{articulated:true}),
 };
+// 世界版：紐約、東京沒有逐班派車資料，一律用路線標準編組（推估），外觀借 C381 圓弧車頭網格、
+// 色帶換成路線色（map3d.js 的 tint），標示為外觀示意。逐條出處見 FORMATIONS-world.md。
+const WORLD_STOCK={
+  // 紐約 A 系統（數字線）51 ft 車 10 節、7 線 11 節；B 系統（字母線）60 ft 車，依路線常態節數
+  nyc_sched:{
+    narrow:[15.6,2.67],wide:[18.4,3.05],sir:[22.9,3.05],
+    routes:{
+      '1':['narrow',10],'2':['narrow',10],'3':['narrow',10],'4_Utica':['narrow',10],'4_NewLots':['narrow',10],
+      '5_BowlingGreen':['narrow',10],'5_Flatbush':['narrow',10],'5_Nereid':['narrow',10],'6':['narrow',10],'6X':['narrow',10],
+      '7':['narrow',11],'7X':['narrow',11],'S_42St':['narrow',6],
+      G:['wide',5],J:['wide',8],Z:['wide',8],L:['wide',8],M:['wide',8],S_Franklin:['wide',2],S_Rockaway:['wide',4],SIR:['sir',4],
+    },
+    fallback:['wide',10],
+  },
+  // 東京：銀座線 16 m×6、丸之內線 18 m×6（方南町支線 3 節）、大江戶線 16.5 m×8、淺草線 18 m×8，其餘 20 m 級
+  tokyo_sched:{
+    ginza:[16,2.55],maru:[18,2.78],oedo:[16.5,2.5],asakusa:[18,2.8],std:[20,2.85],tram:[13,2.2],apm:[9,2.5],
+    routes:{
+      G:['ginza',6],M:['maru',6],Mb:['maru',3],E:['oedo',8],A:['asakusa',8],I:['std',8],S:['std',10],
+      H:['std',7],T:['std',10],C:['std',10],Y:['std',10],Z:['std',10],N:['std',6],F:['std',10],
+      SA:['tram',1,'c381','路線標準 1 節；外觀示意'],NT:['apm',5,'wenhu','路線標準 5 節；外觀借文湖線網格示意'],
+    },
+    fallback:['std',8],
+  },
+};
+const worldFormations=new Map();
+function worldFormation(v){
+  const stock=WORLD_STOCK[v.systemId];if(!stock)return null;
+  const [kind,count,mesh='c381',quality='路線標準編組（推估）；外觀示意，色帶為路線色']=stock.routes[v.routeId]||stock.fallback;
+  const [carM,widthM]=stock[kind],key=[v.systemId,v.routeId,v.color].join('|');
+  if(!worldFormations.has(key))worldFormations.set(key,estimated(mesh,repeat(count,carM),widthM,quality));
+  const f=worldFormations.get(key);f.tint=v.color||null;return f;
+}
 function baseFormation(v){
+  if(WORLD_STOCK[v.systemId])return worldFormation(v);
   if(v.systemId==='thsr_sched')return FORMATIONS['700t'];
   if(v.systemId==='tra_sched'){
     const cn=v.carName||'',stock=v.stockId;
@@ -80,7 +114,7 @@ export function formationFor(v,mode='actual'){
   const compact=(mode==='three'||base.countBasis==='unknown')&&base.lengths.length>3,
     lengths=compact?[base.lengths[0],base.lengths[Math.floor(base.lengths.length/2)],base.lengths.at(-1)]:base.lengths;
   const countBasis=base.countBasis,actualCarCount=countBasis==='unknown'?null:base.lengths.length;
-  return pair[mode]={...base,lengths,compact,mode,countBasis,actualCarCount,key:[base.id,base.lengths.length,mode,countBasis].join(':'),
+  return pair[mode]={...base,lengths,compact,mode,countBasis,actualCarCount,key:[base.id,base.lengths.length,mode,countBasis,base.tint||''].join(':'),
     caption:mode==='three'?'3 節示意':countBasis==='unknown'?'3 節示意 · 當班編組待確認'
       :`${base.lengths.length} ${base.articulated?'分節':'節'} · ${countBasis==='estimated'?'推估編組':'標準編組'}`};
 }
