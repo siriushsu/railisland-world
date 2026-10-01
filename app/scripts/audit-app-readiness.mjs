@@ -70,12 +70,12 @@ for (const file of ['index.html', 'native-bridge.js', 'manifest.webmanifest', 'f
   expect((await stat(join(out, file))).size > 0, `App bundle 缺 ${file}`);
 }
 const licenses = await readFile(join(out, 'third-party-licenses.txt'), 'utf8');
-for (const marker of ['Capacitor', 'Leaflet', 'MapLibre GL JS', 'MapLibre GL Leaflet', 'OpenFreeMap', 'OpenStreetMap']) {
+for (const marker of ['Capacitor', 'MapLibre GL JS', 'OpenFreeMap', 'OpenStreetMap']) {
   expect(licenses.includes(marker), `第三方授權全文缺 ${marker}`);
 }
 
 const indexSource = await readFile(join(repoRoot, 'index.html'), 'utf8');
-expect(indexSource.includes("const BUILD = 'world-v0904c'"), '網站 BUILD 尚未更新為 world-v0904c');
+expect(indexSource.includes("const BUILD = 'world-v1001a'"), '網站 BUILD 尚未更新為 world-v1001a');
 expect(indexSource.includes('OpenFreeMap（© OpenFreeMap'), '公開資料來源仍未正確標示 OpenFreeMap');
 expect(indexSource.includes('id="taiwanAppLink"') && indexSource.includes('tw.railisland.app') && indexSource.includes('id6792673516'), '網站關於頁缺台灣版軌島的對應商店入口');
 

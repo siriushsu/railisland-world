@@ -103,8 +103,11 @@ for (const [engine, browserType] of [['chromium', chromium], ['webkit', webkit]]
     if (audit.unreachable.length) fail(engine, `${width}px 點不到：${audit.unreachable.join(', ')}`);
     if (audit.collisions.length) fail(engine, `${width}px 控件重疊：${audit.collisions.join(', ')}`);
     if (!audit.cityReachable) fail(engine, `${width}px 城市選單觸控面積不足`);
-    await page.tap('#pp');
-    await page.tap('#pp');
+    // 2026-09 起台灣版手機頂列把播放鍵收進時鐘膠囊;看得到才按(桌面寬度仍在)
+    if (await page.locator('#pp').isVisible()) {
+      await page.tap('#pp');
+      await page.tap('#pp');
+    }
   }
 
   await page.setViewportSize({ width: 375, height: 780 });

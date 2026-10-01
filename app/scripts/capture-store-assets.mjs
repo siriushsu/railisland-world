@@ -109,7 +109,7 @@ try {
         await page.evaluate(async () => { if (document.fonts?.ready) await document.fonts.ready; });
         await page.waitForTimeout(1800);
         await page.waitForFunction(() => {
-          const element = document.querySelector('.leaflet-control-attribution');
+          const element = document.querySelector('.maplibregl-ctrl-attrib');
           if (!element) return false;
           const evidence = `${element.textContent || ''} ${[...element.querySelectorAll('a')].map(link => link.href).join(' ')}`;
           return /OpenFreeMap|OpenMapTiles|OpenStreetMap|openfreemap\.org|openstreetmap\.org/i.test(evidence);
@@ -125,7 +125,7 @@ try {
           execFileSync('sips', ['-z', String(device.outputHeight), String(device.outputWidth), capturePath, '--out', destination], { stdio: 'ignore' });
           await rm(capturePath, { force: true });
         }
-        const attribution = await page.locator('.leaflet-control-attribution').evaluateAll(elements => elements.map(element => ({
+        const attribution = await page.locator('.maplibregl-ctrl-attrib').evaluateAll(elements => elements.map(element => ({
           text: element.textContent || '',
           links: [...element.querySelectorAll('a')].map(link => link.href),
           rect: element.getBoundingClientRect().toJSON(),

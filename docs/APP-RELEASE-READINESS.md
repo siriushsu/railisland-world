@@ -32,7 +32,7 @@
 - 建置只複製五城資料，防止把成熟度不同的七個地區或 241 MB 全資料誤塞入 App。
 - 保留原本軌島 icon，不製作或申請新 icon。
 - 原生功能只帶 App metadata 與系統分享；沒有 Firebase、RevenueCat、定位、通知或廣告 SDK。
-- App 包內的 Leaflet 改成本地檔；OpenFreeMap 是唯一日常底圖，不使用需要 API key 的來源。
+- 地圖引擎自 2026-10-01 起為 MapLibre GL（本地 `vendor/maplibre-gl.*`，網站與 App 共用，不再使用 Leaflet）；OpenFreeMap 是唯一日常底圖，不使用需要 API key 的來源。
 - 新增繁中／英文／日文隱私權政策、服務條款與支援頁，首頁有可見入口。
 - 支援與關於頁以單一低調入口連到已上架的台灣版軌島；iPhone／iPad 直達 App Store、Android 直達 Google Play，其他裝置回 `railisland.tw`。
 - 三語 Apple／Google Play 商店文案、審核備註、隱私／Data safety 與分級建議答案已集中在 `app/store/`。
