@@ -4999,9 +4999,9 @@
   /* 世界版:藏起台灣版 8/31 之後新增、只對台灣資料有意義的入口(資料與後端都不在世界版) */
   html.world-ui .ms-row[data-act="musicpl"],
   html.world-ui .ms-row[data-act="garage"],
+  html.world-ui #riGuideRow,
   html.world-ui .ms-row[data-act="weekend"],
   html.world-ui .ms-row[data-proxy="todayBtn"],
-  html.world-ui #map3dRow,
   html.world-ui #todayBtn,
   html.world-ui #satBtn,
   html.world-ui #msBasemapSeg [data-map="sat"],
@@ -5552,6 +5552,7 @@
            內容 li 上限 8 條(li.grp 是標題不算)。 -->
       <ul class="foot-list foot-recent">
         <li class="grp">最近更新</li>
+        <li data-cl-of="world3d1001"><span class="d">10/1</span><span>紐約、東京加入立體列車：放大並傾斜地圖，列車依路線標準編組沿線行駛，色帶為路線色；外觀為示意，不是當地實際車型</span></li>
         <li data-cl-of="worldui1001"><span class="d">10/1</span><span>世界版介面跟上台灣版 10/1：地圖引擎換成 MapLibre，縮放更順；新增字級、列車光環、日夜光影、暗色 2.0、跟車時車頭朝上與路線導覽；車站看板改依終點分組</span></li>
         <li data-cl-of="taiwanapp"><span class="d">9/4</span><span>世界版的支援與關於頁新增台灣版「軌島」入口：iPhone／iPad 會前往 App Store、Android 會前往 Google Play，其他裝置則開啟 railisland.tw</span></li>
         <li data-cl-of="worldapp"><span class="d">9/4</span><span>開始準備 iPhone 與 Android 版：第一版先收錄東京、紐約、倫敦、伊斯坦堡與新加坡五座已通過路線、流動與三語檢查的城市；首開說明也已改成世界版，網站仍保留全部十二個地區</span></li>
@@ -5559,7 +5560,6 @@
         <li data-cl-of="swissscenic"><span class="d">9/2</span><span>瑞士補齊官方景觀類別全部十條，新收金色山口全景與快車、百谷線、琉森–茵特拉肯快車、哥達全景快車；多條路線的來回折返線形也修好了</span></li>
         <li data-cl-of="worldroutes"><span class="d">9/2</span><span>巴黎、維也納、墨爾本、挪威四地依官方現行資料重新查證路網，補上 13 條漏掉的路線，也修好兩條被畫成半截的維也納電車</span></li>
         <li data-cl-of="worldmapnames"><span class="d">9/2</span><span>底圖地名改用當地的寫法：巴黎寫 Paris、東京寫東京都，不再一律轉成中文譯名</span></li>
-        <li data-cl-of="worldlabels"><span class="d">9/2</span><span>地圖縮小時只標主要車站，不再整片站名擠在一起；放大才逐層顯示次要車站</span></li>
       </ul>
       <!-- 第二層:完整歷史。刻意不掛 .foot-box 類名——placeFootBoxes() 用
            `.site-foot .foot-box` 搬移面板,巢狀同名會被當成另一個盒子一起搬走。 -->
@@ -5656,6 +5656,7 @@
         <li><span class="d">7/16</span><span>捷運準確度升級：六家捷運依官方到站看板即時校正，國定假日自動改跑假日班表</span></li>
         <li><span class="d">7/9</span><span>台鐵即時誤點上線——介接交通部 TDX 平臺每分鐘更新；7/11 起開站即真實時刻、捷運改逐班推演</span></li>
         <li class="grp">跟車、搜尋與車站看板</li>
+        <li data-cl="world3d1001"><span class="d">10/1</span><span>紐約與東京加入立體列車。放大到街區、按「觀看 → 視角 → 傾斜」，列車就會以 3D 車廂沿路線行駛；節數與車長依各線常見編組推估（例如東西線 10 節、銀座線 6 節、紐約 7 線 11 節），跟車卡會標示「推估編組」。我們還沒有當地車型，外觀暫時借用軌島自製的通勤車網格、色帶換成路線色，只當示意。另外修正共線區段的歸線：紐約 7 線與 G 線、1 線與 5 線等並行時，列車改依自己的路線與起訖站取線形，不再貼到旁邊那條線</span></li>
         <li data-cl="worldui1001"><span class="d">10/1</span><span>世界版介面整批跟上台灣版 10/1 的現行版本。地圖引擎從 Leaflet 換成 MapLibre GL，底圖、路線與列車在同一幀一起畫，縮放與拖曳不再分家；新增字級（標準／大／特大）、列車光環、日夜光影、暗色 2.0、跟車時車頭朝上、路線導覽、新版查詢與今日亮點面板。車站看板不再用台灣幹線的「北上／南下」，世界城市一律依終點分組；亮點卡與跟車提示顯示路線代號，不再接「次」。台灣專屬的功能（台鐵誤點、公車轉乘、車庫、台南歷史重播、週末活動、地景 3D、衛星影像）不會出現在世界版</span></li>
         <li data-cl="rideexpire0930"><span class="d">9/30</span><span>「我上車了」後沒按下車，搭的車又從班表消失（週五夜車過午夜、連假加班車）時，過了抵達時間會自動下車；跟著別班車時按「搭乘中」也能直接下車（謝謝網友回報）</span></li>
         <li data-cl="followalign0926"><span class="d">9/30</span><span>iPhone 點列車後左下跟車卡的車次與時速對齊：9/26 展開的卡片改成同一條基線；9/30 收合成膠囊時，車次與時速不再貼在上緣、比圓點和「結束」高一截，四樣排在同一條中線上，三種字級與深色外觀都一樣（謝謝網友回報）</span></li>
@@ -6457,7 +6458,7 @@
 //         v0831e 只多幾行註解且其中一句寫錯(openNearbyStations 不讀 simSec,它不吃撥鐘影響),
 //         故正文全取 v0831d。守門人:scripts/verify_merge_no_loss.mjs --parents 兩顆。
 const RAIL_3D_BOOT_PARAMS = new URLSearchParams(location.search);
-const BUILD = 'world-v1001a';
+const BUILD = 'world-v1001b';
 const LANDSCAPE_REQUESTED = new URLSearchParams(location.search).get('map') === 'landscape';
 const GARAGE_QUERY = new URLSearchParams(location.search).get('garage');
 // 輕量多語 runtime：繁中原文同時是安全 fallback，外語字典只存差異字串。
@@ -13222,6 +13223,25 @@ function worldRouteBadge(tr) {
   if (timed) return timed[1];
   const named = String(tr.carName || '').split('·')[0].trim();
   return named || raw;
+}
+// 世界版列車所屬的路線(含分支)。trainSeg() 依幾何貼最近的線,共線區段會貼到別條線(紐約 7 貼到 G、
+// 1 貼到 5);2D 疊在一起看不出來,3D 則會拿錯線形與編組。這裡依車名(路線代號／線名)找候選線,
+// 有分支時取起訖站都在線上、站數最吻合的那條。找不到回 null,由呼叫端退回 trainSeg 的結果。
+const _worldTrainLine = new WeakMap();
+function worldTrainLine(tr) {
+  if (!tr || !worldSchedSystemOf(tr)) return null;
+  if (_worldTrainLine.has(tr)) return _worldTrainLine.get(tr);
+  const key = String(tr.carName || ''), lines = (state.trackLines || []).filter(ln => (ln.sys || ln._sys || tr.sys) === tr.sys);
+  const cands = lines.filter(ln => String(ln.id) === key || String(ln.id).startsWith(key + '_') || ln.name === key || ln.gtfsRouteId === key);
+  let best = null, bestScore = -1;
+  for (const ln of cands) {
+    const names = new Set((ln.stations || []).map(st => st.name));
+    const score = (tr.stops || []).reduce((n, sp) => n + (names.has(sp.name) ? 1 : 0), 0)
+      + (names.has(tr.stops?.[0]?.name) ? 1000 : 0) + (names.has(tr.stops?.at(-1)?.name) ? 1000 : 0);
+    if (score > bestScore) { best = ln; bestScore = score; }
+  }
+  _worldTrainLine.set(tr, best);
+  return best;
 }
 function schedMarkerLabel(tr) {
   return worldSchedSystemOf(tr) ? worldRouteBadge(tr) : String(tr.train);
@@ -35156,7 +35176,7 @@ function ofmNoticeWeb(why) {
   // #satBtn 整顆 remove ⇒ 鈕在不在就是「這條路通不通」最誠實的判準(比讀 satTokenState 好:
   // 那顆在 token 還在飛的時候是 'pending',而 8 秒逾時的時點兩者未必分得清)。
   // 沒有那條路就別叫使用者去點一顆不存在的鈕。
-  const canSat = !!document.getElementById('satBtn');
+  const canSat = !WORLD_BUILD && !!document.getElementById('satBtn'); // 世界版的衛星鈕只是被 CSS 藏起,DOM 還在
   showToast(t(canSat
     ? '街道底圖載入異常，列車與路線不受影響。可切換到「衛星」底圖。'
     : '街道底圖載入異常，列車與路線不受影響。重新整理即可重試。'), { wrap: true });
@@ -39342,5 +39362,7 @@ window.addEventListener('load', boot);
   } catch (e) {}
 })();
 </script>
+<!-- 立體列車(紐約、東京先開):沿班表線形畫 3D 車,沒有台灣版的實體股道與站房資產 -->
+<script src="./rail-3d.js"></script>
 </body>
 </html>
