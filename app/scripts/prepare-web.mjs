@@ -56,14 +56,13 @@ for (const file of [
   'manifest.webmanifest', 'favicon-16.png', 'favicon-32.png', 'favicon-48.png',
   'favicon-192.png', 'favicon-512.png', 'apple-touch-180.png', 'icon-maskable-512.png'
 ]) await copyFile(file);
+for (const file of [
+  // 台灣版 2026-09 介面跟上時帶進來的通用模組:暗色 2.0、路線導覽、日夜光影、列車光環
+  'night-theme.css', 'night-board.js', 'night-map.js', 'rail-discovery.js', 'rail-3d.css',
+  'rail-3d/environment/sun.mjs', 'rail-3d/integration/train-halo-style.js', 'rail-3d/integration/formations.js'
+]) await copyFile(file);
 for (const directory of ['assets', 'i18n', 'vendor']) await copyTree(directory);
 for (const id of appSpec.cityIds) for (const file of coreData[id]) await copyFile(file);
-
-const leafletDir = join(out, 'vendor', 'leaflet');
-await mkdir(join(leafletDir, 'images'), { recursive: true });
-await cp(join(appRoot, 'node_modules/leaflet/dist/leaflet.css'), join(leafletDir, 'leaflet.css'));
-await cp(join(appRoot, 'node_modules/leaflet/dist/leaflet.js'), join(leafletDir, 'leaflet.js'));
-await cp(join(appRoot, 'node_modules/leaflet/dist/images'), join(leafletDir, 'images'), { recursive: true });
 
 await build({
   entryPoints: [join(appRoot, 'src/native-bridge.mjs')],
@@ -86,16 +85,8 @@ const replaceRegion = (source, name, start, end, replacement = '') => {
 const stripHtml = (source, name) => replaceRegion(source, name, `<!-- APP_STRIP_START ${name}`, `<!-- APP_STRIP_END ${name} -->`);
 const stripJs = (source, name) => replaceRegion(source, name, `// APP_STRIP_START ${name}`, `// APP_STRIP_END ${name}`);
 
-html = replaceRegion(
-  html,
-  'leaflet-cdn',
-  '<!-- APP_REPLACE_START leaflet-cdn',
-  '<!-- APP_REPLACE_END leaflet-cdn -->',
-  '<link rel="stylesheet" href="vendor/leaflet/leaflet.css">\n<script src="vendor/leaflet/leaflet.js"></script>'
-);
+// 地圖引擎已是 MapLibre GL(本地 vendor/maplibre-gl.*,網站與 App 同一組標籤),不再替換 Leaflet CDN。
 html = stripHtml(html, 'donate-box');
-html = stripHtml(html, 'donation-log');
-html = stripJs(html, 'donation-handler');
 html = stripJs(html, 'web-tiles');
 html = replaceRegion(
   html,
@@ -107,11 +98,10 @@ html = replaceRegion(
 html = replaceRegion(
   html,
   'non-ofm-basemap-runtime',
-  '  if (baseLayers.sat) {',
+  '  if (WORLD_BUILD) {\n    // 世界版沒有衛星圖源',
   '  // 外觀三段(亮/暗/自動;自動=跟隨系統)。舊鍵 trainmap-theme(light/dark)沿用為固定亮/暗',
   `  satTokenState = 'failed';
-  const satButton = document.getElementById('satBtn'); if (satButton) satButton.style.display = 'none';
-  const satRow = document.querySelector('.ms-row[data-proxy="satBtn"]'); if (satRow) satRow.style.display = 'none';
+  if (state.basemap === 'sat') state.basemap = 'map';
   try { localStorage.setItem('trainmap-basemap', 'map'); } catch (e) {}
   // 外觀三段(亮/暗/自動;自動=跟隨系統)。舊鍵 trainmap-theme(light/dark)沿用為固定亮/暗`
 );
@@ -141,9 +131,7 @@ await writeFile(indexPath, html);
 const licenseFiles = [
   'CAPACITOR-CORE-MIT.txt',
   'CAPACITOR-PLUGINS-MIT.txt',
-  'LEAFLET-BSD-2-CLAUSE.txt',
   'MAPLIBRE-GL-JS-BSD-3-CLAUSE.txt',
-  'MAPLIBRE-GL-LEAFLET-ISC.txt',
   'MAP-DATA-ATTRIBUTION.txt'
 ];
 const licenseSections = [];

@@ -1,9 +1,7 @@
 # 軌島・世界 App 第三方聲明
 
 - Capacitor 8.4.2、Capacitor App 8.1.1、Capacitor Share 8.0.1：MIT License。
-- Leaflet 1.9.4：BSD 2-Clause License。
-- MapLibre GL JS 4.7.1：BSD 3-Clause License。
-- MapLibre GL Leaflet：ISC License。
+- MapLibre GL JS 5.9.0：BSD 3-Clause License（2026-10 起為唯一地圖引擎，不再使用 Leaflet）。
 - 線上底圖：OpenFreeMap、OpenMapTiles、OpenStreetMap contributors（ODbL）。
 - 各城市交通資料的來源與授權：對應 `data/*.json` 的 `source_notes`。
 

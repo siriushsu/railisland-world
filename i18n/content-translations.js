@@ -4,6 +4,140 @@
   if (!messages || !messages.en || !messages.ja) return;
 
   Object.assign(messages.en, {
+    "修正三鶯線重複轉乘資訊，更新站名翻譯與鄰近公車轉乘資料": "Fixed duplicate Sanying Line transfer information and updated station translations and nearby bus connections.",
+    "補回太麻里兩條月台股道，減少同站列車重疊；修正部分列車誤入同一股道的交會畫面": "Restored both platform tracks at Taimali to reduce overlapping trains, and corrected some trains meeting on the wrong shared track.",
+    "減少車站裡兩班車疊在同一條股道上的情況，潮州、板橋、南港等站重新指派停靠月台": "Reduced trains overlapping on the same station track by revising platform assignments at Chaozhou, Banqiao, Nangang and other stations.",
+    "減少開站時重複下載地形與股道資料，改善初次開啟的等待時間與畫面凍結。": "Reduced repeated downloads of terrain and track data at startup, improving initial loading time and screen freezes.",
+    "修正中洲到大湖等平地路段被誤畫成隧道的情況；抬高路基的邊坡改得更窄、更接近地表顏色，避免遮住列車。": "Corrected flat sections such as Zhongzhou–Dahu that were wrongly drawn as tunnels. Raised embankments are narrower and closer to the ground color so they do not obscure trains.",
+    "立體地圖的隧道洞口改為貼合山坡的洞門與擋土牆，改善懸空拱圈；移除山丘表面沿著地下隧道出現的軌道線。": "Tunnel entrances in the 3D map now fit hillsides with portals and retaining walls, reducing floating arches. Removed track lines appearing on hills above underground tunnels.",
+    "台北、板橋等都市的立體地圖拖動更順，減少地下路網與畫面外列車重複計算地形的時間。": "Panning the 3D map in Taipei, Banqiao and other cities is smoother, with less repeated terrain calculation for underground tracks and off-screen trains.",
+    "減少同股道列車追上、穿過前車的情況：後車依前車位置減速跟隨，顯示位置最多延後 120 秒。部分交會與待避仍受班表及股道資料限制。": "Reduced trains catching and passing through a train ahead on the same track. Following trains slow down, with display positions delayed by up to 120 seconds. Some meetings and passing waits remain limited by timetable and track data.",
+    "修正全網平坦地圖的橋梁與引道突起，列車行經短橋時更平順": "Smoothed bridge and approach humps across the flat map, so trains pass over short bridges more smoothly.",
+    "列車光環": "Train glow",
+    "列車周圍新增自然散開的柔光，夜晚呈暖色、白天沿用車次顏色，可在「更多」開關": "Trains now have a naturally diffused glow: warm at night and in their service color by day. Toggle it in More.",
+
+    "台南地面鐵道・歷史重播": "Tainan surface railway · Historical replay",
+    "新增台南地面鐵道重播，保留舊站、地面股道與封存班表": "Replay Tainan’s surface railway with its historic station, ground-level tracks and archived timetable.",
+    "修正地下段多餘橋墩、洞口內的山體與路基閃動，橋墩改得更低調；明亮外觀預設關閉日夜光影，暗色預設開啟": "Fixed unwanted underground piers, terrain inside tunnel openings and flickering embankments, with subtler bridge piers. Day/night lighting now defaults off in light appearance and on in dark appearance.",
+    "夜間車頭燈更明亮，近看時列車前方會灑下柔和的地面光": "Brighter nighttime headlights now cast a soft pool of light ahead of trains when viewed up close.",
+    "柴聯自強與支線柴聯車的節數改標「推估編組」，不再和真的查不到編組的車種混為一談": "Diesel express and branch-line railcar formations are now labelled as estimated, no longer lumped in with trains whose formation genuinely cannot be determined.",
+    "車站裡不再有兩班車疊在同一條股道上，潮州、板橋、南港等站重新指派停靠月台": "Trains no longer stack on the same station track: platform assignments were redone at Chaozhou, Banqiao, Nangang and other stations.",
+    "山嵐號可以在地圖上認出來並跟車，環島之星與山海／平原號改畫成機車牽引的觀光列車": "Shanlan can now be identified and followed on the map, and Formosa Star Cute Express, Mountain & Sea and Plains Explorer are drawn as locomotive-hauled tourist trains.",
+    "全線隧道口補上立體拱圈、側壁與燈帶，雙線共用開口，修正高架銜接與彎道入口擋住列車的問題": "Tunnel portals now have solid arches, side walls and light strips, with shared openings for parallel tracks. Fixed viaduct connections and curved entrances obstructing trains.",
+    "阿里山林鐵恢復實際股道與之字形折返，近看也能看到站內配線": "Alishan Forest Railway now uses its physical tracks and zigzag switchbacks, with station track layouts visible up close.",
+    "臺中捷運高鐵臺中站改為平面站，進站路段不再畫成高架橋": "Taichung MRT HSR Taichung Station is now shown at ground level, with its station approach no longer drawn as a viaduct.",
+    "機捷依官方車種顯示普通車與直達車，跳站普通車也能顯示正確編組": "Airport MRT models now follow the official train type, including the correct formation for skip-stop commuter trains.",
+    "夜晚車窗亮起柔和暖白光，窗格完整清楚，進出隧道也會逐節漸亮、漸暗": "Train windows now glow with soft warm-white light at night, with clear, fully lit panes and smooth changes along each carriage when entering or leaving tunnels.",
+    "夜間列車亮起車頭燈、紅色尾燈與暖色車窗，進出隧道時每節車廂的光線平順變化": "At night, trains have headlights, red tail lights and warm-lit windows. Lighting changes smoothly along each carriage as it enters or leaves a tunnel.",
+
+    "修正龜山至林口台地的高鐵橋隧縱坡與洞口銜接，隧道不再隨山坡起伏，保留已知跨河橋梁": "Corrected the HSR bridge and tunnel gradients and portal connections between Guishan and Linkou. Tunnels no longer follow hillsides, and known river bridges are preserved.",
+    "地景地圖標示 Beta，持續完善地形、建物與沿線景觀": "The Landscape map is marked Beta while terrain, buildings and trackside scenery continue to improve.",
+
+    "捷運跟車資訊卡可收成單行，保留路線、車號與結束按鈕，點卡片可再展開": "Metro follow cards can collapse to a single row showing the line, train number and End button. Tap the card to expand it.",
+    "車站收集移除重複的「臺北－環島」，舊紀錄併回臺北站，保留到訪次數與收集進度": "Station collection no longer lists the duplicate Taipei-Loop station. Previous records merge into Taipei, preserving visit counts and collection progress.",
+
+    "搜尋框可以打車型了：輸入 EMU3000、普悠瑪、PP、DR3100 找那一型今天的班次，正在跑的排最前面，點一下直接跟車": "Search now understands train models: type EMU3000, Puyuma, PP or DR3100 to list that model's runs today, with the ones running right now first — tap one to start following.",
+    "跟車鏡頭改為沿用你當下的視角，在近景點列車或按隨機跟隨不會再被拉遠，立體車身看得到細節；點跟隨中的那台車改成把鏡頭鎖回它，不再取消跟隨": "Following keeps your current zoom, so tapping a train or using random follow up close no longer pulls the camera out and 3D trains stay detailed; tapping the train you are already following re-centres the camera on it instead of ending the follow.",
+    "改善立體列車跟隨與地形畫面的流暢度，保留完整編組、模型細節與沿軌行駛": "Improved 3D train following and terrain performance while preserving full formations, model detail and continuous movement along the tracks.",
+    "改善起伏地形的傾斜視角，遠方車牌與站名會逐漸收起，附近列車與車站保持清楚；修正切換地景的顯示異常": "Improved tilted terrain views: distant train tags and station names fade out while nearby trains and stations stay clear. Fixed display errors when switching landscape maps.",
+    "日夜光影": "Daylight cycle",
+    "光線跟隨地圖時間；傾斜地圖可看天空": "Light follows the map time. Tilt the map to see the sky.",
+    "新增「日夜光影」：天空、建築與山坡光線跟隨地圖時間和位置變化，回放也能看晨光、夕色與夜幕；傾斜地圖可看天空，更多設定可關閉": "New daylight cycle: sky colors, building light and terrain shading follow the map time and location, including during replay. Tilt the map to see the sky, or switch the effect off in More.",
+    "3D 軌道依地下、地面與高架分層，捷運交會及共站不再全部擠在地面；地下列車以半透明顯示，開關地形都保留上下關係": "3D tracks now follow underground, ground-level and elevated layers at metro crossings and shared stations. Underground trains remain visible as translucent models, with track levels preserved when terrain is switched.",
+    "地圖風格": "Map style",
+    "明": "Light",
+    "地景": "Landscape",
+    "地景加入 25 組歷史建築模型，依建物位置與朝向呈現站房、倉庫和廠房，並以遠近細節切換維持流暢": "Landscape adds 25 groups of historic buildings, with stations, warehouses and factories placed and oriented on the map. Distance-based detail keeps the scene smooth.",
+    "地景加入公開土地覆蓋資料，補足台灣與離島的山林、草地和農田；樹群依林地範圍呈現，並保留道路與建物空間": "Landscape now uses public land-cover data for Taiwan and its offshore islands, adding woodland, grassland and farmland. Tree groups follow woodland areas while keeping roads and buildings clear.",
+    "新增「地景」地圖風格：河流、林地、公園與街廓換上自然色，近看可見立體樹冠與建築，搭配列車沿線探索台灣": "New Landscape map: natural colors for rivers, woodland, parks and neighborhoods, with 3D tree canopies and buildings to explore along the railway.",
+    "終點站的車站看板現在會列出一小時以後才到站的班次——去接人的人看得到時間；其他車站維持只列一小時內的到站車。": "Terminus station boards now list arrivals more than an hour out, so people meeting a train can see the time; other stations still show only arrivals within the hour.",
+    "跟車鏡頭保留目前的近景，點列車或隨機跟隨不再拉遠；再次點到正在跟隨的列車會回到車旁，不會結束跟隨": "Following keeps your current close-up zoom. Selecting a train or random follow no longer zooms out; tapping the train you are following recenters the camera without ending follow.",
+    "修正列車在車站與彎道附近整列飄到軌道旁的問題，車廂沿指派股道逐節轉彎，不再因鄰車靠近而橫移": "Fixed whole trains drifting beside the rails near stations and curves. Each carriage follows its assigned track through bends without shifting sideways when another train approaches.",
+    "改善立體地圖拖曳與旋轉的流暢度，保留完整列車與建築細節；切換地形後，建築輪廓也會回到正確高度": "Improved dragging and rotating the 3D map while keeping complete trains and building detail. Building outlines now return to the correct height when terrain is switched.",
+    "山線三義隧道段的軌道改用實際路線重畫，列車經過時不再偏離軌道": "The Mountain Line's Sanyi tunnel section is redrawn along its real route, so trains no longer appear to drift off the track there.",
+    "台鐵誤點加大時，列車改成慢速前進，不再停在原地等誤點追上": "When a TRA train's delay grows, it now keeps creeping forward instead of freezing in place, then picks up the next station's arrival time.",
+    "放空的跟車視角改成貼著車身的立體視角，看得到列車在軌道上跑，速度也放回實際車速；放空時的配樂改播完整曲庫": "Ambient mode's follow view now sits right beside the train in 3D, so you can watch it run along the track at its real speed. Ambient music now draws on the full library too.",
+    "修正車站看板更新時，已捲到公車資訊的位置被往回拉的問題": "Station board refreshes now preserve your scroll position in the bus information section.",
+    "近景列車依推估股道分流，少量交疊會暫時靠旁避讓；捷運到站時保留立體車身。阿里山林鐵暫不套股道，停站的車不再畫到軌道外；阿里山、祝山、神木一帶補畫站內與之字形折返股道": "Close-up trains use inferred tracks, with temporary visual yielding for remaining overlaps. Metro trains keep their 3D bodies when stopping at stations. The Alishan Forest Railway skips inferred tracks for now, so trains waiting at its stations no longer appear off the rails, and its drawn track now reaches into Alishan, Zhushan and the switchback spurs around Shenmu.",
+    "推估股道": "Inferred track",
+    "衛星地圖上的地標與車站改用模型原色，建築透視可依需要切換": "Landmarks and stations on the satellite map now use their original model colors. Building transparency can be switched on when needed.",
+    "跟車卡收起後保持單行，編組說明留在展開資訊中；暗色改用精簡玻璃卡，結束按鈕更容易點擊": "Collapsed train cards now stay on one row, with formation details in the expanded view. Dark mode uses a compact glass card with an easier-to-tap End button.",
+    "加入 22 款精修立體車站與地標，放大可看細節、縮小自動簡化，並保留建築透視": "Added 22 detailed 3D stations and landmarks, with close-up details, lighter distant models, and transparent building views.",
+    "修正起伏地圖中軌道被丘陵切斷、列車鑽入地底的問題，山區行駛保持連續可見": "Fixed tracks being cut off by hills and trains sinking below terrain, keeping mountain journeys continuously visible.",
+    "修正列車透過建築物顯示時，被道路蓋住的問題，穿越路口時車身保持連續可見": "Fixed roads covering trains seen through transparent buildings, keeping the train visible as it crosses roads.",
+    "月台資料未提供時，列車資訊、查詢摘要與車站看板都不顯示月台欄位，也不留下提示文字": "When platform information is unavailable, train details, search summaries and station boards omit both the field and placeholder text.",
+    "台鐵列車資訊與車站看板支援官方月台號碼；沒有資料、尚未確定、過期或回放時自動收起，不留空欄": "TRA train details and station boards now support official platform numbers. The field stays hidden when unavailable, unassigned, expired or in replay.",
+    "開啟": "On",
+    "跟車新增「車頭朝上」開關，預設關閉；想讓車頭方向朝向畫面上方時可自行開啟，指北仍隨時有效": "Head-up following is now optional and off by default. Turn it on to keep the front of the train at the top of the view; north reset remains available.",
+    "跟車時預設不自動旋轉地圖；可在「更多」開啟「跟車時車頭朝上」。近景可手動側看完整編組，指北隨時回正。": "Following does not rotate the map by default. Enable head-up following in More if you prefer. At close range, rotate to see the full formation from the side; north reset remains available.",
+    "跟車時車頭朝上": "Head-up train following",
+    "立體列車": "3D trains",
+    "列車編組": "Train formation",
+    "完整編組": "Full formation",
+    "三節示意": "3-car illustration",
+    "3 節示意": "3-car illustration",
+    "地形": "Terrain",
+    "平坦": "Flat",
+    "起伏試驗": "Terrain trial",
+    "列車大小": "Train size",
+    "容易辨認": "Readable",
+    "原始比例": "True scale",
+    "顯示列車": "Trains shown",
+    "全部近景": "All nearby",
+    "只看選取": "Selected only",
+    "建築透視": "Building view",
+    "透明": "Transparent",
+    "一般": "Normal",
+    "透視顯示": "See-through view",
+    "透視": "See-through",
+    "實體": "Solid",
+    "賞車視角": "Train camera",
+    "側拍": "Side view",
+    "環繞": "Orbit",
+    "地表起伏示意": "Illustrated surface relief",
+    "立體顯示載入失敗，請重試": "3D view could not load. Please try again.",
+    "{n} 節 · 標準編組": "{n} cars · standard formation",
+    "{n} 節 · 推估編組": "{n} cars · estimated formation",
+    "{n} 分節 · 標準編組": "{n} sections · standard formation",
+    "3 節示意 · 當班編組待確認": "3-car illustration · actual formation unconfirmed",
+    "放大地圖即可看見立體列車。完整編組依車型或路線標準；缺少當班資料時顯示三節示意。起伏為地表顯示，非實測軌道高程。透視顯示同時管建築與地下列車，切到實體就看得到地下列車原本的顏色。": "Zoom in to see 3D trains. Full formations use vehicle or route standards; unknown formations use a 3-car illustration. Terrain represents the ground surface, not surveyed track elevation. See-through view covers both buildings and underground trains: switch to Solid to see underground trains in their own colors.",
+    "近景自動顯示沿軌行駛的立體列車，可切換完整編組、地形起伏與建築透視；保留亮色琺瑯、暗色霓虹，以及車站看板與指北操作": "Zoom in to see 3D trains running along the tracks, with full formations, terrain relief and transparent buildings. Light enamel and dark neon designs, station boards and north reset remain available.",
+    '轉乘站的官方來車資料換班時，偶爾會短暫缺一個方向；現在看板會先補上該方向的班表': 'When the official arrival feed changes over between trains, one direction can briefly disappear at an interchange. The station board now fills that gap with the timetable for that direction.',
+    'Android 1.5.0 完整加入繁中、English、日本語：App 介面、三種桌面小工具，以及列車跟隨、捷運等車與台鐵等站的鎖定畫面／Now Bar 會同步切換語言；沿用既有正式版更新時，原本的小工具、設定和資料都會保留': 'Android 1.5.0 fully adds Traditional Chinese, English and Japanese across the app, all three home-screen widgets, train following, metro waiting and TRA station tracking on the lock screen and Now Bar. Updating the existing release keeps your widgets, settings and data.',
+    'Android 正式版進到 1.5.0，完整加入繁中、English、日本語。除了 App 內介面，捷運看板、台鐵／高鐵發車看板、鐵路＋捷運雙看板三種桌面小工具，以及列車跟隨、捷運等車和台鐵等站的鎖定畫面／Now Bar 都會使用 App 選定的語言；切換後立即重畫，不必刪除小工具或重開追蹤。使用原簽署版本覆蓋更新，既有設定、小工具與本機資料會保留': 'The Android release is now 1.5.0 with full Traditional Chinese, English and Japanese support. The metro board, TRA/HSR departure board and combined rail + metro widget, plus lock-screen and Now Bar cards for train following, metro waiting and TRA station tracking all use the language selected in the app. They refresh immediately when the language changes, without removing widgets or restarting tracking. The signed update preserves existing settings, widgets and on-device data.',
+    '修好 iPhone App 的語言按鈕：上一個測試版漏帶英、日文字典，按了仍全顯示繁中；現在 App 會完整帶入三語資源。英文與日文文案也完成第二輪複核，統一日文的「鑑賞模式」、車次與乘車按鈕用語，並修順英文災害監看句子': 'Fixed the language buttons in the iPhone app: the previous test build omitted the English and Japanese dictionaries, so the interface stayed in Traditional Chinese. The app now bundles all three languages. A second copy review also standardized Japanese viewing-mode, train-number and ride-button wording and cleaned up the English hazard-monitoring sentence.',
+    'iPhone 的動態島展開畫面增加圓角安全留白：捷運等車、台鐵等站與列車跟隨的內容都往內收，文字與「結束」按鈕不再被邊緣切掉；繁中、English、日本語一起套用；文字大小設定的目前值與詳細選項也會完整切換語言': 'Expanded Dynamic Island views now keep a safe margin from their rounded edges. Metro waiting, TRA station tracking and train following move inward so text and the End button are no longer clipped; the fix applies to Traditional Chinese, English and Japanese. The current text-size value and its detailed options now switch languages completely as well.',
+    '資料狀態': 'Data status',
+    '即時資料': 'Live data',
+    '捷運看板': 'Metro boards',
+    '發車看板（台鐵／高鐵）': 'Departure boards (TRA / High Speed Rail)',
+    '鐵路＋捷運看板': 'Rail + Metro boards',
+    '發車看板（鎖定畫面）': 'Departure boards (Lock Screen)',
+    // 小工具尺寸（iOS 說明卡）；'大' 與下方字級設定共用同一鍵，值 'Large' 兩邊都對，不重複宣告
+    '小': 'Small',
+    '中': 'Medium',
+    '矩形': 'Rectangular',
+    '重播中': 'Replaying',
+    '時段': 'Service period',
+    '目前車數': 'Trains now',
+    '目前沒有即時或重播狀態': 'No live or replay status is available',
+    '標準': 'Standard',
+    '顯示與字級': 'Display and text size',
+    '大': 'Large',
+    '特大': 'Extra large',
+    '「大」只放大字級與列高，功能位置不變。「特大」會把誤點、方向這類次要欄位收進列的「更多」。': 'Large increases text and row height without moving features. Extra large moves secondary fields such as delays and direction into each row’s More section.',
+    '跟隨系統字級': 'Follow system text size',
+    '系統字級調到輔助使用級別時自動切到特大，調回來就跟著回來': 'Automatically uses Extra large at accessibility text sizes, then returns when the system size does',
+    '（跟隨系統）': ' (follows system)',
+    '預覽': 'Preview',
+    '還有 4 分': '4 min to go',
+    '花蓮 → 樹林 · 終點 19:25 抵達': 'Hualien → Shulin · arrives at terminus 19:25',
+    '階數＝': 'Scale =',
+    '標準 1.0': 'Standard 1.0',
+    '大 1.25': 'Large 1.25',
+    '特大 1.5': 'Extra large 1.5',
+    '，同一顆倍率同時吃字級、列高與觸控目標，所以不會出現「字大了但按鈕沒變大」。': '. The same scale applies to text, row height and tap targets, so buttons grow together with the text.',
+    '縣市快速移動': 'Quick city and county navigation',
     '非即時': 'Not live',
     '回到現在': 'Back to now',
     '可轉乘': 'Transfers', '轉 {routes}': 'Transfer: {routes}', '列車進站': 'Train arriving',
@@ -22,12 +156,12 @@
     '（其他系統部分路線為班距推算）': ' (some routes on other systems are estimated from headways)',
     '中和新蘆線': 'Zhonghe–Xinlu Line',
     '新北捷運': 'New Taipei Metro', '桃園捷運': 'Taoyuan Metro',
-    '台北捷運、桃園機捷、新北捷運（環狀・淡海・安坑・三鶯）、台中捷運與高雄捷運（含輕軌）同框運行，營運時段依官方即時資訊校正（台北捷運與環狀線目前位置為班表推估，車站倒數仍是官方即時；文湖線、三鶯線與台中捷運為班距推算）— 可在上方勾選要同時顯示的系統。': 'Taipei, Taoyuan, New Taipei, Taichung and Kaohsiung metro and light-rail systems run together. Taipei Metro and Circular Line positions currently use timetable estimates while station countdowns remain live; Wenhu, Sanying and Taichung are estimated from headways.',
-    '台鐵、高鐵與阿里山林鐵皆依真實時刻表運行（台鐵回到現在時刻自動套用即時誤點；林鐵依官方公告時刻表，無即時資訊）— 點列車跟隨、點車站看班次，或按地圖角落「探」看今日亮點。': 'TRA, high-speed rail and Alishan Forest Railway trains follow official timetables. TRA live delays apply at the current time; Alishan has no live data. Tap trains or stations, or open Highlights.',
-    '台北捷運、新北捷運（環狀線・淡海・安坑・三鶯）與桃園機捷同框運行，北捷、新北捷與機捷營運時段依官方即時資訊校正（三鶯線、文湖線為班距推算）— 可在上方勾選要同時顯示的系統,拖曳、縮放地圖看看。': 'Taipei, New Taipei and Taoyuan metro systems run together. Supported lines use official live corrections; Sanying and Wenhu are estimated from headways. Choose systems above, then drag or zoom the map.',
-    '台中捷運與高雄捷運同框，高捷與輕軌營運時段依官方到站看板校正（台中捷運為班距推算）— 可在上方勾選要同時顯示的系統。': 'Taichung and Kaohsiung metro systems run together. Kaohsiung Metro and light rail use official arrival-board corrections; Taichung is estimated from headways.',
-    '各線列車依當日實際時刻表在城市裡穿梭，營運時段依官方到站看板即時校正（含環狀線；文湖線為班距推算）— 拖曳、縮放看看。': 'Trains follow today’s timetable. Taipei Metro and the Circular Line use official live arrival-board corrections; the Wenhu Line is estimated from headways.',
-    '三鶯線串起土城、三峽與鶯歌（2026-06-30 通車，8/31 前為免費試營運，8/16 起每日 06:00–24:00 行駛，此時段外看不到車；無公開逐班時刻，班次依官方班距推算）— 拖曳、縮放看看。': 'The Sanying Line links Tucheng, Sanxia and Yingge. During the free trial through 31 August, service runs daily from 06:00 to 24:00; no per-train timetable is public, so trains are estimated from official headways.',
+    '台北捷運、桃園機捷、新北捷運（環狀・淡海・安坑・三鶯）、台中捷運與高雄捷運（含輕軌）同框運行，營運時段依官方即時資訊校正（台北捷運九線的列車位置與車站倒數都是官方逐班即時；三鶯線與台中捷運為班距推算）— 可在上方勾選要同時顯示的系統。': 'Taipei, Taoyuan, New Taipei, Taichung and Kaohsiung metro and light-rail systems run together, with service hours corrected by official live information. On all nine Taipei Metro lines, train positions and station countdowns come from official per-train live data; the Sanying Line and Taichung Metro use headway-based estimates. Choose systems above to show them together.',
+    '台鐵、高鐵與阿里山林鐵皆依真實時刻表運行（台鐵回到現在時刻自動套用即時誤點；林鐵依官方公告時刻表，無即時資訊）— 點列車跟隨、點車站看班次，或按地圖角落「探」看今日亮點。': 'TRA, high-speed rail and Alishan Forest Railway trains follow official timetables. TRA live delays apply at the current time; Alishan has no live data. Tap a train to follow it or a station for arrivals, or use the button in the map corner for today’s highlights.',
+    '台北捷運、新北捷運（環狀線・淡海・安坑・三鶯）與桃園機捷同框運行，營運時段依官方即時資訊校正（台北捷運九線的列車位置與車站倒數都是官方逐班即時；三鶯線為班距推算）— 可在上方勾選要同時顯示的系統，拖曳、縮放地圖看看。': 'Taipei, New Taipei and Taoyuan metro systems run together, with service hours corrected by official live information. On all nine Taipei Metro lines, train positions and station countdowns come from official per-train live data; the Sanying Line uses headway-based estimates. Choose systems above, then drag or zoom the map.',
+    '台中捷運與高雄捷運同框，高捷與輕軌營運時段依官方到站看板校正（台中捷運為班距推算）— 可在上方勾選要同時顯示的系統。': 'Taichung and Kaohsiung metro systems run together. Kaohsiung Metro and light rail use official arrival-board corrections; Taichung is estimated from headways. Choose systems above to show them together.',
+    '各線列車在城市裡穿梭，列車位置與車站倒數都是官方逐班即時（含文湖線、環狀線）— 拖曳、縮放看看。': 'Trains on every line run across the city, and their positions and station countdowns come from official per-train live data, Wenhu and Circular lines included. Drag or zoom the map to take a look.',
+    '三鶯線串起土城、三峽與鶯歌（2026-06-30 通車，8/31 前為免費試營運，8/16 起每日 06:00–24:00 行駛，此時段外看不到車；軌島的資料來源沒有逐班時刻，班次依官方班距推算）— 拖曳、縮放看看。': 'The Sanying Line links Tucheng, Sanxia and Yingge. During the free trial through 31 August, service runs daily from 06:00 to 24:00; Rail Island’s data sources have no per-train timetable, so trains are estimated from official headways.',
     '跟隨鎖定中：地圖固定列車置中——點擊或直接拖曳地圖解鎖，可自由瀏覽': 'Following locked: the map keeps the train centred. Tap or drag the map to unlock and browse freely.',
     '自由瀏覽中：點擊回到列車，恢復置中跟隨': 'Browsing freely: tap to return to the train and resume centred following.',
     '列車已離開官方即時名冊': 'The train has left the official live roster.',
@@ -36,24 +170,26 @@
     '最糟 {worst} 分・平均 {average} 分・{days} 天': 'Worst {worst} min · avg {average} min · {days} days',
     '最糟{worst}分・平均{average}分・{days}天': 'Worst {worst} min · avg {average} min · {days} days',
     '更新紀錄': 'Updates',
-    '最後更新：2026/8/28': 'Last updated: 2026/8/28',
+    '最後更新：{date}': 'Last updated: {date}',
     '最近更新': 'Recent updates',
     '完整更新歷史（依主題分類）': 'Earlier updates by topic',
     '資料來源與授權': 'Data sources and licences',
     '北捷': 'Taipei Metro', '新北捷': 'New Taipei Metro', 'Ko-fi（信用卡 / PayPal）': 'Ko-fi（credit card / PayPal）',
     '台鐵官方 OpenData（ods.railway.gov.tw）——每日時刻表、車站基本資料、車種代碼表，依「政府資料開放授權條款」使用': 'TRA OpenData (ods.railway.gov.tw): daily timetables, station information and train-class codes, used under Taiwan’s Open Government Data Licence.',
-    '交通部 TDX 運輸資料流通服務——北捷／機捷／新北捷（淡海・安坑・三鶯）／中捷／高捷（含輕軌）的路線幾何、站序、逐班時刻表與班距資料': 'Ministry of Transportation TDX: route geometry, station order, timetables and headways for Taipei, Taoyuan, New Taipei, Taichung and Kaohsiung metro and light rail systems.',
+    '交通部 TDX 運輸資料流通服務——北捷／機捷／新北捷（淡海・安坑・三鶯）／中捷／高捷（含輕軌）的路線幾何、站序、逐班時刻表與班距資料，依政府資料開放授權條款第1版使用': 'Ministry of Transportation TDX: route geometry, station order, timetables and headways for Taipei, Taoyuan, New Taipei, Taichung and Kaohsiung metro and light rail systems, used under Taiwan’s Open Government Data License 1.0.',
     '台鐵即時誤點與車站地址介接交通部 TDX 平臺（TrainLiveBoard／Station，每分鐘更新）': 'TRA live delays and station addresses from the Ministry of Transportation TDX TrainLiveBoard and Station APIs, refreshed every minute.',
     '臺北捷運各線與環狀線的秒級到站倒數取自臺北大眾捷運股份有限公司「臺北捷運 API」（會員申請制），依「政府資料開放授權條款」使用': 'Second-by-second arrivals for Taipei Metro and the Circular Line come from Taipei Rapid Transit Corporation’s member API under the Open Government Data Licence.',
     '淡海輕軌・安坑輕軌的即時列車動態引用自新北大眾捷運股份有限公司官網「列車動態」公開頁面，著作權屬該公司所有': 'Live train movements for Danhai and Ankeng light rail come from New Taipei Metro’s public train-status pages; copyright remains with the operator.',
     '台鐵軌道及阿里山林鐵的 TDX 缺口補線取自 © OpenStreetMap 貢獻者（ODbL），經 Overpass／OSM API': 'Gaps in TRA and Alishan Forest Railway geometry are filled from © OpenStreetMap contributors (ODbL) through the Overpass and OSM APIs.',
-    'OpenFreeMap（© OpenFreeMap © OpenMapTiles © OpenStreetMap 貢獻者，街道圖）、CARTO（© OpenStreetMap © CARTO，街道圖退路）、Esri World Imagery（衛星影像）與內政部「直轄市、縣市界線」（離線海陸輪廓，政府資料開放授權條款第1版）': 'OpenFreeMap (© OpenFreeMap, © OpenMapTiles, © OpenStreetMap contributors), CARTO (© OpenStreetMap, © CARTO fallback), Esri World Imagery, and Ministry of the Interior county boundaries for the offline Taiwan outline.',
+    'OpenFreeMap（© OpenFreeMap © OpenMapTiles © OpenStreetMap 貢獻者，街道圖）、Esri World Imagery（衛星影像）與內政部「直轄市、縣市界線」（離線海陸輪廓，政府資料開放授權條款第1版）': 'OpenFreeMap (© OpenFreeMap, © OpenMapTiles and © OpenStreetMap contributors; street map), Esri World Imagery (satellite imagery), and Ministry of the Interior city and county boundaries (offline land-and-sea outline; Taiwan Government Data Open Licence 1.0).',
+    'OpenFreeMap（© OpenFreeMap © OpenMapTiles © OpenStreetMap，街道圖）、Stadia Maps（© Stadia Maps © OpenMapTiles © OpenStreetMap，街道圖退路）、Esri World Imagery（衛星影像）與內政部「直轄市、縣市界線」（離線海陸輪廓，政府資料開放授權條款第1版）': 'OpenFreeMap (© OpenFreeMap, © OpenMapTiles and © OpenStreetMap; street map), Stadia Maps (© Stadia Maps, © OpenMapTiles and © OpenStreetMap; street-map fallback), Esri World Imagery (satellite imagery), and Ministry of the Interior city and county boundaries (offline land-and-sea outline; Taiwan Government Data Open Licence 1.0).',
+    '第三方軟體授權': 'Third-party software licences',
     '狀態': 'Status', '資料源連線狀態頁': 'Data-source status',
-    '本站為個人愛好者專案，與台灣鐵路公司及各捷運公司皆無關。台鐵套用官方即時誤點；北捷與環狀線營運時段依北捷官方秒級到站倒數逐班校正位置（環狀線由新北捷運營運，其到站倒數同源於北捷到站看板）；高捷、桃園機捷與高雄輕軌依官方到站看板即時校正；新北捷運淡海輕軌與安坑輕軌依官方列車動態即時校正；其餘捷運／輕軌依當日官方時刻表推演（部分路線無公開逐班時刻，為班距推算）。實際到離站時刻請以各營運機構官方資訊為準。': 'Rail Island is an independent hobby project and is not affiliated with any railway operator. Supported systems use official live delay, arrival-board or train-movement data; others are simulated from official daily timetables or published headways. Always follow the operator’s official information for actual arrivals and departures.',
-    '原始碼公開，歡迎貢獻': 'Open source—contributions welcome',
+    '本站為個人愛好者專案，與台灣鐵路公司及各捷運公司皆無關。台鐵套用官方即時誤點；北捷與環狀線營運時段依北捷官方秒級到站倒數逐班校正位置（環狀線由新北捷運營運，其到站倒數同源於北捷到站看板）；高捷、桃園機捷與高雄輕軌依官方到站看板即時校正；新北捷運淡海輕軌與安坑輕軌依官方列車動態即時校正；其餘捷運／輕軌依當日官方時刻表推演（軌島的資料來源沒有部分路線的逐班時刻，這些路線為班距推算）。實際到離站時刻請以各營運機構官方資訊為準。': 'Rail Island is an independent hobby project and is not affiliated with any railway operator. Supported systems use official live delay, arrival-board or train-movement data; others are simulated from official daily timetables or published headways. Always follow the operator’s official information for actual arrivals and departures.',
+    '原始碼公開，歡迎貢獻': 'Source available—contributions welcome',
     '覺得有幫助？請支持開發者': 'Enjoying Rail Island? Support its developer',
     '感謝你的支持！': 'Thank you for your support!', '或銀行轉帳': 'Or make a bank transfer', '複製': 'Copy',
-    '本專案為免費工具、原始碼公開可查，您的支持幫助我們維護伺服器與持續改善內容': 'Rail Island is free and open source. Your support helps cover servers and ongoing improvements.',
+    '本專案為免費工具、原始碼公開可查，您的支持幫助我們維護伺服器與持續改善內容': 'Rail Island is free to use and its source is available for inspection. Your support helps cover servers and ongoing improvements.',
     '隱私與服務條款': 'Privacy and terms', '隱私': 'Privacy', '條款': 'Terms', '帳號與資料刪除': 'Delete account and data',
     '關於': 'About', '本站為個人愛好者專案，與台灣鐵路公司及各捷運公司皆無關。': 'An independent hobby project, not affiliated with Taiwan’s railway or metro operators.',
 
@@ -115,24 +251,166 @@
     '通勤的證明': 'Commuter credentials', '同一段路來回搭滿 100 次': 'Travel the same segment 100 times',
     '老通勤族': 'Veteran commuter', '同一段路來回搭滿 500 次': 'Travel the same segment 500 times',
     '明星列車': 'Star trains', '車種圖鑑': 'Rolling-stock gallery', '支線行腳': 'Branch-line journeys',
-    '還沒搭過——點我去搭一班': 'Not collected yet—tap to ride one', '已收藏': 'Collected', '點我重播': 'Tap to replay',
+    '還沒搭過——點我去搭一班': 'Not collected yet—ride one now', '已收藏': 'Collected', '點我重播': 'Replay',
     '成就徽章': 'Achievement badges', '創': 'F', '創始島民': 'Founding Islander', '謝謝你在最早的時候就決定支持軌島': 'Thank you for supporting Rail Island from the beginning.',
     '車站收集': 'Station collection', '到訪 {n}': '{n} visited', '路段 {n}': '{n} segments', '最常搭 {segment} {n} 次': 'Most travelled: {segment}, {n} times',
     '收起 ▴': 'Show less ▴', '還有 {n} 座 ▾': '{n} more stations ▾', '跟完': 'Followed', '搭過': 'Travelled', '到訪': 'Visited', '{n} 次': '{n} times', '最近 {date}': 'Latest {date}',
     '路線完乘': 'Route completion', '全線走完 {n}': '{n} routes completed', '收集地圖——全路網轉灰，只有你搭過的區間亮起': 'Collection map—only the segments you have travelled remain highlighted',
-    '{n} 條線・{km} km': '{n} routes · {km} km', '還沒有搭乘記錄——用跟車面板的「我上車了」開始收集': 'No travel records yet—use “I’m aboard” in the follow panel to start collecting.',
+    '{n} 條線・{km} km': '{n} routes · {km} km', '還沒有搭乘記錄——用跟車面板的「我上車了」開始收集': 'No travel records yet—use “I’m on board” in the follow panel to start collecting.',
     '圖鑑': 'Gallery', '無固定車次': 'No fixed service', '點看介紹': 'View story', '看 {name} 介紹': 'Read about {name}',
     '觀光列車・無固定班次，開行日期與車次以台鐵公告為準': 'Tourist train without a fixed daily service. Check TRA announcements for dates and train numbers.',
+    '每天跑的車次不同，以台鐵公布的班表為準': 'It runs different trains each day, following the schedule published by TRA.',
+    '寶可夢30周年主題列車': 'Pokémon 30th Anniversary Train',
     '今日最長征': 'Longest journey today', '開最久': 'Longest running time', '停最多站': 'Most stops', '平均最快': 'Fastest average speed',
     '{h} 小時 {m} 分': '{h} hr {m} min', '{n} 站': '{n} stops', '約 {n} km/h': 'About {n} km/h', '今日 {n} 班': '{n} services today',
     '行駛中': 'Running', '重播': 'Replay', '{time} 發': 'Departs {time}', '跟隨 {train} 次': 'Follow train {train}', '{train}次': 'Train {train}',
     '從 {n} 班車裡挑出來的 · 點列車跟隨、點活動飛到那一站': 'Highlights selected from {n} trains · tap a train to follow or an event to visit its station',
     '特別列車出沒中': 'Special trains running now', '今日之最': 'Today’s highlights', '支線小火車': 'Branch-line trains', '準點排行': 'Punctuality ranking',
+    // 探索面板的週末活動入口列。🔴 這兩個鍵在 en 這一邊【只能各出現一次】——同鍵出現兩次時
+    // 後者會靜默蓋掉前者(本 repo 既有的坑),而把字典攤平成表格複核結構上照不到。
+    // 🔴「鐵道活動」刻意不含期間字樣:期間(本週末／春節連假／假日…)由 API 的 span.label 給,
+    // 而那是中文、不會因為 ?lang=en 就變英文,所以非中文介面用「label · 譯名」的形狀併起來
+    // (與 weekend.html 的 h1 同一種做法),不是把兩個詞直接黏成 "This weekendRail events"。
+    '鐵道活動': 'Rail events', '{n} 場': { one: '{n} event', other: '{n} events' },
     '近 30 天最準點的 10 班車，依單日最糟全程誤點排序（同分再比平均誤點、有紀錄天數、車次號）；至少 20 天有紀錄才列入計算，資料來源台鐵': 'The 10 most punctual trains over the past 30 days, ranked by their worst full-route delay day. Ties use average delay, days recorded and train number; at least 20 days of TRA records are required.',
     '觀光列車圖鑑（無固定車次）': 'Tourist-train gallery (no fixed service)'
   });
 
   Object.assign(messages.ja, {
+    "修正三鶯線重複轉乘資訊，更新站名翻譯與鄰近公車轉乘資料": "三鶯線の重複した乗換情報を修正し、駅名の翻訳と周辺のバス乗換情報を更新しました。",
+    "補回太麻里兩條月台股道，減少同站列車重疊；修正部分列車誤入同一股道的交會畫面": "太麻里駅の2本のホーム線路を復元して列車の重なりを減らし、一部の列車が誤って同じ線路ですれ違う表示を修正しました。",
+    "減少車站裡兩班車疊在同一條股道上的情況，潮州、板橋、南港等站重新指派停靠月台": "潮州・板橋・南港などの停車ホーム割当を見直し、駅で2列車が同じ線路上に重なる表示を減らしました。",
+    "減少開站時重複下載地形與股道資料，改善初次開啟的等待時間與畫面凍結。": "起動時の地形・線路データの重複ダウンロードを減らし、初回読み込みの待ち時間や画面の停止を改善しました。",
+    "修正中洲到大湖等平地路段被誤畫成隧道的情況；抬高路基的邊坡改得更窄、更接近地表顏色，避免遮住列車。": "中洲～大湖などの平地区間が誤ってトンネル表示になる問題を修正。盛土の法面を狭くして地面に近い色にし、列車が隠れにくくしました。",
+    "立體地圖的隧道洞口改為貼合山坡的洞門與擋土牆，改善懸空拱圈；移除山丘表面沿著地下隧道出現的軌道線。": "立体地図のトンネル入口を斜面に沿う坑門・擁壁に変更し、浮いたアーチを改善。地下トンネルに沿って山肌に現れる線路表示も除去しました。",
+    "台北、板橋等都市的立體地圖拖動更順，減少地下路網與畫面外列車重複計算地形的時間。": "台北・板橋などの立体地図をより滑らかに移動できるよう、地下路網や画面外の列車による地形の重複計算を減らしました。",
+    "減少同股道列車追上、穿過前車的情況：後車依前車位置減速跟隨，顯示位置最多延後 120 秒。部分交會與待避仍受班表及股道資料限制。": "同じ線路で後続列車が前の列車に追いつき、すり抜ける表示を低減。後続列車は減速し、表示位置を最大120秒遅らせます。一部の交換・待避には時刻表や線路データによる制約が残ります。",
+    "修正全網平坦地圖的橋梁與引道突起，列車行經短橋時更平順": "平坦な地図全体で橋と接続区間の不自然な盛り上がりを修正し、列車が短い橋を滑らかに通過するようになりました。",
+    "列車光環": "列車の光",
+    "列車周圍新增自然散開的柔光，夜晚呈暖色、白天沿用車次顏色，可在「更多」開關": "列車の周囲に自然に広がる柔らかな光を追加。夜は暖色、昼は列車の色になり、「その他」で切り替えられます。",
+
+    "台南地面鐵道・歷史重播": "台南の地上鉄道・過去の運行を再生",
+    "新增台南地面鐵道重播，保留舊站、地面股道與封存班表": "台南の旧駅舎と地上の線路を残し、保存した時刻表で当時の運行を再生できます。",
+    "修正地下段多餘橋墩、洞口內的山體與路基閃動，橋墩改得更低調；明亮外觀預設關閉日夜光影，暗色預設開啟": "地下区間の不要な橋脚、坑口内の地形、路盤のちらつきを修正し、橋脚の見た目を控えめにしました。昼夜の光は明るい外観では初期設定でオフ、暗い外観ではオンになります。",
+    "夜間車頭燈更明亮，近看時列車前方會灑下柔和的地面光": "夜間の前照灯を明るくし、近くでは列車前方の地面に柔らかな光が広がります。",
+    "柴聯自強與支線柴聯車的節數改標「推估編組」，不再和真的查不到編組的車種混為一談": "気動車特急と支線の気動車の両数を「推定編成」と表示するようにし、本当に編成が分からない車種と区別しました。",
+    "車站裡不再有兩班車疊在同一條股道上，潮州、板橋、南港等站重新指派停靠月台": "駅で 2 本の列車が同じ線路に重なって表示されなくなりました。潮州・板橋・南港などで停車番線を割り当て直しています。",
+    "山嵐號可以在地圖上認出來並跟車，環島之星與山海／平原號改畫成機車牽引的觀光列車": "山嵐号を地図上で識別して追跡できるようになりました。環島之星 萌旅号、山海号、平原号は機関車牽引の観光列車として描画されます。",
+    "全線隧道口補上立體拱圈、側壁與燈帶，雙線共用開口，修正高架銜接與彎道入口擋住列車的問題": "全線のトンネル坑口に立体的なアーチ、側壁、照明を追加し、並行する線路は開口部を共用します。高架との接続やカーブの入口で列車を遮る問題も修正しました。",
+    "阿里山林鐵恢復實際股道與之字形折返，近看也能看到站內配線": "阿里山森林鉄道の実際の線路とスイッチバックを表示し、近くでは駅構内の配線も見えるようになりました。",
+    "臺中捷運高鐵臺中站改為平面站，進站路段不再畫成高架橋": "台中MRTの高鉄台中駅を地上駅として表示し、駅への進入区間を高架橋で描かないようにしました。",
+    "機捷依官方車種顯示普通車與直達車，跳站普通車也能顯示正確編組": "桃園空港MRTは公式の車種に合わせて普通車と直達車を表示し、一部の駅を通過する普通車も正しい編成になりました。",
+    "夜晚車窗亮起柔和暖白光，窗格完整清楚，進出隧道也會逐節漸亮、漸暗": "夜間の車窓に柔らかな暖白色の明かりを追加しました。窓全体がくっきりと灯り、トンネルへの出入りに合わせて車両ごとの明るさが滑らかに変わります。",
+    "夜間列車亮起車頭燈、紅色尾燈與暖色車窗，進出隧道時每節車廂的光線平順變化": "夜間の列車に前照灯、赤い尾灯、暖色の窓明かりを追加しました。トンネルへの出入りに合わせて、車両ごとの明るさが滑らかに変化します。",
+
+    "修正龜山至林口台地的高鐵橋隧縱坡與洞口銜接，隧道不再隨山坡起伏，保留已知跨河橋梁": "亀山から林口台地の高鉄の橋梁・トンネルの勾配と坑口接続を修正。トンネルが山肌の起伏に沿わないようにし、確認できる河川橋梁は維持します。",
+    "地景地圖標示 Beta，持續完善地形、建物與沿線景觀": "地景地図を Beta と表示。地形、建物、沿線風景を引き続き改善します。",
+
+    "捷運跟車資訊卡可收成單行，保留路線、車號與結束按鈕，點卡片可再展開": "MRTの追跡カードを1行に折りたためます。路線・列車番号・終了ボタンを残し、カードをタップすると展開します。",
+    "車站收集移除重複的「臺北－環島」，舊紀錄併回臺北站，保留到訪次數與收集進度": "駅コレクションの重複した「臺北－環島」を臺北駅に統合しました。過去の訪問回数と収集状況は引き継がれます。",
+
+    "搜尋框可以打車型了：輸入 EMU3000、普悠瑪、PP、DR3100 找那一型今天的班次，正在跑的排最前面，點一下直接跟車": "検索が車両形式に対応しました。EMU3000・普悠瑪・PP・DR3100 などを入力すると本日のその形式の列車が並び、走行中の列車が先頭に来ます。タップすればそのまま追従します。",
+    "跟車鏡頭改為沿用你當下的視角，在近景點列車或按隨機跟隨不會再被拉遠，立體車身看得到細節；點跟隨中的那台車改成把鏡頭鎖回它，不再取消跟隨": "追従カメラが現在の縮尺をそのまま使うようになり、拡大した状態で列車をタップしてもランダム追従を押しても引きの画面になりません。立体列車の細部も見えます。追従中の列車をタップした場合は追従を終了せず、カメラをその列車に戻します。",
+    "改善立體列車跟隨與地形畫面的流暢度，保留完整編組、模型細節與沿軌行駛": "編成や模型の細部、線路に沿った連続走行を保ちながら、立体列車の追従と地形表示を滑らかにしました。",
+    "改善起伏地形的傾斜視角，遠方車牌與站名會逐漸收起，附近列車與車站保持清楚；修正切換地景的顯示異常": "起伏のある地図を傾けたとき、遠方の列車番号と駅名が徐々に消え、近くの列車と駅が見やすくなりました。地景への切り替え時の表示不具合も修正しました。",
+    "日夜光影": "昼夜の光",
+    "光線跟隨地圖時間；傾斜地圖可看天空": "光は地図の時刻に連動します。地図を傾けると空が見えます。",
+    "新增「日夜光影」：天空、建築與山坡光線跟隨地圖時間和位置變化，回放也能看晨光、夕色與夜幕；傾斜地圖可看天空，更多設定可關閉": "「昼夜の光」を追加。空の色・建物の光・山肌の陰影が地図の時刻・位置に連動し、再生中も朝焼け・夕焼け・夜空を楽しめます。地図を傾けると空が見え、「その他」でオフにできます。",
+    "3D 軌道依地下、地面與高架分層，捷運交會及共站不再全部擠在地面；地下列車以半透明顯示，開關地形都保留上下關係": "3Dの線路を地下・地上・高架に分け、地下鉄の交差や共用駅での上下関係を表現しました。地下の列車は半透明で表示され、地形表示を切り替えても上下関係を保ちます。",
+    "地圖風格": "地図スタイル",
+    "明": "明色",
+    "地景": "風景",
+    "地景加入 25 組歷史建築模型，依建物位置與朝向呈現站房、倉庫和廠房，並以遠近細節切換維持流暢": "「風景」に歴史的建築25組を追加。駅舎・倉庫・工場を位置と向きに合わせて配置し、距離に応じて細部を切り替えて滑らかに表示します。",
+    "地景加入公開土地覆蓋資料，補足台灣與離島的山林、草地和農田；樹群依林地範圍呈現，並保留道路與建物空間": "公開土地被覆データで台湾と離島の森林・草地・農地を補完。樹木は森林の範囲に配置し、道路と建物の空間を確保します。",
+    "新增「地景」地圖風格：河流、林地、公園與街廓換上自然色，近看可見立體樹冠與建築，搭配列車沿線探索台灣": "「風景」地図を追加。川・森林・公園・街並みを自然な色で表示し、近づくと立体の樹木や建物が現れます。列車とともに台湾の沿線を楽しめます。",
+    "終點站的車站看板現在會列出一小時以後才到站的班次——去接人的人看得到時間；其他車站維持只列一小時內的到站車。": "終着駅の発車標では、1時間より先に到着する列車も表示するようになりました（出迎えの方が時刻を確認できます）。他の駅は従来どおり1時間以内の到着のみです。",
+    "跟車鏡頭保留目前的近景，點列車或隨機跟隨不再拉遠；再次點到正在跟隨的列車會回到車旁，不會結束跟隨": "追従時は現在の拡大率を維持し、列車の選択やランダム追従で引きの画面になりません。追従中の列車をもう一度タップすると、追従を終了せずに列車へ戻ります。",
+    "修正列車在車站與彎道附近整列飄到軌道旁的問題，車廂沿指派股道逐節轉彎，不再因鄰車靠近而橫移": "駅やカーブ付近で列車全体が線路脇へずれる問題を修正しました。各車両は割り当てられた線路に沿って順に曲がり、他の列車が近づいても横移動しません。",
+    "改善立體地圖拖曳與旋轉的流暢度，保留完整列車與建築細節；切換地形後，建築輪廓也會回到正確高度": "列車の全編成と建物の細部を保ちながら、3D地図のドラッグと回転を改善しました。地形を切り替えた後も、建物の輪郭が正しい高さに戻ります。",
+    "山線三義隧道段的軌道改用實際路線重畫，列車經過時不再偏離軌道": "山線・三義トンネル区間の線路を実際の経路で描き直し、列車がその区間で線路から外れて見えることがなくなりました。",
+    "台鐵誤點加大時，列車改成慢速前進，不再停在原地等誤點追上": "台鉄の遅れが大きくなったとき、列車はその場で止まらずゆっくり前進し、次の駅の到着時刻に追従します。",
+    "放空的跟車視角改成貼著車身的立體視角，看得到列車在軌道上跑，速度也放回實際車速；放空時的配樂改播完整曲庫": "鑑賞モードの追跡ビューが車両のすぐそばに寄った立体視点になり、実際の速度で線路を走る列車を見られます。鑑賞中の音楽も全曲から流れます。",
+    "修正車站看板更新時，已捲到公車資訊的位置被往回拉的問題": "駅の案内板が更新されても、バス情報までスクロールした位置を保つように修正しました。",
+    "近景列車依推估股道分流，少量交疊會暫時靠旁避讓；捷運到站時保留立體車身。阿里山林鐵暫不套股道，停站的車不再畫到軌道外；阿里山、祝山、神木一帶補畫站內與之字形折返股道": "近景の列車を推定した線路に振り分け、残る重なりは一時的な表示上の退避で対応します。地下鉄の停車中も3D車体を保ちます。阿里山森林鉄道は当面この推定を使わず、駅に停車中の列車が線路の外に描かれることがなくなりました。線路の描画も阿里山・祝山の駅構内と神木周辺のスイッチバック側線まで広がります。",
+    "推估股道": "推定線路",
+    "衛星地圖上的地標與車站改用模型原色，建築透視可依需要切換": "衛星地図のランドマークと駅舎をモデル本来の配色で表示します。建物の透視は必要に応じて切り替えられます。",
+    "跟車卡收起後保持單行，編組說明留在展開資訊中；暗色改用精簡玻璃卡，結束按鈕更容易點擊": "追従カードを折りたたむと一列に収まり、編成の説明は展開時に表示します。ダークモードはコンパクトなガラス調カードになり、終了ボタンも押しやすくなりました。",
+    "加入 22 款精修立體車站與地標，放大可看細節、縮小自動簡化，並保留建築透視": "22 種類の精密な立体駅舎とランドマークを追加しました。拡大時は詳細に、縮小時は軽量に表示し、建物の透視も利用できます。",
+    "修正起伏地圖中軌道被丘陵切斷、列車鑽入地底的問題，山區行駛保持連續可見": "起伏地図で線路が丘に途切れたり、列車が地中に沈んだりする問題を修正し、山間部でも連続して見えるようになりました。",
+    "修正列車透過建築物顯示時，被道路蓋住的問題，穿越路口時車身保持連續可見": "透明な建物越しの列車が道路に隠れる問題を修正し、交差点を通過する車体が途切れず見えるようになりました。",
+    "月台資料未提供時，列車資訊、查詢摘要與車站看板都不顯示月台欄位，也不留下提示文字": "番線情報が未提供の場合、列車情報・検索結果・駅の発車案内では欄と代替テキストを表示しません。",
+    "台鐵列車資訊與車站看板支援官方月台號碼；沒有資料、尚未確定、過期或回放時自動收起，不留空欄": "台鉄の列車情報と駅の発車案内が公式の番線情報に対応。未提供・未定・期限切れ・再生中は空欄を残さず非表示にします。",
+    "開啟": "オン",
+    "跟車新增「車頭朝上」開關，預設關閉；想讓車頭方向朝向畫面上方時可自行開啟，指北仍隨時有效": "追従時に進行方向を上にする設定を追加しました。初期設定はオフです。必要に応じてオンにでき、北向きに戻す操作もいつでも使えます。",
+    "跟車時預設不自動旋轉地圖；可在「更多」開啟「跟車時車頭朝上」。近景可手動側看完整編組，指北隨時回正。": "追従中は初期設定では地図を自動回転しません。「その他」で進行方向を上にする設定をオンにできます。近景では全編成を側面から眺められ、方位ボタンでいつでも北向きに戻せます。",
+    "跟車時車頭朝上": "列車の進行方向を上にする",
+    "立體列車": "3D 列車",
+    "列車編組": "列車編成",
+    "完整編組": "全編成",
+    "三節示意": "3 両イメージ",
+    "3 節示意": "3 両イメージ",
+    "地形": "地形",
+    "平坦": "平坦",
+    "起伏試驗": "起伏（試験）",
+    "列車大小": "列車の大きさ",
+    "容易辨認": "見やすく",
+    "原始比例": "元の縮尺",
+    "顯示列車": "列車表示",
+    "全部近景": "近景の全列車",
+    "只看選取": "選択した列車",
+    "建築透視": "建物の透視",
+    "透明": "透過",
+    "一般": "通常",
+    "透視顯示": "透視表示",
+    "透視": "透視",
+    "實體": "実体",
+    "賞車視角": "列車鑑賞の視点",
+    "側拍": "側面",
+    "環繞": "周回",
+    "地表起伏示意": "地表の起伏イメージ",
+    "立體顯示載入失敗，請重試": "3D 表示を読み込めませんでした。再度お試しください。",
+    "{n} 節 · 標準編組": "{n} 両 · 標準編成",
+    "{n} 節 · 推估編組": "{n} 両 · 推定編成",
+    "{n} 分節 · 標準編組": "{n} 車体 · 標準編成",
+    "3 節示意 · 當班編組待確認": "3 両イメージ · 当該便の編成は未確認",
+    "放大地圖即可看見立體列車。完整編組依車型或路線標準；缺少當班資料時顯示三節示意。起伏為地表顯示，非實測軌道高程。透視顯示同時管建築與地下列車，切到實體就看得到地下列車原本的顏色。": "地図を拡大すると 3D 列車が表示されます。全編成は車種・路線の標準に基づき、不明な便は 3 両イメージで表示します。起伏は地表の表現であり、実測の線路標高ではありません。透視表示は建物と地下の列車の両方に効きます。「実体」に切り替えると、地下の列車も本来の色で表示されます。",
+    "近景自動顯示沿軌行駛的立體列車，可切換完整編組、地形起伏與建築透視；保留亮色琺瑯、暗色霓虹，以及車站看板與指北操作": "近景では線路に沿って走る 3D 列車を表示。全編成、地形の起伏、建物の透視を切り替えられます。明色のホーロー風・暗色のネオン、駅の発車案内、北向きに戻す操作も引き継ぎます。",
+    '轉乘站的官方來車資料換班時，偶爾會短暫缺一個方向；現在看板會先補上該方向的班表': '公式の到着情報が次の列車へ切り替わる際、乗換駅で一方向だけ一時的に欠けることがあります。その方向は時刻表で補うようにしました。',
+    'Android 1.5.0 完整加入繁中、English、日本語：App 介面、三種桌面小工具，以及列車跟隨、捷運等車與台鐵等站的鎖定畫面／Now Bar 會同步切換語言；沿用既有正式版更新時，原本的小工具、設定和資料都會保留': 'Android 1.5.0は繁体字中国語・英語・日本語に対応しました。App本体、3種類のホーム画面ウィジェット、列車追跡、メトロ待ち、台湾鉄路の駅待ちを表示するロック画面／Now Barが同じ言語に切り替わります。既存の正式版から更新しても、ウィジェット、設定、データは保持されます。',
+    'Android 正式版進到 1.5.0，完整加入繁中、English、日本語。除了 App 內介面，捷運看板、台鐵／高鐵發車看板、鐵路＋捷運雙看板三種桌面小工具，以及列車跟隨、捷運等車和台鐵等站的鎖定畫面／Now Bar 都會使用 App 選定的語言；切換後立即重畫，不必刪除小工具或重開追蹤。使用原簽署版本覆蓋更新，既有設定、小工具與本機資料會保留': 'Android正式版を1.5.0へ更新し、繁体字中国語・英語・日本語に全面対応しました。メトロ案内、台湾鉄路／高鉄発車案内、鉄道＋メトロ案内の3種類のウィジェットと、列車追跡、メトロ待ち、台湾鉄路の駅待ちを表示するロック画面／Now BarもAppで選んだ言語を使います。言語変更後はすぐに再表示され、ウィジェットの削除や追跡の再開は不要です。同じ署名の更新としてインストールするため、設定、ウィジェット、端末内データは保持されます。',
+    '修好 iPhone App 的語言按鈕：上一個測試版漏帶英、日文字典，按了仍全顯示繁中；現在 App 會完整帶入三語資源。英文與日文文案也完成第二輪複核，統一日文的「鑑賞模式」、車次與乘車按鈕用語，並修順英文災害監看句子': 'iPhone Appの言語ボタンを修正しました。前のテスト版では英語・日本語の辞書が同梱されず、切り替えても繁体字中国語のままでした。今後は3言語のデータをすべてAppに収録します。英語・日本語の文言も再校正し、日本語の「鑑賞モード」、列車番号、乗車ボタンを統一して、英語の災害監視文も整えました。',
+    'iPhone 的動態島展開畫面增加圓角安全留白：捷運等車、台鐵等站與列車跟隨的內容都往內收，文字與「結束」按鈕不再被邊緣切掉；繁中、English、日本語一起套用；文字大小設定的目前值與詳細選項也會完整切換語言': 'iPhoneのDynamic Island展開表示に角丸の安全余白を追加しました。メトロ待ち、台湾鉄路の駅待ち、列車追跡の内容を内側へ寄せ、文字や「終了」ボタンが端で欠けないようにしました。繁体字中国語・英語・日本語すべてに適用されます。文字サイズ設定の現在値と詳細項目もすべて選択中の言語へ切り替わります。',
+    '資料狀態': 'データ状態',
+    '即時資料': 'リアルタイム情報',
+    '捷運看板': 'メトロ案内',
+    '發車看板（台鐵／高鐵）': '発車案内（台湾鉄路／台湾高速鉄道）',
+    '鐵路＋捷運看板': '鉄道＋メトロ案内',
+    '發車看板（鎖定畫面）': '発車案内（ロック画面）',
+    // 小工具尺寸（iOS 說明卡）；'大' 與字級設定共用鍵
+    '小': '小',
+    '中': '中',
+    '矩形': '長方形',
+    '重播中': 'リプレイ中',
+    '時段': '時間帯',
+    '目前車數': '現在の列車数',
+    '目前沒有即時或重播狀態': 'リアルタイム／リプレイ状態はありません',
+    '標準': '標準',
+    '顯示與字級': '表示と文字サイズ',
+    '大': '大',
+    '特大': '特大',
+    '「大」只放大字級與列高，功能位置不變。「特大」會把誤點、方向這類次要欄位收進列的「更多」。': '「大」は文字と行の高さだけを拡大し、機能の位置は変えません。「特大」では遅延や方向などの補助項目を各行の「その他」へまとめます。',
+    '跟隨系統字級': 'システム文字サイズに合わせる',
+    '系統字級調到輔助使用級別時自動切到特大，調回來就跟著回來': 'システムがアクセシビリティ文字サイズになると自動で特大にし、元へ戻すと追従して戻ります',
+    '（跟隨系統）': '（システムに追従）',
+    '預覽': 'プレビュー',
+    '還有 4 分': 'あと4分',
+    '花蓮 → 樹林 · 終點 19:25 抵達': '花蓮 → 樹林・終点19:25着',
+    '階數＝': '倍率＝',
+    '標準 1.0': '標準 1.0',
+    '大 1.25': '大 1.25',
+    '特大 1.5': '特大 1.5',
+    '，同一顆倍率同時吃字級、列高與觸控目標，所以不會出現「字大了但按鈕沒變大」。': '。同じ倍率を文字・行の高さ・タップ範囲へ適用するため、文字だけが大きくなってボタンが変わらないことはありません。',
+    '縣市快速移動': '市・県へすばやく移動',
     '非即時': '非リアルタイム',
     '回到現在': '現在に戻る',
     '可轉乘': '乗換', '轉 {routes}': '乗換：{routes}', '列車進站': '列車が到着',
@@ -140,23 +418,23 @@
     '六家線': '六家線', '內灣線': '内湾線', '平溪線': '平渓線',
     '深澳線': '深澳線', '沙崙線': '沙崙線', '南迴線': '南廻線',
     '蘇澳線': '蘇澳線', '西部幹線（山線）': '西部幹線（山線）', '海線': '海線',
-    '尚未發車': '発車前', '回到列車': '列車へ戻る', '解除跟隨鎖定': '追跡ロックを解除',
+    '尚未發車': '未発車', '回到列車': '列車へ戻る', '解除跟隨鎖定': '追跡ロックを解除',
     '加入最愛車站': '駅をお気に入りに追加', '移除最愛車站': '駅をお気に入りから削除',
     '已加入最愛車站': '駅をお気に入りに追加しました', '已移除最愛車站': '駅をお気に入りから削除しました',
     '站台預告與地圖列車共用同一份即時身分與時間軸': '駅の到着案内と地図の列車は同じリアルタイム識別情報と時系列を使用します',
-    '可點選已連結的班次跟隨動畫': '対応済みの列車をタップして追跡できます', '可點選的班次可跟隨動畫': 'タップできる列車はアニメーションを追跡できます',
+    '可點選已連結的班次跟隨動畫': '対応済みの列車をタップして追跡できます', '可點選的班次可跟隨動畫': 'タップできる列車はアニメーションで追跡できます',
     '目前班次未連結動畫': '現在、到着案内はアニメーションに対応していません', '未連結動畫': 'アニメーション未対応',
     '官方到站時間；目前無法唯一對應動畫班次': '公式到着時刻です。現在はアニメーションの列車を一意に特定できません',
     '北捷班次直接顯示官方即時倒數': '台北メトロは公式リアルタイム到着秒数を表示します',
     '（其他系統部分路線為班距推算）': '（他事業者の一部路線は運転間隔から推定）',
     '中和新蘆線': '中和新蘆線',
     '新北捷運': '新北メトロ', '桃園捷運': '桃園メトロ',
-    '台北捷運、桃園機捷、新北捷運（環狀・淡海・安坑・三鶯）、台中捷運與高雄捷運（含輕軌）同框運行，營運時段依官方即時資訊校正（台北捷運與環狀線目前位置為班表推估，車站倒數仍是官方即時；文湖線、三鶯線與台中捷運為班距推算）— 可在上方勾選要同時顯示的系統。': '台北・桃園・新北・台中・高雄のメトロとライトレールを同時表示します。台北メトロと環状線の位置は現在時刻表推定ですが、駅の到着秒数は公式リアルタイム情報です。文湖線・三鶯線・台中メトロは運転間隔から推定します。',
-    '台鐵、高鐵與阿里山林鐵皆依真實時刻表運行（台鐵回到現在時刻自動套用即時誤點；林鐵依官方公告時刻表，無即時資訊）— 點列車跟隨、點車站看班次，或按地圖角落「探」看今日亮點。': '台湾鉄路・高速鉄道・阿里山森林鉄道は公式時刻表で運行します。現在時刻では台湾鉄路の遅延を反映し、阿里山森林鉄道にはリアルタイム情報がありません。列車や駅をタップするか、「選」で今日の見どころを表示できます。',
-    '台北捷運、新北捷運（環狀線・淡海・安坑・三鶯）與桃園機捷同框運行，北捷、新北捷與機捷營運時段依官方即時資訊校正（三鶯線、文湖線為班距推算）— 可在上方勾選要同時顯示的系統,拖曳、縮放地圖看看。': '台北・新北・桃園のメトロを同時表示します。対応路線は公式リアルタイム情報で補正し、三鶯線と文湖線は運転間隔から推定します。上部で表示する交通機関を選び、地図をドラッグ・ズームできます。',
-    '台中捷運與高雄捷運同框，高捷與輕軌營運時段依官方到站看板校正（台中捷運為班距推算）— 可在上方勾選要同時顯示的系統。': '台中メトロと高雄メトロを同時表示します。高雄メトロとライトレールは公式到着案内で補正し、台中メトロは運転間隔から推定します。',
-    '各線列車依當日實際時刻表在城市裡穿梭，營運時段依官方到站看板即時校正（含環狀線；文湖線為班距推算）— 拖曳、縮放看看。': '各路線は当日の時刻表で運行します。台北メトロと環状線は公式到着案内でリアルタイム補正し、文湖線は運転間隔から推定します。',
-    '三鶯線串起土城、三峽與鶯歌（2026-06-30 通車，8/31 前為免費試營運，8/16 起每日 06:00–24:00 行駛，此時段外看不到車；無公開逐班時刻，班次依官方班距推算）— 拖曳、縮放看看。': '三鶯線は土城・三峡・鶯歌を結びます。8月31日までの無料試運転期間は毎日06:00〜24:00に運行し、列車ごとの公開時刻表がないため公式運転間隔から推定します。',
+    '台北捷運、桃園機捷、新北捷運（環狀・淡海・安坑・三鶯）、台中捷運與高雄捷運（含輕軌）同框運行，營運時段依官方即時資訊校正（台北捷運九線的列車位置與車站倒數都是官方逐班即時；三鶯線與台中捷運為班距推算）— 可在上方勾選要同時顯示的系統。': '台北・桃園・新北・台中・高雄のメトロとライトレールを同時表示し、運行時間帯は公式のリアルタイム情報で補正します。台北メトロ全9路線は列車位置も駅のカウントダウンも公式の列車ごとのリアルタイム情報です。三鶯線・台中メトロは運転間隔から推定します。上部で同時に表示する交通機関を選べます。',
+    '台鐵、高鐵與阿里山林鐵皆依真實時刻表運行（台鐵回到現在時刻自動套用即時誤點；林鐵依官方公告時刻表，無即時資訊）— 點列車跟隨、點車站看班次，或按地圖角落「探」看今日亮點。': '台湾鉄路・高速鉄道・阿里山森林鉄道は公式時刻表で運行します。現在時刻では台湾鉄路の遅延を反映し、阿里山森林鉄道にはリアルタイム情報がありません。列車をタップして追跡、駅をタップして到着案内を表示するか、地図の隅の「選」で今日の見どころを表示できます。',
+    '台北捷運、新北捷運（環狀線・淡海・安坑・三鶯）與桃園機捷同框運行，營運時段依官方即時資訊校正（台北捷運九線的列車位置與車站倒數都是官方逐班即時；三鶯線為班距推算）— 可在上方勾選要同時顯示的系統，拖曳、縮放地圖看看。': '台北・新北・桃園のメトロを同時表示し、運行時間帯は公式のリアルタイム情報で補正します。台北メトロ全9路線は列車位置も駅のカウントダウンも公式の列車ごとのリアルタイム情報です。三鶯線は運転間隔から推定します。上部で表示する交通機関を選び、地図をドラッグ・ズームできます。',
+    '台中捷運與高雄捷運同框，高捷與輕軌營運時段依官方到站看板校正（台中捷運為班距推算）— 可在上方勾選要同時顯示的系統。': '台中メトロと高雄メトロを同時表示します。高雄メトロとライトレールは公式到着案内で補正し、台中メトロは運転間隔から推定します。上部で同時に表示する交通機関を選べます。',
+    '各線列車在城市裡穿梭，列車位置與車站倒數都是官方逐班即時（含文湖線、環狀線）— 拖曳、縮放看看。': '各線の列車が街を行き交います。列車位置も駅のカウントダウンも、文湖線・環状線を含め公式の列車ごとのリアルタイム情報です。地図をドラッグ・ズームしてみてください。',
+    '三鶯線串起土城、三峽與鶯歌（2026-06-30 通車，8/31 前為免費試營運，8/16 起每日 06:00–24:00 行駛，此時段外看不到車；軌島的資料來源沒有逐班時刻，班次依官方班距推算）— 拖曳、縮放看看。': '三鶯線は土城・三峡・鶯歌を結びます。8月31日までの無料試運転期間は毎日06:00〜24:00に運行し、軌島のデータソースには列車ごとの時刻表がないため、公式運転間隔から推定します。',
     '跟隨鎖定中：地圖固定列車置中——點擊或直接拖曳地圖解鎖，可自由瀏覽': '追跡ロック中：列車を中央に固定します。タップまたはドラッグで解除し、自由に閲覧できます。',
     '自由瀏覽中：點擊回到列車，恢復置中跟隨': '自由閲覧中：タップすると列車へ戻り、中央追跡を再開します。',
     '列車已離開官方即時名冊': '列車は公式リアルタイム名簿から離れました。',
@@ -165,24 +443,26 @@
     '最糟 {worst} 分・平均 {average} 分・{days} 天': '最大{worst}分・平均{average}分・{days}日',
     '最糟{worst}分・平均{average}分・{days}天': '最大{worst}分・平均{average}分・{days}日',
     '更新紀錄': '更新情報',
-    '最後更新：2026/8/28': '最終更新：2026/8/28',
+    '最後更新：{date}': '最終更新：{date}',
     '最近更新': '最近の更新',
     '完整更新歷史（依主題分類）': 'これまでの更新（テーマ別）',
     '資料來源與授權': 'データ出典とライセンス',
     '北捷': '台北メトロ', '新北捷': '新北メトロ', 'Ko-fi（信用卡 / PayPal）': 'Ko-fi（クレジットカード／PayPal）',
     '台鐵官方 OpenData（ods.railway.gov.tw）——每日時刻表、車站基本資料、車種代碼表，依「政府資料開放授權條款」使用': '台湾鉄路公式 OpenData（ods.railway.gov.tw）の毎日時刻表・駅基本情報・列車種別コードを、政府資料開放授権条款に基づき利用しています。',
-    '交通部 TDX 運輸資料流通服務——北捷／機捷／新北捷（淡海・安坑・三鶯）／中捷／高捷（含輕軌）的路線幾何、站序、逐班時刻表與班距資料': '交通部 TDX の路線形状、駅順、列車別時刻表、運転間隔データを台北・桃園・新北・台中・高雄のメトロ／LRTに利用しています。',
+    '交通部 TDX 運輸資料流通服務——北捷／機捷／新北捷（淡海・安坑・三鶯）／中捷／高捷（含輕軌）的路線幾何、站序、逐班時刻表與班距資料，依政府資料開放授權條款第1版使用': '交通部 TDX の路線形状、駅順、列車別時刻表、運転間隔データを台北・桃園・新北・台中・高雄のメトロ／LRTに、台湾政府資料開放ライセンス第1版に基づき利用しています。',
     '台鐵即時誤點與車站地址介接交通部 TDX 平臺（TrainLiveBoard／Station，每分鐘更新）': '台湾鉄路のリアルタイム遅延と駅住所は交通部 TDX の TrainLiveBoard／Station API から毎分更新しています。',
     '臺北捷運各線與環狀線的秒級到站倒數取自臺北大眾捷運股份有限公司「臺北捷運 API」（會員申請制），依「政府資料開放授權條款」使用': '台北メトロ各線と環状線の秒単位到着情報は台北大衆捷運公司の会員制 API を利用し、政府資料開放授権条款に従っています。',
     '淡海輕軌・安坑輕軌的即時列車動態引用自新北大眾捷運股份有限公司官網「列車動態」公開頁面，著作權屬該公司所有': '淡海LRT・安坑LRTの列車位置は新北大衆捷運公司の公開ページを参照し、著作権は同社に帰属します。',
     '台鐵軌道及阿里山林鐵的 TDX 缺口補線取自 © OpenStreetMap 貢獻者（ODbL），經 Overpass／OSM API': '台湾鉄路と阿里山林業鉄路の不足する線形は © OpenStreetMap contributors（ODbL）を Overpass／OSM API 経由で補っています。',
-    'OpenFreeMap（© OpenFreeMap © OpenMapTiles © OpenStreetMap 貢獻者，街道圖）、CARTO（© OpenStreetMap © CARTO，街道圖退路）、Esri World Imagery（衛星影像）與內政部「直轄市、縣市界線」（離線海陸輪廓，政府資料開放授權條款第1版）': 'OpenFreeMap（© OpenFreeMap、© OpenMapTiles、© OpenStreetMap contributors）、CARTO、Esri World Imagery、内政部の県市境界データを利用しています。',
+    'OpenFreeMap（© OpenFreeMap © OpenMapTiles © OpenStreetMap 貢獻者，街道圖）、Esri World Imagery（衛星影像）與內政部「直轄市、縣市界線」（離線海陸輪廓，政府資料開放授權條款第1版）': 'OpenFreeMap（© OpenFreeMap、© OpenMapTiles、© OpenStreetMap contributors・街路地図）、Esri World Imagery（衛星画像）、内政部の県市境界データ（オフライン海陸輪郭）を利用しています。',
+    'OpenFreeMap（© OpenFreeMap © OpenMapTiles © OpenStreetMap，街道圖）、Stadia Maps（© Stadia Maps © OpenMapTiles © OpenStreetMap，街道圖退路）、Esri World Imagery（衛星影像）與內政部「直轄市、縣市界線」（離線海陸輪廓，政府資料開放授權條款第1版）': 'OpenFreeMap（© OpenFreeMap、© OpenMapTiles、© OpenStreetMap・街路地図）、Stadia Maps（© Stadia Maps、© OpenMapTiles、© OpenStreetMap・街路地図のフォールバック）、Esri World Imagery（衛星画像）、内政部「直轄市・県市界」（オフライン海陸輪郭、政府資料開放授権条款第1版）を利用しています。',
+    '第三方軟體授權': 'サードパーティソフトウェアのライセンス',
     '狀態': '稼働状況', '資料源連線狀態頁': 'データ接続状況',
-    '本站為個人愛好者專案，與台灣鐵路公司及各捷運公司皆無關。台鐵套用官方即時誤點；北捷與環狀線營運時段依北捷官方秒級到站倒數逐班校正位置（環狀線由新北捷運營運，其到站倒數同源於北捷到站看板）；高捷、桃園機捷與高雄輕軌依官方到站看板即時校正；新北捷運淡海輕軌與安坑輕軌依官方列車動態即時校正；其餘捷運／輕軌依當日官方時刻表推演（部分路線無公開逐班時刻，為班距推算）。實際到離站時刻請以各營運機構官方資訊為準。': '軌島は個人運営の趣味プロジェクトで、各鉄道事業者とは関係ありません。対応路線では公式の遅延・到着案内・列車位置を反映し、それ以外は公式時刻表または運転間隔から推定します。実際の発着は各事業者の公式情報をご確認ください。',
-    '原始碼公開，歡迎貢獻': 'オープンソース・コントリビューション歓迎',
+    '本站為個人愛好者專案，與台灣鐵路公司及各捷運公司皆無關。台鐵套用官方即時誤點；北捷與環狀線營運時段依北捷官方秒級到站倒數逐班校正位置（環狀線由新北捷運營運，其到站倒數同源於北捷到站看板）；高捷、桃園機捷與高雄輕軌依官方到站看板即時校正；新北捷運淡海輕軌與安坑輕軌依官方列車動態即時校正；其餘捷運／輕軌依當日官方時刻表推演（軌島的資料來源沒有部分路線的逐班時刻，這些路線為班距推算）。實際到離站時刻請以各營運機構官方資訊為準。': '軌島は個人運営の趣味プロジェクトで、各鉄道事業者とは関係ありません。対応路線では公式の遅延・到着案内・列車位置を反映し、それ以外は公式時刻表または運転間隔から推定します。実際の発着は各事業者の公式情報をご確認ください。',
+    '原始碼公開，歡迎貢獻': 'ソース公開・コントリビューション歓迎',
     '覺得有幫助？請支持開發者': '軌島を気に入ったら開発を応援してください',
     '感謝你的支持！': 'ご支援ありがとうございます！', '或銀行轉帳': '銀行振込', '複製': 'コピー',
-    '本專案為免費工具、原始碼公開可查，您的支持幫助我們維護伺服器與持續改善內容': '軌島は無料のオープンソースツールです。ご支援はサーバー維持と改善に役立てられます。',
+    '本專案為免費工具、原始碼公開可查，您的支持幫助我們維護伺服器與持續改善內容': '軌島は無料で利用でき、ソースも閲覧できます。ご支援はサーバー維持と改善に役立てられます。',
     '隱私與服務條款': 'プライバシーと利用規約', '隱私': 'プライバシー', '條款': '規約', '帳號與資料刪除': 'アカウントとデータの削除',
     '關於': '軌島について', '本站為個人愛好者專案，與台灣鐵路公司及各捷運公司皆無關。': '個人運営の趣味プロジェクトで、台湾の鉄道・メトロ各社とは関係ありません。',
 
@@ -244,19 +524,23 @@
     '通勤的證明': '通勤の証', '同一段路來回搭滿 100 次': '同一区間を100回乗車',
     '老通勤族': 'ベテラン通勤者', '同一段路來回搭滿 500 次': '同一区間を500回乗車',
     '明星列車': 'スター列車', '車種圖鑑': '車種図鑑', '支線行腳': '支線の旅',
-    '還沒搭過——點我去搭一班': '未収集—タップして乗ってみる', '已收藏': '収集済み', '點我重播': 'タップして再生',
+    '還沒搭過——點我去搭一班': '未収集—乗ってみよう', '已收藏': '収集済み', '點我重播': '再生',
     '成就徽章': '実績バッジ', '創': '創', '創始島民': '創始島民', '謝謝你在最早的時候就決定支持軌島': '初期から軌島を支えていただき、ありがとうございます。',
     '車站收集': '駅コレクション', '到訪 {n}': '訪問 {n}', '路段 {n}': '区間 {n}', '最常搭 {segment} {n} 次': '最多乗車：{segment}・{n}回',
     '收起 ▴': '折りたたむ ▴', '還有 {n} 座 ▾': 'あと{n}駅 ▾', '跟完': '追跡完了', '搭過': '乗車済み', '到訪': '訪問済み', '{n} 次': '{n}回', '最近 {date}': '最近 {date}',
     '路線完乘': '路線完乗', '全線走完 {n}': '全線完乗 {n}', '收集地圖——全路網轉灰，只有你搭過的區間亮起': '収集マップ—乗車した区間だけを色付きで表示',
-    '{n} 條線・{km} km': '{n}路線・{km} km', '還沒有搭乘記錄——用跟車面板的「我上車了」開始收集': '乗車記録はまだありません。追跡パネルの「乗車しました」から収集を始めましょう。',
+    '{n} 條線・{km} km': '{n}路線・{km} km', '還沒有搭乘記錄——用跟車面板的「我上車了」開始收集': '乗車記録はまだありません。追跡パネルの「乗車する」から収集を始めましょう。',
     '圖鑑': '図鑑', '無固定車次': '定期運行なし', '點看介紹': '紹介を見る', '看 {name} 介紹': '{name}の紹介を見る',
     '觀光列車・無固定班次，開行日期與車次以台鐵公告為準': '定期運行のない観光列車です。運転日と列車番号は台湾鉄路の発表をご確認ください。',
+    '每天跑的車次不同，以台鐵公布的班表為準': '日によって走る列車が異なります。台湾鉄路が公表したダイヤに従います。',
+    '寶可夢30周年主題列車': 'ポケモン30周年テーマ列車',
     '今日最長征': '本日の最長距離', '開最久': '最長運転時間', '停最多站': '最多停車駅', '平均最快': '平均速度トップ',
     '{h} 小時 {m} 分': '{h}時間{m}分', '{n} 站': '{n}駅', '約 {n} km/h': '約{n} km/h', '今日 {n} 班': '本日{n}本',
-    '行駛中': '運行中', '重播': 'リプレイ', '{time} 發': '{time}発', '跟隨 {train} 次': '{train}次を追跡', '{train}次': '{train}次',
+    '行駛中': '運行中', '重播': 'リプレイ', '{time} 發': '{time}発', '跟隨 {train} 次': '{train}列車を追跡', '{train}次': '{train}列車',
     '從 {n} 班車裡挑出來的 · 點列車跟隨、點活動飛到那一站': '{n}本から選んだ見どころ・列車をタップして追跡、イベントをタップして駅へ移動',
     '特別列車出沒中': '運行中の特別列車', '今日之最': '本日のトップ', '支線小火車': '支線列車', '準點排行': '定時運行ランキング',
+    // 對應 en 那邊同名的兩個鍵(說明見那裡);同樣【在 ja 這一邊只能各出現一次】。
+    '鐵道活動': '鉄道イベント', '{n} 場': '{n}件',
     '近 30 天最準點的 10 班車，依單日最糟全程誤點排序（同分再比平均誤點、有紀錄天數、車次號）；至少 20 天有紀錄才列入計算，資料來源台鐵': '過去30日で最も定時性の高い10列車。1日の全区間最大遅延で順位付けし、同点時は平均遅延・記録日数・列車番号を比較します。台湾鉄路の記録が20日以上ある列車が対象です。',
     '觀光列車圖鑑（無固定車次）': '観光列車図鑑（定期運行なし）'
   });
@@ -267,10 +551,19 @@
     '點畫面上任一': 'Tap any ', '車號牌': 'train label', '，鏡頭就跟著那班車跑': ' to follow that train.', '點任一': 'Tap any ', '車站': 'station', '，看接下來有哪些車要進站、還有幾分鐘': ' to see upcoming trains and arrival times.',
     '看車': 'Watch trains', '搜尋車站、車次、列車名': 'Search stations, train numbers and train names',
     '一個框三種用法：站名、車次號碼、觀光列車名稱都查得到。': 'One search box handles station names, train numbers and tourist-train names.',
-    '手機按底部「搜尋」、桌面點右上的搜尋框': 'On a phone tap Search at the bottom; on desktop use the box at top right.',
+    '手機按底部「查詢」再點輸入框、桌面點右上的搜尋框': 'On a phone tap Lookup at the bottom, then tap the search box; on desktop use the box at top right.',
     '輸入「台北」找車站、輸入「431」找那班車、輸入「鳴日」找列車介紹': 'Enter “Taipei” for a station, “431” for a train, or “Future” for a tourist-train story.',
     '從下拉選一項——選車次會直接開始跟車': 'Choose a result. Selecting a train starts following it immediately.',
     '同名站或共構站（例如板橋的台鐵與捷運）會先讓你選是哪一個。': 'For stations that share a name or complex, such as Banqiao, choose the operator you mean.',
+    '查詢：離你最近的站與下一班': 'Lookup: your nearest station and next departure',
+    '手機底部的「查詢」是查資訊的家：最上面是搜尋框，接著是離你最近的站各方向下一班幾分，再下面是提醒、今日動態、附近車站與小工具的入口。': 'Lookup at the bottom of the phone is where you check things: a search box on top, then how many minutes until the next train in each direction from your nearest station, and below that, links to reminders, today’s TRA activity, nearby stations and the widget.',
+    '按底部「查詢」打開半高面板，地圖上的車照樣在動': 'Tap Lookup at the bottom to open the half-height panel—trains on the map keep moving.',
+    '在車站附近打開 App 會自動出現；關掉一次，同一站就不再自動開': 'It appears automatically when you open the app near a station; close it once and it won’t auto-open there again.',
+    '點站名整塊進看板看更多班次；點輸入框才會叫出鍵盤': 'Tap the whole station block to open its board for more services; only tapping the input box brings up the keyboard.',
+    '沒有定位時改顯示最愛的第一站或上次看過的站；桌面版沒有這個面板，搜尋框在右上角。': 'Without location, it shows your first favorite station or the last one you viewed instead; the desktop version has no such panel—the search box is at the top right.',
+    '這就是查詢面板——上面搜尋、中間下一班、下面入口': 'This is the Lookup panel—search on top, next departures in the middle, links below',
+    '桌面版沒有查詢面板，搜尋框在右上角': 'The desktop version has no Lookup panel; the search box is at the top right.',
+    '查': 'Look',
     '點列車＝跟著它跑': 'Tap a train to follow it',
     '車號牌是可以點的。點了鏡頭就跟著那班車，左下角出現它的下一站與誤點。': 'Train labels are interactive. Tap one to follow it and see its next stop and delay.',
     '點任一車號牌': 'Tap any train label', '看下一站、誤點、全程速度曲線': 'Check the next stop, delay and full-route speed curve', '想停就按卡片的 ×，或點地圖空白處': 'Press × on the card or tap empty map space to stop',
@@ -286,17 +579,23 @@
     '今日亮點': 'Today’s highlights', '今天有哪些特別列車（觀光列車、加班車）與今日之最。': 'Discover tourist trains, special services and today’s railway records.', '底部「亮點」或工具列的「探」': 'Open Highlights at the bottom or 探 on the toolbar', '點任一列車看介紹卡': 'Tap a train to open its story card', '有班次的可以直接跟車': 'Services running today can be followed directly',
     '今日台鐵動態與誤點履歷': 'Today’s TRA services and delay history', '今天全台鐵每班車誤點多少、每一站怎麼延誤，一次看完。': 'Review today’s delays across all TRA trains and every stop.', '「更多」→ 今日台鐵動態': 'More → Today’s TRA services', '點任一班次看逐站歷程': 'Tap a train for its stop-by-stop history', '跟台鐵車時，卡片上的「誤點履歷 ›」可看這班車近 30 天的準點統計；回溯 90 天的逐日紀錄與週幾圖需要軌島通行證': 'While following a TRA train, Delay history shows its free 30-day summary. Daily records and weekday charts covering 90 days require a Rail Island Pass.', '誤點資料每分鐘更新，來源是交通部 TDX。': 'Delay data comes from the Ministry of Transportation TDX and refreshes every minute.',
     '我的': 'My Rail Island', '定位與附近車站': 'Location and nearby stations', '開 App 就落在你附近；「附近車站」告訴你最近的車站與下一班車還有幾分鐘。': 'The app starts near you. Nearby stations shows the closest stations and next arrivals.', '首次會問一次定位權限': 'The app asks for location permission the first time', '按地圖上的「附近車站」': 'Tap Nearby stations on the map', '點清單裡的站直接開看板': 'Tap a listed station to open its board', '你的位置只在這台裝置上用來顯示，不會上傳、也不會在背景取用。不給權限也能用，改用下面的「儲存地點」。': 'Your position is used only on this device, is never uploaded and is not read in the background. You can decline and use Saved places instead.',
-    '把家、公司、拍車點存下來，看有哪些火車會經過那裡。': 'Save home, work or a photography spot and see which trains pass nearby.', '「更多」→ 打開「儲存地點」': 'More → turn on Saved places', '點地圖上任一位置': 'Tap any point on the map', '取個名字存起來': 'Name and save it', '之後點那個釘，看接下來經過的列車與倒數': 'Tap its pin later for upcoming trains and countdowns', '也可以在 App 內從 Google Maps 的「已儲存」清單匯入（需軌島通行證）；檔案只在這台裝置解析，不會上傳。': 'The app can also import Google Maps Saved lists with a Rail Island Pass. Files are processed only on this device and are never uploaded.',
+    '把家、公司、拍車點存下來，看有哪些火車會經過那裡。': 'Save home, work or a photography spot and see which trains pass nearby.', '「更多」→ 打開「儲存地點」': 'More → turn on Saved places', '點地圖上任一位置': 'Tap any point on the map', '取個名字存起來': 'Name and save it', '之後點那個釘，看接下來經過的列車與倒數': 'Tap its pin later for upcoming trains and countdowns', '也可以從 Google Maps 的「已儲存」清單匯入（需軌島通行證）；檔案只在這台裝置解析，不會上傳。': 'You can also import Google Maps Saved lists with a Rail Island Pass. Files are processed only on this device and are never uploaded.',
     '常看的車次與車站收起來，下次直接從「最愛」進去。': 'Save frequently watched trains and stations for quick access.', '跟車卡或看板標題的收藏鈕點一下收藏': 'Tap the star on a follow card or station board', '從底部「最愛」看全部': 'Open Favorites at the bottom to see everything', '再點一次取消收藏': 'Tap the star again to remove it',
     '旅程護照與完乘章': 'Journey Passport and completion stamps', '跟完一整趟就蓋一枚章，收集起來變成你的旅程紀錄。': 'Follow an entire journey to earn a stamp and build your travel record.', '從發車跟到終點': 'Follow from departure to terminus', '章會出現在「護照」': 'The stamp appears in Passport', '灰色的章可以點——它隨機挑一班該類列車，從發車前 20 秒開始重播給你跟': 'Tap a grey stamp to replay and follow a random train of that type from 20 seconds before departure', '加速播放沒問題，中途跳時間就不算。': 'Speed-up is allowed; jumping through time does not count.',
     '車站收集章': 'Station stamps', '去過的車站會變成一枚章，收在護照裡；同一座站去越多次，章上的數字越大。': 'Visited stations become Passport stamps; repeat visits increase the number on each stamp.', '章有三種：跟完（在 App 裡跟完動畫）、搭過（搭車經過）、到訪（人真的踏上月台）': 'Three levels: followed in the app, travelled through, and physically visited', '跟完一趟車，起訖站自動成章': 'Completing a journey stamps its origin and destination', '人在車站時，從「附近車站」按該站的蓋章鈕，就升級成到訪章': 'At the station, use its stamp button under Nearby stations to upgrade it to Visited', '蓋章只在你按下去的當下讀一次位置，不會在背景一直追蹤你。每站每天算一次。': 'Stamping reads your location once when pressed and never tracks in the background. Each station counts once per day.',
-    '搭乘模式：我上車了': 'Ride mode: I’m aboard', '真的在車上時按一下，沿路每過一站就自動幫你蓋一枚章。': 'While aboard, start ride mode to stamp every station you pass.', '先跟著你要搭的那班車': 'First follow the train you are riding', '按卡片上的「我上車了」，並選好在哪一站下車': 'Press I’m aboard and choose where you will get off', '之後不用管它——車每過一站就蓋一枚，到站自動結束': 'Leave it running; each station is stamped and the ride ends at your destination', '只在上車、下車兩個點用到你的位置，中間由列車自己的時刻推算，所以進隧道、關螢幕都不影響。上車時就要選下車站，否則忘了按下車會一路蓋到終點。': 'Location is used only when boarding and alighting. The train timetable handles the journey, so tunnels and a locked screen are fine. Choose the destination when boarding or collection continues to the terminus.',
+    '搭乘模式：我上車了': 'Ride mode: I’m on board', '真的在車上時按一下，沿路每過一站就自動幫你蓋一枚章。': 'While aboard, start ride mode to stamp every station you pass.', '先跟著你要搭的那班車': 'First follow the train you are riding', '按卡片上的「我上車了」，並選好在哪一站下車': 'Tap “I’m on board” on the card and choose where you will get off', '之後不用管它——車每過一站就蓋一枚，到站自動結束': 'Leave it running; each station is stamped and the ride ends at your destination', '只在上車、下車兩個點用到你的位置，中間由列車自己的時刻推算，所以進隧道、關螢幕都不影響。上車時就要選下車站，否則忘了按下車會一路蓋到終點。': 'Location is used only when boarding and alighting. The train timetable handles the journey, so tunnels and a locked screen are fine. Choose the destination when boarding or collection continues to the terminus.',
     '一張只屬於你的地圖：全台路網轉灰，只有你搭過的區間亮起來。': 'Your personal map greys out the network and highlights only segments you have travelled.', '打開「護照」': 'Open Passport', '在「路線完乘」那一列按「收集地圖」': 'Press Collection map beside Route completion', '看哪裡還是灰的，就是還沒去過的地方': 'Grey segments are places you have not travelled yet', '按上方的「離開」回到即時地圖': 'Press Leave at the top to return to the live map', '搭快車被跳過的小站也算走過——你確實通過了那段軌道。每條路線的完乘率分開算。': 'Express trains still count the track through skipped stations. Completion is calculated separately for each route.',
     '到站提醒': 'Arrival reminders', '跟著車的時候可以排提醒，快到站前手機會響。': 'Schedule a notification while following a train and your phone alerts you before arrival.', '先跟一班車': 'Follow a train', '卡片上的「提醒」選要提醒的站': 'Use Reminder on the card to choose a station', '「更多」→「已排提醒」可以查看與取消': 'More → Scheduled reminders to review or cancel', '提醒依時刻表與即時誤點推算，實際到站請以現場為準。': 'Reminders use the timetable and live delay estimate. Follow station information for the actual arrival.',
     '平交道': 'Level crossings', '全台 415 處台鐵平交道，看接下來哪班車會通過。': 'See upcoming trains at 415 TRA level crossings across Taiwan.', '「更多」→ 打開「平交道記號」': 'More → turn on Level-crossing markers', '把地圖拉近就看得到記號': 'Zoom in to see the markers', '點任一平交道，看接下來通過的列車與倒數': 'Tap a crossing for upcoming trains and countdowns', '遮斷機通常提前 30–60 秒動作，請以現場號誌為準。': 'Barriers usually activate 30–60 seconds early. Always obey the signals on site.',
-    '軌島通行證與跨裝置同步': 'Rail Island Pass and cloud sync', '訂閱制的加值內容。列車位置、誤點資訊與系統覆蓋現在免費提供，不受訂閱影響。': 'Optional subscription features. Train positions, delays and system coverage remain free and are not affected by subscribing.', '桌面按工具列的「通行證」、手機從「更多」→「軌島通行證」，看裡面有哪些內容': 'On desktop press Pass; on phone open More → Rail Island Pass', '訂閱在軌島 App 內完成，網站不收費': 'Subscriptions are purchased in the Rail Island app; the website does not charge', '在網站用同一個軌島帳號登入，App 訂的資格就會生效（面板裡的「已經在 App 訂閱了？登入以同步」）': 'Sign in on the website with the same Rail Island account to use the app subscription here', '通行證內容：台鐵列車的誤點履歷（回溯 90 天的逐日紀錄）、收藏與完乘紀錄跨裝置雲端同步、行程分享、在 App 匯入 Google Maps 已儲存清單、App 非跟車時的衛星高解析圖磚，以及 iOS 17.6 以上可用的跟車鎖定畫面與動態島即時動態。': 'Pass features include 90 days of daily TRA delay history, cloud sync for favorites and journeys, trip sharing, Google Maps list import, high-resolution satellite tiles when not following, and Lock Screen or Dynamic Island status on iOS 17.6+.',
+    '軌島通行證與跨裝置同步': 'Rail Island Pass and cloud sync', '訂閱制的加值內容。列車位置、誤點資訊與系統覆蓋現在免費提供，不受訂閱影響。': 'Optional subscription features. Train positions, delays and system coverage remain free and are not affected by subscribing.', '桌面按工具列的「通行證」、手機從「更多」→「軌島通行證」，看裡面有哪些內容': 'On desktop press Pass; on phone open More → Rail Island Pass', '訂閱在軌島 App 內完成，網站不收費': 'Subscriptions are purchased in the Rail Island app; the website does not charge', '在網站用同一個軌島帳號登入，App 訂的資格就會生效（面板裡的「已經在 App 訂閱了？登入以同步」）': 'Sign in on the website with the same Rail Island account to use the app subscription here', '通行證內容：台鐵列車的誤點履歷（回溯 90 天的逐日紀錄）、收藏與完乘紀錄跨裝置雲端同步、行程分享、跟車配樂（音樂跟著你在看的那班車與當下時間換情境；免費的背景音樂不受影響）、匯入 Google Maps 已儲存清單、App 非跟車時的衛星高解析圖磚，以及 iOS 17.6 以上可用的跟車鎖定畫面與動態島即時動態。': 'Pass features include 90 days of daily TRA delay history, cloud sync for favorites and journeys, trip sharing, the train soundtrack (the music follows the train you are watching and the time of day; the free background music is unaffected), Google Maps list import, high-resolution satellite tiles when not following, and Lock Screen or Dynamic Island status on iOS 17.6+.',
     '模式與外觀': 'Modes and appearance', '放空模式': 'Ambient mode', '全畫面自動導演，不用操作，掛著看就好。': 'A fullscreen automatic director for watching without interaction.', '按「放空模式」': 'Press Ambient mode', '用「視角」切換：跟車＝跟著一班車跑；群車＝鏡頭停在當下最忙的路段看列車交錯': 'Change View: Follow tracks one train; Traffic watches trains cross at a busy section', '動一下畫面就回到手動': 'Interact with the screen to return to manual control', '久沒動會進「劇場模式」把介面淡掉，動一下就回來。': 'After inactivity Theater mode fades the interface; interact to bring it back.',
     '掛著看車時的背景音樂，可以換首。': 'Background music for watching trains, with track skipping.', '「更多」→ 背景音樂': 'More → Background music', '「換首」跳下一首': 'Press Next for another track', 'App 版收起或鎖定螢幕也繼續播；跟車時鎖定畫面讓位給列車動態，其餘時候可在鎖定畫面暫停／換首': 'In the app, music continues in the background. While following, train status uses the Lock Screen; otherwise music controls remain available.',
+    'App 版「配樂情境」裡有「車聲」開關：跟車時車一動就有鐵軌聲，停站淡出；放空模式一直放': 'In the app, the Soundtrack menu has a Rail sound switch: track noise while the followed train moves, fading out at stops; always on in ambient mode',
+    '跟台鐵列車時可以先指定在哪一站接公車；抵達前 15 分、5 分與實際到站才查一次動態，並把列車抵達、站外步行和公車到站合成保守的轉乘裕度。時光機與加速重播不查即時資料。': 'While following a TRA train, choose the station where you will connect to a bus. Live data is checked only 15 minutes before arrival, 5 minutes before arrival and at the station, then combined with outdoor walking time into a conservative transfer buffer. Time travel and fast replay never query live buses.',
+    '公車轉乘入口擴到軌島地圖上的全部 541 座客運鐵路、捷運與輕軌站；高鐵、林鐵跟車也能先指定下車站接公車。仍只在使用者打開或接近轉乘站時查即時，不會全臺背景輪詢。': 'Bus transfers now cover all 541 passenger rail, metro and light-rail stations on the map. HSR and Forest Railway followers can also choose where to connect to a bus. Live data is queried only when you open a station or approach a selected transfer—never through island-wide background polling.',
+    '軌道轉公車現在能接成一段不會消失的旅程：選定公車後再選下車站；列車抵達後保留等車資訊，按「我上車了」會切到公車行程並顯示剩餘站數，重開 App 也能接著看。': 'Rail-to-bus transfers now continue as one persistent journey: choose the bus and your stop, keep the waiting details after the train arrives, then tap “I’m on board” to see the remaining stops. The journey also resumes after reopening the app.',
+    '整段列車轉公車旅程可用短效連結分享；手機位置預設不分享，只有另行勾選並停留前景才更新，停止分享即刪除。': 'Share the whole rail-to-bus journey with a short-lived link. Phone location is off by default, updates only after opt-in while the app or page is in the foreground, and is deleted when sharing stops.',
+    'App 版配樂情境多了「車聲」開關：跟車時車一動就有鐵軌聲，停站淡出；放空模式一直放。': 'The app Soundtrack menu gains a Rail sound switch: track noise while the followed train moves, fading out at stops; always on in ambient mode.',
     '衛星影像': 'Satellite imagery', '把底圖換成衛星照片，看得到實際的軌道與站場。': 'Switch to satellite imagery to see the real tracks and station grounds.', '「更多」→ 衛星影像': 'More → Satellite imagery', '拉太近時衛星影像可能還沒有那麼清晰的圖資。': 'Very close zoom levels may not have equally detailed imagery.',
     '外觀：亮／暗／自動': 'Appearance: light / dark / automatic', '自動＝跟著系統的深色模式走。': 'Automatic follows your system appearance.',
     '讓看板、列車卡與跟隨面板透出後方地圖，面板底下的路線、車站都看得到。': 'Make boards and train panels translucent so routes and stations remain visible beneath them.', '「更多」→ 打開「面板半透明」': 'More → turn on Translucent panels', '再按一次就恢復原本的實色紙面': 'Turn it off to restore solid panels', '預設關閉；這項設定只會記在目前這台裝置。': 'Off by default and saved only on this device.',
@@ -313,7 +612,8 @@
     '第一次來？三步上手': '初めての方へ・3ステップ', '試一次': '試す', '試試': '試す', '{n} 項': '{n}項目',
     '上面「全／台／高／捷」四顆選你想看的：': '上の4ボタンで表示を選びます：', '＝全台一次看、': '＝台湾全体、', '＝台鐵與林鐵、': '＝台湾鉄路と林業鉄路、', '＝高鐵、': '＝台湾高速鉄道、', '＝各家捷運與輕軌': '＝メトロとLRT',
     '點畫面上任一': '画面上の', '車號牌': '列車番号', '，鏡頭就跟著那班車跑': 'をタップすると追跡します。', '點任一': '任意の', '車站': '駅', '，看接下來有哪些車要進站、還有幾分鐘': 'をタップすると次の列車と到着までの時間を確認できます。',
-    '看車': '列車を見る', '搜尋車站、車次、列車名': '駅・列車番号・列車名を検索', '一個框三種用法：站名、車次號碼、觀光列車名稱都查得到。': '一つの検索欄で駅名、列車番号、観光列車名を検索できます。', '手機按底部「搜尋」、桌面點右上的搜尋框': 'スマートフォンは下部の「検索」、デスクトップは右上の検索欄を使います。', '輸入「台北」找車站、輸入「431」找那班車、輸入「鳴日」找列車介紹': '「台北」で駅、「431」で列車、「鳴日」で観光列車の紹介を検索できます。', '從下拉選一項——選車次會直接開始跟車': '候補を選びます。列車を選ぶとすぐ追跡を開始します。', '同名站或共構站（例如板橋的台鐵與捷運）會先讓你選是哪一個。': '同名駅や同一施設の駅では、板橋のように事業者を選択します。',
+    '看車': '列車を見る', '搜尋車站、車次、列車名': '駅・列車番号・列車名を検索', '一個框三種用法：站名、車次號碼、觀光列車名稱都查得到。': '一つの検索欄で駅名、列車番号、観光列車名を検索できます。', '手機按底部「查詢」再點輸入框、桌面點右上的搜尋框': 'スマートフォンは下部の「調べる」をタップしてから検索欄をタップ、デスクトップは右上の検索欄を使います。', '輸入「台北」找車站、輸入「431」找那班車、輸入「鳴日」找列車介紹': '「台北」で駅、「431」で列車、「鳴日」で観光列車の紹介を検索できます。', '從下拉選一項——選車次會直接開始跟車': '候補を選びます。列車を選ぶとすぐ追跡を開始します。', '同名站或共構站（例如板橋的台鐵與捷運）會先讓你選是哪一個。': '同名駅や同一施設の駅では、板橋のように事業者を選択します。',
+    '查詢：離你最近的站與下一班': '調べる：最寄り駅と次の列車', '手機底部的「查詢」是查資訊的家：最上面是搜尋框，接著是離你最近的站各方向下一班幾分，再下面是提醒、今日動態、附近車站與小工具的入口。': 'スマートフォン下部の「調べる」は情報をまとめて確認する入口です。一番上に検索欄、続いて最寄り駅の各方向の次の列車まで何分かを表示し、その下に通知・本日の台湾鉄路・近くの駅・ウィジェットへの入口が並びます。', '按底部「查詢」打開半高面板，地圖上的車照樣在動': '下部の「調べる」をタップすると半分の高さのパネルが開きます。地図上の列車はそのまま動き続けます。', '在車站附近打開 App 會自動出現；關掉一次，同一站就不再自動開': '駅の近くでアプリを開くと自動的に表示されます。一度閉じると、同じ駅では次から自動的に開きません。', '點站名整塊進看板看更多班次；點輸入框才會叫出鍵盤': '駅名のブロック全体をタップすると駅案内でさらに多くの便を確認できます。キーボードは検索欄をタップした時だけ表示されます。', '沒有定位時改顯示最愛的第一站或上次看過的站；桌面版沒有這個面板，搜尋框在右上角。': '位置情報がない場合はお気に入りの最初の駅か前回見た駅を表示します。デスクトップにはこのパネルがなく、検索欄は右上にあります。', '這就是查詢面板——上面搜尋、中間下一班、下面入口': 'これが調べるパネルです。上に検索、中央に次の列車、下に各種の入口があります。', '桌面版沒有查詢面板，搜尋框在右上角': 'デスクトップ版に調べるパネルはありません。検索欄は右上にあります。', '查': '調',
     '點列車＝跟著它跑': '列車をタップして追跡', '車號牌是可以點的。點了鏡頭就跟著那班車，左下角出現它的下一站與誤點。': '列車番号をタップするとカメラが追跡し、次駅と遅延を表示します。', '點任一車號牌': '列車番号をタップ', '看下一站、誤點、全程速度曲線': '次駅・遅延・全区間の速度曲線を確認', '想停就按卡片的 ×，或點地圖空白處': 'カードの×または地図の空白をタップして終了', '跟到終點會蓋一枚完乘章（收在「護照」）。加速播放沒問題，但中途跳時間就不算。': '始発から終点まで追跡すると旅程パスポートに完乗スタンプが入ります。早送りは可能ですが、時間を飛ばすと対象外です。',
     '點車站＝接下來的班次看板': '駅をタップして次の列車を確認', '看板由近到遠列出接下來要進站的車，還有幾分鐘到。': '到着順に列車と残り時間を表示します。', '點地圖上任一車站': '地図上の駅をタップ', '看板列出接下來的班次與倒數': '次の列車とカウントダウンを確認', '點其中一班可以直接跟車；標題右邊的收藏鈕把這站加進最愛': '列車をタップして追跡、タイトル横の星で駅をお気に入りに追加', '台鐵套用官方即時誤點；北捷依官方秒級到站倒數逐班校正，高捷、機捷、高雄輕軌依官方到站看板校正。官方資料中斷或你的裝置時鐘明顯不準時，上方的「LIVE」會轉成灰色「推估」，表示畫面是依稍早的資料投射。台鐵當日官方公告停駛的班次不會出現在地圖上，但看板仍會列出並標成「停駛」。': '台湾鉄路は公式遅延、対応メトロは公式到着案内で補正します。公式データが途切れた場合や端末時刻が不正確な場合、LIVE は灰色の「推定」に変わります。公式運休の台湾鉄路列車は地図から消え、駅案内には「運休」と表示されます。',
     '隨機跟隨': 'ランダム追跡', '不知道要看哪班，交給它挑一班。': 'どの列車を見るか迷ったら軌島に選ばせましょう。', '按地圖上的「隨機跟隨」': '地図の「ランダム追跡」を押す', '不喜歡再按一次換一班': 'もう一度押して別の列車へ', '小卡的 × 結束': 'カードの×で終了',
@@ -322,37 +622,88 @@
     '背景音樂': 'BGM',
     '今日亮點': '今日の見どころ', '今天有哪些特別列車（觀光列車、加班車）與今日之最。': '本日の観光列車・臨時列車・各種トップを紹介します。', '底部「亮點」或工具列的「探」': '下部の「見どころ」またはツールバーの「探」', '點任一列車看介紹卡': '列車をタップして紹介カードを表示', '有班次的可以直接跟車': '本日運行する列車はそのまま追跡可能',
     '今日台鐵動態與誤點履歷': '本日の台湾鉄路と遅延履歴', '今天全台鐵每班車誤點多少、每一站怎麼延誤，一次看完。': '本日の全列車の遅延と駅ごとの推移を確認できます。', '「更多」→ 今日台鐵動態': '「その他」→ 本日の台湾鉄路', '點任一班次看逐站歷程': '列車をタップして駅ごとの履歴を表示', '跟台鐵車時，卡片上的「誤點履歷 ›」可看這班車近 30 天的準點統計；回溯 90 天的逐日紀錄與週幾圖需要軌島通行證': '台湾鉄路を追跡中、カードの「遅延履歴」で無料の30日集計を確認できます。90日の日別記録と曜日グラフには軌島パスが必要です。', '誤點資料每分鐘更新，來源是交通部 TDX。': '遅延データは交通部 TDX から毎分更新します。',
-    '我的': 'マイ軌島', '定位與附近車站': '現在地と周辺駅', '開 App 就落在你附近；「附近車站」告訴你最近的車站與下一班車還有幾分鐘。': 'Appを開くと周辺を表示し、最寄り駅と次の列車までの時間を確認できます。', '首次會問一次定位權限': '初回に位置情報の許可を確認', '按地圖上的「附近車站」': '地図の「周辺駅」を押す', '點清單裡的站直接開看板': '一覧の駅をタップして駅案内を開く', '你的位置只在這台裝置上用來顯示，不會上傳、也不會在背景取用。不給權限也能用，改用下面的「儲存地點」。': '位置は端末内の表示にのみ使用し、アップロードやバックグラウンド取得はしません。許可しなくても「保存地点」を利用できます。',
-    '把家、公司、拍車點存下來，看有哪些火車會經過那裡。': '自宅・職場・撮影地点を保存し、近くを通る列車を確認します。', '「更多」→ 打開「儲存地點」': '「その他」→「保存地点」をオン', '點地圖上任一位置': '地図上の場所をタップ', '取個名字存起來': '名前を付けて保存', '之後點那個釘，看接下來經過的列車與倒數': 'ピンをタップして次の列車とカウントダウンを確認', '也可以在 App 內從 Google Maps 的「已儲存」清單匯入（需軌島通行證）；檔案只在這台裝置解析，不會上傳。': 'Appでは軌島パスを使ってGoogle Mapsの保存済みリストも読み込めます。ファイルは端末内だけで解析し、アップロードしません。',
+    '我的': 'マイ軌島', '定位與附近車站': '現在地と近くの駅', '開 App 就落在你附近；「附近車站」告訴你最近的車站與下一班車還有幾分鐘。': 'Appを開くと周辺を表示し、最寄り駅と次の列車までの時間を確認できます。', '首次會問一次定位權限': '初回に位置情報の許可を確認', '按地圖上的「附近車站」': '地図の「近くの駅」を押す', '點清單裡的站直接開看板': '一覧の駅をタップして駅案内を開く', '你的位置只在這台裝置上用來顯示，不會上傳、也不會在背景取用。不給權限也能用，改用下面的「儲存地點」。': '位置は端末内の表示にのみ使用し、アップロードやバックグラウンド取得はしません。許可しなくても「場所を保存」を利用できます。',
+    '把家、公司、拍車點存下來，看有哪些火車會經過那裡。': '自宅・職場・撮影地点を保存し、近くを通る列車を確認します。', '「更多」→ 打開「儲存地點」': '「その他」→「場所を保存」をオン', '點地圖上任一位置': '地図上の場所をタップ', '取個名字存起來': '名前を付けて保存', '之後點那個釘，看接下來經過的列車與倒數': 'ピンをタップして次の列車とカウントダウンを確認', '也可以從 Google Maps 的「已儲存」清單匯入（需軌島通行證）；檔案只在這台裝置解析，不會上傳。': '軌島パスがあればGoogle Mapsの保存済みリストも読み込めます。ファイルは端末内だけで解析し、アップロードしません。',
     '常看的車次與車站收起來，下次直接從「最愛」進去。': 'よく見る列車と駅を保存して、次回すぐ開けます。', '跟車卡或看板標題的收藏鈕點一下收藏': '追跡カードまたは駅案内の星をタップ', '從底部「最愛」看全部': '下部の「お気に入り」で一覧表示', '再點一次取消收藏': 'もう一度押して解除',
     '旅程護照與完乘章': '旅程パスポートと完乗スタンプ', '跟完一整趟就蓋一枚章，收集起來變成你的旅程紀錄。': '全区間を追跡してスタンプを集め、自分の旅程記録を作ります。', '從發車跟到終點': '始発から終点まで追跡', '章會出現在「護照」': 'スタンプは「パスポート」に追加', '灰色的章可以點——它隨機挑一班該類列車，從發車前 20 秒開始重播給你跟': '灰色のスタンプをタップすると同種の列車を発車20秒前から再生', '加速播放沒問題，中途跳時間就不算。': '早送りは可能ですが、時間を飛ばすと対象外です。',
-    '車站收集章': '駅スタンプ', '去過的車站會變成一枚章，收在護照裡；同一座站去越多次，章上的數字越大。': '訪れた駅をパスポートに収集し、訪問回数をスタンプに表示します。', '章有三種：跟完（在 App 裡跟完動畫）、搭過（搭車經過）、到訪（人真的踏上月台）': '3段階：追跡完了・乗車通過・現地訪問', '跟完一趟車，起訖站自動成章': '完乗すると始発駅と終着駅を自動収集', '人在車站時，從「附近車站」按該站的蓋章鈕，就升級成到訪章': '駅にいる時に「周辺駅」のスタンプボタンで「訪問済み」に更新', '蓋章只在你按下去的當下讀一次位置，不會在背景一直追蹤你。每站每天算一次。': 'ボタンを押した時だけ位置を一度確認し、バックグラウンド追跡はしません。各駅1日1回です。',
-    '搭乘模式：我上車了': '乗車モード：乗車しました', '真的在車上時按一下，沿路每過一站就自動幫你蓋一枚章。': '実際に乗車中、通過する各駅を自動で収集します。', '先跟著你要搭的那班車': '乗車する列車を追跡', '按卡片上的「我上車了」，並選好在哪一站下車': 'カードの「乗車しました」を押して下車駅を選択', '之後不用管它——車每過一站就蓋一枚，到站自動結束': '列車が駅を通るたびに収集し、下車駅で自動終了', '只在上車、下車兩個點用到你的位置，中間由列車自己的時刻推算，所以進隧道、關螢幕都不影響。上車時就要選下車站，否則忘了按下車會一路蓋到終點。': '位置は乗車時と下車時だけ利用し、途中は時刻表で進行するためトンネルや画面ロックでも動作します。乗車時に下車駅を選んでください。',
+    '車站收集章': '駅スタンプ', '去過的車站會變成一枚章，收在護照裡；同一座站去越多次，章上的數字越大。': '訪れた駅をパスポートに収集し、訪問回数をスタンプに表示します。', '章有三種：跟完（在 App 裡跟完動畫）、搭過（搭車經過）、到訪（人真的踏上月台）': '3段階：追跡完了・乗車通過・現地訪問', '跟完一趟車，起訖站自動成章': '完乗すると始発駅と終着駅を自動収集', '人在車站時，從「附近車站」按該站的蓋章鈕，就升級成到訪章': '駅にいる時に「近くの駅」のスタンプボタンで「訪問済み」に更新', '蓋章只在你按下去的當下讀一次位置，不會在背景一直追蹤你。每站每天算一次。': 'ボタンを押した時だけ位置を一度確認し、バックグラウンド追跡はしません。各駅1日1回です。',
+    '搭乘模式：我上車了': '乗車モード：乗車する', '真的在車上時按一下，沿路每過一站就自動幫你蓋一枚章。': '実際に乗車中、通過する各駅を自動で収集します。', '先跟著你要搭的那班車': '乗車する列車を追跡', '按卡片上的「我上車了」，並選好在哪一站下車': 'カードの「乗車する」を押して下車駅を選択', '之後不用管它——車每過一站就蓋一枚，到站自動結束': '列車が駅を通るたびに収集し、下車駅で自動終了', '只在上車、下車兩個點用到你的位置，中間由列車自己的時刻推算，所以進隧道、關螢幕都不影響。上車時就要選下車站，否則忘了按下車會一路蓋到終點。': '位置は乗車時と下車時だけ利用し、途中は時刻表で進行するためトンネルや画面ロックでも動作します。乗車時に下車駅を選んでください。',
     '一張只屬於你的地圖：全台路網轉灰，只有你搭過的區間亮起來。': '全路線を灰色にし、乗車した区間だけを色付きで表示する自分専用の地図です。', '打開「護照」': '「パスポート」を開く', '在「路線完乘」那一列按「收集地圖」': '「路線完乗」の「収集マップ」を押す', '看哪裡還是灰的，就是還沒去過的地方': '灰色の場所が未乗車区間', '按上方的「離開」回到即時地圖': '上部の「終了」でリアルタイム地図へ戻る', '搭快車被跳過的小站也算走過——你確實通過了那段軌道。每條路線的完乘率分開算。': '快速列車で通過した区間も乗車済みになります。完乗率は路線ごとに計算します。',
-    '到站提醒': '到着通知', '跟著車的時候可以排提醒，快到站前手機會響。': '列車追跡中、到着前にスマートフォンへ通知できます。', '先跟一班車': '列車を追跡', '卡片上的「提醒」選要提醒的站': 'カードの「通知」で駅を選択', '「更多」→「已排提醒」可以查看與取消': '「その他」→「予定済み通知」で確認・取消', '提醒依時刻表與即時誤點推算，實際到站請以現場為準。': '通知は時刻表と遅延から推定します。実際の到着は現地案内をご確認ください。',
-    '平交道': '踏切', '全台 415 處台鐵平交道，看接下來哪班車會通過。': '台湾鉄路の踏切415か所で次に通過する列車を確認できます。', '「更多」→ 打開「平交道記號」': '「その他」→「踏切マーカー」をオン', '把地圖拉近就看得到記號': '地図を拡大してマーカーを表示', '點任一平交道，看接下來通過的列車與倒數': '踏切をタップして次の列車とカウントダウンを確認', '遮斷機通常提前 30–60 秒動作，請以現場號誌為準。': '遮断機は通常30〜60秒前に作動します。必ず現地の信号に従ってください。',
-    '軌島通行證與跨裝置同步': '軌島パスとクラウド同期', '訂閱制的加值內容。列車位置、誤點資訊與系統覆蓋現在免費提供，不受訂閱影響。': '任意のサブスクリプション機能です。列車位置・遅延・対応路線は無料のままで、購読の影響を受けません。', '桌面按工具列的「通行證」、手機從「更多」→「軌島通行證」，看裡面有哪些內容': 'デスクトップは「パス」、スマートフォンは「その他」→「軌島パス」', '訂閱在軌島 App 內完成，網站不收費': '購読は軌島App内で行い、Webサイトでは課金しません', '在網站用同一個軌島帳號登入，App 訂的資格就會生效（面板裡的「已經在 App 訂閱了？登入以同步」）': '同じ軌島アカウントでWebにログインするとAppの購読資格を利用できます', '通行證內容：台鐵列車的誤點履歷（回溯 90 天的逐日紀錄）、收藏與完乘紀錄跨裝置雲端同步、行程分享、在 App 匯入 Google Maps 已儲存清單、App 非跟車時的衛星高解析圖磚，以及 iOS 17.6 以上可用的跟車鎖定畫面與動態島即時動態。': 'パスには台湾鉄路の90日日別遅延履歴、お気に入りと完乗のクラウド同期、旅程共有、Google Mapsリスト読込、高解像度衛星画像、iOS 17.6以降のロック画面／Dynamic Island表示が含まれます。',
+    '到站提醒': '到着通知', '跟著車的時候可以排提醒，快到站前手機會響。': '列車追跡中、到着前にスマートフォンへ通知できます。', '先跟一班車': '列車を追跡', '卡片上的「提醒」選要提醒的站': 'カードの「通知」で駅を選択', '「更多」→「已排提醒」可以查看與取消': '「その他」→「設定済み通知」で確認・取消', '提醒依時刻表與即時誤點推算，實際到站請以現場為準。': '通知は時刻表と遅延から推定します。実際の到着は現地案内をご確認ください。',
+    '平交道': '踏切', '全台 415 處台鐵平交道，看接下來哪班車會通過。': '台湾鉄路の踏切415か所で次に通過する列車を確認できます。', '「更多」→ 打開「平交道記號」': '「その他」→「踏切表示」をオン', '把地圖拉近就看得到記號': '地図を拡大してマーカーを表示', '點任一平交道，看接下來通過的列車與倒數': '踏切をタップして次の列車とカウントダウンを確認', '遮斷機通常提前 30–60 秒動作，請以現場號誌為準。': '遮断機は通常30〜60秒前に作動します。必ず現地の信号に従ってください。',
+    '軌島通行證與跨裝置同步': '軌島パスとクラウド同期', '訂閱制的加值內容。列車位置、誤點資訊與系統覆蓋現在免費提供，不受訂閱影響。': '任意のサブスクリプション機能です。列車位置・遅延・対応路線は無料のままで、購読の影響を受けません。', '桌面按工具列的「通行證」、手機從「更多」→「軌島通行證」，看裡面有哪些內容': 'デスクトップは「パス」、スマートフォンは「その他」→「軌島パス」', '訂閱在軌島 App 內完成，網站不收費': '購読は軌島App内で行い、Webサイトでは課金しません', '在網站用同一個軌島帳號登入，App 訂的資格就會生效（面板裡的「已經在 App 訂閱了？登入以同步」）': '同じ軌島アカウントでWebにログインするとAppの購読資格を利用できます', '通行證內容：台鐵列車的誤點履歷（回溯 90 天的逐日紀錄）、收藏與完乘紀錄跨裝置雲端同步、行程分享、跟車配樂（音樂跟著你在看的那班車與當下時間換情境；免費的背景音樂不受影響）、匯入 Google Maps 已儲存清單、App 非跟車時的衛星高解析圖磚，以及 iOS 17.6 以上可用的跟車鎖定畫面與動態島即時動態。': 'パスには台湾鉄路の90日日別遅延履歴、お気に入りと完乗のクラウド同期、旅程共有、追跡サウンドトラック（見ている列車と時刻に合わせて場面が切り替わります。無料のBGMには影響しません）、Google Mapsリスト読込、高解像度衛星画像、iOS 17.6以降のロック画面／Dynamic Island表示が含まれます。',
     '模式與外觀': 'モードと外観', '放空模式': '鑑賞モード', '全畫面自動導演，不用操作，掛著看就好。': '全画面の自動カメラで、操作せず眺められます。', '按「放空模式」': '「鑑賞モード」を押す', '用「視角」切換：跟車＝跟著一班車跑；群車＝鏡頭停在當下最忙的路段看列車交錯': '「視点」で切替：追跡は1列車、群列車は混雑区間を固定表示', '動一下畫面就回到手動': '画面を操作すると手動に戻る', '久沒動會進「劇場模式」把介面淡掉，動一下就回來。': 'しばらく操作しないと劇場モードでUIが消え、操作すると戻ります。',
     '掛著看車時的背景音樂，可以換首。': '列車を眺めながら流すBGM。曲送りもできます。', '「更多」→ 背景音樂': '「その他」→「BGM」', '「換首」跳下一首': '「次の曲」で曲送り', 'App 版收起或鎖定螢幕也繼續播；跟車時鎖定畫面讓位給列車動態，其餘時候可在鎖定畫面暫停／換首': 'Appではバックグラウンドでも再生します。追跡中はロック画面を列車情報に使い、それ以外は音楽操作を表示します。',
+    'App 版「配樂情境」裡有「車聲」開關：跟車時車一動就有鐵軌聲，停站淡出；放空模式一直放': 'アプリ版の「サウンドトラック」に「走行音」スイッチがあります。追跡中の列車が動いている間は走行音が流れ、停車中はフェードアウト。鑑賞モードでは常時再生',
+    '跟台鐵列車時可以先指定在哪一站接公車；抵達前 15 分、5 分與實際到站才查一次動態，並把列車抵達、站外步行和公車到站合成保守的轉乘裕度。時光機與加速重播不查即時資料。': '台湾鉄路の列車を追跡中に、バスへ乗り換える駅を指定できます。リアルタイム照会は到着15分前・5分前・到着時だけ行い、列車到着・駅外の徒歩・バス到着から保守的な乗換余裕を示します。時刻変更や早送り再生では照会しません。',
+    '公車轉乘入口擴到軌島地圖上的全部 541 座客運鐵路、捷運與輕軌站；高鐵、林鐵跟車也能先指定下車站接公車。仍只在使用者打開或接近轉乘站時查即時，不會全臺背景輪詢。': 'バス乗換を地図上の旅客鉄道・メトロ・ライトレール全541駅に拡大しました。高速鉄道と森林鉄道の追跡中も、バスへ乗り換える駅を選べます。リアルタイム照会は駅を開いた時か設定した乗換駅へ近づいた時だけで、全駅のバックグラウンド巡回は行いません。',
+    '軌道轉公車現在能接成一段不會消失的旅程：選定公車後再選下車站；列車抵達後保留等車資訊，按「我上車了」會切到公車行程並顯示剩餘站數，重開 App 也能接著看。': '鉄道からバスへの乗換を一つの旅程として継続できます。バスと下車停留所を選び、列車到着後も待ち情報を保持。「乗車した」を押すと残り停留所数を表示し、Appを開き直しても続きから確認できます。',
+    '整段列車轉公車旅程可用短效連結分享；手機位置預設不分享，只有另行勾選並停留前景才更新，停止分享即刪除。': '鉄道からバスまでの旅程全体を短時間リンクで共有できます。端末の位置共有は既定でオフで、別途有効にしてApp／ページが前面にある間だけ更新し、共有停止時に削除します。',
+    'App 版配樂情境多了「車聲」開關：跟車時車一動就有鐵軌聲，停站淡出；放空模式一直放。': 'アプリ版のサウンドトラックに「走行音」スイッチを追加。追跡中の列車が動いている間は走行音が流れ、停車中はフェードアウト。鑑賞モードでは常時再生。',
     '衛星影像': '衛星画像', '把底圖換成衛星照片，看得到實際的軌道與站場。': '背景を衛星画像に切り替え、実際の線路と駅構内を確認できます。', '「更多」→ 衛星影像': '「その他」→「衛星画像」', '拉太近時衛星影像可能還沒有那麼清晰的圖資。': '最大拡大では同じ解像度の画像がない場合があります。',
     '外觀：亮／暗／自動': '外観：ライト／ダーク／自動', '自動＝跟著系統的深色模式走。': '自動は端末のダークモードに従います。',
-    '讓看板、列車卡與跟隨面板透出後方地圖，面板底下的路線、車站都看得到。': '駅案内や列車パネルを半透明にし、背後の路線と駅を見えるようにします。', '「更多」→ 打開「面板半透明」': '「その他」→「パネル半透明」をオン', '再按一次就恢復原本的實色紙面': 'オフにすると不透明へ戻る', '預設關閉；這項設定只會記在目前這台裝置。': '初期設定はオフで、この端末だけに保存します。',
+    '讓看板、列車卡與跟隨面板透出後方地圖，面板底下的路線、車站都看得到。': '駅案内や列車パネルを半透明にし、背後の路線と駅を見えるようにします。', '「更多」→ 打開「面板半透明」': '「その他」→「パネルを半透明にする」をオン', '再按一次就恢復原本的實色紙面': 'オフにすると不透明へ戻る', '預設關閉；這項設定只會記在目前這台裝置。': '初期設定はオフで、この端末だけに保存します。',
     '軌道與路線': '線路と路線', '軌道要不要畫、要看哪些車種與路線，都在這裡。': '線路表示と、表示する列車種別・路線を選びます。', '「更多」→ 軌道與路線': '「その他」→「線路と路線」', '軌道顯示：自動／淡化／隱藏': '線路表示：自動／薄く／非表示', '用票根勾選要看的車種與路線': '切符型の項目で列車種別と路線を選択',
-    '看得更清楚': '見やすくする', '極簡沉浸只留地圖與列車；省電模式降到約 30fps，手機掛著看更省電；還可以開列車方向箭頭、特殊站介紹、縣市快速移動。': 'ミニマル表示は地図と列車だけを残し、省電力モードは約30fpsに下げます。進行方向矢印、特色駅紹介、県市ショートカットも利用できます。', '以上全在「更多」裡逐項開關': 'すべて「その他」で個別に切替', '手機長時間掛著看，建議打開省電模式。': 'スマートフォンで長時間表示する場合は省電力モードをおすすめします。',
+    '看得更清楚': '見やすくする', '極簡沉浸只留地圖與列車；省電模式降到約 30fps，手機掛著看更省電；還可以開列車方向箭頭、特殊站介紹、縣市快速移動。': '最小表示は地図と列車だけを残し、省電力モードは約30fpsに下げます。進行方向矢印、注目駅の案内、地域へ移動も利用できます。', '以上全在「更多」裡逐項開關': 'すべて「その他」で個別に切替', '手機長時間掛著看，建議打開省電模式。': 'スマートフォンで長時間表示する場合は省電力モードをおすすめします。',
     '把現在的畫面（地點＋時間）或正在跟的車分享給別人，對方打開就是同一個畫面。': '現在の場所と時刻、または追跡中の列車を共有し、同じ画面を開けます。', '按「分享」': '「共有」を押す', '選分享畫面或分享正在跟的車': '現在の画面または追跡列車を選択', '複製連結傳出去': 'リンクをコピーして送信', '分享行程只給班次與到站時間，不會分享你的位置。': '旅程共有には列車と到着時刻だけが含まれ、現在地は共有しません。',
     '把介面收掉，只留地圖。': 'UIを隠して地図だけを表示します。', '按地圖右上的四角鈕': '地図右上の四隅ボタンを押す', '桌面也可以按 F': 'デスクトップではFキーも利用可能', '再按一次或 Esc 退出': 'もう一度押すかEscで終了',
-    '搜尋框已填「台北」，從下拉挑一項': '検索欄に「台北」を入力しました。候補を選んでください。', '正在跟一班車——小卡的 × 可以結束': '列車を追跡中です。カードの×で終了できます。', '這個檢視附近沒有車站，換個系統頁籤再試': 'この表示の近くに駅がありません。別のシステムタブでお試しください。', '已暫停——按站台帶最左邊那顆就繼續': '一時停止しました。時間軸左端のボタンで再生します。', '落釘模式已開——點地圖任一處，看有哪些火車經過那裡': 'ピンモードを開始しました。地図をタップして通過列車を確認してください。', '平交道記號已開——拉近地圖後點任一處，看接下來通過的車': '踏切マーカーを表示しました。拡大してマーカーをタップしてください。', '已進放空模式——動一下畫面就回到手動': '鑑賞モードを開始しました。画面を操作すると手動へ戻ります。', '已切成衛星影像——從「更多」再按一次可切回地圖': '衛星画像に切り替えました。「その他」から地図へ戻せます。', '這是你的收集地圖——按上方「離開」回到即時地圖': '収集マップです。上部の「終了」でリアルタイム地図へ戻ります。',
+    '搜尋框已填「台北」，從下拉挑一項': '検索欄に「台北」を入力しました。候補を選んでください。', '正在跟一班車——小卡的 × 可以結束': '列車を追跡中です。カードの×で終了できます。', '這個檢視附近沒有車站，換個系統頁籤再試': 'この表示の近くに駅がありません。別のシステムタブでお試しください。', '已暫停——按站台帶最左邊那顆就繼續': '一時停止しました。時間軸左端のボタンで再生します。', '落釘模式已開——點地圖任一處，看有哪些火車經過那裡': 'ピンモードを開始しました。地図をタップして通過列車を確認してください。', '平交道記號已開——拉近地圖後點任一處，看接下來通過的車': '踏切表示を表示しました。拡大してマーカーをタップしてください。', '已進放空模式——動一下畫面就回到手動': '鑑賞モードを開始しました。画面を操作すると手動へ戻ります。', '已切成衛星影像——從「更多」再按一次可切回地圖': '衛星画像に切り替えました。「その他」から地図へ戻せます。', '這是你的收集地圖——按上方「離開」回到即時地圖': '収集マップです。上部の「終了」でリアルタイム地図へ戻ります。',
     '還是卡住？': 'まだ解決しませんか？', '用頁尾的「回報問題或建議」告訴我，': 'フッターの「問題・提案を報告」または', '開一則 issue': 'GitHub issueを作成', '也可以。': 'してください。',
     '畫面上的列車位置是依': '画面の列車位置は', '當日時刻表推演': '当日の時刻表から推定', '並套用': 'し、', '即時誤點': 'リアルタイム遅延', '校正，不是列車的實際 GPS 位置；實際到離站時刻請以各營運機構官方資訊為準。': 'で補正しています。実際のGPS位置ではありません。発着時刻は各事業者の公式情報をご確認ください。'
   });
 
+  // 手動策展公告(index.html 的 CURATED_NOTICES):標題／內文／系統名經 t(變數) 查表,不是字面 t('…'),
+  // 由 check_i18n.mjs 的「手動公告」那條守——還在顯示窗內的每一則都要有 en/ja。
   Object.assign(messages.en, {
+    '信義東延段 8/30 14 時通車:淡水信義線新增終點站廣慈/奉天宮': 'Xinyi east extension in service from 30 Aug, 14:00: Guangci/Fengtian Temple is the new Tamsui-Xinyi Line terminus',
+    '淡水信義線營運端點由象山延伸至廣慈/奉天宮站,8 月 30 日 13 時 50 分開放旅客進站、14 時發出首班列車。地圖上這一站與新路段我已經先畫出來,線形取自 OSM;官方即時到站資料要等通車後才會帶到這一站,在那之前這一段不會有列車、車站倒數也還沒有,通車後會自動跟上。8 月 30 日至 9 月 28 日行經新通車區間(象山站至廣慈/奉天宮站)不計票價。以官方公告為準。': 'The Tamsui-Xinyi Line terminus extends from Xiangshan to Guangci/Fengtian Temple. Passengers could enter from 13:50 on 30 August, and the first train left at 14:00. I drew the new station and track on the map ahead of time, using the OSM alignment. Official live arrival data only covers this station once the line is open, so until opening this section shows no trains and no station countdowns; after that it updates automatically. Travel through the new section (Xiangshan to Guangci/Fengtian Temple) is free from 30 August to 28 September. Always follow the operator’s official notice.',
+    '三鶯線 9/1 起正式收費,免費試營運結束': 'Sanying Line fares apply from 1 Sep; the free trial period has ended',
+    '三鶯線自 9 月 1 日起正式收費營運,票價採階梯費率,起程 20 元、最高 35 元;同步發售每卡 60 元的「三鶯線一日票」,限購票當日營業時間內不限次數進出三鶯線各站。正式營運的首末班官方已經公布:兩端點首班 06:00、末班 00:00,與試營運時段相同,地圖上這條線照這個時段推算。以官方公告為準。': 'The Sanying Line has charged fares since 1 September, on a distance-based scale from NT$20 to NT$35. A NT$60 Sanying Line day pass is also on sale, allowing unlimited entries at all Sanying Line stations during operating hours on the day of purchase. The official first and last trains for regular service have been announced: 06:00 and 00:00 from both terminals, the same hours as the trial period, and the map runs this line within those hours. Always follow the operator’s official notice.',
+    '新北捷運三鶯線': 'New Taipei Metro Sanying Line',
+  });
+  Object.assign(messages.ja, {
+    '信義東延段 8/30 14 時通車:淡水信義線新增終點站廣慈/奉天宮': '信義線東延伸区間 8/30 14時開業：淡水信義線の新しい終点は廣慈/奉天宮',
+    '淡水信義線營運端點由象山延伸至廣慈/奉天宮站,8 月 30 日 13 時 50 分開放旅客進站、14 時發出首班列車。地圖上這一站與新路段我已經先畫出來,線形取自 OSM;官方即時到站資料要等通車後才會帶到這一站,在那之前這一段不會有列車、車站倒數也還沒有,通車後會自動跟上。8 月 30 日至 9 月 28 日行經新通車區間(象山站至廣慈/奉天宮站)不計票價。以官方公告為準。': '淡水信義線の終点が象山から廣慈/奉天宮駅まで延びました。8月30日13時50分に駅への入場が始まり、14時に始発列車が出発しました。新駅と新しい線路は事前に地図へ描いており、線形はOSMのものを使っています。公式のリアルタイム到着情報は開業後にこの駅へ届くため、開業まではこの区間に列車も駅のカウントダウンも表示されず、開業後は自動的に反映されます。8月30日から9月28日まで、新区間（象山駅〜廣慈/奉天宮駅）を通る乗車は運賃無料です。実際の運行は公式情報をご確認ください。',
+    '三鶯線 9/1 起正式收費,免費試營運結束': '三鶯線は9/1から運賃徴収開始、無料の試運転営業は終了',
+    '三鶯線自 9 月 1 日起正式收費營運,票價採階梯費率,起程 20 元、最高 35 元;同步發售每卡 60 元的「三鶯線一日票」,限購票當日營業時間內不限次數進出三鶯線各站。正式營運的首末班官方已經公布:兩端點首班 06:00、末班 00:00,與試營運時段相同,地圖上這條線照這個時段推算。以官方公告為準。': '三鶯線は9月1日から正式に運賃を徴収しています。運賃は距離制で、初乗り20元、最高35元です。1枚60元の「三鶯線1日乗車券」も販売しており、購入当日の営業時間内は三鶯線の各駅に何度でも出入りできます。正式営業の始発・終電は公式に発表済みで、両端の駅とも始発06:00、終電00:00と試運転営業の時間帯と同じです。地図上のこの路線もこの時間帯で推定しています。実際の運行は公式情報をご確認ください。',
+    '新北捷運三鶯線': '新北メトロ三鶯線',
+  });
+  // 頁尾「資料來源與授權」的兩條公車來源(9/11 公車站牌資料層上線時加的,當時沒有 en/ja)。署名與授權名照原文保留。
+  Object.assign(messages.en, {
+    '全臺公車站牌名冊與非臺北市的到站預估介接交通部 TDX 運輸資料流通服務（Bus/Station、Bus/EstimatedTimeOfArrival），依政府資料開放授權條款第1版使用': 'The island-wide bus stop list and arrival estimates outside Taipei City come from the Ministry of Transportation TDX Transport Data eXchange (Bus/Station, Bus/EstimatedTimeOfArrival), used under Taiwan’s Open Government Data Licence, version 1.0.',
+    '北市公車': 'Taipei buses',
+    '臺北市公車的站牌、路線與到站預估取自臺北市政府交通局公共運輸處「臺北市公車動態資訊」（tcgbusfs.blob.core.windows.net/blobbus 之 GetEstimateTime／GetStop／GetRoute），依「政府資料開放授權條款－第1版」使用': 'Taipei City bus stops, routes and arrival estimates come from the Public Transportation Office, Department of Transportation, Taipei City Government (Taipei City Bus Dynamic Information: GetEstimateTime, GetStop and GetRoute at tcgbusfs.blob.core.windows.net/blobbus), used under Taiwan’s Open Government Data Licence, version 1.0.',
+  });
+  Object.assign(messages.ja, {
+    '全臺公車站牌名冊與非臺北市的到站預估介接交通部 TDX 運輸資料流通服務（Bus/Station、Bus/EstimatedTimeOfArrival），依政府資料開放授權條款第1版使用': '全国のバス停一覧と台北市以外の到着予測は交通部 TDX 運輸資料流通サービス（Bus/Station、Bus/EstimatedTimeOfArrival）から取得し、台湾政府資料開放ライセンス第1版に基づき利用しています。',
+    '北市公車': '台北市バス',
+    '臺北市公車的站牌、路線與到站預估取自臺北市政府交通局公共運輸處「臺北市公車動態資訊」（tcgbusfs.blob.core.windows.net/blobbus 之 GetEstimateTime／GetStop／GetRoute），依「政府資料開放授權條款－第1版」使用': '台北市バスのバス停・路線・到着予測は台北市政府交通局公共運輸処「臺北市公車動態資訊」（tcgbusfs.blob.core.windows.net/blobbus の GetEstimateTime／GetStop／GetRoute）から取得し、台湾政府資料開放ライセンス第1版に基づき利用しています。',
+  });
+
+  Object.assign(messages.en, {
+    '桌面小工具的發車看板：大尺寸一次列出五班並分北上南下，每列都有開車時刻與準點誤點；也可以改成主要顯示發車時刻':'The large departure board widget lists five trains, split into northbound and southbound, with a departure time and on-time status on every row. You can also switch the widget to show the departure time first.',
+    '捷運列車的車廂擁擠度不會再整批消失一輪：官方擁擠度偶爾抓不到時改用剛才那一份，最多兩分鐘，超過就留白（謝謝網友回報）': 'Car-by-car crowding on metro trains no longer disappears for a whole refresh: when the official crowding feed is briefly unavailable, the reading from moments earlier is reused for up to two minutes, and after that the space is left blank. Thanks to the reader who reported it.',
+    '桌面小工具：方向與目的站多了「不指定」，選過也能改回來；捷運看板的方向只列所選車站開得到的終點。Android 補齊到七種尺寸，捷運與火車都有大張卡片，5 欄手機會佔滿五格（謝謝網友回報）': 'Home screen widgets: direction and destination now offer "Any", so a choice can be undone, and the metro board only lists directions reachable from the chosen station. Android now has all seven sizes, with large cards for both metro and rail, and fills all five columns on 5-column phones. Thanks to the readers who reported it.',
+    '車站看板的誤點標示放大加粗，一眼就看得出這班晚了幾分（謝謝網友回報）': 'The delay tag on the station board is bigger and bolder, so you can see at a glance how many minutes a train is late. Thanks to the reader who reported it.',
+    '臺北、臺南、花蓮三個台鐵站先試行公車轉乘：到站後可查現在幾分鐘有車，再點一路看車牌、位置、還差幾站與擁擠度；也能直接開 Google 地圖走到路邊站牌': 'Bus transfers are now in pilot at Taipei, Tainan and Hualien TRA stations. Check live arrivals after reaching the station, then open a route for plate numbers, positions, stop progress and occupancy when available, or walk to the correct roadside stop with Google Maps.',
+    '公車轉乘從三站擴到全臺台鐵營運站：到站後可按需查附近公車，再看車牌、位置、還差幾站與擁擠度；偏遠站若 600 公尺內沒有站牌也會直接說明': 'Bus transfers now cover active TRA passenger stations across Taiwan. After arriving, check nearby buses on demand, then open a route for plate numbers, positions, stop progress and occupancy when available. Remote stations with no indexed stop within 600 m say so directly.',
+    '公車轉乘從三站擴到全臺台鐵營運站：到站後可按需查附近公車，再看車牌、位置、還差幾站與擁擠度；偏遠站若 600 公尺內沒有站牌也會直接說明，查詢失敗則只顯示可重試的說明': 'Bus transfers now cover active TRA passenger stations across Taiwan. After arriving, check nearby buses on demand, then open a route for plate numbers, positions, stop progress and occupancy when available. Remote stations with no indexed stop within 600 m say so directly, while failed queries show only a retryable explanation.',
+    '登入失敗訊息不再重複兩行；Android 的 Google 登入多了自動退路（謝謝網友回報）': 'Sign-in error messages no longer appear twice, and Google sign-in on Android now falls back to another method automatically. Thanks to the reader who reported it.',
+    "按下「我上車了」之後，再去點一班還沒發車的車，時鐘不會再被撥走（謝謝網友回報）": "After you tap I am on board, tapping a train that has not departed yet no longer winds the clock away from now. Thanks to the rider who reported it.",
+    "英文與日文的手機頂列，左上角的軌島牌裝不下時會自己讓位，分組切換鈕留在畫面內": "On phones in English and Japanese, the Rail Island plate in the top left gives way when it does not fit, so the group tabs stay on screen.",
+    "手機地圖右下角的版權資訊不會再折成一大塊蓋住速度調整鈕：改成貼著底緣一整條、放不下的部分橫向可捲，授權連結一個都沒少，仍然看得到也點得到。切到衛星影像時字串較長，原本折成四行最嚴重，現在一樣是一條（謝謝網友回報）": "The map attribution at the bottom right of the phone map sits on a single line along the bottom edge, scrolling sideways when it does not fit, instead of wrapping into a block over the speed control. Every licence link is still there and still tappable. In satellite mode the text is longer, and it stays on one line there too. (Thanks to the reader who reported this.)",
     '捷運信義東延段 8/30 14 時通車，淡水信義線終點由象山延伸到廣慈/奉天宮站。地圖上這一站與新路段已經先畫好，官方即時到站資料要等通車後才會帶到這一站，在那之前這一段不會有列車，通車後會自動跟上；8/30 至 9/28 行經新通車區間不計票價': 'The Xinyi east extension opens at 14:00 on 30 August, giving the Tamsui–Xinyi line a new terminus one stop beyond Xiangshan. The station and the new stretch of track are already drawn on the map, but official live arrival data only starts once the line opens, so no trains run there until then. Travel through the new section is free from 30 August to 28 September.',
     '英文與日文現在也會即時更新最愛、今日台鐵、誤點履歷、帳號同步、Google 清單匯入、分享與「追蹤這站」；並補上災害監看、捷運終點、點選列車／車站、成就說明，以及 iPhone 即時動態與小工具，官方活動只有中文時則標示「中文原文」': 'English and Japanese now update favourites, Today’s TRA, delay history, account sync, Google list imports, sharing and Track this station immediately. Hazard monitoring, metro destinations, train/station pickers, achievement descriptions, iPhone Live Activities and widgets are also covered; Chinese-only official events are labelled as source text.',
+    '英文與日文現在也會即時更新最愛、今日台鐵、誤點履歷、帳號同步、Google 清單匯入、分享與「追蹤這站」；並補上災害監看、捷運終點、點選列車／車站、成就說明、顯示與字級、所在地鏡頭，以及 iPhone 即時動態與小工具，官方活動只有中文時則標示「中文原文」': 'English and Japanese now update favourites, Today’s TRA, delay history, account sync, Google list imports, sharing and Track this station immediately. Hazard monitoring, metro destinations, train/station pickers, achievement descriptions, display and text size, the location camera, iPhone Live Activities and widgets are also covered; Chinese-only official events are labelled as source text.',
     '網站版重新開啟北捷統一時間軸：地圖列車、車站預告與點選跟隨會使用同一份身分與軌跡；每次更新也會檢查軌跡內部，若列車在五秒內跨過半站以上，會先留在原位重新銜接，不把瞬間跳位送到畫面。Core 連線失敗或單線資料不完整時，仍會自動退回原本模式': 'The website now uses the unified Taipei Metro timeline by default, so map trains, station forecasts and following share one identity and trajectory. A train that would cross more than half a station within five seconds is held for safe reconnection, while Core or line-level failures still fall back automatically.',
     '英文與日文再補齊品牌介紹、使用說明、特色車站與列車、觀光列車圖鑑，以及旅程護照和成就；外語版更新紀錄保留最近八筆精簡內容，較早歷史改用主題摘要': 'English and Japanese now cover the brand story, help guide, featured stations and trains, tourist-train gallery, Journey Passport and achievements. Other languages show eight concise recent updates plus earlier topic summaries.',
-    "按下「我上車了」之後，再去點一班還沒發車的車，時鐘不會再被撥走（謝謝網友回報）": "After you tap I am on board, tapping a train that has not departed yet no longer winds the clock away from now. Thanks to the rider who reported it.",
+    "更新完跳出的「更新了什麼」現在會用你正在使用的語言：英文與日文各有整段自己的文案，不會再看到標著「中文原文」的中文說明": "The What's new sheet shown after an update now appears in the language you are using: English and Japanese each have their own full text, so Chinese notes labelled as source text no longer show up.",
+    "桌面小工具的發車看板也標出北上／南下：Android 從零補上方向三角，兩個平台的三角一起放大，顏色換成台鐵官方的北上藍、南下綠": "Home screen departure widgets now mark northbound and southbound on every row: Android gains direction arrows for the first time, and on both platforms the arrows are larger and use TRA’s official blue for northbound and green for southbound.",
+    "衛星影像模式下放大縮小會閃一下底色的問題真的修好了：8/30 只是把墊底的顏色調得像衛星影像，換色治標沒治本。現在底下永遠墊著一層真的衛星影像，開衛星時就把全台先抓好，縮放時露出來的是影像不是色塊": "The satellite basemap no longer flashes a flat colour while you zoom. The 8/30 attempt only tinted the backdrop to match the imagery, which was a cosmetic patch. Real satellite imagery is now kept permanently underneath, pre-loaded for the whole of Taiwan when you switch satellite on, so any gap shows imagery instead of a colour block.",
+    "車站看板的欄位對齊修好：倒數變成「即將進站」那幾列，原本會把時刻與擁擠度往左推、整張板看起來歪歪的，現在倒數與時刻兩欄逐板等寬，每一列都對齊。另外台鐵臺北車站不再多出一顆「臺北-環島」——那是環島之星繞完一圈的官方終點站碼，其實就是臺北站，現在併成一顆，手機小工具的車站清單也一起併": "Station board columns line up again. Rows whose countdown reads Arriving used to push the time and crowding columns to the left, tilting the whole board; the countdown and time columns are now measured per board so every row aligns. Taipei Main also no longer shows a second Taipei-Loop station: that is the official station code for where the Formosa Express finishes its loop, and it is the same station, so it is merged — including the phone widget station list.",
     "衛星影像模式下放大縮小時，畫面會有一瞬間整片變成深綠色（Android 手機上特別明顯）；墊在底下的顏色改成貼齊實際衛星影像，現在幾乎看不出來": "In satellite mode, zooming in or out briefly turned the whole screen dark green (most noticeable on Android phones). The colour underneath the imagery now matches the real satellite view, so the gap is barely visible.",
+    '訂閱後桌面小工具立刻能放多站、自動選站，不必等同步或按恢復購買': 'Once you subscribe, home screen widgets can hold several stations and choose stations automatically straight away — no waiting for a sync, and no need to tap Restore purchases.',
+    '新北投與小碧潭支線的車一發車就從地圖上消失，現在會照官方到站時間走完兩站': 'Trains on the Xinbeitou and Xiaobitan branches used to vanish from the map the moment they departed. They now run the two stations following the official arrival times.',
     '開啟網站變快了：三十幾份路網與班表資料從一份一份載改成同時下載，重新造訪也不再重抓沒變動的檔案': 'Opening the site is much faster: the thirty-odd route and timetable files now download at the same time instead of one after another, and revisits no longer re-fetch files that have not changed.',
     '車廂擁擠度改成逐車對照：忠孝復興這種兩線共站不會再把板南線的擁擠度掛到文湖線上，認不出是哪一台車就留白不猜；三種車站看板現在都會顯示擁擠度，不會再切換一次就整片消失，鎖屏的等車卡也一起改。即時模型暫時缺這個系統的資料時，車站看板不再整片變成「此時段無停靠班次」，會自動退回官方倒數或班表。即時資料中斷的提示也改成照實說：分不出是官方端還是本站或你的網路時，不再一律寫成臺北捷運訊號中斷': 'Carriage crowding is now matched train by train: at interchanges like Zhongxiao Fuxing, crowding from a Bannan line train no longer appears on the Wenhu line row, and any row we cannot match to a specific train is left blank instead of guessed. All three station board views now show crowding, so it no longer vanishes when the board switches source, and the lock screen wait card was changed to match. When the live model is temporarily missing data for a system, the station board no longer collapses to “No departures in this period” — it falls back to the official countdown or the timetable. Outage notices are more honest too: when we cannot tell whether the cause is the operator, our own service or your connection, we no longer say that the Taipei Metro signal is down.',
     '東部幹線的急彎改照官方核定速限行駛：宜蘭線新馬那個半徑 306 公尺的彎（2018 年出軌事故現場）普悠瑪 75、太魯閣 85、其他列車 65，北迴線和仁一帶非傾斜式列車 115。到站時刻完全不變——彎道慢下來的時間由同一段的其他部分吸收；時刻表太緊而做不到時，維持原本的畫法': 'Sharp curves on the eastern lines now run at the officially posted speed limits: at the 306 m radius curve by Xinma on the Yilan Line (site of the 2018 derailment) Puyuma runs at 75, Taroko at 85 and other trains at 65 km/h; non-tilting trains run at 115 km/h around Heren on the North Link Line. Arrival times are unchanged — the time lost through a curve is absorbed by the rest of the same run; where the timetable is too tight for that, the previous motion is kept.',
@@ -374,7 +725,7 @@
     '太魯閣自強號': 'Taroko Express', 'TEMU1000 型傾斜式電聯車，過彎不必大幅減速，主跑東部幹線。': 'TEMU1000 tilting EMU, primarily used on the eastern main line.',
     '普悠瑪自強號': 'Puyuma Express', 'TEMU2000 型傾斜式電聯車，2013 年起投入東部幹線。': 'TEMU2000 tilting EMU, serving the eastern main line since 2013.',
     'PP 自強號': 'PP Tze-Chiang', 'E1000 型推拉式自強號，前後機車頭一推一拉。': 'A push–pull intercity train with a locomotive at each end.',
-    'EMU3000 新自強': 'EMU3000 Tze-Chiang', '2021 年起投入的日立製城際電聯車，安靜平穩，設「騰雲座艙」商務車廂。': 'A quiet, smooth Hitachi intercity EMU introduced in 2021, with the Tengyun business cabin.',
+    'EMU3000 新自強': 'EMU3000 Tze-Chiang', '2021 年起投入的日立製城際電聯車，安靜平穩；多數班次有「騰雲座艙」商務車廂（特仕車編組除外）。': 'A quiet, smooth Hitachi intercity EMU introduced in 2021. Most services have the Tengyun business cabin (except the special-edition sets).',
     '柴聯自強號': 'Diesel Tze-Chiang', 'DR2800／2900／3100 型柴油電聯車，不吃電、非電化區間也能跑。': 'DR2800, 2900 and 3100 diesel multiple units that can run beyond electrified lines.',
     '自強號': 'Tze-Chiang Limited Express', '台鐵最高等級的城際列車。': 'TRA’s highest-category intercity train.',
     '機車牽引的傳統對號快車，橘黃塗裝，1970 年登場，班次已越來越少。': 'A traditional locomotive-hauled reserved train introduced in 1970, now increasingly rare.',
@@ -387,12 +738,29 @@
     '身障友善座位': 'Accessible seating', '可帶自行車（兩鐵）': 'Bicycles accepted', '親子車廂': 'Family car', '團體專開列車': 'Chartered group train', '附掛郵政／行包車廂': 'Mail or baggage car'
   });
   Object.assign(messages.ja, {
+    '桌面小工具的發車看板：大尺寸一次列出五班並分北上南下，每列都有開車時刻與準點誤點；也可以改成主要顯示發車時刻': '大きい発車標ウィジェットは、上り・下りに分けて 5 本を表示し、各行に発車時刻と定時・遅延を表示します。発車時刻を大きく表示する設定も追加しました。',
+    '捷運列車的車廂擁擠度不會再整批消失一輪：官方擁擠度偶爾抓不到時改用剛才那一份，最多兩分鐘，超過就留白（謝謝網友回報）': '地下鉄の車両ごとの混雑度が、更新のたびにまとめて消えることがなくなりました。公式の混雑度データが一時的に取得できないときは直前の値を最大 2 分まで使い、それを過ぎた場合は表示しません(ご報告ありがとうございます)。',
+    '桌面小工具：方向與目的站多了「不指定」，選過也能改回來；捷運看板的方向只列所選車站開得到的終點。Android 補齊到七種尺寸，捷運與火車都有大張卡片，5 欄手機會佔滿五格（謝謝網友回報）': 'ホーム画面ウィジェット:方向と目的地に「指定なし」が加わり、選んだ後でも戻せるようになりました。地下鉄の発車標は選んだ駅から行ける方面だけを表示します。Android は 7 種類のサイズを揃え、地下鉄と鉄道の両方に大きいカードを追加、5 列の端末では 5 列いっぱいに使います(ご報告ありがとうございます)。',
+    '車站看板的誤點標示放大加粗，一眼就看得出這班晚了幾分（謝謝網友回報）': '駅の発車標の遅延表示を大きく太くし、何分遅れているか一目でわかるようにしました(ご報告ありがとうございます)。',
+    '臺北、臺南、花蓮三個台鐵站先試行公車轉乘：到站後可查現在幾分鐘有車，再點一路看車牌、位置、還差幾站與擁擠度；也能直接開 Google 地圖走到路邊站牌': '台北・台南・花蓮の台湾鉄路3駅でバス乗換の試行を開始しました。駅到着後に現在の到着予測を確認し、路線を開くと提供されている場合は車両番号、位置、あと何停留所か、混雑度を確認できます。Google マップで正しい道路沿いのバス停まで歩けます。',
+    '公車轉乘從三站擴到全臺台鐵營運站：到站後可按需查附近公車，再看車牌、位置、還差幾站與擁擠度；偏遠站若 600 公尺內沒有站牌也會直接說明': 'バス乗換を3駅から台湾全土の台湾鉄路旅客駅へ拡大しました。到着後に周辺のバスを必要な時だけ照会し、路線を開くと車両番号、位置、あと何停留所か、提供地域では混雑度も確認できます。600m以内に索引済みのバス停がない駅は、その旨を明記します。',
+    '公車轉乘從三站擴到全臺台鐵營運站：到站後可按需查附近公車，再看車牌、位置、還差幾站與擁擠度；偏遠站若 600 公尺內沒有站牌也會直接說明，查詢失敗則只顯示可重試的說明': 'バス乗換を3駅から台湾全土の台湾鉄路旅客駅へ拡大しました。到着後に周辺のバスを必要な時だけ照会し、路線を開くと車両番号、位置、あと何停留所か、提供地域では混雑度も確認できます。600m以内に索引済みのバス停がない駅はその旨を明記し、照会失敗時は再試行できる案内だけを表示します。',
+    '登入失敗訊息不再重複兩行；Android 的 Google 登入多了自動退路（謝謝網友回報）': 'ログインエラーの表示が二重にならなくなり、Android の Google ログインは別の方式へ自動的に切り替わるようになりました。ご報告ありがとうございます。',
+    "按下「我上車了」之後，再去點一班還沒發車的車，時鐘不會再被撥走（謝謝網友回報）": "「乗車しました」を押した後に、まだ発車していない列車をタップしても時計が現在からずれなくなりました。ご報告ありがとうございます。",
+    "英文與日文的手機頂列，左上角的軌島牌裝不下時會自己讓位，分組切換鈕留在畫面內": "英語・日本語のスマートフォン表示では、左上の軌島プレートが収まらないときに自ら幅を譲り、グループ切り替えタブが画面内に収まります。",
+    "手機地圖右下角的版權資訊不會再折成一大塊蓋住速度調整鈕：改成貼著底緣一整條、放不下的部分橫向可捲，授權連結一個都沒少，仍然看得到也點得到。切到衛星影像時字串較長，原本折成四行最嚴重，現在一樣是一條（謝謝網友回報）": "スマートフォンの地図右下の著作権表示を、下端に沿った一行にしました。収まらない部分は横にスクロールし、速度調整ボタンを覆うブロックにはなりません。ライセンスのリンクは一つも欠けておらず、表示もタップもできます。衛星画像モードでは文字列が長くなりますが、そこでも一行のままです。（ご報告いただいた方に感謝します。）",
     '捷運信義東延段 8/30 14 時通車，淡水信義線終點由象山延伸到廣慈/奉天宮站。地圖上這一站與新路段已經先畫好，官方即時到站資料要等通車後才會帶到這一站，在那之前這一段不會有列車，通車後會自動跟上；8/30 至 9/28 行經新通車區間不計票價': '8月30日14時に信義線東延伸区間が開業し、淡水信義線の終点が象山から廣慈/奉天宮駅へ延びます。地図には新駅と新しい線路をすでに描いていますが、公式のリアルタイム到着情報は開業後から届くため、それまでこの区間に列車は走りません。8月30日から9月28日まで、新区間を通る乗車は運賃無料です。',
     '英文與日文現在也會即時更新最愛、今日台鐵、誤點履歷、帳號同步、Google 清單匯入、分享與「追蹤這站」；並補上災害監看、捷運終點、點選列車／車站、成就說明，以及 iPhone 即時動態與小工具，官方活動只有中文時則標示「中文原文」': '英語・日本語で、お気に入り、本日の台湾鉄路、遅延履歴、アカウント同期、Googleリスト読み込み、共有、「この駅を追跡」もすぐ切り替わるようになりました。災害監視、メトロの行先、列車／駅の選択表示、実績の説明、iPhoneのライブアクティビティとウィジェットにも対応し、中国語だけの公式イベントは原文であることを明記します。',
+    '英文與日文現在也會即時更新最愛、今日台鐵、誤點履歷、帳號同步、Google 清單匯入、分享與「追蹤這站」；並補上災害監看、捷運終點、點選列車／車站、成就說明、顯示與字級、所在地鏡頭，以及 iPhone 即時動態與小工具，官方活動只有中文時則標示「中文原文」': '英語・日本語で、お気に入り、本日の台湾鉄路、遅延履歴、アカウント同期、Googleリスト読み込み、共有、「この駅を追跡」もすぐ切り替わるようになりました。災害監視、メトロの行先、列車／駅の選択表示、実績の説明、表示と文字サイズ、現在地カメラ、iPhoneのライブアクティビティとウィジェットにも対応し、中国語だけの公式イベントは原文であることを明記します。',
     '網站版重新開啟北捷統一時間軸：地圖列車、車站預告與點選跟隨會使用同一份身分與軌跡；每次更新也會檢查軌跡內部，若列車在五秒內跨過半站以上，會先留在原位重新銜接，不把瞬間跳位送到畫面。Core 連線失敗或單線資料不完整時，仍會自動退回原本模式': 'Web版で台北メトロの統一タイムラインを標準で再開し、地図・駅予告・追跡が同じ列車IDと軌跡を使うようになりました。5秒以内に半駅以上飛ぶ軌跡はその場で保持して再接続し、Coreや路線単位の異常時は従来方式へ自動退避します。',
     '英文與日文再補齊品牌介紹、使用說明、特色車站與列車、觀光列車圖鑑，以及旅程護照和成就；外語版更新紀錄保留最近八筆精簡內容，較早歷史改用主題摘要': '英語・日本語でブランド紹介、使い方、特色駅・列車、観光列車図鑑、旅程パスポート、実績を追加しました。最近8件は簡潔に翻訳し、以前の履歴はテーマ別にまとめています。',
-    "按下「我上車了」之後，再去點一班還沒發車的車，時鐘不會再被撥走（謝謝網友回報）": "「乗車しました」を押した後に、まだ発車していない列車をタップしても時計が現在からずれなくなりました。ご報告ありがとうございます。",
+    "更新完跳出的「更新了什麼」現在會用你正在使用的語言：英文與日文各有整段自己的文案，不會再看到標著「中文原文」的中文說明": "アップデート後に表示される「更新内容」が、お使いの言語で表示されるようになりました。英語と日本語にはそれぞれ専用の文章があり、「中国語の原文」と付いた中国語の説明は表示されなくなります。",
+    "桌面小工具的發車看板也標出北上／南下：Android 從零補上方向三角，兩個平台的三角一起放大，顏色換成台鐵官方的北上藍、南下綠": "ホーム画面の発車ウィジェットでも各行に上り／下りを表示：Android に方向の三角を新たに追加し、両プラットフォームとも三角を大きくして、台鉄公式の「上り＝青・下り＝緑」に変更しました。",
+    "衛星影像模式下放大縮小會閃一下底色的問題真的修好了：8/30 只是把墊底的顏色調得像衛星影像，換色治標沒治本。現在底下永遠墊著一層真的衛星影像，開衛星時就把全台先抓好，縮放時露出來的是影像不是色塊": "衛星画像モードでの拡大・縮小時に下地の色が一瞬見える問題を本当に修正しました。8/30 の対応は下地の色を衛星画像に近づけただけの応急処置でした。現在は本物の衛星画像を常に下に敷き、衛星に切り替えた時点で台湾全域分を先読みするため、隙間に見えるのは色ではなく画像です。",
+    "車站看板的欄位對齊修好：倒數變成「即將進站」那幾列，原本會把時刻與擁擠度往左推、整張板看起來歪歪的，現在倒數與時刻兩欄逐板等寬，每一列都對齊。另外台鐵臺北車站不再多出一顆「臺北-環島」——那是環島之星繞完一圈的官方終點站碼，其實就是臺北站，現在併成一顆，手機小工具的車站清單也一起併": "駅発車標の桁がそろうようになりました。カウントダウンが「まもなく到着」になる行が時刻と混雑度を左に押し出し、表全体が傾いて見えていました。カウントダウンと時刻の 2 列は表ごとに最大幅を測ってそろえます。台北駅に「臺北-環島」がもう 1 つ出ることもなくなりました（環島之星が一周を終える地点の公式駅コードで、同じ台北駅です）。ウィジェットの駅一覧も同様です。",
     "衛星影像模式下放大縮小時，畫面會有一瞬間整片變成深綠色（Android 手機上特別明顯）；墊在底下的顏色改成貼齊實際衛星影像，現在幾乎看不出來": "衛星画像モードで拡大・縮小した瞬間、画面全体が濃い緑色になっていました（Android端末で特に目立ちました）。下地の色を実際の衛星画像に合わせたため、ほとんど分からなくなりました。",
+    '訂閱後桌面小工具立刻能放多站、自動選站，不必等同步或按恢復購買': 'サブスクリプションに登録すると、ホーム画面ウィジェットですぐに複数の駅を設定でき、駅の自動選択も使えます。同期を待ったり「購入を復元」を押したりする必要はありません。',
+    '新北投與小碧潭支線的車一發車就從地圖上消失，現在會照官方到站時間走完兩站': '新北投支線と小碧潭支線の列車が、発車した途端に地図から消えていました。現在は公式の到着時刻に合わせて 2 駅間を走ります。',
     '開啟網站變快了：三十幾份路網與班表資料從一份一份載改成同時下載，重新造訪也不再重抓沒變動的檔案': 'サイトの起動が大幅に速くなりました：30 余りの路線・時刻表データを 1 件ずつではなく同時に読み込むようにし、再訪時は変更のないファイルを取得し直さないようにしました。',
     '車廂擁擠度改成逐車對照：忠孝復興這種兩線共站不會再把板南線的擁擠度掛到文湖線上，認不出是哪一台車就留白不猜；三種車站看板現在都會顯示擁擠度，不會再切換一次就整片消失，鎖屏的等車卡也一起改。即時模型暫時缺這個系統的資料時，車站看板不再整片變成「此時段無停靠班次」，會自動退回官方倒數或班表。即時資料中斷的提示也改成照實說：分不出是官方端還是本站或你的網路時，不再一律寫成臺北捷運訊號中斷': '車両混雑度を列車ごとに照合するようにしました：忠孝復興のような乗換駅で板南線の混雑度が文湖線の行に表示されることはなくなり、どの列車か特定できない行は推測せず空欄にします。3 種類の駅発車案内すべてで混雑度を表示するため、表示元が切り替わっても消えなくなり、ロック画面の待ち時間カードも同じ方式に変更しました。リアルタイムモデルにその路線網のデータが一時的に無い場合でも、駅発車案内が「この時間帯に停車する列車はありません」一色になることはなくなり、公式カウントダウンまたは時刻表に自動的に戻ります。リアルタイム情報中断の案内も実態に合わせ、事業者側・当サイト・お使いの回線のどれが原因か判別できない場合は「台北MRTの信号中断」とは表示しません。',
     '東部幹線的急彎改照官方核定速限行駛：宜蘭線新馬那個半徑 306 公尺的彎（2018 年出軌事故現場）普悠瑪 75、太魯閣 85、其他列車 65，北迴線和仁一帶非傾斜式列車 115。到站時刻完全不變——彎道慢下來的時間由同一段的其他部分吸收；時刻表太緊而做不到時，維持原本的畫法': '東部幹線の急曲線を公式の運転速度制限に合わせて走らせるようにしました。宜蘭線・新馬の半径306メートルの曲線（2018年の脱線事故現場）ではプユマ75キロ、タロコ85キロ、その他の列車65キロ、北廻線・和仁付近では振り子式以外の列車が115キロで走行します。到着時刻は変わりません——曲線で失った時間は同じ運転区間の他の部分で吸収します。時刻に余裕がない場合は従来の動きを維持します。',
@@ -414,7 +782,7 @@
     '太魯閣自強號': '太魯閣自強号', 'TEMU1000 型傾斜式電聯車，過彎不必大幅減速，主跑東部幹線。': '曲線を高速で通過できるTEMU1000型振子式電車で、主に東部幹線を走ります。',
     '普悠瑪自強號': '普悠瑪自強号', 'TEMU2000 型傾斜式電聯車，2013 年起投入東部幹線。': '2013年から東部幹線で運用するTEMU2000型振子式電車です。',
     'PP 自強號': 'PP自強号', 'E1000 型推拉式自強號，前後機車頭一推一拉。': '編成の前後に機関車を置くプッシュプル式都市間列車です。',
-    'EMU3000 新自強': 'EMU3000新自強号', '2021 年起投入的日立製城際電聯車，安靜平穩，設「騰雲座艙」商務車廂。': '2021年登場の日立製都市間電車で、静かで滑らかな乗り心地とビジネスクラス「騰雲座艙」を備えます。',
+    'EMU3000 新自強': 'EMU3000新自強号', '2021 年起投入的日立製城際電聯車，安靜平穩；多數班次有「騰雲座艙」商務車廂（特仕車編組除外）。': '2021年登場の日立製都市間電車で、静かで滑らかな乗り心地です。多くの列車にビジネスクラス「騰雲座艙」があります（特別仕様編成を除く）。',
     '柴聯自強號': 'ディーゼル自強号', 'DR2800／2900／3100 型柴油電聯車，不吃電、非電化區間也能跑。': 'DR2800・2900・3100型気動車で、非電化区間も走行できます。',
     '自強號': '自強号', '台鐵最高等級的城際列車。': '台湾鉄路で最上位の都市間列車です。',
     '機車牽引的傳統對號快車，橘黃塗裝，1970 年登場，班次已越來越少。': '1970年登場のオレンジ色の機関車牽引指定席列車で、運転本数は減少しています。',
@@ -443,10 +811,17 @@
     '軌島使用者': 'Rail Island user', '登入與同步目前無法使用。': 'Sign-in and sync are currently unavailable.', '正在讀取登入狀態…': 'Checking sign-in status…',
     '登入後會同步「最愛地點、最愛車站、最愛列車、完乘紀錄」。主題、音量與省電等裝置偏好不會同步。若這台裝置沒有記著別的帳號，首次登入時會把裝置上的訪客資料併入帳號；若這台裝置還記著上一個登入的別的帳號，訪客資料不會自動併入，但仍留在裝置上，不會遺失。': 'Sign in to sync favourite places, stations and trains, plus completed journeys. Device preferences such as theme, volume and power saving do not sync. Guest data is merged on first sign-in unless this device still remembers a different account; in that case it remains safely on the device and is not merged automatically.',
     '使用 Google 登入': 'Sign in with Google', '使用 Apple 登入': 'Sign in with Apple', '先看看軌島通行證有什麼': 'See what the Rail Island Pass includes',
+    '沒有跳出 Google 帳號選擇畫面嗎？可以改用另一種方式登入。': 'No Google account picker appeared? You can sign in another way.', '改用另一種方式登入': 'Sign in another way',
+    '這台裝置的 Google 登入試了兩種方式都不成功。可以改用上面的「使用 Apple 登入」，它不需要 Google 服務。': 'Google sign-in failed on this device after trying both methods. You can use "Sign in with Apple" above instead — it does not need Google services.',
     'Google 登入只用於軌島帳號，不會因此取得 Google Maps 已儲存清單；清單匯入仍需使用 Google Takeout。': 'Google sign-in is only for your Rail Island account. It does not grant access to Google Maps saved lists; use Google Takeout to import them.',
     '訂閱軌島通行證才會同步': 'Subscribe to the Rail Island Pass to sync', '正在合併這台裝置與雲端資料…': 'Merging this device with cloud data…',
     '上次同步：{time}': 'Last synced: {time}', '尚未完成第一次同步': 'First sync not completed', 'Apple 隱藏電子郵件': 'Apple Hide My Email',
     '跨裝置同步': 'Cross-device sync', '查看通行證': 'View Pass', '立即同步': 'Sync now', '登出': 'Sign out', '刪除帳號與同步資料': 'Delete account and synced data',
+    '這台裝置還有訪客紀錄': 'Guest records on this device',
+    '有 {n} 筆收藏與完乘紀錄是登入前存的，還沒併進這個帳號。': '{n} saved items and completed rides from before you signed in have not been added to this account yet.',
+    '併入這個帳號': 'Add them to this account',
+    '訪客紀錄已併入這個帳號': 'Guest records added to this account',
+    '併入失敗：這台裝置的儲存空間不足': 'Could not add them: this device is out of storage.',
     '登出會先完成最後同步，再把畫面切回訪客狀態。你的收藏留在這台裝置上，同一個帳號登入就會回來；換別人登入看不到，也不會被合併。要一併清除這台裝置上的收藏，請用下方的「刪除帳號與同步資料」。': 'Signing out completes one last sync, then returns to guest mode. Your favourites remain on this device and return with the same account; another account cannot see or merge them. To remove the device copy too, use “Delete account and synced data” below.',
     '軌島帳號與同步資料已刪除': 'Rail Island account and synced data deleted', '刪除失敗：{error}': 'Delete failed: {error}', '帳': 'Acct',
     '已恢復通行證資格': 'Pass access restored', '自由座 {cars} 車': 'Non-reserved cars {cars}',
@@ -462,14 +837,17 @@
     '完乘達成　<b>{train} 次</b> 抵達終點': 'Journey complete · <b>train {train}</b> reached its terminus', '明星列車　<b>{name}</b> 蓋章！': 'Named Train · <b>{name}</b> stamped!',
     '車種圖鑑　<b>{name}</b> 蓋章！': 'Fleet Gallery · <b>{name}</b> stamped!', '支線行腳　<b>{name}</b> 蓋章！': 'Branch Explorer · <b>{name}</b> stamped!',
     '成就解鎖　<b>{achievement}</b>': 'Achievement unlocked · <b>{achievement}</b>', '今天沒有這一類的班次可搭': 'No services of this type run today.',
+    '今天沒有班次': 'No service today', '下一班 {date}': 'Next run {date}', '班表上還有 {dates}': 'Also running {dates}',
+    '{date} 前的班表裡都沒有，之後要看官方公告': 'Nothing through {date} in the published timetable; watch for official announcements after that.',
+    '{m}/{d}（{weekday}）': '{m}/{d} ({weekday})',
     '還沒有你的位置，先按一次「附近車站」定位': 'Your location is not available yet. Use Nearby stations to locate first.',
     '離「{station}」還有 {distance} 公尺，走近一點再蓋（這站的範圍 {radius} 公尺）': 'You are {distance} m from “{station}”. Move closer to stamp it (station radius: {radius} m).',
-    '「{station}」今天已經蓋過章了': '“{station}” has already been stamped today.', '蓋章成功 · {station}{count}': 'Stamp added · {station}{count}', '（第 {n} 次）': ' ({n}th visit)',
+    '「{station}」今天已經蓋過章了': '“{station}” has already been stamped today.', '蓋章成功 · {station}{count}': 'Stamp added · {station}{count}', '（第 {n} 次）': ' (visit {n})',
     '你已經在搭乘中了，先下車再上車': 'A ride is already being recorded. End it before boarding again.', '下車站要在上車站後面': 'The destination must come after the boarding station.',
     '開始收集 · {from} → {to}{note}': 'Collection started · {from} → {to}{note}', '（沒定到位置，上車站先算搭過）': ' (location unavailable; boarding station recorded as passed)',
     '{stations} 收進護照': '{stations} added to the Passport', '、': ', ', '{from} → {to} 收集完成，{n} 座站進護照': '{from} → {to} complete; {n} stations added to the Passport',
-    '收集完成 · {from} → {to} 共 {n} 座站': 'Collection complete · {from} → {to}, {n} stations', '我下車了 · 訂到 {station}': 'I got off · planned for {station}',
-    '搭乘中 · {train} 次': 'Riding · train {train}', '我上車了': 'I boarded', '這班車已經到終點了': 'This train has reached its terminus.',
+    '收集完成 · {from} → {to} 共 {n} 座站': 'Collection complete · {from} → {to}, {n} stations', '我下車了 · 訂到 {station}': 'Get off · destination: {station}',
+    '搭乘中 · {train} 次': 'Riding · train {train}', '我上車了': 'I’m on board', '這班車已經到終點了': 'This train has reached its terminus.',
     '曾誤點 {n} 分': 'Earlier delay {n} min', '載入逐站歷程…': 'Loading station history…', '暫時讀不到，稍後再試。': 'Temporarily unavailable. Try again later.',
     '重新整理': 'Refresh', '尚無逐站記錄。': 'No station records yet.', '誤點{n}分': '{n} min late', '峰值{n}分': 'Peak {n} min',
     '台鐵即時資料中斷{stopped}，暫時無法從這裡跟車': 'TRA live data is interrupted{stopped}; following from here is temporarily unavailable.', '（停在 {time}）': ' (stopped at {time})',
@@ -498,10 +876,10 @@
     '已複製分享連結': 'Share link copied', '複製這個分享連結：': 'Copy this share link:', '{route}・{kind} {train}——用軌島看我到哪了': '{route} · {kind} {train}—see where I am on Rail Island',
     '{from} → {to}': '{from} → {to}', '軌島行程分享': 'Rail Island journey sharing', '分享行程': 'Share journey', '已複製行程連結': 'Journey link copied', '複製這個行程連結：': 'Copy this journey link:',
     '行程分享': 'Journey sharing', '選你的目的站，產生一個「活的」行程連結——對方看得到列車位置與到站時刻，你不用一直回傳定位。': 'Choose your destination to create a live journey link. The recipient can see the train and arrival time without continuous location sharing.',
-    '表定 {time} 到': 'Scheduled {time}', '這班車沒有剩餘停站了（已接近終點），沒辦法再選目的站。': 'This train has no remaining stops and is near its terminus, so a destination cannot be selected.',
+    '表定 {time} 到': 'Scheduled arrival {time}', '這班車沒有剩餘停站了（已接近終點），沒辦法再選目的站。': 'This train has no remaining stops and is near its terminus, so a destination cannot be selected.',
     '目的站': 'destination', '查無班次': 'Train not found', '行程已結束': 'Journey ended', '找不到這個行程連結對應的班次': 'No train matches this journey link.', '這個行程連結已過期（非今日班次）': 'This journey link has expired (not a service for today).',
     '{station} · 今日班次已收': '{station} · today’s service has ended', '已到達': 'Arrived', '{station} · {time} 抵達': '{station} · arrived {time}', '追蹤中': 'Tracking',
-    '即將抵達目的站': 'Arriving at the destination', '預計 {time} 抵達 · <b>{n} 分</b>': 'Expected {time} · <b>{n} min</b>', '你正在搭 {train} 次，先下車再上車': 'You are riding train {train}. End that ride before boarding again.',
+    '即將抵達目的站': 'Arriving at the destination', '預計 {time} 抵達 · <b>{n} 分</b>': 'Arrives {time} · <b>in {n} min</b>', '你正在搭 {train} 次，先下車再上車': 'You are riding train {train}. End that ride before boarding again.', '你正在搭 {train} 次，要下車嗎？': 'You are riding train {train}. End that ride now?', '{train} 次已過抵達時間，自動幫你下車': 'Train {train} is past its arrival time, so your ride has ended automatically.',
     '已複製帳號': 'Account number copied', '已選取帳號，請按 ⌘C／Ctrl+C 複製': 'Account number selected. Press ⌘C or Ctrl+C to copy.',
     '街道底圖載入異常，列車與路線不受影響。可切換到「衛星」底圖。': 'The street map failed to load; trains and routes are unaffected. You can switch to Satellite.',
     '街道底圖載入異常，列車與路線不受影響。重新整理即可重試。': 'The street map failed to load; trains and routes are unaffected. Refresh to try again.',
@@ -541,9 +919,16 @@
     '軌島使用者': '軌島ユーザー', '登入與同步目前無法使用。': 'ログインと同期は現在利用できません。', '正在讀取登入狀態…': 'ログイン状態を確認中…',
     '登入後會同步「最愛地點、最愛車站、最愛列車、完乘紀錄」。主題、音量與省電等裝置偏好不會同步。若這台裝置沒有記著別的帳號，首次登入時會把裝置上的訪客資料併入帳號；若這台裝置還記著上一個登入的別的帳號，訪客資料不會自動併入，但仍留在裝置上，不會遺失。': 'ログインするとお気に入りの場所・駅・列車と完乗記録を同期します。テーマ、音量、省電力など端末設定は同期しません。この端末に別のアカウントが記録されていなければ初回ログイン時にゲストデータを統合します。別のアカウントが残っている場合は自動統合せず、端末内に安全に保持します。',
     '使用 Google 登入': 'Googleでログイン', '使用 Apple 登入': 'Appleでログイン', '先看看軌島通行證有什麼': '軌島パスの内容を見る',
+    '沒有跳出 Google 帳號選擇畫面嗎？可以改用另一種方式登入。': 'Google のアカウント選択画面が表示されませんでしたか？別の方法でログインできます。', '改用另一種方式登入': '別の方法でログイン',
+    '這台裝置的 Google 登入試了兩種方式都不成功。可以改用上面的「使用 Apple 登入」，它不需要 Google 服務。': 'この端末では Google ログインが 2 つの方法とも失敗しました。上の「Appleでログイン」をご利用ください（Google サービス不要）。',
     'Google 登入只用於軌島帳號，不會因此取得 Google Maps 已儲存清單；清單匯入仍需使用 Google Takeout。': 'Googleログインは軌島アカウントだけに使います。Googleマップの保存済みリストにはアクセスしません。読み込みにはGoogle Takeoutを使用してください。',
     '訂閱軌島通行證才會同步': '軌島パスの購読で同期できます', '正在合併這台裝置與雲端資料…': 'この端末とクラウドのデータを統合中…', '上次同步：{time}': '前回の同期：{time}', '尚未完成第一次同步': '初回同期は未完了です',
     'Apple 隱藏電子郵件': 'Appleのメールを非公開', '跨裝置同步': '端末間同期', '查看通行證': 'パスを見る', '立即同步': '今すぐ同期', '登出': 'ログアウト', '刪除帳號與同步資料': 'アカウントと同期データを削除',
+    '這台裝置還有訪客紀錄': 'この端末にゲスト記録があります',
+    '有 {n} 筆收藏與完乘紀錄是登入前存的，還沒併進這個帳號。': 'ログイン前に保存したお気に入りと乗車記録が {n} 件、このアカウントに取り込まれていません。',
+    '併入這個帳號': 'このアカウントに取り込む',
+    '訪客紀錄已併入這個帳號': 'ゲスト記録をこのアカウントに取り込みました',
+    '併入失敗：這台裝置的儲存空間不足': '取り込めませんでした：端末の空き容量が足りません。',
     '登出會先完成最後同步，再把畫面切回訪客狀態。你的收藏留在這台裝置上，同一個帳號登入就會回來；換別人登入看不到，也不會被合併。要一併清除這台裝置上的收藏，請用下方的「刪除帳號與同步資料」。': 'ログアウト前に最後の同期を行い、ゲスト表示へ戻ります。お気に入りはこの端末に残り、同じアカウントで戻ります。別のアカウントからは見えず、統合もされません。端末内のお気に入りも消す場合は下の「アカウントと同期データを削除」を使ってください。',
     '軌島帳號與同步資料已刪除': '軌島アカウントと同期データを削除しました', '刪除失敗：{error}': '削除できませんでした：{error}', '帳': 'アカ', '已恢復通行證資格': 'パスの利用資格を復元しました', '自由座 {cars} 車': '自由席 {cars}号車',
     '上榜': 'ランク入り', '查看 {train} 次誤點履歷・近 30 天最糟單日全程誤點 {worst} 分、平均 {average} 分、{days} 天有紀錄': '{train}列車の遅延履歴を見る・過去30日の最大全区間遅延{worst}分、平均{average}分、記録{days}日',
@@ -554,11 +939,14 @@
     '還沒有收藏——跟隨列車後點資訊卡的收藏鈕收藏列車；打開車站看板點收藏鈕收藏車站；用工具列「儲存」在地圖上存地點。': 'お気に入りはまだありません。列車追跡カードや駅案内のお気に入りボタン、ツールバーの「保存」から追加できます。',
     '完乘達成　<b>{train} 次</b> 抵達終點': '完乗達成　<b>{train}列車</b>が終点に到着', '明星列車　<b>{name}</b> 蓋章！': '名物列車　<b>{name}</b> スタンプ獲得！', '車種圖鑑　<b>{name}</b> 蓋章！': '車両図鑑　<b>{name}</b> スタンプ獲得！',
     '支線行腳　<b>{name}</b> 蓋章！': '支線めぐり　<b>{name}</b> スタンプ獲得！', '成就解鎖　<b>{achievement}</b>': '実績解除　<b>{achievement}</b>', '今天沒有這一類的班次可搭': '今日はこの種類の列車がありません。',
-    '還沒有你的位置，先按一次「附近車站」定位': '現在地がまだありません。先に「現在地付近の駅」で測位してください。', '離「{station}」還有 {distance} 公尺，走近一點再蓋（這站的範圍 {radius} 公尺）': '「{station}」まであと{distance}mです。近づいてからスタンプしてください（判定範囲{radius}m）。',
+    '今天沒有班次': '本日は運行なし', '下一班 {date}': '次の運行 {date}', '班表上還有 {dates}': 'ほかに {dates} も運行',
+    '{date} 前的班表裡都沒有，之後要看官方公告': '{date} までの時刻表にはありません。以降は公式のお知らせをご確認ください。',
+    '{m}/{d}（{weekday}）': '{m}/{d}（{weekday}）',
+    '還沒有你的位置，先按一次「附近車站」定位': '現在地がまだありません。先に「近くの駅」で測位してください。', '離「{station}」還有 {distance} 公尺，走近一點再蓋（這站的範圍 {radius} 公尺）': '「{station}」まであと{distance}mです。近づいてからスタンプしてください（判定範囲{radius}m）。',
     '「{station}」今天已經蓋過章了': '「{station}」は今日すでにスタンプ済みです。', '蓋章成功 · {station}{count}': 'スタンプ獲得・{station}{count}', '（第 {n} 次）': '（{n}回目）',
     '你已經在搭乘中了，先下車再上車': 'すでに乗車記録中です。先に下車してください。', '下車站要在上車站後面': '下車駅は乗車駅より後の駅を選んでください。', '開始收集 · {from} → {to}{note}': '収集開始・{from} → {to}{note}', '（沒定到位置，上車站先算搭過）': '（位置を確認できないため乗車駅は通過として記録）',
     '{stations} 收進護照': '{stations}をパスポートに追加', '、': '、', '{from} → {to} 收集完成，{n} 座站進護照': '{from} → {to}の収集完了、{n}駅をパスポートに追加', '收集完成 · {from} → {to} 共 {n} 座站': '収集完了・{from} → {to}、全{n}駅',
-    '我下車了 · 訂到 {station}': '下車しました・予定は{station}', '搭乘中 · {train} 次': '乗車中・{train}列車', '我上車了': '乗車しました', '這班車已經到終點了': 'この列車は終点に到着しました。',
+    '我下車了 · 訂到 {station}': '下車する・行先：{station}', '搭乘中 · {train} 次': '乗車中・{train}列車', '我上車了': '乗車する', '這班車已經到終點了': 'この列車は終点に到着しました。',
     '曾誤點 {n} 分': '一時{n}分遅れ', '載入逐站歷程…': '駅ごとの履歴を読み込み中…', '暫時讀不到，稍後再試。': '一時的に取得できません。後でもう一度お試しください。', '重新整理': '更新', '尚無逐站記錄。': '駅ごとの記録はまだありません。',
     '誤點{n}分': '{n}分遅れ', '峰值{n}分': '最大{n}分', '台鐵即時資料中斷{stopped}，暫時無法從這裡跟車': '台湾鉄路のリアルタイム情報が中断{stopped}しているため、ここからの追跡は一時利用できません。', '（停在 {time}）': '（{time}で停止）',
     '跟這班車 →': 'この列車を追跡 →', '上次成功更新 {time}': '最終更新成功 {time}', '今日資料累積中，清晨發車後陸續出現。': '本日のデータを集計中です。早朝の始発後から順次表示されます。', '今日已觀測 {total} 班・誤點≥5分：目前 {current} 班・今天曾有 {peak} 班': '本日{total}列車を観測・5分以上の遅れ：現在{current}列車、本日最大{peak}列車', '資料自今晨起累積，每天重新開始': '今朝から集計し、毎日リセットします',
@@ -576,7 +964,7 @@
     '{route}・{kind} {train}——用軌島看我到哪了': '{route}・{kind} {train}―軌島で現在地を見る', '{from} → {to}': '{from} → {to}', '軌島行程分享': '軌島の旅程共有', '分享行程': '旅程を共有', '已複製行程連結': '旅程リンクをコピーしました', '複製這個行程連結：': 'この旅程リンクをコピー：',
     '行程分享': '旅程共有', '選你的目的站，產生一個「活的」行程連結——對方看得到列車位置與到站時刻，你不用一直回傳定位。': '目的駅を選ぶと、列車位置と到着時刻が見えるライブ旅程リンクを作成します。位置情報を送り続ける必要はありません。', '表定 {time} 到': '所定 {time}着', '這班車沒有剩餘停站了（已接近終點），沒辦法再選目的站。': 'この列車は終点に近く、残りの停車駅がないため目的駅を選べません。',
     '目的站': '目的駅', '查無班次': '列車が見つかりません', '行程已結束': '旅程は終了しました', '找不到這個行程連結對應的班次': 'この旅程リンクに対応する列車が見つかりません。', '這個行程連結已過期（非今日班次）': 'この旅程リンクは期限切れです（本日の列車ではありません）。', '{station} · 今日班次已收': '{station}・本日の運転終了', '已到達': '到着済み', '{station} · {time} 抵達': '{station}・{time}着', '追蹤中': '追跡中', '即將抵達目的站': 'まもなく目的駅', '預計 {time} 抵達 · <b>{n} 分</b>': '{time}到着予定・<b>あと{n}分</b>',
-    '你正在搭 {train} 次，先下車再上車': '{train}列車に乗車中です。先に下車してください。', '已複製帳號': '口座番号をコピーしました', '已選取帳號，請按 ⌘C／Ctrl+C 複製': '口座番号を選択しました。⌘C／Ctrl+Cでコピーしてください。',
+    '你正在搭 {train} 次，先下車再上車': '{train}列車に乗車中です。先に下車してください。', '你正在搭 {train} 次，要下車嗎？': '{train}列車に乗車中です。下車しますか？', '{train} 次已過抵達時間，自動幫你下車': '{train}列車の到着時刻を過ぎたため、自動で下車しました。', '已複製帳號': '口座番号をコピーしました', '已選取帳號，請按 ⌘C／Ctrl+C 複製': '口座番号を選択しました。⌘C／Ctrl+Cでコピーしてください。',
     '街道底圖載入異常，列車與路線不受影響。可切換到「衛星」底圖。': '道路地図を読み込めませんが、列車と路線には影響ありません。「衛星」地図へ切り替えられます。', '街道底圖載入異常，列車與路線不受影響。重新整理即可重試。': '道路地図を読み込めませんが、列車と路線には影響ありません。再読み込みで再試行できます。',
     '這台車已超過 30 秒不在即時模型中，已結束跟隨': 'この列車は30秒以上リアルタイムモデルにないため追跡を終了しました。', '官方名冊已更新，已結束這台車的跟隨': '公式名簿が更新されたため、この列車の追跡を終了しました。',
     '探': '見', '今': '今', '釘': 'ピン', '平': '踏', '軌': '軌', '簡': '見', '票': '票', '衛': '衛', '懸': '募', '錄': '録', '校': '補', '章': '章', '站': '駅',
@@ -602,6 +990,7 @@
 
   window.RAIL_I18N_CONTENT_DATA = {
     en: {
+
       namedTrains: {
         'blue-train': {
           name: 'Breezy Blue', tags: ['Tourist train', 'Heritage coaches', 'Individual tickets available'],
@@ -642,12 +1031,16 @@
         pingyuan: {
           name: 'Pingyuan', tags: ['Western route · Western Trunk and Pingtung', 'Fictional tourist train', 'Runs continuously'],
           story: 'A fictional Rail Island train from Taipei to Fangliao via the Western Trunk and Pingtung lines. It crosses northern hills and the Chianan Plain, turns back at Fangliao and meets its eastern sibling Shanhai there.'
+        },
+        pokemon30: {
+          name: 'Pokémon 30th Anniversary Train', mapLabel: 'Pokémon', tags: ['Limited time', 'Themed livery', 'Regular tickets valid'],
+          story: 'A TRA × Shin Kong Mitsukoshi train celebrating Pokémon’s 30th anniversary: an 8-car EMU800 commuter train fully wrapped with Pokémon from every generation and Pikachu. From 25 Sep to 13 Dec it runs regular services, mostly on the Western Line and on some days down the South Link Line to Taitung, and ordinary tickets are valid; the trains it runs each day follow the schedule published by TRA (thanks to the fans who compiled it). Six weekend specials (Taipei → Xinzuoying) also run and need separate tickets from the Shin Kong Mitsukoshi app.'
         }
       },
       rollingStock: {
         emu3000: {
           name: 'EMU3000 Tze-Chiang Limited Express',
-          story: 'Hitachi designed this new intercity train around “silent mobility,” earning a Good Design Best 100 award. All 50 twelve-car sets are in service, including TRA’s first business-class cabin, Tengyun.',
+          story: 'Hitachi designed this new intercity train around “silent mobility,” earning a Good Design Best 100 award. All 50 twelve-car sets are in service. It was TRA’s first train with a business-class cabin, Tengyun, which most services include (except the special-edition sets).',
           facts: ['Unlike Taroko and Puyuma trains, the EMU3000 has no tilting mechanism; it relies on modern performance and improved track standards.']
         },
         taroko: {
@@ -696,6 +1089,7 @@
       }
     },
     ja: {
+
       namedTrains: {
         'blue-train': {
           name: '藍皮解憂号', tags: ['観光列車', 'レトロ客車', '個人で乗車券購入可'],
@@ -736,12 +1130,16 @@
         pingyuan: {
           name: '平原号', tags: ['西回り・縦貫／屏東線', '架空の観光列車', '終日運転'],
           story: '軌島オリジナルの架空列車です。台北から縦貫線と屏東線で枋寮へ向かい、北部の丘陵と嘉南平原を横断します。枋寮で折り返し、東回りの兄弟列車・山海号とすれ違います。'
+        },
+        pokemon30: {
+          name: 'ポケモン30周年テーマ列車', mapLabel: 'ポケモン', tags: ['期間限定', 'ラッピング車両', '普通乗車券で乗車可'],
+          story: '台湾鉄路と新光三越が手がける、ポケモン30周年のテーマ列車です。8両編成のEMU800形通勤電車を、歴代のポケモンとピカチュウでまるごとラッピングしています。9/25〜12/13 は通常列車として、主に西部幹線を、日によっては南廻線の台東まで走り、普通の乗車券で乗れます。日ごとに走る列車は台湾鉄路が公表したダイヤに基づきます（整理してくれたファンの方に感謝）。ほかに週末の特別列車（台北→新左営）が6本あり、新光三越アプリでの別途購入が必要です。'
         }
       },
       rollingStock: {
         emu3000: {
           name: 'EMU3000 新自強号',
-          story: '日立が「静謐な移動」をテーマに設計し、Good Design Best 100を受賞した新世代都市間列車です。12両編成50本が揃い、台湾鉄路初のビジネスクラス「騰雲座艙」も備えます。',
+          story: '日立が「静謐な移動」をテーマに設計し、Good Design Best 100を受賞した新世代都市間列車です。12両編成50本が揃いました。台湾鉄路で初めてビジネスクラス「騰雲座艙」を設けた車両で、多くの列車に連結されています（特別仕様編成を除く）。',
           facts: ['太魯閣号・普悠瑪号と異なり車体傾斜装置はなく、新しい線路規格と車両性能で高速化しています。']
         },
         taroko: {
@@ -791,6 +1189,216 @@
     }
   };
 
+  // 1.5.0 redesigned UI additions. Keep these as source-string mappings so the
+  // single-file runtime can translate both static help copy and live labels.
+  Object.assign(messages.en, {
+    '{n} 班車': '{n} trains',
+    '{n} 個地點': '{n} places',
+    '移除收藏': 'Remove favorite',
+    '趟': 'trips',
+    '總里程': 'Total distance',
+    '收集章': 'Collection stamps',
+    '最遠征': 'Longest journey',
+    '非即時': 'Not live',
+    '回到現在': 'Back to now',
+    '台鐵誤點目前非即時：依 {time} 的即時資料投射 · {n} 班誤點中': 'TRA delays are not live: projected from the live data at {time} · {n} delayed trains',
+    '找不到就檢查一下車次是不是今天的班次——停駛或加班車不一定在時刻表裡。': 'If you cannot find it, check that the train runs today. Cancelled or extra services may not appear in the timetable.',
+    '顯示車種與方向': 'Show train type and direction',
+    '這是資料狀態——卡片右上的 ✕ 或按 Esc 關掉': 'This is the data-status card. Close it with ✕ at the top right or press Esc.',
+    '桌面版的四顆分頁就在頂端資訊列上，直接點就能換': 'On desktop, use the four tabs in the top information bar.',
+
+    '切換：全台／台鐵／高鐵／捷運': 'Switch: Nationwide / TRA / HSR / Metro',
+    '決定地圖上要出現哪些系統的車。手機收在頂端那顆圓鈕裡，點一下展開四個選項。': 'Choose which rail systems appear on the map. On phones, tap the round button at the top to reveal four choices.',
+    '手機：點頂端右邊那顆圓鈕（上面寫著目前在哪一群）': 'Phone: tap the round button at the top right, labelled with the current group',
+    '從選單挑全台同框／台鐵／高鐵／捷運與輕軌': 'Choose Nationwide, TRA, HSR, or Metro and light rail',
+    '桌面：頂端資訊列上的四顆分頁直接點': 'Desktop: select one of the four tabs in the top information bar',
+    '切換不會重新框景——你原本看的地方還在原地。字級調大時那顆鈕會跟著變大，但位置不變。': 'Switching does not reset the map view. The button grows with larger text but stays in the same place.',
+    '點地圖空白處小卡會收成一顆膠囊——跟車不會斷，點膠囊就展開回來': 'Tap empty map space to collapse the card into a pill. Following continues; tap the pill to expand it again.',
+    '真的要結束按卡片上的「結束」': 'To stop following, use End on the card.',
+    '跟到終點會蓋一枚完乘章（收在「護照」）。加速播放沒問題，但中途跳時間就不算。手機在跟車途中點車站，看板會和跟車小卡併成同一張卡的兩個分頁，不會互相蓋掉。': 'Follow to the terminus to earn a completion stamp in Passport. Faster playback still counts, but jumping through time does not. On phones, a station board opens as a second tab in the follow card.',
+    '台鐵套用官方即時誤點；北捷依官方秒級到站倒數逐班校正，高捷、機捷、高雄輕軌依官方到站看板校正。官方資料中斷或你的裝置時鐘明顯不準時，上方的「LIVE」會轉成灰色「非即時」，表示畫面是依稍早的資料投射——點一下時鐘可以看到是哪一項出狀況。台鐵當日官方公告停駛的班次不會出現在地圖上，但看板仍會列出並標成「停駛」。': 'TRA uses official live delays. Taipei Metro is corrected train by train from official second-by-second countdowns; Kaohsiung Metro, Taoyuan Metro and Kaohsiung Light Rail use official arrival boards. If official data stops or your device clock is inaccurate, LIVE turns into a grey Not live label; tap the clock for details. Officially cancelled TRA services disappear from the map but remain marked Cancelled on station boards.',
+    '點時鐘＝現在的資料是不是即時的': 'Tap the clock to check whether current data is live',
+    '時鐘旁邊就是資料狀態——畫面夠寬時直接寫出來（LIVE、非即時、尖峰…），窄的時候依序收成小色點，「即時」那顆最後才收。點一下時鐘，會逐項寫出每一項代表什麼、以及為什麼是這個狀態。': 'The data status sits beside the clock. Wide screens show labels such as LIVE, Not live and Peak; narrow screens collapse them into colored dots, keeping the live indicator longest. Tap the clock to see what each item means and why it has that status.',
+    '點頂端的時鐘（桌面點時鐘那張卡）': 'Tap the clock at the top; on desktop, tap the clock card',
+    '逐列看：台鐵即時誤點是 LIVE 還是「非即時」、捷運看板校正到哪、是不是在重播、目前時段與車數': 'Review TRA live-delay status, metro board corrections, replay state, current period and train count',
+    '每一列下面會說明原因——資料幾分鐘沒更新、裝置時鐘差幾秒、時間軸不在現在': 'Each row explains the reason, such as stale data, device-clock difference or a timeline away from now',
+    '「非即時」不是另一種資料，是同一份官方資料現在不夠新，畫面依稍早那份投射。手機沒有滑鼠停留可看，所以把原因都攤在這張卡裡。': 'Not live is not a different data source. It means the same official data is no longer fresh, so the display projects from an earlier update. The card spells out the reasons for touch devices.',
+    '按小卡上的「結束」停止跟車(× 只是把卡收起來,車還在跟)': 'Use End on the card to stop following. × only hides the card; following continues.',
+    'App 留在前景時藍點與所在地鏡頭會持續跟著你；「附近車站」告訴你最近的車站與下一班車還有幾分鐘。': 'While the app is in the foreground, the blue dot and location camera keep following you. Nearby stations shows the closest stations and minutes to the next train.',
+    '首次會問定位權限；Android 建議開啟「精確位置」': 'The app asks for location permission the first time. On Android, precise location is recommended.',
+    '手動拖圖會解除所在地鏡頭，定位藍點仍持續更新': 'Dragging the map releases the location camera, while the blue dot continues updating',
+    '按「附近車站」回到目前位置，點清單裡的站直接開看板': 'Tap Nearby stations to return to your current position, then tap a station to open its board',
+    '捷運小工具（主畫面／鎖定畫面）': 'Metro widgets for Home and Lock Screens',
+    '把捷運站放上主畫面或鎖定畫面，不開 App 就看得到下一班往哪裡、還有幾分鐘。': 'Put a metro station on your Home or Lock Screen to see the next direction and countdown without opening the app.',
+    '長按主畫面空白處進入編輯，從加入小工具的入口搜尋「軌島」': 'Touch and hold an empty area on the Home Screen, enter edit mode and search for Rail Island in Add Widget',
+    '選捷運小工具，再挑一個車站；鎖定畫面也放得下': 'Choose the Metro widget and select a station; it also fits on the Lock Screen',
+    '想放多站，或用「自動（最近的站）」讓它跟著你移動換站，需要軌島通行證（免費可設定一站）': 'A Rail Island Pass is required for multiple stations or Auto (nearest station), which changes as you move. One station is free.',
+    '還有一張「鐵路＋捷運看板」大卡，把台鐵、高鐵與捷運的發車資訊列在同一張。點小工具會直接開啟軌島到那一站。': 'The large Rail and Metro Board combines TRA, HSR and metro departures. Tap a widget to open Rail Island at that station.',
+    '桌': 'W',
+    '在這站等車：鎖定畫面倒數': 'Wait at this station: Lock Screen countdown',
+    '在月台上等車時，把這一站的下一班倒數放上鎖定畫面與動態島，不用一直把 App 開著。': 'While waiting on the platform, put the next-train countdown on the Lock Screen and Dynamic Island instead of keeping the app open.',
+    '點北捷、高捷或機捷的車站打開看板': 'Tap a Taipei, Kaohsiung or Taoyuan Metro station to open its board',
+    '按站名下方的「追蹤這站」，選方向與要追蹤多久（30／60／90 分鐘）': 'Tap Follow this station below the station name, then choose a direction and 30, 60 or 90 minutes',
+    '車進站自動換成下一班，時間到自動收起': 'The card advances after each arrival and closes when time expires',
+    '倒數依官方即時到站資訊更新。這項不需要通行證。': 'The countdown uses official live arrivals. No pass is required.',
+    '候': 'M',
+    '在台鐵車站等一班車：鎖定畫面倒數': 'Wait for a TRA train: Lock Screen countdown',
+    '在月台等某一班車時，把那一班的倒數放上鎖定畫面與動態島，不用一直把 App 開著。': 'While waiting for a specific train, put its countdown on the Lock Screen and Dynamic Island instead of keeping the app open.',
+    '點台鐵車站打開看板': 'Tap a TRA station to open its board',
+    '按站名旁的「追蹤一班車」': 'Tap Follow a train beside the station name',
+    '從「接下來的班次」挑你要等的那一班': 'Choose your train from Upcoming services',
+    '倒數照官方表定加即時誤點，車到站後自動收起。鎖定畫面同時只留一張等候卡——追蹤台鐵這班會把捷運那張收掉。時鐘不在「現在」時會先幫你帶回現在。這項不需要通行證。': 'The countdown combines the official timetable and live delay, then closes after arrival. Only one waiting card can remain on the Lock Screen, so following a TRA train replaces a metro waiting card. If the timeline is away from Now, it returns first. No pass is required.',
+    '班': 'T',
+    '通行證內容：台鐵列車的誤點履歷（回溯 90 天的逐日紀錄）、iPhone 桌面與鎖定畫面的捷運小工具放多站或用「自動（最近的站）」跟著你移動換站（免費可設定一站）、收藏與完乘紀錄跨裝置雲端同步、行程分享、跟車配樂（音樂跟著你在看的那班車與當下時間換情境；免費的背景音樂不受影響）、匯入 Google Maps 已儲存清單、非跟車時的衛星高解析圖磚，以及 iOS 17.6 以上可用的跟車鎖定畫面與動態島即時動態。': 'Pass features include 90 days of daily TRA delay history; multiple stations or Auto (nearest station) in iPhone Home and Lock Screen metro widgets, with one station free; cloud sync for favorites and completion records; journey sharing; the train soundtrack (the music follows the train you are watching and the time of day — the free background music is unaffected); importing Google Maps saved lists; high-resolution satellite tiles when not following a train; and follow Live Activities on the Lock Screen and Dynamic Island on iOS 17.6 or later.',
+    '字級': 'Text size',
+    '三階字級與跟隨系統字級。': 'Three text sizes with optional system-text following.',
+    '「更多」→ 字級，開啟「顯示與字級」': 'Open More, then Text size, to show Display and text size',
+    '選標準／大／特大，面板下方會即時預覽': 'Choose Standard, Large or Extra large; the preview updates immediately',
+    '「跟隨系統字級」可以關掉——手機字調大、但這一頁想維持資訊密度時用': 'Turn off Follow system text size if your phone uses larger text but you want to keep this screen compact',
+    '「大」只放大字級與列高，功能位置完全不變；跟隨系統只在字級進到輔助使用級別才介入。': 'Larger settings increase text and row height without moving features. System following only takes effect at accessibility text sizes.',
+    '字': 'A',
+    '讓看板、列車卡與跟隨面板透出後方地圖，面板底下的路線、車站都看得到；面板最上方的標題列也一起透。': 'Let the map show through station boards, train cards and follow panels, including their title bars.',
+    '預設關閉；這項設定只會記在目前這台裝置。半透明時字色會自動調整以維持可讀性（亮色加深、暗色提亮），不是靠在字外加光暈。': 'Off by default and saved only on this device. With transparency enabled, text colors adjust automatically for contrast instead of adding a glow.',
+    '看到不對的地方，可以帶著當下的畫面資訊回報。': 'Report a problem together with details about the current screen.',
+    '按頁尾（手機在「更多」的關於段）的「回報問題或建議」': 'Select Report a problem or suggestion in the footer; on phones it is under About in More',
+    '選一個類型、寫一句說明': 'Choose a category and add a short description',
+    '確認要一起附上的資訊——每一項都可以單獨關掉': 'Review the attached details; each item can be turned off separately',
+    '按「前往 GitHub 開 issue」，內容會幫你填好': 'Tap Continue to GitHub issue; the report will be filled in for you',
+    '附上的只有版本、目前畫面、地圖視角、跟隨中的列車與瀏覽器版本，不含帳號與定位。開 issue 需要 GitHub 帳號，issue 內容是公開的。': 'Attachments include only the app version, current screen, map view, followed train and browser version—not your account or location. A GitHub account is required and the issue is public.',
+    '回': '!',
+
+    '拖曳地圖時，軌道與列車不再比底圖慢半拍；縮放（手機兩指、滑鼠滾輪）收尾的那一瞬，軌道不會先跳回原處再彈回來': 'Tracks and trains now stay aligned with the base map while dragging. They also remain stable when pinch or wheel zooming ends.',
+    '字級多了三階（標準／大／特大）：「更多」→ 字級打開「顯示與字級」，選一個，整個介面的字、列高與可點範圍會一起放大，欄位一個都不會被收掉，面板下方有即時預覽。手機把系統字級調到輔助使用級別時，軌島也會自動跟著放大到特大——不想要的話，同一張面板裡可以把「跟隨系統字級」關掉': 'Text size now has Standard, Large and Extra large settings under More → Text size. Text, row height and tap targets grow together without hiding fields, with a live preview. Rail Island also follows accessibility text sizes unless Follow system text size is turned off.'
+  });
+
+  Object.assign(messages.ja, {
+    '{n} 班車': '{n}本',
+    '{n} 個地點': '{n}か所',
+    '移除收藏': 'お気に入りから削除',
+    '趟': '回',
+    '總里程': '総距離',
+    '收集章': 'コレクションスタンプ',
+    '最遠征': '最長遠征',
+    '非即時': '非リアルタイム',
+    '回到現在': '現在に戻る',
+    '台鐵誤點目前非即時：依 {time} 的即時資料投射 · {n} 班誤點中': '台湾鉄路の遅延情報は非リアルタイムです：{time}時点のデータから推定・{n}本が遅延中',
+    '找不到就檢查一下車次是不是今天的班次——停駛或加班車不一定在時刻表裡。': '見つからない場合は、本日の列車か確認してください。運休や臨時列車は時刻表にない場合があります。',
+    '顯示車種與方向': '列車種別と方向を表示',
+    '這是資料狀態——卡片右上的 ✕ 或按 Esc 關掉': 'データ状態カードです。右上の✕またはEscキーで閉じられます。',
+    '桌面版的四顆分頁就在頂端資訊列上，直接點就能換': 'デスクトップでは上部の4つのタブで切り替えます。',
+
+    '切換：全台／台鐵／高鐵／捷運': '切替：台湾全土／台湾鉄路／高鉄／メトロ',
+    '決定地圖上要出現哪些系統的車。手機收在頂端那顆圓鈕裡，點一下展開四個選項。': '地図に表示する鉄道を選びます。スマートフォンでは上部の丸いボタンを押すと4項目が開きます。',
+    '手機：點頂端右邊那顆圓鈕（上面寫著目前在哪一群）': 'スマートフォン：現在のグループ名がある右上の丸いボタンを押す',
+    '從選單挑全台同框／台鐵／高鐵／捷運與輕軌': '台湾全土／台湾鉄路／高鉄／メトロ・ライトレールから選ぶ',
+    '桌面：頂端資訊列上的四顆分頁直接點': 'デスクトップ：上部情報バーの4つのタブから選ぶ',
+    '切換不會重新框景——你原本看的地方還在原地。字級調大時那顆鈕會跟著變大，但位置不變。': '切り替えても地図の表示範囲は変わりません。文字を大きくするとボタンも大きくなりますが、位置は変わりません。',
+    '點地圖空白處小卡會收成一顆膠囊——跟車不會斷，點膠囊就展開回來': '地図の空白を押すとカードが小さくなります。列車追跡は続き、もう一度押すと展開します。',
+    '真的要結束按卡片上的「結束」': '追跡を終了するにはカードの「終了」を押します。',
+    '跟到終點會蓋一枚完乘章（收在「護照」）。加速播放沒問題，但中途跳時間就不算。手機在跟車途中點車站，看板會和跟車小卡併成同一張卡的兩個分頁，不會互相蓋掉。': '終点まで追跡すると「パスポート」に完乗スタンプが付きます。早送りは対象ですが、途中で時刻を飛ばすと対象外です。スマートフォンで駅を押すと、追跡カード内の別タブとして案内が開きます。',
+    '台鐵套用官方即時誤點；北捷依官方秒級到站倒數逐班校正，高捷、機捷、高雄輕軌依官方到站看板校正。官方資料中斷或你的裝置時鐘明顯不準時，上方的「LIVE」會轉成灰色「非即時」，表示畫面是依稍早的資料投射——點一下時鐘可以看到是哪一項出狀況。台鐵當日官方公告停駛的班次不會出現在地圖上，但看板仍會列出並標成「停駛」。': '台湾鉄路は公式のリアルタイム遅延を使用します。台北メトロは秒単位の公式到着カウントダウン、高雄メトロ・桃園メトロ・高雄ライトレールは公式到着案内で補正します。公式データの停止や端末時計のずれがあると、LIVEが灰色の「非リアルタイム」になります。時計を押すと原因を確認できます。公式に運休となった台湾鉄路の列車は地図から消えますが、駅案内には「運休」と表示されます。',
+    '點時鐘＝現在的資料是不是即時的': '時計を押してデータがリアルタイムか確認',
+    '時鐘旁邊就是資料狀態——畫面夠寬時直接寫出來（LIVE、非即時、尖峰…），窄的時候依序收成小色點，「即時」那顆最後才收。點一下時鐘，會逐項寫出每一項代表什麼、以及為什麼是這個狀態。': '時計の横がデータ状態です。広い画面ではLIVE、非リアルタイム、ピークなどを文字で表示し、狭い画面では順に色付きの点へ縮小します。時計を押すと各項目の意味と理由を確認できます。',
+    '點頂端的時鐘（桌面點時鐘那張卡）': '上部の時計を押す（デスクトップでは時計カード）',
+    '逐列看：台鐵即時誤點是 LIVE 還是「非即時」、捷運看板校正到哪、是不是在重播、目前時段與車數': '台湾鉄路の遅延、メトロ案内の補正、リプレイ状態、現在の時間帯と列車数を確認',
+    '每一列下面會說明原因——資料幾分鐘沒更新、裝置時鐘差幾秒、時間軸不在現在': '各行に、データ更新の遅れ、端末時計の差、タイムラインが現在でないなどの理由が表示されます',
+    '「非即時」不是另一種資料，是同一份官方資料現在不夠新，畫面依稍早那份投射。手機沒有滑鼠停留可看，所以把原因都攤在這張卡裡。': '「非リアルタイム」は別のデータではなく、公式データが古くなり、以前の更新から推定している状態です。タッチ端末でも分かるよう、理由をカード内に表示します。',
+    '按小卡上的「結束」停止跟車(× 只是把卡收起來,車還在跟)': 'カードの「終了」で列車追跡を止めます。×はカードを隠すだけで追跡は続きます。',
+    'App 留在前景時藍點與所在地鏡頭會持續跟著你；「附近車站」告訴你最近的車站與下一班車還有幾分鐘。': 'アプリが前面にある間、青い点と現在地カメラが移動を追います。「近くの駅」では最寄り駅と次の列車までの分数を確認できます。',
+    '首次會問定位權限；Android 建議開啟「精確位置」': '初回は位置情報の許可を求めます。Androidでは「正確な位置情報」を推奨します。',
+    '手動拖圖會解除所在地鏡頭，定位藍點仍持續更新': '地図を手で動かすと現在地カメラは解除されますが、青い点は更新を続けます',
+    '按「附近車站」回到目前位置，點清單裡的站直接開看板': '「近くの駅」で現在地に戻り、一覧の駅を押すと案内を開けます',
+    '捷運小工具（主畫面／鎖定畫面）': 'メトロウィジェット（ホーム／ロック画面）',
+    '把捷運站放上主畫面或鎖定畫面，不開 App 就看得到下一班往哪裡、還有幾分鐘。': 'メトロ駅をホーム画面やロック画面に置き、アプリを開かずに次の列車の方向と残り時間を確認できます。',
+    '長按主畫面空白處進入編輯，從加入小工具的入口搜尋「軌島」': 'ホーム画面の空白を長押しして編集し、ウィジェット追加から「軌島」を検索',
+    '選捷運小工具，再挑一個車站；鎖定畫面也放得下': 'メトロウィジェットを選び、駅を指定します。ロック画面にも追加できます',
+    '想放多站，或用「自動（最近的站）」讓它跟著你移動換站，需要軌島通行證（免費可設定一站）': '複数の駅、または移動に合わせて駅を変える「自動（最寄り駅）」には軌島パスが必要です。1駅は無料です。',
+    '還有一張「鐵路＋捷運看板」大卡，把台鐵、高鐵與捷運的發車資訊列在同一張。點小工具會直接開啟軌島到那一站。': '大きな「鉄道＋メトロ案内」では台湾鉄路、高鉄、メトロの発車情報をまとめて表示します。押すと軌島でその駅を開きます。',
+    '桌': 'W',
+    '在這站等車：鎖定畫面倒數': 'この駅で待つ：ロック画面カウントダウン',
+    '在月台上等車時，把這一站的下一班倒數放上鎖定畫面與動態島，不用一直把 App 開著。': 'ホームで待つ間、次の列車のカウントダウンをロック画面とDynamic Islandに表示し、アプリを開いたままにする必要がありません。',
+    '點北捷、高捷或機捷的車站打開看板': '台北・高雄・桃園メトロの駅を押して案内を開く',
+    '按站名下方的「追蹤這站」，選方向與要追蹤多久（30／60／90 分鐘）': '駅名の下にある「この駅を追跡」を押し、方向と30／60／90分を選ぶ',
+    '車進站自動換成下一班，時間到自動收起': '到着すると次の列車へ進み、時間になると自動で閉じます',
+    '倒數依官方即時到站資訊更新。這項不需要通行證。': '公式リアルタイム到着情報で更新します。軌島パスは不要です。',
+    '候': 'M',
+    '在台鐵車站等一班車：鎖定畫面倒數': '台湾鉄路の列車を待つ：ロック画面カウントダウン',
+    '在月台等某一班車時，把那一班的倒數放上鎖定畫面與動態島，不用一直把 App 開著。': '特定の列車を待つ間、その列車のカウントダウンをロック画面とDynamic Islandに表示できます。',
+    '點台鐵車站打開看板': '台湾鉄路の駅を押して案内を開く',
+    '按站名旁的「追蹤一班車」': '駅名の横にある「列車を追跡」を押す',
+    '從「接下來的班次」挑你要等的那一班': '「次の列車」から待つ列車を選ぶ',
+    '倒數照官方表定加即時誤點，車到站後自動收起。鎖定畫面同時只留一張等候卡——追蹤台鐵這班會把捷運那張收掉。時鐘不在「現在」時會先幫你帶回現在。這項不需要通行證。': '公式時刻表とリアルタイム遅延からカウントダウンし、到着後に閉じます。ロック画面の待機カードは同時に1枚だけなので、台湾鉄路を追跡するとメトロのカードは終了します。時刻が「現在」でない場合は先に現在へ戻ります。軌島パスは不要です。',
+    '班': 'T',
+    '通行證內容：台鐵列車的誤點履歷（回溯 90 天的逐日紀錄）、iPhone 桌面與鎖定畫面的捷運小工具放多站或用「自動（最近的站）」跟著你移動換站（免費可設定一站）、收藏與完乘紀錄跨裝置雲端同步、行程分享、跟車配樂（音樂跟著你在看的那班車與當下時間換情境；免費的背景音樂不受影響）、匯入 Google Maps 已儲存清單、非跟車時的衛星高解析圖磚，以及 iOS 17.6 以上可用的跟車鎖定畫面與動態島即時動態。': 'パスには、台湾鉄路の過去90日の日別遅延履歴、iPhoneのホーム／ロック画面メトロウィジェットでの複数駅または移動に合わせる「自動（最寄り駅）」（1駅は無料）、お気に入りと完乗記録の端末間同期、旅程共有、追跡サウンドトラック（見ている列車と時刻に合わせて場面が切り替わります。無料のBGMには影響しません）、Googleマップ保存済みリストの読み込み、列車追跡中以外の高解像度衛星地図、iOS 17.6以降のロック画面／Dynamic Island追跡ライブ表示が含まれます。',
+    '字級': '文字サイズ',
+    '三階字級與跟隨系統字級。': '3段階の文字サイズとシステム文字サイズへの追従。',
+    '「更多」→ 字級，開啟「顯示與字級」': '「その他」→「文字サイズ」から「表示と文字サイズ」を開く',
+    '選標準／大／特大，面板下方會即時預覽': '標準／大／特大を選ぶと、下部のプレビューがすぐ更新されます',
+    '「跟隨系統字級」可以關掉——手機字調大、但這一頁想維持資訊密度時用': '端末の文字が大きくてもこの画面の情報量を保ちたい場合は「システム文字サイズに合わせる」をオフにできます',
+    '「大」只放大字級與列高，功能位置完全不變；跟隨系統只在字級進到輔助使用級別才介入。': '大きい設定では文字と行の高さだけが変わり、機能の位置は変わりません。システム追従はアクセシビリティ文字サイズでだけ有効になります。',
+    '字': 'A',
+    '讓看板、列車卡與跟隨面板透出後方地圖，面板底下的路線、車站都看得到；面板最上方的標題列也一起透。': '駅案内、列車カード、追跡パネルとタイトルバーを半透明にし、背後の地図を見えるようにします。',
+    '預設關閉；這項設定只會記在目前這台裝置。半透明時字色會自動調整以維持可讀性（亮色加深、暗色提亮），不是靠在字外加光暈。': '初期設定はオフで、この端末だけに保存されます。半透明時は文字色を自動調整して読みやすさを保ち、文字の光彩には頼りません。',
+    '看到不對的地方，可以帶著當下的畫面資訊回報。': '問題を見つけたら、現在の画面情報と一緒に報告できます。',
+    '按頁尾（手機在「更多」的關於段）的「回報問題或建議」': 'フッターの「問題・提案を報告」を押す（スマートフォンでは「その他」の概要欄）',
+    '選一個類型、寫一句說明': '種類を選び、短い説明を書く',
+    '確認要一起附上的資訊——每一項都可以單獨關掉': '添付する情報を確認する（各項目を個別にオフにできます）',
+    '按「前往 GitHub 開 issue」，內容會幫你填好': '「GitHub issueを作成」を押すと内容が自動入力されます',
+    '附上的只有版本、目前畫面、地圖視角、跟隨中的列車與瀏覽器版本，不含帳號與定位。開 issue 需要 GitHub 帳號，issue 內容是公開的。': '添付されるのはバージョン、現在の画面、地図表示、追跡中の列車、ブラウザ版だけで、アカウントや位置情報は含みません。GitHubアカウントが必要で、issueは公開されます。',
+    '回': '!',
+
+    '拖曳地圖時，軌道與列車不再比底圖慢半拍；縮放（手機兩指、滑鼠滾輪）收尾的那一瞬，軌道不會先跳回原處再彈回來': '地図をドラッグするとき、線路と列車が背景地図から遅れなくなりました。ピンチ／ホイールズーム終了時の跳ね戻りも解消しました。',
+    '字級多了三階（標準／大／特大）：「更多」→ 字級打開「顯示與字級」，選一個，整個介面的字、列高與可點範圍會一起放大，欄位一個都不會被收掉，面板下方有即時預覽。手機把系統字級調到輔助使用級別時，軌島也會自動跟著放大到特大——不想要的話，同一張面板裡可以把「跟隨系統字級」關掉': '文字サイズに標準／大／特大を追加しました。「その他」→「文字サイズ」で選ぶと、項目を隠さず文字・行・タップ範囲をまとめて拡大し、すぐプレビューできます。アクセシビリティ文字サイズにも追従し、不要なら同じ画面でオフにできます。'
+  });
+
+  // Android 正式版合流後新增的商店、等車權限、說明中心與近期更新文案。
+  Object.assign(messages.en, {
+    '月票與年票都是自動續訂方案；你可以隨時在 {store} 的訂閱設定中取消，取消後於當期結束時停止續訂。': 'Monthly and annual passes renew automatically. You can cancel at any time in {store} subscription settings; renewal stops at the end of the current period.',
+    '訂閱管理請至 {store} 的訂閱設定。': 'Manage your subscription in {store} subscription settings.',
+    'Google Play 有新版可更新': 'An update is available on Google Play',
+    '目前版本　{version}': 'Current version  {version}',
+    '軌島新版已在 Google Play 上架': 'A new Rail Island version is available on Google Play',
+    '倒數準確度：{accuracy}': 'Countdown accuracy: {accuracy}',
+    '請到系統設定開啟軌島通知／即時動態，才能顯示等車卡': 'Enable Rail Island notifications / Live Activities in system settings to show the station tracking card.',
+    '請允許軌島傳送通知，才能顯示等站卡': 'Allow Rail Island notifications to show the station tracking card.',
+    '請到 iOS 設定開啟「即時動態」才能顯示等站卡': 'Enable Live Activities for Rail Island in iOS Settings to show the station tracking card.',
+    '到站倒數會顯示在鎖定畫面的即時資訊卡，卡片上隨時可按「結束」收起。': 'Arrival countdowns appear in the lock-screen live card. Tap End on the card at any time to dismiss it.',
+    '選一班車，鎖定畫面會顯示它的表定時刻與官方誤點分鐘（實際約幾點到）。卡片上隨時可按「結束」收起。': 'Choose a train to show its scheduled time and official delay minutes (estimated actual arrival) on the lock screen. Tap End on the card at any time to dismiss it.',
+    '看板列出接下來的班次與倒數；北捷有官方逐節資料時，班次旁會畫出每節車廂的鬆緊': 'The board lists upcoming trains and countdowns. When official Taipei Metro car data is available, crowding for each car appears beside the train.',
+    '台鐵套用官方即時誤點；北捷依官方秒級到站倒數逐班校正，擁擠度也只對應同一車號，不會借用同方向另一班車；高捷、機捷、高雄輕軌依官方到站看板校正。官方資料中斷或你的裝置時鐘明顯不準時，上方的「LIVE」會轉成灰色「非即時」，表示畫面是依稍早的資料投射——點一下時鐘可以看到是哪一項出狀況。台鐵當日官方公告停駛的班次不會出現在地圖上，但看板仍會列出並標成「停駛」。': 'TRA uses official live delays. Taipei Metro trains are corrected individually from official second-level arrival countdowns, and car crowding is matched only to the same train number. Kaohsiung Metro, Taoyuan Airport MRT and Kaohsiung Light Rail use their official arrival boards. If official data is interrupted or your device clock is clearly inaccurate, LIVE turns into a grey Not live indicator: tap the clock to see why. TRA services officially cancelled for the day are removed from the map but remain listed as Cancelled on boards.',
+    'App 版本與評分': 'App version and rating',
+    'App 版會在「更多」底部顯示目前版本，也保留一個不打擾你的評分入口。': 'The app shows its current version at the bottom of More and provides a quiet rating entry.',
+    '打開「更多」，找到「軌島」那一段': 'Open More and find the Rail Island section',
+    '版本列有新版時會帶你到目前平台的商店；沒有新版時可重看本版更新內容': 'When an update is available, the version row opens your platform’s store; otherwise it shows this version’s update notes again.',
+    '按「給軌島評分」會前往 iPhone 的 App Store 或 Android 的 Google Play': 'Rate Rail Island opens the iPhone App Store or Android Google Play.',
+    '完成至少兩趟旅程後，App 才可能在適合的時機邀請一次評分；同一版不重複問，是否真的顯示評分視窗仍由 App Store／Google Play 決定。': 'After at least two journeys, the app may request a rating once at an appropriate time. It does not repeat the request in the same version; App Store or Google Play still decides whether to show the prompt.',
+    '版': 'Ver.',
+    'Android 發車小工具的「大字好讀版」現在會真正放大班次、時刻、狀態與列高，不再只是少顯示幾班；使用說明也補上擁擠度、我的地點、班次篩選、背景更新及版本評分入口': 'Android’s large-text departure widget now enlarges train, time and status text along with row height instead of merely showing fewer trains. Help now covers crowding, My Places, filters, background updates, version checks and ratings.'
+  });
+  Object.assign(messages.ja, {
+    '月票與年票都是自動續訂方案；你可以隨時在 {store} 的訂閱設定中取消，取消後於當期結束時停止續訂。': '月間・年間パスは自動更新です。{store}のサブスクリプション設定からいつでも解約でき、現在の期間終了時に更新が停止します。',
+    '訂閱管理請至 {store} 的訂閱設定。': '{store}のサブスクリプション設定で管理してください。',
+    'Google Play 有新版可更新': 'Google Playに更新があります',
+    '目前版本　{version}': '現在のバージョン　{version}',
+    '軌島新版已在 Google Play 上架': '軌島の新しいバージョンをGoogle Playで公開しました',
+    '倒數準確度：{accuracy}': 'カウントダウン精度：{accuracy}',
+    '請到系統設定開啟軌島通知／即時動態，才能顯示等車卡': '駅待ちカードを表示するには、システム設定で軌島の通知／ライブ表示を有効にしてください。',
+    '請允許軌島傳送通知，才能顯示等站卡': '駅待ちカードを表示するには、軌島の通知を許可してください。',
+    '請到 iOS 設定開啟「即時動態」才能顯示等站卡': '駅待ちカードを表示するには、iOS設定で軌島のライブアクティビティを有効にしてください。',
+    '到站倒數會顯示在鎖定畫面的即時資訊卡，卡片上隨時可按「結束」收起。': '到着カウントダウンはロック画面のライブカードに表示されます。カードの「終了」でいつでも閉じられます。',
+    '選一班車，鎖定畫面會顯示它的表定時刻與官方誤點分鐘（實際約幾點到）。卡片上隨時可按「結束」收起。': '列車を選ぶと、予定時刻と公式遅延分（実際の到着見込み）をロック画面に表示します。カードの「終了」でいつでも閉じられます。',
+    '看板列出接下來的班次與倒數；北捷有官方逐節資料時，班次旁會畫出每節車廂的鬆緊': '案内には次の列車とカウントダウンを表示します。台北メトロの公式車両別データがある場合は、各車両の混雑度も表示します。',
+    '台鐵套用官方即時誤點；北捷依官方秒級到站倒數逐班校正，擁擠度也只對應同一車號，不會借用同方向另一班車；高捷、機捷、高雄輕軌依官方到站看板校正。官方資料中斷或你的裝置時鐘明顯不準時，上方的「LIVE」會轉成灰色「非即時」，表示畫面是依稍早的資料投射——點一下時鐘可以看到是哪一項出狀況。台鐵當日官方公告停駛的班次不會出現在地圖上，但看板仍會列出並標成「停駛」。': '台湾鉄路は公式のリアルタイム遅延を適用します。台北メトロは公式の秒単位到着予測で列車ごとに補正し、混雑度も同じ列車番号だけに対応させます。高雄メトロ、桃園空港MRT、高雄ライトレールは公式到着案内で補正します。公式データが途切れるか端末時計が大きくずれると、LIVEは灰色の「非リアルタイム」に変わります。時計をタップすると理由を確認できます。当日公式に運休となった台湾鉄路の列車は地図から消えますが、案内には「運休」と表示します。',
+    'App 版本與評分': 'Appのバージョンと評価',
+    'App 版會在「更多」底部顯示目前版本，也保留一個不打擾你的評分入口。': 'App版は「その他」の下部に現在のバージョンと、控えめな評価入口を表示します。',
+    '打開「更多」，找到「軌島」那一段': '「その他」を開き、「軌島」セクションを探します',
+    '版本列有新版時會帶你到目前平台的商店；沒有新版時可重看本版更新內容': '更新がある場合はバージョン欄から現在のプラットフォームのストアへ移動し、更新がない場合はこの版の変更内容を再表示します。',
+    '按「給軌島評分」會前往 iPhone 的 App Store 或 Android 的 Google Play': '「軌島を評価」を押すと、iPhoneはApp Store、AndroidはGoogle Playを開きます。',
+    '完成至少兩趟旅程後，App 才可能在適合的時機邀請一次評分；同一版不重複問，是否真的顯示評分視窗仍由 App Store／Google Play 決定。': '2回以上の旅程を完了した後、適切な時に1度だけ評価をお願いする場合があります。同じバージョンでは繰り返さず、実際に評価画面を表示するかはApp Store／Google Playが決定します。',
+    '版': '版',
+    'Android 發車小工具的「大字好讀版」現在會真正放大班次、時刻、狀態與列高，不再只是少顯示幾班；使用說明也補上擁擠度、我的地點、班次篩選、背景更新及版本評分入口': 'Android発車案内ウィジェットの「大きく読みやすい文字」は、表示本数を減らすだけでなく列車、時刻、状態と行の高さを実際に拡大します。使い方には混雑度、保存した場所、列車の絞り込み、バックグラウンド更新、バージョン確認、評価も追加しました。'
+  });
+
   window.RAIL_I18N_CHANGELOG = {
     en: [
       { name: 'World city networks', items: [
@@ -799,6 +1407,9 @@
         { date: '31 Aug 2026', text: 'Completed Singapore’s six MRT and three LRT systems, including CCL6, with 185 station names in Traditional Chinese, English and Japanese.' }
       ]},
       { name: 'Map and live data', items: [
+        { date: 'Sep 28, 2026', text: 'Kaohsiung LRT arrival boards now separate clockwise and counterclockwise services and show stops along the way without hiding the other direction.' },
+        { date: 'Sep 7, 2026', text: 'Dark maps now add a soft neon glow in each route’s own color, while other map and track display modes keep their existing appearance.' },
+        { date: 'Sep 7, 2026', text: 'Added route browsing, reversible station lists, scenic views and search examples. Station arrival times and countdowns are easier to spot.' },
         { date: 'Aug 2026', text: 'Improved metro live-position matching, station boards, fallback notices and TRA pass-through movement.' },
         { date: 'Jul 2026', text: 'Added the nationwide view, Alishan Forest Railway, branch lines, station boards and live TRA delay correction.' }
       ]},
@@ -818,6 +1429,9 @@
         { date: '2026年8月31日', text: 'CCL6を含むシンガポールのMRT 6系統・LRT 3系統を収録し、185駅を繁体字中国語・英語・日本語で整備しました。' }
       ]},
       { name: '地図とリアルタイム情報', items: [
+        { date: '2026年9月28日', text: '高雄ライトレールの到着案内で時計回り・反時計回りを分けて経由駅を表示し、反対方向の便も確認できるようにしました。' },
+        { date: '2026年9月7日', text: 'ダークマップの路線が本来の色で柔らかく発光するようになりました。他の地図や軌道表示モードは従来どおりです。' },
+        { date: '2026年9月7日', text: '路線ガイド、駅順の反転、おすすめの眺め、検索例を追加しました。駅案内の時刻と到着までの時間も見やすくしました。' },
         { date: '2026年8月', text: 'メトロ列車位置の対応付け、駅案内、フォールバック表示、台湾鉄路の通過駅アニメーションを改善しました。' },
         { date: '2026年7月', text: '台湾全土表示、阿里山林業鉄路、支線、駅案内、台湾鉄路のリアルタイム遅延補正を追加しました。' }
       ]},
@@ -831,4 +1445,2165 @@
       ]}
     ]
   };
+
+  Object.assign(messages.en, {"庫":"Garage"});
+  Object.assign(messages.ja, {"庫":"庫"});
+  // 收藏車庫：網站與 App 共用。
+  Object.assign(messages.en, {
+    "我的車庫": "My garage",
+    "打開收藏，看看車車": "Open your train collection",
+    "已入庫 {count} 款": "{count} collected",
+    "車庫暫時無法載入，請稍後重試。": "The garage could not load. Please try again later.",
+    "收藏資料載入中，請稍後再試。": "Your collection is loading. Please try again shortly.",
+    "車庫入庫　<b>{name}</b>": "Added to your garage: <b>{name}</b>",
+    "把旅程護照裡的收集章，變成可以旋轉欣賞的小車。": "Turn your passport stamps into little trains you can rotate and admire.",
+    "「更多」或「旅程護照」→「我的車庫」": "More or Journey passport → My garage",
+    "選一款車，左右拖曳查看外觀與來源": "Select a train, drag to rotate it, and check its references",
+    "點「開始收集」，從發車一路陪它到終點": "Choose Start collecting and follow from departure to the terminus",
+    "舊有車種章自動帶入；收藏條件準備中的款式不計入完成比例。": "Existing train-type stamps count automatically. Models without collection rules are excluded from your completion total.",
+    "新增收藏車庫，可旋轉欣賞已入庫的小車、查看來源與收集條件；既有車種章會自動帶入。": "Added a collection garage to rotate your little trains and view their references and collection requirements. Existing train-type stamps count automatically.",
+    "已入庫": "Collected",
+    "待收集": "To collect",
+    "收藏條件準備中": "Collection rules coming later",
+    "Q 版收藏模型": "Miniature keepsake",
+    "這款車的收藏方式仍在準備中。": "The way to collect this train is still being prepared.",
+    "完成「{name}」收藏，代表車型已入庫。": "Collected “{name}”. Its representative model is in your garage.",
+    "跟完一趟「{name}」，收入代表車型。": "Follow a complete “{name}” journey to collect its representative model.",
+    "取得「{name}」收集章，收入代表車型。": "Earn the “{name}” stamp to collect its representative model.",
+    "展示模式・不計入收藏": "Demo collection · no progress saved",
+    "首次入庫：{date}": "First collected: {date}",
+    "再陪它跑一趟": "Follow it again",
+    "開始收集": "Start collecting",
+    "收藏的是紀念模型，不代表曾搭乘這個實際車型或車號。": "These are keepsake models, not proof of riding a specific real vehicle or fleet number.",
+    "外觀依公開照片參考繪製；照片僅連結，未作為模型貼圖。": "Models reference public photographs. Photos are linked only and are not used as textures.",
+    "{count} 款車車": "{count} trains",
+    "第一格車位，留給下一段旅程。": "Your first space is waiting for your next journey.",
+    "沒有符合條件的車款。": "No trains match these filters.",
+    "回到我的車庫": "Back to my garage",
+    "館藏模型 {count} 款": "{count} models in the catalog",
+    "回到地圖": "Back to map",
+    "每一趟陪伴，都有一台車車留下來。已取得的車種章會自動收入車庫。": "Keep a little train from your journeys. Existing train-type stamps carry over automatically.",
+    "可收集車款": "Available to collect",
+    "車型展示": "Train display",
+    "這個裝置暫時無法顯示 3D，收藏紀錄與來源仍可查看。": "3D is unavailable on this device. Your collection and references are still accessible.",
+    "左右拖曳，看看每一面": "Drag left or right to explore",
+    "向左旋轉": "Rotate left",
+    "向右旋轉": "Rotate right",
+    "自動旋轉": "Auto-rotate",
+    "全部車款": "All trains",
+    "篩選鐵道系統": "Filter rail systems",
+    "所有系統": "All systems",
+    "選擇車款": "Choose a train",
+    "海岸行旅": "Coastal journey",
+    "環形試跑": "Loop track",
+    "環形試跑 · 拖曳旋轉，欣賞三節小車": "Loop track · Drag to view the three-car train",
+    "反向行駛": "Reverse direction",
+    "暫停行駛": "Pause journey",
+    "開始行駛": "Start journey",
+    "頭城海岸・龜山島": "Toucheng coast · Guishan Island",
+    "日出": "Sunrise",
+    "藍天": "Blue skies",
+    "黃昏": "Dusk",
+    "星空": "Starry night",
+    "車庫新增三節編組的頭城海岸行旅，沿著無盡鐵道欣賞立體海岸與龜山島；依台灣時間呈現日出、藍天、黃昏或星空，也能調整視角與反向欣賞車身": "Take a three-car train along endless rails through the 3D Toucheng coast and Guishan Island scenery. Sunrise, blue skies, dusk or stars follow Taiwan time. Adjust the view or reverse direction to see the other side.",
+    "近看小車": "Close-up",
+    "提高視角": "Raise viewing angle",
+    "降低視角": "Lower viewing angle",
+    "重設視角": "Reset view",
+    "上下左右拖曳，看看每一面": "Drag in any direction to explore",
+    "車庫改用下拉選單直接選車，按鐵道系統分組；展示台移到更容易看見的位置，不用輸入車型名稱": "Choose a train from the garage dropdown, grouped by rail system. The display is now easier to see, without typing a model name.",
+    "查看所有車款": "View all trains",
+    "看看展示車庫": "Try the demo garage",
+    "進度沿用旅程護照；收藏條件準備中的車款不計入完成比例。": "Progress comes from your journey passport. Models with pending collection rules do not count toward completion.",
+    "已入庫 {count} 款，共可收集 {total} 款": "{count} collected out of {total} available",
+    "台灣高鐵": "Taiwan High Speed Rail",
+    "阿里山林鐵": "Alishan Forest Railway",
+    "台北捷運": "Taipei Metro",
+    "桃園捷運": "Taoyuan Metro",
+    "新北捷運": "New Taipei Metro",
+    "台中捷運": "Taichung Metro",
+    "高雄捷運": "Kaohsiung Metro",
+    "高雄輕軌": "Kaohsiung Light Rail"
+});
+  Object.assign(messages.ja, {
+    "我的車庫": "マイ車庫",
+    "打開收藏，看看車車": "集めた車両を見に行く",
+    "已入庫 {count} 款": "{count} 種を収集済み",
+    "車庫暫時無法載入，請稍後重試。": "車庫を読み込めませんでした。しばらくしてからお試しください。",
+    "收藏資料載入中，請稍後再試。": "コレクションを読み込み中です。少しお待ちください。",
+    "車庫入庫　<b>{name}</b>": "車庫に入庫：<b>{name}</b>",
+    "把旅程護照裡的收集章，變成可以旋轉欣賞的小車。": "旅程パスポートのスタンプが、回して眺められる小さな車両になります。",
+    "「更多」或「旅程護照」→「我的車庫」": "「もっと」または「旅程パスポート」→「マイ車庫」",
+    "選一款車，左右拖曳查看外觀與來源": "車両を選んで左右にドラッグし、外観と出典を確認します",
+    "點「開始收集」，從發車一路陪它到終點": "「収集を始める」を押し、始発から終点まで追いかけます",
+    "舊有車種章自動帶入；收藏條件準備中的款式不計入完成比例。": "取得済みの車種スタンプを自動で反映します。収集条件を準備中の車両は達成率に含みません。",
+    "新增收藏車庫，可旋轉欣賞已入庫的小車、查看來源與收集條件；既有車種章會自動帶入。": "コレクション車庫を追加しました。集めた小さな車両を回して眺め、出典と収集条件を確認できます。取得済みの車種スタンプも自動で反映されます。",
+    "已入庫": "収集済み",
+    "待收集": "未収集",
+    "收藏條件準備中": "収集条件を準備中",
+    "Q 版收藏模型": "ミニチュア記念モデル",
+    "這款車的收藏方式仍在準備中。": "この車両の収集方法は準備中です。",
+    "完成「{name}」收藏，代表車型已入庫。": "「{name}」を収集しました。代表モデルが車庫に入りました。",
+    "跟完一趟「{name}」，收入代表車型。": "「{name}」を始発から終点まで追いかけると、代表モデルを収集できます。",
+    "取得「{name}」收集章，收入代表車型。": "「{name}」のスタンプで代表モデルを収集できます。",
+    "展示模式・不計入收藏": "展示モード・収集記録には反映されません",
+    "首次入庫：{date}": "初入庫：{date}",
+    "再陪它跑一趟": "もう一度追いかける",
+    "開始收集": "収集を開始",
+    "收藏的是紀念模型，不代表曾搭乘這個實際車型或車號。": "記念モデルの収集であり、実際の車種や車両番号への乗車証明ではありません。",
+    "外觀依公開照片參考繪製；照片僅連結，未作為模型貼圖。": "公開写真を参考に制作しています。写真は出典リンクのみで、テクスチャには使用していません。",
+    "{count} 款車車": "{count} 種の車両",
+    "第一格車位，留給下一段旅程。": "最初の車両スペースは、次の旅のために。",
+    "沒有符合條件的車款。": "条件に合う車両がありません。",
+    "回到我的車庫": "マイ車庫に戻る",
+    "館藏模型 {count} 款": "収録モデル {count} 種",
+    "回到地圖": "地図に戻る",
+    "每一趟陪伴，都有一台車車留下來。已取得的車種章會自動收入車庫。": "旅の思い出を小さな車両に。取得済みの車種スタンプを自動で車庫に反映します。",
+    "可收集車款": "収集可能な車両",
+    "車型展示": "車両展示",
+    "這個裝置暫時無法顯示 3D，收藏紀錄與來源仍可查看。": "この端末では現在 3D を表示できません。収集記録と出典は引き続き確認できます。",
+    "左右拖曳，看看每一面": "左右にドラッグして眺める",
+    "向左旋轉": "左に回す",
+    "向右旋轉": "右に回す",
+    "自動旋轉": "自動回転",
+    "全部車款": "すべての車両",
+    "篩選鐵道系統": "鉄道システムで絞り込み",
+    "所有系統": "すべてのシステム",
+    "選擇車款": "車両を選ぶ",
+    "海岸行旅": "海辺の旅",
+    "環形試跑": "周回コース",
+    "環形試跑 · 拖曳旋轉，欣賞三節小車": "周回コース · ドラッグして3両編成を眺めよう",
+    "反向行駛": "進行方向を反転",
+    "暫停行駛": "走行を一時停止",
+    "開始行駛": "走行を開始",
+    "頭城海岸・龜山島": "頭城海岸・亀山島",
+    "日出": "日の出",
+    "藍天": "青空",
+    "黃昏": "夕暮れ",
+    "星空": "星空",
+    "車庫新增三節編組的頭城海岸行旅，沿著無盡鐵道欣賞立體海岸與龜山島；依台灣時間呈現日出、藍天、黃昏或星空，也能調整視角與反向欣賞車身": "車庫に3両編成で走る頭城海岸の旅を追加。どこまでも続く線路と立体的な海岸、亀山島を眺められます。台湾時間に合わせて日の出、青空、夕暮れ、星空に変化。視点や進行方向を変えて車体を楽しめます。",
+    "近看小車": "車両を眺める",
+    "提高視角": "視点を上げる",
+    "降低視角": "視点を下げる",
+    "重設視角": "視点をリセット",
+    "上下左右拖曳，看看每一面": "上下左右にドラッグして眺める",
+    "車庫改用下拉選單直接選車，按鐵道系統分組；展示台移到更容易看見的位置，不用輸入車型名稱": "車庫のプルダウンから鉄道システム別に車両を選べるようになりました。車名を入力せず、見やすい位置でモデルを楽しめます。",
+    "查看所有車款": "すべての車両を見る",
+    "看看展示車庫": "展示車庫を見る",
+    "進度沿用旅程護照；收藏條件準備中的車款不計入完成比例。": "旅程パスポートの進捗を反映します。収集条件が準備中の車両は達成率に含みません。",
+    "已入庫 {count} 款，共可收集 {total} 款": "収集可能な {total} 種のうち {count} 種を収集済み",
+    "台灣高鐵": "台湾高速鉄道",
+    "阿里山林鐵": "阿里山森林鉄道",
+    "台北捷運": "台北メトロ",
+    "桃園捷運": "桃園メトロ",
+    "新北捷運": "新北メトロ",
+    "台中捷運": "台中メトロ",
+    "高雄捷運": "高雄メトロ",
+    "高雄輕軌": "高雄ライトレール"
+});
+
+  // 收藏車庫精修模型與護照里程碑。
+  Object.assign(messages.en, {
+  "也可以累積護照進度，解鎖這款紀念模型。": "You can also unlock this keepsake through passport milestones.",
+  "小車載入中…": "Loading your train…",
+  "小車載入失敗，請重試；收藏進度不受影響。": "The train could not load. Please retry; your collection is safe.",
+  "已達成「{goal}」，紀念模型已入庫。": "“{goal}” achieved. This keepsake is in your garage.",
+  "取得「{name}」收集章，或達成「{goal}」。": "Earn the “{name}” stamp, or achieve “{goal}”.",
+  "查看旅程護照": "View journey passport",
+  "模型製作：軌島（Q 版示意）": "Models by Rail Island (stylized miniatures)",
+  "外觀參考": "Appearance references",
+  "累積旅程，收藏小車。既有車種章與護照進度會自動帶入。": "Turn journeys into little trains. Your existing stamps and passport progress carry over.",
+  "重新載入小車": "Reload train",
+  "車型與來源": "Model and references",
+  "進度沿用旅程護照；62 款小車都有收集條件，既有車種章自動帶入。": "All 62 trains have collection goals. Progress comes from your journey passport, including existing train-type stamps.",
+  "累積完乘、里程、車站與支線章，解鎖 62 款紀念模型": "Complete journeys, cover distance, collect stations and branch-line stamps to unlock 62 keepsakes",
+  "既有車種章自動帶入，每款車也能透過護照里程碑收集。": "Existing train-type stamps carry over. Every model can also be collected through passport milestones.",
+  "新增收藏車庫，62 款精修小車可旋轉欣賞；還沒收集到的是灰色車體，累積旅程進度解鎖後才有塗裝，舊護照自動帶入": "New collection garage with 62 detailed trains to rotate and admire. Trains you haven't collected yet appear as plain grey models — their livery arrives once your journey progress unlocks them. Existing passport progress carries over.",
+  "完乘 {count} 趟": "Complete {count} journeys",
+  "累積旅程 {count} 公里": "Travel {count} km in your passport",
+  "收集 {count} 座車站": "Collect {count} stations",
+  "取得 {count} 枚支線章": "Earn {count} branch-line stamps"
+});
+  Object.assign(messages.ja, {
+  "也可以累積護照進度，解鎖這款紀念模型。": "パスポートの達成目標でも、この記念モデルを収集できます。",
+  "小車載入中…": "車両を読み込み中…",
+  "小車載入失敗，請重試；收藏進度不受影響。": "車両を読み込めませんでした。再試行してください。収集記録は保持されています。",
+  "已達成「{goal}」，紀念模型已入庫。": "「{goal}」を達成し、記念モデルが車庫に入りました。",
+  "取得「{name}」收集章，或達成「{goal}」。": "「{name}」のスタンプ、または「{goal}」で収集できます。",
+  "查看旅程護照": "旅程パスポートを見る",
+  "模型製作：軌島（Q 版示意）": "モデル制作：軌島（デフォルメ模型）",
+  "外觀參考": "外観の参考資料",
+  "累積旅程，收藏小車。既有車種章與護照進度會自動帶入。": "旅を重ねて小さな車両を集めましょう。取得済みスタンプとパスポートの進捗を引き継ぎます。",
+  "重新載入小車": "車両を再読み込み",
+  "車型與來源": "車両モデルと出典",
+  "進度沿用旅程護照；62 款小車都有收集條件，既有車種章自動帶入。": "62種類すべてに収集条件があります。既存の車種スタンプを含む旅程パスポートの進捗を反映します。",
+  "累積完乘、里程、車站與支線章，解鎖 62 款紀念模型": "完乗・距離・駅・支線スタンプを積み重ね、62種類の記念モデルを収集",
+  "既有車種章自動帶入，每款車也能透過護照里程碑收集。": "既存の車種スタンプを引き継ぎます。全車両はパスポートの達成目標でも収集できます。",
+  "新增收藏車庫，62 款精修小車可旋轉欣賞；還沒收集到的是灰色車體，累積旅程進度解鎖後才有塗裝，舊護照自動帶入": "62種類の精密なミニ車両を回して楽しめる車庫を追加。まだ集めていない車両はグレーの車体で並び、旅の記録が条件を満たすと塗装が現れます。既存のパスポートの記録はそのまま引き継がれます。",
+  "完乘 {count} 趟": "{count} 回完乗する",
+  "累積旅程 {count} 公里": "旅程を {count} km 達成する",
+  "收集 {count} 座車站": "{count} 駅を収集する",
+  "取得 {count} 枚支線章": "支線スタンプを {count} 個集める"
+});
+  // issue #48（搜尋接上車種／車型）：新的 runtime key 與第一層更新紀錄。
+  Object.assign(messages.en, {
+    "車型": "Train model",
+    "車型依台鐵公告的車種代碼比對，實際配車以當日營運為準": "Models are matched from the car-class codes TRA publishes; the actual consist depends on that day's operations.",
+    "共 {n} 班符合，正在跑的排前面": { one: "{n} service found, currently running first", other: "{n} services found, currently running first" },
+    "搜尋框可以打車種與車型了：輸入「自強號」「EMU3000」「太魯閣」會列出符合的班次，正在跑的排前面，也能點車型看介紹（謝謝網友回報）": "You can now search by train class and model. Type “Tze-Chiang”, “EMU3000” or “Taroko” to list matching services, with the ones currently running first; tap a model to read about it. (Thanks to the readers who wrote in.)"
+  });
+  Object.assign(messages.ja, {
+    "車型": "車両形式",
+    "車型依台鐵公告的車種代碼比對，實際配車以當日營運為準": "車両形式は台鉄が公表する車種コードで照合しています。実際の編成は当日の運用によります。",
+    "共 {n} 班符合，正在跑的排前面": "{n}本が該当（走行中を先頭に表示）",
+    "搜尋框可以打車種與車型了：輸入「自強號」「EMU3000」「太魯閣」會列出符合的班次，正在跑的排前面，也能點車型看介紹（謝謝網友回報）": "検索欄で列車種別と車両形式を検索できるようになりました。「自強号」「EMU3000」「タロコ」などを入力すると該当する列車が一覧表示され、走行中の列車が先頭に並びます。車両形式をタップすると解説が読めます。（ご報告ありがとうございます）"
+  });
+  // 9/8 三處顯示修正（看板單組站標題／線名孤兒空白／跟車卡被壓成 96px）的第一層更新紀錄。
+  Object.assign(messages.en, {
+    "調大字級時，轉乘接續裡的車次與「剩 N 分」會跟著一起放大，不再只長一點點": "At larger text sizes the train number and \"N min left\" in transfer connections now scale with the main text instead of barely growing.",
+    "修正車站看板與跟車卡三處顯示問題：只有一條線經過的站不再多出線名標題、車號前不再多一個空格、跟車時拖地圖不會再把列車卡壓扁": "Fixed three display issues on the station board and the follow card: stations served by a single line no longer show a redundant line heading, train numbers no longer carry a stray leading space, and dragging the map while following a train no longer squashes the train card."
+  });
+  Object.assign(messages.ja, {
+    "調大字級時，轉乘接續裡的車次與「剩 N 分」會跟著一起放大，不再只長一點點": "文字を大きくしたとき、乗り換え接続の列車番号と「あと N 分」も本文と同じ倍率で大きくなるようになりました。",
+    "修正車站看板與跟車卡三處顯示問題：只有一條線經過的站不再多出線名標題、車號前不再多一個空格、跟車時拖地圖不會再把列車卡壓扁": "駅の発車案内とフォローカードの表示を3点修正しました。1路線のみの駅で余分な路線見出しが出ない、列車番号の前に余分な空白が入らない、追跡中に地図をドラッグしても列車カードがつぶれない。"
+  });
+  // 9/8 收集章／今日亮點的系統歸屬修正（環島之星 1、2 次與阿里山林鐵撞號）的第一層更新紀錄。
+  Object.assign(messages.en, {
+    "修正護照收集章與今日亮點：點「環島之星」不再跑成阿里山林鐵的同號車": "Fixed the passport stamps and Today's highlights: tapping “Formosa Star” no longer follows the Alishan Forest Railway service that happens to share its train number."
+  });
+  Object.assign(messages.ja, {
+    "修正護照收集章與今日亮點：點「環島之星」不再跑成阿里山林鐵的同號車": "パスポートのスタンプと「今日のみどころ」を修正しました。「環島之星」をタップしても、同じ列車番号の阿里山森林鉄道の列車を追跡しなくなりました。"
+  });
+  // 9/8 收集章「今天沒有班次」說明卡（故事＋下一個開行日）的第一層更新紀錄。
+  Object.assign(messages.en, {
+    "收集章今天沒有班次時，改成跳出這班車的故事卡，並告訴你班表上的下一個開行日": "When a collection stamp has no service today, tapping it now opens that train’s story card and tells you the next date it runs in the timetable."
+  });
+  Object.assign(messages.ja, {
+    "收集章今天沒有班次時，改成跳出這班車的故事卡，並告訴你班表上的下一個開行日": "スタンプの列車が本日運行しない場合、タップするとその列車のストーリーカードが開き、時刻表上の次の運行日をお知らせします。"
+  });
+  // 9/8 捷運跟車卡新增車次欄的第一層更新紀錄。
+  Object.assign(messages.en, {
+    "跟隨台北捷運列車時，官方有給車次的班次會在資訊卡上方顯示車次": "When you follow a Taipei Metro train, the card now shows its train number at the top for services where the official feed provides one."
+  });
+  Object.assign(messages.ja, {
+    "跟隨台北捷運列車時，官方有給車次的班次會在資訊卡上方顯示車次": "台北メトロの列車を追跡すると、公式データに列車番号がある便はカード上部に列車番号を表示します。"
+  });
 })();
+
+Object.assign(window.RAIL_I18N_MESSAGES.en, {"車庫加入環形試跑，三節小車沿彎道逐節轉向，可暫停、反向與自由旋轉欣賞；所有場景都能按鈕、滾輪或雙指縮放，海岸行旅也保留在選單中": "The garage now has a loop track. Each of the three cars follows the curves individually. Pause, reverse, rotate, and zoom with buttons, the mouse wheel or a two-finger gesture. The coastal journey remains in the scene menu."});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {"車庫加入環形試跑，三節小車沿彎道逐節轉向，可暫停、反向與自由旋轉欣賞；所有場景都能按鈕、滾輪或雙指縮放，海岸行旅也保留在選單中": "車庫に周回コースを追加。3両の小さな列車が1両ずつカーブに沿って走ります。一時停止、逆走、自由な視点回転に対応。どの場面もボタン、ホイール、ピンチで拡大・縮小できます。海辺の旅も場面メニューに残しています。"});
+
+Object.assign(window.RAIL_I18N_MESSAGES.en, {"放大場景":"Zoom in", "縮小場景":"Zoom out", "縮放比例":"Zoom level"});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {"放大場景":"拡大", "縮小場景":"縮小", "縮放比例":"表示倍率"});
+
+Object.assign(window.RAIL_I18N_MESSAGES.en, {"修正車庫試跑時中間車廂消失的問題，環形與海岸場景都會完整顯示三節編組，輕軌分節也能正常欣賞": "Fixed missing middle cars in the garage. Both the loop track and coastal journey now display the full three-car formation, including articulated light rail sections."});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {"修正車庫試跑時中間車廂消失的問題，環形與海岸場景都會完整顯示三節編組，輕軌分節也能正常欣賞": "車庫の試走で中間車両が消える問題を修正。周回コースと海辺の旅で3両編成がすべて表示され、連接式のライトレールも各車体を眺められます。"});
+
+Object.assign(window.RAIL_I18N_MESSAGES.en, {"補齊象山至廣慈／奉天宮的雙向軌道，來回列車沿各自股道進出，修正延伸段在 3D 地圖中斷的問題": "Completed both tracks between Xiangshan and Guangci/Fengtian Temple. Trains now use their respective tracks, fixing the missing extension in the 3D map."});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {"補齊象山至廣慈／奉天宮的雙向軌道，來回列車沿各自股道進出，修正延伸段在 3D 地圖中斷的問題": "象山から広慈／奉天宮までの上下線を補完。列車がそれぞれの線路を走り、3D地図で延伸区間が途切れる問題を修正しました。"});
+
+Object.assign(window.RAIL_I18N_MESSAGES.en, {"修正車庫三節車廂的車窗反光不一致；海岸行旅的玻璃會跟著日出、藍天、黃昏與星空變換光影": "Fixed inconsistent window reflections across the three garage cars. Glass in the coastal journey now reflects sunrise, blue skies, sunset and the night sky."});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {"修正車庫三節車廂的車窗反光不一致；海岸行旅的玻璃會跟著日出、藍天、黃昏與星空變換光影": "車庫の3両で窓の反射が異なる問題を修正。海辺の旅では、ガラスの光と色が朝日、青空、夕暮れ、星空に合わせて変わります。"});
+Object.assign(window.RAIL_I18N_MESSAGES.en, {"修正台鐵行車曲線更新後部分列車退回示意線形的問題，加開車也能沿已知連通股道行駛，雙軌與地下、高架顯示保持一致": "Fixed TRA trains reverting to schematic routes after motion profile updates. Additional services now use known connected tracks, keeping separate tracks and underground or elevated levels consistent."});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {"修正台鐵行車曲線更新後部分列車退回示意線形的問題，加開車也能沿已知連通股道行駛，雙軌與地下、高架顯示保持一致": "走行曲線の更新後に一部の台鉄列車が模式線に戻る問題を修正。臨時列車も接続が確認された線路を走り、複線や地下・高架の表示を維持します。"});
+
+Object.assign(window.RAIL_I18N_MESSAGES.en, {"環形試跑放大時會鎖定三節列車、跟著編組繞圈，旋轉時保持列車置中；縮回 100% 即可欣賞完整跑道": "Zooming in on the loop track now centers and follows the three-car train, including when rotating the view. Return to 100% to see the whole track."});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {"環形試跑放大時會鎖定三節列車、跟著編組繞圈，旋轉時保持列車置中；縮回 100% 即可欣賞完整跑道": "周回コースを拡大すると3両編成を中央に捉えて追いかけ、視点を回転しても列車が中央に留まります。100%に戻すとコース全体を見渡せます。"});
+
+Object.assign(window.RAIL_I18N_MESSAGES.en, {"鎖定": "Locked", "自由": "Free", "車頭鎖定：開啟": "Train head lock: on", "車頭鎖定：關閉": "Train head lock: off", "鎖定時可縮放、旋轉；關閉後自由移動，再開啟回到車頭": "Zoom and rotate while locked. Unlock to move freely, then lock again to return to the train head.", "手機跟車與放空跟車加入車頭鎖定開關，縮放旋轉時保持車頭置中；關閉後可自由移動，再開啟回到原列車": "Mobile train following and ambient train following now have a head lock. Zoom and rotate with the head centered, unlock to explore, then lock again to return to the same train.", "3D 高架軌道補上示意橋面與橋墩，地面路段補上路基；開關地形都連接地表，列車不再只有懸空的軌道承托": "Elevated 3D tracks now have illustrative bridge decks and piers, with track beds for surface sections. Supports meet the ground with terrain on or off."});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {"鎖定": "固定", "自由": "自由", "車頭鎖定：開啟": "先頭車両の固定：オン", "車頭鎖定：關閉": "先頭車両の固定：オフ", "鎖定時可縮放、旋轉；關閉後自由移動，再開啟回到車頭": "固定中も拡大縮小・回転できます。解除すると自由に移動でき、再び固定すると先頭車両に戻ります。", "手機跟車與放空跟車加入車頭鎖定開關，縮放旋轉時保持車頭置中；關閉後可自由移動，再開啟回到原列車": "スマートフォンの列車追跡と鑑賞モードに先頭固定スイッチを追加。拡大縮小・回転中も先頭を中央に保ち、解除して自由に移動した後も同じ列車へ戻れます。", "3D 高架軌道補上示意橋面與橋墩，地面路段補上路基；開關地形都連接地表，列車不再只有懸空的軌道承托": "3D高架線路に模式的な橋桁と橋脚、地上区間に路盤を追加。地形の起伏の有無に合わせて地表につながります。"});
+
+Object.assign(window.RAIL_I18N_MESSAGES.en, {"修正一般路段被誤畫成高架橋的問題；橋梁只依明確標記呈現，普通軌道貼近地表，保留交會與地下路段的高低差": "Fixed ordinary tracks incorrectly shown as viaducts. Bridges now require explicit bridge tags; ordinary tracks follow the ground while crossings and underground sections retain their height separation."});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {"修正一般路段被誤畫成高架橋的問題；橋梁只依明確標記呈現，普通軌道貼近地表，保留交會與地下路段的高低差": "通常の線路が高架橋として表示される問題を修正。橋は明示された情報に基づいて表示し、通常区間は地表に沿わせ、交差部と地下区間の高低差を保ちます。"});
+
+Object.assign(window.RAIL_I18N_MESSAGES.en, {"修正地形資料較慢載入時，橋梁與橋墩會被地面埋住的問題；地形到齊後會自動回到正確高度": "Fixed bridges and piers being buried under the ground when the terrain data arrives late; they now return to the right height as soon as the terrain finishes loading."});
+
+Object.assign(window.RAIL_I18N_MESSAGES.en, {"橋梁與隧道改依官方橋隧圖資補正，高鐵、臺中捷運等原本被畫成平地的高架與隧道路段回到正確高度；沒有明確資料的一般路段仍然貼地": "Bridges and tunnels are now corrected against official structure data, so elevated and tunnel sections on the high speed rail, Taichung metro and other lines that used to be drawn at ground level sit at the right height. Ordinary track without clear data still follows the ground."});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {"修正地形資料較慢載入時，橋梁與橋墩會被地面埋住的問題；地形到齊後會自動回到正確高度": "地形データの読み込みが遅れたときに橋と橋脚が地面に埋もれる問題を修正しました。地形が揃うと自動的に正しい高さに戻ります。"});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {"橋梁與隧道改依官方橋隧圖資補正，高鐵、臺中捷運等原本被畫成平地的高架與隧道路段回到正確高度；沒有明確資料的一般路段仍然貼地": "橋とトンネルを公式の構造物データで補正し、台湾高速鉄道や台中メトロなどで地平として描かれていた高架・トンネル区間が正しい高さになりました。明確なデータがない通常区間は地表に沿ったままです。"});
+
+Object.assign(window.RAIL_I18N_MESSAGES.en, {"修正低角度跟車時車頭超出畫面，以及平原號等示意列車在高架橋下行駛的問題": "Fixed the train head leaving the screen at low viewing angles and illustrative trains such as the Plains Express running beneath elevated tracks."});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {"修正低角度跟車時車頭超出畫面，以及平原號等示意列車在高架橋下行駛的問題": "低い視点で追跡中に先頭車両が画面外に出る問題と、平原号などの模式列車が高架線路の下を走る問題を修正しました。"});
+
+Object.assign(window.RAIL_I18N_MESSAGES.en, {"捷運與輕軌雙軌改為靠右行駛，來車與去車各走正確的一側；原本多數路線的兩個方向畫反了": "Metro and light rail double tracks now run on the right, so each direction uses its correct track; on most lines the two directions were previously drawn on the wrong sides."});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {"捷運與輕軌雙軌改為靠右行駛，來車與去車各走正確的一側；原本多數路線的兩個方向畫反了": "メトロとライトレールの複線を右側通行に修正し、往路と復路がそれぞれ正しい線路を走るようになりました。これまでは多くの路線で両方向が左右逆に描かれていました。"});
+
+Object.assign(window.RAIL_I18N_MESSAGES.en, {"推拉式自強號畫出完整 14 節（前後機車加 12 節客車），不再只顯示 3 節示意": "The push-pull Tze-Chiang Express now shows all 14 cars (a locomotive at each end plus 12 coaches) instead of a three-car illustration."});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {"推拉式自強號畫出完整 14 節（前後機車加 12 節客車），不再只顯示 3 節示意": "推拉式（プッシュプル）自強号を、両端の機関車と客車12両を合わせた14両編成で表示するようになりました。これまでは3両の模式表示でした。"});
+
+Object.assign(window.RAIL_I18N_MESSAGES.en, {"夜間地景的道路、機場鋪面與底圖鐵道跟著地面一起變暗，不再蓋過軌道與列車；白天配色維持不變": "At night the landscape map now darkens roads, airport paving and basemap railways along with the ground, so they no longer drown out the tracks and trains; daytime colours are unchanged."});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {"夜間地景的道路、機場鋪面與底圖鐵道跟著地面一起變暗，不再蓋過軌道與列車；白天配色維持不變": "夜間の風景地図で、道路・空港の舗装・ベースマップの鉄道線を地面と一緒に暗くし、線路と列車が見えにくくならないようにしました。昼間の配色は変わりません。"});
+
+Object.assign(window.RAIL_I18N_MESSAGES.en, {"通行證不用先登入也看得到：面板直接打得開，可以先看清楚有哪些功能，要看價格或訂閱時才需要登入軌島帳號。已經訂閱的人一樣從同一個地方登入恢復。": "You no longer have to sign in before looking at the pass: the panel opens straight away, so you can see exactly what it includes first. Signing in with a Rail Island account is only needed to see prices or subscribe, and anyone who already subscribed restores from the same place."});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {"通行證不用先登入也看得到：面板直接打得開，可以先看清楚有哪些功能，要看價格或訂閱時才需要登入軌島帳號。已經訂閱的人一樣從同一個地方登入恢復。": "パスの内容はログインしなくても確認できます。パネルがそのまま開くので、まず何が含まれるかをご覧いただけます。軌島アカウントへのログインが必要なのは料金の表示と購入のときだけで、購入済みの方も同じ場所から復元できます。"});
+
+Object.assign(window.RAIL_I18N_MESSAGES.en, {"網站也能用軌島通行證：用同一個軌島帳號登入，App 訂的資格就生效——收藏與完乘同步、行程分享、跟車配樂、匯入 Google Maps 清單、衛星高解析都會打開。訂閱仍只在 App 內完成，網站不收費。": "The Rail Island Pass now works on the web too: sign in with the same Rail Island account and the pass you bought in the app takes effect here — cloud sync for favourites and completed journeys, trip sharing, the train soundtrack, Google Maps list import and high-resolution satellite tiles all open up. Subscriptions are still purchased in the app; the website never charges you."});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {"網站也能用軌島通行證：用同一個軌島帳號登入，App 訂的資格就生效——收藏與完乘同步、行程分享、跟車配樂、匯入 Google Maps 清單、衛星高解析都會打開。訂閱仍只在 App 內完成，網站不收費。": "軌島パスがWebでも使えるようになりました。同じ軌島アカウントでログインすると、Appで購入したパスがWebでも有効になり、お気に入りと完乗記録の同期、旅程共有、追跡サウンドトラック、Googleマップのリスト読み込み、高解像度衛星地図が利用できます。購入は引き続きApp内のみで、Webでは課金しません。"});
+
+Object.assign(window.RAIL_I18N_MESSAGES.en, {"網站也能用軌島通行證了：用同一個軌島帳號登入，App 訂的資格就在網站生效": "The Rail Island Pass now works on the web: sign in with the same Rail Island account and the pass you bought in the app takes effect here."});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {"網站也能用軌島通行證了：用同一個軌島帳號登入，App 訂的資格就在網站生效": "軌島パスがWebでも使えるようになりました。同じ軌島アカウントでログインすると、Appで購入したパスがWebでも有効になります。"});
+
+Object.assign(window.RAIL_I18N_MESSAGES.en, {"App 的通行證面板不用先登入也打得開，先看清楚有哪些功能，要訂閱時才登入": "The pass panel in the app now opens without signing in first, so you can see what's included before you subscribe."});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {"App 的通行證面板不用先登入也打得開，先看清楚有哪些功能，要訂閱時才登入": "Appのパス画面はログインしなくても開けるようになりました。内容を確かめてから、購入するときにログインします。"});
+
+Object.assign(window.RAIL_I18N_MESSAGES.en, {"修正網站上的 Google 與 Apple 登入會顯示登入失敗的問題，登入後收藏與完乘即可同步": "Fixed sign-in on the website failing with an error: Google and Apple sign-in now work, and your collection and ride records sync once you are signed in."});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {"修正網站上的 Google 與 Apple 登入會顯示登入失敗的問題，登入後收藏與完乘即可同步": "Webサイトでログインが「失敗」と表示される問題を修正しました。GoogleとAppleのログインが正常に完了し、ログイン後はコレクションと乗車記録が同期されます。"});
+
+Object.assign(window.RAIL_I18N_MESSAGES.en, {"地下列車可以改成實色：「更多」的「透視顯示」切到「實體」": "Underground trains can now be shown solid: switch See-through view to Solid under More."});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {"地下列車可以改成實色：「更多」的「透視顯示」切到「實體」": "地下の列車を実体表示にできます：「その他」の「透視表示」を「実体」に切り替えます。"});
+
+Object.assign(window.RAIL_I18N_MESSAGES.en, {"轉乘接續也列捷運了：高鐵桃園等轉乘站會顯示桃園機場捷運與高雄捷運的接續班次，機捷每一班還標出直達車或普通車": "Transfer connections now include metros: stations such as Taoyuan HSR list onward Taoyuan Airport MRT and Kaohsiung Metro departures, and every Airport MRT train shows whether it is Express or Commuter."});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {"轉乘接續也列捷運了：高鐵桃園等轉乘站會顯示桃園機場捷運與高雄捷運的接續班次，機捷每一班還標出直達車或普通車": "乗り継ぎ案内にメトロが加わりました。桃園HSR駅などの乗換駅で桃園空港MRTと高雄メトロの次の発車を表示し、空港MRTは列車ごとに直達か普通かも示します。"});
+
+Object.assign(window.RAIL_I18N_MESSAGES.en, {"桃園機場捷運全線每一班都標得出直達車或普通車，首末班不再只顯示線號": "Every Taoyuan Airport MRT train on the whole line now shows whether it is Express or Commuter; the first and last trains no longer show only the line code."});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {"桃園機場捷運全線每一班都標得出直達車或普通車，首末班不再只顯示線號": "桃園空港MRTは全線すべての列車に直達か普通かの種別を表示するようになりました。始発と最終の列車も路線記号だけの表示ではなくなりました。"});
+
+Object.assign(window.RAIL_I18N_MESSAGES.en, {"修正台北等密集市區近處建築缺少透視線條，優先保留畫面內的近景輪廓；9/23 再改進跟車：列車前進時沿途建築的透視線條約每秒更新一次，不必等靠站才一次補上": "Fixed missing see-through outlines on nearby buildings in dense areas such as Taipei, prioritizing nearby buildings in view. Since 9/23, while you follow a train, outlines along the route refresh about once a second instead of appearing only when the train stops."});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {"修正台北等密集市區近處建築缺少透視線條，優先保留畫面內的近景輪廓；9/23 再改進跟車：列車前進時沿途建築的透視線條約每秒更新一次，不必等靠站才一次補上": "台北など建物が密集する地域で、近くの建物の透視線が欠ける問題を修正しました。画面内の近景の輪郭を優先して表示します。9/23からは列車の追跡中も沿線の建物の透視線が約1秒ごとに更新され、停車するまで表示されないことはなくなりました。"});
+Object.assign(window.RAIL_I18N_MESSAGES.en, {"到站提醒新增每天、週一到五或自訂星期的重複設定，通勤固定搭的那班設一次就長期有效": "Arrival reminders can now repeat every day, on weekdays, or on days you pick, so a regular commute only needs setting up once."});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {"到站提醒新增每天、週一到五或自訂星期的重複設定，通勤固定搭的那班設一次就長期有效": "到着リマインダーに毎日・平日・曜日指定の繰り返し設定を追加しました。いつも乗る通勤列車は一度設定すれば使い続けられます。"});
+Object.assign(window.RAIL_I18N_MESSAGES.en, {"台鐵列車互穿再減少：補回 97 站的站區股道，雙線區間依行車方向分股行駛，台北–萬華地下段不再兩向共用同一條軌道，並改善單線會車判斷": "Fewer TRA trains now appear to pass through each other: station yard tracks are restored at 97 stations, double-track sections keep each direction on its own track (the Taipei–Wanhua underground section no longer shares one track both ways), and meets on single-track lines are judged more accurately."});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {"台鐵列車互穿再減少：補回 97 站的站區股道，雙線區間依行車方向分股行駛，台北–萬華地下段不再兩向共用同一條軌道，並改善單線會車判斷": "台鉄の列車同士がすり抜けて見える表示をさらに減らしました。97 駅の構内線路を補い、複線区間は進行方向ごとに線路を分けて走るようにし（台北–萬華の地下区間で上下の列車が同じ線路を共用しなくなりました）、単線区間の行き違い判定も改善しました。"});
+Object.assign(window.RAIL_I18N_MESSAGES.en, {"修正阿里山林鐵機車的位置與方向，依路段呈現車尾推進、車頭牽引及之字形折返": "Corrected locomotive placement on the Alishan Forest Railway to show pushing, pulling and switchback reversals along each route."});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {"修正阿里山林鐵機車的位置與方向，依路段呈現車尾推進、車頭牽引及之字形折返": "阿里山林業鉄道の機関車の位置と向きを修正し、区間に応じた後方からの推進、前方での牽引、スイッチバックを表示します。"});
+Object.assign(window.RAIL_I18N_MESSAGES.en, {"修正台鐵近 30 天準點率與準點排行偶爾停在幾天前，資料漏抓時當天會自動補上": "Fixed TRA 30-day on-time rates and the Punctuality ranking occasionally stalling several days behind; missed data is now fetched again the same day."});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {"修正台鐵近 30 天準點率與準點排行偶爾停在幾天前，資料漏抓時當天會自動補上": "台鐵の直近30日の定時率と定時運行ランキングが数日前のまま止まることがある問題を修正し、取得漏れは当日中に自動で補うようにしました。"});
+
+Object.assign(window.RAIL_I18N_MESSAGES.en, {"所有列車都可顯示完整編組；區間車、莒光與觀光列車等資料不足的班次顯示推估車廂數，並清楚標示推估": "All trains can now display full formations. Services without confirmed consist data, including local, Chu-Kuang and sightseeing trains, show clearly labelled estimated car counts."});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {"所有列車都可顯示完整編組；區間車、莒光與觀光列車等資料不足的班次顯示推估車廂數，並清楚標示推估": "すべての列車で全編成を表示できるようになりました。区間車・莒光号・観光列車など編成情報が不足する便は、推定両数であることを明記して表示します。"});
+
+Object.assign(window.RAIL_I18N_MESSAGES.en, {"台鐵後車即將追上前車時，會預先回找有足夠煞車時間的車站安排待避，減少列車在站間追撞或互相穿越": "When a following TRA train is predicted to catch the train ahead, the map now looks back for a station with enough braking time and schedules a passing wait there, reducing collisions and pass-through overlaps between stations.", "台鐵後車即將追上前車時，會預先回找有足夠煞車時間的車站安排待避；例如 6563 次與 207 次原本會在和仁到和平間互穿，現在會提前在崇德停妥、等後車通過再開，並依車種煞車性能決定是否還要往前一站": "When a following TRA train is predicted to catch the train ahead, the map now looks back for a station with enough braking time and schedules a passing wait. For example, trains 6563 and 207 previously crossed between Heren and Heping; train 6563 now stops safely at Chongde and departs after 207 passes, with braking performance determining whether an earlier station is needed."});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {"台鐵後車即將追上前車時，會預先回找有足夠煞車時間的車站安排待避，減少列車在站間追撞或互相穿越": "後続の台鉄列車が先行列車に追いつくと予測したとき、十分な制動時間を確保できる手前の駅までさかのぼって待避を設定し、駅間での追突やすり抜け表示を減らします。", "台鐵後車即將追上前車時，會預先回找有足夠煞車時間的車站安排待避；例如 6563 次與 207 次原本會在和仁到和平間互穿，現在會提前在崇德停妥、等後車通過再開，並依車種煞車性能決定是否還要往前一站": "後続の台鉄列車が先行列車に追いつくと予測したとき、十分な制動時間を確保できる手前の駅までさかのぼって待避を設定します。たとえば、和仁－和平間ですり抜けていた6563次と207次は、6563次が崇徳で先に停車し、207次の通過後に発車します。車種ごとの制動性能に応じて、さらに手前の駅が必要かも判断します。"});
+
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  "選取縣市或搜尋車站後自動解除定位跟隨，避免地圖鏡頭隨即跳回所在地點": "Selecting a city or searching for a station now releases location follow mode, preventing the camera from jumping straight back to your current spot.",
+  "選取縣市或搜尋車站後自動解除所在地鏡頭跟隨，避免地圖剛飛過去又隨即跳回使用者目前的定位點": "Selecting a city or searching for a station now releases location follow mode, preventing the camera from jumping straight back to your current spot after flying.",
+  "跟車轉動視角維持鎖定不中斷，並修正開啟車頭朝上時列車在轉彎處跑出畫面外的問題": "Rotating the view while following a train keeps follow mode locked, and fixed an issue where heading-up mode caused trains to drift off-screen on curves.",
+  "最愛車站星號整合至站名標籤避免遮蔽文字，傾斜跟車時自動隱藏定位藍圈維持純淨視角": "Favourite station stars are integrated into station labels to avoid covering text, and the blue location circle is hidden when following trains in tilted 3D view.",
+  "＋ 搜尋車站": "+ Search stations",
+  "＋ 搜尋並收藏車站": "+ Search & favourite stations",
+  "搜尋車站名稱以加入最愛…": "Search station name to add to favourites…"
+});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  "選取縣市或搜尋車站後自動解除定位跟隨，避免地圖鏡頭隨即跳回所在地點": "県市選択や駅検索を行うと現在地の自動追従を解除し、カメラがすぐに現在地へ戻ってしまうのを防ぎます。",
+  "選取縣市或搜尋車站後自動解除所在地鏡頭跟隨，避免地圖剛飛過去又隨即跳回使用者目前的定位點": "県市選択や駅検索を行うと現在地のカメラ追従を解除し、移動した直後に現在地へ戻ってしまうのを防ぎます。",
+  "跟車轉動視角維持鎖定不中斷，並修正開啟車頭朝上時列車在轉彎處跑出畫面外的問題": "追従中の視点回転でも追従ロックを維持し、進行方向上向きでカーブを走行する際に列車が画面外へ外れる問題を修正しました。",
+  "最愛車站星號整合至站名標籤避免遮蔽文字，傾斜跟車時自動隱藏定位藍圈維持純淨視角": "お気に入り駅の星印を駅名ラベルに統合して文字の重なりを防ぎ、3D傾斜追従時は現在地の青い精度円を非表示にして視界をすっきり保ちます。",
+  "＋ 搜尋車站": "+ 駅を検索",
+  "＋ 搜尋並收藏車站": "+ 駅を検索してお気に入りに追加",
+  "搜尋車站名稱以加入最愛…": "駅名を検索してお気に入りに追加…"
+});
+
+// 2026-09-18「附近車站」清單多了關法(第一層更新紀錄那條的 en/ja;第二層正本一律走 RAIL_I18N_CHANGELOG)
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  "「附近車站」清單多了兩個關法：點地圖空白處、或把卡片往下滑，不必先選一站才收得掉": "The Stations near you list can now be dismissed two more ways: tap an empty part of the map, or swipe the card down — you no longer have to pick a station to get rid of it."
+});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  "「附近車站」清單多了兩個關法：點地圖空白處、或把卡片往下滑，不必先選一站才收得掉": "「付近の駅」リストの閉じ方が増えました。地図の何もない場所をタップするか、カードを下にスワイプすれば閉じられます。駅を選ばないと消せない状態を解消しました。"
+});
+
+// 2026-09-18 班表碎片合併方向修正(第一層更新紀錄那條的 en/ja;第二層正本一律走 RAIL_I18N_CHANGELOG)
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  "淡水信義線平日清晨少掉的 6 班補回來了；機捷與淡海輕軌少數班次不再開到半路掉頭": "Tamsui-Xinyi Line: the 6 early-morning weekday trains that were missing are back, and a few Taoyuan Airport MRT and Danhai LRT trains no longer turn back halfway."
+});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  "淡水信義線平日清晨少掉的 6 班補回來了；機捷與淡海輕軌少數班次不再開到半路掉頭": "淡水信義線：平日早朝に欠けていた6本を復元しました。桃園空港MRTと淡海ライトレールの一部列車が途中で折り返す問題も解消しました。"
+});
+
+// 2026-09-18 環狀線平日末班車補齊(第一層更新紀錄那條的 en/ja;第二層正本一律走 RAIL_I18N_CHANGELOG)
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  "環狀線平日深夜少掉的末班車補回來了，中和站時刻也改對齊官方時刻表": "Circular Line: the late-night weekday last trains that were missing are back, and Zhonghe station times now match the official timetable."
+});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  "環狀線平日深夜少掉的末班車補回來了，中和站時刻也改對齊官方時刻表": "環状線：平日深夜に欠けていた終電を復元し、中和駅の時刻も公式時刻表に合わせました。"
+});
+
+// 2026-09-18 開著車站卡或列車卡也能進觀看設定(第一層更新紀錄那條的 en/ja;第二層正本一律走 RAIL_I18N_CHANGELOG)
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  "開著車站卡或列車卡時也能直接按「觀看」調整視角、地圖與列車設定": "You can now tap View to change camera, map and train settings while a station or train card is open."
+});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  "開著車站卡或列車卡時也能直接按「觀看」調整視角、地圖與列車設定": "駅カードや列車カードを開いたままでも「表示」から視点・地図・列車の設定を変更できるようになりました。"
+});
+
+// 2026-09-18 機捷山鼻 07:37 區間車開到台北(第一層更新紀錄那條的 en/ja;第二層正本一律走 RAIL_I18N_CHANGELOG)
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  "機捷平日早上山鼻 7:37 那班區間車不再開到林口就消失，照官方時刻開到台北": "Taoyuan Airport MRT: the 7:37 weekday-morning short-run train from Shanbi no longer disappears at Linkou and now runs to Taipei Main Station on its official timetable."
+});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  "機捷平日早上山鼻 7:37 那班區間車不再開到林口就消失，照官方時刻開到台北": "桃園空港MRT：平日朝7:37山鼻発の区間列車が林口で消えなくなり、公式時刻どおり台北駅まで走るようになりました。"
+});
+
+// 2026-09-18 Android 地景地圖立體列車不再消失(第一層更新紀錄那條的 en/ja;第二層正本一律走 RAIL_I18N_CHANGELOG)
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  "Android App 的地景地圖立體列車不再消失，照真實地形高度顯示": "Android app: 3D trains on the Landscape map no longer disappear and sit at their real terrain height again"
+});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  "Android App 的地景地圖立體列車不再消失，照真實地形高度顯示": "Androidアプリ：風景地図で3D 列車が消えなくなり、実際の地形の高さで表示されるようになりました"
+});
+
+// 2026-09-18 班表配對同分改挑鏈尾最近的(第一層更新紀錄那條的 en/ja;第二層正本一律走 RAIL_I18N_CHANGELOG)
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  "機捷南下末班車（台北 23:08）不再被拆成兩台，照官方時刻一路開完全程；中和新蘆線白天與晚間、淡水信義線晚間少掉的班次補回來了": "Taoyuan Airport MRT: the 23:08 last southbound train from Taipei Main Station is no longer split into two and now runs its full route on the official timetable. Missing daytime and evening Zhonghe–Xinlu Line trains and evening Tamsui-Xinyi Line trains are back."
+});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  "機捷南下末班車（台北 23:08）不再被拆成兩台，照官方時刻一路開完全程；中和新蘆線白天與晚間、淡水信義線晚間少掉的班次補回來了": "桃園空港MRT：台北駅23:08発の南行き終電が2本に分かれなくなり、公式時刻どおり全区間を走ります。中和新蘆線の日中・夜間、淡水信義線の夜間に欠けていた列車も復元しました。"
+});
+
+// 2026-09-18 淡水信義線與機捷班表刷新(第一層更新紀錄那條的 en/ja;第二層正本一律走 RAIL_I18N_CHANGELOG)
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  "淡水信義線班表換成 8/31 改點後的官方時刻；機捷晚上的直達車不再開到長庚就消失，照官方時刻開到機場第二航廈": "Tamsui–Xinyi Line timetable now follows the official schedule effective Aug 31. Taoyuan Airport MRT evening Express trains no longer vanish at Chang Gung Memorial Hospital and run to Airport Terminal 2 on the official timetable."
+});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  "淡水信義線班表換成 8/31 改點後的官方時刻；機捷晚上的直達車不再開到長庚就消失，照官方時刻開到機場第二航廈": "淡水信義線の時刻表を8月31日改正後の公式ダイヤに更新しました。桃園空港MRTの夜の直達車が長庚医院駅で消えなくなり、公式時刻どおり空港第2ターミナル駅まで走ります。"
+});
+
+// 2026-09-18 開窗改取時段附近的官方站間秒(第一層更新紀錄那條的 en/ja;第二層正本一律走 RAIL_I18N_CHANGELOG)
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  "高雄環狀輕軌假日 29 班不再接錯車；機捷深夜往機場 23:23、23:38 兩班，中和新蘆線南勢角 22:26、淡水信義線週六廣慈 23:08 也照官方時刻開完全程": "Kaohsiung Circular Light Rail: 29 weekend trains are no longer joined to the wrong train. The late-night 23:23 and 23:38 Airport MRT trains to the airport, the 22:26 Zhonghe–Xinlu Line train from Nanshijiao, and the Saturday 23:08 Tamsui-Xinyi Line train from Guangci/Fengtian Temple also run their full routes on the official timetable."
+});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  "高雄環狀輕軌假日 29 班不再接錯車；機捷深夜往機場 23:23、23:38 兩班，中和新蘆線南勢角 22:26、淡水信義線週六廣慈 23:08 也照官方時刻開完全程": "高雄環状LRT：週末の29本が別の列車とつながらなくなりました。空港MRTの深夜23:23・23:38発の空港行き、中和新蘆線の南勢角22:26発、淡水信義線の土曜23:08広慈/奉天宮発も、公式時刻どおり全区間を走ります。"
+});
+
+// 2026-09-19 多語缺漏回報:App 倒數準確度五種說法(原本傳變數給 t(),靜態閘門看不到)、今日台鐵狀態、
+// 今日亮點卡片提示、群組切換提示、頁尾「最後更新」改成帶日期參數、七個只給讀屏器念的 aria-label,
+// 以及 App 強制更新畫面與 Android「看更新內容」的固定文案
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '官方即時資料': 'Official live data',
+  '官方即時；缺列方向依時刻表推估': 'Official live data; directions without live data are estimated from the timetable',
+  '北捷官方即時倒數': 'Official Taipei Metro live countdown',
+  '即時訊號中斷，依固定行車時間推估': 'Live signal lost; estimated from standard running times',
+  '依官方當日時刻表推估': 'Estimated from today’s official timetable',
+  '週末鐵道活動': 'Weekend rail events',
+  '在站上': 'At station',
+  '已離站': 'Departed',
+  '群組:{group}(點一下換)': 'Group: {group} (tap to switch)',
+  '跟隨 {train} 次・{status}': 'Follow train {train} · {status}',
+  '網站說明': 'About this site',
+  '關閉，不再提醒': 'Close and don’t remind me again',
+  '這是什麼問題': 'What kind of problem is this?',
+  '用瀏覽器開啟的建議': 'Suggestion to open in a browser',
+  '清除搜尋': 'Clear search',
+  '橫放與特大字級的提示': 'Tip about landscape mode and extra-large text',
+  '切換群組': 'Switch group',
+  '公車接續旅程': 'Bus connecting journey',
+  '需要更新': 'Update required',
+  '這個版本（{version}）已停止支援，部分服務無法再使用。請更新到最新版，馬上就好。': 'This version ({version}) is no longer supported, and some services no longer work. Please update to the latest version \u2014 it only takes a moment.',
+  'Google Play 有較新的軌島版本可下載。': 'A newer version of Rail Island is available to download on Google Play.'
+});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '官方即時資料': '公式リアルタイムデータ',
+  '官方即時；缺列方向依時刻表推估': '公式リアルタイム（データのない方向は時刻表から推定）',
+  '北捷官方即時倒數': '台北メトロ公式のリアルタイムカウントダウン',
+  '即時訊號中斷，依固定行車時間推估': 'リアルタイム信号が途絶えたため、標準の走行時間から推定',
+  '依官方當日時刻表推估': '当日の公式時刻表から推定',
+  '週末鐵道活動': '週末の鉄道イベント',
+  '在站上': '停車中',
+  '已離站': '発車済み',
+  '群組:{group}(點一下換)': 'グループ：{group}（タップで切替）',
+  '跟隨 {train} 次・{status}': '{train}列車を追跡・{status}',
+  '網站說明': 'サイト案内',
+  '關閉，不再提醒': '閉じる（今後は表示しない）',
+  '這是什麼問題': 'どのような問題ですか',
+  '用瀏覽器開啟的建議': 'ブラウザで開くことのおすすめ',
+  '清除搜尋': '検索をクリア',
+  '橫放與特大字級的提示': '横向き表示と特大文字のヒント',
+  '切換群組': 'グループを切り替え',
+  '公車接續旅程': 'バスの乗換旅程',
+  '需要更新': '更新が必要です',
+  '這個版本（{version}）已停止支援，部分服務無法再使用。請更新到最新版，馬上就好。': 'このバージョン（{version}）はサポートを終了したため、一部のサービスが使えなくなりました。最新版に更新してください。すぐに終わります。',
+  'Google Play 有較新的軌島版本可下載。': 'Google Playで軌島の新しいバージョンをダウンロードできます。'
+});
+
+// 2026-09-19 硬編中文審計修復 A 級(官方訊號恢復/中斷 toast、衛星圖層說明、刪除帳號確認、
+// 護照路線完乘「段」單位字、成就說明卡的達成狀態)
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '官方訊號恢復　北捷即時資料中斷約 <b>{mins} 分鐘</b>後恢復，<b>{count} 台</b>列車已重新對齊官方位置——中斷期間畫面上的位置是推估的，所以這些車會往前跳或往後退。{removedClause}': 'Official signal restored — Taipei Metro live data was interrupted for about <b>{mins} minutes</b> and has now recovered. <b>{count} trains</b> have been repositioned to match official data. During the outage, their on-screen positions were estimated, so these trains may jump forward or back.{removedClause}',
+  '另有 <b>{removed} 台</b>推估中的列車因為不在官方名單上而移除，這不代表它們停駛。': ' In addition, <b>{removed} estimated trains</b> were removed because they are not on the official list — this does not mean they stopped running.',
+  '衛星影像免費看。想看更清楚的高解析版本，可以在「軌島通行證」裡開通（手機從「更多」進去）；跟車移動時一律用標準解析度，讓圖磚跟得上。': 'Satellite imagery is free to view. For a sharper high-resolution version, unlock it in the Rail Island Pass (on mobile, go through "More"). While following a moving train, standard resolution is always used so tiles can keep up.',
+  '確定要永久刪除軌島帳號、雲端收藏與完乘紀錄？這個動作無法復原。': 'Are you sure you want to permanently delete your Rail Island account, cloud favorites, and full-journey records? This action cannot be undone.',
+  '段': 'Seg',
+  '已達成': 'Achieved',
+  '未達成': 'Not yet'
+});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '官方訊號恢復　北捷即時資料中斷約 <b>{mins} 分鐘</b>後恢復，<b>{count} 台</b>列車已重新對齊官方位置——中斷期間畫面上的位置是推估的，所以這些車會往前跳或往後退。{removedClause}': '公式信号が復旧しました　台北メトロのリアルタイムデータが約<b>{mins}分間</b>途絶えたのち復旧し、<b>{count}本</b>の列車を公式位置に再整合しました。途絶中の画面上の位置は推定だったため、これらの列車は前後にジャンプすることがあります。{removedClause}',
+  '另有 <b>{removed} 台</b>推估中的列車因為不在官方名單上而移除，這不代表它們停駛。': 'また、公式リストに含まれていなかった推定中の列車<b>{removed}本</b>を削除しました。これは運休を意味するものではありません。',
+  '衛星影像免費看。想看更清楚的高解析版本，可以在「軌島通行證」裡開通（手機從「更多」進去）；跟車移動時一律用標準解析度，讓圖磚跟得上。': '衛星画像は無料でご覧いただけます。より鮮明な高解像度版は「軌島パス」で解除できます（スマホでは「その他」から）。列車を追跡して移動中は、タイルが追いつくよう常に標準解像度を使用します。',
+  '確定要永久刪除軌島帳號、雲端收藏與完乘紀錄？這個動作無法復原。': '軌島アカウント、クラウドのお気に入り、完乗記録を完全に削除します。よろしいですか？この操作は元に戻せません。',
+  '段': '区間',
+  '已達成': '達成',
+  '未達成': '未達成'
+});
+
+// 2026-09-19 硬編中文審計修復:成就說明卡「怎麼做」(ACHIEVEMENTS[].how,20 筆全新增)
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '挑一班再幾分鐘就發車的短程車,從發車一路跟到終點站抵達。': "Pick a short-run train departing in a few minutes, and follow it all the way from departure to its terminus.",
+  '支線車程短,把跟車速度調快,一個下午就能連跟好幾班。': 'Branch-line rides are short — speed up playback and you can follow several trains in one afternoon.',
+  '同一天同一班車只記一次,要換不同車次才會往上加。': 'The same train on the same day only counts once; ride different train numbers to make progress.',
+  '跟一趟西部幹線長途自強號,一趟就走掉一大半。': 'Follow one long-distance Tze-Chiang Limited Express on the Western Line — a single journey covers most of it.',
+  '南迴線與東部幹線的長途直達車單趟里程最高,最省趟數。': 'Long-distance through trains on the South-Link and Eastern Lines cover the most distance per trip, making them the most efficient choice.',
+  '大約等於 3 趟臺北→枋寮等級的長途完乘。': 'Roughly equal to 3 long-distance journeys on the scale of Taipei to Fangliao.',
+  '長期目標。每一趟完乘都在累積,不會歸零。': 'A long-term goal — every completed journey adds up and never resets.',
+  '臺北→高雄／臺東等級的長途直達,而且必須整趟從發車跟到底。': 'A long-distance through train on the scale of Taipei to Kaohsiung/Taitung, followed continuously from departure all the way to the end.',
+  '找西部幹線的長程區間車,站站都停的那種停靠數最多。': 'Look for long-distance local trains on the Western Line — the ones stopping at every station rack up the most stops.',
+  '看的是那班車在始發站的發車時刻,不是你開始跟的時間。': "This checks the train's departure time at its origin station, not when you started following it.",
+  '同樣看始發站時刻。深夜南下的長途車最好找。': 'Also based on the origin-station departure time. Late-night southbound long-distance trains are the easiest to find.',
+  '門檻是模擬時間 6 小時;調快跟車速度可大幅縮短真實等待,但中途斷掉會從頭算。': 'The threshold is 6 hours of simulated time. Speeding up playback greatly shortens the real-world wait, but breaking off partway starts the count over.',
+  '挑三班不同車次的短程支線車,加速跟完最快。': 'Pick three short-run branch-line trains with different train numbers — speeding up playback is the fastest way to finish.',
+  '兩款傾斜式列車都跑東部幹線,同一天可以接著跟。': 'Both tilting trains run on the Eastern Line, so you can follow one right after the other on the same day.',
+  '只算有固定車次的那幾班;無固定車次的觀光列車搭不到,不列入分母。': "Only trains with a fixed train number count. Sightseeing trains without a fixed number can't be ridden and aren't counted in the total.",
+  '車種章看你完乘那班車的車型,跟路線無關——先補沒搭過的車型最快。': "Rolling-stock stamps are based on the train model you complete a journey on, not the route — filling in models you haven't ridden yet is fastest.",
+  '平溪、集集、內灣、六家、深澳、沙崙。車程都很短,是最快補齊的一組。': "Pingxi, Jiji, Neiwan, Liujia, Shenao and Shalun — all short rides, making this the fastest set to complete.",
+  '來源有兩個:每趟完乘記下起訖兩站,以及打卡過的站。': 'Two sources count: the origin and destination stations of every completed journey, plus stations you have checked in at.',
+  '按「我上車了」實際搭一趟,沿途每過一站就自動蓋一枚,比靠完乘起訖站快得多。': 'Tap "I\'m on board" for an actual ride — every station you pass gets stamped automatically, much faster than relying on journey origin/destination stations alone.',
+  '只有按「我上車了」才會累積,純跟車看動畫一次都不算。來回算同一段。': 'Only counts when you tap "I\'m on board" — just watching the animation never counts. A round trip counts as the same segment.',
+  '同樣只認實際搭乘。每天來回約需兩年多,是全表最硬的一枚。': 'Also counts actual rides only. At one round trip a day this takes over two years — the toughest one on the list.'
+});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '挑一班再幾分鐘就發車的短程車,從發車一路跟到終點站抵達。': 'あと数分で発車する短距離の列車を選び、発車から終点到着まで追跡しましょう。',
+  '支線車程短,把跟車速度調快,一個下午就能連跟好幾班。': '支線は乗車時間が短いので、再生速度を上げれば午後だけで何本も連続して追跡できます。',
+  '同一天同一班車只記一次,要換不同車次才會往上加。': '同じ日に同じ列車に乗っても1回しかカウントされません。異なる列車番号に乗ってこそ記録が増えます。',
+  '跟一趟西部幹線長途自強號,一趟就走掉一大半。': '西部幹線の長距離自強号を1本追跡すれば、一気に大半を稼げます。',
+  '南迴線與東部幹線的長途直達車單趟里程最高,最省趟數。': '南迴線・東部幹線の長距離直達列車は1回あたりの走行距離が最も長く、最も効率的です。',
+  '大約等於 3 趟臺北→枋寮等級的長途完乘。': '台北→枋寮クラスの長距離完乗をおよそ3回分行うのに相当します。',
+  '長期目標。每一趟完乘都在累積,不會歸零。': '長期目標です。完乗するたびに積み上がり、リセットされません。',
+  '臺北→高雄／臺東等級的長途直達,而且必須整趟從發車跟到底。': '台北→高雄／台東クラスの長距離直達列車を、発車から最後まで通しで追跡する必要があります。',
+  '找西部幹線的長程區間車,站站都停的那種停靠數最多。': '西部幹線の長距離区間車を探しましょう。各駅停車タイプが最も停車数を稼げます。',
+  '看的是那班車在始發站的發車時刻,不是你開始跟的時間。': '判定するのはその列車の始発駅での発車時刻で、追跡を始めた時刻ではありません。',
+  '同樣看始發站時刻。深夜南下的長途車最好找。': 'こちらも始発駅の発車時刻で判定します。深夜の南下長距離列車が見つけやすいです。',
+  '門檻是模擬時間 6 小時;調快跟車速度可大幅縮短真實等待,但中途斷掉會從頭算。': 'しきい値はシミュレーション時間6時間です。再生速度を上げれば実際の待ち時間を大幅に短縮できますが、途中で中断すると最初からやり直しになります。',
+  '挑三班不同車次的短程支線車,加速跟完最快。': '異なる列車番号の短距離支線列車を3本選び、再生速度を上げるのが最速です。',
+  '兩款傾斜式列車都跑東部幹線,同一天可以接著跟。': '両方の振り子式列車とも東部幹線を走るため、同じ日に続けて追跡できます。',
+  '只算有固定車次的那幾班;無固定車次的觀光列車搭不到,不列入分母。': '対象は固定列車番号を持つ列車のみです。固定番号のない観光列車は乗車できないため、分母に含まれません。',
+  '車種章看你完乘那班車的車型,跟路線無關——先補沒搭過的車型最快。': '車種スタンプは完乗した列車の車両形式で決まり、路線とは無関係です。まだ乗っていない形式から埋めるのが最速です。',
+  '平溪、集集、內灣、六家、深澳、沙崙。車程都很短,是最快補齊的一組。': '平渓、集集、内湾、六家、深澳、沙崙。いずれも乗車時間が短く、最も早く揃えられる組み合わせです。',
+  '來源有兩個:每趟完乘記下起訖兩站,以及打卡過的站。': 'カウント元は2つです。完乗ごとの起点・終点駅と、チェックインした駅です。',
+  '按「我上車了」實際搭一趟,沿途每過一站就自動蓋一枚,比靠完乘起訖站快得多。': '「乗車中」を押して実際に乗車すると、通過する駅ごとに自動でスタンプが押されます。完乗の起点・終点駅だけに頼るより、ずっと速く集まります。',
+  '只有按「我上車了」才會累積,純跟車看動畫一次都不算。來回算同一段。': '「乗車中」を押した場合のみカウントされ、アニメーションを見ているだけでは一切カウントされません。往復は同一区間として扱います。',
+  '同樣只認實際搭乘。每天來回約需兩年多,是全表最硬的一枚。': 'こちらも実際の乗車のみが対象です。毎日往復しても2年以上かかる、全表で最も厳しい実績です。'
+});
+
+// 2026-09-19 硬編中文審計修復:統一跟車卡「往上拉看完整資料」提示鈕與「這班車/這一站」分頁標籤
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '詳細': 'Details',
+  '往上拉看完整資料': 'Pull up to see the full data',
+  '這班車': 'This train',
+  '這一站': 'This station'
+});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '詳細': '詳細',
+  '往上拉看完整資料': '上にスワイプすると全データを表示',
+  '這班車': 'この列車',
+  '這一站': 'この駅'
+});
+
+// 2026-09-19 硬編中文審計修復 B 級(懸賞板/GPS校正整組功能,BOUNTY_ENABLED 目前關閉但旗標會再打開)
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '平日尖峰': 'Weekday peak',
+  '平日離峰': 'Weekday off-peak',
+  '假日': 'Holiday',
+  '懸賞板暫時讀不到，等一下再試一次': "Can't load the bounty board right now — try again in a moment",
+  '目前沒有待校正的項目——全部收滿了。': "No items need calibration right now — they're all claimed.",
+  '示範資料，僅供確認設計：這裡的路段與點數都是假的，接下來也不會真的錄。': 'Demo data, for design review only: the segments and points here are fake, and nothing will actually be recorded.',
+  '接一張、搭那班車時開錄，把沿途的速度剖面測出來。全部免費，獎勵是榮譽。': "Claim one, and record while riding that train to capture the speed profile along the way. It's completely free — the reward is recognition.",
+  '這些項目還沒有實測資料。用 App 才能接下來錄——網頁可以先看看有哪些。': "These items don't have real measurement data yet. Use the app to claim and record — the website lets you browse what's available.",
+  '{first}等 {n} 站　停站': '{first} and {n} stations　Dwell',
+  '{first}　停站': '{first}　Dwell',
+  '已有 {claimers} 人接了{unit}': '{claimers} people have already claimed {unit}',
+  '這站': 'this station',
+  '這段': 'this segment',
+  '已有 {samples}/{coverN} 趟': '{samples}/{coverN} runs collected',
+  '要用 App 才能接': 'Use the app to claim',
+  '已接下・看說明': 'Claimed · View details',
+  '接下停站': 'Claim dwell',
+  '接下這段': 'Claim segment',
+  'GPS 校正旅程需要用 App。網頁可以看懸賞板與自己的成果': 'GPS calibration journeys require the app. The website lets you view the bounty board and your own results.',
+  '這段你已經接下了，鎖價還在': "You've already claimed this segment, and the locked-in points are still valid",
+  '（示範）找不到這張卡': "(Demo) Couldn't find this card",
+  '（示範）這台裝置存不下來，示範資料無法保留': "(Demo) This device can't save data — demo data can't be kept",
+  '（示範）接下了・{pts} 點・24 小時內有效': '(Demo) Claimed · {pts} pts · valid for 24 hours',
+  '接不下來——{reason}': "Couldn't claim it — {reason}",
+  '這段剛剛被收滿了': 'this segment was just fully claimed',
+  '等一下再試一次': 'try again in a moment',
+  '接不下來——網路不通，等一下再試一次': "Couldn't claim it — no network connection, try again in a moment",
+  '已在伺服器接下・{pts} 點，但這台裝置存不下來（可能是儲存空間滿了或無痕模式）——重新整理後認領不會留著': "Claimed on the server · {pts} pts, but this device couldn't save it (storage may be full, or you're in private browsing) — the claim won't persist after you refresh",
+  '接下了・{pts} 點・24 小時內有效': 'Claimed · {pts} pts · valid for 24 hours',
+  'GPS 校正旅程需要用 App': 'GPS calibration journeys require the app',
+  '已經在錄了': 'Already recording',
+  '正在保存…': 'Saving…',
+  '保存中': 'Saving',
+  '上傳暫時失敗；里程已保存在這台裝置，之後會自動重傳。': 'Upload failed for now; the mileage is saved on this device and will be retried automatically later.',
+  '已保存在裝置': 'Saved on device',
+  '已保存': 'Saved',
+  '停止錄製': 'Stop recording',
+  '停止': 'Stop',
+  '公里': 'km',
+  '{n} 點': '{n} pts'
+});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '平日尖峰': '平日ピーク',
+  '平日離峰': '平日オフピーク',
+  '假日': '休日',
+  '懸賞板暫時讀不到，等一下再試一次': '懸賞板を読み込めませんでした。しばらくして再試行してください',
+  '目前沒有待校正的項目——全部收滿了。': '現在校正が必要な項目はありません。すべて埋まっています。',
+  '示範資料，僅供確認設計：這裡的路段與點數都是假的，接下來也不會真的錄。': 'デモデータです（デザイン確認専用）：ここに表示される区間とポイントはすべて仮のもので、実際には録画されません。',
+  '接一張、搭那班車時開錄，把沿途的速度剖面測出來。全部免費，獎勵是榮譽。': '1件受け取り、その列車に乗車中に録画して沿線の速度プロファイルを計測します。すべて無料で、報酬は名誉です。',
+  '這些項目還沒有實測資料。用 App 才能接下來錄——網頁可以先看看有哪些。': 'これらの項目にはまだ実測データがありません。録画して受け取るにはアプリが必要です。ウェブサイトでは内容を確認できます。',
+  '{first}等 {n} 站　停站': '{first}など{n}駅　停車',
+  '{first}　停站': '{first}　停車',
+  '已有 {claimers} 人接了{unit}': 'すでに{claimers}人が{unit}を受け取っています',
+  '這站': 'この駅',
+  '這段': 'この区間',
+  '已有 {samples}/{coverN} 趟': '{samples}/{coverN}本収集済み',
+  '要用 App 才能接': '受け取るにはアプリが必要です',
+  '已接下・看說明': '受領済み・詳細を見る',
+  '接下停站': '停車を受け取る',
+  '接下這段': '区間を受け取る',
+  'GPS 校正旅程需要用 App。網頁可以看懸賞板與自己的成果': 'GPS校正旅程にはアプリが必要です。ウェブサイトでは懸賞板とご自身の成果を確認できます。',
+  '這段你已經接下了，鎖價還在': 'この区間はすでに受け取り済みで、ロックされたポイントは有効です',
+  '（示範）找不到這張卡': '（デモ）このカードが見つかりません',
+  '（示範）這台裝置存不下來，示範資料無法保留': '（デモ）この端末には保存できません。デモデータは保持されません',
+  '（示範）接下了・{pts} 點・24 小時內有效': '（デモ）受け取りました・{pts}ポイント・24時間有効',
+  '接不下來——{reason}': '受け取れませんでした——{reason}',
+  '這段剛剛被收滿了': 'この区間はちょうど埋まりました',
+  '等一下再試一次': 'しばらくして再試行してください',
+  '接不下來——網路不通，等一下再試一次': '受け取れませんでした——ネットワークに接続できません。しばらくして再試行してください',
+  '已在伺服器接下・{pts} 點，但這台裝置存不下來（可能是儲存空間滿了或無痕模式）——重新整理後認領不會留著': 'サーバー側では受領済み・{pts}ポイントですが、この端末には保存できませんでした（ストレージ不足またはプライベートブラウジングの可能性）。更新すると受領記録は残りません',
+  '接下了・{pts} 點・24 小時內有效': '受け取りました・{pts}ポイント・24時間有効',
+  'GPS 校正旅程需要用 App': 'GPS校正旅程にはアプリが必要です',
+  '已經在錄了': 'すでに録画中です',
+  '正在保存…': '保存中…',
+  '保存中': '保存中',
+  '上傳暫時失敗；里程已保存在這台裝置，之後會自動重傳。': 'アップロードに失敗しました。走行距離はこの端末に保存されており、後で自動的に再送信されます。',
+  '已保存在裝置': '端末に保存済み',
+  '已保存': '保存済み',
+  '停止錄製': '録画を停止',
+  '停止': '停止',
+  '公里': 'km',
+  '{n} 點': '{n}ポイント'
+});
+
+// 2026-09-19 硬編中文審計修復 B 級(續):錄製模式常駐提示、訊號品質標籤、出發前說明卡(showBountyBrief)
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '已接回重新整理前保存在裝置上的 {n} 個里程點。': 'Picked back up {n} mileage points saved on this device from before the refresh.',
+  '里程批次格式不安全，已留在裝置端，沒有送出。': "This mileage batch's format isn't safe to send, so it stayed on this device and wasn't submitted.",
+  '上傳暫時失敗；里程已保存在這台裝置，稍後會自動重傳。': "Upload didn't go through; the mileage is saved on this device and will be resent automatically in a bit.",
+  '示範模式正用假路徑演示投影與進度；不會上傳你的定位。': 'Demo mode is using a fake route to demonstrate projection and progress; your location will not be uploaded.',
+  '品質規則暫時讀不到；里程仍會保存在裝置端。': "Couldn't load the quality rules right now; the mileage will still be saved on this device.",
+  '訊號良好': 'Good signal',
+  '訊號弱': 'Weak signal',
+  '等待定位': 'Waiting for a fix',
+  '精確位置未開': 'Precise location is off',
+  '訊號：{status}': 'Signal: {status}',
+  '知道了': 'Got it',
+  '這條線有 {n} 段在地下，那幾段收不到是正常的。': "This line has {n} underground segments — it's normal to lose signal on those.",
+  '，約 {mins} 分鐘': ', about {mins} minutes',
+  '，大概多久算不出來': ", the approximate duration can't be calculated",
+  '錄 {title}（{line}・{slot}・{unit}）': 'Record {title} ({line} · {slot} · {unit})',
+  '錄 {title}（{line}，{unit}{dur}）': 'Record {title} ({line}, {unit}{dur})',
+  '進站前就開始錄，列車停穩後繼續錄到出站；只通過、不停靠不算停站樣本。': "Start recording before arriving at the station and keep recording until the train stops and then departs; passing through without stopping doesn't count as a dwell sample.",
+  '搭上那班車之後開始錄，到站就結束。': 'Start recording once you board that train, and stop when it arrives.',
+  '這趟要做什麼': 'What this trip involves',
+  '這個鎖價 <b>24 小時內有效</b>。': 'This locked-in price is <b>valid for 24 hours</b>.',
+  '三件事先做好': 'Three things to set up first',
+  '打開<b>精確位置</b>': 'Turn on <b>Precise Location</b>',
+  '設定 → 隱私權與安全性 → 定位服務 → 軌島 → 打開「精確位置」': 'Settings → Privacy & Security → Location Services → Rail Island → turn on "Precise Location"',
+  '關掉<b>低耗電模式</b>（它會降低定位頻率）': 'Turn off <b>Low Power Mode</b> (it reduces location update frequency)',
+  '手機<b>靠窗</b>，別放在包包裡或車廂中央': 'Keep your phone <b>near a window</b> — not in a bag or in the middle of the carriage',
+  '先講清楚': 'Before you start',
+  '錄到一半中斷沒關係，<b>錄到的部分照樣算</b>。': "It's fine if recording gets interrupted partway — <b>whatever you recorded still counts</b>.",
+  '<b>即使這次的資料不能用，校正者章與點數還是你的。</b>我們會告訴你是什麼原因、下次怎麼改善。': "<b>Even if this data can't be used, the calibrator stamp and points are still yours.</b> We'll tell you why and how to do better next time."
+});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '已接回重新整理前保存在裝置上的 {n} 個里程點。': '更新前に端末に保存されていた走行距離ポイント{n}件を復元しました。',
+  '里程批次格式不安全，已留在裝置端，沒有送出。': '走行距離データの形式が安全でないため、端末側に留め、送信しませんでした。',
+  '上傳暫時失敗；里程已保存在這台裝置，稍後會自動重傳。': 'アップロードがうまくいきませんでした。走行距離はこの端末に保存されており、まもなく自動的に再送信されます。',
+  '示範模式正用假路徑演示投影與進度；不會上傳你的定位。': 'デモモードでは仮の経路を使って投影と進捗を実演しています。位置情報はアップロードされません。',
+  '品質規則暫時讀不到；里程仍會保存在裝置端。': '品質ルールを読み込めませんでした。走行距離は引き続き端末側に保存されます。',
+  '訊號良好': '良好な信号',
+  '訊號弱': '弱い信号',
+  '等待定位': '測位待ち',
+  '精確位置未開': '正確な位置情報がオフです',
+  '訊號：{status}': '信号：{status}',
+  '知道了': 'わかりました',
+  '這條線有 {n} 段在地下，那幾段收不到是正常的。': 'この路線には地下区間が{n}区間あり、その区間で電波が届かないのは正常です。',
+  '，約 {mins} 分鐘': '、約{mins}分',
+  '，大概多久算不出來': '、おおよその所要時間は算出できません',
+  '錄 {title}（{line}・{slot}・{unit}）': '{title}を録画（{line}・{slot}・{unit}）',
+  '錄 {title}（{line}，{unit}{dur}）': '{title}を録画（{line}、{unit}{dur}）',
+  '進站前就開始錄，列車停穩後繼續錄到出站；只通過、不停靠不算停站樣本。': '駅に入る前から録画を始め、列車が停止してから発車するまで録画を続けてください。停車せず通過するだけでは停車サンプルになりません。',
+  '搭上那班車之後開始錄，到站就結束。': 'その列車に乗車したら録画を開始し、到着したら終了してください。',
+  '這趟要做什麼': '今回の乗車ですること',
+  '這個鎖價 <b>24 小時內有效</b>。': 'このロック価格は<b>24時間有効</b>です。',
+  '三件事先做好': '事前に済ませておく3つのこと',
+  '打開<b>精確位置</b>': '<b>正確な位置情報</b>をオンにする',
+  '設定 → 隱私權與安全性 → 定位服務 → 軌島 → 打開「精確位置」': '設定 → プライバシーとセキュリティ → 位置情報サービス → 軌島 → 「正確な位置情報」をオンにする',
+  '關掉<b>低耗電模式</b>（它會降低定位頻率）': '<b>低電力モード</b>をオフにする（位置情報の更新頻度が下がります）',
+  '手機<b>靠窗</b>，別放在包包裡或車廂中央': 'スマートフォンは<b>窓際</b>に置き、カバンの中や車両中央には置かないでください',
+  '先講清楚': '先にお伝えしておきます',
+  '錄到一半中斷沒關係，<b>錄到的部分照樣算</b>。': '録画が途中で中断しても問題ありません。<b>録画できた部分はそのまま有効です</b>。',
+  '<b>即使這次的資料不能用，校正者章與點數還是你的。</b>我們會告訴你是什麼原因、下次怎麼改善。': '<b>今回のデータが使えなくても、校正者スタンプとポイントはあなたのものです。</b>理由と次回の改善点をお伝えします。'
+});
+
+// 2026-09-19 硬編中文審計修復:收集地圖示範/錄製中擋門、跟車鎖定畫面通行證入口(renderLaCta 原本重複定義兩次,已刪除多餘那份)
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '錄製中無法開啟收集地圖': "Can't open the collection map while recording",
+  '你已經有收集資料了——示範模式不覆蓋。要看示範請先用 ?demo=off 清除': "You already have collection data — demo mode won't overwrite it. To view the demo, first clear it with ?demo=off",
+  '資料還沒載完，等一下再試一次': "Data hasn't finished loading yet — try again in a moment",
+  '已載入示範收集資料（僅供確認設計）——清除請在網址加 ?demo=off': 'Demo collection data loaded (for design review only) — to clear it, add ?demo=off to the URL',
+  '示範收集資料已清除': 'Demo collection data cleared',
+  '示範資料等太久沒載完——重新整理再試一次': 'Demo data took too long to load — refresh and try again',
+  '鎖定畫面顯示這班車的倒數': "Show this train's countdown on the Lock Screen",
+  '通行證 ›': 'Pass ›'
+});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '錄製中無法開啟收集地圖': '録画中は収集マップを開けません',
+  '你已經有收集資料了——示範模式不覆蓋。要看示範請先用 ?demo=off 清除': 'すでに収集データがあります。デモモードは上書きしません。デモを見るには先に ?demo=off で消去してください',
+  '資料還沒載完，等一下再試一次': 'データの読み込みが完了していません。しばらくして再試行してください',
+  '已載入示範收集資料（僅供確認設計）——清除請在網址加 ?demo=off': 'デモ収集データを読み込みました（デザイン確認専用）。消去するにはURLに ?demo=off を追加してください',
+  '示範收集資料已清除': 'デモ収集データを消去しました',
+  '示範資料等太久沒載完——重新整理再試一次': 'デモデータの読み込みに時間がかかりすぎました。更新して再試行してください',
+  '鎖定畫面顯示這班車的倒數': 'ロック画面にこの列車のカウントダウンを表示',
+  '通行證 ›': 'パス ›'
+});
+
+// 2026-09-19 硬編中文審計修復 B 級(續):Samsung Now Bar 即時通知、台鐵等站卡誤點標籤、
+// 追蹤一班車背景限制、頁尾回報問題 C 級:診斷匯出分享標題
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '要把等車倒數顯示在鎖定畫面的即時資訊（Samsung Now Bar），請允許軌島的「即時通知」。現在前往設定？': 'To show the wait countdown in Lock Screen live info (Samsung Now Bar), please allow Rail Island\'s "Live Updates". Go to settings now?',
+  '這支手機沒有提供即時通知設定頁': "This phone doesn't provide a live update settings page",
+  '無法開啟即時通知設定，請從系統設定的軌島通知中開啟': "Couldn't open live update settings — open it from Rail Island's notification settings in the system Settings app",
+  '誤點未知': 'Delay unknown',
+  '早到 {n} 分': '{n} min early',
+  '已把時間帶回「現在」才能追蹤班次': 'The timeline was returned to Now so this train can be tracked.',
+  '這一站接下來沒有可追蹤的班次': 'There are no upcoming trains to track from this station',
+  '請回到軌島再按一次「追蹤一班車」': 'Please return to Rail Island and tap "Track a train" again',
+  '追蹤一班車': 'Track a train',
+  '請先寫一句說明': 'Please write a short description first',
+  '瀏覽器擋下了新視窗，請允許彈出視窗後再按一次': 'Your browser blocked the new window — allow pop-ups and try again',
+  '軌島捷運診斷': 'Rail Island Metro Diagnostics'
+});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '要把等車倒數顯示在鎖定畫面的即時資訊（Samsung Now Bar），請允許軌島的「即時通知」。現在前往設定？': '待ち時間のカウントダウンをロック画面のライブ情報（Samsung Now Bar）に表示するには、軌島の「ライブアップデート」を許可してください。今すぐ設定を開きますか？',
+  '這支手機沒有提供即時通知設定頁': 'この端末にはライブアップデートの設定画面がありません',
+  '無法開啟即時通知設定，請從系統設定的軌島通知中開啟': 'ライブアップデート設定を開けませんでした。システム設定の軌島通知から開いてください',
+  '誤點未知': '遅延不明',
+  '早到 {n} 分': '{n}分早い',
+  '已把時間帶回「現在」才能追蹤班次': 'この列車を追跡するため時刻を「現在」に戻しました。',
+  '這一站接下來沒有可追蹤的班次': 'この駅から追跡できる今後の列車はありません',
+  '請回到軌島再按一次「追蹤一班車」': '軌島に戻ってから、もう一度「列車を追跡」を押してください',
+  '追蹤一班車': '列車を追跡',
+  '請先寫一句說明': '先に一言説明を書いてください',
+  '瀏覽器擋下了新視窗，請允許彈出視窗後再按一次': 'ブラウザが新しいウィンドウをブロックしました。ポップアップを許可してからもう一度お試しください',
+  '軌島捷運診斷': '軌島メトロ診断'
+});
+
+// 2026-09-19 硬編中文審計修復 任務項目4:CURATED_NOTICES/selfAnomalyEntries/metroSelfEntry/
+// trtcOutageEntries/trtcRecoveryEntries 的執行期拼接式 title/desc,原本 render 端雖呼叫 t() 但拼接處
+// 自己沒呼叫,字典永遠查不到。同批補了 TRTC_FEED_GROUPS 的 label(臺北捷運/環狀線)。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '官方到站看板倒數與時刻表大幅不符': 'Official arrival board countdowns differ significantly from the timetable',
+  '官方看板各站到站時間彼此矛盾': 'Official boards show conflicting arrival times across stations',
+  '部分車站顯示交管不停靠': 'Some stations show trains passing through under traffic control',
+  '看板與時刻表不符': "Board doesn't match the timetable",
+  '{name}疑似營運異常': '{name}: possible service disruption',
+  '本站偵測到官方到站看板與時刻表明顯不符（{kindDesc}），該線列車位置僅供參考。此為本站自動推定，非官方公告。': 'This site detected a clear mismatch between the official arrival board and the timetable ({kindDesc}); train positions on this line are for reference only. This is an automatic estimate by this site, not an official announcement.',
+  '台鐵大面積誤點中：{d10} 班誤點滿 10 分（最高 {maxDelay} 分）': 'Widespread TRA delays: {d10} trains delayed 10+ minutes (up to {maxDelay} min)',
+  '誤點的部分動畫有跟上：列車位置已依台鐵官方即時誤點資料逐車回撥，晚幾分就畫在晚幾分的位置。但若有停駛或取消的班次，畫面不會自動移除、該班車仍會照時刻表顯示行駛，請以官方公告為準。此為本站自動觀測，非官方公告。': "The animation accounts for delays: train positions are shifted back per-train using TRA's official real-time delay data, so a train that's N minutes late is drawn N minutes behind. However, if a train is suspended or cancelled, it won't be automatically removed from the map and will still run at its timetable position — please check official announcements. This is an automatic observation by this site, not an official announcement.",
+  '{labels}即時訊號中斷': '{labels} live signal interrupted',
+  '捷運即時資料中斷': 'Metro live data interrupted',
+  '{head} {mins} 分鐘：列車位置與車站倒數都可能不準': '{head} for {mins} minutes: train positions and station countdowns may be inaccurate',
+  '統一捷運即時模型已經 {mins} 分鐘沒有取得可安全發布的新資料。{attrib}這段期間畫面會退回備援推估，位置與車站倒數都可能與實際不符，但這不代表列車停駛。資料恢復後會重新對齊官方位置。此為本站自動偵測，非官方公告。': 'The unified metro live model has gone {mins} minutes without safely publishable new data. {attrib}During this time the display falls back to estimated positions, and positions and station countdowns may not match reality — but this does not mean trains have stopped running. Positions will realign with official data once it resumes. This is an automatic detection by this site, not an official announcement.',
+  '官方上游已自報訊號中斷。': 'The official upstream source has reported the signal interruption.',
+  '這不一定是官方那邊的問題——也可能是本站服務發不出來，或你目前的網路連線中斷。': "This isn't necessarily an issue on the official side — it could also be that this site's service can't publish data, or that your network connection is down.",
+  '官方到站看板已經 {mins} 分鐘沒有送出新資料。': 'The official arrival board has gone {mins} minutes without sending new data.',
+  '已經 {mins} 分鐘沒有取得新的到站資料——這不一定是官方那邊的問題，也可能是本站服務或你目前的網路連線。': "No new arrival data for {mins} minutes — this isn't necessarily an issue on the official side; it could also be this site's service or your current network connection.",
+  '{lead}這段期間畫面上的列車是依各站之間的固定行車時間往前推估的，車站倒數也可能找不到車或停住不動——都可能與實際不符，但這不代表列車停駛。官方資料恢復後畫面會重新對齊官方位置，部分列車會因此往前跳或往後退。此為本站自動偵測，非官方公告。': '{lead}During this time, trains on screen are estimated forward using the fixed running time between stations, and station countdowns may also fail to find a train or appear frozen — these may not match reality, but this does not mean trains have stopped running. Once official data resumes, the display will realign with official positions, and some trains may jump forward or backward as a result. This is an automatic detection by this site, not an official announcement.',
+  '{labels}即時訊號已恢復：畫面剛依官方名單重新對齊': '{labels} live signal restored: the display just realigned with the official list',
+  '中斷約 {mins} 分鐘期間，': 'During the roughly {mins}-minute interruption, ',
+  '訊號中斷期間，': 'During the signal interruption, ',
+  '，並移除了 {removed} 台官方名單上已經沒有的推估列車。這不代表那些車停駛或發生事故——它們只是在中斷期間被推估出來、官方資料回來後對不上任何一班車。': ", and removed {removed} estimated trains that are no longer on the official list. This doesn't mean those trains stopped running or were involved in an incident — they were simply estimated during the interruption and didn't match any train once official data returned.",
+  '。': '.',
+  '{dur}畫面上的列車是依各站之間的固定行車時間往前推估的。官方資料一回來，軌島就改以官方名單為準重新對齊，因此列車位置會出現一次跳動{removedClause}目前畫面已回到官方即時資料。': '{dur}Trains on screen are estimated forward using the fixed running time between stations. As soon as official data returns, Rail Island realigns to the official list, so train positions will jump once{removedClause} The display is now back to official live data.',
+  '臺北捷運': 'Taipei Metro',
+  '環狀線': 'Circular Line'
+});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '官方到站看板倒數與時刻表大幅不符': '公式到着案内のカウントダウンが時刻表と大きく異なっています',
+  '官方看板各站到站時間彼此矛盾': '公式案内の各駅到着時刻が互いに矛盾しています',
+  '部分車站顯示交管不停靠': '一部の駅で運行管制による通過が表示されています',
+  '看板與時刻表不符': '案内が時刻表と一致しません',
+  '{name}疑似營運異常': '{name}：運行異常の疑い',
+  '本站偵測到官方到站看板與時刻表明顯不符（{kindDesc}），該線列車位置僅供參考。此為本站自動推定，非官方公告。': '本サイトは公式到着案内と時刻表の明らかな不一致を検知しました（{kindDesc}）。この路線の列車位置は参考情報です。これは本サイトによる自動推定であり、公式発表ではありません。',
+  '台鐵大面積誤點中：{d10} 班誤點滿 10 分（最高 {maxDelay} 分）': '台湾鉄路で広範囲の遅延発生中：{d10}本が10分以上遅延（最大{maxDelay}分）',
+  '誤點的部分動畫有跟上：列車位置已依台鐵官方即時誤點資料逐車回撥，晚幾分就畫在晚幾分的位置。但若有停駛或取消的班次，畫面不會自動移除、該班車仍會照時刻表顯示行駛，請以官方公告為準。此為本站自動觀測，非官方公告。': '遅延にはアニメーションが追随します：列車位置は台湾鉄路の公式リアルタイム遅延データにより列車ごとに補正され、N分遅れならN分遅れた位置に表示されます。ただし運休・取消の列車があっても自動では消えず、時刻表どおりの位置で表示され続けるため、公式発表をご確認ください。これは本サイトによる自動観測であり、公式発表ではありません。',
+  '{labels}即時訊號中斷': '{labels}のリアルタイム信号が途絶',
+  '捷運即時資料中斷': 'メトロのリアルタイムデータが途絶',
+  '{head} {mins} 分鐘：列車位置與車站倒數都可能不準': '{head}{mins}分：列車位置と駅の到着カウントダウンが不正確な場合があります',
+  '統一捷運即時模型已經 {mins} 分鐘沒有取得可安全發布的新資料。{attrib}這段期間畫面會退回備援推估，位置與車站倒數都可能與實際不符，但這不代表列車停駛。資料恢復後會重新對齊官方位置。此為本站自動偵測，非官方公告。': '統合メトロのリアルタイムモデルが{mins}分間、安全に配信できる新しいデータを取得できていません。{attrib}この間、画面は推定位置にフォールバックしており、位置や駅のカウントダウンが実際と異なる場合がありますが、列車が運休していることを意味しません。データが復旧すれば公式位置に再整合します。これは本サイトによる自動検知であり、公式発表ではありません。',
+  '官方上游已自報訊號中斷。': '公式の上流ソースが信号の途絶を報告しています。',
+  '這不一定是官方那邊的問題——也可能是本站服務發不出來，或你目前的網路連線中斷。': 'これは必ずしも公式側の問題とは限りません。本サイトのサービスが配信できていない、またはお使いのネットワーク接続が切れている可能性もあります。',
+  '官方到站看板已經 {mins} 分鐘沒有送出新資料。': '公式到着案内が{mins}分間、新しいデータを送っていません。',
+  '已經 {mins} 分鐘沒有取得新的到站資料——這不一定是官方那邊的問題，也可能是本站服務或你目前的網路連線。': '{mins}分間、新しい到着データを取得できていません。必ずしも公式側の問題とは限らず、本サイトのサービスやお使いのネットワーク接続が原因の可能性もあります。',
+  '{lead}這段期間畫面上的列車是依各站之間的固定行車時間往前推估的，車站倒數也可能找不到車或停住不動——都可能與實際不符，但這不代表列車停駛。官方資料恢復後畫面會重新對齊官方位置，部分列車會因此往前跳或往後退。此為本站自動偵測，非官方公告。': '{lead}この間、画面上の列車は駅間の固定走行時間をもとに推定表示されており、駅のカウントダウンも列車が見つからなかったり停止して見えたりすることがあります。実際と異なる場合がありますが、列車が運休していることを意味しません。公式データが復旧すると画面は公式位置に再整合し、一部の列車は前後にジャンプすることがあります。これは本サイトによる自動検知であり、公式発表ではありません。',
+  '{labels}即時訊號已恢復：畫面剛依官方名單重新對齊': '{labels}のリアルタイム信号が復旧：画面は公式リストに再整合しました',
+  '中斷約 {mins} 分鐘期間，': '約{mins}分間の途絶中、',
+  '訊號中斷期間，': '信号途絶中、',
+  '，並移除了 {removed} 台官方名單上已經沒有的推估列車。這不代表那些車停駛或發生事故——它們只是在中斷期間被推估出來、官方資料回來後對不上任何一班車。': '、公式リストに存在しなくなった推定列車{removed}本を削除しました。これはそれらの列車が運休したり事故に遭ったりしたことを意味するものではなく、途絶中に推定表示されていただけで、公式データの復旧後にどの列車とも一致しなかったものです。',
+  '。': '。',
+  '{dur}畫面上的列車是依各站之間的固定行車時間往前推估的。官方資料一回來，軌島就改以官方名單為準重新對齊，因此列車位置會出現一次跳動{removedClause}目前畫面已回到官方即時資料。': '{dur}画面上の列車は駅間の固定走行時間をもとに推定表示されています。公式データが復旧すると、軌島はただちに公式リストに基づいて再整合するため、列車位置が一度ジャンプします{removedClause}現在、画面は公式のリアルタイムデータに戻っています。',
+  '臺北捷運': '台北メトロ',
+  '環狀線': '環状線'
+});
+
+// 探索面板「週末鐵道活動」列的期間名（/api/weekend 的 span.label 是核心層產出的中文分類：
+// 本週末／假日／這個連假／<節日>／<節日>連假）。譯名與 weekend.html 的 SPAN 同一份，兩處要一起改。
+// 「假日」沿用上面懸賞板時段那一條（Holiday／休日），不重複定義。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '本週末': 'This weekend',
+  '這個連假': 'This long weekend',
+  '{holiday}連假': '{holiday} long weekend',
+  '春節': 'Lunar New Year',
+  '和平紀念日': 'Peace Memorial Day',
+  '兒童節與清明': 'Children’s Day & Tomb Sweeping Day',
+  '中秋': 'Mid-Autumn Festival',
+  '國慶': 'National Day',
+  '光復節': 'Retrocession Day',
+  '行憲紀念日': 'Constitution Day'
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '本週末': '今週末',
+  '這個連假': 'この連休',
+  '{holiday}連假': '{holiday}の連休',
+  '春節': '春節',
+  '和平紀念日': '和平記念日',
+  '兒童節與清明': '児童節・清明節',
+  '中秋': '中秋節',
+  '國慶': '国慶日',
+  '光復節': '光復節',
+  '行憲紀念日': '行憲記念日'
+});
+
+// 2026-09-19 Android 雙看板小工具改版(第一層更新紀錄那條的 en/ja;第二層正本一律走 RAIL_I18N_CHANGELOG)
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  "Android 雙看板小工具字放大、依卡片高度多列幾班；設定頁通行證文字修正": "Android combined rail + metro widget: larger text, with as many departures as the card height allows. The settings screen now shows the correct Rail Island Pass status."
+});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  "Android 雙看板小工具字放大、依卡片高度多列幾班；設定頁通行證文字修正": "Androidの鉄道＋メトロ案内ウィジェット：文字を大きくし、カードの高さに合わせて表示本数を増やしました。設定画面の軌島パスの表示も修正しました。"
+});
+
+// 2026-09-19 鉸接輕軌列車共用軌面基準(第一層更新紀錄那條的 en/ja;第二層正本一律走 RAIL_I18N_CHANGELOG)
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  "高雄輕軌的五節車身重新對齊，近看不再一節高、一節低": "Kaohsiung Light Rail’s five articulated sections are aligned again, so the body no longer alternates between high and low up close."
+});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  "高雄輕軌的五節車身重新對齊，近看不再一節高、一節低": "高雄ライトレールの5つの連接車体を揃え、近くで見たときに車体が交互に上下しなくなりました。"
+});
+
+// 2026-09-19 支線 DR1000 加減速接進運動模型(第一層更新紀錄那條的 en/ja;第二層正本一律走 RAIL_I18N_CHANGELOG)
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  "平溪、深澳、集集、內灣線的列車改照 DR1000 柴油客車加減速，列車卡也改顯示 DR1000 介紹": "Pingxi, Shen’ao, Jiji and Neiwan lines: trains now accelerate and brake like the DR1000 diesel railcars actually used there, and the train card now describes the DR1000 instead of an electric train."
+});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  "平溪、深澳、集集、內灣線的列車改照 DR1000 柴油客車加減速，列車卡也改顯示 DR1000 介紹": "平渓線・深澳線・集集線・内湾線：列車の加減速を実際に走るDR1000型気動車の性能に合わせ、列車カードの紹介も電車ではなくDR1000型気動車に改めました。"
+});
+
+// 2026-09-19 新馬急彎前的車速不超過車種極速(第一層更新紀錄那條的 en/ja;第二層正本一律走 RAIL_I18N_CHANGELOG)
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  "台鐵列車在地圖上不再跑得比車種極速還快，新馬急彎與立體地圖都修正了，站牌時刻不變": "TRA trains on the map no longer run faster than their top speed, including near the sharp curve at Xinma and on the 3D map; station times are unchanged."
+});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  "台鐵列車在地圖上不再跑得比車種極速還快，新馬急彎與立體地圖都修正了，站牌時刻不變": "地図上の台鉄列車が車種の最高速度を超えて走らなくなりました。新馬の急カーブ手前と立体地図の両方を修正し、駅の時刻は変わりません。"
+});
+
+// 2026-09-19 暗色卡頭關閉鈕與「存」看得見、半透明面板藍字加深(第一層更新紀錄那兩條的 en/ja;第二層正本一律走 RAIL_I18N_CHANGELOG)
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  "暗色模式下，附近車站、平交道、糖鐵與儲存地點卡的關閉鈕與「存」看得見了": "In dark mode, the close and Save buttons on the nearby-stations, level-crossing, sugar-railway and saved-place cards are now visible.",
+  "暗色主題下「面板半透明」開關恢復作用；半透明時看板倒數、預計到站與「在 Google 地圖開啟」等藍字加深，疊在衛星影像上也看得清楚": "The Translucent panels switch works again in dark mode. With it on, blue text such as board countdowns, arrival times and “Open in Google Maps” is darker and stays readable over satellite imagery."
+});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  "暗色模式下，附近車站、平交道、糖鐵與儲存地點卡的關閉鈕與「存」看得見了": "ダークモードで、近くの駅・踏切・糖業鉄道・保存した地点のカードにある閉じるボタンと「保存」が見えるようになりました。",
+  "暗色主題下「面板半透明」開關恢復作用；半透明時看板倒數、預計到站與「在 Google 地圖開啟」等藍字加深，疊在衛星影像上也看得清楚": "ダークモードでも「パネルを半透明にする」が効くようになりました。半透明時は案内板のカウントダウン・到着予定・「Google マップで開く」などの青い文字を濃くし、衛星画像の上でも読みやすくしました。"
+});
+
+// 2026-09-19 英日文補翻(第一層更新紀錄那條的 en/ja;第二層正本一律走 RAIL_I18N_CHANGELOG)
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  "英日文介面補上漏翻的按鈕、路線名、公告與提示，切換語言不再殘留前一種語言；車站看板太長的字改成兩行，不再被切掉；iOS 定位權限說明改用中文": "English and Japanese: buttons, line names, notices and messages still shown in Chinese are now translated, switching languages no longer leaves the previous language behind, and long station board text wraps to two lines instead of being cut off; iOS location permission text now also appears in Chinese"
+});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  "英日文介面補上漏翻的按鈕、路線名、公告與提示，切換語言不再殘留前一種語言；車站看板太長的字改成兩行，不再被切掉；iOS 定位權限說明改用中文": "英語・日本語表示：中国語のまま残っていたボタン、路線名、お知らせ、メッセージを翻訳しました。言語を切り替えても前の言語が残らなくなり、駅の案内板で長い文字は切れずに2行で表示されます。iOSの位置情報の許可説明を中国語でも表示"
+});
+
+// 2026-09-19 官方營運公告的固定狀態字(TDX 捷運公告 title/desc,t() 查字面):台中捷運深夜回「非營運時段」
+// (status 0)會進公告橫幅,英文首屏原本露出中文(verify_i18n 深夜跑到才看得見)。「正常營運」一併補。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  "非營運時段": "Outside service hours",
+  "正常營運": "Normal service",
+});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  "非營運時段": "運行時間外",
+  "正常營運": "平常運転",
+});
+
+// 2026-09-19 Android 更新說明的標題：繁中維持舊字面(「軌島 {version} 有什麼新的」代入「Google Play 新版」)，
+// 外語不再代入中文版號字串。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  "軌島 Google Play 新版 有什麼新的": "What’s new in Rail Island on Google Play",
+});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  "軌島 Google Play 新版 有什麼新的": "軌島 Google Play版の新機能",
+});
+
+// 2026-09-19 更新提示讓位、台鐵待避與交會的安全間隔(第一層更新紀錄那兩條的 en/ja;第二層正本一律走 RAIL_I18N_CHANGELOG)；
+// 使用說明「面板半透明」兩個步驟原本沒有英日文(暗色主題關掉是玻璃面板，第二步不再寫「實色紙面」)
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  "從台鐵發車看板或鐵路＋捷運雙看板點進軌島時，會回到正確的鐵路地圖與車站；臺北車站不會再被同名的捷運站截走": "Opening Rail Island from a TRA board or the combined rail + metro board now goes to the correct railway map and station; Taipei Main is no longer mistaken for the metro station of the same name.",
+  "App 有新版時，頂端的更新提示不再蓋住「觀看」按鈕": "When a new app version is available, the update notice at the top no longer covers the View button.",
+  "台鐵後車待避與對向交會都保留安全間隔，同一條軌道上互相穿過的情況再減少": "TRA trains now keep a safety margin when waiting for a following train to pass or for an oncoming train, so trains pass through each other on the same track even less often.",
+  "「更多」→ 打開「面板半透明」": "Open More and turn on Translucent panels",
+  "再按一次就關閉，面板回到原本的樣子": "Tap it again to turn it off and return panels to their usual look",
+  "iPhone／iPad 底部速度膠囊淡出後點一下就會展開，不用再點兩下、也不會誤觸暫停": "On iPhone/iPad, tapping the faded speed capsule at the bottom now expands it right away — no more second tap, and it won't accidentally hit pause.",
+});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  "從台鐵發車看板或鐵路＋捷運雙看板點進軌島時，會回到正確的鐵路地圖與車站；臺北車站不會再被同名的捷運站截走": "台鉄の発車案内または「鉄道＋メトロ」案内から軌島を開いたとき、正しい鉄道マップと駅を表示するようになりました。台北駅が同名のメトロ駅と誤認されることもありません。",
+  "App 有新版時，頂端的更新提示不再蓋住「觀看」按鈕": "アプリの新しいバージョンがあるとき、上部の更新のお知らせが「表示」ボタンを隠さなくなりました。",
+  "台鐵後車待避與對向交會都保留安全間隔，同一條軌道上互相穿過的情況再減少": "台鉄の列車が待避や行き違いで安全間隔を保つようになり、同じ線路上で列車どうしがすり抜けることがさらに減りました。",
+  "「更多」→ 打開「面板半透明」": "「その他」→「パネルを半透明にする」をオン",
+  "再按一次就關閉，面板回到原本的樣子": "もう一度押すとオフになり、パネルが元の表示に戻ります",
+  "iPhone／iPad 底部速度膠囊淡出後點一下就會展開，不用再點兩下、也不會誤觸暫停": "iPhone／iPadで、下部の薄くなった速度カプセルをタップすると、すぐに展開するようになりました。二度タップする必要がなく、誤って一時停止することもありません。",
+});
+
+// 2026-09-19 我的車庫：62 款車名與外觀參考出處原本直接顯示中文(train-garage.js 沒經過 tr())。
+// 譯名沿用既有明星列車／車型對照(Breezy Blue、Taroko Express、Chu-Kuang Express、Future…)；
+// 英文出處標籤(Bombardier… 等)本來就是英文，不另列。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  "C301・北捷初代": "C301 · Taipei Metro’s first cars",
+  "C321・板南線": "C321 · Bannan Line",
+  "C341・板南線": "C341 · Bannan Line",
+  "C371・北捷主力": "C371 · Taipei Metro mainstay",
+  "C381・圓弧車頭": "C381 · Rounded nose",
+  "文湖線 APM 256": "Wenhu Line APM 256",
+  "VAL256・文湖馬特拉": "VAL256 · Wenhu Line Matra",
+  "機捷普通車・1000型": "Airport MRT Commuter · 1000 series",
+  "機捷直達車・2000型": "Airport MRT Express · 2000 series",
+  "環狀線・日立電聯車": "Circular Line · Hitachi EMU",
+  "三鶯線・日立電聯車": "Sanying Line · Hitachi EMU",
+  "台中捷運・綠線": "Taichung Metro · Green Line",
+  "高雄捷運・西門子": "Kaohsiung Metro · Siemens",
+  "海風號": "Haifeng",
+  "山嵐號": "Shanlan",
+  "EMU500 通勤電車": "EMU500 commuter train",
+  "EMU600・通勤電車": "EMU600 · commuter train",
+  "DR2700 白鐵仔": "DR2700 stainless diesel railcar",
+  "DR1000 支線小車": "DR1000 branch-line railcar",
+  "DR3100・柴聯自強": "DR3100 · diesel Tze-Chiang",
+  "EMU100 英國婆": "EMU100 “British Lady”",
+  "EMU1200 紅斑馬": "EMU1200 “Red Zebra”",
+  "EMU700・阿福號": "EMU700 · “A-Fu”",
+  "EMU800 微笑號": "EMU800 “Smile”",
+  "EMU800・增備反色版": "EMU800 · later batch, reversed colors",
+  "EMU900 區間車": "EMU900 local train",
+  "TEMU1000 太魯閣": "TEMU1000 Taroko Express",
+  "TEMU2000 普悠瑪": "TEMU2000 Puyuma Express",
+  "700T 高鐵": "700T High Speed Rail",
+  "E200 電力機車": "E200 electric locomotive",
+  "E300・電力機車": "E300 · electric locomotive",
+  "E400・電力機車": "E400 · electric locomotive",
+  "鳴日號・經典車頭": "Future · classic locomotive",
+  "E500・新電力機車": "E500 · new electric locomotive",
+  "E1000・推拉自強": "E1000 · push–pull Tze-Chiang",
+  "R200・新柴電機車": "R200 · new diesel-electric locomotive",
+  "R20 柴電機車": "R20 diesel-electric locomotive",
+  "R100・柴電機車": "R100 · diesel-electric locomotive",
+  "R150・柴電機車": "R150 · diesel-electric locomotive",
+  "R180／R190・柴電機車": "R180/R190 · diesel-electric locomotive",
+  "藍皮解憂・R135": "Breezy Blue · R135",
+  "DHL100・調車機車": "DHL100 · shunting locomotive",
+  "DL25～34・三菱車系": "DL25–34 · Mitsubishi series",
+  "DL38・日車試作型": "DL38 · Nippon Sharyo prototype",
+  "DL39～43・阿里山號": "DL39–43 · Alishan Express",
+  "DL45～51・林鐵新主力": "DL45–51 · forest railway’s new mainstay",
+  "莒光號・客車": "Chu-Kuang Express · coach",
+  "推拉自強・40PPD2500 客貨車": "Push–pull Tze-Chiang · 40PPD2500 passenger-baggage car",
+  "藍皮解憂・復古客車": "Breezy Blue · vintage coach",
+  "鳴日號・客車": "Future · coach",
+  "阿里山號・紅白客車": "Alishan Express · red-and-white coach",
+  "檜木列車・木造客車": "Cypress train · wooden coach",
+  "福森號・檜木客車": "Fusen · cypress coach",
+  "栩悅號・觀景客車": "Xuyue · observation coach",
+  "CK124 蒸汽機車": "CK124 steam locomotive",
+  "DT668 蒸汽機車": "DT668 steam locomotive",
+  "CT273・蒸汽女王": "CT273 · Queen of Steam",
+  "淡海輕軌・行武者": "Danhai Light Rail · Xingwuzhe",
+  "安坑輕軌・光耀金": "Ankeng Light Rail · gold livery",
+  "高雄輕軌・CAF": "Kaohsiung Light Rail · CAF",
+  "高雄輕軌・Citadis": "Kaohsiung Light Rail · Citadis",
+  "Blair Yu／原始攝影文章": "Blair Yu / original photo article",
+  "官方設計與車輛資料": "Official design and vehicle data",
+  "原始照片與車型介紹": "Original photos and model overview",
+  "臺北市政府／捷運工程局：車廂尺寸": "Taipei City Government / Department of Rapid Transit Systems: car dimensions",
+  "捷運工程叢書：電聯車實務，第 114 頁": "Rapid transit engineering series: EMU practice, p. 114",
+});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  "C301・北捷初代": "C301・台北メトロ初代車両",
+  "C321・板南線": "C321・板南線",
+  "C341・板南線": "C341・板南線",
+  "C371・北捷主力": "C371・台北メトロの主力",
+  "C381・圓弧車頭": "C381・丸みのある先頭部",
+  "文湖線 APM 256": "文湖線 APM 256",
+  "VAL256・文湖馬特拉": "VAL256・文湖線マトラ",
+  "機捷普通車・1000型": "空港MRT普通車・1000形",
+  "機捷直達車・2000型": "空港MRT直達車・2000形",
+  "環狀線・日立電聯車": "環状線・日立製電車",
+  "三鶯線・日立電聯車": "三鶯線・日立製電車",
+  "台中捷運・綠線": "台中メトロ・緑線",
+  "高雄捷運・西門子": "高雄メトロ・シーメンス製",
+  "海風號": "海風号",
+  "山嵐號": "山嵐号",
+  "EMU500 通勤電車": "EMU500 通勤電車",
+  "EMU600・通勤電車": "EMU600・通勤電車",
+  "DR2700 白鐵仔": "DR2700 ステンレス気動車",
+  "DR1000 支線小車": "DR1000 支線の小型気動車",
+  "DR3100・柴聯自強": "DR3100・ディーゼル自強号",
+  "EMU100 英國婆": "EMU100「英国婆」",
+  "EMU1200 紅斑馬": "EMU1200「赤いシマウマ」",
+  "EMU700・阿福號": "EMU700・阿福号",
+  "EMU800 微笑號": "EMU800 微笑号",
+  "EMU800・增備反色版": "EMU800・増備車（配色反転）",
+  "EMU900 區間車": "EMU900 区間車",
+  "TEMU1000 太魯閣": "TEMU1000 太魯閣号",
+  "TEMU2000 普悠瑪": "TEMU2000 普悠瑪号",
+  "700T 高鐵": "700T 台湾高速鉄道",
+  "E200 電力機車": "E200 電気機関車",
+  "E300・電力機車": "E300・電気機関車",
+  "E400・電力機車": "E400・電気機関車",
+  "鳴日號・經典車頭": "鳴日号・クラシック機関車",
+  "E500・新電力機車": "E500・新型電気機関車",
+  "E1000・推拉自強": "E1000・プッシュプル自強号",
+  "R200・新柴電機車": "R200・新型ディーゼル電気機関車",
+  "R20 柴電機車": "R20 ディーゼル電気機関車",
+  "R100・柴電機車": "R100・ディーゼル電気機関車",
+  "R150・柴電機車": "R150・ディーゼル電気機関車",
+  "R180／R190・柴電機車": "R180／R190・ディーゼル電気機関車",
+  "藍皮解憂・R135": "藍皮解憂号・R135",
+  "DHL100・調車機車": "DHL100・入換機関車",
+  "DL25～34・三菱車系": "DL25～34・三菱製",
+  "DL38・日車試作型": "DL38・日本車輌試作機",
+  "DL39～43・阿里山號": "DL39～43・阿里山号",
+  "DL45～51・林鐵新主力": "DL45～51・森林鉄道の新主力",
+  "莒光號・客車": "莒光号・客車",
+  "推拉自強・40PPD2500 客貨車": "プッシュプル自強号・40PPD2500 客荷合造車",
+  "藍皮解憂・復古客車": "藍皮解憂号・レトロ客車",
+  "鳴日號・客車": "鳴日号・客車",
+  "阿里山號・紅白客車": "阿里山号・紅白の客車",
+  "檜木列車・木造客車": "檜の列車・木造客車",
+  "福森號・檜木客車": "福森号・檜の客車",
+  "栩悅號・觀景客車": "栩悦号・展望客車",
+  "CK124 蒸汽機車": "CK124 蒸気機関車",
+  "DT668 蒸汽機車": "DT668 蒸気機関車",
+  "CT273・蒸汽女王": "CT273・蒸気の女王",
+  "淡海輕軌・行武者": "淡海ライトレール・行武者",
+  "安坑輕軌・光耀金": "安坑ライトレール・光耀金",
+  "高雄輕軌・CAF": "高雄ライトレール・CAF",
+  "高雄輕軌・Citadis": "高雄ライトレール・Citadis",
+  "Blair Yu／原始攝影文章": "Blair Yu／元の写真記事",
+  "官方設計與車輛資料": "公式の設計・車両資料",
+  "原始照片與車型介紹": "元の写真と車両紹介",
+  "臺北市政府／捷運工程局：車廂尺寸": "台北市政府／捷運工程局：車両寸法",
+  "捷運工程叢書：電聯車實務，第 114 頁": "捷運工程叢書：電車実務、114ページ",
+});
+
+// 2026-09-19 i18n 複審修正(fix/i18n-review-fix)。依主對話指示,本檔既有區塊一律不動,
+// 修正既有譯文也寫在這裡:同一個鍵後面的 Object.assign 會蓋掉前面的(下面標「覆寫」的就是這種)。
+// 修正理由:英文單複數(t() 第三個參數已傳入數量)、拼接處的空白屬於樣板不屬於片段、日文逗號連句。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  // 覆寫:官方訊號恢復 toast(第三參數=列車數;分鐘寫 min 不分單複數)
+  '官方訊號恢復　北捷即時資料中斷約 <b>{mins} 分鐘</b>後恢復，<b>{count} 台</b>列車已重新對齊官方位置——中斷期間畫面上的位置是推估的，所以這些車會往前跳或往後退。{removedClause}': {
+    one: 'Official signal restored — Taipei Metro live data was interrupted for about <b>{mins} min</b> and has now recovered. <b>{count} train</b> has been repositioned to match official data. During the outage its on-screen position was estimated, so it may jump forward or back.{removedClause}',
+    other: 'Official signal restored — Taipei Metro live data was interrupted for about <b>{mins} min</b> and has now recovered. <b>{count} trains</b> have been repositioned to match official data. During the outage their on-screen positions were estimated, so these trains may jump forward or back.{removedClause}',
+  },
+  '另有 <b>{removed} 台</b>推估中的列車因為不在官方名單上而移除，這不代表它們停駛。': {
+    one: ' In addition, <b>{removed} estimated train</b> was removed because it is not on the official list — this does not mean it stopped running.',
+    other: ' In addition, <b>{removed} estimated trains</b> were removed because they are not on the official list — this does not mean they stopped running.',
+  },
+  // 覆寫:即時訊號中斷橫幅(第三參數=分鐘數)
+  '{head} {mins} 分鐘：列車位置與車站倒數都可能不準': {
+    one: '{head} for {mins} minute: train positions and station countdowns may be inaccurate',
+    other: '{head} for {mins} minutes: train positions and station countdowns may be inaccurate',
+  },
+  '統一捷運即時模型已經 {mins} 分鐘沒有取得可安全發布的新資料。{attrib}這段期間畫面會退回備援推估，位置與車站倒數都可能與實際不符，但這不代表列車停駛。資料恢復後會重新對齊官方位置。此為本站自動偵測，非官方公告。': {
+    one: 'The unified metro live model has gone {mins} minute without safely publishable new data. {attrib} During this time the display falls back to estimated positions, and positions and station countdowns may not match reality — but this does not mean trains have stopped running. Positions will realign with official data once it resumes. This is an automatic detection by this site, not an official announcement.',
+    other: 'The unified metro live model has gone {mins} minutes without safely publishable new data. {attrib} During this time the display falls back to estimated positions, and positions and station countdowns may not match reality — but this does not mean trains have stopped running. Positions will realign with official data once it resumes. This is an automatic detection by this site, not an official announcement.',
+  },
+  '官方到站看板已經 {mins} 分鐘沒有送出新資料。': {
+    one: 'The official arrival board has gone {mins} minute without sending new data.',
+    other: 'The official arrival board has gone {mins} minutes without sending new data.',
+  },
+  '已經 {mins} 分鐘沒有取得新的到站資料——這不一定是官方那邊的問題，也可能是本站服務或你目前的網路連線。': {
+    one: "No new arrival data for {mins} minute — this isn't necessarily an issue on the official side; it could also be this site's service or your current network connection.",
+    other: "No new arrival data for {mins} minutes — this isn't necessarily an issue on the official side; it could also be this site's service or your current network connection.",
+  },
+  '{lead}這段期間畫面上的列車是依各站之間的固定行車時間往前推估的，車站倒數也可能找不到車或停住不動——都可能與實際不符，但這不代表列車停駛。官方資料恢復後畫面會重新對齊官方位置，部分列車會因此往前跳或往後退。此為本站自動偵測，非官方公告。': '{lead} During this time, trains on screen are estimated forward using the fixed running time between stations, and station countdowns may also fail to find a train or appear frozen — these may not match reality, but this does not mean trains have stopped running. Once official data resumes, the display will realign with official positions, and some trains may jump forward or backward as a result. This is an automatic detection by this site, not an official announcement.',
+  // 覆寫:訊號恢復橫幅。片段不帶尾端空白,空白寫在樣板裡(原本「interruption, Trains」大寫又黏字)
+  '中斷約 {mins} 分鐘期間，': 'During the roughly {mins}-minute interruption,',
+  '訊號中斷期間，': 'During the signal interruption,',
+  '，並移除了 {removed} 台官方名單上已經沒有的推估列車。這不代表那些車停駛或發生事故——它們只是在中斷期間被推估出來、官方資料回來後對不上任何一班車。': {
+    one: ", and removed {removed} estimated train that was no longer on the official list. This doesn't mean that train stopped running or was involved in an incident — it was simply estimated during the interruption and didn't match any train once official data returned.",
+    other: ", and removed {removed} estimated trains that were no longer on the official list. This doesn't mean those trains stopped running or were involved in an incident — they were simply estimated during the interruption and didn't match any train once official data returned.",
+  },
+  '{dur}畫面上的列車是依各站之間的固定行車時間往前推估的。官方資料一回來，軌島就改以官方名單為準重新對齊，因此列車位置會出現一次跳動{removedClause}目前畫面已回到官方即時資料。': '{dur} trains on screen were estimated forward using the fixed running time between stations. As soon as official data returned, Rail Island realigned to the official list, so train positions jumped once{removedClause} The display is now back on official live data.',
+});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  // 覆寫:1 本のときも「これらの列車」と言わない
+  '官方訊號恢復　北捷即時資料中斷約 <b>{mins} 分鐘</b>後恢復，<b>{count} 台</b>列車已重新對齊官方位置——中斷期間畫面上的位置是推估的，所以這些車會往前跳或往後退。{removedClause}': '公式信号が復旧しました　台北メトロのリアルタイムデータが約<b>{mins}分間</b>途絶えたのち復旧し、<b>{count}本</b>の列車を公式位置に再整合しました。途絶中の画面上の位置は推定だったため、対象の列車は前後にジャンプすることがあります。{removedClause}',
+  // 覆寫:「途絶6分：」→ 分鐘數放括號,標題不再把名詞和數字黏在一起
+  '{head} {mins} 分鐘：列車位置與車站倒數都可能不準': '{head}（{mins}分間）：列車位置と駅のカウントダウンが不正確な場合があります',
+  // 覆寫:「ジャンプします、公式リストに…」逗號連句 → 移除列車那段自成一句
+  '，並移除了 {removed} 台官方名單上已經沒有的推估列車。這不代表那些車停駛或發生事故——它們只是在中斷期間被推估出來、官方資料回來後對不上任何一班車。': '。また、公式リストに存在しなくなった推定列車{removed}本を削除しました。これらの列車が運休したり事故に遭ったりしたわけではなく、途絶中に推定表示されていたものが、公式データの復旧後にどの列車とも一致しなかったものです。',
+});
+
+// 2026-09-19 i18n 複審修正・第二段(fix/i18n-review-fix)。同樣只在檔尾追加、既有區塊一律不動;
+// 標「覆寫」的節是刻意蓋掉前面同鍵的譯文(後面的 Object.assign 會贏),其餘都是先前缺譯的新鍵。
+// 繁中原文都照抄 index.html／data/bounty_rules.json 的字面,中文介面輸出不變。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  // 平交道卡:道口種類、股道、無班次預測提示、誤點與免責(renderCrossingCard 已改走 t()／routeName／stationName)
+  '第一種平交道': 'Type 1 level crossing',
+  '第二種鐵路平交道': 'Type 2 level crossing',
+  '第三種甲平交道': 'Type 3A level crossing',
+  '半封閉式平交道': 'Semi-closed level crossing',
+  '專用平交道': 'Private level crossing',
+  '單線': 'Single track',
+  '單線電化': 'Single track, electrified',
+  '雙線以上': 'Double track or more',
+  '雙線以上電化': 'Double track or more, electrified',
+  '專用線': 'Private siding',
+  '貨運／專用': 'a freight or private line',
+  '此道口位於{line}——本圖未收錄該路段列車，無法提供通過班次預測': 'This crossing is on {line}. Trains on that section aren’t in this map, so no pass predictions are available.',
+  '+{n}分': '+{n} min',
+  '未來 60 分鐘無列車通過': 'No trains in the next 60 minutes',
+  '依時刻表推算僅供參考，遮斷機通常提前 30–60 秒動作，請以現場號誌為準': 'Estimated from the timetable and for reference only. Barriers usually come down 30–60 seconds before a train; always follow the signals at the crossing.',
+  '顯示全台 415 處台鐵平交道（官方公開資料）。圖示比照官方交叉標誌：雙線以上於紅叉下加人字、閃電＝電化（拉近顯示）。點擊任一平交道，可查看接下來通過的列車與倒數；貨運／專用線上的道口僅標示位置。預測依時刻表與即時誤點推算，遮斷機通常提前 30–60 秒動作，請以現場號誌為準。平交道位置以台鐵官方資料為準，可能與現場實際略有落差，歡迎透過頁尾「回報問題或建議」提供修正。': 'Shows all 415 TRA level crossings in Taiwan (official open data). Icons follow the official crossbuck sign: a chevron under the red cross means two or more tracks, and a lightning bolt means electrified (shown when zoomed in). Tap any crossing to see upcoming trains and countdowns; crossings on freight or private lines show their location only. Predictions are estimated from timetables and live delays, and barriers usually come down 30–60 seconds ahead, so always follow the signals at the crossing. Crossing locations follow TRA’s official data and may differ slightly on the ground; you can send corrections via “Report an issue or suggestion” at the bottom of the page.',
+  // 台糖五分車卡(renderSugarCard)與地圖標籤:園區名稱、所在地、介紹、班次
+  '台糖五分車': 'Taisugar sugar railway',
+  '五分車為園區觀光列車，班次與票價依台糖公告，出發前請先向園區確認；本圖僅標示位置，不模擬行駛': 'Sugar trains are sightseeing rides inside the parks. Times and fares follow Taisugar’s announcements, so check with the park before you go. This map only marks locations and doesn’t simulate the trains.',
+  '溪湖糖廠': 'Xihu Sugar Refinery',
+  '溪湖糖業鐵道文化園區': 'Xihu Sugar Railway Cultural Park',
+  '彰化縣溪湖鎮': 'Xihu Township, Changhua County',
+  '全台少見仍有蒸汽機車動態行駛的糖廠——1948 年比利時製的 346 號蒸汽老火車修復後不定期出勤，平時由柴油機車牽引五分車，來回約 4.3 公里。': 'One of the few sugar refineries in Taiwan that still runs a working steam locomotive: No. 346, built in Belgium in 1948 and restored, comes out on irregular days. Diesel locomotives haul the sugar train the rest of the time, on a round trip of about 4.3 km.',
+  '假日 10–16 時固定班次（蒸汽機車另行公告）；平日 20 人以上預約': 'Weekends and holidays: scheduled runs 10:00–16:00 (steam runs announced separately). Weekdays: groups of 20 or more by reservation.',
+  '蒜頭糖廠': 'Suantou Sugar Refinery',
+  '蒜頭蔗埕文化園區': 'Suantou Sugarcane Yard Cultural Park',
+  '嘉義縣六腳鄉': 'Liujiao Township, Chiayi County',
+  '五分車從蔗埕一路開進故宮南院，是全台唯一直達國家級博物館的鐵道，另一線串起高鐵嘉義站——最慢的糖鐵接上最快的高鐵。': 'The sugar train runs from the cane yard straight into the Southern Branch of the National Palace Museum, the only railway in Taiwan that goes directly to a national museum. Another line connects to THSR Chiayi Station: the slowest sugar railway meets the fastest high-speed rail.',
+  '假日開行故宮南院線與高鐵嘉義站線；平日 30 人以上預約（週一檢修不開行）': 'Weekends and holidays: Palace Museum Southern Branch line and THSR Chiayi Station line. Weekdays: groups of 30 or more by reservation (no service on Mondays for maintenance).',
+  '烏樹林': 'Wushulin',
+  '烏樹林休閒園區': 'Wushulin Recreation Park',
+  '台南市後壁區': 'Houbi District, Tainan',
+  '2001 年全台最早復駛觀光五分車的糖廠；日治時期是銜接後壁、白河（關子嶺方向）、東山、新營一帶輕便鐵道的樞紐車站，所產糖曾稱「御糖」。': 'In 2001 it became the first sugar refinery in Taiwan to bring back sightseeing sugar trains. Under Japanese rule it was the hub of the light railways linking Houbi, Baihe (toward Guanziling), Dongshan and Xinying, and its sugar was once known as “imperial sugar.”',
+  '週六日 9–16 時各整點一班（12 時除外）；平日 20 人以上預約': 'Saturdays and Sundays: every hour on the hour 9:00–16:00 (except 12:00). Weekdays: groups of 20 or more by reservation.',
+  '新營糖廠': 'Xinying Sugar Refinery',
+  '新營鐵道文化園區': 'Xinying Railway Cultural Park',
+  '台南市新營區': 'Xinying District, Tainan',
+  '日治鹽水港製糖株式會社本社所在、台糖昔日三大總廠之一；招牌是「勝利號」老客車，還能看到台鐵與糖鐵軌道並行的共道景觀。': 'Home of the Japanese-era Ensuiko Sugar Manufacturing Company’s head office and once one of Taisugar’s three main mills. Its signature is the vintage “Victory” passenger car, and you can see TRA and sugar-railway tracks running side by side.',
+  '假日中興站 9–16 時整點發車（12 時除外）；平日 20 人以上、3 天前預約': 'Weekends and holidays: departs Zhongxing Station every hour on the hour 9:00–16:00 (except 12:00). Weekdays: groups of 20 or more, booked 3 days ahead.',
+  '橋頭糖廠': 'Ciaotou Sugar Refinery',
+  '台灣糖業博物館（橋頭糖廠）': 'Taiwan Sugar Museum (Ciaotou Sugar Refinery)',
+  '高雄市橋頭區': 'Qiaotou District, Kaohsiung',
+  '台灣第一座現代化機械式製糖工廠，走過百年；觀光五分車連結園區與高雄花卉農園中心，高雄捷運紅線橋頭糖廠站出站即達。': 'Taiwan’s first modern mechanized sugar refinery, now more than a century old. The sightseeing sugar train links the park with the Kaohsiung Flower Farm Center, and the park is right outside Ciaotou Sugar Refinery Station on the Kaohsiung Metro Red Line.',
+  '週六日及國定假日開行（約 10–17 時，班次以現場公告為準）；平日 30 人以上預約': 'Saturdays, Sundays and national holidays (about 10:00–17:00; check the notices on site for times). Weekdays: groups of 30 or more by reservation.',
+  // 我的最愛:下一班時刻(renderFavPanel)
+  '下一班 {time}': 'Next train {time}',
+  '下一班 {time}（停駛）': 'Next train {time} (cancelled)',
+  // 懸賞與 GPS 校正旅程(第 13／14／15 項):出發前說明卡整句樣板、錄製列、段／站單複數
+  '錄 {title}（{line}・{slot}・{unit}），值 {points}。': 'Record {title} ({line} · {slot} · {unit}), worth {points}.',
+  '錄 {title}（{line}，{unit}{dur}），值 {points}。': 'Record {title} ({line}, {unit}{dur}), worth {points}.',
+  '{n} 段': {
+    one: '{n} segment',
+    other: '{n} segments',
+  },
+  // 單複數依點數(呼叫端第三參數是 r.points);段數寫成「covered: N」就不必再分單複數。
+  '{segs} <span id="recUnitWord">段</span>已覆蓋・{pts} 點已鎖定': {
+    one: '<span id="recUnitWord">Segments</span> covered: {segs} · {pts} pt locked in',
+    other: '<span id="recUnitWord">Segments</span> covered: {segs} · {pts} pts locked in',
+  },
+  '{segs} <span id="recUnitWord">站</span>已覆蓋・{pts} 點已鎖定': {
+    one: '<span id="recUnitWord">Stations</span> covered: {segs} · {pts} pt locked in',
+    other: '<span id="recUnitWord">Stations</span> covered: {segs} · {pts} pts locked in',
+  },
+  // 靜態畫面文字(index.html 裡的原文;i18nTranslateTree 只認整句鍵)
+  '校正過的': 'Calibrated',
+  '標出我校正過的路段': 'Highlight segments I’ve calibrated',
+  '錄製中': 'Recording',
+  '打開大字/進度條/完整品質說明': 'Open large text, progress bar and full quality details',
+  '訊號品質': 'Signal quality',
+  '0.0 公里': '0.0 km',
+  '停止並保存這趟 GPS 校正旅程': 'Stop and save this GPS calibration trip',
+  '關閉橫幅（不中斷跟車）': 'Close banner (keeps following the train)',
+  '用軌島分享你的行程': 'Share your trip with Rail Island',
+  '你在 App 內建瀏覽器裡': 'You’re in an in-app browser',
+  '用 Safari／Chrome 開啟，才能把軌島加入主畫面，下次一點就回來': 'Open this page in Safari or Chrome to add Rail Island to your Home Screen and get back with one tap.',
+  '橫放放不下特大字級的完整資訊': 'Landscape can’t fit everything at the largest text size',
+  '誤點統計、提醒、車廂資訊已被裁切。轉回直式可讀完整內容。': 'Delay stats, reminders and car info are cut off. Turn back to portrait to read everything.',
+  '落釘模式進行中': 'Pin mode is on',
+  '點地圖任一處查附近火車，拖曳釘子可微調；此時點空白處不會收起面板。': 'Tap anywhere on the map to see nearby trains, and drag the pin to fine-tune. Tapping empty space won’t close the panel in this mode.',
+  '輸入站名、車次或列車名稱——例如「台北」「152」「鳴日號」。點車站看接下來的班次，點車次直接跟著它跑。': 'Type a station, train number or train name — for example “Taipei”, “152” or “Future”. Tap a station for upcoming trains, or a train number to follow it.',
+  '介': 'Info',
+  '省': 'Eco',
+  '切換放空視角：「跟車」跟著一班列車跑；「群車」不跟車，鏡頭停在當下列車最密的繁忙路段看群車交錯，並緩慢漂移縮放、定時換一段': 'Switch the idle view: “Follow train” rides along with one train; “Train cluster” doesn’t follow — the camera stays on the busiest stretch to watch trains pass, drifting and zooming slowly and moving to a new stretch every so often.',
+  '說明': 'Details',
+  '例：231 次在宜蘭站停很久沒動，實際上已經開了': 'e.g. Train 231 sat at Yilan on the map for a long time, but it had actually left',
+  '會一起送出': 'Also sent',
+  '不含帳號與定位。想拿掉哪一項可以逐項關掉。': 'Your account and location are never included. Switch off any item you don’t want to send.',
+  '按下去會開啟 GitHub 的新 issue 頁面，上面的內容已經幫你填好，送出前還可以再改。需要 GitHub 帳號。issue 是公開的。': 'This opens a new GitHub issue page with the details already filled in, and you can still edit them before submitting. You need a GitHub account, and issues are public.',
+  '前往 GitHub 開 issue': 'Open an issue on GitHub',
+  '校正懸賞': 'Calibration bounties',
+  '出發前': 'Before you go',
+  '開始錄製': 'Start recording',
+  '等一下再說': 'Maybe later',
+  '‹ 回地圖': '‹ Back to map',
+  '回地圖(錄製會繼續進行，不會停止)': 'Back to map (recording keeps going; it won’t stop)',
+  '快到你設定的時間時，軌島會發通知提醒你。通知只在你設定的班次前出現，不會有廣告或雜訊。': 'When the time you set is near, Rail Island sends you a notification. Notifications only come before the trains you set — no ads, no noise.',
+  '追蹤這班車': 'Track this train',
+  '接下來的班次': 'Upcoming trains',
+  '給這個位置取個名字，方便日後在「我的最愛」裡找到。不填也可以，之後仍可從最愛移除。': 'Give this place a name so it’s easy to find later in My favourites. You can leave it blank, and you can still remove it from favourites later.',
+  // 覆寫(第 15 項):英文單複數;停站卡標題的 n 是總站數,英文改用「另外幾站」(第三參數＝其餘站數)
+  '{n} 點': {
+    one: '{n} pt',
+    other: '{n} pts',
+  },
+  '{n} 站': {
+    one: '{n} stop',
+    other: '{n} stops',
+  },
+  '，約 {mins} 分鐘': {
+    one: ', about {mins} minute',
+    other: ', about {mins} minutes',
+  },
+  '已有 {claimers} 人接了{unit}': {
+    one: '{claimers} person has already claimed {unit}',
+    other: '{claimers} people have already claimed {unit}',
+  },
+  '{first}等 {n} 站　停站': {
+    one: '{first} + {more} more station · dwell',
+    other: '{first} + {more} more stations · dwell',
+  },
+  '{first}　停站': '{first} · dwell',
+  '這條線有 {n} 段在地下，那幾段收不到是正常的。': {
+    one: 'This line has {n} underground segment — it’s normal to lose signal there.',
+    other: 'This line has {n} underground segments — it’s normal to lose signal on those.',
+  },
+  // 覆寫(第 10 項):成就提示引用的按鈕名要跟實際按鈕一致(日文按鈕是「乗車する」,英文統一彎引號)
+  '按「我上車了」實際搭一趟,沿途每過一站就自動蓋一枚,比靠完乘起訖站快得多。': 'Tap “I’m on board” for an actual ride — every station you pass gets stamped automatically, much faster than relying on journey origin/destination stations alone.',
+  '只有按「我上車了」才會累積,純跟車看動畫一次都不算。來回算同一段。': 'Only counts when you tap “I’m on board” — just watching the animation never counts. A round trip counts as the same segment.',
+  // 護照「校正貢獻」節(buildCorrectSection)、錄製中定位失敗提示(bountySamplingFail)
+  '校正貢獻': 'Calibration contributions',
+  '懸賞板': 'Bounty board',
+  '還沒有校正記錄——去懸賞板看看有哪些路段缺資料。': 'No calibration records yet — check the bounty board to see which segments need data.',
+  '錄一趟就有校正者章，<b>即使資料不能用，章與點數還是你的</b>。': 'Record one trip to earn the calibrator stamp — <b>even if the data can’t be used, the stamp and points are still yours</b>.',
+  '{date} {train} 次・{title}': '{date} Train {train} · {title}',
+  '首位校正者：<b>你</b>（{n} 段）': {
+    one: 'First calibrator: <b>you</b> ({n} segment)',
+    other: 'First calibrator: <b>you</b> ({n} segments)',
+  },
+  '校正 <b>{n}</b> 段<span class="corr-sub">（其中 <b>{adopted}</b> 段已採用）</span>': {
+    one: 'Calibrated <b>{n}</b> segment<span class="corr-sub"> (<b>{adopted}</b> adopted)</span>',
+    other: 'Calibrated <b>{n}</b> segments<span class="corr-sub"> (<b>{adopted}</b> adopted)</span>',
+  },
+  '定位權限沒有開啟；請到系統設定允許軌島使用精確位置。': 'Location permission is off. Allow Rail Island to use precise location in system settings.',
+  '暫時收不到定位；請讓 App 留在前景並把手機靠窗。': 'Can’t get a location fix right now. Keep the app in the foreground and hold the phone near a window.',
+  // GPS 校正品質判定文案:data/bounty_rules.json 的 qualityText(錄製中提示 bountyTickQualityHint 與護照「校正貢獻」共用同一份繁中原文)
+  '「精確位置」是關的': '“Precise location” is off',
+  '訊號被遮蔽了': 'The signal is blocked',
+  '手機放在包包裡或車廂中央會擋住訊號，靠窗會好很多': 'A phone in a bag or in the middle of the car loses signal; near a window works much better',
+  '這段在地下，GPS 收不到': 'This segment is underground, so GPS can’t reach it',
+  '這不是你的問題，我們也還沒有辦法解': 'That’s not your fault, and we don’t have a fix for it yet',
+  '這段只錄到一部分': 'Only part of this segment was recorded',
+  '下次從該段起點再錄一次就能補齊': 'Next time, record again from the start of the segment to fill the gap',
+  '取樣太稀疏': 'Too few location samples',
+  '低耗電模式會降低定位頻率，錄製期間建議先關掉': 'Low Power Mode reduces how often your location updates, so turn it off while recording',
+  '這班車沒有在該站停靠': 'This train didn’t stop at that station',
+  '所以停站時間沒收到；軌道段仍然有效': 'So no dwell time was captured, but the track segments still count',
+  '認不出這是哪一班車': 'Couldn’t tell which train this was',
+  '可能是中途換車，或班表當天有調整': 'You may have changed trains partway, or the timetable was changed that day',
+  // 使用說明中心:Android 分支(小工具名稱比照 Android 小工具挑選器與設定畫面的原生字串)與 GPS 校正旅程三節
+  '桌面小工具（捷運／鐵路／雙看板）': 'Home screen widgets (metro, rail and dual board)',
+  '不開 App 也能看捷運倒數、台鐵／高鐵發車，或把兩者放進同一張雙看板。': 'See metro countdowns and TRA / HSR departures without opening the app, or put both on one dual board.',
+  '選「捷運看板」、「發車看板」或「鐵路＋捷運雙看板」，再挑要看的車站': 'Choose “Metro board”, “Departure board” or “Rail + metro board”, then pick the station you want',
+  '發車看板的起站與目的站可以選你在軌島儲存的地點；「只看這些」可依方向、車種或車次篩選': 'On the departure board, the origin and destination can be places you saved in Rail Island; “Filters” narrows it down by direction, train type or train number',
+  '班次字太小時打開「大字好讀版」——主要文字會明顯放大，並減少列數避免擠在一起': 'If the text is too small, turn on “Large, easy-to-read text”: the main text gets noticeably bigger and fewer rows are shown so nothing is cramped',
+  '捷運免費可設定一站；想放多站或用「自動（最近的站）」需啟用軌島通行證': 'One metro station is free; multiple stations or “Automatic (nearest station)” need a Rail Island Pass',
+  '跟隨台鐵或高鐵列車時，通行證也能把下一站進度放上鎖定畫面；Android 16／Samsung 可顯示即時資訊與 Now Bar。App 收到背景或 WebView 關閉後，台鐵跟車卡仍會依官方誤點與停靠資料更新；省電模式可能延後輪詢。': 'When you follow a TRA or HSR train, the Pass can also put next-stop progress on your lock screen; Android 16 and Samsung devices can show it as a Live Update and in the Now Bar. After the app moves to the background or its WebView closes, the TRA follow card keeps updating from official delay and stop data; battery saver may delay updates.',
+  '在月台上等車時，把下一班倒數放上鎖定畫面的即時資訊；Samsung Android 16 可顯示在 Now Bar。': 'While waiting on the platform, put the next-train countdown in Live Updates on your lock screen; Samsung devices with Android 16 can also show it in the Now Bar.',
+  '在月台等某一班車時，把那一班的倒數放上鎖定畫面的即時資訊；Samsung Android 16 可顯示在 Now Bar。': 'While waiting for a specific train, put its countdown in Live Updates on your lock screen; Samsung devices with Android 16 can also show it in the Now Bar.',
+  '通行證內容：台鐵列車的誤點履歷（回溯 90 天的逐日紀錄）、App 桌面與鎖定畫面的捷運小工具放多站或用「自動（最近的站）」跟著你移動換站（免費可設定一站）、收藏與完乘紀錄跨裝置雲端同步、行程分享、跟車配樂（音樂跟著你在看的那班車與當下時間換情境；免費的背景音樂不受影響）、匯入 Google Maps 已儲存清單、非跟車時的衛星高解析圖磚，以及 Android 16 即時資訊與 Samsung Now Bar 的跟車鎖定畫面進度。': 'Pass features include 90 days of daily TRA delay history; multiple stations or Automatic (nearest station) in the app’s home screen and lock screen metro widgets, with one station free; cloud sync for favorites and completion records; journey sharing; the train soundtrack (the music follows the train you are watching and the time of day — the free background music is unaffected); importing Google Maps saved lists; high-resolution satellite tiles when not following a train; and follow progress on the lock screen through Android 16 Live Updates and the Samsung Now Bar.',
+  '懸賞板：哪些路段還缺資料': 'Bounty board: which segments still need data',
+  '有些路段我們手上的行駛資料不夠準，缺哪一段就掛在懸賞板上，等人去搭一趟錄回來。': 'For some segments our running data isn’t accurate enough yet. Each segment that needs data goes up on the bounty board until someone rides it and records it.',
+  '打開「護照」，在「校正貢獻」那一列按「懸賞板」': 'Open Passport and tap “Bounty board” in the “Calibration contributions” row',
+  '挑一段你本來就要搭的': 'Pick a segment you were going to ride anyway',
+  '按下去接下來，出發前會有一張說明卡告訴你要準備什麼': 'Tap it to claim it; before you set off, a briefing card tells you what to prepare',
+  '接下來的段 24 小時內有效，過期會放回板上給別人。看板不用 App，實際錄製要用 App。': 'A claimed segment is held for 24 hours; after that it goes back on the board for others. You can browse the board without the app, but recording needs the app.',
+  '錄一趟校正旅程': 'Record a calibration trip',
+  '你搭車的時候順手錄一趟，我們用它把那段路的位置推算修準。': 'Record a trip while you ride, and we use it to make train position estimates on that stretch more accurate.',
+  '先在懸賞板接一段': 'First claim a segment on the bounty board',
+  '真的搭上那班車之後，按說明卡的「開始錄製」': 'Once you’re actually on that train, tap “Start recording” on the briefing card',
+  '錄製畫面上的燈號保持綠色就好——手機靠窗，別放在包包裡或車廂中央': 'Just keep the light on the recording screen green: hold the phone near a window, not in a bag or the middle of the car',
+  '到站按「停止錄製」': 'Tap “Stop recording” when you arrive',
+  '燈號變橘色會直接告訴你怎麼改善；如果寫「精確位置未開」一定要去設定打開，那是唯一不修就整趟白錄的狀況。錄到一半中斷沒關係，錄到的部分照樣算。': 'If the light turns orange, it tells you how to fix things. If it says “Precise location is off”, be sure to turn it on in Settings — that’s the only problem that wastes the whole trip if left unfixed. It’s fine if recording is interrupted partway; whatever you recorded still counts.',
+  '護照裡的校正貢獻': 'Calibration contributions in your Passport',
+  '你錄過幾段、其中有幾段真的被採用，都記在護照的「校正貢獻」。': 'How many segments you’ve recorded, and how many of them were actually adopted, is shown under “Calibration contributions” in your Passport.',
+  '找到「校正貢獻」那一列': 'Find the “Calibration contributions” row',
+  '上面寫「校正 N 段（其中 M 段已採用）」': 'It reads “Calibrated N segments (M adopted)”',
+  '兩個數字不一樣是正常的——訊號不好的那幾趟資料用不上，但校正者章與點數還是你的，而且我們會寫出是什麼原因、下次怎麼改善。某段如果是你第一個錄回來的，會標「首位校正者」。': 'It’s normal for the two numbers to differ: data from trips with a poor signal can’t be used, but you keep the calibrator stamp and points, and we tell you why and how to do better next time. If you were the first to record a segment, it’s marked “First calibrator”.',
+  // 覆寫:英文單複數。這些呼叫端都已把數量傳給 t()(第三參數或 {n}),英文譯文卻是單一字串,數量為 1 時會出現「1 trains」「1 items」
+  '{time} · 約 {n} 列同時運行——點擊跳到該時刻': {
+    one: '{time} · about {n} train running — tap to jump to this time',
+    other: '{time} · about {n} trains running — tap to jump to this time',
+  },
+  '官方訊號中斷 {n} 分鐘；位置與到站時刻皆為推估，僅供參考': {
+    one: 'Official feed unavailable for {n} minute; positions and arrivals are estimates for reference only',
+    other: 'Official feed unavailable for {n} minutes; positions and arrivals are estimates for reference only',
+  },
+  '停靠 {n} 站 · 全程約 {duration}': {
+    one: '{n} stop · about {duration} total',
+    other: '{n} stops · about {duration} total',
+  },
+  '（最後更新 {time}，已 {n} 分鐘未更新）': {
+    one: ' (last update {time}, no update for {n} minute)',
+    other: ' (last update {time}, no update for {n} minutes)',
+  },
+  '台鐵即時誤點已套用（每分鐘更新）· {n} 班誤點中 · 來源 {time}': {
+    one: 'TRA live delays applied (updated every minute) · {n} train delayed · source {time}',
+    other: 'TRA live delays applied (updated every minute) · {n} trains delayed · source {time}',
+  },
+  '車站預告與地圖上的 {n} 台列車共用同一份即時身分與時間軸': {
+    one: 'Station arrivals and the {n} train on the map share one live identity and timeline',
+    other: 'Station arrivals and {n} trains on the map share one live identity and timeline',
+  },
+  '統一捷運即時模型已 {n} 分鐘沒有取得可發布的新北捷資料；目前退回備援推估': {
+    one: 'The unified metro model has received no publishable New Taipei Metro data for {n} minute; fallback estimates are in use',
+    other: 'The unified metro model has received no publishable New Taipei Metro data for {n} minutes; fallback estimates are in use',
+  },
+  '{systems}即時資料已 {n} 分鐘沒有更新；': {
+    one: '{systems} live data has not updated for {n} minute; ',
+    other: '{systems} live data has not updated for {n} minutes; ',
+  },
+  '畫面上 {n} 台列車是依各站之間的固定行車時間往前推估的，位置與車站倒數都可能不準': {
+    one: 'The {n} train shown is projected using fixed inter-station travel times; its position and station countdowns may be inaccurate',
+    other: 'The {n} trains shown are projected using fixed inter-station travel times; positions and station countdowns may be inaccurate',
+  },
+  '畫面名冊與到站時刻來自北捷即時資料，共 {n} 台': {
+    one: 'The roster and arrivals come from Taipei Metro live data, {n} train total',
+    other: 'The roster and arrivals come from Taipei Metro live data, {n} trains total',
+  },
+  '今日官方停駛 {n} 班': {
+    one: '{n} service officially cancelled today',
+    other: '{n} services officially cancelled today',
+  },
+  '{systems}即時訊號中斷 {n} 分鐘：': {
+    one: '{systems} live feed unavailable for {n} minute: ',
+    other: '{systems} live feed unavailable for {n} minutes: ',
+  },
+  '即時資料連線中斷 {n} 分鐘：': {
+    one: 'Live data connection lost for {n} minute: ',
+    other: 'Live data connection lost for {n} minutes: ',
+  },
+  '路段 {n}': {
+    one: '{n} segment',
+    other: '{n} segments',
+  },
+  '全線走完 {n}': {
+    one: '{n} route completed',
+    other: '{n} routes completed',
+  },
+  '{n} 條線・{km} km': {
+    one: '{n} route · {km} km',
+    other: '{n} routes · {km} km',
+  },
+  '今日 {n} 班': {
+    one: '{n} service today',
+    other: '{n} services today',
+  },
+  '從 {n} 班車裡挑出來的 · 點列車跟隨、點活動飛到那一站': {
+    one: 'Highlights selected from {n} train · tap a train to follow or an event to visit its station',
+    other: 'Highlights selected from {n} trains · tap a train to follow or an event to visit its station',
+  },
+  '{n} 項': {
+    one: '{n} item',
+    other: '{n} items',
+  },
+  '匯入 {n} 個地點': {
+    one: 'Import {n} place',
+    other: 'Import {n} places',
+  },
+  '也匯入其餘 {n} 個未預覽地點': {
+    one: 'Also import {n} more place not previewed',
+    other: 'Also import the other {n} places not previewed',
+  },
+  '{from} → {to} 收集完成，{n} 座站進護照': {
+    one: '{from} → {to} complete; {n} station added to the Passport',
+    other: '{from} → {to} complete; {n} stations added to the Passport',
+  },
+  '收集完成 · {from} → {to} 共 {n} 座站': {
+    one: 'Collection complete · {from} → {to}, {n} station',
+    other: 'Collection complete · {from} → {to}, {n} stations',
+  },
+  '今日已觀測 {total} 班・誤點≥5分：目前 {current} 班・今天曾有 {peak} 班': {
+    one: '{total} train observed today · ≥5 min late: {current} now, {peak} at any time today',
+    other: '{total} trains observed today · ≥5 min late: {current} now, {peak} at any time today',
+  },
+  '{n} 班車': {
+    one: '{n} train',
+    other: '{n} trains',
+  },
+  '{n} 個地點': {
+    one: '{n} place',
+    other: '{n} places',
+  },
+  '（示範）接下了・{pts} 點・24 小時內有效': {
+    one: '(Demo) Claimed · {pts} pt · valid for 24 hours',
+    other: '(Demo) Claimed · {pts} pts · valid for 24 hours',
+  },
+  '已在伺服器接下・{pts} 點，但這台裝置存不下來（可能是儲存空間滿了或無痕模式）——重新整理後認領不會留著': {
+    one: 'Claimed on the server · {pts} pt, but this device couldn’t save it (storage may be full, or you’re in private browsing) — the claim won’t persist after you refresh',
+    other: 'Claimed on the server · {pts} pts, but this device couldn’t save it (storage may be full, or you’re in private browsing) — the claim won’t persist after you refresh',
+  },
+  '接下了・{pts} 點・24 小時內有效': {
+    one: 'Claimed · {pts} pt · valid for 24 hours',
+    other: 'Claimed · {pts} pts · valid for 24 hours',
+  },
+});
+
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  // 平交道卡:道口種類、股道、無班次預測提示、誤點與免責(renderCrossingCard 已改走 t()／routeName／stationName)
+  '第一種平交道': '第1種踏切',
+  '第二種鐵路平交道': '第2種踏切',
+  '第三種甲平交道': '第3種甲踏切',
+  '半封閉式平交道': '半閉鎖式踏切',
+  '專用平交道': '専用踏切',
+  '單線': '単線',
+  '單線電化': '単線・電化',
+  '雙線以上': '複線以上',
+  '雙線以上電化': '複線以上・電化',
+  '專用線': '専用線',
+  '貨運／專用': '貨物線・専用線',
+  '此道口位於{line}——本圖未收錄該路段列車，無法提供通過班次預測': 'この踏切は{line}にあります。この区間の列車は地図に収録されていないため、通過予測は表示できません。',
+  '+{n}分': '+{n}分',
+  '未來 60 分鐘無列車通過': '今後60分間、通過する列車はありません',
+  '依時刻表推算僅供參考，遮斷機通常提前 30–60 秒動作，請以現場號誌為準': '時刻表からの推定で、参考値です。遮断機は通常30〜60秒前に作動します。必ず現地の警報機・信号に従ってください。',
+  '顯示全台 415 處台鐵平交道（官方公開資料）。圖示比照官方交叉標誌：雙線以上於紅叉下加人字、閃電＝電化（拉近顯示）。點擊任一平交道，可查看接下來通過的列車與倒數；貨運／專用線上的道口僅標示位置。預測依時刻表與即時誤點推算，遮斷機通常提前 30–60 秒動作，請以現場號誌為準。平交道位置以台鐵官方資料為準，可能與現場實際略有落差，歡迎透過頁尾「回報問題或建議」提供修正。': '台湾鉄路の踏切415か所をすべて表示します（公式オープンデータ）。アイコンは公式の踏切標識に準じ、赤い×印の下の「人」字形は複線以上、稲妻は電化区間を示します（拡大時に表示）。踏切をタップすると、次に通過する列車とカウントダウンを確認できます。貨物線・専用線上の踏切は位置のみの表示です。予測は時刻表とリアルタイムの遅延から推定したもので、遮断機は通常30〜60秒前に作動します。必ず現地の警報機・信号に従ってください。踏切の位置は台湾鉄路の公式データに基づくため、実際とわずかに異なる場合があります。修正はページ下部の「問題・提案を報告」からお寄せください。',
+  // 台糖五分車卡(renderSugarCard)與地圖標籤:園區名稱、所在地、介紹、班次
+  '台糖五分車': '台糖の五分車',
+  '五分車為園區觀光列車，班次與票價依台糖公告，出發前請先向園區確認；本圖僅標示位置，不模擬行駛': '五分車は園区内の観光列車です。運行と運賃は台糖の告知に従うため、お出かけ前に園区へご確認ください。この地図は位置のみを示し、運行はシミュレーションしていません。',
+  '溪湖糖廠': '渓湖製糖工場',
+  '溪湖糖業鐵道文化園區': '渓湖糖業鉄道文化園区',
+  '彰化縣溪湖鎮': '彰化県渓湖鎮',
+  '全台少見仍有蒸汽機車動態行駛的糖廠——1948 年比利時製的 346 號蒸汽老火車修復後不定期出勤，平時由柴油機車牽引五分車，來回約 4.3 公里。': '台湾でも数少ない、今も蒸気機関車が動態運転される製糖工場です。1948年ベルギー製の346号蒸気機関車が修復され、不定期に走ります。普段はディーゼル機関車が五分車を牽引し、往復約4.3km。',
+  '假日 10–16 時固定班次（蒸汽機車另行公告）；平日 20 人以上預約': '土日祝は10〜16時に定期運行（蒸気機関車は別途告知）。平日は20人以上の予約制。',
+  '蒜頭糖廠': '蒜頭製糖工場',
+  '蒜頭蔗埕文化園區': '蒜頭蔗埕文化園区',
+  '嘉義縣六腳鄉': '嘉義県六脚郷',
+  '五分車從蔗埕一路開進故宮南院，是全台唯一直達國家級博物館的鐵道，另一線串起高鐵嘉義站——最慢的糖鐵接上最快的高鐵。': '五分車が蔗埕から故宮南院まで直通する、台湾で唯一国立博物館へ直行する鉄道です。もう1路線は高鉄嘉義駅へ。最も遅い糖業鉄道が最も速い高速鉄道につながります。',
+  '假日開行故宮南院線與高鐵嘉義站線；平日 30 人以上預約（週一檢修不開行）': '土日祝は故宮南院線と高鉄嘉義駅線を運行。平日は30人以上の予約制（月曜は点検のため運休）。',
+  '烏樹林': '烏樹林',
+  '烏樹林休閒園區': '烏樹林レジャー園区',
+  '台南市後壁區': '台南市後壁区',
+  '2001 年全台最早復駛觀光五分車的糖廠；日治時期是銜接後壁、白河（關子嶺方向）、東山、新營一帶輕便鐵道的樞紐車站，所產糖曾稱「御糖」。': '2001年、台湾で最初に観光五分車を復活させた製糖工場です。日本統治時代は後壁・白河（関子嶺方面）・東山・新営一帯の軽便鉄道を結ぶ拠点駅で、ここで作られた砂糖は「御糖」と呼ばれました。',
+  '週六日 9–16 時各整點一班（12 時除外）；平日 20 人以上預約': '土日は9〜16時の毎正時に1本（12時を除く）。平日は20人以上の予約制。',
+  '新營糖廠': '新営製糖工場',
+  '新營鐵道文化園區': '新営鉄道文化園区',
+  '台南市新營區': '台南市新営区',
+  '日治鹽水港製糖株式會社本社所在、台糖昔日三大總廠之一；招牌是「勝利號」老客車，還能看到台鐵與糖鐵軌道並行的共道景觀。': '日本統治時代の塩水港製糖株式会社の本社があった地で、かつての台糖三大総廠の一つです。名物は「勝利号」の古い客車で、台鉄と糖業鉄道の線路が並走する光景も見られます。',
+  '假日中興站 9–16 時整點發車（12 時除外）；平日 20 人以上、3 天前預約': '土日祝は中興駅から9〜16時の毎正時に発車（12時を除く）。平日は20人以上、3日前までに予約。',
+  '橋頭糖廠': '橋頭製糖工場',
+  '台灣糖業博物館（橋頭糖廠）': '台湾糖業博物館（橋頭製糖工場）',
+  '高雄市橋頭區': '高雄市橋頭区',
+  '台灣第一座現代化機械式製糖工廠，走過百年；觀光五分車連結園區與高雄花卉農園中心，高雄捷運紅線橋頭糖廠站出站即達。': '台湾初の近代的な機械式製糖工場で、100年余りの歴史があります。観光五分車が園区と高雄花卉農園センターを結び、高雄メトロ レッドラインの橋頭製糖工場駅を出てすぐです。',
+  '週六日及國定假日開行（約 10–17 時，班次以現場公告為準）；平日 30 人以上預約': '土日祝に運行（おおむね10〜17時、便は現地の案内に従ってください）。平日は30人以上の予約制。',
+  // 我的最愛:下一班時刻(renderFavPanel)
+  '下一班 {time}': '次の列車 {time}',
+  '下一班 {time}（停駛）': '次の列車 {time}（運休）',
+  // 懸賞與 GPS 校正旅程(第 13／14／15 項):出發前說明卡整句樣板、錄製列、段／站單複數
+  '錄 {title}（{line}・{slot}・{unit}），值 {points}。': '{title}を記録します（{line}・{slot}・{unit}）。報酬は{points}です。',
+  '錄 {title}（{line}，{unit}{dur}），值 {points}。': '{title}を記録します（{line}、{unit}{dur}）。報酬は{points}です。',
+  '{n} 段': '{n}区間',
+  '{segs} <span id="recUnitWord">段</span>已覆蓋・{pts} 點已鎖定': '{segs}<span id="recUnitWord">区間</span>を記録済み・{pts}ポイント確保',
+  '{segs} <span id="recUnitWord">站</span>已覆蓋・{pts} 點已鎖定': '{segs}<span id="recUnitWord">駅</span>を記録済み・{pts}ポイント確保',
+  // 靜態畫面文字(index.html 裡的原文;i18nTranslateTree 只認整句鍵)
+  '校正過的': '校正済み',
+  '標出我校正過的路段': '自分が校正した区間を表示',
+  '錄製中': '記録中',
+  '打開大字/進度條/完整品質說明': '大きな文字・進捗バー・品質の詳しい説明を開く',
+  '訊號品質': '測位の品質',
+  '0.0 公里': '0.0 km',
+  '停止並保存這趟 GPS 校正旅程': 'このGPS校正の記録を停止して保存',
+  '關閉橫幅（不中斷跟車）': 'バナーを閉じる（列車の追跡は続きます）',
+  '用軌島分享你的行程': '軌島で旅程を共有',
+  '你在 App 內建瀏覽器裡': 'アプリ内ブラウザで開いています',
+  '用 Safari／Chrome 開啟，才能把軌島加入主畫面，下次一點就回來': 'Safari／Chromeで開くと軌島をホーム画面に追加でき、次回からワンタップで戻れます。',
+  '橫放放不下特大字級的完整資訊': '横向きでは最大の文字サイズで全情報を表示できません',
+  '誤點統計、提醒、車廂資訊已被裁切。轉回直式可讀完整內容。': '遅延統計・リマインダー・車両情報が途中で切れています。縦向きに戻すとすべて読めます。',
+  '落釘模式進行中': 'ピン留めモード中',
+  '點地圖任一處查附近火車，拖曳釘子可微調；此時點空白處不會收起面板。': '地図上のどこかをタップすると付近の列車を表示します。ピンはドラッグで微調整できます。このモードでは空白部分をタップしてもパネルは閉じません。',
+  '輸入站名、車次或列車名稱——例如「台北」「152」「鳴日號」。點車站看接下來的班次，點車次直接跟著它跑。': '駅名・列車番号・列車名を入力します（例：「台北」「152」「鳴日」）。駅をタップすると次の列車を、列車番号をタップするとその列車を追跡します。',
+  '介': '案',
+  '省': '省',
+  '切換放空視角：「跟車」跟著一班列車跑；「群車」不跟車，鏡頭停在當下列車最密的繁忙路段看群車交錯，並緩慢漂移縮放、定時換一段': '放置時の視点を切り替え：「列車追跡」は1本の列車について走ります。「列車群」は列車を追わず、いま列車が最も多い区間にカメラを置いて行き交う列車を眺め、ゆっくり移動・ズームしながら一定時間ごとに別の区間へ移ります。',
+  '說明': '内容',
+  '例：231 次在宜蘭站停很久沒動，實際上已經開了': '例：231列車が宜蘭駅で長く止まったまま動かないが、実際にはもう発車していた',
+  '會一起送出': '一緒に送信される情報',
+  '不含帳號與定位。想拿掉哪一項可以逐項關掉。': 'アカウントと位置情報は含まれません。送りたくない項目は個別にオフにできます。',
+  '按下去會開啟 GitHub 的新 issue 頁面，上面的內容已經幫你填好，送出前還可以再改。需要 GitHub 帳號。issue 是公開的。': 'GitHubの新しいissueページが開き、内容は入力済みです。送信前に編集もできます。GitHubアカウントが必要で、issueは公開されます。',
+  '前往 GitHub 開 issue': 'GitHubでissueを作成',
+  '校正懸賞': '校正懸賞',
+  '出發前': '出発前に',
+  '開始錄製': '記録を開始',
+  '等一下再說': 'あとで',
+  '‹ 回地圖': '‹ 地図に戻る',
+  '回地圖(錄製會繼續進行，不會停止)': '地図に戻る（記録は止まらずに続きます）',
+  '快到你設定的時間時，軌島會發通知提醒你。通知只在你設定的班次前出現，不會有廣告或雜訊。': '設定した時刻が近づくと、軌島が通知でお知らせします。通知は設定した列車の前にだけ届き、広告や不要な通知はありません。',
+  '追蹤這班車': 'この列車を追跡',
+  '接下來的班次': 'この後の列車',
+  '給這個位置取個名字，方便日後在「我的最愛」裡找到。不填也可以，之後仍可從最愛移除。': 'この地点に名前を付けておくと、あとで「お気に入り」から見つけやすくなります。空欄のままでもかまいません。お気に入りからはあとで削除できます。',
+  // 覆寫(第 15 項):英文單複數;停站卡標題的 n 是總站數,英文改用「另外幾站」(第三參數＝其餘站數)
+  '{first}等 {n} 站　停站': '{first}など{n}駅の停車',
+  '{first}　停站': '{first}の停車',
+  // 覆寫(第 10 項):成就提示引用的按鈕名要跟實際按鈕一致(日文按鈕是「乗車する」,英文統一彎引號)
+  '按「我上車了」實際搭一趟,沿途每過一站就自動蓋一枚,比靠完乘起訖站快得多。': '「乗車する」を押して実際に乗車すると、通過する駅ごとに自動でスタンプが押されます。完乗の起点・終点駅だけに頼るより、ずっと速く集まります。',
+  '只有按「我上車了」才會累積,純跟車看動畫一次都不算。來回算同一段。': '「乗車する」を押した場合のみカウントされ、アニメーションを見ているだけでは一切カウントされません。往復は同一区間として扱います。',
+  // 覆寫(第 15 項):GPS 校正旅程錄的是位置軌跡不是影片,日文「録画」一律改「記録」
+  '示範資料，僅供確認設計：這裡的路段與點數都是假的，接下來也不會真的錄。': 'デモデータです（デザイン確認専用）：ここに表示される区間とポイントはすべて仮のもので、受け取っても実際には記録されません。',
+  '接一張、搭那班車時開錄，把沿途的速度剖面測出來。全部免費，獎勵是榮譽。': '1件受け取り、その列車に乗ったら記録を開始して、沿線の速度プロファイルを計測します。すべて無料で、報酬は名誉です。',
+  '這些項目還沒有實測資料。用 App 才能接下來錄——網頁可以先看看有哪些。': 'これらの項目にはまだ実測データがありません。受け取って記録するにはアプリが必要です。ウェブ版では内容を確認できます。',
+  '已經在錄了': 'すでに記録中です',
+  '停止錄製': '記録を停止',
+  '進站前就開始錄，列車停穩後繼續錄到出站；只通過、不停靠不算停站樣本。': '駅に入る前から記録を始め、列車が停車したあとも駅を出るまで記録を続けてください。停車せず通過するだけでは停車サンプルになりません。',
+  '搭上那班車之後開始錄，到站就結束。': 'その列車に乗ったら記録を開始し、到着したら終了してください。',
+  '錄到一半中斷沒關係，<b>錄到的部分照樣算</b>。': '記録が途中で中断しても問題ありません。<b>記録できた部分はそのまま有効です</b>。',
+  '錄製中無法開啟收集地圖': '記録中は収集マップを開けません',
+  // 護照「校正貢獻」節(buildCorrectSection)、錄製中定位失敗提示(bountySamplingFail)
+  '校正貢獻': '校正への貢献',
+  '懸賞板': '懸賞板',
+  '還沒有校正記錄——去懸賞板看看有哪些路段缺資料。': 'まだ校正の記録はありません。懸賞板で、データが足りない区間を確認してみましょう。',
+  '錄一趟就有校正者章，<b>即使資料不能用，章與點數還是你的</b>。': '1回記録すると校正者スタンプがもらえます。<b>データが使えなかった場合でも、スタンプとポイントはあなたのものです</b>。',
+  '{date} {train} 次・{title}': '{date} {train}列車・{title}',
+  '首位校正者：<b>你</b>（{n} 段）': '最初の校正者：<b>あなた</b>（{n}区間）',
+  '校正 <b>{n}</b> 段<span class="corr-sub">（其中 <b>{adopted}</b> 段已採用）</span>': '<b>{n}</b>区間を校正<span class="corr-sub">（うち<b>{adopted}</b>区間が採用済み）</span>',
+  '定位權限沒有開啟；請到系統設定允許軌島使用精確位置。': '位置情報の許可がオフです。システム設定で、軌島に正確な位置情報の使用を許可してください。',
+  '暫時收不到定位；請讓 App 留在前景並把手機靠窗。': '現在位置を取得できません。アプリを前面に表示したまま、スマートフォンを窓際に置いてください。',
+  // GPS 校正品質判定文案:data/bounty_rules.json 的 qualityText(錄製中提示 bountyTickQualityHint 與護照「校正貢獻」共用同一份繁中原文)
+  '「精確位置」是關的': '「正確な位置情報」がオフです',
+  '訊號被遮蔽了': '電波が遮られています',
+  '手機放在包包裡或車廂中央會擋住訊號，靠窗會好很多': 'かばんの中や車両の中央では電波が遮られます。窓際に置くとずっと良くなります',
+  '這段在地下，GPS 收不到': 'この区間は地下のため、GPSを受信できません',
+  '這不是你的問題，我們也還沒有辦法解': 'あなたの問題ではなく、今のところ解決方法もありません',
+  '這段只錄到一部分': 'この区間は一部しか記録できませんでした',
+  '下次從該段起點再錄一次就能補齊': '次回、区間の始点から記録し直せば補えます',
+  '取樣太稀疏': '測位の間隔が粗すぎます',
+  '低耗電模式會降低定位頻率，錄製期間建議先關掉': '低電力モードでは位置情報の更新頻度が下がるため、記録中はオフにすることをおすすめします',
+  '這班車沒有在該站停靠': 'この列車はその駅に停車しませんでした',
+  '所以停站時間沒收到；軌道段仍然有效': 'そのため停車時間は記録できませんでしたが、線路区間の記録は有効です',
+  '認不出這是哪一班車': 'どの列車か特定できませんでした',
+  '可能是中途換車，或班表當天有調整': '途中で乗り換えたか、当日の時刻が変更された可能性があります',
+  // 使用說明中心:Android 分支(小工具名稱比照 Android 小工具挑選器與設定畫面的原生字串)與 GPS 校正旅程三節
+  '桌面小工具（捷運／鐵路／雙看板）': 'ホーム画面ウィジェット（メトロ／鉄道／二面案内）',
+  '不開 App 也能看捷運倒數、台鐵／高鐵發車，或把兩者放進同一張雙看板。': 'アプリを開かずにメトロのカウントダウンや台湾鉄路・高鉄の発車を確認でき、両方を1枚の二面案内にまとめることもできます。',
+  '選「捷運看板」、「發車看板」或「鐵路＋捷運雙看板」，再挑要看的車站': '「メトロ到着案内」「発車案内」「鉄道＋メトロ案内」のいずれかを選び、表示する駅を選びます',
+  '發車看板的起站與目的站可以選你在軌島儲存的地點；「只看這些」可依方向、車種或車次篩選': '発車案内の出発駅と目的駅には、軌島に保存した場所を選べます。「表示条件」で方向・種別・列車番号を絞り込めます',
+  '班次字太小時打開「大字好讀版」——主要文字會明顯放大，並減少列數避免擠在一起': '文字が小さいときは「大きく読みやすい文字」をオンにします。主な文字がはっきり大きくなり、詰まらないよう表示行数を減らします',
+  '捷運免費可設定一站；想放多站或用「自動（最近的站）」需啟用軌島通行證': 'メトロは1駅まで無料で設定できます。複数の駅や「自動（最寄り駅）」には軌島パスが必要です',
+  '跟隨台鐵或高鐵列車時，通行證也能把下一站進度放上鎖定畫面；Android 16／Samsung 可顯示即時資訊與 Now Bar。App 收到背景或 WebView 關閉後，台鐵跟車卡仍會依官方誤點與停靠資料更新；省電模式可能延後輪詢。': '台湾鉄路や高鉄の列車を追跡しているとき、パスがあれば次の駅までの進行状況をロック画面にも表示できます。Android 16／Samsungではライブアップデートや Now Bar に表示できます。アプリがバックグラウンドに移ったりWebViewが閉じたりしても、台湾鉄路の追跡カードは公式の遅延・停車データで更新され続けます。省電力モードでは更新が遅れることがあります。',
+  '在月台上等車時，把下一班倒數放上鎖定畫面的即時資訊；Samsung Android 16 可顯示在 Now Bar。': 'ホームで待つ間、次の列車のカウントダウンをロック画面のライブアップデートに表示します。Android 16のSamsung端末ではNow Barにも表示できます。',
+  '在月台等某一班車時，把那一班的倒數放上鎖定畫面的即時資訊；Samsung Android 16 可顯示在 Now Bar。': '特定の列車を待つ間、その列車のカウントダウンをロック画面のライブアップデートに表示します。Android 16のSamsung端末ではNow Barにも表示できます。',
+  '通行證內容：台鐵列車的誤點履歷（回溯 90 天的逐日紀錄）、App 桌面與鎖定畫面的捷運小工具放多站或用「自動（最近的站）」跟著你移動換站（免費可設定一站）、收藏與完乘紀錄跨裝置雲端同步、行程分享、跟車配樂（音樂跟著你在看的那班車與當下時間換情境；免費的背景音樂不受影響）、匯入 Google Maps 已儲存清單、非跟車時的衛星高解析圖磚，以及 Android 16 即時資訊與 Samsung Now Bar 的跟車鎖定畫面進度。': 'パスには、台湾鉄路の過去90日の日別遅延履歴、アプリのホーム／ロック画面メトロウィジェットでの複数駅または移動に合わせる「自動（最寄り駅）」（1駅は無料）、お気に入りと完乗記録の端末間同期、旅程共有、追跡サウンドトラック（見ている列車と時刻に合わせて場面が切り替わります。無料のBGMには影響しません）、Googleマップ保存済みリストの読み込み、列車追跡中以外の高解像度衛星地図、Android 16のライブアップデートとSamsung Now Barでのロック画面追跡表示が含まれます。',
+  '懸賞板：哪些路段還缺資料': '懸賞板：データが足りない区間',
+  '有些路段我們手上的行駛資料不夠準，缺哪一段就掛在懸賞板上，等人去搭一趟錄回來。': '走行データの精度が足りない区間があります。足りない区間は懸賞板に掲載され、誰かが乗車して記録してくれるのを待っています。',
+  '打開「護照」，在「校正貢獻」那一列按「懸賞板」': '「パスポート」を開き、「校正への貢献」の行にある「懸賞板」を押します',
+  '挑一段你本來就要搭的': 'もともと乗る予定の区間を選びます',
+  '按下去接下來，出發前會有一張說明卡告訴你要準備什麼': '押して受け取ると、出発前に準備することを説明するカードが表示されます',
+  '接下來的段 24 小時內有效，過期會放回板上給別人。看板不用 App，實際錄製要用 App。': '受け取った区間は24時間有効で、期限が過ぎると懸賞板に戻り、ほかの人が受け取れるようになります。懸賞板はアプリなしでも見られますが、実際の記録にはアプリが必要です。',
+  '錄一趟校正旅程': '校正の旅程を記録する',
+  '你搭車的時候順手錄一趟，我們用它把那段路的位置推算修準。': '乗車のついでに記録してもらうと、その区間の列車位置の推定をより正確にできます。',
+  '先在懸賞板接一段': 'まず懸賞板で区間を1つ受け取ります',
+  '真的搭上那班車之後，按說明卡的「開始錄製」': 'その列車に実際に乗ったら、説明カードの「記録を開始」を押します',
+  '錄製畫面上的燈號保持綠色就好——手機靠窗，別放在包包裡或車廂中央': '記録画面のランプが緑のままなら大丈夫です。スマートフォンは窓際に置き、かばんの中や車両の中央は避けてください',
+  '到站按「停止錄製」': '到着したら「記録を停止」を押します',
+  '燈號變橘色會直接告訴你怎麼改善；如果寫「精確位置未開」一定要去設定打開，那是唯一不修就整趟白錄的狀況。錄到一半中斷沒關係，錄到的部分照樣算。': 'ランプがオレンジになると、改善方法がその場で表示されます。「正確な位置情報がオフです」と表示されたら必ず設定でオンにしてください。直さないと記録全体が無駄になるのはこの場合だけです。途中で中断しても問題なく、記録できた部分は有効です。',
+  '護照裡的校正貢獻': 'パスポートの「校正への貢献」',
+  '你錄過幾段、其中有幾段真的被採用，都記在護照的「校正貢獻」。': '記録した区間の数と、そのうち実際に採用された数は、パスポートの「校正への貢献」に表示されます。',
+  '找到「校正貢獻」那一列': '「校正への貢献」の行を探します',
+  '上面寫「校正 N 段（其中 M 段已採用）」': '「N区間を校正（うちM区間が採用済み）」と表示されます',
+  '兩個數字不一樣是正常的——訊號不好的那幾趟資料用不上，但校正者章與點數還是你的，而且我們會寫出是什麼原因、下次怎麼改善。某段如果是你第一個錄回來的，會標「首位校正者」。': '2つの数字が違うのは正常です。電波の悪かった記録は使えませんが、校正者スタンプとポイントはあなたのものです。原因と次回の改善方法もお知らせします。ある区間を最初に記録した場合は「最初の校正者」と表示されます。',
+});
+
+// 2026-09-19 i18n 複審修正・第三段(fix/i18n-review-fix):英文譯文裡的全形括號(英文字串不該出現「（）」)。
+// 只在檔尾追加覆寫,前面的區塊不動;內容資料(namedTrains／rollingStock／branchLines)的物件都在本檔上方定義過。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '車廂擁擠度（北捷官方）': 'Car crowding (official Taipei Metro data)',
+  'Ko-fi（信用卡 / PayPal）': 'Ko-fi (credit card / PayPal)',
+});
+Object.assign(window.RAIL_I18N_CONTENT_DATA.en.namedTrains.mingri, { name: 'Future (including Future Dining)' });
+Object.assign(window.RAIL_I18N_CONTENT_DATA.en.namedTrains.steam, { name: 'Midsummer Formosa (CT273 steam train)' });
+Object.assign(window.RAIL_I18N_CONTENT_DATA.en.rollingStock.pp, { name: 'Push–pull Tze-Chiang (PP)' });
+Object.assign(window.RAIL_I18N_CONTENT_DATA.en.rollingStock.local, { name: 'Local train (commuter EMU)' });
+Object.assign(window.RAIL_I18N_CONTENT_DATA.en.branchLines.shalun, { section: 'Zhongzhou–Shalun (most trains continue from Tainan)' });
+
+// 2026-09-19 i18n 複審修正・第四段(fix/i18n-review-fix):翻譯器開始翻圖片的 alt(讀屏軟體念、圖載不到時顯示),
+// 補上靜態 HTML 裡唯一還沒有譯文的 alt——頁尾資料來源的 TDX 標章。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  'TDX 運輸資料流通服務標章 / Transport Data eXchange': 'TDX (Transport Data eXchange) logo',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  'TDX 運輸資料流通服務標章 / Transport Data eXchange': 'TDX 運輸データ流通サービスのロゴ / Transport Data eXchange',
+});
+
+// 2026-09-19 台鐵站點錨點修正：第一層「最近更新」真正會顯示這句，必須同步補 en/ja。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '台鐵誤點更新會核對官方所在車站；過站時的小幅誤點直接校正位置，同車次重複資料也不再把較大誤點蓋掉': 'TRA delay updates now cross-check the official reported station. Small delay increases are applied immediately when a train passes a station, and duplicate rows can no longer overwrite a larger delay.',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '台鐵誤點更新會核對官方所在車站；過站時的小幅誤點直接校正位置，同車次重複資料也不再把較大誤點蓋掉': '台鉄の遅延更新で公式の所在駅も照合するようにしました。駅を通過した際の小さな遅延増加はすぐに位置へ反映し、重複データがより大きな遅延を上書きすることもなくなりました。',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '跟車前進時，沿途建築的透視線條會持續更新，不必等列車靠站才一次出現': 'While you follow a train, building outlines along the route now keep updating instead of appearing all at once when the train stops.',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '跟車前進時，沿途建築的透視線條會持續更新，不必等列車靠站才一次出現': '列車の追跡中も沿線の建物の透視線が更新され続け、停車したときにまとめて表示されることはなくなりました。',
+});
+// 2026-09-23 捷運等車卡進站前每分鐘對時：第一層「最近更新」會顯示這句，同步補 en/ja。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  'iPhone 捷運等車卡在列車進站前約 4 分鐘內，每分鐘跟官方即時資訊對一次時': 'On iPhone, the metro waiting card now re-syncs its countdown with official real-time data every minute during the last 4 minutes or so before the train arrives'
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  'iPhone 捷運等車卡在列車進站前約 4 分鐘內，每分鐘跟官方即時資訊對一次時': 'iPhoneのメトロ待ちカードは、列車到着の約4分前から毎分公式のリアルタイム情報と時刻を合わせるようになりました'
+});
+// 2026-09-23 issue #72 打卡／路段接上帳號同步：第一層「最近更新」會顯示這句，同步補 en/ja。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '成就「通勤的證明」「老通勤族」的路段次數與打卡車站，現在會跟著帳號雲端同步，換一台裝置登入不再歸零（謝謝網友回報）': 'Station check-ins and segment counts behind the "Commuter credentials" and "Veteran commuter" achievements now sync with your account, so they no longer reset to zero when you sign in on another device (thanks for the report)',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '成就「通勤的證明」「老通勤族」的路段次數與打卡車站，現在會跟著帳號雲端同步，換一台裝置登入不再歸零（謝謝網友回報）': '実績「通勤の証」「ベテラン通勤者」の区間回数とチェックイン駅がアカウントのクラウド同期に対応し、別の端末でログインしてもゼロに戻らなくなりました（ご報告ありがとうございます）',
+});
+// 2026-09-23 Android 台鐵發車看板班數跟著卡片高度走：第一層「最近更新」會顯示這句，同步補 en/ja。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  'Android 桌面的台鐵發車看板改成卡片放得下幾班就列幾班，Samsung 手機下方不再空一截': 'The Android TRA departure board widget now lists as many trains as the card can fit, leaving no empty gap at the bottom on Samsung phones'
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  'Android 桌面的台鐵發車看板改成卡片放得下幾班就列幾班，Samsung 手機下方不再空一截': 'Android のホーム画面の台鉄発車案内ウィジェットが、カードに入るだけの列車を表示するようになり、Samsung 端末で下に空白が残らなくなりました'
+});
+// 2026-09-23 等車卡進站軌道（iPhone＋Android 16、捷運＋台鐵）：第一層「最近更新」會顯示這句，同步補 en/ja。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  'iPhone 與 Android 16 的等車卡加入進站軌道，捷運跟著官方倒數、台鐵跟著官方誤點': 'Waiting cards on iPhone and Android 16 now show an arrival track, following official countdowns for the metro and official delays for TRA'
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  'iPhone 與 Android 16 的等車卡加入進站軌道，捷運跟著官方倒數、台鐵跟著官方誤點': 'iPhone と Android 16 の待ち案内カードに到着トラックを追加。メトロは公式カウントダウン、台鉄は公式の遅延に合わせて動きます'
+});
+// 2026-09-23 跟車每 15 秒頓一下（車站建物遮罩分片計算）；09-24 遮罩套用再減半，首層摘要換成 9/24 這句、第二層正本補上 9/24：兩層都要 en/ja。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '立體地圖跟車時，沿途建築每次更新的計算量再減半': 'Following a train on the 3D map now takes half the work each time the buildings along the route are updated.',
+  '改善立體列車跟隨與地形畫面的流暢度，保留完整編組、模型細節與沿軌行駛；9/23 修正跟車時約每 15 秒頓一下：建築遮擋改成分段計算、資料不再來回多搬；9/24 再把那一下的計算量減半': 'Improved 3D train following and terrain performance while preserving full formations, model detail and continuous movement along the tracks. On 9/23, fixed a brief stutter about every 15 seconds while following a train: checks for buildings blocking the view are now spread across frames, and the building data is no longer copied back and forth. On 9/24, halved the work done at that moment.',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '立體地圖跟車時，沿途建築每次更新的計算量再減半': '立体地図で列車を追跡しているとき、沿線の建物を更新するたびの計算量をさらに半分にしました。',
+  '改善立體列車跟隨與地形畫面的流暢度，保留完整編組、模型細節與沿軌行駛；9/23 修正跟車時約每 15 秒頓一下：建築遮擋改成分段計算、資料不再來回多搬；9/24 再把那一下的計算量減半': '編成や模型の細部、線路に沿った連続走行を保ちながら、立体列車の追従と地形表示を滑らかにしました。9/23 には列車の追跡中に約15秒ごとに画面が一瞬止まる問題を修正し、建物による遮蔽の判定を複数のフレームに分けて計算し、建物データを余分に往復させないようにしました。9/24 にはその瞬間の計算量を半分にしました。',
+});
+// 2026-09-23 桌面小工具「背景」設定：第一層「最近更新」會顯示這句，同步補 en/ja。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '桌面小工具新增「背景」設定，可選車模、場景或素色': 'Widgets get a new Background setting: Train model, Scene, or Plain'
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '桌面小工具新增「背景」設定，可選車模、場景或素色': 'ホーム画面ウィジェットに「背景」設定を追加（車両モデル・情景・無地）'
+});
+// 2026-09-23 跟車卡進站軌道（台鐵＋高鐵）：第一層「最近更新」會顯示這句，同步補 en/ja。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '台鐵、高鐵的跟車卡加入進站軌道：列車在上一站與下一站之間跑，靠站時停在站牌旁，發車才換到下一段': 'TRA and THSR follow cards now show an arrival track: the train runs between the previous and next stops, waits beside the station sign while stopped, and moves on to the next section only when it departs.',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '台鐵、高鐵的跟車卡加入進站軌道：列車在上一站與下一站之間跑，靠站時停在站牌旁，發車才換到下一段': '台鉄・台湾高鉄の追跡カードに到着トラックを追加。列車は前の駅と次の駅の間を走り、停車中は駅名標のそばで止まり、発車してから次の区間に切り替わります。',
+});
+// 2026-09-23 iPhone 捷運等車卡偶爾停住十幾分鐘（Worker 模型快取卡死）：第一層「最近更新」會顯示這句，同步補 en/ja。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '修正 iPhone 捷運等車卡偶爾十幾分鐘停住不更新': 'Fixed an issue where the iPhone metro waiting card sometimes froze for more than ten minutes without updating'
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '修正 iPhone 捷運等車卡偶爾十幾分鐘停住不更新': 'iPhone のメトロ待ちカードが、ときどき十数分間更新されずに止まる問題を修正しました'
+});
+// 2026-09-23 地景＋地形時車站周圍地面殘留舊建築輪廓（地形貼圖跟著車站遮罩重畫）：兩層更新紀錄同一句，補 en/ja。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '地景地圖開啟地形時，立體車站周圍的地面不再殘留舊的建築輪廓': 'With terrain on in the landscape map, old building outlines no longer linger on the ground around 3D stations.'
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '地景地圖開啟地形時，立體車站周圍的地面不再殘留舊的建築輪廓': '地景マップで地形をオンにしたとき、立体駅の周りの地面に古い建物の輪郭が残らなくなりました。'
+});
+// 2026-09-24 臺北市公車站牌到站卡在兩小時前（Worker 抓市府 .gz 被 Cloudflare 快取 120 分鐘）：第一層更新紀錄那條的 en/ja（第二層正本一律走 RAIL_I18N_CHANGELOG）。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '修正臺北市公車站牌的到站時間最多會卡在兩小時前、整列顯示「資料已過期」': 'Fixed Taipei City bus stop arrival times that could lag up to two hours behind, with every row showing "Data expired".',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '修正臺北市公車站牌的到站時間最多會卡在兩小時前、整列顯示「資料已過期」': '台北市のバス停の到着時刻が最大2時間前のまま止まり、全行が「データ期限切れ」と表示される問題を修正しました',
+});
+// 2026-09-24 臺北擁擠度的過期判斷從沒生效（無時區的臺北時間在 Workers 的 UTC 被解析成八小時後）：第一層更新紀錄那條的 en/ja。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '修正臺北市公車擁擠度的過期判斷：超過 3 分鐘的資料改標示過期，不再當成即時資料': 'Fixed the expiry check for Taipei City bus occupancy: data older than 3 minutes is now marked as expired instead of being shown as live.',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '修正臺北市公車擁擠度的過期判斷：超過 3 分鐘的資料改標示過期，不再當成即時資料': '台北市のバスの混雑度の期限切れ判定を修正しました。3分を超えたデータは期限切れと表示し、リアルタイムの情報として扱いません',
+});
+// 2026-09-25 寶可夢30周年主題列車（每天輪替車次，照台鐵公布的班表比對）：第一層更新紀錄那條的 en/ja（第二層正本一律走 RAIL_I18N_CHANGELOG）。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '認得出寶可夢30周年主題列車（9/25–12/13）：照台鐵公布的班表，當天那幾班的車牌會寫「寶可夢」、列車卡有介紹，今日亮點和搜尋「寶可夢」也找得到': 'The Pokémon 30th Anniversary Train (9/25–12/13) is now recognized: following the published TRA schedule, that day’s runs are tagged “Pokémon” on the map and introduced on their train cards, and you can also find them in Today’s highlights or by searching “Pokémon”.',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '認得出寶可夢30周年主題列車（9/25–12/13）：照台鐵公布的班表，當天那幾班的車牌會寫「寶可夢」、列車卡有介紹，今日亮點和搜尋「寶可夢」也找得到': 'ポケモン30周年テーマ列車（9/25〜12/13）を見分けられるようになりました。台湾鉄路が公表したダイヤに従い、その日の該当列車は地図の車番に「ポケモン」と付き、列車カードに紹介が表示されます。今日の見どころや「ポケモン」の検索からも見つかります。',
+});
+// 2026-09-25 護照成就章／收集章拿掉重套時殘留的原生 title（桌面滑鼠停上去兩層提示），並讓鍵盤也能打開說明卡：第一層更新紀錄那條的 en/ja（第二層正本一律走 RAIL_I18N_CHANGELOG）。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '護照成就章與收集章，滑鼠停上去只會出現說明卡，不再多跳出瀏覽器的小提示框；用鍵盤按 Tab 移到章上也會打開說明卡，收集章按 Enter 等於點一下': 'Hovering over Passport achievement badges and collection stamps now shows just the info card, without the browser’s own tooltip popping up as well. You can also Tab to a badge or stamp to open its info card, and pressing Enter on a collection stamp works like clicking it.',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '護照成就章與收集章，滑鼠停上去只會出現說明卡，不再多跳出瀏覽器的小提示框；用鍵盤按 Tab 移到章上也會打開說明卡，收集章按 Enter 等於點一下': 'パスポートの実績バッジとコレクションスタンプにマウスを乗せたとき、説明カードだけが表示され、ブラウザのツールチップが重ねて出なくなりました。キーボードのTabでバッジやスタンプに移動しても説明カードが開きます。コレクションスタンプはEnterでクリックと同じ操作になります',
+});
+// 2026-09-25 iPad 橫向／手機橫放「觀看」鈕浮在畫面中間：第一層更新紀錄那條的 en/ja（第二層正本一律走 RAIL_I18N_CHANGELOG）。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '修正 iPad 橫向和手機橫放時，「觀看」按鈕跑到畫面中間；沒開卡片時會回到右上角的按鈕列': 'Fixed the “View” button drifting to the middle of the screen on iPad in landscape and on phones turned sideways; with no card open it now sits back in the button row at the top right.',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '修正 iPad 橫向和手機橫放時，「觀看」按鈕跑到畫面中間；沒開卡片時會回到右上角的按鈕列': 'iPad の横向きやスマートフォンを横にしたとき、「表示」ボタンが画面の中央に出てしまう問題を修正しました。カードを開いていないときは右上のボタン列に戻ります',
+});
+// 2026-09-25 機捷週一到週四跟上設計展疏運班表：第一層更新紀錄那條的 en/ja（第二層正本一律走 RAIL_I18N_CHANGELOG）。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '機捷週一到週四也跟上台灣設計展疏運班表（9/24–10/11）：下午 4 點到晚上 8 點，機場第一航廈到環北加開區間車，南延直達車改到機場第二航廈為止': 'Taoyuan Airport MRT now follows the Taiwan Design Expo timetable on Mondays to Thursdays too (Sep 24–Oct 11): from 4 pm to 8 pm, extra shuttles run between A12 Airport Terminal 1 and A21 Huanbei, and southbound Express services end at Airport Terminal 2.',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '機捷週一到週四也跟上台灣設計展疏運班表（9/24–10/11）：下午 4 點到晚上 8 點，機場第一航廈到環北加開區間車，南延直達車改到機場第二航廈為止': '桃園MRTの月〜木曜も台湾デザイン展の輸送ダイヤ（9/24〜10/11）に対応：16時〜20時は A12 空港第1ターミナル〜A21 環北間に区間臨時列車が運行し、南延直達車は空港第2ターミナル止まりに変更。',
+});
+// 2026-09-25 淡海輕軌假日去程改回停新市一路：第一層更新紀錄那條的 en/ja（第二層正本一律走 RAIL_I18N_CHANGELOG）。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '淡海輕軌假日從紅樹林出發的車，改回每班都停新市一路：站牌也看得到往崁頂、往淡水漁人碼頭的班次（謝謝網友回報）': 'On weekends and holidays, Danhai LRT trains leaving Hongshulin stop at Xinshi 1st Rd. again, and its station board once more lists trains toward Kanding and Tamsui Fisherman’s Wharf (thanks to the rider who reported it).',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '淡海輕軌假日從紅樹林出發的車，改回每班都停新市一路：站牌也看得到往崁頂、往淡水漁人碼頭的班次（謝謝網友回報）': '淡海ライトレールの土休日、紅樹林発の列車がふたたび全便新市一路に停車するようになり、駅の発車案内にも崁頂方面・淡水漁人碼頭方面の列車が表示されます（ご報告ありがとうございました）',
+});
+// 2026-09-25 護照讀螢幕名稱：收集章的日期改用唸得出來的寫法（章下印的「08.12」會被唸成小數）、成就章帶上
+// 達成與否（畫面上靠金章／灰章區分，讀螢幕軟體看不到顏色）。另把收集章的「點我重播」「點我去搭一班」英日文
+// 改成不限觸控的說法（桌面是用滑鼠點）。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '{date}收藏': 'Collected on {date}',
+  '{name}（{state}）': '{name} ({state})'
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '{date}收藏': '{date}に収集',
+  '{name}（{state}）': '{name}（{state}）'
+});
+// 2026-09-25 底圖同名地名與站名疊字、跟車小卡三個小修正：第一層更新紀錄兩條的 en/ja（第二層正本一律走 RAIL_I18N_CHANGELOG）。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '修正地圖上站名旁邊又出現同名地名、字疊在一起的問題，例如竹北站旁的「竹北市」': 'Fixed a place name with the same name as a nearby station (such as “Zhubei City” next to Zhubei Station) overlapping the station label on the map.',
+  '跟車小卡的三個小修正：跟車時切換語言，車種、起訖和準點率會立刻換過來；虛構 8888 在手機上的關閉鈕不再被擠到第二行；第一次跟車時「車頭鎖定：開啟」的提示不再被蓋掉最後一個字': 'Three follow card fixes: switching languages while following now updates the train type, route and on-time rate right away; the close button for Fictional 8888 no longer wraps to a second line on phones; the “Train head lock: on” tip shown the first time you follow no longer has its last character covered.'
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '修正地圖上站名旁邊又出現同名地名、字疊在一起的問題，例如竹北站旁的「竹北市」': '地図で駅名のすぐ横に同じ名前の地名（竹北駅の横の「竹北市」など）が重なって表示される問題を修正しました',
+  '跟車小卡的三個小修正：跟車時切換語言，車種、起訖和準點率會立刻換過來；虛構 8888 在手機上的關閉鈕不再被擠到第二行；第一次跟車時「車頭鎖定：開啟」的提示不再被蓋掉最後一個字': '追跡カードの小さな修正を3つ行いました。追跡中に言語を切り替えると、車種・区間・定時率がすぐに切り替わります。スマートフォンで架空 8888 を追跡したとき、閉じるボタンが2行目に押し出されなくなりました。初めて追跡したときに出る「先頭車両の固定：オン」の表示で、最後の1文字が隠れなくなりました'
+});
+// 2026-09-25 車庫長車名讓 iPhone 整個車庫能左右拖動：第一層更新紀錄那條的 en/ja（第二層正本一律走 RAIL_I18N_CHANGELOG）。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '修正 iPhone 用英文或日文介面時，車庫選到名稱較長的車款，整個畫面會被左右拖動、左邊被切掉': 'Fixed My garage on iPhone in English or Japanese: choosing a train with a long name let the whole screen be dragged sideways, cutting off the left edge.',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '修正 iPhone 用英文或日文介面時，車庫選到名稱較長的車款，整個畫面會被左右拖動、左邊被切掉': 'iPhone で英語または日本語表示のとき、マイ車庫で名前の長い車両を選ぶと画面全体が左右に動かせてしまい、左側が切れる問題を修正しました',
+});
+// 2026-09-25 旅程護照鍵盤往回移動被標題列蓋住：第一層更新紀錄那條的 en/ja（第二層正本一律走 RAIL_I18N_CHANGELOG）。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '旅程護照用鍵盤往回移動時，被選到的章與按鈕不再被最上方的標題列蓋住': 'In the Travel passport, moving back with the keyboard no longer leaves the selected stamp or button hidden under the title bar.',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '旅程護照用鍵盤往回移動時，被選到的章與按鈕不再被最上方的標題列蓋住': '旅のパスポートでキーボードを使って前の項目に戻るとき、選んだ章やボタンが上部のタイトルバーに隠れないようにしました',
+});
+// 2026-09-25 機捷 10/2（週五）、10/11（設計展最後一天）區間車：第一層更新紀錄那條的 en/ja（第二層正本一律走 RAIL_I18N_CHANGELOG）。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '機捷 10/2（週五）與 10/11（週日）也跟上設計展疏運班表：機場第一航廈到環北的區間加班車每 15 分鐘一班，10/2 開到晚上 10 點、10/11 開到晚上 8 點': 'Taoyuan Airport MRT on Friday, Oct 2 and Sunday, Oct 11 also follows the Taiwan Design Expo timetable: extra shuttles run every 15 minutes between A12 Airport Terminal 1 and A21 Huanbei, until 10 pm on Oct 2 and until 8 pm on Oct 11.'
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '機捷 10/2（週五）與 10/11（週日）也跟上設計展疏運班表：機場第一航廈到環北的區間加班車每 15 分鐘一班，10/2 開到晚上 10 點、10/11 開到晚上 8 點': '桃園MRTの10/2（金）と10/11（日）も台湾デザイン展の輸送ダイヤに対応：A12 空港第1ターミナル〜A21 環北間の区間臨時列車が15分ごとに運行、10/2は22時まで、10/11は20時まで。'
+});
+// 2026-09-25 高鐵左營站區改回平面：第一層更新紀錄那條的 en/ja（第二層正本一律走 RAIL_I18N_CHANGELOG）。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '高鐵左營站進站那段改回平面：3D 地圖不再把站區畫成高架橋，北邊的高架照舊（謝謝網友回報）': 'The approach into Zuoying HSR Station is back at ground level: the 3D map no longer draws the station area as a viaduct, while the viaduct to the north is unchanged (thanks to the rider who reported it).',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '高鐵左營站進站那段改回平面：3D 地圖不再把站區畫成高架橋，北邊的高架照舊（謝謝網友回報）': '高鉄左営駅に入る区間を地上に戻しました。3D地図で駅構内を高架橋として描かなくなり、北側の高架はそのままです（ご報告ありがとうございました）',
+});
+// 2026-09-25 機捷 10/12 起改用設計展結束後的班表：第一層更新紀錄那條的 en/ja（第二層正本一律走 RAIL_I18N_CHANGELOG）。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '機捷 10/12 起改用台灣設計展結束後的班表：機場第一航廈到環北的區間加班車停開，南延直達車恢復停高鐵桃園站、開到環北': 'From Oct 12, Taoyuan Airport MRT switches to its timetable for after the Taiwan Design Expo: the extra shuttles between A12 Airport Terminal 1 and A21 Huanbei stop running, and southbound Express services again stop at A18 HSR Taoyuan Station and run through to A21 Huanbei.',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '機捷 10/12 起改用台灣設計展結束後的班表：機場第一航廈到環北的區間加班車停開，南延直達車恢復停高鐵桃園站、開到環北': '桃園MRTは10/12から台湾デザイン展終了後のダイヤに切り替わります：A12 空港第1ターミナル〜A21 環北間の区間臨時列車は運休となり、南延直達車は再び A18 高鉄桃園駅に停車して A21 環北まで運行します。',
+});
+// 2026-09-25 各面板鍵盤往回移動被標題列蓋住、iPhone 英文長站名選單讓畫面左右拖動：第一層更新紀錄那條的 en/ja（第二層正本一律走 RAIL_I18N_CHANGELOG）。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '用鍵盤往回移動時，我的最愛、車站看板等面板選到的項目不再被標題列蓋住；iPhone 英文介面選到長站名時，畫面不再能左右拖動': 'Moving back with the keyboard no longer leaves the selected item hidden under the title bar in My favourites, station boards and other panels. On iPhone in English, choosing a long station name no longer lets the screen slide sideways.',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '用鍵盤往回移動時，我的最愛、車站看板等面板選到的項目不再被標題列蓋住；iPhone 英文介面選到長站名時，畫面不再能左右拖動': 'キーボードで前の項目に戻るとき、お気に入りや駅案内などのパネルで選んだ項目がタイトルバーに隠れないようにしました。iPhoneの英語表示で長い駅名を選んでも、画面が左右に動かないようにしました',
+});
+// 2026-09-25 高捷紅線與臺北臺鐵地下化改回地面下（裁示 A4）：第一層更新紀錄那條的 en/ja（第二層正本一律走 RAIL_I18N_CHANGELOG）。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '3D 地圖上臺北車站的臺鐵列車不再畫在車站屋頂上，高捷紅線地下段也不再浮在地面上；新左營臺鐵與高雄輕軌被頂高的地方回到原位': "On the 3D map, TRA trains at Taipei Main Station are no longer drawn on top of the station roof, and the Kaohsiung Metro Red Line's underground section no longer floats above ground; the spots where the TRA at Xinzuoying and the Kaohsiung Light Rail were pushed up are back at their proper height.",
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '3D 地圖上臺北車站的臺鐵列車不再畫在車站屋頂上，高捷紅線地下段也不再浮在地面上；新左營臺鐵與高雄輕軌被頂高的地方回到原位': '3D地図で、台北駅の台鉄列車を駅の屋根の上に描かなくなり、高雄メトロ レッドラインの地下区間も地上に浮かなくなりました。新左営の台鉄と高雄ライトレールで持ち上がっていた箇所も元の高さに戻りました。',
+});
+// 2026-09-26 台鐵 10/3 改點的 14 班在 3D 沿用自己的股道（裁示 (b′)）：第一層更新紀錄那條的 en/ja（第二層正本一律走 RAIL_I18N_CHANGELOG）。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '台鐵 10/3 起有 14 班調整時刻，3D 地圖裡這些車照樣走原本的股道': '14 TRA trains get new times from Oct 3; on the 3D map they still run on their usual tracks.',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '台鐵 10/3 起有 14 班調整時刻，3D 地圖裡這些車照樣走原本的股道': '台鉄で10月3日から時刻が変わる14本も、3D地図ではこれまでと同じ線路を走ります',
+});
+// 2026-09-26 跟車卡「下一站」長站名換行顯示全名（裁示 (b)）：第一層更新紀錄那條的 en/ja（第二層正本一律走 RAIL_I18N_CHANGELOG）。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '跟車卡的「下一站」遇到較長的站名（例如英文介面的長榮大學、科工館）會換行顯示全名，整張卡不再能左右拖動': 'On the follow card, long names under “Next stop” (such as Chang Jung Christian University or Science And Technology Museum in English) now wrap onto the next line in full, and the card no longer slides sideways.',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '跟車卡的「下一站」遇到較長的站名（例如英文介面的長榮大學、科工館）會換行顯示全名，整張卡不再能左右拖動': '追跡カードの「次の駅」に長い駅名（英語表示の長栄大学や国立科学技術博物館など）が出たときは折り返して全部表示し、カードが左右に動かないようにしました',
+});
+// 2026-09-26 今日台鐵動態、公車站牌、行程分享的列表列接上鍵盤與讀螢幕軟體：第一層更新紀錄那條的 en/ja（第二層正本一律走 RAIL_I18N_CHANGELOG）。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '今日台鐵動態、公車站牌與行程分享的清單可以用鍵盤一列一列移過去，讀螢幕軟體也唸得出每一列；展開逐站歷程、選目的站，按 Enter 就行': 'The lists in TRA today, Bus stops and Journey sharing can now be browsed row by row with the keyboard, and screen readers read out each row. Press Enter to open a train’s stop-by-stop history or pick your destination.',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '今日台鐵動態、公車站牌與行程分享的清單可以用鍵盤一列一列移過去，讀螢幕軟體也唸得出每一列；展開逐站歷程、選目的站，按 Enter 就行': '本日の台湾鉄路・バス停・旅程共有の一覧を、キーボードで1行ずつ移動できるようになり、スクリーンリーダーも各行を読み上げます。Enter キーで、列車の駅ごとの履歴を開いたり目的駅を選んだりできます。',
+});
+// 2026-09-26 鍵盤焦點不再掉回頁首（看板重畫、關面板、行程分享列、捷運膠囊）：第一層更新紀錄那條的 en/ja（第二層正本一律走 RAIL_I18N_CHANGELOG）。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '用鍵盤操作時，車站看板自動更新、關掉面板、在行程分享選好目的站、展開或收起跟捷運時的膠囊小卡之後，選取不再跳回頁首，會留在原處或回到打開面板的按鈕': 'When using the keyboard, your selection no longer jumps back to the top of the page after the station board refreshes, a panel closes, you pick a destination in Journey sharing, or you expand or collapse the pill-sized Metro follow card. It stays where it was, or goes back to the button that opened the panel.',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '用鍵盤操作時，車站看板自動更新、關掉面板、在行程分享選好目的站、展開或收起跟捷運時的膠囊小卡之後，選取不再跳回頁首，會留在原處或回到打開面板的按鈕': 'キーボード操作中、駅の発車標が自動更新されたとき、パネルを閉じたとき、旅程共有で目的駅を選んだとき、メトロ追跡中の小さくしたカードを展開・収納したときに、選択位置がページ先頭に戻らなくなりました。元の場所か、パネルを開いたボタンに戻ります。',
+});
+// 2026-09-26 空白鍵全站一致只做播放／暫停、面板內鍵盤焦點框不再被切掉：第一層更新紀錄那條的 en/ja（第二層正本一律走 RAIL_I18N_CHANGELOG）。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '空白鍵在任何地方都是播放／暫停，不會再順便打開資料卡、展開卡片或讓鍵盤選取跳回頁首，按住也只切一次；面板邊緣與標題列按鈕的鍵盤選取框不再被切掉': 'The Space bar now always plays or pauses, wherever you press it: it no longer also opens a data card or expands a card, or sends your keyboard selection back to the top of the page, and holding it down toggles only once. Keyboard focus outlines at panel edges and on title-bar buttons are no longer cut off.',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '空白鍵在任何地方都是播放／暫停，不會再順便打開資料卡、展開卡片或讓鍵盤選取跳回頁首，按住也只切一次；面板邊緣與標題列按鈕的鍵盤選取框不再被切掉': 'スペースキーはどこで押しても再生／一時停止だけになりました。データカードを開いたりカードを展開したり、キーボードの選択位置がページ先頭に戻ったりすることはなく、押し続けても切り替えは1回だけです。パネルの端やタイトルバーのボタンで、キーボードの選択枠が切れなくなりました。',
+});
+// 2026-09-26 跟車卡「詳細」提示列蓋住往下一項的焦點、App 附近車站卡「蓋章」鈕被卡頭蓋住、車庫聚焦頂列鈕畫面跳動：第一層更新紀錄那條的 en/ja（第二層正本一律走 RAIL_I18N_CHANGELOG）。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '用鍵盤往下一項移動時，跟車卡選到的按鈕不再被底部的「詳細」提示列蓋住；App 附近車站卡往回移動時「蓋章」鈕不再被標題蓋住；車庫捲到下面再回到頂列按鈕，畫面不再往上跳': 'When moving to the next item with the keyboard, the selected button in the follow card no longer hides under the “Details” bar at the bottom. In the app, “Stamp” buttons in the nearby stations card no longer hide under the title when moving back, and returning to the top-bar buttons in My garage no longer makes the page jump.',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '用鍵盤往下一項移動時，跟車卡選到的按鈕不再被底部的「詳細」提示列蓋住；App 附近車站卡往回移動時「蓋章」鈕不再被標題蓋住；車庫捲到下面再回到頂列按鈕，畫面不再往上跳': 'キーボードで次の項目へ移動するとき、追跡カードで選んだボタンが下部の「詳細」バーに隠れないようにしました。アプリの近くの駅カードで前の項目に戻るとき「スタンプ」ボタンがタイトルに隠れず、マイ車庫で下までスクロールしてから上部のボタンに戻っても画面が跳ばなくなりました。',
+});
+// 2026-09-26 平交道卡、落釘卡每秒重畫洗掉鍵盤焦點與按住的鈕，落釘卡班次、附近車站接上鍵盤：第一層更新紀錄那條的 en/ja（第二層正本一律走 RAIL_I18N_CHANGELOG）。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '平交道卡、落釘卡用鍵盤選到的按鈕不會再每秒被洗掉，點 ✕ 或班次也不會偶爾沒反應；落釘卡的班次和 App 的附近車站能用鍵盤選到，按 Enter 就能跟車、看班次': 'On the level-crossing and pin cards, the button you reach with the keyboard no longer loses its selection every second, and tapping ✕ or a train no longer occasionally does nothing. Trains on the pin card and, in the app, nearby stations can now be reached with the keyboard: press Enter to follow a train or see upcoming trains.',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '平交道卡、落釘卡用鍵盤選到的按鈕不會再每秒被洗掉，點 ✕ 或班次也不會偶爾沒反應；落釘卡的班次和 App 的附近車站能用鍵盤選到，按 Enter 就能跟車、看班次': '踏切カードとピンのカードで、キーボードで選んだボタンが毎秒の更新で外れなくなり、✕ や列車をタップしても反応しないことがなくなりました。ピンのカードの列車とアプリの「近くの駅」もキーボードで選べるようになり、Enter キーで列車を追跡したり、次の列車を見たりできます。',
+});
+// 2026-09-26 手機橫放時平交道卡、落釘卡、台糖卡太矮看不到內容，改坐側欄槽位：第一層更新紀錄那條的 en/ja（第二層正本一律走 RAIL_I18N_CHANGELOG）。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '手機橫放時，平交道卡、落釘卡、台糖卡改成靠右整條顯示，接下來的班次不用捲就看得到（原本卡片太矮，常常一列都看不到）': 'In landscape on a phone, the level-crossing, pin and sugar railway cards now run down the right side like the station board, so upcoming trains show without scrolling (the cards used to be so short that often not even one row was visible).'
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '手機橫放時，平交道卡、落釘卡、台糖卡改成靠右整條顯示，接下來的班次不用捲就看得到（原本卡片太矮，常常一列都看不到）': 'スマートフォンを横向きにしたとき、踏切カード・ピンのカード・五分車のカードを駅の発車案内と同じく右側に縦長で表示するようにしました。次の列車をスクロールせずに見られます（以前はカードが低すぎて、1行も見えないことがよくありました）。'
+});
+// 2026-09-26 車庫環形試跑反向改成整列掉頭、福森號栩悅號兩端觀景車頭：第一層更新紀錄那條的 en/ja（第二層正本一律走 RAIL_I18N_CHANGELOG）。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '車庫環形試跑按 ⇄ 反向行駛時會整列掉頭，車頭照樣在最前面（原本頭尾兩節的車頭會轉進車廂中間）；福森號、栩悅號兩端都改成觀景車頭': 'In the garage loop track, the "Reverse direction" (⇄) button now turns the whole train around so the front car still leads (the cabs at both ends used to swing round and face into the train); the Fusen and Xuyue now show an observation cab at both ends.'
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '車庫環形試跑按 ⇄ 反向行駛時會整列掉頭，車頭照樣在最前面（原本頭尾兩節的車頭會轉進車廂中間）；福森號、栩悅號兩端都改成觀景車頭': '車庫の周回コースで ⇄（進行方向を反転）を押すと編成ごと向きを変え、先頭車が先頭のまま走るようにしました（以前は両端の車両の運転台が編成の内側を向いていました）。福森号・栩悦号は両端とも展望車の顔になりました。'
+});
+// 2026-09-26 切換分組不再卡住：第一層更新紀錄那條的 en/ja（第二層正本一律走 RAIL_I18N_CHANGELOG）。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '切換上方分組（全台同框、台鐵、高鐵、捷運與輕軌）時，畫面不會再卡住兩三秒': 'Switching between All Taiwan, TRA, High Speed Rail and Metro & Light Rail at the top no longer freezes the screen for a few seconds',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '切換上方分組（全台同框、台鐵、高鐵、捷運與輕軌）時，畫面不會再卡住兩三秒': '上部の「台湾全体」「台湾鉄路」「台湾高速鉄道」「メトロ・ライトレール」を切り替えても、画面が数秒止まることがなくなりました',
+});
+// 2026-09-27 五個配樂情境新增 27 首、App 維持串流不增肥：第一層更新紀錄那條的 en/ja（第二層正本一律走 RAIL_I18N_CHANGELOG）。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '跟車配樂新增南方日光、黃昏斜光、北海岸天色、花蓮山海、山海聚落共創 5 組共 27 首；App 需要時從網站串流，不會把這批新歌塞進安裝包': 'Follow-mode music adds 27 tracks across five settings: Southern Sun, Golden Hour, Northern Coast Skies, Hualien Sea and Cliffs, and Island Community Sessions. The app streams them from the website as needed instead of adding them to the download.',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '跟車配樂新增南方日光、黃昏斜光、北海岸天色、花蓮山海、山海聚落共創 5 組共 27 首；App 需要時從網站串流，不會把這批新歌塞進安裝包': '追跡中のBGMに「南のひかり」「黄昏の斜光」「北海岸の空」「花蓮の山と海」「山と海の集落との共作」の5場面・27曲を追加しました。アプリは必要なときにウェブサイトから再生し、今回の新曲をダウンロード容量には加えません。',
+});
+// v0926o/p 的第一層更新紀錄原本只補了第二層正本；兩條精簡文案在外語介面會原樣留中文。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  'iPhone 點列車後，左下資訊卡的車次與時速會排在同一條線上，不再一高一低': 'After you tap a train on iPhone, its train number and speed line up on the same baseline in the lower-left card instead of sitting at different heights.',
+  '用 Safari 開別人分享的立體地圖時，列車編組、地形與立體列車開關會完整保留，不再偶爾回到自己的預設設定': 'Opening someone else’s shared 3D map in Safari now keeps the shared train formation, terrain and 3D-train settings instead of occasionally falling back to your own defaults.',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  'iPhone 點列車後，左下資訊卡的車次與時速會排在同一條線上，不再一高一低': 'iPhoneで列車をタップしたとき、左下の情報カードにある列車番号と速度が上下にずれず、同じ基準線にそろうようになりました。',
+  '用 Safari 開別人分享的立體地圖時，列車編組、地形與立體列車開關會完整保留，不再偶爾回到自己的預設設定': 'Safariで共有された3D地図を開いたとき、列車編成・地形・3D列車の設定をすべて引き継ぎ、ときどき自分の初期設定に戻ることがなくなりました。',
+});
+// 2026-09-27 面板焦點、Esc、清單鍵盤入口與桌面時鐘操作：第一層更新紀錄那條的 en/ja（第二層正本一律走 RAIL_I18N_CHANGELOG）。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '鍵盤操作更完整：開啟面板會直接選到有名稱的關閉鈕，按 Esc 可關閉；公車搜尋、最愛車站與誤點履歷都能用 Tab 選到，桌面時鐘也能點開資料狀態': 'Keyboard access is more complete: opening a panel moves focus to its named Close button, and Escape closes it. Bus search results, favourite stations and delay history can all be reached with Tab. The desktop clock now opens Data status when clicked.',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '鍵盤操作更完整：開啟面板會直接選到有名稱的關閉鈕，按 Esc 可關閉；公車搜尋、最愛車站與誤點履歷都能用 Tab 選到，桌面時鐘也能點開資料狀態': 'キーボード操作を改善しました。パネルを開くと名前のある「閉じる」ボタンに移動し、Escで閉じられます。バス停の検索結果・お気に入り駅・遅延履歴はTabで選べます。デスクトップの時計からデータ状況も開けます。',
+});
+// 2026-09-27 平鎮附近的誤點追車穩定維持前後關係：第一層更新紀錄那條的 en/ja。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '台鐵誤點列車經過平鎮附近時，會穩定維持前後車順序，減少在同一股道短暫重疊的畫面': 'When delayed TRA trains pass near Pingzhen, they now keep a stable front-to-back order, reducing brief overlaps on the same track.',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '台鐵誤點列車經過平鎮附近時，會穩定維持前後車順序，減少在同一股道短暫重疊的畫面': '平鎮付近を通る遅延した台鉄列車が前後関係を安定して保つようになり、同じ線路上で一時的に重なって見える場面を減らしました。',
+});
+// 2026-09-27 Worker 共用刷新卡住後可限時結束並於下一輪恢復：第一層更新紀錄那條的 en/ja。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '公車到站、台鐵月台與災害監看遇到官方來源沒回應時，會在限時內結束等待並於下一輪恢復': 'When official sources stop responding, bus arrivals, TRA platform data and hazard monitoring now stop waiting within a fixed time and recover on the next refresh.',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '公車到站、台鐵月台與災害監看遇到官方來源沒回應時，會在限時內結束等待並於下一輪恢復': '公式データ元から応答がない場合、バス到着情報・台鉄のホーム情報・災害監視は一定時間で待機を終え、次の更新で復旧するようになりました。',
+});
+// 2026-09-27 台鐵方向與站場股道分配改善：更新紀錄的 en/ja。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '重新整理台鐵列車的行車方向與車站股道安排，減少對向共用同一股，以及列車在站內重疊或互穿的畫面': 'Refined TRA running directions and station track assignments, reducing opposite-direction track sharing and visual overlaps or pass-throughs inside stations.',
+  '依既有路網與站場圖重新整理台鐵列車的行車方向、停靠與進出股道安排，讓更多對向、同時進站、停靠或通過的列車分開使用可用股道，減少共用同一股、停在同一位置或互相穿過的畫面': 'Using the existing railway and station layouts, TRA running directions, stopping tracks and station approaches were reorganised so more opposing, arriving, stopped and passing trains use separate available tracks, reducing shared-track conflicts, overlaps and visual pass-throughs.',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '重新整理台鐵列車的行車方向與車站股道安排，減少對向共用同一股，以及列車在站內重疊或互穿的畫面': '台鉄列車の進行方向と駅構内の番線割り当てを見直し、対向列車の同一線路利用や、駅構内での重なり・すり抜けを減らしました。',
+  '依既有路網與站場圖重新整理台鐵列車的行車方向、停靠與進出股道安排，讓更多對向、同時進站、停靠或通過的列車分開使用可用股道，減少共用同一股、停在同一位置或互相穿過的畫面': '既存の路線網と駅構内図に基づき、台鉄列車の進行方向、停車番線、進入・退出経路を見直しました。対向列車や同時に進入・停車・通過する列車が別々の線路を使いやすくなり、同一線路の共有、重なり、すり抜けを減らしました。',
+});
+// 2026-09-27 建築層重裝後保留透視透明度：第一層更新紀錄那條的 en/ja。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '立體建築剛出現的縮放範圍內，切換亮暗外觀後會保留「透視顯示」的透明度，不再突然變得不透明': 'At the zoom level where 3D buildings first appear, switching light or dark mode now keeps the selected See-through opacity instead of making buildings suddenly more opaque.',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '立體建築剛出現的縮放範圍內，切換亮暗外觀後會保留「透視顯示」的透明度，不再突然變得不透明': '立体建物が表示され始めるズーム域で明暗テーマを切り替えても、選んだ「透視」の透明度を保ち、建物が急に不透明にならないようにしました。',
+});
+// 2026-09-27 北捷紅線與三鶯線改用 TDX 官方新線形：第一層更新紀錄那條的 en/ja。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '北捷紅線與三鶯線的軌道改用官方最新線形，列車與車站沿更新後的路線行駛': 'The Taipei Metro Red Line and the Sanying Line now use the latest official track alignments, and trains and stations follow the updated routes.',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '北捷紅線與三鶯線的軌道改用官方最新線形，列車與車站沿更新後的路線行駛': '台北メトロ レッドラインと三鶯線の線路を公式の最新線形に更新し、列車と駅が新しいルートに沿って表示されるようにしました。',
+});
+// 2026-09-28 高雄輕軌環線：順逆行與終點分開，提示實際途經站。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '順行': 'Clockwise', '逆行': 'Counterclockwise', '經 {stations}': 'Via {stations}', '即將發車': 'Departing soon',
+  '高雄輕軌發車前先在籬仔內等候，發車後沿用同一班身分；衛星位置確認屬於同一班才校正，否則依官方倒數逐站推算': 'Kaohsiung LRT trains now wait at Lizihnei before departure and keep the same trip identity after leaving. GPS positions are applied only after confirming they belong to that official trip; otherwise positions are estimated from official countdowns.',
+  '修正部分台鐵長途列車的待避推估，優先利用前車原有停站時間，減少多停一次後又在站間追越的畫面': 'Improved passing estimates for some long-distance TRA trains by using the leading train’s scheduled stop, reducing unnecessary extra waits followed by overtaking between stations.',
+  '高雄輕軌來車看板分開顯示順行、逆行與途經方向，不再全部只寫往籬仔內，也不會漏掉另一方向的班次': 'Kaohsiung LRT arrival boards now separate clockwise and counterclockwise services and show stops along the way, instead of labelling everything as bound for Lizihnei and hiding services in the other direction.',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '順行': '時計回り', '逆行': '反時計回り', '經 {stations}': '{stations} 経由', '即將發車': 'まもなく発車',
+  '高雄輕軌發車前先在籬仔內等候，發車後沿用同一班身分；衛星位置確認屬於同一班才校正，否則依官方倒數逐站推算': '高雄ライトレールは発車前に籬仔内で待機し、発車後も同じ便の識別を保ちます。GPS 位置は公式の便と同一だと確認できた場合だけ補正に使い、それ以外は公式カウントダウンから順に推定します。',
+  '修正部分台鐵長途列車的待避推估，優先利用前車原有停站時間，減少多停一次後又在站間追越的畫面': '一部の台鉄長距離列車の待避推定を修正しました。先行列車の予定停車時間を優先して使い、余分な待避の後に駅間で再び追い越す表示を減らします。',
+  '高雄輕軌來車看板分開顯示順行、逆行與途經方向，不再全部只寫往籬仔內，也不會漏掉另一方向的班次': '高雄ライトレールの到着案内で時計回り・反時計回りを分け、経由駅を表示します。すべてが籬仔内行きと表示されたり、反対方向の便が隠れたりしなくなりました。',
+});
+// 2026-09-29 首頁標題與搜尋說明（SEO）。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '網頁標題與搜尋結果說明寫清楚：台鐵、高鐵、捷運即時地圖與時刻表': 'The page title and search description now say it plainly: a live map and timetables for TRA, high-speed rail and metro',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '網頁標題與搜尋結果說明寫清楚：台鐵、高鐵、捷運即時地圖與時刻表': 'ページタイトルと検索結果の説明を、台鉄・高鉄・メトロのライブ地図と時刻表だとわかる表現にしました',
+});
+// 2026-09-29 網頁版首次開啟固定繁中＋英日文獨立介紹頁（SEO）。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '網頁版首次開啟固定顯示繁體中文；英文、日文瀏覽器會出現可一鍵切換的語言提示': 'On the web, the first visit now always opens in Traditional Chinese; English and Japanese browsers get a small one-tap language prompt',
+  '網頁版第一次開啟固定顯示繁體中文，不再依瀏覽器語言自動切換；英文或日文瀏覽器會出現一個小提示，按一下就能切換語言，也能關掉不再提示（App 仍依手機語言）。另新增英文與日文的獨立介紹頁，方便外國旅客搜尋到軌島': 'On the web, the first visit now always opens in Traditional Chinese instead of switching automatically to the browser language. English and Japanese browsers see a small prompt that switches language in one tap and can be dismissed for good (the app still follows the phone language). We also added standalone English and Japanese intro pages so travellers can find Rail Island in search.',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '網頁版首次開啟固定顯示繁體中文；英文、日文瀏覽器會出現可一鍵切換的語言提示': 'Web 版は初回起動を常に繁体字中国語で表示し、英語・日本語のブラウザには 1 タップで切り替えられる言語のお知らせを表示します',
+  '網頁版第一次開啟固定顯示繁體中文，不再依瀏覽器語言自動切換；英文或日文瀏覽器會出現一個小提示，按一下就能切換語言，也能關掉不再提示（App 仍依手機語言）。另新增英文與日文的獨立介紹頁，方便外國旅客搜尋到軌島': 'Web 版は初回起動時にブラウザの言語へ自動で切り替えず、常に繁体字中国語で開くようにしました。英語・日本語のブラウザには、1 タップで言語を切り替えられる小さなお知らせが表示され、閉じれば二度と表示されません（アプリは従来どおり端末の言語に従います）。あわせて、海外からの旅行者が検索で見つけやすいよう、英語版・日本語版の紹介ページを追加しました。',
+});
+// 2026-09-29 跟車卡：Android 補畫列車、iPhone 三節車、看板追下一班立刻開卡——第一層更新紀錄那條的 en/ja。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  'App 鎖定畫面跟車卡：Android 補上小列車、iPhone 改成三節車廂，從車站看板追下一班車時卡片會立刻出現': 'App lock-screen follow card: Android now shows the little train, iPhone shows three cars, and following the next train from a station board opens the card right away.',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  'App 鎖定畫面跟車卡：Android 補上小列車、iPhone 改成三節車廂，從車站看板追下一班車時卡片會立刻出現': 'アプリのロック画面の追跡カード：Android でも小さな列車を表示し、iPhone は3両編成に。駅の発車案内から次の列車を追うと、カードがすぐに表示されます。',
+});
+// 2026-09-29 台鐵同向待避：過期提議與子跑段實測比例。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '修正少數台鐵列車在車站空等不存在的後車，或出站後異常慢行的問題': 'Fixed a few TRA trains waiting at stations for a following train that was not there, or crawling after departure',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '修正少數台鐵列車在車站空等不存在的後車，或出站後異常慢行的問題': '一部の台鉄列車が来ない後続列車を駅で待ったり、発車後に不自然に遅く走ったりする問題を修正しました',
+});
+// 2026-09-29 台鐵專車接力借股道（10/3 環島 6669、10/4 6509）。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '10/3 環島專車這類比任何固定班次都跑得遠的台鐵專車，地圖上改沿真實股道行駛，不再整趟退回示意路線': 'Special TRA trains that run farther than any regular service, such as the 10/3 round-the-island train, now follow the real tracks on the map instead of a schematic route for the whole trip',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '10/3 環島專車這類比任何固定班次都跑得遠的台鐵專車，地圖上改沿真實股道行駛，不再整趟退回示意路線': '10/3 の環島列車のように、どの定期列車よりも長い区間を走る台鉄の臨時列車も、全区間を模式線ではなく実際の線路に沿って地図上を走るようになりました',
+});
+// 2026-09-29 台南地面鐵道歷史重播：App 入口、壓縮下載、全線繪製量。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '台南地面鐵道歷史重播：修正 App 裡點了打不開，網頁版下載量從約 11 MB 降到約 2 MB，開啟更快、全線視角更順': 'Tainan surface railway replay: fixed it not opening in the app; the web version now downloads about 2 MB instead of about 11 MB, so it opens faster and the full-line view runs more smoothly',
+  '台南地面鐵道歷史重播：修正 App 裡點了打不開；列車與站房模型改壓縮下載（內容不變），網頁版下載量從約 11 MB 降到約 2 MB，全線視角的繪製量也大幅減少': 'Tainan surface railway replay: fixed it not opening in the app; train and station models now download compressed (content unchanged), cutting the web download from about 11 MB to about 2 MB, and the full-line view draws far less',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '台南地面鐵道歷史重播：修正 App 裡點了打不開，網頁版下載量從約 11 MB 降到約 2 MB，開啟更快、全線視角更順': '台南地上鉄道の歴史リプレイ：アプリで開けない問題を修正し、Web 版のダウンロード量を約 11 MB から約 2 MB に減らして、起動を速く、全線表示をなめらかにしました',
+  '台南地面鐵道歷史重播：修正 App 裡點了打不開；列車與站房模型改壓縮下載（內容不變），網頁版下載量從約 11 MB 降到約 2 MB，全線視角的繪製量也大幅減少': '台南地上鉄道の歴史リプレイ：アプリで開けない問題を修正。列車と駅舎のモデルを圧縮して配信し（内容は同じ）、Web 版のダウンロード量を約 11 MB から約 2 MB に削減、全線表示の描画量も大きく減らしました',
+});
+// 2026-09-29 台鐵預排待避改停另一股（v0929f）。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '立體地圖上台鐵列車在車站讓後車先過時，改停到旁邊的股道，後車不會再從停著的車身穿過去': 'On the 3D map, TRA trains that wait at a station for a following train to pass now pull onto another track, so the passing train no longer drives right through the waiting one',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '立體地圖上台鐵列車在車站讓後車先過時，改停到旁邊的股道，後車不會再從停著的車身穿過去': '3D マップで、台鉄の列車が駅で後続列車の通過を待つときは隣の線路に停まるようになり、後続列車が停車中の列車を突き抜けて走ることがなくなりました',
+});
+// 2026-09-29 底圖地名去重擴及機場標籤（v0929h）。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '地圖上站名旁邊的機場名稱也不再跟站名疊在一起，例如松山機場站旁的「臺北松山機場」': 'Airport names on the map no longer overlap the station labels next to them either, such as “Taipei Songshan Airport” beside Songshan Airport Station',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '地圖上站名旁邊的機場名稱也不再跟站名疊在一起，例如松山機場站旁的「臺北松山機場」': '地図で駅名のすぐ横に出ていた空港名（松山機場駅の横の「臺北松山機場」など）も、駅名と重なって表示されなくなりました',
+});
+// 2026-09-29 捷運路線圖頁（SEO 階段 A）。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '新增捷運路線圖頁：台北、桃園、新北、台中、高雄各線的車站、轉乘與首末班車': 'New metro map pages for Taipei, Taoyuan, New Taipei, Taichung and Kaohsiung: stations, transfers and first and last trains for every line',
+  '新增捷運路線圖頁（中、英、日文）：台北、桃園機場、新北、台中、高雄各系統與每條路線的路線圖、車站與轉乘、首末班車和班距，資料來源沒有逐班時刻表的路線只列營運時段與班距；頁面可一鍵在地圖上看列車，頁尾與手機版「更多」新增「捷運路線圖」入口': 'New metro map pages in Chinese, English and Japanese for Taipei, Taoyuan Airport, New Taipei, Taichung and Kaohsiung: a route map, stations and transfers, first and last trains and headways for every line (lines with no train-by-train timetable in the data sources list only operating hours and headways). Each page has a button that opens the trains on the live map, and the footer and the mobile "More" menu have a new "Metro maps" link.',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '新增捷運路線圖頁：台北、桃園、新北、台中、高雄各線的車站、轉乘與首末班車': '台北・桃園・新北・台中・高雄のメトロ路線図ページを追加しました。各路線の駅、乗り換え、始発・終電を確認できます',
+  '新增捷運路線圖頁（中、英、日文）：台北、桃園機場、新北、台中、高雄各系統與每條路線的路線圖、車站與轉乘、首末班車和班距，資料來源沒有逐班時刻表的路線只列營運時段與班距；頁面可一鍵在地圖上看列車，頁尾與手機版「更多」新增「捷運路線圖」入口': '台北・桃園空港・新北・台中・高雄の各システムと各路線について、路線図、駅と乗り換え、始発・終電、運転間隔をまとめたページを中国語・英語・日本語で追加しました（データソースに列車ごとの時刻表がない路線は運行時間帯と運転間隔のみ掲載）。各ページのボタンからライブ地図の列車を開けます。ページ下部とスマートフォン版の「その他」にも「メトロ路線図」へのリンクを追加しました。',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '日文版的高雄環狀輕軌改用高雄捷運官方日文路線名「ライトレール環状線」': 'The Japanese version now uses Kaohsiung MRT’s official Japanese line name for the Circular Light Rail.',
+  '捷運導言更正：「北北桃」與台北捷運的地圖導言，也改成台北捷運各線（含文湖線）的列車位置與車站倒數都來自官方逐班即時資料，不再把文湖線寫成班距推算': 'Metro intro corrected: the Greater Taipei & Taoyuan and Taipei Metro map intros now also say that train positions and station countdowns on every Taipei Metro line, including the Wenhu Line, come from official per-train live data, and no longer describe the Wenhu Line as estimated from headways.',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '日文版的高雄環狀輕軌改用高雄捷運官方日文路線名「ライトレール環状線」': '日本語版で、高雄のライトレールの路線名を高雄MRT公式の「ライトレール環状線」に改めました。',
+  '捷運導言更正：「北北桃」與台北捷運的地圖導言，也改成台北捷運各線（含文湖線）的列車位置與車站倒數都來自官方逐班即時資料，不再把文湖線寫成班距推算': 'メトロの説明文を訂正：「台北・新北・桃園」と台北メトロの地図の説明文でも、文湖線を含む台北メトロ全路線の列車位置と駅のカウントダウンは公式の列車ごとのリアルタイム情報と記載し、文湖線を運転間隔からの推定とは書かないようにしました。',
+});
+// 2026-09-30 台南地面鐵道歷史重播精修：舊站房與列車真實比例、施工外罩開關、周邊建物低細節模型、自由轉向與傾斜、放大到 34 公尺。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '台南地面鐵道歷史重播：舊站房與列車改用真實比例重建，周邊建築從灰色方塊改成有外牆顏色、窗戶、店面與招牌，補上香格里拉飯店的塔樓，視角可自由轉向與傾斜，最多放大到 34 公尺': 'Tainan surface railway replay: the old station building and trains are rebuilt to real proportions, nearby buildings are no longer grey boxes but have wall colours, windows, shopfronts and signs, the Shangri-La hotel tower is added, the view can be freely turned and tilted, and you can zoom in to 34 m',
+  '台南地面鐵道歷史重播：舊站房與列車改用真實比例重建、施工外罩可一鍵拿掉，推拉式自強號改畫 7 月起的 E500 機車頭；周邊建築從灰色方塊改成有外牆顏色、窗戶、店面、招牌與水塔，補上香格里拉塔樓；視角可自由轉向與傾斜，最多放大到 34 公尺': 'Tainan surface railway replay: the old station building and trains are rebuilt to real proportions, the construction wrap comes off with one tap, and the push–pull Tze-Chiang now shows the E500 locomotive used since July; nearby buildings are no longer grey boxes but have wall colours, windows, shopfronts, signs and water tanks, and the Shangri-La tower is added; the view can be freely turned and tilted, and you can zoom in to 34 m',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '台南地面鐵道歷史重播：舊站房與列車改用真實比例重建，周邊建築從灰色方塊改成有外牆顏色、窗戶、店面與招牌，補上香格里拉飯店的塔樓，視角可自由轉向與傾斜，最多放大到 34 公尺': '台南地上鉄道の歴史リプレイ：旧駅舎と列車を実物どおりの比率で作り直し、周辺の建物はグレーの箱から外壁の色・窓・店舗・看板のある姿になり、シャングリ・ラ ホテルのタワーを加えました。視点は自由に回転・傾斜でき、34 m まで拡大できます',
+  '台南地面鐵道歷史重播：舊站房與列車改用真實比例重建、施工外罩可一鍵拿掉，推拉式自強號改畫 7 月起的 E500 機車頭；周邊建築從灰色方塊改成有外牆顏色、窗戶、店面、招牌與水塔，補上香格里拉塔樓；視角可自由轉向與傾斜，最多放大到 34 公尺': '台南地上鉄道の歴史リプレイ：旧駅舎と列車を実物どおりの比率で作り直し、工事用シートはワンタップで外せます。プッシュプル式自強号は 7 月からの E500 形機関車で描きます。周辺の建物はグレーの箱から外壁の色・窓・店舗・看板・給水タンクのある姿になり、シャングリ・ラのタワーも加えました。視点は自由に回転・傾斜でき、34 m まで拡大できます',
+});
+// 2026-09-30 台南地面鐵道歷史重播：馬路改成柏油路面、車道線、中央黃線、有路緣的人行道（依 OpenStreetMap 標記推的示意）。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '台南地面鐵道歷史重播：馬路改成柏油路面，畫上車道線、中央黃線與有路緣的人行道，放大就看得到': 'Tainan surface railway replay: roads are now asphalt with lane lines, yellow centre lines and kerbed pavements; zoom in to see them',
+  '台南地面鐵道歷史重播：馬路從米白色帶子改成柏油路面，路寬依 OpenStreetMap 標的車道數推算，畫上車道線、中央黃線與有路緣的人行道（依標記推的示意）；標線放大才出現，地下道不再畫在地面上': 'Tainan surface railway replay: roads are now asphalt instead of pale strips, with widths estimated from OpenStreetMap lane counts, plus lane lines, yellow centre lines and kerbed pavements (illustrative, based on map tags); markings appear as you zoom in, and underpasses are no longer drawn at street level',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '台南地面鐵道歷史重播：馬路改成柏油路面，畫上車道線、中央黃線與有路緣的人行道，放大就看得到': '台南地上鉄道の歴史リプレイ：道路をアスファルトにし、車線、黄色の中央線、縁石のある歩道を描きました（拡大すると見えます）',
+  '台南地面鐵道歷史重播：馬路從米白色帶子改成柏油路面，路寬依 OpenStreetMap 標的車道數推算，畫上車道線、中央黃線與有路緣的人行道（依標記推的示意）；標線放大才出現，地下道不再畫在地面上': '台南地上鉄道の歴史リプレイ：道路を淡い色の帯からアスファルトに変更し、道幅は OpenStreetMap の車線数から推定しました。車線、黄色の中央線、縁石のある歩道を描いています（地図のタグに基づくイメージ）。区画線は拡大すると表示され、地下道は地上に描かないようにしました',
+});
+// 2026-09-30 台鐵／高鐵車站時刻頁（SEO 階段 B 第一批）。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '車站頁加上台鐵、高鐵時刻表：台北、板橋、台中等大站，列出兩週內每一班的開車時刻與行駛日': 'Station pages now include TRA and HSR timetables: major stations such as Taipei, Banqiao and Taichung list every departure over two weeks, with the days each train runs',
+  '車站頁加上台鐵、高鐵時刻表（中、英、日文）：台北、板橋、台中等 20 個大站，加上新開的高鐵苗栗、彰化、雲林站，依方向列出兩週內每一班的開車時刻與行駛日，每週更新；車站頁與捷運路線圖頁也換上軌島圖示，跟著地圖切換亮暗外觀': 'Station pages now include TRA and HSR timetables (in Chinese, English and Japanese): 20 major stations such as Taipei, Banqiao and Taichung, plus new pages for HSR Miaoli, Changhua and Yunlin, list every departure by direction over two weeks, with the days each train runs, updated weekly; station and metro map pages also get the Rail Island icon and follow the map’s light or dark appearance',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '車站頁加上台鐵、高鐵時刻表：台北、板橋、台中等大站，列出兩週內每一班的開車時刻與行駛日': '駅ページに台鉄・高鉄の時刻表を追加：台北、板橋、台中などの主要駅で、2週間分の全列車の発車時刻と運転日を掲載',
+  '車站頁加上台鐵、高鐵時刻表（中、英、日文）：台北、板橋、台中等 20 個大站，加上新開的高鐵苗栗、彰化、雲林站，依方向列出兩週內每一班的開車時刻與行駛日，每週更新；車站頁與捷運路線圖頁也換上軌島圖示，跟著地圖切換亮暗外觀': '駅ページに台鉄・高鉄の時刻表を追加（中国語・英語・日本語）：台北、板橋、台中など20の主要駅と、新設の高鉄苗栗・彰化・雲林駅で、方面別に2週間分の全列車の発車時刻と運転日を掲載（毎週更新）。駅ページと路線図ページにも軌島のアイコンを付け、地図のライト／ダーク表示に合わせて切り替わります',
+});
+// 2026-09-30 日文環島列車終點改短寫法（使用者裁示）。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '日文介面：環島列車的終點改成簡短好懂的「台北（台湾一周）」': 'Japanese interface: the round-the-island train’s terminus now has a short, easy-to-read Japanese name',
+  '日文介面與日文車站頁：環島列車的終點原本寫成很長的「台北サラウンドアイランド」，改成簡短好懂的「台北（台湾一周）」': 'Japanese interface and Japanese station pages: the round-the-island train’s terminus, previously a long katakana name, now has a short, easy-to-read Japanese name',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '日文介面：環島列車的終點改成簡短好懂的「台北（台湾一周）」': '日本語表示：環島列車の終点を短く分かりやすい「台北（台湾一周）」に変更',
+  '日文介面與日文車站頁：環島列車的終點原本寫成很長的「台北サラウンドアイランド」，改成簡短好懂的「台北（台湾一周）」': '日本語表示と日本語の駅ページ：環島列車の終点を、長い「台北サラウンドアイランド」から短く分かりやすい「台北（台湾一周）」に変更',
+});
+// 2026-09-30 Issue #73 跟車膠囊對齊（v0930e）：第一層更新紀錄那條的 en/ja（第二層正本走 RAIL_I18N_CHANGELOG）。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '跟車小卡收合成膠囊時，車次與時速不再貼在上緣，跟圓點和「結束」排在同一條線上（謝謝網友回報）': 'When the follow card is collapsed into a pill, the train number and speed no longer sit at the top edge; they now line up with the dot and the “Stop” button. Thanks to the reader who reported it.',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '跟車小卡收合成膠囊時，車次與時速不再貼在上緣，跟圓點和「結束」排在同一條線上（謝謝網友回報）': '追跡カードを小さく折りたたんだとき、列車番号と速度が上端に寄らず、左の点や「終了」ボタンと同じ高さにそろうようになりました(ご報告ありがとうございます)。',
+});
+// 2026-09-30 車站時刻頁第二批（v0930g）：第一層與第二層更新紀錄那兩條的 en/ja。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '車站時刻表頁擴大到全部台鐵車站：每站列出兩週內每一班的開車時刻與行駛日；瑞芳、十分、菁桐等 7 站另有英日文，車站索引依縣市分組': 'Station timetable pages now cover every TRA station, each listing every train\'s departure time and running days over two weeks. Ruifang, Shifen, Jingtong and four more stations also have English and Japanese pages, and the station index groups stations by city and county.',
+  '車站時刻表頁擴大到兩週內有列車停靠的全部 239 個台鐵車站（新增 221 站，中文）：依方向列出每一班的開車時刻、終點與行駛日；瑞芳、十分、菁桐、礁溪、福隆、集集、知本另有英日文頁；車站索引依縣市列出全部台鐵車站': 'Station timetable pages now cover all 239 TRA stations with trains in the two-week data (221 new stations, in Traditional Chinese), listing every train\'s departure time, destination and running days by direction. Ruifang, Shifen, Jingtong, Jiaoxi, Fulong, Jiji and Zhiben also have English and Japanese pages, and the station index lists every TRA station by city and county.',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '車站時刻表頁擴大到全部台鐵車站：每站列出兩週內每一班的開車時刻與行駛日；瑞芳、十分、菁桐等 7 站另有英日文，車站索引依縣市分組': '駅の時刻表ページを台鉄の全駅に拡大：各駅で2週間分の列車ごとの発車時刻と運転日を掲載。瑞芳・十分・菁桐など7駅は英語・日本語ページもあり、駅の索引は県市別にまとめています。',
+  '車站時刻表頁擴大到兩週內有列車停靠的全部 239 個台鐵車站（新增 221 站，中文）：依方向列出每一班的開車時刻、終點與行駛日；瑞芳、十分、菁桐、礁溪、福隆、集集、知本另有英日文頁；車站索引依縣市列出全部台鐵車站': '駅の時刻表ページを、2週間のデータで列車が停車する台鉄の全239駅に拡大（新たに221駅、繁体字中国語）：方面別に列車ごとの発車時刻・行き先・運転日を掲載。瑞芳・十分・菁桐・礁渓・福隆・集集・知本は英語・日本語ページもあり、駅の索引は台鉄の全駅を県市別に載せています。',
+});
+
+// 說明中心「車站收集小工具」一節（2026-09-30）
+Object.assign(window.RAIL_I18N_MESSAGES.en, {"車站收集小工具": "Station collection widget", "收": "C", "把旅程護照的「車站 N 座」放上主畫面：點陣照真實位置排成台灣鐵道網，收過的站亮起線色。": "Put the station count from your travel passport on your Home Screen. Dots placed at real locations form Taiwan's rail network, and stations you have collected light up in their line colors.", "選「車站收集」，有小、中兩種尺寸；長按小工具 →「編輯小工具」可以把範圍換成單一系統（台鐵、北捷、高捷……）": "Choose Station collection, in small or medium size. Touch and hold the widget, then Edit Widget to switch to a single system (TRA, Taipei Metro, Kaohsiung Metro…)", "鎖定畫面也放得下，顯示收集百分比與進度": "It also fits on the Lock Screen, showing your collection percentage and progress", "點小工具會打開旅程護照": "Tap the widget to open your travel passport", "數字跟旅程護照的「車站 N 座」是同一個：跟完、搭過、到訪都算。地圖上實心是搭過或到訪、空心是跟完；在 App 裡蓋章後小工具會跟著更新。這項不需要通行證。": "The number matches the station count in your travel passport: followed, travelled and visited stamps all count. On the map, solid dots are travelled or visited and hollow rings are followed. The widget updates after you collect a stamp in the app. No pass is required.", "車站收集（鎖定畫面）": "Station collection (Lock Screen)"});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {"車站收集小工具": "駅コレクションウィジェット", "收": "収", "把旅程護照的「車站 N 座」放上主畫面：點陣照真實位置排成台灣鐵道網，收過的站亮起線色。": "旅のパスポートの駅数をホーム画面に。実際の位置に並んだ点が台湾の鉄道網を描き、集めた駅が路線の色で光ります。", "選「車站收集」，有小、中兩種尺寸；長按小工具 →「編輯小工具」可以把範圍換成單一系統（台鐵、北捷、高捷……）": "「駅コレクション」を選びます。サイズは小・中の2種類。ウィジェットを長押しして「ウィジェットを編集」から、1つの路線網（台鉄、台北メトロ、高雄メトロ…）に切り替えられます", "鎖定畫面也放得下，顯示收集百分比與進度": "ロック画面にも置けます。収集率と進み具合を表示します", "點小工具會打開旅程護照": "ウィジェットをタップすると旅のパスポートが開きます", "數字跟旅程護照的「車站 N 座」是同一個：跟完、搭過、到訪都算。地圖上實心是搭過或到訪、空心是跟完；在 App 裡蓋章後小工具會跟著更新。這項不需要通行證。": "数字は旅のパスポートの駅数と同じです。追跡完了・乗車済み・訪問済みのスタンプをすべて数えます。地図では塗りつぶしが乗車済みまたは訪問済み、白抜きが追跡完了です。アプリでスタンプを押すとウィジェットも更新されます。軌島パスは不要です。", "車站收集（鎖定畫面）": "駅コレクション（ロック画面）"});
+
+// 說明中心「車站收集小工具」一節補充（2026-09-30）：Android 的範圍那一步照實際流程改寫（預設全台、之後長按小工具開設定換範圍），
+// 兩個平台各補一步「蓋章」鈕。上一組裡舊的 Android 範圍那一步（「加入時可以選全台或單一系統」）的 en／ja 已拿掉。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '選「車站收集」，有小、中兩種尺寸；範圍預設是全台，之後長按小工具開啟設定，就能換成單一系統（台鐵、北捷、高捷……）': 'Choose Station collection, in small or medium size. The scope starts as all of Taiwan; later, touch and hold the widget to open its settings and switch it to a single system (TRA, Taipei Metro, Kaohsiung Metro…)',
+  '小、中尺寸上有「蓋章」鈕：按一下會打開軌島，直接在附近的車站蓋章；附近有好幾座車站時，讓你選要蓋哪一座': 'The small and medium sizes have a “Stamp” button. Tap it to open Rail Island and stamp a nearby station right away; if several stations are nearby, you pick which one',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '選「車站收集」，有小、中兩種尺寸；範圍預設是全台，之後長按小工具開啟設定，就能換成單一系統（台鐵、北捷、高捷……）': '「駅コレクション」を選びます。サイズは小・中の2種類。範囲は最初は台湾全体で、あとからウィジェットを長押しして設定を開くと、1つの路線網（台鉄、台北メトロ、高雄メトロ…）に切り替えられます',
+  '小、中尺寸上有「蓋章」鈕：按一下會打開軌島，直接在附近的車站蓋章；附近有好幾座車站時，讓你選要蓋哪一座': '小・中サイズには「スタンプ」ボタンがあります。タップすると軌島が開き、近くの駅でそのままスタンプできます。近くに駅が複数あるときは、スタンプする駅を選べます',
+});
+
+// 2026-10-01 雙平台車站收集小工具出貨
+Object.assign(window.RAIL_I18N_MESSAGES.en, {"新增車站收集小工具：主畫面直接看收集進度與台灣鐵道點陣圖，可選全台或單一系統，按「蓋章」就能在附近車站留下紀錄": "New station collection widget: see your progress and Taiwan rail map on your Home Screen, choose all of Taiwan or one system, and tap Stamp to check in at a nearby station"});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {"新增車站收集小工具：主畫面直接看收集進度與台灣鐵道點陣圖，可選全台或單一系統，按「蓋章」就能在附近車站留下紀錄": "駅コレクションのウィジェットを追加：ホーム画面で収集状況と台湾の鉄道点描マップを確認できます。台湾全体または路線網を選び、「スタンプ」で近くの駅にチェックインできます"});
+// 2026-09-30 車站時刻頁略過待通車站（v0930j）：第一層與第二層更新紀錄那兩條的 en/ja。平鎮的英日文站名官方還沒公布，譯文不寫站名，改寫「中壢〜埔心間的臨時站」。
+Object.assign(window.RAIL_I18N_MESSAGES.en, {
+  '車站時刻表頁：平鎮臨時站要等官方公布英文站名後才會有頁面，其他車站照常每週更新': 'Station timetable pages: the new temporary station between Zhongli (Taoyuan) and Puxin won’t get a page until its official English name is published; all other stations keep updating weekly.',
+  '車站時刻表頁：中壢、埔心之間的平鎮臨時站要等官方公布英文站名後才會有頁面；在那之前每週更新班表時先略過它，其他車站照常更新': 'Station timetable pages: the new temporary station between Zhongli (Taoyuan) and Puxin won’t get a page until its official English name is published; until then the weekly timetable update skips it and refreshes all other stations as usual.',
+});
+Object.assign(window.RAIL_I18N_MESSAGES.ja, {
+  '車站時刻表頁：平鎮臨時站要等官方公布英文站名後才會有頁面，其他車站照常每週更新': '駅の時刻表ページ：中壢〜埔心間の新しい臨時駅は、公式の英語駅名が公表されるまでページを作りません。ほかの駅は毎週どおり更新します。',
+  '車站時刻表頁：中壢、埔心之間的平鎮臨時站要等官方公布英文站名後才會有頁面；在那之前每週更新班表時先略過它，其他車站照常更新': '駅の時刻表ページ：中壢〜埔心間の新しい臨時駅は、公式の英語駅名が公表されるまでページを作りません。それまでは毎週の時刻表更新でこの駅を見送り、ほかの駅は通常どおり更新します。',
+});
