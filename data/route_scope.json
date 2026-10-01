@@ -428,7 +428,8 @@
         "TfL Unified API 2026-08-27 現行資料列出 20 個品牌線別；Route/Sequence/all 逐線拆出 Underground 33、DLR 6、Elizabeth 10、Overground 12、Tram 6，共 67 個端點／via 路徑",
         "TfL London Overground 官方頁複核六個現行線名與端點：Liberty、Lioness、Mildmay、Suffragette、Weaver、Windrush",
         "tools/verify_london_routes.mjs 鎖定 20 線別／67 路徑、遞增里程、雙向流動與 Tram 單向環不反向虛構",
-        "tools/verify_london_i18n.mjs 已驗證 464 個唯一站名、67 個路徑名與 20 個線別皆有 zh-TW/en/ja；TfL 未發布官方中日站名者保留官方英文專名"
+        "tools/verify_london_i18n.mjs 已驗證 464 個唯一站名、67 個路徑名與 20 個線別皆有 zh-TW/en/ja；TfL 未發布官方中日站名者保留官方英文專名",
+        "2026-10-01：Underground、DLR、Tram 13,059 班改為 TfL Unified API 逐站時刻表重建的官方平日時刻（tools/build_london_timetable.mjs，依站序逐站查、±1.5 分鐘去重、保留中途起駛班次）；Elizabeth line 與 Overground 在逐站時刻 API 無資料，2,724 班維持合成班距；DLR Lewisham–Stratford 官方平日無直通班，不虛構"
       ],
       "localeStatus": {
         "zh-TW": "complete",
@@ -511,7 +512,7 @@
       "motionBlockingGaps": [],
       "truthfulnessBlockingGaps": [],
       "scheduleEnhancements": [
-        "現有 8,590 班為明示合成班距；可再導入 TfL／National Rail 實際時刻提升分鐘準確度，但不阻擋路線首發"
+        "Elizabeth line 與六條 London Overground 在 TfL 逐站時刻 API 沒有資料（國鐵站碼回 404），仍是明示合成班距；需要 National Rail／Rail Data Marketplace 的時刻資料才能改官方時刻"
       ],
       "sources": [
         "https://tfl.gov.uk/maps/track?intcmp=40400",
