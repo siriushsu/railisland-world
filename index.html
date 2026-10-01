@@ -5552,6 +5552,7 @@
            內容 li 上限 8 條(li.grp 是標題不算)。 -->
       <ul class="foot-list foot-recent">
         <li class="grp">最近更新</li>
+        <li data-cl-of="worldfleet1001"><span class="d">10/1</span><span>紐約 R160 與東京 E233 系有了自己的立體模型：紐約 E、F、J、M、R、Z 線與東京中央快速、京濱東北等 JR 線改用當地車型外觀</span></li>
         <li data-cl-of="istanbultt1001"><span class="d">10/1</span><span>伊斯坦堡地鐵、電車與纜車改用 Metro İstanbul 官方平日時刻：5,783 班依官方表定時刻行駛；M11、T2、T6、F2、F3、Marmaray 與 B2 仍是模擬班距</span></li>
         <li data-cl-of="londontt1001"><span class="d">10/1</span><span>倫敦地鐵、DLR 與電車改用 TfL 官方平日時刻：13,059 班依官方表定時刻行駛，含中途起駛的區間車；Elizabeth line 與 Overground 仍是模擬班距</span></li>
         <li data-cl-of="tokyorail1001"><span class="d">10/1</span><span>東京補齊東京都全境鐵道：加入 JR 東日本 18 條與東急、小田急、京王、西武、東武、京成、京急等私鐵，共 75 條路線、683 站；都營依官方時刻，其餘為模擬班距</span></li>
@@ -5559,7 +5560,6 @@
         <li data-cl-of="worldui1001"><span class="d">10/1</span><span>世界版介面跟上台灣版 10/1：地圖引擎換成 MapLibre，縮放更順；新增字級、列車光環、日夜光影、暗色 2.0、跟車時車頭朝上與路線導覽；車站看板改依終點分組</span></li>
         <li data-cl-of="worldapp"><span class="d">9/4</span><span>開始準備 iPhone 與 Android 版：第一版先收錄東京、紐約、倫敦、伊斯坦堡與新加坡五座已通過路線、流動與三語檢查的城市；首開說明也已改成世界版，網站仍保留全部十二個地區</span></li>
         <li data-cl-of="swisssplit"><span class="d">9/4</span><span>瑞士把混了兩種走法的路線拆成多條線，伯連納快車的庫爾與聖莫里茲兩條走法現在分開畫；路線不再來回折返</span></li>
-        <li data-cl-of="swissscenic"><span class="d">9/2</span><span>瑞士補齊官方景觀類別全部十條，新收金色山口全景與快車、百谷線、琉森–茵特拉肯快車、哥達全景快車；多條路線的來回折返線形也修好了</span></li>
       </ul>
       <!-- 第二層:完整歷史。刻意不掛 .foot-box 類名——placeFootBoxes() 用
            `.site-foot .foot-box` 搬移面板,巢狀同名會被當成另一個盒子一起搬走。 -->
@@ -5567,6 +5567,7 @@
         <summary>完整更新歷史（依主題分類）</summary>
         <ul class="foot-list">
         <li class="grp">路網與車站</li>
+        <li data-cl="worldfleet1001"><span class="d">10/1</span><span>紐約 R160 與東京 JR E233 系有了自己的立體模型，取代原本借用的台北捷運車廂。R160 有黑色車頭面罩、偏一側的貫通門、上方的路線圓標（顯示該線顏色）與下緣兩對頭燈，用在紐約 E、F、J、M、R、Z 線；E233 系有後傾的黑色車頭、窗上與窗下兩道色帶與擴幅車體，色帶依路線換色，用在中央快速、青梅、五日市、京濱東北、埼京、京葉、橫濱、南武，以及東海道、宇都宮、高崎、湘南新宿線（實車的湘南色是橘綠雙色，這裡以單一路線色示意）。兩款都依維基百科的尺寸與 Wikimedia Commons 的自由授權照片簡化建模，細部仍是示意；其他路線暫時沿用示意車廂</span></li>
         <li data-cl="istanbultt1001"><span class="d">10/1</span><span>伊斯坦堡由 Metro İstanbul 營運的 19 個路徑共 5,783 班改用官方平日時刻，取代原本的模擬班距。資料來自 Metro İstanbul 公開 API：各方向起點站逐小時查全天發車時刻，其他各站在早上與下午各查一小時，比對前後站的發車時刻推出站間時間；時刻精度為分鐘。M1A 全程約 35 分、M2 約 32 分，T1 的 Cevizlibağ－Eminönü 區間車與 M7 的分段運轉也照官方方向收錄。M11、T2、T6、F2、F3、Marmaray 與 B2 不在這組資料，2,402 班仍是明示模擬班距</span></li>
         <li data-cl="londontt1001"><span class="d">10/1</span><span>倫敦 Underground、DLR 與 Tram 共 13,059 班改用 TfL 官方平日時刻，取代原本的模擬班距。TfL 的逐站時刻表只列從該站發車的班次，所以每條線、每個方向都依站序逐站查詢，對得上上游班次的視為同一班，對不上的就是在該站起駛的區間車；時刻精度為分鐘。班次密度也因此接近實際，例如維多利亞線一天 975 班、尖峰每 2～3 分鐘一班，原本的模擬只有 250 班。Elizabeth line 與六條 Overground 在 TfL 逐站時刻 API 沒有資料，2,724 班仍是明示的模擬班距；DLR Lewisham–Stratford 在官方平日時刻沒有直通班，路徑保留但不再虛構班次</span></li>
         <li data-cl="tokyorail1001"><span class="d">10/1</span><span>東京從「都營＋Tokyo Metro 16 條」擴大到東京都全境 75 條路線、683 站：新增 JR 東日本 18 條（山手線、京濱東北、中央快速、中央・總武各停、埼京、常磐、橫須賀・總武快速、京葉、東海道、上野東京、湘南新宿、南武、武藏野、橫濱、青梅、五日市、八高），東急 7 條、小田急 2 條、京王 7 條、西武 9 條、東武 5 條、京成 3 條、京急 2 條，以及北總線、筑波快線、東京單軌、百合海鷗號、臨海線與多摩單軌。線形與站點取自 OpenStreetMap，裁到東京都界，少數途經鄰縣的路段保留以維持連續。這些業者的官方時刻在 ODPT 只提供比賽限定授權、不能公開使用，所以新路線與 Tokyo Metro 一樣是明示的模擬班距；都營仍依官方平日時刻。紐約與東京的立體列車也套用到新路線</span></li>
@@ -6461,7 +6462,7 @@
 //         v0831e 只多幾行註解且其中一句寫錯(openNearbyStations 不讀 simSec,它不吃撥鐘影響),
 //         故正文全取 v0831d。守門人:scripts/verify_merge_no_loss.mjs --parents 兩顆。
 const RAIL_3D_BOOT_PARAMS = new URLSearchParams(location.search);
-const BUILD = 'world-v1001e';
+const BUILD = 'world-v1001f';
 const LANDSCAPE_REQUESTED = new URLSearchParams(location.search).get('map') === 'landscape';
 const GARAGE_QUERY = new URLSearchParams(location.search).get('garage');
 // 輕量多語 runtime：繁中原文同時是安全 fallback，外語字典只存差異字串。
