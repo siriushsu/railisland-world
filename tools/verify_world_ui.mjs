@@ -20,8 +20,12 @@ for (const [engine, browserType] of [['chromium', chromium], ['webkit', webkit]]
   const page = await context.newPage();
   const pageErrors = [];
   const requests = [];
+  const missingFiles = [];
   page.on('pageerror', error => pageErrors.push(error.stack || String(error)));
   page.on('request', request => requests.push(request.url()));
+  page.on('response', response => {
+    if (response.status() >= 400 && new URL(response.url()).origin === new URL(baseUrl).origin) missingFiles.push(`${response.status()} ${response.url()}`);
+  });
   await page.goto(new URL('?lang=zh-TW', baseUrl).href, { waitUntil: 'domcontentloaded' });
   try {
     await page.waitForSelector('html[data-world-ready="1"]', { timeout: 30000 });
@@ -129,6 +133,10 @@ for (const [engine, browserType] of [['chromium', chromium], ['webkit', webkit]]
     const unexpected = requests.filter(url => /\/api\/basemap-(?:src|token|session)|arcgis\.com|stadiamaps\.com|cartocdn\.com/i.test(url));
     if (unexpected.length) fail(engine, `OFM-only App 仍發出其他底圖請求：${[...new Set(unexpected)].join(', ')}`);
   }
+  // 今日亮點與車站看板會懶載入資料；世界版站上沒有的檔（例如台灣版的活動公告）不該去要
+  await page.evaluate(() => { openExplorePanel(); openBoard(state.schedStations[0]); });
+  await page.waitForTimeout(1000);
+  if (missingFiles.length) fail(engine, `同源請求 4xx：${[...new Set(missingFiles)].join(', ')}`);
   const desktopTaiwanHref = await page.locator('#taiwanAppLink').getAttribute('href');
   if (desktopTaiwanHref !== 'https://railisland.tw') fail(engine, `桌面台灣版入口不符：${desktopTaiwanHref}`);
 
