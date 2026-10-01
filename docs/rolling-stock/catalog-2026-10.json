@@ -410,10 +410,10 @@
       "MTA New York City Transit"
      ],
      "lines": {
-      "N_Bridge": "minor",
-      "N_Tunnel": "minor",
-      "Q": "minor",
-      "W": "minor"
+      "N_Bridge": "main",
+      "N_Tunnel": "main",
+      "Q": "main",
+      "W": "main"
      },
      "years": {
       "built": "1975–1978",
@@ -519,7 +519,7 @@
      "gaps": [
       "livery hex values estimated (not from an official colour spec)",
       "no R-46 car count found after the spring 2026 assignment; the earlier figure of 140 cars (Template:NYCS const, which cites a June 2025 MTA document) disagrees with ERA spring 2026 (256 cars on N/Q/W in the AM peak)",
-      "line roles (minor on N/Q/W) predate the spring 2026 assignment, in which R-46 was the largest type on N/W and Q"
+      "line roles (main on N/Q/W) follow the spring 2026 assignment; R-46 numbers are falling as R211s arrive, which this entry does not track"
      ],
      "priorityScore": 4
     },
@@ -1151,7 +1151,7 @@
       "A_FarRockaway": "main",
       "A_Lefferts": "main",
       "A_RockawayPark": "main",
-      "B": "minor",
+      "B": "main",
       "C": "main",
       "D": "minor",
       "G": "main",
@@ -1219,9 +1219,13 @@
       {
        "label": "ERA Bulletin Nov 2025 – Car Assignments (cited, not fetched)",
        "url": "https://erausa.org/pdf/bulletin/2020s/2025/2025-11-bulletin.pdf"
+      },
+      {
+       "label": "ERA Bulletin Jun 2026 (Vol. 69 No. 6), PDF p.5 – spring 2026 B Division car assignment: B 160 R-211A, 32 R-68, 40 R-68A (AM)",
+       "url": "https://erausa.org/pdf/bulletin/2020s/2026/2026-06-bulletin.pdf"
       }
      ],
-     "notes": "Exterior blue band/front colour estimated from memory of photos — verify with the reference images. R211T (open-gangway pilot, 20 cars) runs on G; mesh identical except gangway bellows.",
+     "notes": "Exterior blue band/front colour estimated from memory of photos — verify with the reference images. R211T (open-gangway pilot, 20 cars) runs on G; mesh identical except gangway bellows. On the B the R211A outnumbered R68/R68A in the spring 2026 assignment (160 vs 72 cars in the AM peak), so B is listed as main.",
      "variants": [
       {
        "name": "R211A",
@@ -1426,8 +1430,8 @@
     ],
     "B": [
      "nyc-r68",
-     "nyc-r68a",
-     "nyc-r211"
+     "nyc-r211",
+     "nyc-r68a"
     ],
     "C": [
      "nyc-r179",
@@ -1476,18 +1480,18 @@
     ],
     "N_Bridge": [
      "nyc-r68",
-     "nyc-r68a",
-     "nyc-r46"
+     "nyc-r46",
+     "nyc-r68a"
     ],
     "N_Tunnel": [
      "nyc-r68",
-     "nyc-r68a",
-     "nyc-r46"
+     "nyc-r46",
+     "nyc-r68a"
     ],
     "Q": [
      "nyc-r68",
-     "nyc-r68a",
-     "nyc-r46"
+     "nyc-r46",
+     "nyc-r68a"
     ],
     "R": [
      "nyc-r160"
@@ -1497,8 +1501,8 @@
     ],
     "W": [
      "nyc-r68",
-     "nyc-r68a",
-     "nyc-r46"
+     "nyc-r46",
+     "nyc-r68a"
     ],
     "Z": [
      "nyc-r160",
@@ -1516,14 +1520,14 @@
    },
    "coverageScoreOrder": [
     "nyc-r160",
-    "nyc-r68",
     "nyc-r211",
+    "nyc-r68",
     "nyc-r142",
     "nyc-r179",
     "nyc-r62a",
+    "nyc-r46",
     "nyc-r188",
     "nyc-r68a",
-    "nyc-r46",
     "nyc-r62",
     "nyc-r143",
     "nyc-r211s",
@@ -10150,7 +10154,7 @@
      ],
      "gaps": [
       "livery hex values estimated (not from an official colour spec)",
-      "front compared with the photos above on 2026-10-02; the current model (front shared with tobu-50000) differs: the orange panel should run from the bottom of the black upper area down to the lower edge of the front with the headlights inside it (model: a 0.66 m band with the headlights in a silver strip below), the panel has a coupler notch at its lower edge, the skirt is dark grey, the emergency door (viewer's left) runs the full height with its seam continuing through the orange panel and the car number on it, and the destination displays sit inside the top of the windows"
+      "model front (shared with tobu-50000/50090) revised on 2026-10-02 from the photos above: orange panel down to the lower edge with the headlight housings inside it, coupler notch, dark grey skirt, emergency-door seam and car number; still simplified — the thin silver rim around the front and the tail lamps inside the housings are not drawn"
      ],
      "priorityScore": 10
     },
@@ -10849,7 +10853,11 @@
       "京成電鉄"
      ],
      "lines": {
-      "KS": "minor"
+      "KS": "minor",
+      "KSO": "minor",
+      "A": "minor",
+      "KK": "minor",
+      "KKA": "minor"
      },
      "years": {
       "built": "1993–1995 (rebuilt from AE)",
@@ -10939,7 +10947,7 @@
      "gaps": [
       "fewer than 2 freely licensed Commons images found in the source article — search Commons category manually",
       "livery hex values estimated (not from an official colour spec)",
-      "lines list only KS, but 3448F shares the 8-car workings that run through to the Asakusa/Keikyu lines"
+      "KSO/A/KK/KKA are listed because 3448F shares the 8-car workings that run through to the Asakusa/Keikyu lines; how often it runs there is not known"
      ],
      "priorityScore": 1
     },
@@ -11070,7 +11078,8 @@
       "京成電鉄"
      ],
      "lines": {
-      "KS": "minor"
+      "KS": "minor",
+      "KSK": "minor"
      },
      "years": {
       "built": "1982–1989",
@@ -11099,19 +11108,13 @@
       },
       "stripes": [
        {
-        "hex": "#E80000",
-        "name": "red",
-        "where": "",
-        "estimated": true
-       },
-       {
-        "hex": "#0B00DA",
-        "name": "blue",
-        "where": "",
+        "hex": "#E8341C",
+        "name": "fire orange",
+        "where": "side bands above and below the windows; front band around the headlights",
         "estimated": true
        }
       ],
-      "lineColourUse": "Red/blue; one set fire-orange; Shibayama set red/green.",
+      "lineColourUse": "3688F: fire-orange bands (the 1982 debut livery, restored 2020-08-01); 3668F: Shibayama Railway livery (since 2026-03); no set carries the red/blue Keisei bands any more.",
       "frontColour": {
        "hex": "#1C1C1C",
        "name": "black front mask / windscreen surround",
@@ -11151,7 +11154,7 @@
        "author": "Cfktj1596",
        "licence": "CC BY-SA 4.0",
        "date": "撮影日：2017年9月21日 07:39",
-       "role": "infobox (head car exterior)"
+       "role": "infobox (head car exterior; 3678F in the red/blue livery, retired 2019)"
       },
       {
        "file": "File:Keisei Type 3600-3688F Local Usui.jpg",
@@ -11159,7 +11162,7 @@
        "author": "Kuroc622",
        "licence": "CC0",
        "date": "撮影日：2023年1月13日, 08:4",
-       "role": "exterior (from article)"
+       "role": "exterior (3688F, fire-orange livery; livery reference)"
       },
       {
        "file": "File:Keisei Type3600-3668 Local Chiharadai.jpg",
@@ -11167,13 +11170,13 @@
        "author": "Kuroc622",
        "licence": "CC0",
        "date": "2024年1月1日, 13:38:02",
-       "role": "exterior (from article)"
+       "role": "exterior (3668F in the red/blue livery before its Shibayama repaint, 2024)"
       }
      ],
      "gaps": [
       "livery hex values estimated (not from an official colour spec)",
-      "livery: 3688F carries the restored fire-orange bands (since 2020-08-01) and 3668F the Shibayama Railway livery (since 2026-03), so the red/blue bands in this entry match neither remaining set",
-      "lines list only KS; Shibayama 3668F mostly runs Higashi-Narita/Shibayama workings and occasionally the Kanamachi Line (KSK)"
+      "livery follows 3688F (fire orange, hex estimated from File:Keisei Type 3600-3688F Local Usui.jpg); the Shibayama-liveried 3668F is not drawn separately",
+      "KSK is listed because Shibayama 3668F occasionally runs Kanamachi Line workings; its usual Higashi-Narita/Shibayama workings are outside the mapped lines"
      ],
      "priorityScore": 1
     },
@@ -13187,6 +13190,7 @@
      "toei-5500",
      "keisei-3000",
      "keisei-3100",
+     "keisei-3400",
      "keisei-3700",
      "hokuso-7500",
      "hokuso-9100",
@@ -13538,6 +13542,7 @@
      "keisei-3000",
      "keisei-3700",
      "keisei-3100",
+     "keisei-3400",
      "hokuso-7500",
      "hokuso-9100",
      "hokuso-7300",
@@ -13547,7 +13552,8 @@
     "KSK": [
      "keisei-3200",
      "keisei-3000",
-     "keisei-3500"
+     "keisei-3500",
+     "keisei-3600"
     ],
     "HS": [
      "keisei-3100",
@@ -13564,6 +13570,7 @@
      "toei-5500",
      "keisei-3000",
      "keisei-3100",
+     "keisei-3400",
      "keisei-3700",
      "hokuso-7500",
      "hokuso-9100",
@@ -13576,6 +13583,7 @@
      "keikyu-1000",
      "toei-5500",
      "keisei-3100",
+     "keisei-3400",
      "keisei-3700",
      "keikyu-600",
      "keikyu-1500",
