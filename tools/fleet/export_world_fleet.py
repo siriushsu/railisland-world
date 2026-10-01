@@ -36,6 +36,16 @@ MODELS = {
         dimensions=[20.0, 2.95, 3.62],
         sources=[{'label': 'Wikipedia（日）：JR東日本E235系電車（尺寸、門數）', 'url': 'https://ja.wikipedia.org/wiki/JR%E6%9D%B1%E6%97%A5%E6%9C%ACE235%E7%B3%BB%E9%9B%BB%E8%BB%8A'},
                  {'label': 'Commons: Yamanote-Line-E235.jpg、Series-E235-0 9.jpg（MaedaAkihiko，CC BY-SA 4.0；車頭與側面比對）', 'url': 'https://commons.wikimedia.org/wiki/File:Series-E235-0_9.jpg'}]),
+    'r142': dict(
+        name='紐約地鐵 R142／R142A', family='metro', cab='r142', mid='r142-mid', module='tools/fleet/t_r142.py',
+        dimensions=[15.65, 2.68, 3.62],
+        sources=[{'label': 'Wikipedia: R142 (New York City Subway car)（尺寸、門數）', 'url': 'https://en.wikipedia.org/wiki/R142_(New_York_City_Subway_car)'},
+                 {'label': 'Commons: R142 2 train at East 180th Street.jpg（車頭與側面比對）', 'url': 'https://commons.wikimedia.org/wiki/File:R142_2_train_at_East_180th_Street.jpg'}]),
+    'e231': dict(
+        name='JR 東日本 E231 系（通勤型）', family='commuter', cab='e231', mid='e231-mid', module='tools/fleet/t_e231.py',
+        dimensions=[20.0, 2.95, 4.0515],
+        sources=[{'label': 'Wikipedia（日）：JR東日本E231系電車（尺寸、擴幅車體、門數）', 'url': 'https://ja.wikipedia.org/wiki/JR%E6%9D%B1%E6%97%A5%E6%9C%ACE231%E7%B3%BB%E9%9B%BB%E8%BB%8A'},
+                 {'label': 'Commons: SeriesE231-0 Sobu-Line.jpg、JRE Series-E231-0 MU10.jpg（MaedaAkihiko；車頭與側面比對）', 'url': 'https://commons.wikimedia.org/wiki/File:SeriesE231-0_Sobu-Line.jpg'}]),
 }
 
 
