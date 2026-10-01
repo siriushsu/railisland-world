@@ -25,6 +25,17 @@ MODELS = {
         dimensions=[20.0, 2.95, 4.0165],
         sources=[{'label': 'Wikipedia（日）：JR東日本E233系電車（尺寸、擴幅車體、門數）', 'url': 'https://ja.wikipedia.org/wiki/JR%E6%9D%B1%E6%97%A5%E6%9C%ACE233%E7%B3%BB%E9%9B%BB%E8%BB%8A'},
                  {'label': 'Commons: JRE Series-E233-T4 12cars.jpg（MaedaAkihiko，CC0；車頭與側面比對）', 'url': 'https://commons.wikimedia.org/wiki/File:JRE_Series-E233-T4_12cars.jpg'}]),
+    'r62a': dict(
+        name='紐約地鐵 R62A／R62', family='metro', cab='r62a', mid='r62a-mid', module='tools/fleet/t_r62a.py',
+        dimensions=[15.56, 2.62, 3.62],
+        sources=[{'label': 'Wikipedia: R62A (New York City Subway car)（尺寸、門數）', 'url': 'https://en.wikipedia.org/wiki/R62A_(New_York_City_Subway_car)'},
+                 {'label': 'Commons: MTA NYC Subway 1 train leaving 125th St.jpg（Mtattrain，CC BY-SA 4.0；車頭與側面比對）', 'url': 'https://commons.wikimedia.org/wiki/File:MTA_NYC_Subway_1_train_leaving_125th_St.jpg'},
+                 {'label': 'Commons: R62A Subway Car, 1936, Shuttle, September 5th, 2014.jpg（ARJPHOTOGRAPHY，CC BY-SA 4.0；車頭比對）', 'url': 'https://commons.wikimedia.org/wiki/File:R62A_Subway_Car,_1936,_Shuttle,_September_5th,_2014.jpg'}]),
+    'e235': dict(
+        name='JR 東日本 E235 系', family='commuter', cab='e235', mid='e235-mid', module='tools/fleet/t_e235.py',
+        dimensions=[20.0, 2.95, 3.62],
+        sources=[{'label': 'Wikipedia（日）：JR東日本E235系電車（尺寸、門數）', 'url': 'https://ja.wikipedia.org/wiki/JR%E6%9D%B1%E6%97%A5%E6%9C%ACE235%E7%B3%BB%E9%9B%BB%E8%BB%8A'},
+                 {'label': 'Commons: Yamanote-Line-E235.jpg、Series-E235-0 9.jpg（MaedaAkihiko，CC BY-SA 4.0；車頭與側面比對）', 'url': 'https://commons.wikimedia.org/wiki/File:Series-E235-0_9.jpg'}]),
 }
 
 

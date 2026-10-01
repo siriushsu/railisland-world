@@ -6,6 +6,8 @@
 |---|---|---|
 | 紐約地鐵 R160 | `r160`（駕駛車）、`r160-mid`（中間車） | 紐約 E、F、FX、J、M、R、Z |
 | JR 東日本 E233 系 | `e233`、`e233-mid` | 東京 JC、JCO、JCI、JK、JT、JU、JS、JE、JH、JA、JN |
+| 紐約地鐵 R62A（R62 共用） | `r62a`、`r62a-mid` | 紐約 1、3、6、6X、S 42 St |
+| JR 東日本 E235 系 | `e235`、`e235-mid` | 東京 JY |
 
 尺寸、塗裝與參考照片的出處寫在各 `t_*.py` 開頭與 `export_world_fleet.py` 的 `MODELS`；車型清單與建模優先順序見 `docs/rolling-stock/`。
 
@@ -29,9 +31,10 @@ python3 tools/fleet/export_world_fleet.py    # 正式輸出到 rail-3d/assets/bl
 網格裡的路線色部位用固定顏色當換色鍵，載入時由 `rail-3d/integration/map3d.js` 的 `TINT_SOURCES` 換成該路線的顏色：
 
 - E233 的色帶與車頭色塊：`#f15a22`（中央線橘）
-- R160 的路線圓標：`#eb6800`
+- R160／R62A 的路線圓標：`#eb6800`
+- E235 的車頭外框與門邊：`#80c241`（山手線黃綠）
 
-加新車款時，路線色部位用這兩個顏色之一（或在 `TINT_SOURCES` 加一組），其他部位避開這些顏色（容差 ±0.03）。
+加新車款時，路線色部位用這幾個顏色之一（或在 `TINT_SOURCES` 加一組），其他部位避開這些顏色（容差 ±0.03）。
 
 ## 加新車款
 
