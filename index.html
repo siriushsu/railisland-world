@@ -5552,6 +5552,7 @@
            內容 li 上限 8 條(li.grp 是標題不算)。 -->
       <ul class="foot-list foot-recent">
         <li class="grp">最近更新</li>
+        <li data-cl-of="istanbultt1001"><span class="d">10/1</span><span>伊斯坦堡地鐵、電車與纜車改用 Metro İstanbul 官方平日時刻：5,783 班依官方表定時刻行駛；M11、T2、T6、F2、F3、Marmaray 與 B2 仍是模擬班距</span></li>
         <li data-cl-of="londontt1001"><span class="d">10/1</span><span>倫敦地鐵、DLR 與電車改用 TfL 官方平日時刻：13,059 班依官方表定時刻行駛，含中途起駛的區間車；Elizabeth line 與 Overground 仍是模擬班距</span></li>
         <li data-cl-of="tokyorail1001"><span class="d">10/1</span><span>東京補齊東京都全境鐵道：加入 JR 東日本 18 條與東急、小田急、京王、西武、東武、京成、京急等私鐵，共 75 條路線、683 站；都營依官方時刻，其餘為模擬班距</span></li>
         <li data-cl-of="world3d1001"><span class="d">10/1</span><span>紐約、東京加入立體列車：放大並傾斜地圖，列車依路線標準編組沿線行駛，色帶為路線色；外觀為示意，不是當地實際車型</span></li>
@@ -5559,7 +5560,6 @@
         <li data-cl-of="worldapp"><span class="d">9/4</span><span>開始準備 iPhone 與 Android 版：第一版先收錄東京、紐約、倫敦、伊斯坦堡與新加坡五座已通過路線、流動與三語檢查的城市；首開說明也已改成世界版，網站仍保留全部十二個地區</span></li>
         <li data-cl-of="swisssplit"><span class="d">9/4</span><span>瑞士把混了兩種走法的路線拆成多條線，伯連納快車的庫爾與聖莫里茲兩條走法現在分開畫；路線不再來回折返</span></li>
         <li data-cl-of="swissscenic"><span class="d">9/2</span><span>瑞士補齊官方景觀類別全部十條，新收金色山口全景與快車、百谷線、琉森–茵特拉肯快車、哥達全景快車；多條路線的來回折返線形也修好了</span></li>
-        <li data-cl-of="worldroutes"><span class="d">9/2</span><span>巴黎、維也納、墨爾本、挪威四地依官方現行資料重新查證路網，補上 13 條漏掉的路線，也修好兩條被畫成半截的維也納電車</span></li>
       </ul>
       <!-- 第二層:完整歷史。刻意不掛 .foot-box 類名——placeFootBoxes() 用
            `.site-foot .foot-box` 搬移面板,巢狀同名會被當成另一個盒子一起搬走。 -->
@@ -5567,6 +5567,7 @@
         <summary>完整更新歷史（依主題分類）</summary>
         <ul class="foot-list">
         <li class="grp">路網與車站</li>
+        <li data-cl="istanbultt1001"><span class="d">10/1</span><span>伊斯坦堡由 Metro İstanbul 營運的 19 個路徑共 5,783 班改用官方平日時刻，取代原本的模擬班距。資料來自 Metro İstanbul 公開 API：各方向起點站逐小時查全天發車時刻，其他各站在早上與下午各查一小時，比對前後站的發車時刻推出站間時間；時刻精度為分鐘。M1A 全程約 35 分、M2 約 32 分，T1 的 Cevizlibağ－Eminönü 區間車與 M7 的分段運轉也照官方方向收錄。M11、T2、T6、F2、F3、Marmaray 與 B2 不在這組資料，2,402 班仍是明示模擬班距</span></li>
         <li data-cl="londontt1001"><span class="d">10/1</span><span>倫敦 Underground、DLR 與 Tram 共 13,059 班改用 TfL 官方平日時刻，取代原本的模擬班距。TfL 的逐站時刻表只列從該站發車的班次，所以每條線、每個方向都依站序逐站查詢，對得上上游班次的視為同一班，對不上的就是在該站起駛的區間車；時刻精度為分鐘。班次密度也因此接近實際，例如維多利亞線一天 975 班、尖峰每 2～3 分鐘一班，原本的模擬只有 250 班。Elizabeth line 與六條 Overground 在 TfL 逐站時刻 API 沒有資料，2,724 班仍是明示的模擬班距；DLR Lewisham–Stratford 在官方平日時刻沒有直通班，路徑保留但不再虛構班次</span></li>
         <li data-cl="tokyorail1001"><span class="d">10/1</span><span>東京從「都營＋Tokyo Metro 16 條」擴大到東京都全境 75 條路線、683 站：新增 JR 東日本 18 條（山手線、京濱東北、中央快速、中央・總武各停、埼京、常磐、橫須賀・總武快速、京葉、東海道、上野東京、湘南新宿、南武、武藏野、橫濱、青梅、五日市、八高），東急 7 條、小田急 2 條、京王 7 條、西武 9 條、東武 5 條、京成 3 條、京急 2 條，以及北總線、筑波快線、東京單軌、百合海鷗號、臨海線與多摩單軌。線形與站點取自 OpenStreetMap，裁到東京都界，少數途經鄰縣的路段保留以維持連續。這些業者的官方時刻在 ODPT 只提供比賽限定授權、不能公開使用，所以新路線與 Tokyo Metro 一樣是明示的模擬班距；都營仍依官方平日時刻。紐約與東京的立體列車也套用到新路線</span></li>
         <li data-cl="worldapp"><span class="d">9/4</span><span>iPhone／Android 第一版先收錄東京、紐約、倫敦、伊斯坦堡與新加坡。這五城都已通過路線缺口、列車流動、資料來源與繁中／英文／日文檢查；其餘七個地區繼續留在網站逐步校正，不會因為要上架而把成熟度不同的內容一起塞進 App</span></li>
@@ -6460,7 +6461,7 @@
 //         v0831e 只多幾行註解且其中一句寫錯(openNearbyStations 不讀 simSec,它不吃撥鐘影響),
 //         故正文全取 v0831d。守門人:scripts/verify_merge_no_loss.mjs --parents 兩顆。
 const RAIL_3D_BOOT_PARAMS = new URLSearchParams(location.search);
-const BUILD = 'world-v1001d';
+const BUILD = 'world-v1001e';
 const LANDSCAPE_REQUESTED = new URLSearchParams(location.search).get('map') === 'landscape';
 const GARAGE_QUERY = new URLSearchParams(location.search).get('garage');
 // 輕量多語 runtime：繁中原文同時是安全 fallback，外語字典只存差異字串。
@@ -7729,7 +7730,7 @@ const SYS_META = {
   swiss_sched: { plateL: 'Zermatt', plateR: 'St. Moritz', sub: 'SWISS SCENIC RAIL', lead: '瑞士目前是景觀窄軌策展集，不宣稱全國完整；列車依瑞士公開交通資料時刻表推演。' },
   singapore: { plateL: 'Changi Airport', plateR: 'Tuas Link', sub: 'SINGAPORE MRT · LRT', lead: '新加坡現行 6 套 MRT、3 套 LRT 與 Circle Line 6 完整環線已逐線查證，185 個站名提供繁中、英文、日文；列車依明示模擬班距在正確路網上流動，並非即時位置。' },
   london: { plateL: 'Reading', plateR: 'Shenfield', sub: 'TFL TUBE · RAIL · TRAM', lead: '倫敦 TfL 現行 20 個線別已逐線查證：Underground、Elizabeth line、DLR、Tram 與六條 London Overground 共拆成 67 個可見路徑。Underground、DLR 與 Tram 依 TfL 官方平日時刻；Elizabeth line 與 Overground 沒有公開逐站時刻，仍是明示模擬班距。不包含一般 National Rail。' },
-  istanbul_sched: { plateL: 'Gebze', plateR: 'Halkalı', sub: 'İSTANBUL RAIL', lead: '伊斯坦堡現行 Metro、tram、funicular、Marmaray 與 B2 已逐線查證，共 26 個可見路徑；M11 已全線延至 Halkalı，T3 保留單向環。列車使用明示模擬班距，臨時停駛與改點請以官方公告為準。' },
+  istanbul_sched: { plateL: 'Gebze', plateR: 'Halkalı', sub: 'İSTANBUL RAIL', lead: '伊斯坦堡現行 Metro、tram、funicular、Marmaray 與 B2 已逐線查證，共 26 個可見路徑；M11 已全線延至 Halkalı，T3 保留單向環。Metro İstanbul 營運的 19 個路徑依官方平日時刻；M11、T2、T6、F2、F3、Marmaray 與 B2 沒有公開逐班時刻，仍是明示模擬班距。臨時停駛與改點請以官方公告為準。' },
   sydney_sched: { plateL: 'Emu Plains', plateR: 'Berowra', sub: 'SYDNEY RAIL', lead: '雪梨收錄 Sydney Trains、Metro 與 Light Rail，依 Transport for NSW 公開時刻表推演。' },
   paris_sched: { plateL: 'La Défense', plateR: 'Château de Vincennes', sub: 'PARIS RAIL', lead: '巴黎收錄 Métro、RER、Transilien 與多數 Tram；先前因檔案大小略去的 6 條電車已列為優先補回。' },
   melbourne_sched: { plateL: 'East Brunswick', plateR: 'St Kilda Beach', sub: 'MELBOURNE RAIL', lead: '墨爾本收錄 Metro Trains、V/Line 與完整電車路線，下一輪將用 Metro Tunnel 通車後資料重建。' },
@@ -7750,9 +7751,9 @@ const SYS_META = {
 };
 const WORLD_DATA_NOTES = {
   istanbul_sched: {
-    'zh-TW': '伊斯坦堡路網於 2026-08-31 依 Metro İstanbul、UAB、TCDD 與 IETT 現行官方資料逐線查證：12 個 Metro 路徑、6 條 tram、4 條 funicular、Marmaray 與 Halkalı–Bahçeşehir，另補充 TF1／TF2，共 26 個可見路徑、277 個唯一站名。細部線形採 OpenStreetMap route relations（© OpenStreetMap contributors，ODbL）；7,679 班全為明示模擬班距，不是官方逐班時刻或即時位置。T3 保留單向環方向；尚未通車的 T7、Metrobus 與渡輪不在範圍內，臨時停駛與改點請以官方公告為準。',
-    en: 'Istanbul coverage was audited line by line on 31 August 2026 against current Metro İstanbul, UAB, TCDD and IETT sources: 12 Metro paths, 6 tram lines, 4 funiculars, Marmaray and Halkalı–Bahçeşehir, plus supplementary TF1/TF2—26 visible paths and 277 unique station names. Detailed geometry uses OpenStreetMap route relations (© OpenStreetMap contributors, ODbL). All 7,679 services use clearly labelled simulated headways, not official trip times or live positions. The T3 loop preserves its one-way direction. Unopened T7, Metrobus and ferries are outside this scope; check official notices for temporary suspensions or timetable changes.',
-    ja: 'イスタンブールの収録範囲を2026年8月31日にMetro İstanbul、UAB、TCDD、IETTの現行公式資料で路線ごとに検証しました。Metro 12経路、tram 6路線、funicular 4路線、Marmaray、Halkalı–Bahçeşehirに補足表示のTF1／TF2を加え、計26表示経路・277駅名です。詳細線形はOpenStreetMapのroute relationを使用しています（© OpenStreetMap contributors、ODbL）。7,679本はすべて明示済みの模擬運転間隔で、公式の列車別時刻やリアルタイム位置ではありません。T3は一方向ループを維持しています。未開業のT7、Metrobus、フェリーは対象外です。臨時運休や時刻変更は公式公告をご確認ください。'
+    'zh-TW': '伊斯坦堡路網於 2026-08-31 依 Metro İstanbul、UAB、TCDD 與 IETT 現行官方資料逐線查證：12 個 Metro 路徑、6 條 tram、4 條 funicular、Marmaray 與 Halkalı–Bahçeşehir，另補充 TF1／TF2，共 26 個可見路徑、277 個唯一站名。細部線形採 OpenStreetMap route relations（© OpenStreetMap contributors，ODbL）。2026-10-01 起，Metro İstanbul 營運的 19 個路徑共 5,783 班依 Metro İstanbul 公開 API 的官方平日時刻（2026-10-07 星期三），站間時間由各站發車時刻比對推得，精度為分鐘；M11、T2、T6、F2、F3、Marmaray 與 B2 的 2,402 班仍是明示模擬班距。這是表定時刻，不是即時位置。T3 保留單向環方向；尚未通車的 T7、Metrobus 與渡輪不在範圍內，臨時停駛與改點請以官方公告為準。',
+    en: 'Istanbul coverage was audited line by line on 31 August 2026 against current Metro İstanbul, UAB, TCDD and IETT sources: 12 Metro paths, 6 tram lines, 4 funiculars, Marmaray and Halkalı–Bahçeşehir, plus supplementary TF1/TF2—26 visible paths and 277 unique station names. Detailed geometry uses OpenStreetMap route relations (© OpenStreetMap contributors, ODbL). Since 1 October 2026, the 19 paths run by Metro İstanbul—5,783 services—follow the official weekday timetable from Metro İstanbul’s public API (Wednesday 7 October 2026), with running times between stations derived from departure times at each station, to the minute; the 2,402 services on M11, T2, T6, F2, F3, Marmaray and B2 still use clearly labelled simulated headways. These are scheduled times, not live positions. The T3 loop preserves its one-way direction. Unopened T7, Metrobus and ferries are outside this scope; check official notices for temporary suspensions or timetable changes.',
+    ja: 'イスタンブールの収録範囲を2026年8月31日にMetro İstanbul、UAB、TCDD、IETTの現行公式資料で路線ごとに検証しました。Metro 12経路、tram 6路線、funicular 4路線、Marmaray、Halkalı–Bahçeşehirに補足表示のTF1／TF2を加え、計26表示経路・277駅名です。詳細線形はOpenStreetMapのroute relationを使用しています（© OpenStreetMap contributors、ODbL）。2026年10月1日から、Metro İstanbulが運行する19経路・5,783本はMetro İstanbul公開APIの公式平日時刻（2026年10月7日水曜日）で走ります。駅間所要時間は各駅の発車時刻の照合から求めたもので、分単位です。M11、T2、T6、F2、F3、Marmaray、B2の2,402本は引き続き明示した模擬運転間隔です。これは時刻表上の時刻で、リアルタイム位置ではありません。T3は一方向ループを維持しています。未開業のT7、Metrobus、フェリーは対象外です。臨時運休や時刻変更は公式公告をご確認ください。'
   },
   london: {
     'zh-TW': '倫敦路網於 2026-08-31 依 TfL Unified API 現行 Route/Sequence 查證：Underground 33、DLR 6、Elizabeth line 10、London Overground 12、Tram 6，共 20 個品牌線別、67 個可見路徑與 464 個唯一站名。Underground 細部線形沿用 OpenStreetMap route relations（© OpenStreetMap contributors，ODbL），其餘依 TfL 官方站序與座標。2026-10-01 起，Underground、DLR 與 Tram 共 13,059 班改用 TfL Unified API 逐站時刻表重建的官方平日時刻（分鐘精度，含中途起駛的區間車）；Elizabeth line 與六條 Overground 在 TfL 逐站時刻 API 沒有資料，2,724 班仍是明示合成班距。DLR Lewisham–Stratford 在官方平日時刻沒有直通班，路徑保留但不虛構班次。Powered by TfL Open Data。畫面不是即時位置，也不含一般 National Rail。',

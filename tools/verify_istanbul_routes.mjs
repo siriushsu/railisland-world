@@ -53,11 +53,18 @@ for (const line of GEO.lines) {
     if (trains.some((tr) => tr.train.includes('↑'))) fail('T3: invented reverse loop service');
   } else if (!trains.some((tr) => tr.train.includes('↓')) || !trains.some((tr) => tr.train.includes('↑'))) fail(`${line.id}: missing one direction`);
 }
-if (!GEO.source_notes.includes('模擬') || !SCHED.source_notes.includes('非官方逐車時刻')) fail('synthetic timetable disclosure missing');
+// Metro İstanbul 營運的路徑用官方時刻（tools/build_istanbul_timetable.mjs），其餘明示模擬並標 estimated
+const SYNTHETIC = new Set(['M11', 'T2', 'T6', 'F2', 'F3', 'Marmaray', 'B2']);
+for (const line of GEO.lines) {
+  const trains = SCHED.trains.filter((tr) => tr.train.startsWith(line.id) && (tr.train.length === line.id.length || /[↓↑→]/.test(tr.train[line.id.length])));
+  const est = trains.filter((tr) => tr.estimated).length;
+  if (SYNTHETIC.has(line.id) ? est !== trains.length : est) fail(`${line.id}: ${est}/${trains.length} trains marked estimated`);
+}
+if (!GEO.source_notes.includes('模擬') || !SCHED.source_notes.includes('GetTimeTable') || !SCHED.source_notes.includes('estimated')) fail('timetable source disclosure missing');
 if (!GEO.coverage?.excludes?.includes('unopened T7')) fail('unopened T7 exclusion missing');
 if (!process.exitCode) {
   console.log('✓ 伊斯坦堡路網 gate：12 Metro、6 Tram、4 Funicular、2 Marmaray/通勤鐵路路徑完整；TF1/TF2 另作補充顯示');
   console.log('✓ M11 全線、M3/M4/M5 延伸、T2/T5/T6/F4 與 B2 均已收錄；T7 未提前加入');
-  console.log(`✓ ${SCHED.trains.length.toLocaleString()} 班明示模擬流動；T3 單向環未反向虛構，其餘路徑皆有正反方向`);
+  console.log(`✓ ${SCHED.trains.length.toLocaleString()} 班（Metro İstanbul 官方時刻＋其餘明示模擬）；T3 單向環未反向虛構，其餘路徑皆有正反方向`);
   console.log('✓ 全線反向重走 gate 為空（非相鄰點 <15m、方向點積 < -0.5）');
 }
