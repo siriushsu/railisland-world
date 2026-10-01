@@ -158,7 +158,9 @@ if (target === 'london') {
     'london_schedule_dense.json'
   );
 }
-if (target === 'all' || target === 'istanbul') {
+// 伊斯坦堡同理：Metro İstanbul 線自 2026-10-01 起用官方時刻（tools/build_istanbul_timetable.mjs），'all' 不再重建；
+// 要重建 M11 等線的合成班次時先跑 `node tools/headway2sched.mjs istanbul`，再跑 build_istanbul_timetable.mjs --synthetic-from 該檔。
+if (target === 'istanbul') {
   build(
     'istanbul.json', foldIstanbul, 42, 25, 'İSTANBUL RAIL',
     '班距模擬合成，非官方逐車時刻或即時位置。2026-08-31 已依 Metro İstanbul、UAB、TCDD 與 IETT 官方現行資料逐線核對 Metro、tram、funicular、Marmaray 與 Halkalı–Bahçeşehir；細部線形採 OpenStreetMap route relations（© OpenStreetMap contributors，ODbL）。T3 按單向環生成，其他路徑雙向；所有班次只供正確路網上的流動示意，臨時停駛與改點請以官方公告為準。',
