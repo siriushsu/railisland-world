@@ -55,11 +55,23 @@ const WORLD_STOCK={
   },
   // 東京：銀座線 16 m×6、丸之內線 18 m×6（方南町支線 3 節）、大江戶線 16.5 m×8、淺草線 18 m×8，其餘 20 m 級
   tokyo_sched:{
-    ginza:[16,2.55],maru:[18,2.78],oedo:[16.5,2.5],asakusa:[18,2.8],std:[20,2.85],tram:[13,2.2],apm:[9,2.5],
+    ginza:[16,2.55],maru:[18,2.78],oedo:[16.5,2.5],asakusa:[18,2.8],std:[20,2.85],tram:[13,2.2],apm:[9,2.5],lrt:[12.5,2.5],mono:[16,3],
     routes:{
       G:['ginza',6],M:['maru',6],Mb:['maru',3],E:['oedo',8],A:['asakusa',8],I:['std',8],S:['std',10],
       H:['std',7],T:['std',10],C:['std',10],Y:['std',10],Z:['std',10],N:['std',6],F:['std',10],
       SA:['tram',1,'c381','路線標準 1 節；外觀示意'],NT:['apm',5,'wenhu','路線標準 5 節；外觀借文湖線網格示意'],
+      // JR 東日本（20 m 級；中距離線含綠色車廂取 15 節）
+      JY:['std',11],JK:['std',10],JC:['std',10],JB:['std',10],JA:['std',10],JL:['std',10],JJ:['std',15],JO:['std',15],JE:['std',10],
+      JT:['std',15],JU:['std',15],JS:['std',15],JN:['std',6],JM:['std',8],JH:['std',8],JCO:['std',10],JCI:['std',6],JHK:['std',4],
+      // 私鐵（東急池上・多摩川、東武龜戶・大師、京成、京急為 18 m 級）
+      TY:['std',8],MG:['std',8],DT:['std',10],OM:['std',5],IK:['asakusa',3],TM:['asakusa',3],SG:['lrt',2,'c381','路線標準 2 節連接車；外觀示意'],
+      OH:['std',10],OT:['std',10],KO:['std',10],KON:['std',10],IN:['std',5],KOS:['std',10],KOT:['std',10],KOK:['std',6],KOD:['std',4],
+      SI:['std',10],SS:['std',10],SSH:['std',10],SK:['std',6],ST:['std',4],SW:['std',4],SIT:['std',4],SIY:['std',10],SSE:['std',4],
+      TS:['std',10],TSO:['std',10],TSK:['asakusa',2],TSD:['asakusa',2],TJ:['std',10],
+      KS:['asakusa',8],KSO:['asakusa',8],KSK:['asakusa',4],HS:['asakusa',8],KK:['asakusa',8],KKA:['asakusa',8],
+      TX:['std',6],R:['std',10],
+      MO:['mono',6,'wenhu','路線標準 6 節；單軌車外觀借文湖線網格示意'],TT:['mono',4,'wenhu','路線標準 4 節；單軌車外觀借文湖線網格示意'],
+      U:['apm',6,'wenhu','路線標準 6 節；外觀借文湖線網格示意'],
     },
     fallback:['std',8],
   },

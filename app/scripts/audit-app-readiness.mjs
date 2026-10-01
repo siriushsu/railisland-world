@@ -75,7 +75,7 @@ for (const marker of ['Capacitor', 'MapLibre GL JS', 'three.js', 'PMTiles', 'ffl
 }
 
 const indexSource = await readFile(join(repoRoot, 'index.html'), 'utf8');
-expect(indexSource.includes("const BUILD = 'world-v1001b'"), '網站 BUILD 尚未更新為 world-v1001b');
+expect(indexSource.includes("const BUILD = 'world-v1001c'"), '網站 BUILD 尚未更新為 world-v1001c');
 expect(indexSource.includes('OpenFreeMap（© OpenFreeMap'), '公開資料來源仍未正確標示 OpenFreeMap');
 expect(indexSource.includes('id="taiwanAppLink"') && indexSource.includes('tw.railisland.app') && indexSource.includes('id6792673516'), '網站關於頁缺台灣版軌島的對應商店入口');
 

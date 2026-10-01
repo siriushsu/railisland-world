@@ -121,8 +121,8 @@ for (const [engine, browserType] of [['chromium', chromium], ['webkit', webkit]]
     left: document.querySelector('#plateL')?.textContent,
     right: document.querySelector('#plateR')?.textContent,
   }));
-  if (cityResult.system !== 'tokyo_sched' || cityResult.selected !== 'tokyo_sched' || cityResult.trains !== 8628 ||
-      cityResult.left !== '和光市' || cityResult.right !== '西船橋')
+  if (cityResult.system !== 'tokyo_sched' || cityResult.selected !== 'tokyo_sched' || cityResult.trains !== 28640 ||
+      cityResult.left !== '奥多摩' || cityResult.right !== '葛西臨海公園')
     fail(engine, `東京切換結果不符：${JSON.stringify(cityResult)}`);
   const ofmOnly = await page.evaluate(() => window.RAIL_APP_CONFIG?.ofmOnly === true);
   if (ofmOnly) {

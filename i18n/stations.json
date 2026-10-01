@@ -5010,10 +5010,100 @@
       }
     },
     "tokyo_sched": {
+      "あざみ野": {
+        "zh-TW": "あざみ野",
+        "en": "Azamino",
+        "ja": "あざみ野"
+      },
+      "お花茶屋": {
+        "zh-TW": "お花茶屋",
+        "en": "Ohanajaya",
+        "ja": "お花茶屋"
+      },
+      "お台場海浜公園": {
+        "zh-TW": "お台場海浜公園",
+        "en": "Odaiba-kaihinkoen",
+        "ja": "お台場海浜公園"
+      },
+      "すずかけ台": {
+        "zh-TW": "すずかけ台",
+        "en": "Suzukakedai",
+        "ja": "すずかけ台"
+      },
+      "たまプラーザ": {
+        "zh-TW": "たまプラーザ",
+        "en": "Tama-plaza",
+        "ja": "たまプラーザ"
+      },
+      "つくし野": {
+        "zh-TW": "つくし野",
+        "en": "Tsukushino",
+        "ja": "つくし野"
+      },
+      "つつじヶ丘": {
+        "zh-TW": "つつじヶ丘",
+        "en": "Tsutsujigaoka",
+        "ja": "つつじヶ丘"
+      },
+      "テレコムセンター": {
+        "zh-TW": "テレコムセンター",
+        "en": "Telecom Center",
+        "ja": "テレコムセンター"
+      },
+      "とうきょうスカイツリー": {
+        "zh-TW": "とうきょうスカイツリー",
+        "en": "TOKYO SKYTREE",
+        "ja": "とうきょうスカイツリー"
+      },
+      "ときわ台": {
+        "zh-TW": "ときわ台",
+        "en": "Tokiwadai",
+        "ja": "ときわ台"
+      },
+      "ひばりヶ丘": {
+        "zh-TW": "ひばりヶ丘",
+        "en": "Hibarigaoka",
+        "ja": "ひばりヶ丘"
+      },
+      "めじろ台": {
+        "zh-TW": "めじろ台",
+        "en": "Mejirodai",
+        "ja": "めじろ台"
+      },
+      "モノレール浜松町": {
+        "zh-TW": "モノレール浜松町",
+        "en": "Monorail Hamamatsucho",
+        "ja": "モノレール浜松町"
+      },
+      "阿佐ケ谷": {
+        "zh-TW": "阿佐ケ谷",
+        "en": "Asagaya",
+        "ja": "阿佐ケ谷"
+      },
+      "芦花公園": {
+        "zh-TW": "芦花公園",
+        "en": "Roka-koen",
+        "ja": "芦花公園"
+      },
       "綾瀬": {
         "zh-TW": "綾瀨",
         "en": "Ayase",
         "ja": "綾瀬"
+      },
+      "井の頭公園": {
+        "zh-TW": "井の頭公園",
+        "en": "Inokashira-koen",
+        "ja": "井の頭公園"
+      },
+      "井荻": {
+        "zh-TW": "井荻",
+        "en": "Iogi",
+        "ja": "井荻"
+      },
+      "一橋学園": {
+        "zh-TW": "一橋学園",
+        "en": "Hitotsubashi-gakuen",
+        "ja": "一橋学園"
       },
       "一之江": {
         "zh-TW": "一之江",
@@ -5025,10 +5115,65 @@
         "en": "Inaricho",
         "ja": "稲荷町"
       },
+      "稲城": {
+        "zh-TW": "稲城",
+        "en": "Inagi",
+        "ja": "稲城"
+      },
+      "稲城長沼": {
+        "zh-TW": "稲城長沼",
+        "en": "Inagi-Naganuma",
+        "ja": "稲城長沼"
+      },
+      "羽村": {
+        "zh-TW": "羽村",
+        "en": "Hamura",
+        "ja": "羽村"
+      },
+      "羽田空港第1・第2ターミナル": {
+        "zh-TW": "羽田空港第1・第2ターミナル",
+        "en": "Haneda Airport Terminal 1・2",
+        "ja": "羽田空港第1・第2ターミナル"
+      },
+      "羽田空港第1ターミナル": {
+        "zh-TW": "羽田空港第1ターミナル",
+        "en": "Haneda Airport Terminal 1",
+        "ja": "羽田空港第1ターミナル"
+      },
+      "羽田空港第2ターミナル": {
+        "zh-TW": "羽田空港第2ターミナル",
+        "en": "Haneda Airport Terminal 2",
+        "ja": "羽田空港第2ターミナル"
+      },
+      "羽田空港第3ターミナル": {
+        "zh-TW": "羽田空港第3ターミナル",
+        "en": "Haneda Airport Terminal 3",
+        "ja": "羽田空港第3ターミナル"
+      },
+      "鵜の木": {
+        "zh-TW": "鵜の木",
+        "en": "Unoki",
+        "ja": "鵜の木"
+      },
       "浦安": {
         "zh-TW": "浦安",
         "en": "Urayasu",
         "ja": "浦安"
+      },
+      "荏原中延": {
+        "zh-TW": "荏原中延",
+        "en": "Ebara-nakanobu",
+        "ja": "荏原中延"
+      },
+      "荏原町": {
+        "zh-TW": "荏原町",
+        "en": "Ebara-machi",
+        "ja": "荏原町"
+      },
+      "曳舟": {
+        "zh-TW": "曳舟",
+        "en": "Hikifune",
+        "ja": "曳舟"
       },
       "栄町": {
         "zh-TW": "栄町",
@@ -5039,6 +5184,26 @@
         "zh-TW": "永田町",
         "en": "Nagatacho",
         "ja": "永田町"
+      },
+      "永福町": {
+        "zh-TW": "永福町",
+        "en": "Eifukucho",
+        "ja": "永福町"
+      },
+      "越中島": {
+        "zh-TW": "越中島",
+        "en": "Etchūjima",
+        "ja": "越中島"
+      },
+      "奥多摩": {
+        "zh-TW": "奥多摩",
+        "en": "Oku-Tama",
+        "ja": "奥多摩"
+      },
+      "奥沢": {
+        "zh-TW": "奥沢",
+        "en": "Okusawa",
+        "ja": "奥沢"
       },
       "押上": {
         "zh-TW": "押上",
@@ -5070,6 +5235,56 @@
         "en": "Ogikubo",
         "ja": "荻窪"
       },
+      "下井草": {
+        "zh-TW": "下井草",
+        "en": "Shimo-Igusa",
+        "ja": "下井草"
+      },
+      "下丸子": {
+        "zh-TW": "下丸子",
+        "en": "Shimomaruko",
+        "ja": "下丸子"
+      },
+      "下高井戸": {
+        "zh-TW": "下高井戸",
+        "en": "Shimo-takaido",
+        "ja": "下高井戸"
+      },
+      "下神明": {
+        "zh-TW": "下神明",
+        "en": "Shimo-simmei",
+        "ja": "下神明"
+      },
+      "下赤塚": {
+        "zh-TW": "下赤塚",
+        "en": "Shimo-akatsuka",
+        "ja": "下赤塚"
+      },
+      "下板橋": {
+        "zh-TW": "下板橋",
+        "en": "Shimo-itabashi",
+        "ja": "下板橋"
+      },
+      "下北沢": {
+        "zh-TW": "下北沢",
+        "en": "Shimo-Kitazawa",
+        "ja": "下北沢"
+      },
+      "下落合": {
+        "zh-TW": "下落合",
+        "en": "Shimo-Ochiai",
+        "ja": "下落合"
+      },
+      "河辺": {
+        "zh-TW": "河辺",
+        "en": "Kabe",
+        "ja": "河辺"
+      },
+      "花小金井": {
+        "zh-TW": "花小金井",
+        "en": "Hana-Koganei",
+        "ja": "花小金井"
+      },
       "霞ケ関": {
         "zh-TW": "霞關",
         "en": "Kasumigaseki",
@@ -5080,10 +5295,25 @@
         "en": "Gaiemmae",
         "ja": "外苑前"
       },
+      "柿生": {
+        "zh-TW": "柿生",
+        "en": "Kakio",
+        "ja": "柿生"
+      },
+      "学芸大学": {
+        "zh-TW": "学芸大学",
+        "en": "Gakugei-daigaku",
+        "ja": "学芸大学"
+      },
       "学習院下": {
         "zh-TW": "学習院下",
         "en": "Gakushuinshita",
         "ja": "学習院下"
+      },
+      "梶が谷": {
+        "zh-TW": "梶が谷",
+        "en": "Kajigaya",
+        "ja": "梶が谷"
       },
       "梶原": {
         "zh-TW": "梶原",
@@ -5095,6 +5325,16 @@
         "en": "Kasai",
         "ja": "葛西"
       },
+      "葛西臨海公園": {
+        "zh-TW": "葛西臨海公園",
+        "en": "Kasai-Rinkai Park",
+        "ja": "葛西臨海公園"
+      },
+      "蒲田": {
+        "zh-TW": "蒲田",
+        "en": "Kamata",
+        "ja": "蒲田"
+      },
       "茅場町": {
         "zh-TW": "茅場町",
         "en": "Kayabacho",
@@ -5105,20 +5345,80 @@
         "en": "Iwamotocho",
         "ja": "岩本町"
       },
+      "旗の台": {
+        "zh-TW": "旗の台",
+        "en": "Hatanodai",
+        "ja": "旗の台"
+      },
       "鬼子母神前": {
         "zh-TW": "鬼子母神前",
         "en": "Kishibojimmae",
         "ja": "鬼子母神前"
+      },
+      "亀戸": {
+        "zh-TW": "亀戸",
+        "en": "Kameido",
+        "ja": "亀戸"
+      },
+      "亀戸水神": {
+        "zh-TW": "亀戸水神",
+        "en": "Kameidosuijin",
+        "ja": "亀戸水神"
+      },
+      "亀有": {
+        "zh-TW": "亀有",
+        "en": "Kameari",
+        "ja": "亀有"
       },
       "菊川": {
         "zh-TW": "菊川",
         "en": "Kikukawa",
         "ja": "菊川"
       },
+      "吉祥寺": {
+        "zh-TW": "吉祥寺",
+        "en": "Kichijoji",
+        "ja": "吉祥寺"
+      },
+      "久が原": {
+        "zh-TW": "久が原",
+        "en": "Kugahara",
+        "ja": "久が原"
+      },
+      "久我山": {
+        "zh-TW": "久我山",
+        "en": "Kugayama",
+        "ja": "久我山"
+      },
+      "久米川": {
+        "zh-TW": "久米川",
+        "en": "Kumegawa",
+        "ja": "久米川"
+      },
+      "宮の坂": {
+        "zh-TW": "宮の坂",
+        "en": "Miyanosaka",
+        "ja": "宮の坂"
+      },
       "宮ノ前": {
         "zh-TW": "宮ノ前",
         "en": "Miyanomae",
         "ja": "宮ノ前"
+      },
+      "宮ノ平": {
+        "zh-TW": "宮ノ平",
+        "en": "Miyanohira",
+        "ja": "宮ノ平"
+      },
+      "宮崎台": {
+        "zh-TW": "宮崎台",
+        "en": "Miyazakidai",
+        "ja": "宮崎台"
+      },
+      "宮前平": {
+        "zh-TW": "宮前平",
+        "en": "Miyamaedaira",
+        "ja": "宮前平"
       },
       "牛込神楽坂": {
         "zh-TW": "牛込神楽坂",
@@ -5130,15 +5430,135 @@
         "en": "Ushigome-yanagicho",
         "ja": "牛込柳町"
       },
+      "牛田": {
+        "zh-TW": "牛田",
+        "en": "Ushida",
+        "ja": "牛田"
+      },
+      "牛浜": {
+        "zh-TW": "牛浜",
+        "en": "Ushihama",
+        "ja": "牛浜"
+      },
+      "京王よみうりランド": {
+        "zh-TW": "京王よみうりランド",
+        "en": "Keiō-Yomiuri-Land",
+        "ja": "京王よみうりランド"
+      },
+      "京王稲田堤": {
+        "zh-TW": "京王稲田堤",
+        "en": "Keio-inadazutsumi",
+        "ja": "京王稲田堤"
+      },
+      "京王永山": {
+        "zh-TW": "京王永山",
+        "en": "Keio-Nagayama",
+        "ja": "京王永山"
+      },
+      "京王多摩センター": {
+        "zh-TW": "京王多摩センター",
+        "en": "Keio-tama-center",
+        "ja": "京王多摩センター"
+      },
+      "京王多摩川": {
+        "zh-TW": "京王多摩川",
+        "en": "Keio-tamagawa",
+        "ja": "京王多摩川"
+      },
+      "京王八王子": {
+        "zh-TW": "京王八王子",
+        "en": "Keio-Hachioji",
+        "ja": "京王八王子"
+      },
+      "京王片倉": {
+        "zh-TW": "京王片倉",
+        "en": "Keio-katakura",
+        "ja": "京王片倉"
+      },
+      "京王堀之内": {
+        "zh-TW": "京王堀之内",
+        "en": "Keio-horinouchi",
+        "ja": "京王堀之内"
+      },
+      "京急蒲田": {
+        "zh-TW": "京急蒲田",
+        "en": "Keikyu-Kamata",
+        "ja": "京急蒲田"
+      },
       "京橋": {
         "zh-TW": "京橋",
         "en": "Kyobashi",
         "ja": "京橋"
       },
+      "京成曳舟": {
+        "zh-TW": "京成曳舟",
+        "en": "Keisei Hikifune",
+        "ja": "京成曳舟"
+      },
+      "京成関屋": {
+        "zh-TW": "京成関屋",
+        "en": "Keisei Sekiya",
+        "ja": "京成関屋"
+      },
+      "京成金町": {
+        "zh-TW": "京成金町",
+        "en": "Keisei Kanamachi",
+        "ja": "京成金町"
+      },
+      "京成高砂": {
+        "zh-TW": "京成高砂",
+        "en": "Keisei Takasago",
+        "ja": "京成高砂"
+      },
+      "京成小岩": {
+        "zh-TW": "京成小岩",
+        "en": "Keisei Koiwa",
+        "ja": "京成小岩"
+      },
+      "京成上野": {
+        "zh-TW": "京成上野",
+        "en": "Keisei-Ueno",
+        "ja": "京成上野"
+      },
+      "京成立石": {
+        "zh-TW": "京成立石",
+        "en": "Keisei Tateishi",
+        "ja": "京成立石"
+      },
+      "競艇場前": {
+        "zh-TW": "競艇場前",
+        "en": "Kyoteijo-mae",
+        "ja": "競艇場前"
+      },
+      "橋本": {
+        "zh-TW": "橋本",
+        "en": "Hashimoto",
+        "ja": "橋本"
+      },
+      "狭間": {
+        "zh-TW": "狭間",
+        "en": "Hazama",
+        "ja": "狭間"
+      },
+      "玉川学園前": {
+        "zh-TW": "玉川学園前",
+        "en": "Tamagawagakuen-mae",
+        "ja": "玉川学園前"
+      },
+      "玉川上水": {
+        "zh-TW": "玉川上水",
+        "en": "Tamagawa-Josui",
+        "ja": "玉川上水"
+      },
       "錦糸町": {
         "zh-TW": "錦糸町",
         "en": "Kinshicho",
         "ja": "錦糸町"
+      },
+      "金町": {
+        "zh-TW": "金町",
+        "en": "Kanamachi",
+        "ja": "金町"
       },
       "銀座": {
         "zh-TW": "銀座",
@@ -5155,20 +5575,55 @@
         "en": "Kudanshita",
         "ja": "九段下"
       },
+      "九品仏": {
+        "zh-TW": "九品仏",
+        "en": "Kuhombutsu",
+        "ja": "九品仏"
+      },
       "駒込": {
         "zh-TW": "駒込",
         "en": "Komagome",
         "ja": "駒込"
+      },
+      "駒場東大前": {
+        "zh-TW": "駒場東大前",
+        "en": "Komaba-todaimae",
+        "ja": "駒場東大前"
+      },
+      "駒沢大学": {
+        "zh-TW": "駒沢大学",
+        "en": "Komazawa-daigaku",
+        "ja": "駒沢大学"
+      },
+      "熊川": {
+        "zh-TW": "熊川",
+        "en": "Kumagawa",
+        "ja": "熊川"
       },
       "熊野前": {
         "zh-TW": "熊野前",
         "en": "Kumanomae",
         "ja": "熊野前"
       },
+      "軍畑": {
+        "zh-TW": "軍畑",
+        "en": "Ikusabata",
+        "ja": "軍畑"
+      },
       "恵比寿": {
         "zh-TW": "惠比壽",
         "en": "Ebisu",
         "ja": "恵比寿"
+      },
+      "経堂": {
+        "zh-TW": "経堂",
+        "en": "Kyodo",
+        "ja": "経堂"
+      },
+      "穴守稲荷": {
+        "zh-TW": "穴守稲荷",
+        "en": "Anamori-Inari",
+        "ja": "穴守稲荷"
       },
       "月島": {
         "zh-TW": "月島",
@@ -5180,15 +5635,40 @@
         "en": "Minumadai-shinsuikoen",
         "ja": "見沼代親水公園"
       },
+      "原宿": {
+        "zh-TW": "原宿",
+        "en": "Harajuku",
+        "ja": "原宿"
+      },
       "原木中山": {
         "zh-TW": "原木中山",
         "en": "Baraki-nakayama",
         "ja": "原木中山"
       },
+      "古淵": {
+        "zh-TW": "古淵",
+        "en": "Kobuchi",
+        "ja": "古淵"
+      },
+      "古里": {
+        "zh-TW": "古里",
+        "en": "Kori",
+        "ja": "古里"
+      },
       "戸越": {
         "zh-TW": "戸越",
         "en": "Togoshi",
         "ja": "戸越"
+      },
+      "戸越銀座": {
+        "zh-TW": "戸越銀座",
+        "en": "Togoshi-ginza",
+        "ja": "戸越銀座"
+      },
+      "戸越公園": {
+        "zh-TW": "戸越公園",
+        "en": "Togoshi-koen",
+        "ja": "戸越公園"
       },
       "虎ノ門": {
         "zh-TW": "虎之門",
@@ -5205,6 +5685,11 @@
         "en": "Gotanda",
         "ja": "五反田"
       },
+      "五反野": {
+        "zh-TW": "五反野",
+        "en": "Gotanno",
+        "ja": "五反野"
+      },
       "後楽園": {
         "zh-TW": "後樂園",
         "en": "Korakuen",
@@ -5220,6 +5705,21 @@
         "en": "Ochanomizu",
         "ja": "御茶ノ水"
       },
+      "御徒町": {
+        "zh-TW": "御徒町",
+        "en": "Okachimachi",
+        "ja": "御徒町"
+      },
+      "御嶽": {
+        "zh-TW": "御嶽",
+        "en": "Mitake",
+        "ja": "御嶽"
+      },
+      "御嶽山": {
+        "zh-TW": "御嶽山",
+        "en": "Ontakesan",
+        "ja": "御嶽山"
+      },
       "護国寺": {
         "zh-TW": "護國寺",
         "en": "Gokokuji",
@@ -5229,6 +5729,11 @@
         "zh-TW": "光が丘",
         "en": "Hikarigaoka",
         "ja": "光が丘"
+      },
+      "向ヶ丘遊園": {
+        "zh-TW": "向ヶ丘遊園",
+        "en": "Mukogaoka-Yuen",
+        "ja": "向ヶ丘遊園"
       },
       "向原": {
         "zh-TW": "向原",
@@ -5245,15 +5750,40 @@
         "en": "Koshinzuka",
         "ja": "庚申塚"
       },
+      "江古田": {
+        "zh-TW": "江古田",
+        "en": "Ekoda",
+        "ja": "江古田"
+      },
+      "江戸川": {
+        "zh-TW": "江戸川",
+        "en": "Edogawa",
+        "ja": "江戸川"
+      },
       "江戸川橋": {
         "zh-TW": "江戶川橋",
         "en": "Edogawabashi",
         "ja": "江戸川橋"
       },
+      "江田": {
+        "zh-TW": "江田",
+        "en": "Eda",
+        "ja": "江田"
+      },
       "江北": {
         "zh-TW": "江北",
         "en": "Kohoku",
         "ja": "江北"
+      },
+      "溝の口": {
+        "zh-TW": "溝の口",
+        "en": "Mizonokuchi",
+        "ja": "溝の口"
+      },
+      "甲州街道": {
+        "zh-TW": "甲州街道",
+        "en": "Koshukaido",
+        "ja": "甲州街道"
       },
       "荒川一中前": {
         "zh-TW": "荒川一中前",
@@ -5290,6 +5820,26 @@
         "en": "Gyotoku",
         "ja": "行徳"
       },
+      "高井戸": {
+        "zh-TW": "高井戸",
+        "en": "Takaido",
+        "ja": "高井戸"
+      },
+      "高円寺": {
+        "zh-TW": "高円寺",
+        "en": "Kōenji",
+        "ja": "高円寺"
+      },
+      "高松": {
+        "zh-TW": "高松",
+        "en": "Takamatsu",
+        "ja": "高松"
+      },
+      "高津": {
+        "zh-TW": "高津",
+        "en": "Takatsu",
+        "ja": "高津"
+      },
       "高田馬場": {
         "zh-TW": "高田馬場",
         "en": "Takadanobaba",
@@ -5300,15 +5850,40 @@
         "en": "Takashimadaira",
         "ja": "高島平"
       },
+      "高幡不動": {
+        "zh-TW": "高幡不動",
+        "en": "Takahatafudo",
+        "ja": "高幡不動"
+      },
+      "高尾": {
+        "zh-TW": "高尾",
+        "en": "Takao",
+        "ja": "高尾"
+      },
+      "高尾山口": {
+        "zh-TW": "高尾山口",
+        "en": "Takaosanguchi",
+        "ja": "高尾山口"
+      },
       "高野": {
         "zh-TW": "高野",
         "en": "Koya",
         "ja": "高野"
       },
+      "高輪ゲートウェイ": {
+        "zh-TW": "高輪ゲートウェイ",
+        "en": "Takanawa Gateway",
+        "ja": "高輪ゲートウェイ"
+      },
       "高輪台": {
         "zh-TW": "高輪台",
         "en": "Takanawadai",
         "ja": "高輪台"
+      },
+      "豪徳寺": {
+        "zh-TW": "豪徳寺",
+        "en": "Gotokuji",
+        "ja": "豪徳寺"
       },
       "麹町": {
         "zh-TW": "麴町",
@@ -5320,25 +5895,95 @@
         "en": "Kokkai-gijidomae",
         "ja": "国会議事堂前"
       },
+      "国際展示場": {
+        "zh-TW": "国際展示場",
+        "en": "Kokusai-tenjijo",
+        "ja": "国際展示場"
+      },
+      "国分寺": {
+        "zh-TW": "国分寺",
+        "en": "Kokubunji",
+        "ja": "国分寺"
+      },
+      "国立": {
+        "zh-TW": "国立",
+        "en": "Kunitachi",
+        "ja": "国立"
+      },
       "国立競技場": {
         "zh-TW": "国立競技場",
         "en": "Kokuritsu-kyogijo",
         "ja": "国立競技場"
+      },
+      "国領": {
+        "zh-TW": "国領",
+        "en": "Kokuryo",
+        "ja": "国領"
       },
       "根津": {
         "zh-TW": "根津",
         "en": "Nezu",
         "ja": "根津"
       },
+      "砂川七番": {
+        "zh-TW": "砂川七番",
+        "en": "Sunagawa-Nanaban",
+        "ja": "砂川七番"
+      },
+      "鷺ノ宮": {
+        "zh-TW": "鷺ノ宮",
+        "en": "Saginomiya",
+        "ja": "鷺ノ宮"
+      },
+      "鷺沼": {
+        "zh-TW": "鷺沼",
+        "en": "Saginuma",
+        "ja": "鷺沼"
+      },
+      "桜街道": {
+        "zh-TW": "桜街道",
+        "en": "Sakurakaido",
+        "ja": "桜街道"
+      },
+      "桜上水": {
+        "zh-TW": "桜上水",
+        "en": "Sakurajosui",
+        "ja": "桜上水"
+      },
+      "桜新町": {
+        "zh-TW": "桜新町",
+        "en": "Sakura-shimmachi",
+        "ja": "桜新町"
+      },
+      "桜台": {
+        "zh-TW": "桜台",
+        "en": "Sakuradai",
+        "ja": "桜台"
+      },
       "桜田門": {
         "zh-TW": "櫻田門",
         "en": "Sakuradamon",
         "ja": "桜田門"
       },
+      "笹塚": {
+        "zh-TW": "笹塚",
+        "en": "Sasazuka",
+        "ja": "笹塚"
+      },
       "雑司が谷": {
         "zh-TW": "雜司谷",
         "en": "Zoshigaya",
         "ja": "雑司が谷"
+      },
+      "雑色": {
+        "zh-TW": "雑色",
+        "en": "Zoshiki",
+        "ja": "雑色"
+      },
+      "鮫洲": {
+        "zh-TW": "鮫洲",
+        "en": "Samezu",
+        "ja": "鮫洲"
       },
       "三ノ輪": {
         "zh-TW": "三之輪",
@@ -5355,20 +6000,65 @@
         "en": "Mitsukoshimae",
         "ja": "三越前"
       },
+      "三河島": {
+        "zh-TW": "三河島",
+        "en": "Mikawashima",
+        "ja": "三河島"
+      },
+      "三軒茶屋": {
+        "zh-TW": "三軒茶屋",
+        "en": "Sangen-jaya",
+        "ja": "三軒茶屋"
+      },
+      "三鷹": {
+        "zh-TW": "三鷹",
+        "en": "Mitaka",
+        "ja": "三鷹"
+      },
+      "三鷹台": {
+        "zh-TW": "三鷹台",
+        "en": "Mitakadai",
+        "ja": "三鷹台"
+      },
       "三田": {
         "zh-TW": "三田",
         "en": "Mita",
         "ja": "三田"
+      },
+      "参宮橋": {
+        "zh-TW": "参宮橋",
+        "en": "Sangubashi",
+        "ja": "参宮橋"
+      },
+      "山下": {
+        "zh-TW": "山下",
+        "en": "Yamashita",
+        "ja": "山下"
+      },
+      "山田": {
+        "zh-TW": "山田",
+        "en": "Yamada",
+        "ja": "山田"
       },
       "四ツ谷": {
         "zh-TW": "四谷",
         "en": "Yotsuya",
         "ja": "四ツ谷"
       },
+      "四ツ木": {
+        "zh-TW": "四ツ木",
+        "en": "Yotsugi",
+        "ja": "四ツ木"
+      },
       "四谷三丁目": {
         "zh-TW": "四谷三丁目",
         "en": "Yotsuya-sanchome",
         "ja": "四谷三丁目"
+      },
+      "市が尾": {
+        "zh-TW": "市が尾",
+        "en": "Ichigao",
+        "ja": "市が尾"
       },
       "市ヶ谷": {
         "zh-TW": "市ヶ谷",
@@ -5379,6 +6069,11 @@
         "zh-TW": "市谷",
         "en": "Ichigaya",
         "ja": "市ケ谷"
+      },
+      "市場前": {
+        "zh-TW": "市場前",
+        "en": "Shijo-mae",
+        "ja": "市場前"
       },
       "志村坂上": {
         "zh-TW": "志村坂上",
@@ -5395,6 +6090,11 @@
         "en": "Shimo",
         "ja": "志茂"
       },
+      "自由が丘": {
+        "zh-TW": "自由が丘",
+        "en": "Jiyugaoka",
+        "ja": "自由が丘"
+      },
       "汐留": {
         "zh-TW": "汐留",
         "en": "Shiodome",
@@ -5404,6 +6104,26 @@
         "zh-TW": "篠崎",
         "en": "Shinozaki",
         "ja": "篠崎"
+      },
+      "柴崎": {
+        "zh-TW": "柴崎",
+        "en": "Shibasaki",
+        "ja": "柴崎"
+      },
+      "柴崎体育館": {
+        "zh-TW": "柴崎体育館",
+        "en": "Shibasaki-Taiikukan",
+        "ja": "柴崎体育館"
+      },
+      "柴又": {
+        "zh-TW": "柴又",
+        "en": "Shibamata",
+        "ja": "柴又"
+      },
+      "芝浦ふ頭": {
+        "zh-TW": "芝浦ふ頭",
+        "en": "Shibaura-futo",
+        "ja": "芝浦ふ頭"
       },
       "芝公園": {
         "zh-TW": "芝公園",
@@ -5425,6 +6145,26 @@
         "en": "Wakamatsu-kawada",
         "ja": "若松河田"
       },
+      "若葉台": {
+        "zh-TW": "若葉台",
+        "en": "Wakabadai",
+        "ja": "若葉台"
+      },
+      "若林": {
+        "zh-TW": "若林",
+        "en": "Wakabayashi",
+        "ja": "若林"
+      },
+      "秋川": {
+        "zh-TW": "秋川",
+        "en": "Akigawa",
+        "ja": "秋川"
+      },
+      "秋津": {
+        "zh-TW": "秋津",
+        "en": "Akitsu",
+        "ja": "秋津"
+      },
       "秋葉原": {
         "zh-TW": "秋葉原",
         "en": "Akihabara",
@@ -5434,6 +6174,11 @@
         "zh-TW": "住吉",
         "en": "Sumiyoshi",
         "ja": "住吉"
+      },
+      "十条": {
+        "zh-TW": "十条",
+        "en": "Jujo",
+        "ja": "十条"
       },
       "渋谷": {
         "zh-TW": "澀谷",
@@ -5445,6 +6190,11 @@
         "en": "Kasuga",
         "ja": "春日"
       },
+      "初台": {
+        "zh-TW": "初台",
+        "en": "Hatsudai",
+        "ja": "初台"
+      },
       "曙橋": {
         "zh-TW": "曙橋",
         "en": "Akebonobashi",
@@ -5455,10 +6205,40 @@
         "en": "Kachidoki",
         "ja": "勝どき"
       },
+      "小岩": {
+        "zh-TW": "小岩",
+        "en": "Koiwa",
+        "ja": "小岩"
+      },
+      "小宮": {
+        "zh-TW": "小宮",
+        "en": "Komiya",
+        "ja": "小宮"
+      },
+      "小作": {
+        "zh-TW": "小作",
+        "en": "Ozaku",
+        "ja": "小作"
+      },
+      "小菅": {
+        "zh-TW": "小菅",
+        "en": "Kosuge",
+        "ja": "小菅"
+      },
+      "小川": {
+        "zh-TW": "小川",
+        "en": "Ogawa",
+        "ja": "小川"
+      },
       "小川町": {
         "zh-TW": "小川町",
         "en": "Ogawamachi",
         "ja": "小川町"
+      },
+      "小村井": {
+        "zh-TW": "小村井",
+        "en": "Omurai",
+        "ja": "小村井"
       },
       "小台": {
         "zh-TW": "小台",
@@ -5475,6 +6255,96 @@
         "en": "Kodemmacho",
         "ja": "小伝馬町"
       },
+      "小田急永山": {
+        "zh-TW": "小田急永山",
+        "en": "Odakyu Nagayama",
+        "ja": "小田急永山"
+      },
+      "小田急多摩センター": {
+        "zh-TW": "小田急多摩センター",
+        "en": "Odakyu Tama Center",
+        "ja": "小田急多摩センター"
+      },
+      "小平": {
+        "zh-TW": "小平",
+        "en": "Kodaira",
+        "ja": "小平"
+      },
+      "昭島": {
+        "zh-TW": "昭島",
+        "en": "Akishima",
+        "ja": "昭島"
+      },
+      "昭和島": {
+        "zh-TW": "昭和島",
+        "en": "Showajima",
+        "ja": "昭和島"
+      },
+      "松が谷": {
+        "zh-TW": "松が谷",
+        "en": "Matsugaya",
+        "ja": "松が谷"
+      },
+      "松陰神社前": {
+        "zh-TW": "松陰神社前",
+        "en": "Shoin-jinja-mae",
+        "ja": "松陰神社前"
+      },
+      "松原": {
+        "zh-TW": "松原",
+        "en": "Matsubara",
+        "ja": "松原"
+      },
+      "沼袋": {
+        "zh-TW": "沼袋",
+        "en": "Numabukuro",
+        "ja": "沼袋"
+      },
+      "沼部": {
+        "zh-TW": "沼部",
+        "en": "Numabe",
+        "ja": "沼部"
+      },
+      "鐘ヶ淵": {
+        "zh-TW": "鐘ヶ淵",
+        "en": "Kanegafuchi",
+        "ja": "鐘ヶ淵"
+      },
+      "上井草": {
+        "zh-TW": "上井草",
+        "en": "Kami-Igusa",
+        "ja": "上井草"
+      },
+      "上石神井": {
+        "zh-TW": "上石神井",
+        "en": "Kami-Shakujii",
+        "ja": "上石神井"
+      },
+      "上中里": {
+        "zh-TW": "上中里",
+        "en": "Kami-Nakazato",
+        "ja": "上中里"
+      },
+      "上町": {
+        "zh-TW": "上町",
+        "en": "Kamimachi",
+        "ja": "上町"
+      },
+      "上板橋": {
+        "zh-TW": "上板橋",
+        "en": "Kami-itabashi",
+        "ja": "上板橋"
+      },
+      "上北台": {
+        "zh-TW": "上北台",
+        "en": "Kamikitadai",
+        "ja": "上北台"
+      },
+      "上北沢": {
+        "zh-TW": "上北沢",
+        "en": "Kami-kitazawa",
+        "ja": "上北沢"
+      },
       "上野": {
         "zh-TW": "上野",
         "en": "Ueno",
@@ -5489,6 +6359,21 @@
         "zh-TW": "上野廣小路",
         "en": "Ueno-hirokoji",
         "ja": "上野広小路"
+      },
+      "上野毛": {
+        "zh-TW": "上野毛",
+        "en": "Kaminoge",
+        "ja": "上野毛"
+      },
+      "信濃町": {
+        "zh-TW": "信濃町",
+        "en": "Shinanomachi",
+        "ja": "信濃町"
+      },
+      "新井薬師前": {
+        "zh-TW": "新井薬師前",
+        "en": "Araiyakushi-mae",
+        "ja": "新井薬師前"
       },
       "新橋": {
         "zh-TW": "新橋",
@@ -5525,6 +6410,26 @@
         "en": "Shin-takashimadaira",
         "ja": "新高島平"
       },
+      "新桜台": {
+        "zh-TW": "新桜台",
+        "en": "Shin-Sakuradai",
+        "ja": "新桜台"
+      },
+      "新三河島": {
+        "zh-TW": "新三河島",
+        "en": "Shim-Mikawashima",
+        "ja": "新三河島"
+      },
+      "新柴又": {
+        "zh-TW": "新柴又",
+        "en": "Shin-Shibamata",
+        "ja": "新柴又"
+      },
+      "新秋津": {
+        "zh-TW": "新秋津",
+        "en": "Shin-Akitsu",
+        "ja": "新秋津"
+      },
       "新宿": {
         "zh-TW": "新宿",
         "en": "Shinjuku",
@@ -5545,6 +6450,41 @@
         "en": "Shinjuku-nishiguchi",
         "ja": "新宿西口"
       },
+      "新小岩": {
+        "zh-TW": "新小岩",
+        "en": "Shin-Koiwa",
+        "ja": "新小岩"
+      },
+      "新小金井": {
+        "zh-TW": "新小金井",
+        "en": "Shin-Koganei",
+        "ja": "新小金井"
+      },
+      "新小平": {
+        "zh-TW": "新小平",
+        "en": "Shin-Kodaira",
+        "ja": "新小平"
+      },
+      "新整備場": {
+        "zh-TW": "新整備場",
+        "en": "Shinseibijo",
+        "ja": "新整備場"
+      },
+      "新線新宿": {
+        "zh-TW": "新線新宿",
+        "en": "Shinsen-Shinjuku",
+        "ja": "新線新宿"
+      },
+      "新代田": {
+        "zh-TW": "新代田",
+        "en": "Shindaita",
+        "ja": "新代田"
+      },
+      "新大久保": {
+        "zh-TW": "新大久保",
+        "en": "Shin-Ōkubo",
+        "ja": "新大久保"
+      },
       "新大塚": {
         "zh-TW": "新大塚",
         "en": "Shin-otsuka",
@@ -5555,15 +6495,35 @@
         "en": "Shin-nakano",
         "ja": "新中野"
       },
+      "新日本橋": {
+        "zh-TW": "新日本橋",
+        "en": "Shin-Nihombashi",
+        "ja": "新日本橋"
+      },
+      "新馬場": {
+        "zh-TW": "新馬場",
+        "en": "Shim-Bamba",
+        "ja": "新馬場"
+      },
       "新板橋": {
         "zh-TW": "新板橋",
         "en": "Shin-itabashi",
         "ja": "新板橋"
       },
+      "新百合ヶ丘": {
+        "zh-TW": "新百合ヶ丘",
+        "en": "Shin-Yurigaoka",
+        "ja": "新百合ヶ丘"
+      },
       "新富町": {
         "zh-TW": "新富町",
         "en": "Shintomicho",
         "ja": "新富町"
+      },
+      "新豊洲": {
+        "zh-TW": "新豊洲",
+        "en": "Shin-Toyosu",
+        "ja": "新豊洲"
       },
       "新木場": {
         "zh-TW": "新木場",
@@ -5579,6 +6539,11 @@
         "zh-TW": "神樂坂",
         "en": "Kagurazaka",
         "ja": "神楽坂"
+      },
+      "神泉": {
+        "zh-TW": "神泉",
+        "en": "Shinsen",
+        "ja": "神泉"
       },
       "神谷町": {
         "zh-TW": "神谷町",
@@ -5615,10 +6580,60 @@
         "en": "Mizue",
         "ja": "瑞江"
       },
+      "世田谷": {
+        "zh-TW": "世田谷",
+        "en": "Setagaya",
+        "ja": "世田谷"
+      },
+      "世田谷代田": {
+        "zh-TW": "世田谷代田",
+        "en": "Setagaya-Daita",
+        "ja": "世田谷代田"
+      },
+      "是政": {
+        "zh-TW": "是政",
+        "en": "Koremasa",
+        "ja": "是政"
+      },
+      "成城学園前": {
+        "zh-TW": "成城学園前",
+        "en": "Seijogakuen-mae",
+        "ja": "成城学園前"
+      },
+      "成瀬": {
+        "zh-TW": "成瀬",
+        "en": "Naruse",
+        "ja": "成瀬"
+      },
+      "成増": {
+        "zh-TW": "成増",
+        "en": "Narimasu",
+        "ja": "成増"
+      },
+      "整備場": {
+        "zh-TW": "整備場",
+        "en": "Seibijo",
+        "ja": "整備場"
+      },
       "清澄白河": {
         "zh-TW": "清澄白河",
         "en": "Kiyosumi-shirakawa",
         "ja": "清澄白河"
+      },
+      "清瀬": {
+        "zh-TW": "清瀬",
+        "en": "Kiyose",
+        "ja": "清瀬"
+      },
+      "生田": {
+        "zh-TW": "生田",
+        "en": "Ikuta",
+        "ja": "生田"
+      },
+      "聖蹟桜ヶ丘": {
+        "zh-TW": "聖蹟桜ヶ丘",
+        "en": "Seiseki-sakuragaoka",
+        "ja": "聖蹟桜ヶ丘"
       },
       "西ケ原": {
         "zh-TW": "西原",
@@ -5630,6 +6645,16 @@
         "en": "Nishigahara-yonchome",
         "ja": "西ヶ原四丁目"
       },
+      "西永福": {
+        "zh-TW": "西永福",
+        "en": "Nishi-eifuku",
+        "ja": "西永福"
+      },
+      "西荻窪": {
+        "zh-TW": "西荻窪",
+        "en": "Nishi-Ogikubo",
+        "ja": "西荻窪"
+      },
       "西葛西": {
         "zh-TW": "西葛西",
         "en": "Nishi-kasai",
@@ -5639,6 +6664,26 @@
         "zh-TW": "西高島平",
         "en": "Nishi-takashimadaira",
         "ja": "西高島平"
+      },
+      "西国分寺": {
+        "zh-TW": "西国分寺",
+        "en": "Nishi-Kokubunji",
+        "ja": "西国分寺"
+      },
+      "西国立": {
+        "zh-TW": "西国立",
+        "en": "Nishi-Kunitachi",
+        "ja": "西国立"
+      },
+      "西小山": {
+        "zh-TW": "西小山",
+        "en": "Nishi-koyama",
+        "ja": "西小山"
+      },
+      "西新井": {
+        "zh-TW": "西新井",
+        "en": "Nishiarai",
+        "ja": "西新井"
       },
       "西新井大師西": {
         "zh-TW": "西新井大師西",
@@ -5670,15 +6715,30 @@
         "en": "Nishi-sugamo",
         "ja": "西巣鴨"
       },
+      "西太子堂": {
+        "zh-TW": "西太子堂",
+        "en": "Nishi-taishido",
+        "ja": "西太子堂"
+      },
       "西台": {
         "zh-TW": "西台",
         "en": "Nishidai",
         "ja": "西台"
       },
+      "西大井": {
+        "zh-TW": "西大井",
+        "en": "Nishi-Oi",
+        "ja": "西大井"
+      },
       "西大島": {
         "zh-TW": "西大島",
         "en": "Nishi-ojima",
         "ja": "西大島"
+      },
+      "西調布": {
+        "zh-TW": "西調布",
+        "en": "Nishi-chofu",
+        "ja": "西調布"
       },
       "西日暮里": {
         "zh-TW": "西日暮里",
@@ -5690,10 +6750,100 @@
         "en": "Nishi-magome",
         "ja": "西馬込"
       },
+      "西八王子": {
+        "zh-TW": "西八王子",
+        "en": "Nishi-Hachioji",
+        "ja": "西八王子"
+      },
+      "西府": {
+        "zh-TW": "西府",
+        "en": "Nishifu",
+        "ja": "西府"
+      },
+      "西武園": {
+        "zh-TW": "西武園",
+        "en": "Seibuen",
+        "ja": "西武園"
+      },
+      "西武新宿": {
+        "zh-TW": "西武新宿",
+        "en": "Seibu-Shinjuku",
+        "ja": "西武新宿"
+      },
+      "西武柳沢": {
+        "zh-TW": "西武柳沢",
+        "en": "Seibu-Yagisawa",
+        "ja": "西武柳沢"
+      },
+      "西武立川": {
+        "zh-TW": "西武立川",
+        "en": "Seibu-Tachikawa",
+        "ja": "西武立川"
+      },
+      "西立川": {
+        "zh-TW": "西立川",
+        "en": "Nishi-Tachikawa",
+        "ja": "西立川"
+      },
+      "青井": {
+        "zh-TW": "青井",
+        "en": "Aoi",
+        "ja": "青井"
+      },
+      "青海": {
+        "zh-TW": "青海",
+        "en": "Aomi",
+        "ja": "青海"
+      },
       "青山一丁目": {
         "zh-TW": "青山一丁目",
         "en": "Aoyama-itchome",
         "ja": "青山一丁目"
+      },
+      "青砥": {
+        "zh-TW": "青砥",
+        "en": "Aoto",
+        "ja": "青砥"
+      },
+      "青梅": {
+        "zh-TW": "青梅",
+        "en": "Ome",
+        "ja": "青梅"
+      },
+      "青梅街道": {
+        "zh-TW": "青梅街道",
+        "en": "Ome-kaido",
+        "ja": "青梅街道"
+      },
+      "青物横丁": {
+        "zh-TW": "青物横丁",
+        "en": "Aomono-yokocho",
+        "ja": "青物横丁"
+      },
+      "青葉台": {
+        "zh-TW": "青葉台",
+        "en": "Aobadai",
+        "ja": "青葉台"
+      },
+      "石神井公園": {
+        "zh-TW": "石神井公園",
+        "en": "Shakujii-koen",
+        "ja": "石神井公園"
+      },
+      "石神前": {
+        "zh-TW": "石神前",
+        "en": "Ishigamimae",
+        "ja": "石神前"
+      },
+      "石川台": {
+        "zh-TW": "石川台",
+        "en": "Ishikawa-dai",
+        "ja": "石川台"
+      },
+      "赤羽": {
+        "zh-TW": "赤羽",
+        "en": "Akabane",
+        "ja": "赤羽"
       },
       "赤羽岩淵": {
         "zh-TW": "赤羽岩淵",
@@ -5720,6 +6870,26 @@
         "en": "Akado-shogakkomae",
         "ja": "赤土小学校前"
       },
+      "雪が谷大塚": {
+        "zh-TW": "雪が谷大塚",
+        "en": "Yukigaya-otsuka",
+        "ja": "雪が谷大塚"
+      },
+      "仙川": {
+        "zh-TW": "仙川",
+        "en": "Sengawa",
+        "ja": "仙川"
+      },
+      "千歳烏山": {
+        "zh-TW": "千歳烏山",
+        "en": "Chitose-karasuyama",
+        "ja": "千歳烏山"
+      },
+      "千住大橋": {
+        "zh-TW": "千住大橋",
+        "en": "Senjuohashi",
+        "ja": "千住大橋"
+      },
       "千石": {
         "zh-TW": "千石",
         "en": "Sengoku",
@@ -5730,10 +6900,25 @@
         "en": "Senkawa",
         "ja": "千川"
       },
+      "千駄ケ谷": {
+        "zh-TW": "千駄ケ谷",
+        "en": "Sendagaya",
+        "ja": "千駄ケ谷"
+      },
       "千駄木": {
         "zh-TW": "千駄木",
         "en": "Sendagi",
         "ja": "千駄木"
+      },
+      "千鳥町": {
+        "zh-TW": "千鳥町",
+        "en": "Chidoricho",
+        "ja": "千鳥町"
+      },
+      "川井": {
+        "zh-TW": "川井",
+        "en": "Kawai",
+        "ja": "川井"
       },
       "扇大橋": {
         "zh-TW": "扇大橋",
@@ -5745,6 +6930,11 @@
         "en": "Sengakuji",
         "ja": "泉岳寺"
       },
+      "泉体育館": {
+        "zh-TW": "泉体育館",
+        "en": "Izumi-Taiikukan",
+        "ja": "泉体育館"
+      },
       "浅草": {
         "zh-TW": "淺草",
         "en": "Asakusa",
@@ -5754,6 +6944,16 @@
         "zh-TW": "浅草橋",
         "en": "Asakusabashi",
         "ja": "浅草橋"
+      },
+      "洗足": {
+        "zh-TW": "洗足",
+        "en": "Senzoku",
+        "ja": "洗足"
+      },
+      "洗足池": {
+        "zh-TW": "洗足池",
+        "en": "Senzoku-ike",
+        "ja": "洗足池"
       },
       "船堀": {
         "zh-TW": "船堀",
@@ -5775,6 +6975,16 @@
         "en": "Sugamoshinden",
         "ja": "巣鴨新田"
       },
+      "相原": {
+        "zh-TW": "相原",
+        "en": "Aihara",
+        "ja": "相原"
+      },
+      "相模原": {
+        "zh-TW": "相模原",
+        "en": "Sagamihara",
+        "ja": "相模原"
+      },
       "蔵前": {
         "zh-TW": "蔵前",
         "en": "Kuramae",
@@ -5784,6 +6994,41 @@
         "zh-TW": "足立小台",
         "en": "Adachi-odai",
         "ja": "足立小台"
+      },
+      "多摩センター": {
+        "zh-TW": "多摩センター",
+        "en": "Tama Center",
+        "ja": "多摩センター"
+      },
+      "多摩境": {
+        "zh-TW": "多摩境",
+        "en": "Tamasakai",
+        "ja": "多摩境"
+      },
+      "多摩湖": {
+        "zh-TW": "多摩湖",
+        "en": "Tamako",
+        "ja": "多摩湖"
+      },
+      "多摩川": {
+        "zh-TW": "多摩川",
+        "en": "Tamagawa",
+        "ja": "多摩川"
+      },
+      "多摩動物公園": {
+        "zh-TW": "多摩動物公園",
+        "en": "Tama-dobutsukoen",
+        "ja": "多摩動物公園"
+      },
+      "多磨": {
+        "zh-TW": "多磨",
+        "en": "Tama",
+        "ja": "多磨"
+      },
+      "多磨霊園": {
+        "zh-TW": "多磨霊園",
+        "en": "Tama-reien",
+        "ja": "多磨霊園"
       },
       "代々木": {
         "zh-TW": "代々木",
@@ -5800,10 +7045,105 @@
         "en": "Yoyogi-uehara",
         "ja": "代々木上原"
       },
+      "代々木八幡": {
+        "zh-TW": "代々木八幡",
+        "en": "Yoyogi-Hachiman",
+        "ja": "代々木八幡"
+      },
+      "代官山": {
+        "zh-TW": "代官山",
+        "en": "Daikan-yama",
+        "ja": "代官山"
+      },
+      "代田橋": {
+        "zh-TW": "代田橋",
+        "en": "Daitabashi",
+        "ja": "代田橋"
+      },
+      "台場": {
+        "zh-TW": "台場",
+        "en": "Daiba",
+        "ja": "台場"
+      },
+      "大井競馬場前": {
+        "zh-TW": "大井競馬場前",
+        "en": "Oikeibajo-Mae",
+        "ja": "大井競馬場前"
+      },
+      "大井町": {
+        "zh-TW": "大井町",
+        "en": "Oimachi",
+        "ja": "大井町"
+      },
+      "大岡山": {
+        "zh-TW": "大岡山",
+        "en": "Ookayama",
+        "ja": "大岡山"
+      },
+      "大久保": {
+        "zh-TW": "大久保",
+        "en": "Okubo",
+        "ja": "大久保"
+      },
+      "大崎": {
+        "zh-TW": "大崎",
+        "en": "Osaki",
+        "ja": "大崎"
+      },
+      "大崎広小路": {
+        "zh-TW": "大崎広小路",
+        "en": "Osakihirokoji",
+        "ja": "大崎広小路"
+      },
+      "大山": {
+        "zh-TW": "大山",
+        "en": "Oyama",
+        "ja": "大山"
+      },
+      "大師前": {
+        "zh-TW": "大師前",
+        "en": "Daishimae",
+        "ja": "大師前"
+      },
       "大手町": {
         "zh-TW": "大手町",
         "en": "Otemachi",
         "ja": "大手町"
+      },
+      "大森": {
+        "zh-TW": "大森",
+        "en": "Omori",
+        "ja": "大森"
+      },
+      "大森海岸": {
+        "zh-TW": "大森海岸",
+        "en": "Ōmorikaigan",
+        "ja": "大森海岸"
+      },
+      "大森町": {
+        "zh-TW": "大森町",
+        "en": "Omorimachi",
+        "ja": "大森町"
+      },
+      "大泉学園": {
+        "zh-TW": "大泉学園",
+        "en": "Oizumi-gakuen",
+        "ja": "大泉学園"
+      },
+      "大鳥居": {
+        "zh-TW": "大鳥居",
+        "en": "Otorii",
+        "ja": "大鳥居"
+      },
+      "大塚": {
+        "zh-TW": "大塚",
+        "en": "Otsuka",
+        "ja": "大塚"
+      },
+      "大塚・帝京大学": {
+        "zh-TW": "大塚・帝京大学",
+        "en": "Otsuka･Teikyo-Daigaku",
+        "ja": "大塚・帝京大学"
       },
       "大塚駅前": {
         "zh-TW": "大塚駅前",
@@ -5820,10 +7160,20 @@
         "en": "Daimon",
         "ja": "大門"
       },
+      "鷹の台": {
+        "zh-TW": "鷹の台",
+        "en": "Takanodai",
+        "ja": "鷹の台"
+      },
       "滝野川一丁目": {
         "zh-TW": "滝野川一丁目",
         "en": "Takinogawa-itchome",
         "ja": "滝野川一丁目"
+      },
+      "沢井": {
+        "zh-TW": "沢井",
+        "en": "Sawai",
+        "ja": "沢井"
       },
       "辰巳": {
         "zh-TW": "辰巳",
@@ -5834,6 +7184,11 @@
         "zh-TW": "谷在家",
         "en": "Yazaike",
         "ja": "谷在家"
+      },
+      "谷保": {
+        "zh-TW": "谷保",
+        "en": "Yaho",
+        "ja": "谷保"
       },
       "淡路町": {
         "zh-TW": "淡路町",
@@ -5850,6 +7205,21 @@
         "en": "Chikatetsu-akatsuka",
         "ja": "地下鉄赤塚"
       },
+      "池ノ上": {
+        "zh-TW": "池ノ上",
+        "en": "Ikenoue",
+        "ja": "池ノ上"
+      },
+      "池上": {
+        "zh-TW": "池上",
+        "en": "Ikegami",
+        "ja": "池上"
+      },
+      "池尻大橋": {
+        "zh-TW": "池尻大橋",
+        "en": "Ikejiri-ohashi",
+        "ja": "池尻大橋"
+      },
       "池袋": {
         "zh-TW": "池袋",
         "en": "Ikebukuro",
@@ -5865,10 +7235,20 @@
         "en": "Tsukijishijo",
         "ja": "築地市場"
       },
+      "竹ノ塚": {
+        "zh-TW": "竹ノ塚",
+        "en": "Takenotsuka",
+        "ja": "竹ノ塚"
+      },
       "竹橋": {
         "zh-TW": "竹橋",
         "en": "Takebashi",
         "ja": "竹橋"
+      },
+      "竹芝": {
+        "zh-TW": "竹芝",
+        "en": "Takeshiba",
+        "ja": "竹芝"
       },
       "中井": {
         "zh-TW": "中井",
@@ -5879,6 +7259,31 @@
         "zh-TW": "中延",
         "en": "Nakanobu",
         "ja": "中延"
+      },
+      "中央大学・明星大学": {
+        "zh-TW": "中央大学・明星大学",
+        "en": "Chuo-Daigaku･Meisei-Daigaku",
+        "ja": "中央大学・明星大学"
+      },
+      "中河原": {
+        "zh-TW": "中河原",
+        "en": "Nakagawara",
+        "ja": "中河原"
+      },
+      "中神": {
+        "zh-TW": "中神",
+        "en": "Nakagami",
+        "ja": "中神"
+      },
+      "中村橋": {
+        "zh-TW": "中村橋",
+        "en": "Nakamurabashi",
+        "ja": "中村橋"
+      },
+      "中板橋": {
+        "zh-TW": "中板橋",
+        "en": "Naka-itabashi",
+        "ja": "中板橋"
       },
       "中目黒": {
         "zh-TW": "中目黑",
@@ -5910,6 +7315,11 @@
         "en": "Naka-okachimachi",
         "ja": "仲御徒町"
       },
+      "潮見": {
+        "zh-TW": "潮見",
+        "en": "Shiomi",
+        "ja": "潮見"
+      },
       "町屋": {
         "zh-TW": "町屋",
         "en": "Machiya",
@@ -5925,10 +7335,90 @@
         "en": "Machiya-nichome",
         "ja": "町屋二丁目"
       },
+      "町田": {
+        "zh-TW": "町田",
+        "en": "Machida",
+        "ja": "町田"
+      },
+      "調布": {
+        "zh-TW": "調布",
+        "en": "Chofu",
+        "ja": "調布"
+      },
+      "長原": {
+        "zh-TW": "長原",
+        "en": "Nagahara",
+        "ja": "長原"
+      },
+      "長沼": {
+        "zh-TW": "長沼",
+        "en": "Naganuma",
+        "ja": "長沼"
+      },
+      "長津田": {
+        "zh-TW": "長津田",
+        "en": "Nagatsuta",
+        "ja": "長津田"
+      },
+      "椎名町": {
+        "zh-TW": "椎名町",
+        "en": "Shiinamachi",
+        "ja": "椎名町"
+      },
+      "鶴川": {
+        "zh-TW": "鶴川",
+        "en": "Tsurukawa",
+        "ja": "鶴川"
+      },
+      "程久保": {
+        "zh-TW": "程久保",
+        "en": "Hodokubo",
+        "ja": "程久保"
+      },
+      "天王洲アイル": {
+        "zh-TW": "天王洲アイル",
+        "en": "Tennozu Isle",
+        "ja": "天王洲アイル"
+      },
+      "天空橋": {
+        "zh-TW": "天空橋",
+        "en": "Tenkubashi",
+        "ja": "天空橋"
+      },
+      "田園調布": {
+        "zh-TW": "田園調布",
+        "en": "Den-en-chofu",
+        "ja": "田園調布"
+      },
       "田原町": {
         "zh-TW": "田原町",
         "en": "Tawaramachi",
         "ja": "田原町"
+      },
+      "田端": {
+        "zh-TW": "田端",
+        "en": "Tabata",
+        "ja": "田端"
+      },
+      "田町": {
+        "zh-TW": "田町",
+        "en": "Tamachi",
+        "ja": "田町"
+      },
+      "田奈": {
+        "zh-TW": "田奈",
+        "en": "Tana",
+        "ja": "田奈"
+      },
+      "田無": {
+        "zh-TW": "田無",
+        "en": "Tanashi",
+        "ja": "田無"
+      },
+      "登戸": {
+        "zh-TW": "登戸",
+        "en": "Noborito",
+        "ja": "登戸"
       },
       "都庁前": {
         "zh-TW": "都庁前",
@@ -5940,25 +7430,105 @@
         "en": "Toden-zoshigaya",
         "ja": "都電雑司ヶ谷"
       },
+      "都立家政": {
+        "zh-TW": "都立家政",
+        "en": "Toritsu-Kasei",
+        "ja": "都立家政"
+      },
+      "都立大学": {
+        "zh-TW": "都立大学",
+        "en": "Toritsu-daigaku",
+        "ja": "都立大学"
+      },
+      "唐木田": {
+        "zh-TW": "唐木田",
+        "en": "Karakida",
+        "ja": "唐木田"
+      },
+      "東あずま": {
+        "zh-TW": "東あずま",
+        "en": "Higashi-azuma",
+        "ja": "東あずま"
+      },
+      "東雲": {
+        "zh-TW": "東雲",
+        "en": "Shinonome",
+        "ja": "東雲"
+      },
+      "東久留米": {
+        "zh-TW": "東久留米",
+        "en": "Higashi-Kurume",
+        "ja": "東久留米"
+      },
       "東京": {
         "zh-TW": "東京",
         "en": "Tokyo",
         "ja": "東京"
+      },
+      "東京テレポート": {
+        "zh-TW": "東京テレポート",
+        "en": "Tokyo Teleport",
+        "ja": "東京テレポート"
+      },
+      "東京ビッグサイト": {
+        "zh-TW": "東京ビッグサイト",
+        "en": "Tokyo Big Sight",
+        "ja": "東京ビッグサイト"
+      },
+      "東京国際クルーズターミナル": {
+        "zh-TW": "東京国際クルーズターミナル",
+        "en": "Tokyo International Cruise Terminal",
+        "ja": "東京国際クルーズターミナル"
       },
       "東銀座": {
         "zh-TW": "東銀座",
         "en": "Higashi-ginza",
         "ja": "東銀座"
       },
+      "東向島": {
+        "zh-TW": "東向島",
+        "en": "Higashi-mukojima",
+        "ja": "東向島"
+      },
       "東高円寺": {
         "zh-TW": "東高圓寺",
         "en": "Higashi-koenji",
         "ja": "東高円寺"
       },
+      "東秋留": {
+        "zh-TW": "東秋留",
+        "en": "Higashi-Akiru",
+        "ja": "東秋留"
+      },
+      "東十条": {
+        "zh-TW": "東十条",
+        "en": "Higashi-Jujo",
+        "ja": "東十条"
+      },
+      "東小金井": {
+        "zh-TW": "東小金井",
+        "en": "Higashi-Koganei",
+        "ja": "東小金井"
+      },
+      "東松原": {
+        "zh-TW": "東松原",
+        "en": "Higashi-matsubara",
+        "ja": "東松原"
+      },
       "東新宿": {
         "zh-TW": "東新宿",
         "en": "Higashi-shinjuku",
         "ja": "東新宿"
+      },
+      "東青梅": {
+        "zh-TW": "東青梅",
+        "en": "Higashi-Ome",
+        "ja": "東青梅"
+      },
+      "東村山": {
+        "zh-TW": "東村山",
+        "en": "Higashi-Murayama",
+        "ja": "東村山"
       },
       "東大前": {
         "zh-TW": "東大前",
@@ -5970,6 +7540,11 @@
         "en": "Higashi-ojima",
         "ja": "東大島"
       },
+      "東大和市": {
+        "zh-TW": "東大和市",
+        "en": "Higashiyamatoshi",
+        "ja": "東大和市"
+      },
       "東池袋": {
         "zh-TW": "東池袋",
         "en": "Higashi-ikebukuro",
@@ -5980,10 +7555,20 @@
         "en": "Higashi-ikebukuro-yonchome",
         "ja": "東池袋四丁目"
       },
+      "東中神": {
+        "zh-TW": "東中神",
+        "en": "Higashi-Nakagami",
+        "ja": "東中神"
+      },
       "東中野": {
         "zh-TW": "東中野",
         "en": "Higashi-nakano",
         "ja": "東中野"
+      },
+      "東長崎": {
+        "zh-TW": "東長崎",
+        "en": "Higashi-Nagasaki",
+        "ja": "東長崎"
       },
       "東日本橋": {
         "zh-TW": "東日本橋",
@@ -5995,6 +7580,31 @@
         "en": "Higashi-ogu-sanchome",
         "ja": "東尾久三丁目"
       },
+      "東府中": {
+        "zh-TW": "東府中",
+        "en": "Higashi-fuchu",
+        "ja": "東府中"
+      },
+      "東武練馬": {
+        "zh-TW": "東武練馬",
+        "en": "Tobu-nerima",
+        "ja": "東武練馬"
+      },
+      "東伏見": {
+        "zh-TW": "東伏見",
+        "en": "Higashi-Fushimi",
+        "ja": "東伏見"
+      },
+      "東福生": {
+        "zh-TW": "東福生",
+        "en": "Higashi-Fussa",
+        "ja": "東福生"
+      },
+      "東北沢": {
+        "zh-TW": "東北沢",
+        "en": "Higashi-Kitazawa",
+        "ja": "東北沢"
+      },
       "東陽町": {
         "zh-TW": "東陽町",
         "en": "Toyocho",
@@ -6004,6 +7614,21 @@
         "zh-TW": "湯島",
         "en": "Yushima",
         "ja": "湯島"
+      },
+      "等々力": {
+        "zh-TW": "等々力",
+        "en": "Todoroki",
+        "ja": "等々力"
+      },
+      "藤が丘": {
+        "zh-TW": "藤が丘",
+        "en": "Fujigaoka",
+        "ja": "藤が丘"
+      },
+      "読売ランド前": {
+        "zh-TW": "読売ランド前",
+        "en": "Yomiuriland-mae",
+        "ja": "読売ランド前"
       },
       "内幸町": {
         "zh-TW": "内幸町",
@@ -6025,15 +7650,65 @@
         "en": "Minami-sunamachi",
         "ja": "南砂町"
       },
+      "南新宿": {
+        "zh-TW": "南新宿",
+        "en": "Minami-Shinjuku",
+        "ja": "南新宿"
+      },
       "南千住": {
         "zh-TW": "南千住",
         "en": "Minami-senju",
         "ja": "南千住"
       },
+      "南多摩": {
+        "zh-TW": "南多摩",
+        "en": "Minami-Tama",
+        "ja": "南多摩"
+      },
+      "南大沢": {
+        "zh-TW": "南大沢",
+        "en": "Minami-osawa",
+        "ja": "南大沢"
+      },
+      "南町田グランベリーパーク": {
+        "zh-TW": "南町田グランベリーパーク",
+        "en": "Minami-machida Grandberry Park",
+        "ja": "南町田グランベリーパーク"
+      },
+      "南平": {
+        "zh-TW": "南平",
+        "en": "Minamidaira",
+        "ja": "南平"
+      },
+      "二子玉川": {
+        "zh-TW": "二子玉川",
+        "en": "Futako-tamagawa",
+        "ja": "二子玉川"
+      },
+      "二子新地": {
+        "zh-TW": "二子新地",
+        "en": "Futako-shinchi",
+        "ja": "二子新地"
+      },
       "二重橋前〈丸の内〉": {
         "zh-TW": "二重橋前 <丸之內>",
         "en": "Nijubashimae <Marunouchi>",
         "ja": "二重橋前〈丸の内〉"
+      },
+      "二俣尾": {
+        "zh-TW": "二俣尾",
+        "en": "Futamatao",
+        "ja": "二俣尾"
+      },
+      "日の出": {
+        "zh-TW": "日の出",
+        "en": "Hinode",
+        "ja": "日の出"
+      },
+      "日向和田": {
+        "zh-TW": "日向和田",
+        "en": "Hinatawada",
+        "ja": "日向和田"
       },
       "日比谷": {
         "zh-TW": "日比谷",
@@ -6050,6 +7725,11 @@
         "en": "Nihombashi",
         "ja": "日本橋"
       },
+      "日野": {
+        "zh-TW": "日野",
+        "en": "Hino",
+        "ja": "日野"
+      },
       "入谷": {
         "zh-TW": "入谷",
         "en": "Iriya",
@@ -6065,10 +7745,45 @@
         "en": "Bakuro-yokoyama",
         "ja": "馬喰横山"
       },
+      "馬喰町": {
+        "zh-TW": "馬喰町",
+        "en": "Bakurochō",
+        "ja": "馬喰町"
+      },
       "馬込": {
         "zh-TW": "馬込",
         "en": "Magome",
         "ja": "馬込"
+      },
+      "拝島": {
+        "zh-TW": "拝島",
+        "en": "Haijima",
+        "ja": "拝島"
+      },
+      "梅ヶ丘": {
+        "zh-TW": "梅ヶ丘",
+        "en": "Umegaoka",
+        "ja": "梅ヶ丘"
+      },
+      "梅屋敷": {
+        "zh-TW": "梅屋敷",
+        "en": "Umeyashiki",
+        "ja": "梅屋敷"
+      },
+      "梅島": {
+        "zh-TW": "梅島",
+        "en": "Umejima",
+        "ja": "梅島"
+      },
+      "萩山": {
+        "zh-TW": "萩山",
+        "en": "Hagiyama",
+        "ja": "萩山"
+      },
+      "白丸": {
+        "zh-TW": "白丸",
+        "en": "Shiromaru",
+        "ja": "白丸"
       },
       "白金高輪": {
         "zh-TW": "白金高輪",
@@ -6085,15 +7800,65 @@
         "en": "Hakusan",
         "ja": "白山"
       },
+      "白糸台": {
+        "zh-TW": "白糸台",
+        "en": "Shiraitodai",
+        "ja": "白糸台"
+      },
+      "箱根ヶ崎": {
+        "zh-TW": "箱根ヶ崎",
+        "en": "Hakonegasaki",
+        "ja": "箱根ヶ崎"
+      },
+      "幡ヶ谷": {
+        "zh-TW": "幡ヶ谷",
+        "en": "Hatagaya",
+        "ja": "幡ヶ谷"
+      },
+      "八王子": {
+        "zh-TW": "八王子",
+        "en": "Hachioji",
+        "ja": "八王子"
+      },
+      "八王子みなみ野": {
+        "zh-TW": "八王子みなみ野",
+        "en": "Hachioji-Minamino",
+        "ja": "八王子みなみ野"
+      },
+      "八広": {
+        "zh-TW": "八広",
+        "en": "Yahiro",
+        "ja": "八広"
+      },
+      "八坂": {
+        "zh-TW": "八坂",
+        "en": "Yasaka",
+        "ja": "八坂"
+      },
       "八丁堀": {
         "zh-TW": "八丁堀",
         "en": "Hatchobori",
         "ja": "八丁堀"
       },
+      "八幡山": {
+        "zh-TW": "八幡山",
+        "en": "Hachimanyama",
+        "ja": "八幡山"
+      },
+      "鳩ノ巣": {
+        "zh-TW": "鳩ノ巣",
+        "en": "Hatonosu",
+        "ja": "鳩ノ巣"
+      },
       "半蔵門": {
         "zh-TW": "半藏門",
         "en": "Hanzomon",
         "ja": "半蔵門"
+      },
+      "板橋": {
+        "zh-TW": "板橋",
+        "en": "Itabashi",
+        "ja": "板橋"
       },
       "板橋区役所前": {
         "zh-TW": "板橋区役所前",
@@ -6115,6 +7880,31 @@
         "en": "Asukayama",
         "ja": "飛鳥山"
       },
+      "飛田給": {
+        "zh-TW": "飛田給",
+        "en": "Tobitakyu (Ajinomoto Stadium)",
+        "ja": "飛田給"
+      },
+      "尾久": {
+        "zh-TW": "尾久",
+        "en": "Oku",
+        "ja": "尾久"
+      },
+      "尾山台": {
+        "zh-TW": "尾山台",
+        "en": "Oyamadai",
+        "ja": "尾山台"
+      },
+      "百合ヶ丘": {
+        "zh-TW": "百合ヶ丘",
+        "en": "Yurigaoka",
+        "ja": "百合ヶ丘"
+      },
+      "百草園": {
+        "zh-TW": "百草園",
+        "en": "Mogusaen",
+        "ja": "百草園"
+      },
       "氷川台": {
         "zh-TW": "冰川台",
         "en": "Hikawadai",
@@ -6125,15 +7915,170 @@
         "en": "Omote-sando",
         "ja": "表参道"
       },
+      "品川": {
+        "zh-TW": "品川",
+        "en": "Shinagawa",
+        "ja": "品川"
+      },
+      "品川シーサイド": {
+        "zh-TW": "品川シーサイド",
+        "en": "Shinagawa Seaside",
+        "ja": "品川シーサイド"
+      },
+      "浜松町": {
+        "zh-TW": "浜松町",
+        "en": "Hamamatsucho",
+        "ja": "浜松町"
+      },
       "浜町": {
         "zh-TW": "浜町",
         "en": "Hamacho",
         "ja": "浜町"
       },
+      "浜田山": {
+        "zh-TW": "浜田山",
+        "en": "Hamadayama",
+        "ja": "浜田山"
+      },
+      "不動前": {
+        "zh-TW": "不動前",
+        "en": "Fudo-mae",
+        "ja": "不動前"
+      },
+      "富士見ヶ丘": {
+        "zh-TW": "富士見ヶ丘",
+        "en": "Fujimigaoka",
+        "ja": "富士見ヶ丘"
+      },
+      "富士見台": {
+        "zh-TW": "富士見台",
+        "en": "Fujimidai",
+        "ja": "富士見台"
+      },
+      "布田": {
+        "zh-TW": "布田",
+        "en": "Fuda",
+        "ja": "布田"
+      },
+      "府中": {
+        "zh-TW": "府中",
+        "en": "Fuchu",
+        "ja": "府中"
+      },
+      "府中競馬正門前": {
+        "zh-TW": "府中競馬正門前",
+        "en": "Fuchukeiba-seimonmae",
+        "ja": "府中競馬正門前"
+      },
+      "府中本町": {
+        "zh-TW": "府中本町",
+        "en": "Fuchu-Hommachi",
+        "ja": "府中本町"
+      },
+      "浮間舟渡": {
+        "zh-TW": "浮間舟渡",
+        "en": "Ukimafunado",
+        "ja": "浮間舟渡"
+      },
+      "武蔵引田": {
+        "zh-TW": "武蔵引田",
+        "en": "Musashi-Hikida",
+        "ja": "武蔵引田"
+      },
+      "武蔵関": {
+        "zh-TW": "武蔵関",
+        "en": "Musashi-Seki",
+        "ja": "武蔵関"
+      },
+      "武蔵境": {
+        "zh-TW": "武蔵境",
+        "en": "Musashi-Sakai",
+        "ja": "武蔵境"
+      },
+      "武蔵五日市": {
+        "zh-TW": "武蔵五日市",
+        "en": "Musashi-Itsukaichi",
+        "ja": "武蔵五日市"
+      },
+      "武蔵砂川": {
+        "zh-TW": "武蔵砂川",
+        "en": "Musashi-Sunagawa",
+        "ja": "武蔵砂川"
+      },
+      "武蔵小金井": {
+        "zh-TW": "武蔵小金井",
+        "en": "Musashi-Koganei",
+        "ja": "武蔵小金井"
+      },
+      "武蔵小山": {
+        "zh-TW": "武蔵小山",
+        "en": "Musashi-koyama",
+        "ja": "武蔵小山"
+      },
+      "武蔵新田": {
+        "zh-TW": "武蔵新田",
+        "en": "Musashi-nitta",
+        "ja": "武蔵新田"
+      },
+      "武蔵増戸": {
+        "zh-TW": "武蔵増戸",
+        "en": "Musashi-Masuko",
+        "ja": "武蔵増戸"
+      },
+      "武蔵大和": {
+        "zh-TW": "武蔵大和",
+        "en": "Musashi-Yamato",
+        "ja": "武蔵大和"
+      },
+      "武蔵野台": {
+        "zh-TW": "武蔵野台",
+        "en": "Musashinodai",
+        "ja": "武蔵野台"
+      },
+      "福生": {
+        "zh-TW": "福生",
+        "en": "Fussa",
+        "ja": "福生"
+      },
+      "淵野辺": {
+        "zh-TW": "淵野辺",
+        "en": "Fuchinobe",
+        "ja": "淵野辺"
+      },
+      "分倍河原": {
+        "zh-TW": "分倍河原",
+        "en": "Bubaigawara",
+        "ja": "分倍河原"
+      },
+      "平井": {
+        "zh-TW": "平井",
+        "en": "Hirai",
+        "ja": "平井"
+      },
+      "平山城址公園": {
+        "zh-TW": "平山城址公園",
+        "en": "Hirayamajoshi-koen",
+        "ja": "平山城址公園"
+      },
       "平和台": {
         "zh-TW": "平和台",
         "en": "Heiwadai",
         "ja": "平和台"
+      },
+      "平和島": {
+        "zh-TW": "平和島",
+        "en": "Heiwajima",
+        "ja": "平和島"
+      },
+      "片倉": {
+        "zh-TW": "片倉",
+        "en": "Katakura",
+        "ja": "片倉"
+      },
+      "保谷": {
+        "zh-TW": "保谷",
+        "en": "Hoya",
+        "ja": "保谷"
       },
       "宝町": {
         "zh-TW": "宝町",
@@ -6150,6 +8095,11 @@
         "en": "Toyosu",
         "ja": "豊洲"
       },
+      "豊田": {
+        "zh-TW": "豊田",
+        "en": "Toyoda",
+        "ja": "豊田"
+      },
       "豊島園": {
         "zh-TW": "豊島園",
         "en": "Toshimaen",
@@ -6165,10 +8115,55 @@
         "en": "Kita-sando",
         "ja": "北参道"
       },
+      "北赤羽": {
+        "zh-TW": "北赤羽",
+        "en": "Kita-Akabane",
+        "ja": "北赤羽"
+      },
       "北千住": {
         "zh-TW": "北千住",
         "en": "Kita-senju",
         "ja": "北千住"
+      },
+      "北千束": {
+        "zh-TW": "北千束",
+        "en": "Kita-senzoku",
+        "ja": "北千束"
+      },
+      "北池袋": {
+        "zh-TW": "北池袋",
+        "en": "Kita-ikebukuro",
+        "ja": "北池袋"
+      },
+      "北八王子": {
+        "zh-TW": "北八王子",
+        "en": "Kita-Hachioji",
+        "ja": "北八王子"
+      },
+      "北品川": {
+        "zh-TW": "北品川",
+        "en": "Kita-Shinagawa",
+        "ja": "北品川"
+      },
+      "北府中": {
+        "zh-TW": "北府中",
+        "en": "Kita-Fuchu",
+        "ja": "北府中"
+      },
+      "北野": {
+        "zh-TW": "北野",
+        "en": "Kitano",
+        "ja": "北野"
+      },
+      "堀切": {
+        "zh-TW": "堀切",
+        "en": "Horikiri",
+        "ja": "堀切"
+      },
+      "堀切菖蒲園": {
+        "zh-TW": "堀切菖蒲園",
+        "en": "Horikirishobuen",
+        "ja": "堀切菖蒲園"
       },
       "本郷三丁目": {
         "zh-TW": "本鄉三丁目",
@@ -6205,6 +8200,11 @@
         "en": "Suehirocho",
         "ja": "末広町"
       },
+      "万願寺": {
+        "zh-TW": "万願寺",
+        "en": "Manganji",
+        "ja": "万願寺"
+      },
       "妙典": {
         "zh-TW": "妙典",
         "en": "Myoden",
@@ -6214,6 +8214,11 @@
         "zh-TW": "明治神宮前 <原宿>",
         "en": "Meiji-jingumae <Harajuku>",
         "ja": "明治神宮前〈原宿〉"
+      },
+      "明大前": {
+        "zh-TW": "明大前",
+        "en": "Meidaimae",
+        "ja": "明大前"
       },
       "面影橋": {
         "zh-TW": "面影橋",
@@ -6230,15 +8235,65 @@
         "en": "Meguro",
         "ja": "目黒"
       },
+      "目白": {
+        "zh-TW": "目白",
+        "en": "Mejiro",
+        "ja": "目白"
+      },
       "門前仲町": {
         "zh-TW": "門前仲町",
         "en": "Monzen-nakacho",
         "ja": "門前仲町"
       },
+      "野方": {
+        "zh-TW": "野方",
+        "en": "Nogata",
+        "ja": "野方"
+      },
+      "矢口渡": {
+        "zh-TW": "矢口渡",
+        "en": "Yaguchi-no-watashi",
+        "ja": "矢口渡"
+      },
+      "矢川": {
+        "zh-TW": "矢川",
+        "en": "Yagawa",
+        "ja": "矢川"
+      },
+      "矢部": {
+        "zh-TW": "矢部",
+        "en": "Yabe",
+        "ja": "矢部"
+      },
+      "矢野口": {
+        "zh-TW": "矢野口",
+        "en": "Yanokuchi",
+        "ja": "矢野口"
+      },
       "有楽町": {
         "zh-TW": "有樂町",
         "en": "Yurakucho",
         "ja": "有楽町"
+      },
+      "有明": {
+        "zh-TW": "有明",
+        "en": "Ariake",
+        "ja": "有明"
+      },
+      "有明テニスの森": {
+        "zh-TW": "有明テニスの森",
+        "en": "Ariake-Tennis-no-mori",
+        "ja": "有明テニスの森"
+      },
+      "祐天寺": {
+        "zh-TW": "祐天寺",
+        "en": "Yutenji",
+        "ja": "祐天寺"
+      },
+      "用賀": {
+        "zh-TW": "用賀",
+        "en": "Yoga",
+        "ja": "用賀"
       },
       "要町": {
         "zh-TW": "要町",
@@ -6255,6 +8310,36 @@
         "en": "Ochiai-minami-nagasaki",
         "ja": "落合南長崎"
       },
+      "立会川": {
+        "zh-TW": "立会川",
+        "en": "Tachiaigawa",
+        "ja": "立会川"
+      },
+      "立川": {
+        "zh-TW": "立川",
+        "en": "Tachikawa",
+        "ja": "立川"
+      },
+      "立川南": {
+        "zh-TW": "立川南",
+        "en": "Tachikawa-Minami",
+        "ja": "立川南"
+      },
+      "立川北": {
+        "zh-TW": "立川北",
+        "en": "Tachikawa-Kita",
+        "ja": "立川北"
+      },
+      "立飛": {
+        "zh-TW": "立飛",
+        "en": "Tachihi",
+        "ja": "立飛"
+      },
+      "流通センター": {
+        "zh-TW": "流通センター",
+        "en": "Ryutsu Center",
+        "ja": "流通センター"
+      },
       "溜池山王": {
         "zh-TW": "溜池山王",
         "en": "Tameike-sanno",
@@ -6265,10 +8350,25 @@
         "en": "Ryogoku",
         "ja": "両国"
       },
+      "緑が丘": {
+        "zh-TW": "緑が丘",
+        "en": "Midorigaoka",
+        "ja": "緑が丘"
+      },
+      "恋ヶ窪": {
+        "zh-TW": "恋ヶ窪",
+        "en": "Koigakubo",
+        "ja": "恋ヶ窪"
+      },
       "練馬": {
         "zh-TW": "練馬",
         "en": "Nerima",
         "ja": "練馬"
+      },
+      "練馬高野台": {
+        "zh-TW": "練馬高野台",
+        "en": "Nerima-Takanodai",
+        "ja": "練馬高野台"
       },
       "練馬春日町": {
         "zh-TW": "練馬春日町",
@@ -6279,6 +8379,21 @@
         "zh-TW": "蓮根",
         "en": "Hasune",
         "ja": "蓮根"
+      },
+      "蓮沼": {
+        "zh-TW": "蓮沼",
+        "en": "Hasunuma",
+        "ja": "蓮沼"
+      },
+      "六郷土手": {
+        "zh-TW": "六郷土手",
+        "en": "Rokugodote",
+        "ja": "六郷土手"
+      },
+      "六町": {
+        "zh-TW": "六町",
+        "en": "Rokucho",
+        "ja": "六町"
       },
       "六本木": {
         "zh-TW": "六本木",
@@ -6295,10 +8410,20 @@
         "en": "Wakoshi",
         "ja": "和光市"
       },
+      "糀谷": {
+        "zh-TW": "糀谷",
+        "en": "Kojiya",
+        "ja": "糀谷"
+      },
       "茗荷谷": {
         "zh-TW": "茗荷谷",
         "en": "Myogadani",
         "ja": "茗荷谷"
+      },
+      "鶯谷": {
+        "zh-TW": "鶯谷",
+        "en": "Uguisudani",
+        "ja": "鶯谷"
       }
     },
     "london": {
@@ -10435,6 +12560,301 @@
         "zh-TW": "副都心線",
         "en": "Tokyo Metro Fukutoshin Line",
         "ja": "副都心線"
+      },
+      "山手線": {
+        "zh-TW": "山手線",
+        "en": "JR Yamanote Line",
+        "ja": "山手線"
+      },
+      "京浜東北線": {
+        "zh-TW": "京濱東北線",
+        "en": "JR Keihin-Tohoku Line",
+        "ja": "京浜東北線"
+      },
+      "中央線快速": {
+        "zh-TW": "中央線快速",
+        "en": "JR Chuo Line (Rapid)",
+        "ja": "中央線快速"
+      },
+      "中央・総武線各駅停車": {
+        "zh-TW": "中央・總武線各站停車",
+        "en": "JR Chuo-Sobu Line (Local)",
+        "ja": "中央・総武線各駅停車"
+      },
+      "埼京線": {
+        "zh-TW": "埼京線",
+        "en": "JR Saikyo Line",
+        "ja": "埼京線"
+      },
+      "常磐線各駅停車": {
+        "zh-TW": "常磐線各站停車",
+        "en": "JR Joban Line (Local)",
+        "ja": "常磐線各駅停車"
+      },
+      "常磐線快速": {
+        "zh-TW": "常磐線快速",
+        "en": "JR Joban Line (Rapid)",
+        "ja": "常磐線快速"
+      },
+      "横須賀・総武快速線": {
+        "zh-TW": "橫須賀・總武快速線",
+        "en": "JR Yokosuka-Sobu Rapid Line",
+        "ja": "横須賀・総武快速線"
+      },
+      "京葉線": {
+        "zh-TW": "京葉線",
+        "en": "JR Keiyo Line",
+        "ja": "京葉線"
+      },
+      "東海道線": {
+        "zh-TW": "東海道線",
+        "en": "JR Tokaido Line",
+        "ja": "東海道線"
+      },
+      "上野東京ライン（宇都宮線・高崎線）": {
+        "zh-TW": "上野東京線（宇都宮線・高崎線）",
+        "en": "JR Ueno-Tokyo Line (Utsunomiya / Takasaki)",
+        "ja": "上野東京ライン（宇都宮線・高崎線）"
+      },
+      "湘南新宿ライン": {
+        "zh-TW": "湘南新宿線",
+        "en": "JR Shonan-Shinjuku Line",
+        "ja": "湘南新宿ライン"
+      },
+      "南武線": {
+        "zh-TW": "南武線",
+        "en": "JR Nambu Line",
+        "ja": "南武線"
+      },
+      "武蔵野線": {
+        "zh-TW": "武藏野線",
+        "en": "JR Musashino Line",
+        "ja": "武蔵野線"
+      },
+      "横浜線": {
+        "zh-TW": "橫濱線",
+        "en": "JR Yokohama Line",
+        "ja": "横浜線"
+      },
+      "青梅線": {
+        "zh-TW": "青梅線",
+        "en": "JR Ome Line",
+        "ja": "青梅線"
+      },
+      "五日市線": {
+        "zh-TW": "五日市線",
+        "en": "JR Itsukaichi Line",
+        "ja": "五日市線"
+      },
+      "八高線": {
+        "zh-TW": "八高線",
+        "en": "JR Hachiko Line",
+        "ja": "八高線"
+      },
+      "東急東横線": {
+        "zh-TW": "東急東橫線",
+        "en": "Tokyu Toyoko Line",
+        "ja": "東急東横線"
+      },
+      "東急目黒線": {
+        "zh-TW": "東急目黑線",
+        "en": "Tokyu Meguro Line",
+        "ja": "東急目黒線"
+      },
+      "東急田園都市線": {
+        "zh-TW": "東急田園都市線",
+        "en": "Tokyu Den-en-toshi Line",
+        "ja": "東急田園都市線"
+      },
+      "東急大井町線": {
+        "zh-TW": "東急大井町線",
+        "en": "Tokyu Oimachi Line",
+        "ja": "東急大井町線"
+      },
+      "東急池上線": {
+        "zh-TW": "東急池上線",
+        "en": "Tokyu Ikegami Line",
+        "ja": "東急池上線"
+      },
+      "東急多摩川線": {
+        "zh-TW": "東急多摩川線",
+        "en": "Tokyu Tamagawa Line",
+        "ja": "東急多摩川線"
+      },
+      "東急世田谷線": {
+        "zh-TW": "東急世田谷線",
+        "en": "Tokyu Setagaya Line",
+        "ja": "東急世田谷線"
+      },
+      "小田急小田原線": {
+        "zh-TW": "小田急小田原線",
+        "en": "Odakyu Odawara Line",
+        "ja": "小田急小田原線"
+      },
+      "小田急多摩線": {
+        "zh-TW": "小田急多摩線",
+        "en": "Odakyu Tama Line",
+        "ja": "小田急多摩線"
+      },
+      "京王線": {
+        "zh-TW": "京王線",
+        "en": "Keio Line",
+        "ja": "京王線"
+      },
+      "京王新線": {
+        "zh-TW": "京王新線",
+        "en": "Keio New Line",
+        "ja": "京王新線"
+      },
+      "京王井の頭線": {
+        "zh-TW": "京王井之頭線",
+        "en": "Keio Inokashira Line",
+        "ja": "京王井の頭線"
+      },
+      "京王相模原線": {
+        "zh-TW": "京王相模原線",
+        "en": "Keio Sagamihara Line",
+        "ja": "京王相模原線"
+      },
+      "京王高尾線": {
+        "zh-TW": "京王高尾線",
+        "en": "Keio Takao Line",
+        "ja": "京王高尾線"
+      },
+      "京王競馬場線": {
+        "zh-TW": "京王競馬場線",
+        "en": "Keio Keibajo Line",
+        "ja": "京王競馬場線"
+      },
+      "京王動物園線": {
+        "zh-TW": "京王動物園線",
+        "en": "Keio Dobutsuen Line",
+        "ja": "京王動物園線"
+      },
+      "西武池袋線": {
+        "zh-TW": "西武池袋線",
+        "en": "Seibu Ikebukuro Line",
+        "ja": "西武池袋線"
+      },
+      "西武新宿線": {
+        "zh-TW": "西武新宿線",
+        "en": "Seibu Shinjuku Line",
+        "ja": "西武新宿線"
+      },
+      "西武拝島線": {
+        "zh-TW": "西武拜島線",
+        "en": "Seibu Haijima Line",
+        "ja": "西武拝島線"
+      },
+      "西武国分寺線": {
+        "zh-TW": "西武國分寺線",
+        "en": "Seibu Kokubunji Line",
+        "ja": "西武国分寺線"
+      },
+      "西武多摩湖線": {
+        "zh-TW": "西武多摩湖線",
+        "en": "Seibu Tamako Line",
+        "ja": "西武多摩湖線"
+      },
+      "西武多摩川線": {
+        "zh-TW": "西武多摩川線",
+        "en": "Seibu Tamagawa Line",
+        "ja": "西武多摩川線"
+      },
+      "西武豊島線": {
+        "zh-TW": "西武豐島線",
+        "en": "Seibu Toshima Line",
+        "ja": "西武豊島線"
+      },
+      "西武有楽町線": {
+        "zh-TW": "西武有樂町線",
+        "en": "Seibu Yurakucho Line",
+        "ja": "西武有楽町線"
+      },
+      "西武西武園線": {
+        "zh-TW": "西武西武園線",
+        "en": "Seibu Seibuen Line",
+        "ja": "西武西武園線"
+      },
+      "東武スカイツリーライン": {
+        "zh-TW": "東武晴空塔線",
+        "en": "Tobu Skytree Line",
+        "ja": "東武スカイツリーライン"
+      },
+      "東武スカイツリーライン（押上支線）": {
+        "zh-TW": "東武晴空塔線（押上支線）",
+        "en": "Tobu Skytree Line (Oshiage branch)",
+        "ja": "東武スカイツリーライン（押上支線）"
+      },
+      "東武亀戸線": {
+        "zh-TW": "東武龜戶線",
+        "en": "Tobu Kameido Line",
+        "ja": "東武亀戸線"
+      },
+      "東武大師線": {
+        "zh-TW": "東武大師線",
+        "en": "Tobu Daishi Line",
+        "ja": "東武大師線"
+      },
+      "東武東上線": {
+        "zh-TW": "東武東上線",
+        "en": "Tobu Tojo Line",
+        "ja": "東武東上線"
+      },
+      "京成本線": {
+        "zh-TW": "京成本線",
+        "en": "Keisei Main Line",
+        "ja": "京成本線"
+      },
+      "京成押上線": {
+        "zh-TW": "京成押上線",
+        "en": "Keisei Oshiage Line",
+        "ja": "京成押上線"
+      },
+      "京成金町線": {
+        "zh-TW": "京成金町線",
+        "en": "Keisei Kanamachi Line",
+        "ja": "京成金町線"
+      },
+      "北総線": {
+        "zh-TW": "北總線",
+        "en": "Hokuso Line",
+        "ja": "北総線"
+      },
+      "京急本線": {
+        "zh-TW": "京急本線",
+        "en": "Keikyu Main Line",
+        "ja": "京急本線"
+      },
+      "京急空港線": {
+        "zh-TW": "京急機場線",
+        "en": "Keikyu Airport Line",
+        "ja": "京急空港線"
+      },
+      "つくばエクスプレス": {
+        "zh-TW": "筑波快線",
+        "en": "Tsukuba Express",
+        "ja": "つくばエクスプレス"
+      },
+      "東京モノレール羽田空港線": {
+        "zh-TW": "東京單軌電車羽田機場線",
+        "en": "Tokyo Monorail Haneda Airport Line",
+        "ja": "東京モノレール羽田空港線"
+      },
+      "ゆりかもめ": {
+        "zh-TW": "百合海鷗號",
+        "en": "Yurikamome",
+        "ja": "ゆりかもめ"
+      },
+      "りんかい線": {
+        "zh-TW": "臨海線",
+        "en": "Rinkai Line",
+        "ja": "りんかい線"
+      },
+      "多摩都市モノレール": {
+        "zh-TW": "多摩單軌電車",
+        "en": "Tama Monorail",
+        "ja": "多摩都市モノレール"
       }
     },
     "london": {
@@ -10985,86 +13405,6 @@
       "en": "Zhushan Line",
       "ja": "祝山線"
     },
-    "A・淺草線": {
-      "zh-TW": "A・淺草線",
-      "en": "A · Toei Asakusa Line",
-      "ja": "A・浅草線"
-    },
-    "I・三田線": {
-      "zh-TW": "I・三田線",
-      "en": "I · Toei Mita Line",
-      "ja": "I・三田線"
-    },
-    "S・新宿線": {
-      "zh-TW": "S・新宿線",
-      "en": "S · Toei Shinjuku Line",
-      "ja": "S・新宿線"
-    },
-    "E・大江戶線": {
-      "zh-TW": "E・大江戶線",
-      "en": "E · Toei Oedo Line",
-      "ja": "E・大江戸線"
-    },
-    "SA・東京櫻花路面電車": {
-      "zh-TW": "SA・東京櫻花路面電車（都電荒川線）",
-      "en": "SA · Tokyo Sakura Tram (Toden Arakawa Line)",
-      "ja": "SA・東京さくらトラム（都電荒川線）"
-    },
-    "NT・日暮里・舍人線": {
-      "zh-TW": "NT・日暮里・舍人線",
-      "en": "NT · Nippori-Toneri Liner",
-      "ja": "NT・日暮里・舎人ライナー"
-    },
-    "G・銀座線": {
-      "zh-TW": "G・銀座線",
-      "en": "G · Tokyo Metro Ginza Line",
-      "ja": "G・銀座線"
-    },
-    "M・丸之內線": {
-      "zh-TW": "M・丸之內線",
-      "en": "M · Tokyo Metro Marunouchi Line",
-      "ja": "M・丸ノ内線"
-    },
-    "Mb・丸之內線方南町支線": {
-      "zh-TW": "Mb・丸之內線 方南町支線",
-      "en": "Mb · Tokyo Metro Marunouchi Line · Honancho branch",
-      "ja": "Mb・丸ノ内線 方南町支線"
-    },
-    "H・日比谷線": {
-      "zh-TW": "H・日比谷線",
-      "en": "H · Tokyo Metro Hibiya Line",
-      "ja": "H・日比谷線"
-    },
-    "T・東西線": {
-      "zh-TW": "T・東西線",
-      "en": "T · Tokyo Metro Tozai Line",
-      "ja": "T・東西線"
-    },
-    "C・千代田線": {
-      "zh-TW": "C・千代田線",
-      "en": "C · Tokyo Metro Chiyoda Line",
-      "ja": "C・千代田線"
-    },
-    "Y・有樂町線": {
-      "zh-TW": "Y・有樂町線",
-      "en": "Y · Tokyo Metro Yurakucho Line",
-      "ja": "Y・有楽町線"
-    },
-    "Z・半藏門線": {
-      "zh-TW": "Z・半藏門線",
-      "en": "Z · Tokyo Metro Hanzomon Line",
-      "ja": "Z・半蔵門線"
-    },
-    "N・南北線": {
-      "zh-TW": "N・南北線",
-      "en": "N · Tokyo Metro Namboku Line",
-      "ja": "N・南北線"
-    },
-    "F・副都心線": {
-      "zh-TW": "F・副都心線",
-      "en": "F · Tokyo Metro Fukutoshin Line",
-      "ja": "F・副都心線"
-    },
     "貝克盧線": {
       "zh-TW": "貝克盧線",
       "en": "Bakerloo line",
@@ -11289,6 +13629,381 @@
       "zh-TW": "Halkalı–Bahçeşehir 通勤鐵路",
       "en": "Halkalı–Bahçeşehir commuter rail",
       "ja": "Halkalı–Bahçeşehir近郊鉄道"
+    },
+    "A・淺草線": {
+      "zh-TW": "A・淺草線",
+      "en": "A · Toei Asakusa Line",
+      "ja": "A・浅草線"
+    },
+    "I・三田線": {
+      "zh-TW": "I・三田線",
+      "en": "I · Toei Mita Line",
+      "ja": "I・三田線"
+    },
+    "S・新宿線": {
+      "zh-TW": "S・新宿線",
+      "en": "S · Toei Shinjuku Line",
+      "ja": "S・新宿線"
+    },
+    "E・大江戶線": {
+      "zh-TW": "E・大江戶線",
+      "en": "E · Toei Oedo Line",
+      "ja": "E・大江戸線"
+    },
+    "SA・東京櫻花路面電車": {
+      "zh-TW": "SA・東京櫻花路面電車（都電荒川線）",
+      "en": "SA · Tokyo Sakura Tram (Toden Arakawa Line)",
+      "ja": "SA・東京さくらトラム（都電荒川線）"
+    },
+    "NT・日暮里・舍人線": {
+      "zh-TW": "NT・日暮里・舍人線",
+      "en": "NT · Nippori-Toneri Liner",
+      "ja": "NT・日暮里・舎人ライナー"
+    },
+    "G・銀座線": {
+      "zh-TW": "G・銀座線",
+      "en": "G · Tokyo Metro Ginza Line",
+      "ja": "G・銀座線"
+    },
+    "M・丸之內線": {
+      "zh-TW": "M・丸之內線",
+      "en": "M · Tokyo Metro Marunouchi Line",
+      "ja": "M・丸ノ内線"
+    },
+    "Mb・丸之內線方南町支線": {
+      "zh-TW": "Mb・丸之內線 方南町支線",
+      "en": "Mb · Tokyo Metro Marunouchi Line · Honancho branch",
+      "ja": "Mb・丸ノ内線 方南町支線"
+    },
+    "H・日比谷線": {
+      "zh-TW": "H・日比谷線",
+      "en": "H · Tokyo Metro Hibiya Line",
+      "ja": "H・日比谷線"
+    },
+    "T・東西線": {
+      "zh-TW": "T・東西線",
+      "en": "T · Tokyo Metro Tozai Line",
+      "ja": "T・東西線"
+    },
+    "C・千代田線": {
+      "zh-TW": "C・千代田線",
+      "en": "C · Tokyo Metro Chiyoda Line",
+      "ja": "C・千代田線"
+    },
+    "Y・有樂町線": {
+      "zh-TW": "Y・有樂町線",
+      "en": "Y · Tokyo Metro Yurakucho Line",
+      "ja": "Y・有楽町線"
+    },
+    "Z・半藏門線": {
+      "zh-TW": "Z・半藏門線",
+      "en": "Z · Tokyo Metro Hanzomon Line",
+      "ja": "Z・半蔵門線"
+    },
+    "N・南北線": {
+      "zh-TW": "N・南北線",
+      "en": "N · Tokyo Metro Namboku Line",
+      "ja": "N・南北線"
+    },
+    "F・副都心線": {
+      "zh-TW": "F・副都心線",
+      "en": "F · Tokyo Metro Fukutoshin Line",
+      "ja": "F・副都心線"
+    },
+    "JY・山手線": {
+      "zh-TW": "JY・山手線",
+      "en": "JY · JR Yamanote Line",
+      "ja": "JY・山手線"
+    },
+    "JK・京濱東北線": {
+      "zh-TW": "JK・京濱東北線",
+      "en": "JK · JR Keihin-Tohoku Line",
+      "ja": "JK・京浜東北線"
+    },
+    "JC・中央線快速": {
+      "zh-TW": "JC・中央線快速",
+      "en": "JC · JR Chuo Line (Rapid)",
+      "ja": "JC・中央線快速"
+    },
+    "JB・中央・總武線各站停車": {
+      "zh-TW": "JB・中央・總武線各站停車",
+      "en": "JB · JR Chuo-Sobu Line (Local)",
+      "ja": "JB・中央・総武線各駅停車"
+    },
+    "JA・埼京線": {
+      "zh-TW": "JA・埼京線",
+      "en": "JA · JR Saikyo Line",
+      "ja": "JA・埼京線"
+    },
+    "JL・常磐線各站停車": {
+      "zh-TW": "JL・常磐線各站停車",
+      "en": "JL · JR Joban Line (Local)",
+      "ja": "JL・常磐線各駅停車"
+    },
+    "JJ・常磐線快速": {
+      "zh-TW": "JJ・常磐線快速",
+      "en": "JJ · JR Joban Line (Rapid)",
+      "ja": "JJ・常磐線快速"
+    },
+    "JO・橫須賀・總武快速線": {
+      "zh-TW": "JO・橫須賀・總武快速線",
+      "en": "JO · JR Yokosuka-Sobu Rapid Line",
+      "ja": "JO・横須賀・総武快速線"
+    },
+    "JE・京葉線": {
+      "zh-TW": "JE・京葉線",
+      "en": "JE · JR Keiyo Line",
+      "ja": "JE・京葉線"
+    },
+    "JT・東海道線": {
+      "zh-TW": "JT・東海道線",
+      "en": "JT · JR Tokaido Line",
+      "ja": "JT・東海道線"
+    },
+    "JU・上野東京線": {
+      "zh-TW": "JU・上野東京線（宇都宮線・高崎線）",
+      "en": "JU · JR Ueno-Tokyo Line (Utsunomiya / Takasaki)",
+      "ja": "JU・上野東京ライン（宇都宮線・高崎線）"
+    },
+    "JS・湘南新宿線": {
+      "zh-TW": "JS・湘南新宿線",
+      "en": "JS · JR Shonan-Shinjuku Line",
+      "ja": "JS・湘南新宿ライン"
+    },
+    "JN・南武線": {
+      "zh-TW": "JN・南武線",
+      "en": "JN · JR Nambu Line",
+      "ja": "JN・南武線"
+    },
+    "JM・武藏野線": {
+      "zh-TW": "JM・武藏野線",
+      "en": "JM · JR Musashino Line",
+      "ja": "JM・武蔵野線"
+    },
+    "JH・橫濱線": {
+      "zh-TW": "JH・橫濱線",
+      "en": "JH · JR Yokohama Line",
+      "ja": "JH・横浜線"
+    },
+    "JCO・青梅線": {
+      "zh-TW": "JCO・青梅線",
+      "en": "JCO · JR Ome Line",
+      "ja": "JCO・青梅線"
+    },
+    "JCI・五日市線": {
+      "zh-TW": "JCI・五日市線",
+      "en": "JCI · JR Itsukaichi Line",
+      "ja": "JCI・五日市線"
+    },
+    "JHK・八高線": {
+      "zh-TW": "JHK・八高線",
+      "en": "JHK · JR Hachiko Line",
+      "ja": "JHK・八高線"
+    },
+    "TY・東急東橫線": {
+      "zh-TW": "TY・東急東橫線",
+      "en": "TY · Tokyu Toyoko Line",
+      "ja": "TY・東急東横線"
+    },
+    "MG・東急目黑線": {
+      "zh-TW": "MG・東急目黑線",
+      "en": "MG · Tokyu Meguro Line",
+      "ja": "MG・東急目黒線"
+    },
+    "DT・東急田園都市線": {
+      "zh-TW": "DT・東急田園都市線",
+      "en": "DT · Tokyu Den-en-toshi Line",
+      "ja": "DT・東急田園都市線"
+    },
+    "OM・東急大井町線": {
+      "zh-TW": "OM・東急大井町線",
+      "en": "OM · Tokyu Oimachi Line",
+      "ja": "OM・東急大井町線"
+    },
+    "IK・東急池上線": {
+      "zh-TW": "IK・東急池上線",
+      "en": "IK · Tokyu Ikegami Line",
+      "ja": "IK・東急池上線"
+    },
+    "TM・東急多摩川線": {
+      "zh-TW": "TM・東急多摩川線",
+      "en": "TM · Tokyu Tamagawa Line",
+      "ja": "TM・東急多摩川線"
+    },
+    "SG・東急世田谷線": {
+      "zh-TW": "SG・東急世田谷線",
+      "en": "SG · Tokyu Setagaya Line",
+      "ja": "SG・東急世田谷線"
+    },
+    "OH・小田急小田原線": {
+      "zh-TW": "OH・小田急小田原線",
+      "en": "OH · Odakyu Odawara Line",
+      "ja": "OH・小田急小田原線"
+    },
+    "OT・小田急多摩線": {
+      "zh-TW": "OT・小田急多摩線",
+      "en": "OT · Odakyu Tama Line",
+      "ja": "OT・小田急多摩線"
+    },
+    "KO・京王線": {
+      "zh-TW": "KO・京王線",
+      "en": "KO · Keio Line",
+      "ja": "KO・京王線"
+    },
+    "KON・京王新線": {
+      "zh-TW": "KON・京王新線",
+      "en": "KON · Keio New Line",
+      "ja": "KON・京王新線"
+    },
+    "IN・京王井之頭線": {
+      "zh-TW": "IN・京王井之頭線",
+      "en": "IN · Keio Inokashira Line",
+      "ja": "IN・京王井の頭線"
+    },
+    "KOS・京王相模原線": {
+      "zh-TW": "KOS・京王相模原線",
+      "en": "KOS · Keio Sagamihara Line",
+      "ja": "KOS・京王相模原線"
+    },
+    "KOT・京王高尾線": {
+      "zh-TW": "KOT・京王高尾線",
+      "en": "KOT · Keio Takao Line",
+      "ja": "KOT・京王高尾線"
+    },
+    "KOK・京王競馬場線": {
+      "zh-TW": "KOK・京王競馬場線",
+      "en": "KOK · Keio Keibajo Line",
+      "ja": "KOK・京王競馬場線"
+    },
+    "KOD・京王動物園線": {
+      "zh-TW": "KOD・京王動物園線",
+      "en": "KOD · Keio Dobutsuen Line",
+      "ja": "KOD・京王動物園線"
+    },
+    "SI・西武池袋線": {
+      "zh-TW": "SI・西武池袋線",
+      "en": "SI · Seibu Ikebukuro Line",
+      "ja": "SI・西武池袋線"
+    },
+    "SS・西武新宿線": {
+      "zh-TW": "SS・西武新宿線",
+      "en": "SS · Seibu Shinjuku Line",
+      "ja": "SS・西武新宿線"
+    },
+    "SSH・西武拜島線": {
+      "zh-TW": "SSH・西武拜島線",
+      "en": "SSH · Seibu Haijima Line",
+      "ja": "SSH・西武拝島線"
+    },
+    "SK・西武國分寺線": {
+      "zh-TW": "SK・西武國分寺線",
+      "en": "SK · Seibu Kokubunji Line",
+      "ja": "SK・西武国分寺線"
+    },
+    "ST・西武多摩湖線": {
+      "zh-TW": "ST・西武多摩湖線",
+      "en": "ST · Seibu Tamako Line",
+      "ja": "ST・西武多摩湖線"
+    },
+    "SW・西武多摩川線": {
+      "zh-TW": "SW・西武多摩川線",
+      "en": "SW · Seibu Tamagawa Line",
+      "ja": "SW・西武多摩川線"
+    },
+    "SIT・西武豐島線": {
+      "zh-TW": "SIT・西武豐島線",
+      "en": "SIT · Seibu Toshima Line",
+      "ja": "SIT・西武豊島線"
+    },
+    "SIY・西武有樂町線": {
+      "zh-TW": "SIY・西武有樂町線",
+      "en": "SIY · Seibu Yurakucho Line",
+      "ja": "SIY・西武有楽町線"
+    },
+    "SSE・西武西武園線": {
+      "zh-TW": "SSE・西武西武園線",
+      "en": "SSE · Seibu Seibuen Line",
+      "ja": "SSE・西武西武園線"
+    },
+    "TS・東武晴空塔線": {
+      "zh-TW": "TS・東武晴空塔線",
+      "en": "TS · Tobu Skytree Line",
+      "ja": "TS・東武スカイツリーライン"
+    },
+    "TSO・東武晴空塔線": {
+      "zh-TW": "TSO・東武晴空塔線（押上支線）",
+      "en": "TSO · Tobu Skytree Line (Oshiage branch)",
+      "ja": "TSO・東武スカイツリーライン（押上支線）"
+    },
+    "TSK・東武龜戶線": {
+      "zh-TW": "TSK・東武龜戶線",
+      "en": "TSK · Tobu Kameido Line",
+      "ja": "TSK・東武亀戸線"
+    },
+    "TSD・東武大師線": {
+      "zh-TW": "TSD・東武大師線",
+      "en": "TSD · Tobu Daishi Line",
+      "ja": "TSD・東武大師線"
+    },
+    "TJ・東武東上線": {
+      "zh-TW": "TJ・東武東上線",
+      "en": "TJ · Tobu Tojo Line",
+      "ja": "TJ・東武東上線"
+    },
+    "KS・京成本線": {
+      "zh-TW": "KS・京成本線",
+      "en": "KS · Keisei Main Line",
+      "ja": "KS・京成本線"
+    },
+    "KSO・京成押上線": {
+      "zh-TW": "KSO・京成押上線",
+      "en": "KSO · Keisei Oshiage Line",
+      "ja": "KSO・京成押上線"
+    },
+    "KSK・京成金町線": {
+      "zh-TW": "KSK・京成金町線",
+      "en": "KSK · Keisei Kanamachi Line",
+      "ja": "KSK・京成金町線"
+    },
+    "HS・北總線": {
+      "zh-TW": "HS・北總線",
+      "en": "HS · Hokuso Line",
+      "ja": "HS・北総線"
+    },
+    "KK・京急本線": {
+      "zh-TW": "KK・京急本線",
+      "en": "KK · Keikyu Main Line",
+      "ja": "KK・京急本線"
+    },
+    "KKA・京急機場線": {
+      "zh-TW": "KKA・京急機場線",
+      "en": "KKA · Keikyu Airport Line",
+      "ja": "KKA・京急空港線"
+    },
+    "TX・筑波快線": {
+      "zh-TW": "TX・筑波快線",
+      "en": "TX · Tsukuba Express",
+      "ja": "TX・つくばエクスプレス"
+    },
+    "MO・東京單軌電車羽田機場線": {
+      "zh-TW": "MO・東京單軌電車羽田機場線",
+      "en": "MO · Tokyo Monorail Haneda Airport Line",
+      "ja": "MO・東京モノレール羽田空港線"
+    },
+    "U・百合海鷗號": {
+      "zh-TW": "U・百合海鷗號",
+      "en": "U · Yurikamome",
+      "ja": "U・ゆりかもめ"
+    },
+    "R・臨海線": {
+      "zh-TW": "R・臨海線",
+      "en": "R · Rinkai Line",
+      "ja": "R・りんかい線"
+    },
+    "TT・多摩單軌電車": {
+      "zh-TW": "TT・多摩單軌電車",
+      "en": "TT · Tama Monorail",
+      "ja": "TT・多摩都市モノレール"
     }
   }
 }

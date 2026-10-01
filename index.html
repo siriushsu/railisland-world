@@ -5552,6 +5552,7 @@
            內容 li 上限 8 條(li.grp 是標題不算)。 -->
       <ul class="foot-list foot-recent">
         <li class="grp">最近更新</li>
+        <li data-cl-of="tokyorail1001"><span class="d">10/1</span><span>東京補齊東京都全境鐵道：加入 JR 東日本 18 條與東急、小田急、京王、西武、東武、京成、京急等私鐵，共 75 條路線、683 站；都營依官方時刻，其餘為模擬班距</span></li>
         <li data-cl-of="world3d1001"><span class="d">10/1</span><span>紐約、東京加入立體列車：放大並傾斜地圖，列車依路線標準編組沿線行駛，色帶為路線色；外觀為示意，不是當地實際車型</span></li>
         <li data-cl-of="worldui1001"><span class="d">10/1</span><span>世界版介面跟上台灣版 10/1：地圖引擎換成 MapLibre，縮放更順；新增字級、列車光環、日夜光影、暗色 2.0、跟車時車頭朝上與路線導覽；車站看板改依終點分組</span></li>
         <li data-cl-of="taiwanapp"><span class="d">9/4</span><span>世界版的支援與關於頁新增台灣版「軌島」入口：iPhone／iPad 會前往 App Store、Android 會前往 Google Play，其他裝置則開啟 railisland.tw</span></li>
@@ -5559,7 +5560,6 @@
         <li data-cl-of="swisssplit"><span class="d">9/4</span><span>瑞士把混了兩種走法的路線拆成多條線，伯連納快車的庫爾與聖莫里茲兩條走法現在分開畫；路線不再來回折返</span></li>
         <li data-cl-of="swissscenic"><span class="d">9/2</span><span>瑞士補齊官方景觀類別全部十條，新收金色山口全景與快車、百谷線、琉森–茵特拉肯快車、哥達全景快車；多條路線的來回折返線形也修好了</span></li>
         <li data-cl-of="worldroutes"><span class="d">9/2</span><span>巴黎、維也納、墨爾本、挪威四地依官方現行資料重新查證路網，補上 13 條漏掉的路線，也修好兩條被畫成半截的維也納電車</span></li>
-        <li data-cl-of="worldmapnames"><span class="d">9/2</span><span>底圖地名改用當地的寫法：巴黎寫 Paris、東京寫東京都，不再一律轉成中文譯名</span></li>
       </ul>
       <!-- 第二層:完整歷史。刻意不掛 .foot-box 類名——placeFootBoxes() 用
            `.site-foot .foot-box` 搬移面板,巢狀同名會被當成另一個盒子一起搬走。 -->
@@ -5567,6 +5567,7 @@
         <summary>完整更新歷史（依主題分類）</summary>
         <ul class="foot-list">
         <li class="grp">路網與車站</li>
+        <li data-cl="tokyorail1001"><span class="d">10/1</span><span>東京從「都營＋Tokyo Metro 16 條」擴大到東京都全境 75 條路線、683 站：新增 JR 東日本 18 條（山手線、京濱東北、中央快速、中央・總武各停、埼京、常磐、橫須賀・總武快速、京葉、東海道、上野東京、湘南新宿、南武、武藏野、橫濱、青梅、五日市、八高），東急 7 條、小田急 2 條、京王 7 條、西武 9 條、東武 5 條、京成 3 條、京急 2 條，以及北總線、筑波快線、東京單軌、百合海鷗號、臨海線與多摩單軌。線形與站點取自 OpenStreetMap，裁到東京都界，少數途經鄰縣的路段保留以維持連續。這些業者的官方時刻在 ODPT 只提供比賽限定授權、不能公開使用，所以新路線與 Tokyo Metro 一樣是明示的模擬班距；都營仍依官方平日時刻。紐約與東京的立體列車也套用到新路線</span></li>
         <li data-cl="worldapp"><span class="d">9/4</span><span>iPhone／Android 第一版先收錄東京、紐約、倫敦、伊斯坦堡與新加坡。這五城都已通過路線缺口、列車流動、資料來源與繁中／英文／日文檢查；其餘七個地區繼續留在網站逐步校正，不會因為要上架而把成熟度不同的內容一起塞進 App</span></li>
         <li data-cl="swisssplit"><span class="d">9/4</span><span>瑞士 45→47 條。官方時刻表會把同一條路線底下的不同走法放在同一個代碼裡：伯連納快車 BEX 同時有庫爾↔蒂拉諾與聖莫里茲↔蒂拉諾兩種走法，恩加丁線 R15 也有聖莫里茲起與蓬特雷西納起兩種。畫成單一條線的話，在分岔的地方就只能來回折返。現在先把每條路線的停靠序列折疊成「服務型態」再各自建線，實際會分岔的只有這兩條（各拆成兩條），其餘 43 條的線別不變。同輪修好米軌路網在庫爾被切斷的問題：庫爾站區有 15 段 RhB 軌道是米軌與標準軌共用同一條路基的三軌路段，資料上標成標準軌，只認米軌標籤就會把網路切開，庫爾西站到庫爾這 1.1 公里因此得繞 133 公里。兩件事修完之後，47 條線沒有任何一條再有超過四分之一的路段被重複走過（原本有七條），線形總里程從 4169 公里降到 2702 公里，少掉的全是原本虛構出來的折返。另外，逐段找路原本只要在「已知營運商的軌道」上找得到路就採用，即使那條路明顯繞遠；現在超過直線距離兩倍就會再比一次完整路網、取較短的，站牌因此不再出現「費爾斯貝格 → 多馬特／埃姆斯 → 費爾斯貝格 → 費爾斯貝格」這種重複（重複站從 138 個降到 13 個）</span></li>
         <li data-cl="swissscenic"><span class="d">9/2</span><span>瑞士 36→45 條。官方把景觀列車獨立成一個類別（GTFS route_type=107／route_desc=PE，兩個判準選到完全相同的十條），原本只收了其中的伯連納快車與冰河快車，這次把缺的五條服務補齊：金色山口全景 30（蒙特勒–茨魏西門）、百谷線 72（多莫多索拉–洛迦諾）、金色山口快車 GPX 的米軌與標準軌兩段、琉森–茵特拉肯快車 LIX、哥達全景快車 PE。標準軌那兩段不在原本抓的窄軌路網上，改成窄軌與標準軌各建一張獨立的圖再依營運商分派——兩種軌距在布里格、茵特拉肯東、茨魏西門共用節點，合成一張圖會讓米軌路線抄捷徑走到標準軌上。同輪修好線形的來回折返：站序原本是把車站投影到「最遠兩端點的連線」上排序，遇到 Z 字形路網就會排錯而讓線一路折返，改用班表本身的真實停靠順序後，12 條線的重疊大幅下降、沒有任何一條變差（阿爾布拉線 368→221 公里、伯連納快車 363→269 公里）。基準日改用 9/5 週六，是整週裡路線最齊的一天（45/46）</span></li>
@@ -6458,7 +6459,7 @@
 //         v0831e 只多幾行註解且其中一句寫錯(openNearbyStations 不讀 simSec,它不吃撥鐘影響),
 //         故正文全取 v0831d。守門人:scripts/verify_merge_no_loss.mjs --parents 兩顆。
 const RAIL_3D_BOOT_PARAMS = new URLSearchParams(location.search);
-const BUILD = 'world-v1001b';
+const BUILD = 'world-v1001c';
 const LANDSCAPE_REQUESTED = new URLSearchParams(location.search).get('map') === 'landscape';
 const GARAGE_QUERY = new URLSearchParams(location.search).get('garage');
 // 輕量多語 runtime：繁中原文同時是安全 fallback，外語字典只存差異字串。
@@ -7723,7 +7724,7 @@ function pal() { return MAP_PAL[state.basemap === 'landscape' ? 'light' : state.
 const SYS_META = {
   norway_sched: { plateL: 'Bodø', plateR: 'Stavanger', sub: 'NORWAY RAIL', lead: '挪威國鐵依 Entur 公開時刻表推演；目前收錄全國旅客鐵路，資料會依官方 feed 持續重查。' },
   nyc_sched: { plateL: 'Inwood-207 St', plateR: 'Tottenville', sub: 'NEW YORK SUBWAY · SIR', lead: '紐約現行 28 個 Subway service 與 Staten Island Railway 已逐線查證，分支與不同走廊拆成 36 個可見路徑；列車依 MTA 官方 2026-08-31 靜態時刻表推演，並非即時位置。' },
-  tokyo_sched: { plateL: '和光市', plateR: '西船橋', sub: 'TOKYO METRO · TOEI', lead: '東京現行 Tokyo Metro 9 線與都營交通 6 線已逐線查證；方南町支線與千代田線北綾瀨端均按真實拓撲建置。Metro 以明示模擬班距流動，都營依官方平日時刻；不包含 JR 與全部私鐵。' },
+  tokyo_sched: { plateL: '奥多摩', plateR: '葛西臨海公園', sub: 'TOKYO RAIL · JR · METRO', lead: '東京都全境鐵道：都營 6 線、Tokyo Metro 9 線，加上 JR 東日本與東急、小田急、京王、西武、東武、京成、京急等私鐵共 75 個可見路徑，裁到東京都界。都營依官方平日時刻；其餘以明示模擬班距流動，不是官方逐班時刻。' },
   swiss_sched: { plateL: 'Zermatt', plateR: 'St. Moritz', sub: 'SWISS SCENIC RAIL', lead: '瑞士目前是景觀窄軌策展集，不宣稱全國完整；列車依瑞士公開交通資料時刻表推演。' },
   singapore: { plateL: 'Changi Airport', plateR: 'Tuas Link', sub: 'SINGAPORE MRT · LRT', lead: '新加坡現行 6 套 MRT、3 套 LRT 與 Circle Line 6 完整環線已逐線查證，185 個站名提供繁中、英文、日文；列車依明示模擬班距在正確路網上流動，並非即時位置。' },
   london: { plateL: 'Reading', plateR: 'Shenfield', sub: 'TFL TUBE · RAIL · TRAM', lead: '倫敦 TfL 現行 20 個線別已逐線查證：Underground、Elizabeth line、DLR、Tram 與六條 London Overground 共拆成 67 個可見路徑。Tram 單向環按真實方向建置；列車使用明示模擬班距，不包含一般 National Rail。' },
@@ -7758,9 +7759,9 @@ const WORLD_DATA_NOTES = {
     ja: 'ロンドンの収録範囲を2026年8月31日にTfL Unified APIの現行Route/Sequenceで検証しました。Underground 33、DLR 6、Elizabeth line 10、London Overground 12、Tram 6、計20ブランド・67表示経路・464駅名です。Undergroundの詳細線形はOpenStreetMapのroute relation（© OpenStreetMap contributors、ODbL）、その他はTfL公式の駅順と座標を使用しています。8,590本は明示した模擬運転間隔です。Tramの一方向ループは公式の進行方向を維持しています。リアルタイム位置ではなく、一般のNational Railは対象外です。'
   },
   tokyo_sched: {
-    'zh-TW': '東京現行路網於 2026-08-31 查證：Tokyo Metro 9 線與都營交通 6 線，共 16 個可見路徑。Tokyo Metro 站序與三語名稱取官方各線頁，線形採 OpenStreetMap route relations（© OpenStreetMap contributors，ODbL）；5,810 班為明示的合成班距。Toei 2,818 班取東京都交通局官方 GTFS-JP 普通平日時刻。畫面不是即時位置，範圍不含 JR 與全部私鐵。',
-    en: 'Tokyo coverage was audited on 31 August 2026: all nine Tokyo Metro lines and six Toei services, represented by 16 visible paths. Tokyo Metro station order and names come from the operator’s official Japanese, English and Traditional Chinese line pages; shapes use OpenStreetMap route relations (© OpenStreetMap contributors, ODbL). Its 5,810 services use clearly labelled simulated headways. The 2,818 Toei services retain the official weekday GTFS-JP timetable. Positions are not live, and JR and the full private-rail network are outside this scope.',
-    ja: '東京の収録範囲を2026年8月31日に検証しました。東京メトロ9路線と都営交通6路線を16本の表示経路で収録しています。東京メトロの駅順・駅名は公式の日本語・英語・繁体字中国語ページ、線形はOpenStreetMapのroute relationを使用しています（© OpenStreetMap contributors、ODbL）。5,810本は明示した模擬運転間隔です。都営2,818本は東京都交通局公式GTFS-JPの平日時刻を維持しています。リアルタイム位置ではなく、JRと私鉄全線は対象外です。'
+    'zh-TW': '東京都全境鐵道，2026-10-01 更新：都營 6 線、Tokyo Metro 9 線，以及 JR 東日本 18 條、東急 7 條、小田急 2 條、京王 7 條、西武 9 條、東武 5 條、京成 3 條、京急 2 條、北總線、筑波快線、東京單軌、百合海鷗號、臨海線、多摩單軌，共 75 個可見路徑、683 個站名，裁到東京都界（少數路線途經鄰縣的站一併保留以維持連續）。Tokyo Metro 站序與三語名稱取官方各線頁；JR 與私鐵的線形與站點採 OpenStreetMap route relations（© OpenStreetMap contributors，ODbL），英文站名取 OSM 與各業者官網，沒有官方繁中站名的保留日文。都營 2,818 班取東京都交通局官方 GTFS-JP 普通平日時刻；Tokyo Metro 5,810 班與 JR／私鐵 20,012 班是明示的合成班距（這些業者的官方時刻在 ODPT 只提供比賽限定授權，不能公開使用）。畫面不是即時位置。',
+    en: 'Tokyo Metropolis rail network, updated 1 October 2026: the six Toei services, nine Tokyo Metro lines, 18 JR East lines, and the Tokyu (7), Odakyu (2), Keio (7), Seibu (9), Tobu (5), Keisei (3) and Keikyu (2) lines, plus the Hokuso Line, Tsukuba Express, Tokyo Monorail, Yurikamome, Rinkai Line and Tama Monorail—75 visible paths and 683 station names, clipped to the Tokyo Metropolis boundary (a few stations just outside are kept where a line passes through a neighbouring prefecture). Tokyo Metro station order and names come from the operator’s official line pages; JR and private-rail shapes and stations use OpenStreetMap route relations (© OpenStreetMap contributors, ODbL), with English names from OSM and operator websites, and Japanese names kept where no official Traditional Chinese name exists. The 2,818 Toei services keep the official weekday GTFS-JP timetable; the 5,810 Tokyo Metro and 20,012 JR/private-rail services use clearly labelled simulated headways, because those operators’ timetables on ODPT are licensed for the developer challenge only. Positions are not live.',
+    ja: '東京都全域の鉄道（2026年10月1日更新）：都営6路線、東京メトロ9路線に加え、JR東日本18路線、東急7路線、小田急2路線、京王7路線、西武9路線、東武5路線、京成3路線、京急2路線、北総線、つくばエクスプレス、東京モノレール、ゆりかもめ、りんかい線、多摩都市モノレールの計75表示経路・683駅名を、東京都境で切り取って収録しています（隣県を通過する区間の駅は連続性のため一部残しています）。東京メトロの駅順・駅名は公式の路線ページ、JRと私鉄の線形・駅はOpenStreetMapのroute relation（© OpenStreetMap contributors、ODbL）、英語駅名はOSMと各社公式サイトによります。公式の繁体字駅名がない駅は日本語表記のままです。都営2,818本は東京都交通局公式GTFS-JPの平日時刻、東京メトロ5,810本とJR・私鉄20,012本は明示した模擬運転間隔です（これらの事業者のODPT時刻データはチャレンジ限定ライセンスのため公開利用できません）。リアルタイム位置ではありません。'
   },
   nyc_sched: {
     'zh-TW': '列車依 MTA New York City Transit regular static GTFS 推演，並非即時位置。資料快照與服務日：20260831。收錄 28 個 Subway service 與 Staten Island Railway；A、4、5 的分支及 F、N 的不同走廊拆成 36 個 route variants。路線、站序、站點、線形與班次均取 MTA 官方 GTFS，正常營運端點另與 MTA 官方大型路線圖及 SIR 時刻表複核。',
@@ -11827,12 +11828,15 @@ function assignSchedShapePathsFor(trains, lines) {
       const p = state.trackSections[traSectionKey(s[i].name, s[i + 1].name)];
       if (p && p.maxPathM > 0) s[i].physKm = p.maxPathM / 1000;
     }
+    // 世界版:兩站都在列車自己的路線上時優先用自己的線形。東京 JR／私鐵並行段很多(山手線與中央・總武線、
+    // 京濱東北線並肩),只挑里程差最小的線會貼到旁邊幾十公尺外的軌道;2D 看不出來,3D 卻因此判定「不在線形上」。
+    const own = worldSchedSystemOf(tr) ? worldTrainLine(tr, lines) : null;
     for (let i = 0; i < s.length - 1; i++) {
       const A = byName.get(s[i].name), B = byName.get(s[i + 1].name);
       let best = null;
       if (A && B) for (const a of A) for (const b of B) if (a.ln === b.ln) {
-        const gap = Math.abs(b.d - a.d);
-        if (!best || gap < best.gap) best = { ln: a.ln, dA: a.d, dB: b.d, gap };
+        const gap = Math.abs(b.d - a.d), pref = a.ln === own ? 0 : 1;
+        if (!best || pref < best.pref || (pref === best.pref && gap < best.gap)) best = { ln: a.ln, dA: a.d, dB: b.d, gap, pref };
       }
       if (best) { s[i].segLn = best.ln; s[i].dA = best.dA; s[i].dB = best.dB; state._segStats.onShape++; }
       else state._segStats.straight++;
@@ -13228,10 +13232,12 @@ function worldRouteBadge(tr) {
 // 1 貼到 5);2D 疊在一起看不出來,3D 則會拿錯線形與編組。這裡依車名(路線代號／線名)找候選線,
 // 有分支時取起訖站都在線上、站數最吻合的那條。找不到回 null,由呼叫端退回 trainSeg 的結果。
 const _worldTrainLine = new WeakMap();
-function worldTrainLine(tr) {
+function worldTrainLine(tr, pool) {
   if (!tr || !worldSchedSystemOf(tr)) return null;
   if (_worldTrainLine.has(tr)) return _worldTrainLine.get(tr);
-  const key = String(tr.carName || ''), lines = (state.trackLines || []).filter(ln => (ln.sys || ln._sys || tr.sys) === tr.sys);
+  const all = pool || state.trackLines || [];
+  if (!all.length) return null; // 線還沒載完時不快取,避免把 null 永久記住
+  const key = String(tr.carName || ''), lines = all.filter(ln => (ln.sys || ln._sys || tr.sys) === tr.sys);
   const cands = lines.filter(ln => String(ln.id) === key || String(ln.id).startsWith(key + '_') || ln.name === key || ln.gtfsRouteId === key);
   let best = null, bestScore = -1;
   for (const ln of cands) {
