@@ -60,7 +60,7 @@ for (const file of [
   // 台灣版 2026-09 介面跟上時帶進來的通用模組:暗色 2.0、路線導覽、日夜光影、列車光環
   'night-theme.css', 'night-board.js', 'night-map.js', 'rail-discovery.js', 'rail-3d.css', 'rail-3d.js'
 ]) await copyFile(file);
-// rail-3d/ 整棵（已追蹤檔）：立體列車程式、three.js 與紐約／東京用的四個示意網格
+// rail-3d/ 整棵（已追蹤檔）：立體列車程式、three.js、示意網格與紐約／東京當地車型網格（.bin.gz）
 for (const directory of ['assets', 'i18n', 'vendor', 'rail-3d']) await copyTree(directory);
 for (const id of appSpec.cityIds) for (const file of coreData[id]) await copyFile(file);
 

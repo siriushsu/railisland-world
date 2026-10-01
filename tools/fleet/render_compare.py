@@ -24,6 +24,7 @@ LOD = 'near'
 SAMPLES = int(arg('--samples', '32'))
 IDS = arg('--ids', '').split(',') if arg('--ids') else []
 FORMATION = arg('--formation')
+VIEWS = arg('--views', 'side,q34,front').split(',')   # 只要部分視角時用，例如 --views q34
 os.makedirs(OUT, exist_ok=True)
 
 
@@ -207,12 +208,15 @@ for mid in IDS:
     mn = np.array(meta['min']); mx = np.array(meta['max'])
     length = float(mx[0] - mn[0])
     ctr = (float((mn[0] + mx[0]) / 2), 0.0, 1.9)
-    sc.render.resolution_x, sc.render.resolution_y = 1500, 420
-    render_view(sc, ob, mid, 'side', ctr, max(length, 12.0) * 1.08)
-    sc.render.resolution_x, sc.render.resolution_y = 1500, 700
-    render_view(sc, ob, mid, 'q34', ctr, max(length, 12.0))
-    sc.render.resolution_x, sc.render.resolution_y = 900, 900
-    render_view(sc, ob, mid, 'front', (float(mx[0]), 0.0, 2.0), 6)
+    if 'side' in VIEWS:
+        sc.render.resolution_x, sc.render.resolution_y = 1500, 420
+        render_view(sc, ob, mid, 'side', ctr, max(length, 12.0) * 1.08)
+    if 'q34' in VIEWS:
+        sc.render.resolution_x, sc.render.resolution_y = 1500, 700
+        render_view(sc, ob, mid, 'q34', ctr, max(length, 12.0))
+    if 'front' in VIEWS:
+        sc.render.resolution_x, sc.render.resolution_y = 900, 900
+        render_view(sc, ob, mid, 'front', (float(mx[0]), 0.0, 2.0), 6)
 
 if FORMATION:
     cab, mid = FORMATION.split(':')
