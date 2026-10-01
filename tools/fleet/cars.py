@@ -6,7 +6,7 @@ import jp
 BUILDERS = {}
 JP_CARS = {}
 JP_MODULE = {}
-for _mod in ('t_r160', 't_e233', 't_r62a', 't_e235', 't_r142', 't_e231', 't_r211', 't_tm1000', 't_special'):
+for _mod in ('t_r160', 't_e233', 't_r62a', 't_e235', 't_r142', 't_e231', 't_r211', 't_tm1000', 't_special', 't_r68'):
     BUILDERS.update(importlib.import_module(_mod).BUILDERS)
 for _path in sorted(glob.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'jp_*.py'))):
     try:

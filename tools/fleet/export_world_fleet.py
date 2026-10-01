@@ -58,6 +58,16 @@ MODELS = {
         dimensions=[16.0, 2.55, 3.465],
         sources=[{'label': 'Wikipedia（日）：東京メトロ1000系電車（尺寸、塗裝）', 'url': 'https://ja.wikipedia.org/wiki/%E6%9D%B1%E4%BA%AC%E3%83%A1%E3%83%88%E3%83%AD1000%E7%B3%BB%E9%9B%BB%E8%BB%8A'},
                  {'label': 'Commons: Tokyo-Metro 1000.jpg（Sui-setz，CC BY-SA 3.0；車頭與側面比對）', 'url': 'https://commons.wikimedia.org/wiki/File:Tokyo-Metro_1000.jpg'}]),
+    'r68': dict(
+        name='紐約地鐵 R68／R68A', family='metro', cab='r68', mid='r68-mid', module='tools/fleet/t_r68.py',
+        dimensions=[22.77, 3.05, 3.68],
+        sources=[{'label': 'Wikipedia: R68 (New York City Subway car)（尺寸、門數）', 'url': 'https://en.wikipedia.org/wiki/R68_(New_York_City_Subway_car)'},
+                 {'label': 'Commons: R68 2704 on the D line at 50th Street.png（Dapr03，CC BY-SA 4.0）；MTA NYC Subway N train arriving at 36th Ave.jpg（Mtattrain，CC BY-SA 4.0）', 'url': 'https://commons.wikimedia.org/wiki/File:R68_2704_on_the_D_line_at_50th_Street.png'}]),
+    'r46': dict(
+        name='紐約地鐵 R46', family='metro', cab='r46', mid='r46-mid', module='tools/fleet/t_r68.py',
+        dimensions=[22.77, 3.05, 3.68],
+        sources=[{'label': 'Wikipedia: R46 (New York City Subway car)（尺寸、門數）', 'url': 'https://en.wikipedia.org/wiki/R46_(New_York_City_Subway_car)'},
+                 {'label': 'Commons: R46 trains approaching and departing 30th Ave August 2025 1 (cropped 2).jpg（4300streetcar，CC BY 4.0）', 'url': 'https://commons.wikimedia.org/wiki/File:R46_trains_approaching_and_departing_30th_Ave_August_2025_1_(cropped_2).jpg'}]),
 }
 
 
