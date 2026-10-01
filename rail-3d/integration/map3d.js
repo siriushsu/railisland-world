@@ -37,7 +37,7 @@ const feature=(geometry,properties)=>({type:'Feature',geometry,properties});
 
 // C381 網格的色帶是藍（≈.14,.35,.64）、車頭飾條是紅（≈.69,.22,.20）；兩者都換成路線色。
 // 頂點色是 sRGB 原值直接進 shader（見 wenhu.js createWenhuMaterial），所以路線色也不做線性轉換。
-// 後三組是世界版程序化網格的換色鍵：E233／E231 色帶（中央線橘 #f15a22）、R160／R62A／R142 路線圓標（#eb6800）、E235 路線色（山手線黃綠 #80c241），見 tools/fleet。
+// 後三組是世界版程序化網格的換色鍵：E233／E231 色帶（中央線橘 #f15a22）、R160／R62A／R142／R211 路線圓標（#eb6800）、E235 路線色（山手線黃綠 #80c241），見 tools/fleet。
 const TINT_SOURCES=[[.14,.35,.64],[.69,.22,.20],[.13,.31,.56],[.14,.34,.61],[.945,.353,.133],[.922,.408,0],[.502,.761,.255]]; // 第四組是文湖線網格的藍帶
 function tintMesh(geometry,hex){
   const m=/^#?([0-9a-f]{6})$/i.exec(String(hex||''));if(!m)return;

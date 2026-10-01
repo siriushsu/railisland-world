@@ -46,6 +46,17 @@ MODELS = {
         dimensions=[20.0, 2.95, 4.0515],
         sources=[{'label': 'Wikipedia（日）：JR東日本E231系電車（尺寸、擴幅車體、門數）', 'url': 'https://ja.wikipedia.org/wiki/JR%E6%9D%B1%E6%97%A5%E6%9C%ACE231%E7%B3%BB%E9%9B%BB%E8%BB%8A'},
                  {'label': 'Commons: SeriesE231-0 Sobu-Line.jpg、JRE Series-E231-0 MU10.jpg（MaedaAkihiko；車頭與側面比對）', 'url': 'https://commons.wikimedia.org/wiki/File:SeriesE231-0_Sobu-Line.jpg'}]),
+    'r211': dict(
+        name='紐約地鐵 R211', family='metro', cab='r211', mid='r211-mid', module='tools/fleet/t_r211.py',
+        dimensions=[18.35, 3.05, 3.66],
+        sources=[{'label': 'Wikipedia: R211 (New York City Subway car)（尺寸、門數、門寬）', 'url': 'https://en.wikipedia.org/wiki/R211_(New_York_City_Subway_car)'},
+                 {'label': 'Commons: R211 A train approaching 80th Street August 2025.jpg（4300streetcar，CC BY 4.0；車頭與側面比對）', 'url': 'https://commons.wikimedia.org/wiki/File:R211_A_train_approaching_80th_Street_August_2025.jpg'},
+                 {'label': 'Commons: First R211 Subway Cars Roll Into Service on the A Line.jpg（Metropolitan Transportation Authority，CC BY 2.0；車頭比對）', 'url': 'https://commons.wikimedia.org/wiki/File:First_R211_Subway_Cars_Roll_Into_Service_on_the_A_Line.jpg'}]),
+    'tm1000': dict(
+        name='東京地鐵 1000 系（銀座線）', family='metro', cab='tm1000', mid='tm1000-mid', module='tools/fleet/t_tm1000.py',
+        dimensions=[16.0, 2.55, 3.465],
+        sources=[{'label': 'Wikipedia（日）：東京メトロ1000系電車（尺寸、塗裝）', 'url': 'https://ja.wikipedia.org/wiki/%E6%9D%B1%E4%BA%AC%E3%83%A1%E3%83%88%E3%83%AD1000%E7%B3%BB%E9%9B%BB%E8%BB%8A'},
+                 {'label': 'Commons: Tokyo-Metro 1000.jpg（Sui-setz，CC BY-SA 3.0；車頭與側面比對）', 'url': 'https://commons.wikimedia.org/wiki/File:Tokyo-Metro_1000.jpg'}]),
 }
 
 

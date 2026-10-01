@@ -10,6 +10,8 @@
 | JR 東日本 E235 系 | `e235`、`e235-mid` | 東京 JY |
 | 紐約地鐵 R142（R142A 共用） | `r142`、`r142-mid` | 紐約 2、4、5 |
 | JR 東日本 E231 系通勤型 | `e231`、`e231-mid` | 東京 JB、JJ、JM、JHK |
+| 紐約地鐵 R211 | `r211`、`r211-mid` | 紐約 A（三個分支）、C、G、S Rockaway |
+| 東京地鐵 1000 系 | `tm1000`、`tm1000-mid` | 東京 G 銀座線（固定塗裝，不換色） |
 
 尺寸、塗裝與參考照片的出處寫在各 `t_*.py` 開頭與 `export_world_fleet.py` 的 `MODELS`；車型清單與建模優先順序見 `docs/rolling-stock/`。
 
@@ -33,7 +35,7 @@ python3 tools/fleet/export_world_fleet.py    # 正式輸出到 rail-3d/assets/bl
 網格裡的路線色部位用固定顏色當換色鍵，載入時由 `rail-3d/integration/map3d.js` 的 `TINT_SOURCES` 換成該路線的顏色：
 
 - E233、E231 的色帶與車頭色塊：`#f15a22`（中央線橘）
-- R160／R62A／R142 的路線圓標：`#eb6800`
+- R160／R62A／R142／R211 的路線圓標：`#eb6800`
 - E235 的車頭外框與門邊：`#80c241`（山手線黃綠）
 
 加新車款時，路線色部位用這幾個顏色之一（或在 `TINT_SOURCES` 加一組），其他部位避開這些顏色（容差 ±0.03）。
