@@ -410,16 +410,16 @@
       "MTA New York City Transit"
      ],
      "lines": {
-      "N_Bridge": "main",
-      "N_Tunnel": "main",
-      "Q": "main",
-      "W": "main"
+      "N_Bridge": "minor",
+      "N_Tunnel": "minor",
+      "Q": "minor",
+      "W": "minor"
      },
      "years": {
       "built": "1975–1978",
       "introduced": "1975-07-14"
      },
-     "status": "being phased out — still in passenger service on N/Q/W as of Sep 2026 (spring 2026 car assignment: 168 cars on N/W and 88 on Q in the AM peak); Rockaway Park Shuttle all-R211A since about 2026-06-17; R211 slated for N/Q/W next (checked 2026-10-02)",
+     "status": "being phased out — 140 cars on the roster as of 2026-09-23 (Template:NYCS const; 404 on 2026-03-11), N/Q/W only; the spring 2026 car assignment had 168 on N/W and 88 on Q in the AM peak; Rockaway Park Shuttle all-R211A since about 2026-06-17; R211 slated for N/Q/W next (checked 2026-10-02)",
      "formationsCars": [
       8
      ],
@@ -485,11 +485,23 @@
       {
        "label": "Wikipedia: R211 (rev. 2026-09-03) – R211 expected to enter service next on the N, Q and W",
        "url": "https://en.wikipedia.org/wiki/R211_(New_York_City_Subway_car)"
+      },
+      {
+       "label": "Wikipedia Template:NYCS const, rev. 1376365767 (2026-09-23) – numcar R46 = 140; earlier revisions: 404 (2026-03-11), 340 (2026-05-29), 256 (2026-07-15), 200 (2026-08-12), 168 (2026-08-29), 160 (2026-09-10)",
+       "url": "https://en.wikipedia.org/w/index.php?title=Template:NYCS_const&oldid=1376365767"
+      },
+      {
+       "label": "ERA Bulletin Jul 2024 – car assignment effective 2024-06-30: A 144 R-46, C 40 R-46 (AM)",
+       "url": "https://erausa.org/pdf/bulletin/2020s/2024/2024-07-bulletin.pdf"
+      },
+      {
+       "label": "ERA Bulletin Jul 2025 – car assignment effective 2025-06-08: no R-46 on the A or C; 180 R-46 removed",
+       "url": "https://erausa.org/pdf/bulletin/2020s/2025/2025-07-bulletin.pdf"
       }
      ],
-     "notes": "Retired from the A/C in 2025–26 and from the Rockaway Park Shuttle around 2026-06-17. R211 entered service on the D on 2026-07-01 and is expected on N/Q/W next, so R46 numbers will keep falling through 2026–27. In the spring 2026 assignment R46 outnumbered R68/R68A on N/W (168 vs 104 cars) and on Q (88 vs 80).",
+     "notes": "Retired from the A/C in 2024–25 (ERA: 144 cars on the A and 40 on the C in the 2024-06-30 assignment, none in the 2025-06-08 one) and from the Rockaway Park Shuttle around 2026-06-17. R211 entered service on the D on 2026-07-01 and is expected on N/Q/W next. In the spring 2026 assignment R46 still outnumbered R68/R68A on N/W (168 vs 104 cars) and on Q (88 vs 80), but the Template:NYCS const count then fell from 256 (2026-07-15) to 140 (2026-09-23).",
      "variants": [],
-     "fleetSize": "140 cars",
+     "fleetSize": "140 cars (Template:NYCS const, 2026-09-23)",
      "referenceImages": [
       {
        "file": "File:R46 trains approaching and departing 30th Ave August 2025 1 (cropped 2).jpg",
@@ -518,8 +530,8 @@
      ],
      "gaps": [
       "livery hex values estimated (not from an official colour spec)",
-      "no R-46 car count found after the spring 2026 assignment; the earlier figure of 140 cars (Template:NYCS const, which cites a June 2025 MTA document) disagrees with ERA spring 2026 (256 cars on N/Q/W in the AM peak)",
-      "line roles (main on N/Q/W) follow the spring 2026 assignment; R-46 numbers are falling as R211s arrive, which this entry does not track"
+      "the 140-car figure is the Template:NYCS const count of 2026-09-23; the template cites no source for it (its R46 references date from 2024–25), and no NYCT or ERA count after the spring 2026 assignment was found",
+      "line roles (minor on N/Q/W) are an estimate: about 140 cars against roughly 440 needed on N/Q/W in the AM peak (spring 2026 assignment) puts R-46 at a quarter to a third of N/Q/W trains in late September 2026; no line assignment after spring 2026 was found"
      ],
      "priorityScore": 4
     },
@@ -1480,18 +1492,18 @@
     ],
     "N_Bridge": [
      "nyc-r68",
-     "nyc-r46",
-     "nyc-r68a"
+     "nyc-r68a",
+     "nyc-r46"
     ],
     "N_Tunnel": [
      "nyc-r68",
-     "nyc-r46",
-     "nyc-r68a"
+     "nyc-r68a",
+     "nyc-r46"
     ],
     "Q": [
      "nyc-r68",
-     "nyc-r46",
-     "nyc-r68a"
+     "nyc-r68a",
+     "nyc-r46"
     ],
     "R": [
      "nyc-r160"
@@ -1501,8 +1513,8 @@
     ],
     "W": [
      "nyc-r68",
-     "nyc-r46",
-     "nyc-r68a"
+     "nyc-r68a",
+     "nyc-r46"
     ],
     "Z": [
      "nyc-r160",
@@ -1525,9 +1537,9 @@
     "nyc-r142",
     "nyc-r179",
     "nyc-r62a",
-    "nyc-r46",
     "nyc-r188",
     "nyc-r68a",
+    "nyc-r46",
     "nyc-r62",
     "nyc-r143",
     "nyc-r211s",
@@ -10070,12 +10082,12 @@
       10
      ],
      "dimensions": {
-      "lengthHeadM": 20.13,
+      "lengthHeadM": 20.0,
       "lengthMiddleM": 20.0,
       "widthM": 2.846,
       "heightM": 4.05,
       "basis": "length over couplers; width = max/side-lamp width; height = roof/AC top",
-      "source": "ja.wikipedia 50000 infobox",
+      "source": "ja.wikipedia 50000 infobox (20,000; the 20,130 head cars are 50070/50090 only)",
       "verified": true
      },
      "bodyMaterial": "Aluminium alloy",
@@ -10415,12 +10427,20 @@
      "doorsPerSide": 4,
      "sideWindows": "unverified",
      "roofNotes": "single-arm pantographs, roof-mounted AC; DC 1,500 V overhead",
-     "notes": "ja.wikipedia: replaces the 9000 series on the Tojo Line; Hitachi A-train with a reverse-slant front; fitted with new CS-ATC, ATC-P and ATO, but through running onto the Fukutoshin/Yurakucho lines is not confirmed.",
+     "notes": "ja.wikipedia: replaces the 9000 series on the Tojo Line (later also 10000-series and 30000-series sets); Hitachi A-train with a reverse-slant front; fitted with new CS-ATC, ATC-P and ATO. Built for through running from the Tojo Line onto the Tokyo Metro Yurakucho/Fukutoshin lines (Mynavi News and tetsudo.com, 2026-07-13; its CS-ATC also covers the Tokyu Toyoko/Shin-Yokohama and Minatomirai lines, and it is not meant to run onto Sotetsu); whether through running has started in revenue service is not confirmed, so only TJ is listed (checked 2026-10-02).",
      "variants": [],
      "sources": [
       {
        "label": "Wikipedia (ja): 東武90000系電車",
        "url": "https://ja.wikipedia.org/wiki/%E6%9D%B1%E6%AD%A690000%E7%B3%BB%E9%9B%BB%E8%BB%8A"
+      },
+      {
+       "label": "Mynavi News, 2026-07-13: like the 9000, the 90000 runs through from the Tobu Tojo Line onto the Tokyo Metro Yurakucho/Fukutoshin lines; Tokyu Shin-Yokohama Line capable, no regular through running onto Sotetsu",
+       "url": "https://news.mynavi.jp/article/20260713-tobu90000photo/"
+      },
+      {
+       "label": "tetsudo.com, 2026-07-13: safety systems include CS-ATC for the Tokyo Metro Yurakucho/Fukutoshin, Tokyu Toyoko/Shin-Yokohama and Minatomirai lines",
+       "url": "https://www.tetsudo.com/report/558/"
       }
      ],
      "referenceImages": [],
@@ -10966,7 +10986,7 @@
       "built": "1972–1982",
       "introduced": "1972 (unverified)"
      },
-     "status": "being phased out by the 3200 — Shibayama-leased 3540F ended service on 2026-03-31 and was scrapped; remaining sets still in service in Aug 2026 (6-car: 2 sets left as of May 2026; 4-car count not confirmed); more cars scrapped in Sep 2026 (checked 2026-10-02)",
+     "status": "being phased out by the 3200 — Shibayama-leased 3540F ended service on 2026-03-31 and was retired (廃車); remaining sets still in service in Aug 2026 (6-car: 2 sets left as of May 2026; 4-car count not confirmed); more cars scrapped in Sep 2026 (checked 2026-10-02)",
      "formationsCars": [
       4,
       6
