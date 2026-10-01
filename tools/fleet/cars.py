@@ -5,7 +5,8 @@ import jp
 
 BUILDERS = {}
 JP_CARS = {}
-for _mod in ('t_r160', 't_e233', 't_r62a', 't_e235', 't_r142', 't_e231', 't_r211', 't_tm1000'):
+JP_MODULE = {}
+for _mod in ('t_r160', 't_e233', 't_r62a', 't_e235', 't_r142', 't_e231', 't_r211', 't_tm1000', 't_special'):
     BUILDERS.update(importlib.import_module(_mod).BUILDERS)
 for _path in sorted(glob.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'jp_*.py'))):
     try:
@@ -18,4 +19,5 @@ for _path in sorted(glob.glob(os.path.join(os.path.dirname(os.path.abspath(__fil
         if _cfg['id'] in BUILDERS or _cfg['id'] in JP_CARS:
             raise SystemExit(f"重複的車款 id：{_cfg['id']}")
         JP_CARS[_cfg['id']] = _cfg
+        JP_MODULE[_cfg['id']] = os.path.basename(_path)
     BUILDERS.update(jp.register(_m.CARS))

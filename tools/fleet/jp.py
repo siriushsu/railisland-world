@@ -234,6 +234,25 @@ def _decals(c):
     return fn
 
 
+def _cap_bands(c):
+    """端面分色：設定只涵蓋部分高度時，其餘高度補上車頭底色（否則 kit.Nose.cap 只封有列出的區段，會留下破洞）。"""
+    bands = c['front']['cap']
+    if not bands:
+        return None
+    face = H(c['front']['face'])
+    lo, hi = -1e9, 1e9
+    spans = sorted(((lo if z0 is None else z0), (hi if z1 is None else z1), H(col)) for z0, z1, col in bands)
+    out, cur = [], lo
+    for z0, z1, col in spans:
+        if z0 > cur:
+            out.append((None if cur == lo else cur, z0, face, 0.45))
+        out.append((None if z0 == lo else z0, None if z1 == hi else z1, col, 0.45))
+        cur = max(cur, z1)
+    if cur < hi:
+        out.append((cur, None, face, 0.45))
+    return out
+
+
 def build_cab_car(cfg, lod):
     c = _defaults(cfg)
     sp = _spec(c)
@@ -253,7 +272,7 @@ def build_cab_car(cfg, lod):
     if c['gangway']:
         P.bellows(m, x_rear, -1, half=HALF_GAP, lod=lod, **sp['bellows'])
     nose, nk = make_nose(prof, xn0, Ln, +1, _nose_curves(c), subdiv=2)
-    cap = [(z0, z1, H(col), 0.45) for z0, z1, col in c['front']['cap']] or None
+    cap = _cap_bands(c)
     nose_loft(m, nose, nk, sp['band'], sp['roof_col'], H(c['front']['face']), u_switch=0.5, n_st=12, col_fn=_nose_colour(c), cap_bands=cap)
     m.tag = 'decal'
     _decals(c)(m, nose, x_tip, lod)

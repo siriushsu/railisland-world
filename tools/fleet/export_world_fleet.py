@@ -61,12 +61,29 @@ MODELS = {
 }
 
 
+def config_models():
+    """jp_*.py 與 t_special.py 的設定式車款：名稱、尺寸、出處都寫在設定裡。路面電車只有一個兩端駕駛室的網格。"""
+    import t_special
+    out = {}
+    for cfg in list(cars.JP_CARS.values()) + t_special.ALL:
+        c = dict(cfg)
+        tram = c.get('kind') == 'tram'
+        out[c['id']] = dict(
+            name=c['name'], family={'tram': 'tram', 'lrt': 'tram', 'agt': 'agt', 'mono': 'monorail'}.get(c.get('kind'), 'commuter'),
+            cab=c['id'], mid=c['id'] if tram else c['id'] + '-mid', module='tools/fleet/' + cars.JP_MODULE.get(c['id'], 't_special.py'),
+            dimensions=[c.get('pitch', 20.0), c.get('W', 2.95), c.get('ac_top') or (c.get('roof', 3.62) + 0.35)],
+            sources=[{'label': c.get('source', ''), 'url': ''}])
+    return out
+
+
 def main():
+    models = dict(MODELS)
+    models.update(config_models())
     path = os.path.join(DEST, 'manifest.json')
     manifest = json.load(open(path, encoding='utf-8'))
-    for mid, spec in MODELS.items():
+    for mid, spec in models.items():
         source = {'metadata': spec['module'], 'engineeringDimensionsM': spec['dimensions']}
-        for mesh_id in (spec['cab'], spec['mid']):
+        for mesh_id in dict.fromkeys((spec['cab'], spec['mid'])):
             m, _ = cars.BUILDERS[mesh_id](0)
             if m.ntri > MAX_TRIS:
                 sys.exit(f'{mesh_id}: {m.ntri} 三角形超過上限 {MAX_TRIS}')
