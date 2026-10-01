@@ -146,7 +146,10 @@ if (target === 'all' || target === 'singapore') {
     'singapore_schedule_dense.json'
   );
 }
-if (target === 'all' || target === 'london') {
+// 倫敦自 2026-10-01 起改用 TfL 官方逐站時刻（tools/build_london_timetable.mjs），'all' 不再重建倫敦，
+// 免得蓋掉真實班表。只有 Elizabeth line 與 Overground 沿用這裡的合成班次：要重建時先跑
+// `node tools/headway2sched.mjs london` 產生合成檔，再跑 build_london_timetable.mjs --synthetic-from 該檔。
+if (target === 'london') {
   build(
     'london.json', foldLondon, 42, 25, 'TFL',
     '班距模擬合成，非官方逐車時刻或即時位置。Powered by TfL Open Data（2026-08-31 現行線別、端點、via、站序與站點座標）；' +
