@@ -1,6 +1,8 @@
 // 開發用：跟隨某條路線的一班車，切到 3D 傾斜視角並截圖，印出載入的模型數與退回原因。
 // 用法：node tools/dev/check_3d.mjs <city> <路線或車次開頭> <輸出.png> [時刻 10:30] [zoom 19.6] [pitch 72] [bearing 偏移 60]
 // 需要本機伺服器：python3 -m http.server 5188（在 repo 根目錄）；可用 BASE 環境變數改網址。
+// 第二行是判定：MODELLED（擺好車廂）、FALLBACK <原因>（退回示意）、INCONCLUSIVE（等不到跟隨車的結果）、FLAKY（兩秒後再看一次結果不同）。
+// 3D 模組沒載入時 fallbacks 一樣是空的，所以只認跟隨車出現在 poseSamples 或 modelFallbacks；INCONCLUSIVE 與 FLAKY 以 exit 1 結束。
 import { chromium } from 'playwright';
 const BASE = process.env.BASE || 'http://127.0.0.1:5188/';
 const [,, city, route, out, t='10:30', zoom='19.6', pitch='72', bearOff='60'] = process.argv;
@@ -19,8 +21,19 @@ await p.waitForTimeout(4000);
 await p.evaluate(({zoom,pitch,bearOff}) => { document.querySelectorAll('.toast').forEach(t=>t.remove());
   const st=window.railIslandIntegration?.renderer?.stats; M.raw.setZoom(+zoom); M.raw.setPitch(+pitch); M.raw.setBearing(M.raw.getBearing()+(+bearOff)); }, {zoom,pitch,bearOff});
 await p.waitForTimeout(4000);
+const evidence = () => { const ri = window.railIslandIntegration, id = ri?.frame?.selectedVehicleId, st = ri?.renderer?.stats;
+  const pose = id && st?.poseSamples?.find(s => s.id === id), fb = id && st?.modelFallbacks?.find(f => f.id === id);
+  return pose ? `MODELLED ${pose.modelId} ${pose.carCount} 節` : fb ? `FALLBACK ${fb.reason}` : null; };
+const verdict = r === 'no train' ? null : await p.waitForFunction(evidence, null, { timeout: 30000, polling: 500 })
+  .then(h => h.jsonValue(), e => { if (e.name === 'TimeoutError') return null; throw e; });
 const info = await p.evaluate(() => ({ pitch: +M.raw.getPitch().toFixed(1), zoom: +M.raw.getZoom().toFixed(2), bearing:+M.raw.getBearing().toFixed(0), models: window.railIslandIntegration?.renderer?.stats?.models, fallbacks: (window.railIslandIntegration?.renderer?.stats?.modelFallbacks||[]).slice(0,3) }));
+let line;
+if (!verdict) line = 'INCONCLUSIVE ' + JSON.stringify(await p.evaluate(() => { const ri = window.railIslandIntegration;
+  return { active: ri?.active ?? null, renderer: !!ri?.renderer, selected: ri?.frame?.selectedVehicleId ?? null, errors: (ri?.errors||[]).slice(0,3).map(e => String(e).split('\n').slice(0,3).join(' | ')) }; }));
+else { await p.waitForTimeout(2000); const again = await p.evaluate(evidence); line = again === verdict ? verdict : `FLAKY ${verdict} → ${again ?? 'INCONCLUSIVE'}`; }
 console.log(r, JSON.stringify(info));
+console.log(line);
 console.log(errs.join('\n'));
 await p.screenshot({ path: out, timeout: 120000 });
 await b.close();
+process.exitCode = line === verdict ? 0 : 1;
