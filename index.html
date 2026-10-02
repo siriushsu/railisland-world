@@ -5552,6 +5552,7 @@
            內容 li 上限 8 條(li.grp 是標題不算)。 -->
       <ul class="foot-list foot-recent">
         <li class="grp">最近更新</li>
+        <li data-cl-of="world2droute1002"><span class="d">10/2</span><span>列車不再被畫到別條線的同名車站上：紐約 86 St、181 St 這類同名站的路段改走正確的線；線形資料沒涵蓋的路段改畫兩站之間的直線</span></li>
         <li data-cl-of="nyc3droute1002"><span class="d">10/2</span><span>紐約 2、5 線經 Eastern Pkwy 開往 New Lots Av／Utica Av、E 線往返 Jamaica-179 St 的班次，駛離自己路線的路段在立體地圖上也看得到車廂</span></li>
         <li data-cl-of="nycfleet1001"><span class="d">10/1</span><span>紐約全部路線換上當地車型：B、D、N、Q、W 線的 75 呎 R68／R46、L 線、7 線與史泰登島鐵路補齊，同線混跑依配車表分配</span></li>
         <li data-cl-of="tokyofleet1001"><span class="d">10/1</span><span>東京全部 75 條路線換上當地車型：地鐵、JR、私鐵、都電、新交通系統與單軌共 110 款立體模型，同線多種車型依車次分配</span></li>
@@ -5559,7 +5560,6 @@
         <li data-cl-of="worldfleet1001c"><span class="d">10/1</span><span>紐約 R142 與東京 E231 系也有了立體模型：紐約 2、4、5 線與東京中央・總武各停、常磐快速、武藏野、八高線改用當地車型外觀</span></li>
         <li data-cl-of="worldfleet1001b"><span class="d">10/1</span><span>紐約 R62A 與東京 E235 系也有了立體模型：紐約 1、3、6 線與 42 街接駁線、東京山手線改用當地車型外觀</span></li>
         <li data-cl-of="worldfleet1001"><span class="d">10/1</span><span>紐約 R160 與東京 E233 系有了自己的立體模型：紐約 E、F、J、M、R、Z 線與東京中央快速、京濱東北等 JR 線改用當地車型外觀</span></li>
-        <li data-cl-of="istanbultt1001"><span class="d">10/1</span><span>伊斯坦堡地鐵、電車與纜車改用 Metro İstanbul 官方平日時刻：5,783 班依官方表定時刻行駛；M11、T2、T6、F2、F3、Marmaray 與 B2 仍是模擬班距</span></li>
       </ul>
       <!-- 第二層:完整歷史。刻意不掛 .foot-box 類名——placeFootBoxes() 用
            `.site-foot .foot-box` 搬移面板,巢狀同名會被當成另一個盒子一起搬走。 -->
@@ -5567,6 +5567,7 @@
         <summary>完整更新歷史（依主題分類）</summary>
         <ul class="foot-list">
         <li class="grp">路網與車站</li>
+        <li data-cl="world2droute1002"><span class="d">10/2</span><span>地圖上的列車沿路線線形行駛，每段路程要先找出兩端車站在哪條線形上。原本只比對站名，同名但不同地點的車站就會配錯：紐約光是 86 St 就有 6 個，最遠相隔 21.8 公里，列車可能被畫到別條線上。現在每一站以時刻表上的座標為準，只採用離它 150 公尺內的線形；好幾條線都符合時，先挑兩站都是那條線車站的，再挑里程最接近的。線形資料沒涵蓋的路段（例如巴黎部分 RER 支線、墨爾本 Ringwood–Blackburn）改畫兩站之間的直線，不再貼到別條支線或線形端點上，這類偏差原本從幾百公尺到上百公里</span></li>
         <li data-cl="nyc3droute1002"><span class="d">10/2</span><span>紐約有些班次會駛離自己路線的線形：2、5 線部分班次經 Eastern Pkwy 開往 New Lots Av 或 Utica Av，E 線部分班次往返 Jamaica-179 St。這些路段的位置是沿實際行駛那條線算的，立體地圖卻拿列車自己路線的線形去對，最遠差好幾公里，列車就只剩一個點；現在改用列車所在那一段的線形，車型與節數仍依列車自己的路線</span></li>
         <li data-cl="nycfleet1001"><span class="d">10/1</span><span>紐約的立體列車全部換成當地車型。新增 75 呎車 R68（R68A 外觀幾乎相同，共用）與 R46：整片不鏽鋼的平直車頭，左邊司機室窗、中間貫通門、右邊黑底路線牌與路線圓標；R46 車頂邊緣較圓、兩側燈組是琥珀與紅色標識燈。B、D 線以 R68 為主並混跑少量 R211（各用自己的 8 節 75 呎與 10 節 60 呎編組），N、Q、W 線以 R68／R68A 為主、R46 約四分之一。A、C 線 R211 與 R179 約各半；L 線的 R143、7 線的 R188、史泰登島鐵路的 R211S 與已建模的 R160、R142、R211 外觀相近，共用同一款。每班車依車次號碼固定分配，比例依 NYCT 配車表推估，不是當天實際派車</span></li>
         <li data-cl="tokyofleet1001"><span class="d">10/1</span><span>東京的立體列車全部換成當地車型。東京地鐵、都營、JR 東日本、東急、小田急、京王、西武、東武、京成、北總、京急、相鐵、臨海線、筑波快線、東葉、埼玉高速、橫濱高速，加上都電荒川線、東急世田谷線、日暮里・舍人線、百合海鷗號、東京單軌與多摩單軌，共 110 款，每款都依照片比對車頭造型、塗裝與色帶。直通運轉的路線會混跑各公司的車，例如副都心線上可以看到東京地鐵、東急、西武、東武與相鐵的列車：每班車依車次號碼固定分配一款，比例依各線的主力與少數車型推估，不是當天的實際派車。都電是兩端都有駕駛室的單節車，新交通系統用膠輪，單軌車的車體會包住軌道梁。模型也改用壓縮格式存放，110 款加起來約 10 MB</span></li>
@@ -6468,7 +6469,7 @@
 //         v0831e 只多幾行註解且其中一句寫錯(openNearbyStations 不讀 simSec,它不吃撥鐘影響),
 //         故正文全取 v0831d。守門人:scripts/verify_merge_no_loss.mjs --parents 兩顆。
 const RAIL_3D_BOOT_PARAMS = new URLSearchParams(location.search);
-const BUILD = 'world-v1002a';
+const BUILD = 'world-v1002d';
 const LANDSCAPE_REQUESTED = new URLSearchParams(location.search).get('map') === 'landscape';
 const GARAGE_QUERY = new URLSearchParams(location.search).get('garage');
 // 輕量多語 runtime：繁中原文同時是安全 fallback，外語字典只存差異字串。
