@@ -1,11 +1,11 @@
 // 開發用：跟隨某條路線的一班車，切到 3D 傾斜視角並截圖，印出載入的模型數與退回原因。
 // 用法：node tools/dev/check_3d.mjs <city> <路線或車次開頭> <輸出.png> [時刻 10:30] [zoom 19.6] [pitch 72] [bearing 偏移 60]
 // 需要本機伺服器：python3 -m http.server 5188（在 repo 根目錄）；可用 BASE 環境變數改網址。
-// 第二行是判定：MODELLED（擺好車廂）、FALLBACK <原因>（退回示意）、INCONCLUSIVE（等不到跟隨車的結果、找不到車次、或資料 frame 停住）、FLAKY（兩秒後再看一次結果不同，優先於 frame 停住）；頁面錯誤從第三行起印。
+// 第二行是判定：MODELLED（擺好車廂）、FALLBACK <原因>（退回示意）、INCONCLUSIVE（等不到跟隨車的結果、找不到車次、或資料 frame 停住）、FLAKY（複查結果不同，優先於 frame 停住）；頁面錯誤從第三行起印。
 // 3D 模組沒載入時 fallbacks 一樣是空的，所以只認跟隨車出現在 poseSamples 或 modelFallbacks。exit：MODELLED 0、FALLBACK 2、INCONCLUSIVE 與 FLAKY 1。
 // render 丟例外後 stats 會停在最後一次成功的那一幀，所以 3D 不在 active 狀態時不採信；跟隨車 id（sys:day:train:dep:arr）的 sys 與 train 也要對上這裡選的那班。
-// tick 丟例外時 active 仍是 true、資料 frame 卻不再更新，所以複查時 frame.clock.wallEpochSec 再等 10 秒都沒前進也判 INCONCLUSIVE，附 frozen（原本的判定）與 tickErrors
-// （頁面載入以來累計的前 5 筆；空的代表不是 tick 例外，例如每幀太慢或頁面被隱藏）。
+// tick 丟例外時 active 仍是 true、資料 frame 卻不再更新。所以判定後先等 2 秒，再等最多 10 秒讓 frame.clock.wallEpochSec 前進才複查；都沒前進就判 INCONCLUSIVE，
+// 附 frozen（原本的判定）與 tickErrors（頁面從載入起記下的 tick 例外，印前 3 筆；空的代表不是 tick 例外，例如主執行緒卡住或頁面被隱藏。單純每幀變慢會被頁面的看門狗補 tick，不會判停住）。
 import { chromium } from 'playwright';
 const BASE = process.env.BASE || 'http://127.0.0.1:5188/';
 const [,, city, route, out, t='10:30', zoom='19.6', pitch='72', bearOff='60'] = process.argv;
