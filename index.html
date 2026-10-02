@@ -11797,6 +11797,8 @@ function projectOntoShape(ln, lat, lon) {
 
 // map each schedule stop to (line, arc-length d) so sched trains ride the real shape.
 // 逐系統呼叫:byName 只收該系統自己的軌道,台鐵車不會誤貼到高鐵軌道(共站處相鄰)。
+// 線形上的站點(或投影點)離時刻表站點超過這個距離,就不算同一站(理由見 assignSchedShapePathsFor)。
+const SCHED_STOP_MATCH_KM = 0.15;
 function assignSchedShapePathsFor(trains, lines) {
   const byName = new Map();
   lines.forEach(ln => {
@@ -11808,22 +11810,41 @@ function assignSchedShapePathsFor(trains, lines) {
       byName.get(st.name).push({ ln, d: st.d });
     });
   });
-  // 補充式投影:每個班表站名對「線站列沒登記它、但軌道實際貼站經過」的線補一筆里程。
+  // 候選以「實體站」(站名＋時刻表座標)為單位:同名的站可能是不同地點的另一座站(紐約 86 St、96 St、135 St
+  // 各有好幾座),只比站名會把路段貼到別條線的同名站,列車畫在幾百公尺到幾公里外的軌道上。
+  // 線形上的位置離這一站超過 SCHED_STOP_MATCH_KM 就不收。
+  // 補充式投影:對「線站列沒有這一站、但軌道實際貼站經過」的線補一筆里程,門檻同上。
   // 治兩類殘存直線:線站列缺站(百福/南樹林/暖暖/成功等)整段退化成弦;
   // 跨線站(成功在成追線＋山線)缺其中一線導致相鄰段配不到共同線。
-  const uniq = new Map();
-  for (const tr of trains) for (const s of tr.stops)
-    if (!uniq.has(s.name)) uniq.set(s.name, s);
-  for (const [name, st] of uniq) {
-    const have = new Set((byName.get(name) || []).map(c => c.ln));
-    for (const ln of lines) {
-      if (!ln.shape || have.has(ln)) continue;
-      const pr = projectOntoShape(ln, st.lat, st.lon);
-      if (pr.d == null || pr.perpKm >= 0.3) continue;
-      if (!byName.has(name)) byName.set(name, []);
-      byName.get(name).push({ ln, d: pr.d });
+  // 投影要用這一站自己的座標:同名站座標不同,用別座同名站投影會補到不相干的線上。
+  const atStop = new Map(), boxes = new Map();
+  // 線形外框各邊外推門檻距離(緯度 1 度至少 110 km),站在框外的線不可能落在門檻內,免投影
+  const inBox = (ln, st) => {
+    let b = boxes.get(ln);
+    if (!b) {
+      b = [Infinity, Infinity, -Infinity, -Infinity];
+      for (const [lat, lon] of ln.shape) { b[0] = Math.min(b[0], lat); b[1] = Math.min(b[1], lon); b[2] = Math.max(b[2], lat); b[3] = Math.max(b[3], lon); }
+      boxes.set(ln, b);
     }
-  }
+    const dLat = SCHED_STOP_MATCH_KM / 110, dLon = dLat / Math.cos(st.lat * Math.PI / 180);
+    return st.lat >= b[0] - dLat && st.lat <= b[2] + dLat && st.lon >= b[1] - dLon && st.lon <= b[3] + dLon;
+  };
+  const stopCandidates = st => {
+    const key = st.name + '|' + st.lat + '|' + st.lon;
+    let list = atStop.get(key);
+    if (list) return list;
+    const near = c => haversineKm(posAlongShape(c.ln, c.d), st) <= SCHED_STOP_MATCH_KM;
+    list = (byName.get(st.name) || []).filter(near);
+    const have = new Set(list.map(c => c.ln));
+    for (const ln of lines) {
+      if (!ln.shape || have.has(ln) || !inBox(ln, st)) continue;
+      const pr = projectOntoShape(ln, st.lat, st.lon);
+      const c = { ln, d: pr.d, projected: true };
+      if (pr.d != null && near(c)) list.push(c);
+    }
+    atStop.set(key, list);
+    return list;
+  };
   // 實體股道表認得的台鐵站（表鍵的兩端，正規化與 traSectionKey 同一套），給下面的併段下限用。
   const traName = n => traSectionKey(n, n).split('|')[0];
   const traKnown = state.trackSections ? new Set(Object.keys(state.trackSections).flatMap(k => k.split('|'))) : null;
@@ -11841,11 +11862,14 @@ function assignSchedShapePathsFor(trains, lines) {
     // 京濱東北線並肩),只挑里程差最小的線會貼到旁邊幾十公尺外的軌道;2D 看不出來,3D 卻因此判定「不在線形上」。
     const own = worldSchedSystemOf(tr) ? worldTrainLine(tr, lines) : null;
     for (let i = 0; i < s.length - 1; i++) {
-      const A = byName.get(s[i].name), B = byName.get(s[i + 1].name);
+      const A = stopCandidates(s[i]), B = stopCandidates(s[i + 1]);
       let best = null;
-      if (A && B) for (const a of A) for (const b of B) if (a.ln === b.ln) {
-        const gap = Math.abs(b.d - a.d), pref = a.ln === own ? 0 : 1;
-        if (!best || pref < best.pref || (pref === best.pref && gap < best.gap)) best = { ln: a.ln, dA: a.d, dB: b.d, gap, pref };
+      // 別條線先挑兩站都在線站列上的:投影點只表示軌道從旁經過,不表示停這一站(紐約 W 線 Atlantic Av→DeKalb Av,
+      // 4、5 線隧道離 DeKalb Av 136 m,里程差卻比 BMT 那幾條短)。自己的路線不分,投影點就是本線經過這一站。
+      for (const a of A) for (const b of B) if (a.ln === b.ln) {
+        const gap = Math.abs(b.d - a.d), pref = a.ln === own ? 0 : 1, proj = pref && (a.projected || b.projected) ? 1 : 0;
+        if (!best || pref < best.pref || (pref === best.pref && (proj < best.proj || (proj === best.proj && gap < best.gap))))
+          best = { ln: a.ln, dA: a.d, dB: b.d, gap, pref, proj };
       }
       if (best) { s[i].segLn = best.ln; s[i].dA = best.dA; s[i].dB = best.dB; state._segStats.onShape++; }
       else state._segStats.straight++;
