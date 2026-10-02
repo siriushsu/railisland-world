@@ -2,6 +2,8 @@
 
 ## 目前狀態
 
+> **2026-10-02 更新：下面「還沒做」第 1–5 項已完成**（`7530702` BUILD world-v1002d、三語更新紀錄、交接文件待辦 6；`1341ce1` `verify_world_2d_routes` 第 4 項，拿掉投影點排序時 7 城判失敗、還原後 12 城通過）。第 4 項的驗證全部通過；`check_3d` 的 A-1601 第一次沒載入 3D（無 `models`），重跑兩次都有。剩第 6 項 push／PR。
+
 - 分支 `claude/admiring-mendel-02fc35`，worktree 在 repo 的 `.claude/worktrees/festive-hopper-48cb12`。基底是 `f52cb3e`（world-v1002a），它已經用 merge commit `a358cdd` 併進 `main`，兩者的樹相同；開 PR 時 base 用 `main`。
 - **只在本機，還沒 push。**
 - 已完成並驗證：`b64791c`（修正＋新檢查 `tools/verify_world_2d_routes.mjs`，細節見 commit 訊息）。本文件是下一個 commit。
