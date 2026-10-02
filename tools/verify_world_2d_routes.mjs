@@ -9,6 +9,9 @@
 //      各在自己的站 150 公尺內，所以換過來的兩端一定離本段的站 1.85 公里以上，第 1 項必須全部判失敗。
 //   3. 覆蓋率：每個城市都要有班次與路段；沒貼線形的路段（兩站之間畫直線）不准有任何一條線形同時經過
 //      兩站 150 公尺內，免得「改成直線」被當成通過。檢查的城市＝頁面上全部的世界城市。
+//   4. 別條線（不是列車自己的路線）有一端只是投影點（線站列沒有這一站，只是軌道從旁經過）時，不准另有
+//      別條線兩站都在線站列上、且都在 150 公尺內。投影點不表示停這一站：紐約 W 線 Atlantic Av-Barclays Ctr
+//      →DeKalb Av 若改挑里程差最小的線，會貼到 2～5 線的隧道，兩端離站 123／136 m，第 1 項照樣通過。
 // 用法：node tools/verify_world_2d_routes.mjs [網址] [城市,城市]（預設全部世界城市）
 const baseUrl = process.argv[2] || 'http://127.0.0.1:5188/';
 const playwrightModule = process.env.RAIL_WORLD_PLAYWRIGHT || 'playwright';
@@ -83,10 +86,12 @@ for (const city of cities.filter(id => worldCities.includes(id))) {
       return { ea, eb, ok: ea <= LIMIT_M && eb <= LIMIT_M };
     };
 
+    // 第 4 項：線站列上這一站（同名、里程離時刻表站點 ≤ limit）
+    const listed = (ln, stop, limit) => (ln.stations || []).some(x => x.name === stop.name && x.d != null && distM(pointAt(ln, x.d), stop) <= limit);
     const trips = state.trains.filter(tr => worldSchedSystemOf(tr));
     const lines = state.trackLines.filter(ln => ln.shape && ln.shape.length >= 2);
-    const bad = new Map(), straight = [], good = [];
-    let segments = 0, onShape = 0, badSegments = 0;
+    const bad = new Map(), straight = [], good = [], projPicked = new Map();
+    let segments = 0, onShape = 0, badSegments = 0, offOwnChecked = 0;
     for (const tr of trips) {
       const s = tr.stops;
       for (let i = 0; i + 1 < s.length; i++) {
@@ -95,7 +100,25 @@ for (const city of cities.filter(id => worldCities.includes(id))) {
         if (!st.segLn) { straight.push({ tr, from: s[i], to: s[i + 1] }); continue; }
         onShape++;
         const r = ends(s[i], s[i + 1], st.segLn, st.dA, st.dB);
-        if (r.ok) { good.push({ tr, from: s[i], to: s[i + 1], ln: st.segLn, dA: st.dA, dB: st.dB }); continue; }
+        if (r.ok) {
+          good.push({ tr, from: s[i], to: s[i + 1], ln: st.segLn, dA: st.dA, dB: st.dB });
+          // 第 4 項。選中的線放寬 5 m、另一條線收緊 5 m，兩邊數值方法差幾公尺不會誤判
+          const sysLines = lines.filter(ln => ln.sys === tr.sys);
+          const own = worldTrainLine(tr, sysLines);
+          if (st.segLn !== own) {
+            offOwnChecked++;
+            if (!(listed(st.segLn, s[i], LIMIT_M + MARGIN_M) && listed(st.segLn, s[i + 1], LIMIT_M + MARGIN_M))) {
+              const alt = sysLines.find(ln => ln !== own && ln !== st.segLn && listed(ln, s[i], LIMIT_M - MARGIN_M) && listed(ln, s[i + 1], LIMIT_M - MARGIN_M));
+              if (alt) {
+                const key = `${s[i].name}→${s[i + 1].name}（選了帶投影點的線形 ${st.segLn.id}，線形 ${alt.id} 兩站都在線站列上）`;
+                const v = projPicked.get(key) || { key, n: 0, trains: [] };
+                v.n++; if (v.trains.length < 2) v.trains.push(tr.train);
+                projPicked.set(key, v);
+              }
+            }
+          }
+          continue;
+        }
         badSegments++;
         const key = `${s[i].name}→${s[i + 1].name}（線形 ${st.segLn.id}）`;
         const v = bad.get(key) || { key, n: 0, trains: [], maxM: 0 };
@@ -147,14 +170,17 @@ for (const city of cities.filter(id => worldCities.includes(id))) {
     if (good.length && !controls.length) fails.push('正向對照：找不到兩站相距 2 公里以上的路段可借用');
     fails.push(...missed.map(m => `正向對照：${m}`));
     for (const v of coverable.values()) fails.push(`沒貼線形但線形經過兩站：${v.key}，${v.n} 段，例 ${v.trains.join('、')}`);
+    for (const v of projPicked.values()) fails.push(`${v.key}，${v.n} 段，例 ${v.trains.join('、')}`);
     return { trips: trips.length, segments, onShape, straight: straight.length, badSegments, controls: controls.length,
-      coverableSegments: [...coverable.values()].reduce((n, v) => n + v.n, 0), fails };
+      coverableSegments: [...coverable.values()].reduce((n, v) => n + v.n, 0), offOwnChecked,
+      projPickedSegments: [...projPicked.values()].reduce((n, v) => n + v.n, 0), fails };
   }, { LIMIT_M });
   for (const message of result.fails) failures.push(`${city}: ${message}`);
   if (pageErrors.length) failures.push(`${city}: pageerror：${pageErrors.join(' | ')}`);
   console.log(`${result.fails.length || pageErrors.length ? '✗' : '✓'} ${city}: ${result.trips} 班、${result.segments} 段；` +
     `貼線形 ${result.onShape} 段（兩端超過 ${LIMIT_M} m：${result.badSegments} 段）、直線 ${result.straight} 段` +
-    `（線形經過兩站卻是直線：${result.coverableSegments} 段）；正向對照 ${result.controls} 段`);
+    `（線形經過兩站卻是直線：${result.coverableSegments} 段）；正向對照 ${result.controls} 段；` +
+    `不在自己路線上 ${result.offOwnChecked} 段（有站列線可用卻挑投影點：${result.projPickedSegments} 段）`);
   await page.close();
 }
 await browser.close();
