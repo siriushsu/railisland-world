@@ -419,7 +419,7 @@
       "built": "1975–1978",
       "introduced": "1975-07-14"
      },
-     "status": "being phased out (140 cars left, N/Q/W only as of June 2026; replaced by R211A)",
+     "status": "being phased out — 140 cars on the roster as of 2026-09-23 (Template:NYCS const; 404 on 2026-03-11), N/Q/W only; the spring 2026 car assignment had 168 on N/W and 88 on Q in the AM peak; Rockaway Park Shuttle all-R211A since about 2026-06-17; R211 slated for N/Q/W next (checked 2026-10-02)",
      "formationsCars": [
       8
      ],
@@ -469,11 +469,39 @@
       {
        "label": "ERA Bulletin Nov 2025 – Car Assignments (cited, not fetched)",
        "url": "https://erausa.org/pdf/bulletin/2020s/2025/2025-11-bulletin.pdf"
+      },
+      {
+       "label": "ERA Bulletin Jun 2026 (Vol. 69 No. 6), PDF p.5 – spring 2026 B Division car assignment: NW 168 R-46, Q 88 R-46, H 4 R-46 (AM); 54 R-46 removed since the 2025-11-02 assignment",
+       "url": "https://erausa.org/pdf/bulletin/2020s/2026/2026-06-bulletin.pdf"
+      },
+      {
+       "label": "ERA Bulletin Jul 2026 – last R-46 set on the Rockaway Park Shuttle replaced by R-211As on or about 2026-06-17",
+       "url": "https://erausa.org/pdf/bulletin/2020s/2026/2026-07-bulletin.pdf"
+      },
+      {
+       "label": "ERA Bulletin Aug 2026 – R-211s debut on the D on 2026-07-01 (no R-46 news in the Aug or Sep 2026 issues)",
+       "url": "https://erausa.org/pdf/bulletin/2020s/2026/2026-08-bulletin.pdf"
+      },
+      {
+       "label": "Wikipedia: R211 (rev. 2026-09-03) – R211 expected to enter service next on the N, Q and W",
+       "url": "https://en.wikipedia.org/wiki/R211_(New_York_City_Subway_car)"
+      },
+      {
+       "label": "Wikipedia Template:NYCS const, rev. 1376365767 (2026-09-23) – numcar R46 = 140; earlier revisions: 404 (2026-03-11), 340 (2026-05-29), 256 (2026-07-15), 200 (2026-08-12), 168 (2026-08-29), 160 (2026-09-10)",
+       "url": "https://en.wikipedia.org/w/index.php?title=Template:NYCS_const&oldid=1376365767"
+      },
+      {
+       "label": "ERA Bulletin Jul 2024 – car assignment effective 2024-06-30: A 144 R-46, C 40 R-46 (AM)",
+       "url": "https://erausa.org/pdf/bulletin/2020s/2024/2024-07-bulletin.pdf"
+      },
+      {
+       "label": "ERA Bulletin Jul 2025 – car assignment effective 2025-06-08: no R-46 on the A or C; 180 R-46 removed",
+       "url": "https://erausa.org/pdf/bulletin/2020s/2025/2025-07-bulletin.pdf"
       }
      ],
-     "notes": "Retired from A/C/Rockaway Park Shuttle in 2025–26; may disappear entirely during the 2026–27 R211 deliveries — re-check before modelling.",
+     "notes": "Retired from the A/C in 2024–25 (ERA: 144 cars on the A and 40 on the C in the 2024-06-30 assignment, none in the 2025-06-08 one) and from the Rockaway Park Shuttle around 2026-06-17. R211 entered service on the D on 2026-07-01 and is expected on N/Q/W next. In the spring 2026 assignment R46 still outnumbered R68/R68A on N/W (168 vs 104 cars) and on Q (88 vs 80), but the Template:NYCS const count then fell from 256 (2026-07-15) to 140 (2026-09-23).",
      "variants": [],
-     "fleetSize": "140 cars",
+     "fleetSize": "140 cars (Template:NYCS const, 2026-09-23)",
      "referenceImages": [
       {
        "file": "File:R46 trains approaching and departing 30th Ave August 2025 1 (cropped 2).jpg",
@@ -501,7 +529,9 @@
       }
      ],
      "gaps": [
-      "livery hex values estimated (not from an official colour spec)"
+      "livery hex values estimated (not from an official colour spec)",
+      "the 140-car figure is the Template:NYCS const count of 2026-09-23; the template cites no source for it (its R46 references date from 2024–25), and no NYCT or ERA count after the spring 2026 assignment was found",
+      "line roles (minor on N/Q/W) are an estimate: about 140 cars against roughly 440 needed on N/Q/W in the AM peak (spring 2026 assignment) puts R-46 at a quarter to a third of N/Q/W trains in late September 2026; no line assignment after spring 2026 was found"
      ],
      "priorityScore": 4
     },
@@ -1133,7 +1163,7 @@
       "A_FarRockaway": "main",
       "A_Lefferts": "main",
       "A_RockawayPark": "main",
-      "B": "minor",
+      "B": "main",
       "C": "main",
       "D": "minor",
       "G": "main",
@@ -1201,9 +1231,13 @@
       {
        "label": "ERA Bulletin Nov 2025 – Car Assignments (cited, not fetched)",
        "url": "https://erausa.org/pdf/bulletin/2020s/2025/2025-11-bulletin.pdf"
+      },
+      {
+       "label": "ERA Bulletin Jun 2026 (Vol. 69 No. 6), PDF p.5 – spring 2026 B Division car assignment: B 160 R-211A, 32 R-68, 40 R-68A (AM)",
+       "url": "https://erausa.org/pdf/bulletin/2020s/2026/2026-06-bulletin.pdf"
       }
      ],
-     "notes": "Exterior blue band/front colour estimated from memory of photos — verify with the reference images. R211T (open-gangway pilot, 20 cars) runs on G; mesh identical except gangway bellows.",
+     "notes": "Exterior blue band/front colour estimated from memory of photos — verify with the reference images. R211T (open-gangway pilot, 20 cars) runs on G; mesh identical except gangway bellows. On the B the R211A outnumbered R68/R68A in the spring 2026 assignment (160 vs 72 cars in the AM peak), so B is listed as main.",
      "variants": [
       {
        "name": "R211A",
@@ -1408,8 +1442,8 @@
     ],
     "B": [
      "nyc-r68",
-     "nyc-r68a",
-     "nyc-r211"
+     "nyc-r211",
+     "nyc-r68a"
     ],
     "C": [
      "nyc-r179",
@@ -1498,8 +1532,8 @@
    },
    "coverageScoreOrder": [
     "nyc-r160",
-    "nyc-r68",
     "nyc-r211",
+    "nyc-r68",
     "nyc-r142",
     "nyc-r179",
     "nyc-r62a",
@@ -2093,7 +2127,7 @@
       "built": "1992–1994",
       "introduced": "1993-03-18 (Tozai from 2006-11-08)"
      },
-     "status": "in service on Tozai (6 sets) — current status in Oct 2026 unverified",
+     "status": "in service on Tozai (6 sets); no retirement or replacement announced (checked 2026-10-02)",
      "formationsCars": [
       10
      ],
@@ -2156,6 +2190,10 @@
       {
        "label": "Wikipedia (ja): 営団07系電車",
        "url": "https://ja.wikipedia.org/wiki/%E5%96%B6%E5%9B%A307%E7%B3%BB%E9%9B%BB%E8%BB%8A"
+      },
+      {
+       "label": "Blog (kumoyuni45), 2026-08-17: discusses the remaining Tozai 05/07 series as future replacement candidates (still in service)",
+       "url": "https://kumoyuni45.net/archives/14524"
       }
      ],
      "referenceImages": [
@@ -2185,7 +2223,8 @@
       }
      ],
      "gaps": [
-      "livery hex values estimated (not from an official colour spec)"
+      "livery hex values estimated (not from an official colour spec)",
+      "current status from ja.wikipedia (rev. 2026-08-20) and fan sites; no operator statement"
      ],
      "priorityScore": 1
     },
@@ -2627,7 +2666,7 @@
       "built": "1980–1994",
       "introduced": "1981-04-01"
      },
-     "status": "being phased out — 2 sets left on 2026-04-01; may be fully retired by Oct 2026 (unverified)",
+     "status": "being phased out — 2 sets left (8109F, 8116F); still in revenue service in Aug 2026 (8109F covered a Tokyu working on 2026-08-12); no retirement date announced by the operator (a TV caption in late May 2026 gave 2027) (checked 2026-10-02)",
      "formationsCars": [
       10
      ],
@@ -2678,6 +2717,18 @@
       {
        "label": "Wikipedia (ja): 営団8000系電車",
        "url": "https://ja.wikipedia.org/wiki/%E5%96%B6%E5%9B%A38000%E7%B3%BB%E9%9B%BB%E8%BB%8A"
+      },
+      {
+       "label": "2nd-train: Tokyo Metro 8000 roster and news (8109F covered Tokyu working A32K on 2026-08-12; page updated 2026-08-18)",
+       "url": "https://2nd-train.net/formations/series/48/8000%E7%B3%BB/"
+      },
+      {
+       "label": "Blog, 2026-04-05: 18000 deliveries (19 sets) completed in FY2025, 8109F and 8116F still in service",
+       "url": "https://tetutoo28m32.hateblo.jp/entry/2026/04/05/120256"
+      },
+      {
+       "label": "Blog, 2026-06-13: BS Fuji programme (late May 2026) captioned the 8000 as running until 2027; 8109F and 8116F active",
+       "url": "https://sk-n838f.hatenablog.jp/entry/2026/06/13/130000"
       }
      ],
      "referenceImages": [
@@ -2708,7 +2759,8 @@
      ],
      "gaps": [
       "some dimensions unverified/estimated",
-      "livery hex values estimated (not from an official colour spec)"
+      "livery hex values estimated (not from an official colour spec)",
+      "status after Apr 2026 comes from fan sites only; no operator statement on the final run"
      ],
      "priorityScore": 1
     },
@@ -10030,12 +10082,12 @@
       10
      ],
      "dimensions": {
-      "lengthHeadM": 20.13,
+      "lengthHeadM": 20.0,
       "lengthMiddleM": 20.0,
       "widthM": 2.846,
       "heightM": 4.05,
       "basis": "length over couplers; width = max/side-lamp width; height = roof/AC top",
-      "source": "ja.wikipedia 50000 infobox",
+      "source": "ja.wikipedia 50000 infobox (20,000; the 20,130 head cars are 50070/50090 only)",
       "verified": true
      },
      "bodyMaterial": "Aluminium alloy",
@@ -10080,12 +10132,28 @@
      ],
      "referenceImages": [
       {
+       "file": "File:東武鉄道50050系51060F 20210824 131310.jpg",
+       "commonsUrl": "https://commons.wikimedia.org/wiki/File%3A%E6%9D%B1%E6%AD%A6%E9%89%84%E9%81%9350050%E7%B3%BB51060F_20210824_131310.jpg",
+       "author": "Keiyoline201",
+       "licence": "Public domain",
+       "date": "2021-08-24 13:13:10",
+       "role": "front (head-on close-up, set 51060)"
+      },
+      {
+       "file": "File:Tobu-Series50050 Miyamaedaira.jpg",
+       "commonsUrl": "https://commons.wikimedia.org/wiki/File%3ATobu-Series50050_Miyamaedaira.jpg",
+       "author": "MaedaAkihiko",
+       "licence": "CC BY-SA 4.0",
+       "date": "2020-05-04 08:40:23",
+       "role": "exterior (front 3/4, set 51052)"
+      },
+      {
        "file": "File:Tobu50050-RPU15006.jpg",
        "commonsUrl": "https://commons.wikimedia.org/wiki/File%3ATobu50050-RPU15006.jpg",
        "author": "The RW place",
        "licence": "CC BY-SA 3.0",
        "date": null,
-       "role": "exterior (from article)"
+       "role": "detail (roof air-conditioning unit), not an exterior view"
       },
       {
        "file": "File:Tobu50050LADDER.jpg",
@@ -10093,11 +10161,12 @@
        "author": "User:The RW place",
        "licence": "CC BY-SA 3.0",
        "date": null,
-       "role": "exterior (from article)"
+       "role": "detail (underfloor emergency ladder), not an exterior view"
       }
      ],
      "gaps": [
-      "livery hex values estimated (not from an official colour spec)"
+      "livery hex values estimated (not from an official colour spec)",
+      "model front (shared with tobu-50000/50090) revised on 2026-10-02 from the photos above: orange panel down to the lower edge with the headlight housings inside it, coupler notch, dark grey skirt, emergency-door seam and car number; still simplified — the thin silver rim around the front and the tail lamps inside the housings are not drawn"
      ],
      "priorityScore": 10
     },
@@ -10318,9 +10387,9 @@
      },
      "years": {
       "built": "2025–",
-      "introduced": "2026-09-26"
+      "introduced": "2026-09-26 (group charter); regular service from 2026-09-27"
      },
-     "status": "in service, new (7 sets planned)",
+     "status": "in service, new — 3 sets on the roster as of 2026-09-26, 7 planned (checked 2026-10-02)",
      "formationsCars": [
       10
      ],
@@ -10358,18 +10427,26 @@
      "doorsPerSide": 4,
      "sideWindows": "unverified",
      "roofNotes": "single-arm pantographs, roof-mounted AC; DC 1,500 V overhead",
-     "notes": "",
+     "notes": "ja.wikipedia: replaces the 9000 series on the Tojo Line (later also 10000-series and 30000-series sets); Hitachi A-train with a reverse-slant front; fitted with new CS-ATC, ATC-P and ATO. Built for through running from the Tojo Line onto the Tokyo Metro Yurakucho/Fukutoshin lines (Mynavi News and tetsudo.com, 2026-07-13; its CS-ATC also covers the Tokyu Toyoko/Shin-Yokohama and Minatomirai lines, and it is not meant to run onto Sotetsu); whether through running has started in revenue service is not confirmed, so only TJ is listed (checked 2026-10-02).",
      "variants": [],
      "sources": [
       {
        "label": "Wikipedia (ja): 東武90000系電車",
        "url": "https://ja.wikipedia.org/wiki/%E6%9D%B1%E6%AD%A690000%E7%B3%BB%E9%9B%BB%E8%BB%8A"
+      },
+      {
+       "label": "Mynavi News, 2026-07-13: like the 9000, the 90000 runs through from the Tobu Tojo Line onto the Tokyo Metro Yurakucho/Fukutoshin lines; Tokyu Shin-Yokohama Line capable, no regular through running onto Sotetsu",
+       "url": "https://news.mynavi.jp/article/20260713-tobu90000photo/"
+      },
+      {
+       "label": "tetsudo.com, 2026-07-13: safety systems include CS-ATC for the Tokyo Metro Yurakucho/Fukutoshin, Tokyu Toyoko/Shin-Yokohama and Minatomirai lines",
+       "url": "https://www.tetsudo.com/report/558/"
       }
      ],
      "referenceImages": [],
      "gaps": [
-      "fewer than 2 freely licensed Commons images found in the source article — search Commons category manually",
-      "livery hex values estimated (not from an official colour spec)"
+      "livery hex values estimated (not from an official colour spec)",
+      "no freely licensed photo on Commons as of 2026-10-02 (no category; file search for \"Tobu 90000\", \"東武90000\", \"Series90000\" and set numbers 91001–91003, and the newest files in the Tobu Railway category tree, returned none; the ja.wikipedia infobox has no image) — exterior stays provisional"
      ],
      "priorityScore": 1
     },
@@ -10796,13 +10873,17 @@
       "京成電鉄"
      ],
      "lines": {
-      "KS": "minor"
+      "KS": "minor",
+      "KSO": "minor",
+      "A": "minor",
+      "KK": "minor",
+      "KKA": "minor"
      },
      "years": {
       "built": "1993–1995 (rebuilt from AE)",
       "introduced": "1993 (unverified)"
      },
-     "status": "being phased out; remaining sets in Oct 2026 unverified",
+     "status": "being phased out — only 3448F (8 cars) left since 2023; still in service in Aug–Sep 2026, including through services onto the Toei Asakusa and Keikyu lines (checked 2026-10-02)",
      "formationsCars": [
       8
      ],
@@ -10859,6 +10940,18 @@
       {
        "label": "Wikipedia (ja): 京成3400形電車",
        "url": "https://ja.wikipedia.org/wiki/%E4%BA%AC%E6%88%903400%E5%BD%A2%E9%9B%BB%E8%BB%8A"
+      },
+      {
+       "label": "train-fan.com, 2026-08-28 (upd. 2026-09-20): one 3400 set still active, used on through services to the Asakusa/Keikyu lines (article misprints the set as 3748)",
+       "url": "https://train-fan.com/keisei-3200-2026/"
+      },
+      {
+       "label": "2nd-train: Keisei 3400 roster – 3408F/3418F/3428F/3438F retired, 3448F active (updated 2026-05-31)",
+       "url": "https://2nd-train.net/formations/series/32/3400%E5%BD%A2/"
+      },
+      {
+       "label": "Blog photo: 3448F on a Keisei rapid limited express at Keisei Takasago, 2026-06-13",
+       "url": "https://qlpyhnvbf35268749.hatenablog.com/entry/2026/06/26/115944"
       }
      ],
      "referenceImages": [
@@ -10873,7 +10966,8 @@
      ],
      "gaps": [
       "fewer than 2 freely licensed Commons images found in the source article — search Commons category manually",
-      "livery hex values estimated (not from an official colour spec)"
+      "livery hex values estimated (not from an official colour spec)",
+      "KSO/A/KK/KKA are listed because 3448F shares the 8-car workings that run through to the Asakusa/Keikyu lines; how often it runs there is not known"
      ],
      "priorityScore": 1
     },
@@ -10892,7 +10986,7 @@
       "built": "1972–1982",
       "introduced": "1972 (unverified)"
      },
-     "status": "being phased out (retirement since 2025 by 3200)",
+     "status": "being phased out by the 3200 — Shibayama-leased 3540F ended service on 2026-03-31 and was retired (廃車); remaining sets still in service in Aug 2026 (6-car: 2 sets left as of May 2026; 4-car count not confirmed); more cars scrapped in Sep 2026 (checked 2026-10-02)",
      "formationsCars": [
       4,
       6
@@ -10950,6 +11044,18 @@
       {
        "label": "Wikipedia (ja): 京成3500形電車",
        "url": "https://ja.wikipedia.org/wiki/%E4%BA%AC%E6%88%903500%E5%BD%A2%E9%9B%BB%E8%BB%8A"
+      },
+      {
+       "label": "Blog (kumoyuni45), 2026-05-21: two 6-car 3500 sets left; FY2026 plan adds 7 six-car 3200 sets",
+       "url": "https://kumoyuni45.net/archives/13673"
+      },
+      {
+       "label": "train-fan.com, 2026-08-28: renewed 3500s still in use, expected to shrink further with the FY2026 3200 deliveries",
+       "url": "https://train-fan.com/keisei-3200-2026/"
+      },
+      {
+       "label": "2nd-train: Keisei 3500 roster and news (cars 3508/3507 trucked away for scrapping 2026-09-04; updated 2026-09-29)",
+       "url": "https://2nd-train.net/formations/series/32/3500%E5%BD%A2/"
       }
      ],
      "referenceImages": [
@@ -10979,7 +11085,8 @@
       }
      ],
      "gaps": [
-      "livery hex values estimated (not from an official colour spec)"
+      "livery hex values estimated (not from an official colour spec)",
+      "number of remaining 4-car sets not confirmed (units are frequently reformed)"
      ],
      "priorityScore": 2
     },
@@ -10991,13 +11098,14 @@
       "京成電鉄"
      ],
      "lines": {
-      "KS": "minor"
+      "KS": "minor",
+      "KSK": "minor"
      },
      "years": {
       "built": "1982–1989",
       "introduced": "1982-07-16"
      },
-     "status": "being phased out (1×6 cars Keisei + 1×4 Shibayama on 2026-04-01)",
+     "status": "being phased out — 3688F (6 cars, Keisei) and 3668F (4 cars, leased to Shibayama Railway since 2026-04-01) remain; both in service in Aug 2026 (checked 2026-10-02)",
      "formationsCars": [
       6,
       4
@@ -11020,19 +11128,13 @@
       },
       "stripes": [
        {
-        "hex": "#E80000",
-        "name": "red",
-        "where": "",
-        "estimated": true
-       },
-       {
-        "hex": "#0B00DA",
-        "name": "blue",
-        "where": "",
+        "hex": "#E8341C",
+        "name": "fire orange",
+        "where": "side bands above and below the windows; front band around the headlights",
         "estimated": true
        }
       ],
-      "lineColourUse": "Red/blue; one set fire-orange; Shibayama set red/green.",
+      "lineColourUse": "3688F: fire-orange bands (the 1982 debut livery, restored 2020-08-01); 3668F: Shibayama Railway livery (since 2026-03); no set carries the red/blue Keisei bands any more.",
       "frontColour": {
        "hex": "#1C1C1C",
        "name": "black front mask / windscreen surround",
@@ -11055,6 +11157,14 @@
       {
        "label": "Wikipedia (ja): 京成3600形電車",
        "url": "https://ja.wikipedia.org/wiki/%E4%BA%AC%E6%88%903600%E5%BD%A2%E9%9B%BB%E8%BB%8A"
+      },
+      {
+       "label": "train-fan.com, 2026-08-26: Shibayama 3600 (3668F) shares Keisei 4-car workings and ran on the Kanamachi Line in late Aug 2026",
+       "url": "https://train-fan.com/kanamachi-3200-shibayama3600/"
+      },
+      {
+       "label": "train-fan.com, 2026-08-28: 3668F leased to Shibayama, 3688F (6 cars, fire-orange revival) remains",
+       "url": "https://train-fan.com/keisei-3200-2026/"
       }
      ],
      "referenceImages": [
@@ -11064,7 +11174,7 @@
        "author": "Cfktj1596",
        "licence": "CC BY-SA 4.0",
        "date": "撮影日：2017年9月21日 07:39",
-       "role": "infobox (head car exterior)"
+       "role": "infobox (head car exterior; 3678F in the red/blue livery, retired 2019)"
       },
       {
        "file": "File:Keisei Type 3600-3688F Local Usui.jpg",
@@ -11072,7 +11182,7 @@
        "author": "Kuroc622",
        "licence": "CC0",
        "date": "撮影日：2023年1月13日, 08:4",
-       "role": "exterior (from article)"
+       "role": "exterior (3688F, fire-orange livery; livery reference)"
       },
       {
        "file": "File:Keisei Type3600-3668 Local Chiharadai.jpg",
@@ -11080,11 +11190,13 @@
        "author": "Kuroc622",
        "licence": "CC0",
        "date": "2024年1月1日, 13:38:02",
-       "role": "exterior (from article)"
+       "role": "exterior (3668F in the red/blue livery before its Shibayama repaint, 2024)"
       }
      ],
      "gaps": [
-      "livery hex values estimated (not from an official colour spec)"
+      "livery hex values estimated (not from an official colour spec)",
+      "livery follows 3688F (fire orange, hex estimated from File:Keisei Type 3600-3688F Local Usui.jpg); the Shibayama-liveried 3668F is not drawn separately",
+      "KSK is listed because Shibayama 3668F occasionally runs Kanamachi Line workings; its usual Higashi-Narita/Shibayama workings are outside the mapped lines"
      ],
      "priorityScore": 1
     },
@@ -13098,6 +13210,7 @@
      "toei-5500",
      "keisei-3000",
      "keisei-3100",
+     "keisei-3400",
      "keisei-3700",
      "hokuso-7500",
      "hokuso-9100",
@@ -13449,6 +13562,7 @@
      "keisei-3000",
      "keisei-3700",
      "keisei-3100",
+     "keisei-3400",
      "hokuso-7500",
      "hokuso-9100",
      "hokuso-7300",
@@ -13458,7 +13572,8 @@
     "KSK": [
      "keisei-3200",
      "keisei-3000",
-     "keisei-3500"
+     "keisei-3500",
+     "keisei-3600"
     ],
     "HS": [
      "keisei-3100",
@@ -13475,6 +13590,7 @@
      "toei-5500",
      "keisei-3000",
      "keisei-3100",
+     "keisei-3400",
      "keisei-3700",
      "hokuso-7500",
      "hokuso-9100",
@@ -13487,6 +13603,7 @@
      "keikyu-1000",
      "toei-5500",
      "keisei-3100",
+     "keisei-3400",
      "keisei-3700",
      "keikyu-600",
      "keikyu-1500",

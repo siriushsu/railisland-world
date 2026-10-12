@@ -10,6 +10,7 @@ LAMP = '#f2efe2'         # 頭燈
 TAIL = '#7a1a1c'         # 尾燈（熄）
 KS_RED = '#e60012'       # 京成 human red（遠離路線換色鍵的暗紅）
 KS_BLUE = '#1a2fd0'      # 京成 future blue（catalog #0B00DA 略提亮）
+KS_FIRE = '#e8341c'      # 京成火焰橘（3600 形 3688F 的復刻色帶，依 Commons 照片估計）
 HK_BLUE = '#1450c0'      # 北總藍
 HK_LBLUE = '#1ea0e6'     # 北總淺藍
 KQ_RED = '#e5171f'       # 京急紅
@@ -119,8 +120,8 @@ KS3400['front']['decals'] = [('rect', 0.0, 2.74, 2.52, 1.56, 0.06, BLK, 0.6),
                              ('rect', -0.04, 1.62, 0.66, 0.40, 0.05, '#d6d9dc', 0.5),
                              *lamps(1.00, 1.54, 0.075)]
 
-# 3500／3600 形：平直鋼製風格車頭（左右窗＋中央貫通門，紅帶內含頭燈，下方藍帶）
-def flat_front(red_z, blue_z, face=SUS, dest_col='#2a49c8', lamp_y=0.92, twin=False):
+# 3500／3600 形：平直鋼製風格車頭（左右窗＋中央貫通門，紅帶內含頭燈，下方藍帶；blue_z=None 時不畫藍帶）
+def flat_front(red_z, blue_z, face=SUS, dest_col='#2a49c8', lamp_y=0.92, twin=False, band_col=KS_RED):
     lamp = (lamps(lamp_y, sum(red_z) / 2, 0.09) if not twin else
             [*lamps(lamp_y + 0.18, sum(red_z) / 2, 0.08), *lamps(lamp_y - 0.12, sum(red_z) / 2, 0.08)])
     return dict(Ln=0.35, tip_w=0.95, tip_drop=0.05, setback=0.0, face=face,
@@ -132,7 +133,8 @@ def flat_front(red_z, blue_z, face=SUS, dest_col='#2a49c8', lamp_y=0.92, twin=Fa
                         ('rect', 0.0, 2.25, 0.68, 2.22, 0.04, face, 0.5),
                         ('rect', 0.0, 2.80, 0.50, 0.80, 0.04, 'GLASS'),
                         ('rect', 0.0, 3.38, 0.70, 0.20, 0.03, dest_col, 0.6),
-                        ('band', red_z[0], red_z[1], KS_RED), ('band', blue_z[0], blue_z[1], KS_BLUE),
+                        ('band', red_z[0], red_z[1], band_col),
+                        *([('band', blue_z[0], blue_z[1], KS_BLUE)] if blue_z else []),
                         *lamp],
                 skirt=('#3a3d40', 0.40, 0.98))
 
@@ -148,9 +150,10 @@ KS3500 = dict(
 KS3600 = dict(
     KS_BODY, id='keisei3600', name='京成 3600 形',
     W=2.794, ac_top=3.93, ac=[(-4.8, 2.4), (0.0, 2.4), (4.8, 2.4)],
-    source='尺寸：ja.wikipedia 京成3600形電車 規格表（18,000／2,794／3,969 mm）；照片：Commons Keisei 3600 series Keisei Main Line 20170921.jpg（Cfktj1596，CC BY-SA 4.0）',
-    bands=[(1.66, 1.80, KS_RED), (1.50, 1.60, KS_BLUE), (3.02, 3.08, KS_BLUE)],
-    front=flat_front((1.71, 2.10), (1.39, 1.60), twin=True, lamp_y=0.80),
+    source='尺寸：ja.wikipedia 京成3600形電車 規格表（18,000／2,794／3,969 mm）；照片：Commons Keisei 3600 series Keisei Main Line 20170921.jpg（Cfktj1596，CC BY-SA 4.0）；'
+           '塗裝：現存京成塗裝只剩 3688F 的火焰橘帶（窗上下各一條、車頭頭燈帶，無藍帶），依 Commons Keisei Type 3600-3688F Local Usui.jpg（Kuroc622，CC0）',
+    bands=[(1.66, 1.80, KS_FIRE), (3.02, 3.08, KS_FIRE)],
+    front=flat_front((1.71, 2.10), None, twin=True, lamp_y=0.80, band_col=KS_FIRE),
 )
 
 # ---- 北總 ----

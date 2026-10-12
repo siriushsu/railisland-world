@@ -48,7 +48,7 @@ const WORLD_STOCK={
   nyc_sched:{
     narrow:[15.6,2.67],wide:[18.4,3.05],r160:[18.35,2.98],r62a:[15.56,2.62],r142:[15.65,2.68],r211:[18.35,3.05],r68:[22.77,3.05],
     routes:{
-      // NYCT 2025-11 配車表（catalog 的 main 權重 1、minor 0.3）；每班依車次號碼固定分配一款。
+      // NYCT 2025-11 配車表（B 線依 2026 春季配車表；catalog 的 main 權重 1、minor 0.3）；每班依車次號碼固定分配一款。
       // R68A 與 R68、R142A／R188 與 R142、R179／R143 與 R160、R211S 與 R211 外觀相近，共用同一份網格。
       '1':['r62a',10,'r62a',NYC],'3':['r62a',10,'r62a',NYC],'6':['r62a',10,'r62a',NYC],'6X':['r62a',10,'r62a',NYC],'S_42St':['r62a',6,'r62a',NYC],
       '2':['r142',10,'r142',NYC],'4_Utica':['r142',10,'r142',NYC],'4_NewLots':['r142',10,'r142',NYC],
@@ -58,8 +58,8 @@ const WORLD_STOCK={
       C:['r211',10,[['r211',1],['r160',1]],NYC],G:['r211',5,'r211',NYC],S_Rockaway:['r211',4,[['r211',1],['r160',0.3]],NYC],
       E:['r160',10,'r160',NYC],F_53:['r160',10,'r160',NYC],F_63:['r160',10,'r160',NYC],FX:['r160',10,'r160',NYC],R:['r160',10,'r160',NYC],
       J:['r160',8,'r160',NYC],Z:['r160',8,'r160',NYC],M:['r160',8,'r160',NYC],L:['r160',8,'r160',NYC],
-      // 75 呎車：B、D 線 8 節，N、Q、W 線 8 節（R68／R68A 為主、R46 汰換中）
-      B:['r68',8,[['r68',1],['r211',0.3,'r211',10]],NYC],D:['r68',8,[['r68',1],['r211',0.3,'r211',10]],NYC],
+      // 75 呎車 8 節：D 線 R68 為主；N、Q、W 線 R68／R68A 為主、R46 汰換中（2026-09 只剩約 140 輛）；B 線 R211A 與 R68／R68A 並列主力
+      B:['r68',8,[['r68',1],['r211',1,'r211',10]],NYC],D:['r68',8,[['r68',1],['r211',0.3,'r211',10]],NYC],
       N_Bridge:['r68',8,[['r68',1],['r46',0.3]],NYC],N_Tunnel:['r68',8,[['r68',1],['r46',0.3]],NYC],Q:['r68',8,[['r68',1],['r46',0.3]],NYC],W:['r68',8,[['r68',1],['r46',0.3]],NYC],
       S_Franklin:['r68',2,'r68',NYC],
       SIR:['r211',4,'r211',NYC],
@@ -71,7 +71,7 @@ const WORLD_STOCK={
     ginza:[16,2.55],maru:[18,2.78],oedo:[16.5,2.5],asakusa:[18,2.8],std:[20,2.85],tram:[13,2.2],agt:[9,2.5],setagaya:[8.25,2.5],mo:[15.2,3.0],tt:[14.6,2.98],
     routes:{
       "G":['ginza',6,'tm1000',FLEET],"M":['maru',6,'tm2000',FLEET],"Mb":['maru',3,'tm2000',FLEET],"E":['oedo',8,[['toei12600',1],['toei12000',0.3]],FLEET],
-      "A":['asakusa',8,[['toei5500',1],['hokuso7300',0.3],['hokuso7500',0.3],['hokuso9100',0.3],['keikyu1000',0.3],['keikyu600',0.3],['keisei3000',0.3],['keisei3100',0.3],['keisei3700',0.3]],FLEET],"I":['std',8,[['toei6300',1],['toei6500',1],['sotetsu21000',0.3],['tm9000',0.3],['tokyu3000',0.3],['tokyu3020',0.3],['tokyu5080',0.3]],FLEET],"S":['std',10,[['keio9000',1],['toei10300',1],['keio5000',0.3]],FLEET],"H":['std',7,[['tm13000',1],['tobu70000',1]],FLEET],
+      "A":['asakusa',8,[['toei5500',1],['hokuso7300',0.3],['hokuso7500',0.3],['hokuso9100',0.3],['keikyu1000',0.3],['keikyu600',0.3],['keisei3000',0.3],['keisei3100',0.3],['keisei3400',0.3],['keisei3700',0.3]],FLEET],"I":['std',8,[['toei6300',1],['toei6500',1],['sotetsu21000',0.3],['tm9000',0.3],['tokyu3000',0.3],['tokyu3020',0.3],['tokyu5080',0.3]],FLEET],"S":['std',10,[['keio9000',1],['toei10300',1],['keio5000',0.3]],FLEET],"H":['std',7,[['tm13000',1],['tobu70000',1]],FLEET],
       "T":['std',10,[['tm05',1],['tm15000',1],['jre231800',0.3],['tm07',0.3],['toyo2000',0.3]],FLEET],"C":['std',10,[['tm16000',1],['jre2332000',0.3],['odakyu4000',0.3]],FLEET],"Y":['std',10,[['tm10000',1],['tm17000',1],['seibu40000',0.3],['seibu6000',0.3],['sotetsu20000',0.3],['tobu50000',0.3],['tobu9000',0.3],['tokyu5050',0.3]],FLEET],"Z":['std',10,[['tm18000',1],['tobu50050',1],['tokyu2020',1],['tokyu5000',1],['tm08',0.3],['tm8000',0.3]],FLEET],
       "N":['std',6,[['tm9000',1],['saitama2000',0.3],['sotetsu21000',0.3],['toei6300',0.3],['toei6500',0.3],['tokyu3000',0.3],['tokyu3020',0.3],['tokyu5080',0.3]],FLEET],"F":['std',10,[['tm10000',1],['tm17000',1],['seibu40000',0.3],['seibu6000',0.3],['sotetsu20000',0.3],['tobu50000',0.3],['tobu9000',0.3],['tokyu5050',0.3],['yokohamay500',0.3]],FLEET],"SA":['tram',1,[['toden7700',1],['toden8800',1],['toden8900',1],['toden9000',0.3]],FLEET],"NT":['agt',5,[['nt300',1],['nt330',1]],FLEET],
       "JY":['std',11,'e235',FLEET],"JK":['std',10,'e233',FLEET],"JC":['std',10,'e233',FLEET],"JB":['std',10,[['jre231500',1],['e231',0.3],['e235',0.3],['jre231800',0.3]],FLEET],
@@ -86,8 +86,8 @@ const WORLD_STOCK={
       "SSH":['std',10,[['seibu2000',1],['seibu30000',1],['seibu20000',0.3]],FLEET],"SK":['std',6,[['seibu8000',1],['seibu2000',0.3]],FLEET],"ST":['std',4,[['seibu9000',1],['seibu2000',0.3]],FLEET],"SW":['std',4,'seibu101',FLEET],
       "SIT":['std',4,[['seibu20000',0.3],['seibu30000',0.3],['seibu6000',0.3]],FLEET],"SIY":['std',10,[['seibu40000',0.3],['seibu6000',0.3],['tm10000',0.3],['tm17000',0.3],['tokyu5050',0.3]],FLEET],"SSE":['std',4,[['seibu2000',1],['seibu9000',0.3]],FLEET],"TS":['std',10,[['tm18000',1],['tobu10000',1],['tobu50050',1],['tobu70000',1],['tm08',0.3],['tm13000',0.3],['tokyu2020',0.3],['tokyu5000',0.3]],FLEET],
       "TSO":['std',10,[['tm18000',1],['tobu50050',1],['tm08',0.3],['tokyu2020',0.3],['tokyu5000',0.3]],FLEET],"TSK":['std',2,'tobu10000',FLEET],"TSD":['std',2,'tobu10000',FLEET],"TJ":['std',10,[['tobu30000',1],['tobu50000',1],['sotetsu20000',0.3],['tm10000',0.3],['tm17000',0.3],['tobu10000',0.3],['tobu50090',0.3],['tobu9000',0.3],['tobu90000',0.3],['tokyu5050',0.3]],FLEET],
-      "KS":['asakusa',8,[['keisei3000',1],['keisei3700',1],['keikyu1000',0.3],['keisei3100',0.3],['keisei3200',0.3],['keisei3400',0.3],['keisei3500',0.3],['keisei3600',0.3],['toei5500',0.3]],FLEET],"KSO":['asakusa',8,[['keisei3000',1],['keisei3700',1],['toei5500',1],['hokuso7300',0.3],['hokuso7500',0.3],['hokuso9100',0.3],['keikyu1000',0.3],['keikyu600',0.3],['keisei3100',0.3]],FLEET],"KSK":['asakusa',4,[['keisei3200',1],['keisei3000',0.3],['keisei3500',0.3]],FLEET],"HS":['asakusa',8,[['hokuso7500',1],['keisei3100',1],['hokuso7300',0.3],['hokuso9100',0.3],['keikyu1000',0.3],['keisei3000',0.3],['keisei3700',0.3],['toei5500',0.3]],FLEET],
-      "KK":['asakusa',8,[['keikyu1000',1],['hokuso7300',0.3],['hokuso7500',0.3],['hokuso9100',0.3],['keikyu1500',0.3],['keikyu2100',0.3],['keikyu600',0.3],['keisei3000',0.3],['keisei3100',0.3],['keisei3700',0.3],['toei5500',0.3]],FLEET],"KKA":['asakusa',8,[['keikyu1000',1],['keikyu1500',0.3],['keikyu2100',0.3],['keikyu600',0.3],['keisei3100',0.3],['keisei3700',0.3],['toei5500',0.3]],FLEET],"TX":['std',6,[['tx1000',1],['tx2000',1],['tx3000',1]],FLEET],"R":['std',10,[['twr70000',1],['twr71000',1],['e233',0.3],['sotetsu12000',0.3]],FLEET],
+      "KS":['asakusa',8,[['keisei3000',1],['keisei3700',1],['keikyu1000',0.3],['keisei3100',0.3],['keisei3200',0.3],['keisei3400',0.3],['keisei3500',0.3],['keisei3600',0.3],['toei5500',0.3]],FLEET],"KSO":['asakusa',8,[['keisei3000',1],['keisei3700',1],['toei5500',1],['hokuso7300',0.3],['hokuso7500',0.3],['hokuso9100',0.3],['keikyu1000',0.3],['keikyu600',0.3],['keisei3100',0.3],['keisei3400',0.3]],FLEET],"KSK":['asakusa',4,[['keisei3200',1],['keisei3000',0.3],['keisei3500',0.3],['keisei3600',0.3]],FLEET],"HS":['asakusa',8,[['hokuso7500',1],['keisei3100',1],['hokuso7300',0.3],['hokuso9100',0.3],['keikyu1000',0.3],['keisei3000',0.3],['keisei3700',0.3],['toei5500',0.3]],FLEET],
+      "KK":['asakusa',8,[['keikyu1000',1],['hokuso7300',0.3],['hokuso7500',0.3],['hokuso9100',0.3],['keikyu1500',0.3],['keikyu2100',0.3],['keikyu600',0.3],['keisei3000',0.3],['keisei3100',0.3],['keisei3400',0.3],['keisei3700',0.3],['toei5500',0.3]],FLEET],"KKA":['asakusa',8,[['keikyu1000',1],['keikyu1500',0.3],['keikyu2100',0.3],['keikyu600',0.3],['keisei3100',0.3],['keisei3400',0.3],['keisei3700',0.3],['toei5500',0.3]],FLEET],"TX":['std',6,[['tx1000',1],['tx2000',1],['tx3000',1]],FLEET],"R":['std',10,[['twr70000',1],['twr71000',1],['e233',0.3],['sotetsu12000',0.3]],FLEET],
       "MO":['mo',6,[['mo10000',1],['mo1000',0.3]],FLEET],"TT":['tt',4,'tt1000',FLEET],"U":['agt',6,[['u7300',1],['u7500',1]],FLEET],
     },
     fallback:['std',8],
