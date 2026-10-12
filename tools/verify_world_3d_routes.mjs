@@ -9,7 +9,7 @@
 //   2. routeId（決定車型與節數）仍是列車自己的路線；
 //   3. 對照組的 3D 線形仍是自己的路線，且每條路線都有對照；
 //   4. 每班車都找得到自己的路線（找不到的班次上面三項都沒檢查到）。
-// 這裡驗的是 3D 線形與 2D 位置一致；2D 路段有沒有貼對軌道（依站名配對，可能配到別條線的同名站）不在這裡驗。
+// 這裡驗的是 3D 線形與 2D 位置一致；2D 路段有沒有貼對軌道（依站名配對，可能配到別條線的同名站）不在這裡驗，見 `tools/verify_world_2d_routes.mjs`。
 // 用法：node tools/verify_world_3d_routes.mjs [網址] [城市,城市]（預設有立體車型的紐約、東京）
 const baseUrl = process.argv[2] || 'http://127.0.0.1:5188/';
 const cities = (process.argv[3] || 'nyc_sched,tokyo_sched').split(',');

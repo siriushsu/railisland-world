@@ -169,21 +169,33 @@ CARS = [
 TOBU_ORANGE = '#f08a10'
 
 
-def _tobu_a_train(panel, wrap_panel=True, door_left=False, extra=()):
-    """東武 50000 型系列（日立 A-train）：上半黑色大窗、下半整片色板、下角黑色頭燈箱。"""
-    dec = [('rect', 0.0, 2.80, 2.44, 1.40, 0.16, BLK, 0.9)]
+def _tobu_a_train(panel, door_left=False, stripes=(), num_col='#2b2622'):
+    """東武 50000 型系列（日立 A-train）：上半黑色、擋風玻璃幾乎占滿（方向幕在玻璃內上緣），
+    下半整片色板一路到車頭下緣，頭燈箱在色板下段（LED 頭燈在箱內側），色板下緣中央是連結器缺口。
+    比例依 Commons 照片估計：51060F（Keiyoline201，公有領域）、51052F（MaedaAkihiko，CC BY-SA 4.0）、
+    51001F（MaedaAkihiko，CC BY-SA 4.0）、51092F（Sui-setz，公有領域）。
+    stripes：黑色區與色板之間的橫帶 [(z0, z1, '#hex'), ...]，由下往上、彼此相接（50090 的白帶與紫帶）；
+    車號固定在 z≈1.78，50090 落在紫帶上所以用白字。
+    黑色區、色板、橫帶都用端面分色（cap）畫：貼到車頭下緣曲面的大片貼花三角形太多，會超過網格上限。"""
+    top = 1.88                                                          # 黑色區下緣
+    cap = [(None, stripes[0][0] if stripes else top, panel)] + list(stripes) + [(top, None, BLK)]
     if door_left:   # 50050／50070／50090：左側（車右）貫通／避難門
-        dec += [('rect', -0.86, 2.62, 0.52, 1.00, 0.05, 'GLASS'),
-                ('rect', 0.30, 2.66, 1.66, 0.80, 0.05, 'GLASS')]
+        dec = [('rect', -0.98, 2.745, 0.44, 1.35, 0.05, 'GLASS'),
+               ('rect', 0.25, 2.745, 1.86, 1.35, 0.05, 'GLASS')]
     else:
-        dec += [('rect', 0.0, 2.66, 2.24, 0.82, 0.06, 'GLASS')]
-    dec += [('rect', 0.0, 3.30, 1.10, 0.22, 0.03, '#2b2f34', 0.6),
-            ('rect', 0.0, 1.72, 2.46, 0.66, 0.04, panel, 0.6)]
-    dec += list(extra)
-    dec += rlamps(0.98, 1.36, 0.40, 0.22)
+        dec = [('rect', 0.0, 2.745, 2.30, 1.35, 0.06, 'GLASS')]
+    dec += [('rect', 0.0, 3.29, 1.10, 0.18, 0.03, '#2b2f34', 0.6),     # 方向幕（玻璃內上緣）
+            ('rect', 0.0, 1.05, 1.02, 0.20, 0.05, '#b9bec3', 0.5),       # 連結器缺口：銀色框＋暗色開口
+            ('rect', 0.0, 1.03, 0.94, 0.16, 0.04, '#2b2e31', 0.4)]
+    if door_left:   # 門縫穿過色板，門下緣在色板下緣上方約 0.18 m
+        dec += [('rect', -0.73, (1.16 + top) / 2, 0.02, top - 1.16, 0.0, '#2a2420', 0.5),
+                ('rect', -1.01, 1.16, 0.56, 0.02, 0.0, '#2a2420', 0.5)]
+    dec += [('rect', -1.01, 1.78, 0.32, 0.09, 0.02, num_col, 0.5),      # 車號
+            ('rect', -1.0, 1.36, 0.48, 0.32, 0.06, '#1a1c1e'), ('rect', 1.0, 1.36, 0.48, 0.32, 0.06, '#1a1c1e'),
+            ('rect', -0.84, 1.36, 0.13, 0.13, 0.02, '#f2efe2', 0.9), ('rect', 0.84, 1.36, 0.13, 0.13, 0.02, '#f2efe2', 0.9)]
     return dict(Ln=0.62, tip_w=0.92, tip_drop=0.10, setback=0.16, face='#c9cdd1',
-                wrap=[(1.40, 2.06, panel), (2.06, 3.50, '#2a2e33')] if wrap_panel else [(2.06, 3.50, '#2a2e33')],
-                decals=dec, skirt=('#8e959c', 0.25, 1.05))
+                wrap=list(stripes) + [(0.95, top, panel), (top, 3.50, '#2a2e33')], cap=cap,
+                decals=dec, skirt=('#3a3d40', 0.25, 1.05))
 
 
 T50000 = dict(
@@ -197,13 +209,12 @@ T50000 = dict(
 CARS += [
     T50000,
     dict(T50000, id='tobu50050', name='東武 50050 型（半藏門線直通）',
-         source='ja.wikipedia 東武50000系 infobox（中間車 20,000／寬 2,846／高 4,050 mm）；Commons: Tobu50050-RPU15006.jpg（The RW place，CC BY-SA 3.0）',
+         source='ja.wikipedia 東武50000系 infobox（中間車 20,000／寬 2,846／高 4,050 mm）；Commons: 東武鉄道50050系51060F 20210824 131310.jpg（Keiyoline201，公有領域）、Tobu-Series50050 Miyamaedaira.jpg（MaedaAkihiko，CC BY-SA 4.0）',
          front=_tobu_a_train(TOBU_ORANGE, door_left=True)),
     dict(T50000, id='tobu50090', name='東武 50090 型（TJ ライナー）',
          source='ja.wikipedia 東武50000系 infobox（中間車 20,000／寬 2,846／高 4,050 mm）；Commons: Tobu Railway 50090 TJ-Liner.jpg（Sui-setz，Public domain）',
          bands=[(1.56, 1.66, '#4a4cb4')],
-         front=_tobu_a_train(TOBU_ORANGE, door_left=True,
-                             extra=[('rect', 0.0, 2.00, 2.46, 0.08, 0.0, '#4a4cb4', 0.55), ('rect', 0.0, 1.93, 2.46, 0.06, 0.0, '#e8e9ea', 0.55)])),
+         front=_tobu_a_train(TOBU_ORANGE, door_left=True, stripes=[(1.63, 1.73, '#e8e9ea'), (1.73, 1.88, '#4a4cb4')], num_col='#f4f4f4')),
     dict(
         D20, id='tobu70000', name='東武 70000 型（日比谷線直通）',
         source='ja.wikipedia 東武70000系 infobox（中間車 20,000／寬 2,829／高 3,972 mm）；Commons: Tobu-Series70000-71701.jpg（MaedaAkihiko，CC BY-SA 4.0）',
