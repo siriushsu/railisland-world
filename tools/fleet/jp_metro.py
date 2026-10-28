@@ -336,40 +336,11 @@ YOKOHAMAY500 = metro20('yokohamay500', '橫濱高速鐵道 Y500 系',
                + lamps(0.96, 1.80, r=0.07, bezel=None),
                skirt=SKIRT_D))
 
-# 筑波快線：流線型車頭、V 形下緣擋風玻璃
-_WTX = 2.95
-_ytx = _yt(_WTX, 0.84)
-TX1000 = metro20('tx1000', '筑波快線 TX-1000 系',
-    _src('ja.wikipedia つくばエクスプレス1000系（中間 20,000／寬 2,950／4,070 mm）', 'TX Series1000-1609.jpg', 'MaedaAkihiko', 'CC BY-SA 4.0'),
-    _WTX, 4.07, doors=(-6.6, 0.0, 6.6),
-    bands=[(2.84, 2.95, '#dc5a78')],
-    front=dict(Ln=1.3, tip_w=0.84, tip_drop=0.16, setback=0.34, face=ALU,
-               decals=[('poly', [(-_ytx, 3.36), (_ytx, 3.36), (_ytx, 2.40), (0.0, 2.16), (-_ytx, 2.40)], '#1d2a3a', 0.85),
-                       ('poly', [(-_ytx + 0.06, 3.30), (-0.36, 3.30), (-0.36, 2.28), (-_ytx + 0.06, 2.44)], 'GLASS'),
-                       ('poly', [(-0.28, 3.30), (0.28, 3.30), (0.28, 2.22), (-0.28, 2.22)], 'GLASS'),
-                       ('poly', [(0.36, 3.30), (_ytx - 0.06, 3.30), (_ytx - 0.06, 2.44), (0.36, 2.28)], 'GLASS'),
-                       ('rect', 0.0, 1.78, 0.62, 0.70, 0.02, '#b8bcc0')]
-               + lamps(1.02, 2.06, r=0.07, bezel=None) + [('circle', -1.0, 1.82, 0.08, BLK), ('circle', 1.0, 1.82, 0.08, BLK)],
-               skirt=('#b4b8bc', 0.30, 0.86)))
-
-TX2000 = dict(TX1000, id='tx2000', name='筑波快線 TX-2000 系',
-    source=_src('ja.wikipedia つくばエクスプレス2000系（中間 20,000／寬 2,950／4,070 mm）', 'TX Series2000-2654.jpg', 'MaedaAkihiko', 'CC BY-SA 4.0'),
-    front=dict(TX1000['front'], decals=TX1000['front']['decals'] + [('rect', 0.72, 2.50, 0.40, 0.09, 0.02, '#d8283c')]))
-
-_WT3 = 2.998
-TX3000 = metro20('tx3000', '筑波快線 TX-3000 系',
-    _src('ja.wikipedia つくばエクスプレス3000系（中間 20,000／寬 2,998／4,070 mm）', 'TX Series3000-3685.jpg', 'MaedaAkihiko', 'CC BY-SA 4.0'),
-    _WT3, 4.07, doors=(-6.6, 0.0, 6.6),
-    bands=[(2.84, 2.95, '#d8508e')], door_frame='#4a4fb0',
-    front=dict(Ln=1.0, tip_w=0.88, setback=0.26, face=ALU,
-               decals=[('rect', 0.0, 2.08, 2 * _yt(_WT3, 0.88), 0.32, 0.12, '#ef4a52')]
-               + windscreen(_WT3, 0.88, 2.16, 3.38, pad=0.08, r=0.20, mask='#1a1c20')
-               + [('rect', -0.95, 1.86, 0.30, 0.05, 0.02, LAMP, 0.9), ('rect', 0.95, 1.86, 0.30, 0.05, 0.02, LAMP, 0.9)],
-               skirt=SKIRT))
+# 筑波快線（TX）三款已移除：未取得車輛設計使用許諾前不放當地車型，TX 線用通用外觀（2026-10-28）。
 
 CARS += [TM13000, TM15000, TM16000, TM10000, TM17000, TM18000, TM08, TM9000, TM05, TM07, TM8000,
          TOEI5500, TOEI6300, TOEI6500, TOEI10300, TOEI12600, TOEI12000,
-         TOYO2000, SAITAMA2000, YOKOHAMAY500, TX1000, TX2000, TX3000]
+         TOYO2000, SAITAMA2000, YOKOHAMAY500]
 
 
 def _fill_cap(cfg):

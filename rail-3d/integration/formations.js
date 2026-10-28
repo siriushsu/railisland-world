@@ -39,7 +39,7 @@ export const FORMATIONS={
   ankeng:spec('ankeng',repeat(5,34.45/5),2.65,'路線標準 5 分節；單節長度示意',{articulated:true}),
   caf:spec('caf',repeat(5,34/5),2.65,'路線標準 5 分節；CAF 代表外觀、長度約值',{articulated:true}),
 };
-// 世界版：紐約、東京沒有逐班派車資料，一律用路線標準編組（推估）。兩城全部路線都用當地車型網格（tools/fleet），
+// 世界版：紐約、東京沒有逐班派車資料，一律用路線標準編組（推估）。兩城路線都用當地車型網格（tools/fleet；東京筑波快線 TX 除外，用通用外觀），
 // 同線多車型依車次號碼固定分配；路線色部位由 map3d.js 的 tint 換色。逐條出處見 FORMATIONS-world.md。
 const NYC='路線標準編組（推估）；車型依 NYCT 配車表推估分配（依車次號碼固定），外觀依照片簡化建模，路線圓標為路線色';
 const FLEET='路線標準編組（推估）；車型依該線主力／少數車型推估分配（依車次號碼固定），外觀依照片簡化建模';
@@ -87,7 +87,7 @@ const WORLD_STOCK={
       "SIT":['std',4,[['seibu20000',0.3],['seibu30000',0.3],['seibu6000',0.3]],FLEET],"SIY":['std',10,[['seibu40000',0.3],['seibu6000',0.3],['tm10000',0.3],['tm17000',0.3],['tokyu5050',0.3]],FLEET],"SSE":['std',4,[['seibu2000',1],['seibu9000',0.3]],FLEET],"TS":['std',10,[['tm18000',1],['tobu10000',1],['tobu50050',1],['tobu70000',1],['tm08',0.3],['tm13000',0.3],['tokyu2020',0.3],['tokyu5000',0.3]],FLEET],
       "TSO":['std',10,[['tm18000',1],['tobu50050',1],['tm08',0.3],['tokyu2020',0.3],['tokyu5000',0.3]],FLEET],"TSK":['std',2,'tobu10000',FLEET],"TSD":['std',2,'tobu10000',FLEET],"TJ":['std',10,[['tobu30000',1],['tobu50000',1],['sotetsu20000',0.3],['tm10000',0.3],['tm17000',0.3],['tobu10000',0.3],['tobu50090',0.3],['tobu9000',0.3],['tobu90000',0.3],['tokyu5050',0.3]],FLEET],
       "KS":['asakusa',8,[['keisei3000',1],['keisei3700',1],['keikyu1000',0.3],['keisei3100',0.3],['keisei3200',0.3],['keisei3400',0.3],['keisei3500',0.3],['keisei3600',0.3],['toei5500',0.3]],FLEET],"KSO":['asakusa',8,[['keisei3000',1],['keisei3700',1],['toei5500',1],['hokuso7300',0.3],['hokuso7500',0.3],['hokuso9100',0.3],['keikyu1000',0.3],['keikyu600',0.3],['keisei3100',0.3]],FLEET],"KSK":['asakusa',4,[['keisei3200',1],['keisei3000',0.3],['keisei3500',0.3]],FLEET],"HS":['asakusa',8,[['hokuso7500',1],['keisei3100',1],['hokuso7300',0.3],['hokuso9100',0.3],['keikyu1000',0.3],['keisei3000',0.3],['keisei3700',0.3],['toei5500',0.3]],FLEET],
-      "KK":['asakusa',8,[['keikyu1000',1],['hokuso7300',0.3],['hokuso7500',0.3],['hokuso9100',0.3],['keikyu1500',0.3],['keikyu2100',0.3],['keikyu600',0.3],['keisei3000',0.3],['keisei3100',0.3],['keisei3700',0.3],['toei5500',0.3]],FLEET],"KKA":['asakusa',8,[['keikyu1000',1],['keikyu1500',0.3],['keikyu2100',0.3],['keikyu600',0.3],['keisei3100',0.3],['keisei3700',0.3],['toei5500',0.3]],FLEET],"TX":['std',6,[['tx1000',1],['tx2000',1],['tx3000',1]],FLEET],"R":['std',10,[['twr70000',1],['twr71000',1],['e233',0.3],['sotetsu12000',0.3]],FLEET],
+      "KK":['asakusa',8,[['keikyu1000',1],['hokuso7300',0.3],['hokuso7500',0.3],['hokuso9100',0.3],['keikyu1500',0.3],['keikyu2100',0.3],['keikyu600',0.3],['keisei3000',0.3],['keisei3100',0.3],['keisei3700',0.3],['toei5500',0.3]],FLEET],"KKA":['asakusa',8,[['keikyu1000',1],['keikyu1500',0.3],['keikyu2100',0.3],['keikyu600',0.3],['keisei3100',0.3],['keisei3700',0.3],['toei5500',0.3]],FLEET],"TX":['std',6],"R":['std',10,[['twr70000',1],['twr71000',1],['e233',0.3],['sotetsu12000',0.3]],FLEET],
       "MO":['mo',6,[['mo10000',1],['mo1000',0.3]],FLEET],"TT":['tt',4,'tt1000',FLEET],"U":['agt',6,[['u7300',1],['u7500',1]],FLEET],
     },
     fallback:['std',8],

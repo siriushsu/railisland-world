@@ -4,7 +4,7 @@
 
 東京全部車型（110 款）：
 - `jp.py`：日本通勤電車參數化產生器，開頭有完整欄位說明。
-- `jp_metro.py`（東京地鐵、都營、TX、東葉、埼玉高速、橫濱高速）、`jp_jr.py`（JR 其餘番台、臨海線、相鐵）、`jp_southwest.py`（東急、小田急、京王）、`jp_north.py`（西武、東武）、`jp_east.py`（京成、北總、京急）：每款一份設定，`cars.py` 自動註冊。
+- `jp_metro.py`（東京地鐵、都營、東葉、埼玉高速、橫濱高速；TX 三款已移除）、`jp_jr.py`（JR 其餘番台、臨海線、相鐵）、`jp_southwest.py`（東急、小田急、京王）、`jp_north.py`（西武、東武）、`jp_east.py`（京成、北總、京急）：每款一份設定，`cars.py` 自動註冊。
 - `t_special.py`：都電（兩端駕駛室的單節車）、世田谷線、日暮里・舍人線與百合海鷗號（膠輪）、東京單軌與多摩單軌（跨座式）。
 - `map_tokyo_fleet.py`：依車型目錄產生 `formations.js` 裡東京各線的車型與權重。
 - 每款的尺寸出處與照片（Commons 檔名、作者、授權）寫在設定的 `source`，輸出時寫進 manifest。
