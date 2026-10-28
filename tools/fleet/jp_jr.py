@@ -1,4 +1,4 @@
-"""JR 東日本（E233／E235／E231／209／E531／E131 各番台）、東京臨海高速鐵道（臨海線）、相模鐵道車型設定，給 jp.py 的參數化產生器用。
+"""JR 東日本（E233／E235／E231／209／E531／E131 各番台）、東京臨海高速鐵道（臨海線）車型設定（相鐵已移除），給 jp.py 的參數化產生器用。
 尺寸取自 catalog（日文維基百科各車型條目）；外觀依 Commons 照片估計。所有路線色都用實際顏色（不用換色鍵）。"""
 
 SS = '#c4c8cc'
@@ -21,7 +21,6 @@ YOKOSUKA_BL, YOKOSUKA_CR = '#0b3b7c', '#f2ead5'
 SAGAMI_BL, SAGAMI_DK = '#3d86d6', '#1c5fb0'
 RINKAI_CY, RINKAI_NV = '#00a0e9', '#00418e'
 TWR71_BL = '#1f6fd6'
-SOTETSU_NAVY = '#1a2c5e'
 
 DOORS4 = (-7.2, -2.4, 2.4, 7.2)
 
@@ -270,45 +269,4 @@ CARS = [
     ),
 ]
 
-# ---------------------------------------------------------------- 相鐵（YOKOHAMA NAVYBLUE 全塗裝）
-_SOT_SIDE = dict(body=SOTETSU_NAVY, low='#121f45', roof_col='#3a4256', door_col='#1d3064', win_frame='#10182e',
-                 ac_col='#4a5266', doors=DOORS4)
-
-
-def _sotetsu_front(centre_door):
-    dec = [('rect', 0.0, 2.72, 2.40, 1.36, 0.14, MASK, 0.9)]
-    if centre_door:   # 20000／21000：黑色窗區用端面分色，下緣一道藍光，玻璃三分（中央為貫通門）
-        dec = [('rect', 0.0, 2.03, 2.30, 0.05, 0.0, '#2a52c8', 0.7),
-            ('rect', 0.0, 2.62, 0.70, 1.56, 0.04, '#0e1220', 0.7),
-            ('rect', 0.0, 2.68, 0.56, 1.08, 0.04, 'GLASS'),
-            ('rect', -0.82, 2.70, 0.82, 1.04, 0.04, 'GLASS'), ('rect', 0.82, 2.70, 0.82, 1.04, 0.04, 'GLASS')]
-    else:
-        dec += [('rect', 0.0, 2.70, 2.22, 1.10, 0.10, 'GLASS'), ('rect', 0.0, 3.25, 1.50, 0.18, 0.03, DEST, 0.7)]
-    dec += [('rect', 0.0, 1.62, 1.70, 0.50, 0.06, '#101318', 0.6)]                        # 格柵
-    for z in (1.48, 1.62, 1.76):
-        dec.append(('rect', 0.0, z, 1.62, 0.03, 0.0, '#2c313a', 0.6))
-    for s in (-1, 1):                                                                        # 雙圓頭燈
-        dec += [('rect', s * 0.95, 1.98, 0.56, 0.30, 0.14, '#0c0e12', 0.8),
-                ('circle', s * 0.84, 1.98, 0.10, LAMP, 0.9), ('circle', s * 1.06, 1.98, 0.10, LAMP, 0.9)]
-    return dec
-
-
-CARS += [
-    dict(
-        _SOT_SIDE, id='sotetsu12000', name='相鐵 12000 系',
-        source='ja.wikipedia 相鉄12000系 infobox (20,000 / 2,998 / 4,016.5 mm)；Commons: Sagami-Railway Series12000.jpg（MaedaAkihiko，CC BY-SA 4.0）',
-        pitch=20.0, W=2.98, roof=3.62, shoulder=3.20, ac_top=4.0165, flare=(0.13, 0.62), ac=[(0.0, 3.4)],
-        front=dict(Ln=1.2, tip_w=0.86, tip_drop=0.14, setback=0.30, face=SOTETSU_NAVY,
-                   decals=_sotetsu_front(False), skirt=('#141c36', 0.14, 0.70)),
-    ),
-    dict(
-        _SOT_SIDE, id='sotetsu20000', name='相鐵 20000 系',
-        source='ja.wikipedia 相鉄20000系 infobox (先頭20,470/中間20,000, 2,787, 4,065 mm)；Commons: Sagami-Railway-21000-20103F.jpg（MaedaAkihiko，CC BY-SA 4.0；照片為 20000 系 20103F）',
-        pitch=20.0, W=2.787, roof=3.62, shoulder=3.20, ac_top=4.065, flare=(0.08, 0.6), ac=[(0.0, 3.4)],
-        front=dict(Ln=1.15, tip_w=0.88, tip_drop=0.14, setback=0.26, face=SOTETSU_NAVY,
-                   cap=[(None, 2.00, SOTETSU_NAVY), (2.00, 3.44, MASK), (3.44, None, SOTETSU_NAVY)],
-                   decals=_sotetsu_front(True), skirt=('#141c36', 0.14, 0.70)),
-    ),
-]
-CARS.append(dict(CARS[-1], id='sotetsu21000', name='相鐵 21000 系（東急直通用 8 輛編組）',
-                 source='ja.wikipedia 相鉄20000系 infobox（21000 系共用：先頭20,470/中間20,000, 2,787, 4,065 mm）；Commons: Sagami-Railway-21000-21106F.jpg（MaedaAkihiko，CC BY-SA 4.0）'))
+# 相鐵三款已移除：未取得車輛設計使用許諾前不放當地車型，相鐵車在直通路線的編組比例改由其他車型或通用外觀承擔（2026-10-28）。

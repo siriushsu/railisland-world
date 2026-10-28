@@ -1,12 +1,9 @@
-"""東急・小田急・京王（東京西南方私鐵）車型設定，給 jp.py 的參數化產生器用。
+"""東急・小田急（東京西南方私鐵；京王已移除）車型設定，給 jp.py 的參數化產生器用。
 尺寸取自 docs/rolling-stock/catalog-2026-10.json（ja.wikipedia 各車型 infobox）；外觀依 Commons 照片估計，只做到俯視／斜看認得出的程度。"""
 
 SS = '#c4c8cc'        # 不鏽鋼車身
 SILVER = '#c9cdd1'    # 車頭銀色 FRP／塗裝
 BLACK = '#1c1c1c'
-IVORY = '#f2ede0'     # 京王車頭象牙色
-KEIO_RED = '#dd0077'
-KEIO_BLUE = '#1c2d7c'
 OER_BLUE = '#1b5fb0'  # 小田急皇家藍（舊塗裝帶）
 OER_BLUE2 = '#1b6fc6' # 小田急帝國藍（新塗裝，偏亮）
 
@@ -260,100 +257,6 @@ CARS_ODAKYU = [
     ),
 ]
 
-# ───────────────────────────── 京王 ─────────────────────────────
+# 京王六款已移除：未取得車輛設計使用許諾前不放當地車型，京王各線用通用外觀（2026-10-28）。
 
-CARS_KEIO = [
-    dict(
-        id='keio9000', name='京王 9000 系',
-        source='ja.wikipedia 京王9000系電車 infobox（20,000／2,845／4,017 mm）；Commons: Keio-Series9000-9701.jpg（MaedaAkihiko，CC BY-SA 4.0）',
-        pitch=20.0, W=2.845, roof=3.62, shoulder=3.20, ac_top=4.00,
-        ac=[(-4.6, 2.8), (4.6, 2.8)], win_frame='#5f656b',
-        bands=[(1.70, 1.82, KEIO_RED), (1.58, 1.68, KEIO_BLUE)],
-        front=dict(Ln=0.60, tip_w=0.94, tip_drop=0.06, setback=0.08, face=IVORY,
-                   decals=[('rect', -0.80, 2.66, 0.92, 1.18, 0.10, BLACK, 0.8), ('rect', 0.80, 2.66, 0.92, 1.18, 0.10, BLACK, 0.8),
-                           ('rect', -0.80, 2.66, 0.80, 1.04, 0.06, 'GLASS'), ('rect', 0.80, 2.66, 0.80, 1.04, 0.06, 'GLASS'),
-                           ('rect', 0.0, 2.68, 0.42, 0.78, 0.04, 'GLASS'),
-                           ('rect', 0.0, 3.25, 0.56, 0.16, 0.03, BLACK),
-                           ('band', 1.82, 1.96, KEIO_RED),
-                           ('band', 1.56, 1.79, KEIO_BLUE),
-                           *lamps(0.90, 1.67, w=0.42, h=0.15, frame='#e8e6dc')],
-                   skirt=('#e9e5d8', 0.30, 0.86)),
-    ),
-    dict(
-        id='keio8000', name='京王 8000 系',
-        source='ja.wikipedia 京王8000系電車 infobox（20,000／2,845／4,055 mm）；Commons: Keio-Series8000.jpg（MaedaAkihiko，CC BY-SA 4.0）',
-        pitch=20.0, W=2.845, roof=3.65, shoulder=3.22, ac_top=4.04,
-        ac=[(-4.6, 2.8), (4.6, 2.8)], win_frame='#5f656b',
-        bands=[(2.84, 2.92, KEIO_RED), (1.62, 1.80, KEIO_RED)],
-        front=dict(Ln=0.90, tip_w=0.90, tip_drop=0.10, setback=0.22, face=IVORY,
-                   decals=[('rect', 0.0, 2.85, 2.42, 1.16, 0.10, BLACK, 0.85),
-                           ('rect', -0.80, 2.80, 0.78, 0.96, 0.05, 'GLASS'),
-                           ('rect', 0.02, 2.80, 0.66, 0.96, 0.05, 'GLASS'),
-                           ('rect', 0.82, 2.80, 0.78, 0.96, 0.05, 'GLASS'),
-                           ('band', 2.08, 2.11, KEIO_BLUE),
-                           ('band', 1.62, 1.86, KEIO_RED),
-                           *lamps(0.96, 1.74, w=0.40, h=0.14, frame='#e8e6dc')],
-                   skirt=('#ece8dc', 0.30, 0.86)),
-    ),
-    dict(
-        id='keio7000', name='京王 7000 系',
-        source='ja.wikipedia 京王7000系電車 infobox（20,000／2,800／4,045 mm）；Commons: Keio-Series7000-7805.jpg（MaedaAkihiko，CC BY-SA 4.0）',
-        pitch=20.0, W=2.80, roof=3.62, shoulder=3.20, ac_top=4.02,
-        ac=[(-4.6, 2.8), (4.6, 2.8)], win_frame='#5f656b',
-        bands=[(1.70, 1.82, KEIO_RED), (1.62, 1.68, KEIO_BLUE)],
-        front=dict(Ln=0.40, tip_w=0.96, tip_drop=0.05, setback=0.05, face=IVORY,
-                   decals=[('rect', 0.0, 3.20, 2.44, 0.30, 0.05, BLACK, 0.8),
-                           ('rect', 0.0, 2.52, 2.44, 1.00, 0.06, '#2a2c2e', 0.7),
-                           ('rect', -0.82, 2.52, 0.82, 0.86, 0.05, 'GLASS'), ('rect', 0.0, 2.52, 0.50, 0.86, 0.05, 'GLASS'),
-                           ('rect', 0.82, 2.52, 0.82, 0.86, 0.05, 'GLASS'),
-                           ('band', 1.98, 2.12, KEIO_RED),
-                           ('band', 1.94, 1.98, KEIO_BLUE),
-                           *lamps(0.98, 1.72, w=0.28, h=0.26, frame='#c0c4c8')],
-                   skirt=('#c0c4c8', 0.30, 0.86)),
-    ),
-    dict(
-        id='keio5000', name='京王 5000 系（2 代）',
-        source='ja.wikipedia 京王5000系電車(2代) infobox（20,000／2,826／4,016.5 mm）；Commons: Keio Series5000-5737 Keio-Liner-36.jpg（MaedaAkihiko，CC BY-SA 4.0）',
-        pitch=20.0, W=2.826, roof=3.62, shoulder=3.20, ac_top=4.00, flare=(0.13, 0.62),
-        ac=[(-4.6, 2.8), (4.6, 2.8)], win_frame='#5f656b',
-        bands=[(2.84, 3.06, KEIO_RED), (1.62, 1.78, KEIO_BLUE)],
-        front=dict(Ln=1.20, tip_w=0.86, tip_drop=0.12, setback=0.35, face=SILVER,
-                   wrap=[(1.62, 4.2, '#1c2236')],
-                   decals=[('rect', 0.0, 2.68, 2.18, 2.08, 0.34, '#1c2236', 0.85),
-                           ('rect', -1.16, 2.30, 0.10, 1.20, 0.04, KEIO_RED), ('rect', 1.16, 2.30, 0.10, 1.20, 0.04, KEIO_RED),
-                           ('rect', -0.62, 2.92, 0.66, 1.00, 0.06, 'GLASS'),
-                           ('rect', 0.44, 2.92, 1.24, 1.00, 0.06, 'GLASS'),
-                           ('circle', -0.92, 1.86, 0.06, '#e8f0ff', 0.9), ('circle', 0.92, 1.86, 0.06, '#e8f0ff', 0.9)],
-                   skirt=(KEIO_RED, 0.30, 0.86)),
-    ),
-    dict(
-        id='keio2000', name='京王 2000 系',
-        source='ja.wikipedia 京王2000系電車 infobox（20,000／2,826／4,016.5 mm）；Commons: Keio series2000-2701F.jpg（にいがたん，CC BY-SA 4.0）',
-        pitch=20.0, W=2.826, roof=3.62, shoulder=3.20, ac_top=4.00, flare=(0.13, 0.62),
-        ac=[(-4.6, 2.8), (4.6, 2.8)], win_frame='#5f656b',
-        bands=[(2.86, 2.94, '#c8155e')],
-        front=dict(Ln=1.00, tip_w=0.88, tip_drop=0.12, setback=0.30, face=IVORY,
-                   decals=[('rect', 0.0, 2.56, 2.40, 2.08, 0.55, '#c8155e', 0.6),
-                           ('rect', 0.0, 2.58, 2.26, 1.94, 0.50, BLACK, 0.85),
-                           ('rect', -0.02, 2.82, 2.02, 0.86, 0.10, 'GLASS'),
-                           ('circle', -0.96, 1.62, 0.10, '#f2efe2', 0.9), ('circle', 0.96, 1.62, 0.10, '#f2efe2', 0.9)],
-                   skirt=('#e9e5d8', 0.30, 0.84)),
-    ),
-    dict(
-        id='keio1000', name='京王 1000 系（井之頭線，車頭鮭魚粉色編組）',
-        source='ja.wikipedia 京王1000系電車(2代) infobox（20,000／車體基準寬 2,810／4,045 mm）；Commons: Inokashira line Series1000.jpg（MaedaAkihiko，CC BY-SA 4.0）',
-        pitch=20.0, W=2.81, roof=3.62, shoulder=3.20, ac_top=4.02,
-        ac=[(-4.6, 2.8), (4.6, 2.8)], win_frame='#5f656b',
-        bands=[(2.84, 3.00, '#f2a0a6')],
-        front=dict(Ln=0.50, tip_w=0.95, tip_drop=0.06, setback=0.08, face=SILVER,
-                   wrap=[(2.08, 4.2, '#f2a0a6')], cap=[(None, 2.08, SILVER), (2.08, None, '#f2a0a6')],
-                   decals=[('rect', -0.37, 1.95, 0.70, 2.40, 0.02, '#b9bdc1', 0.5),
-                           *win3((-1.04, 0.40), (-0.37, 0.56), (0.72, 1.12), 2.62, 0.92, frame='#c9cdd1'),
-                           ('rect', -0.37, 3.30, 0.80, 0.24, 0.04, '#2a2c2e'),
-                           ('rect', -1.02, 3.30, 0.14, 0.12, 0.02, '#f08a30'), ('rect', 1.02, 3.30, 0.14, 0.12, 0.02, '#f08a30'),
-                           *lamps(0.98, 1.85, w=0.30, h=0.14, frame='#b0b4b8')],
-                   skirt=('#c8ccd0', 0.30, 0.86)),
-    ),
-]
-
-CARS = CARS_TOKYU + CARS_ODAKYU + CARS_KEIO
+CARS = CARS_TOKYU + CARS_ODAKYU
